@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/ski_bg_eplay_toast_back"
+    android:gravity="center"
+    android:paddingTop="@dimen/ski_dp_14"
+    android:paddingBottom="@dimen/ski_dp_14"
+    android:paddingLeft="@dimen/ski_dp_24"
+    android:paddingRight="@dimen/ski_dp_24">
+
+    <TextView
+        android:id="@+id/textView1"
+        android:textSize="@dimen/ski_dp_15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"/>
+
+
+</FrameLayout>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_record_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/ski_white"
+        android:paddingLeft="@dimen/ski_dp_8"
+        android:paddingTop="@dimen/ski_dp_15"
+        android:paddingRight="@dimen/ski_dp_8"
+        android:paddingBottom="@dimen/ski_dp_5"
+        android:visibility="visible" />
+
+    <View
+        android:id="@+id/record_spacing"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/ski_dp_0"
+        android:layout_weight="1"
+        android:background="@color/ski_transparent_half" />
+</androidx.appcompat.widget.LinearLayoutCompat>

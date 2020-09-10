@@ -1,0 +1,399 @@
+package com.ski.box.bean.lottery;
+
+import android.annotation.SuppressLint;
+import android.text.TextUtils;
+
+import com.ski.box.R;
+import com.ski.box.bean.DataCenter;
+import com.yb.core.utils.AppUtil;
+import com.yb.core.utils.SPUtils;
+import com.yb.core.utils.StringUtils;
+import com.yb.core.utils.TimeUtils;
+
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import static com.ski.box.bean.lottery.LotteryConstant.SER_ID_PK10;
+import static com.ski.box.bean.lottery.LotteryConstant.LOTTERY_ID_11X5_FJ;
+import static com.ski.box.bean.lottery.LotteryConstant.LOTTERY_ID_11X5_GD;
+import static com.ski.box.bean.lottery.LotteryConstant.LOTTERY_ID_11X5_GX;
+import static com.ski.box.bean.lottery.LotteryConstant.LOTTERY_ID_11X5_JS;
+import static com.ski.box.bean.lottery.LotteryConstant.LOTTERY_ID_11X5_JX;
+import static com.ski.box.bean.lottery.LotteryConstant.LOTTERY_ID_11X5_SD;
+import static com.ski.box.bean.lottery.LotteryConstant.LOTTERY_ID_11X5_XY;
+import static com.ski.box.bean.lottery.LotteryConstant.LOTTERY_ID_3D_FC;
+import static com.ski.box.bean.lottery.LotteryConstant.LOTTERY_ID_3D_JS;
+import static com.ski.box.bean.lottery.LotteryConstant.LOTTERY_ID_3D_PL35;
+import static com.ski.box.bean.lottery.LotteryConstant.LOTTERY_ID_3D_XY;
+import static com.ski.box.bean.lottery.LotteryConstant.LOTTERY_ID_K3_AH;
+import static com.ski.box.bean.lottery.LotteryConstant.LOTTERY_ID_K3_FJ;
+import static com.ski.box.bean.lottery.LotteryConstant.LOTTERY_ID_K3_GX;
+import static com.ski.box.bean.lottery.LotteryConstant.LOTTERY_ID_K3_JINAGSU;
+import static com.ski.box.bean.lottery.LotteryConstant.LOTTERY_ID_K3_JISU;
+import static com.ski.box.bean.lottery.LotteryConstant.LOTTERY_ID_K3_JL;
+import static com.ski.box.bean.lottery.LotteryConstant.LOTTERY_ID_K3_XY;
+import static com.ski.box.bean.lottery.LotteryConstant.LOTTERY_ID_KL8_BJ;
+import static com.ski.box.bean.lottery.LotteryConstant.LOTTERY_ID_KL8_JS;
+import static com.ski.box.bean.lottery.LotteryConstant.LOTTERY_ID_LHC_5F;
+import static com.ski.box.bean.lottery.LotteryConstant.LOTTERY_ID_LHC_JS;
+import static com.ski.box.bean.lottery.LotteryConstant.LOTTERY_ID_LHC_XG;
+import static com.ski.box.bean.lottery.LotteryConstant.LOTTERY_ID_LOW_FC3D;
+import static com.ski.box.bean.lottery.LotteryConstant.LOTTERY_ID_LOW_XGLHC;
+import static com.ski.box.bean.lottery.LotteryConstant.LOTTERY_ID_PK10_AZ;
+import static com.ski.box.bean.lottery.LotteryConstant.LOTTERY_ID_PK10_BJ;
+import static com.ski.box.bean.lottery.LotteryConstant.LOTTERY_ID_PK10_HLFT;
+import static com.ski.box.bean.lottery.LotteryConstant.LOTTERY_ID_PK10_JSFT;
+import static com.ski.box.bean.lottery.LotteryConstant.LOTTERY_ID_PK10_JSSC;
+import static com.ski.box.bean.lottery.LotteryConstant.LOTTERY_ID_PK10_METFT;
+import static com.ski.box.bean.lottery.LotteryConstant.LOTTERY_ID_PK10_XYFT;
+import static com.ski.box.bean.lottery.LotteryConstant.LOTTERY_ID_PL35_PL35;
+import static com.ski.box.bean.lottery.LotteryConstant.LOTTERY_ID_SSC_AZXY5;
+import static com.ski.box.bean.lottery.LotteryConstant.LOTTERY_ID_SSC_CQ;
+import static com.ski.box.bean.lottery.LotteryConstant.LOTTERY_ID_SSC_HLJ;
+import static com.ski.box.bean.lottery.LotteryConstant.LOTTERY_ID_SSC_HN5FC;
+import static com.ski.box.bean.lottery.LotteryConstant.LOTTERY_ID_SSC_JS;
+import static com.ski.box.bean.lottery.LotteryConstant.LOTTERY_ID_SSC_TJ;
+import static com.ski.box.bean.lottery.LotteryConstant.LOTTERY_ID_SSC_TX;
+import static com.ski.box.bean.lottery.LotteryConstant.LOTTERY_ID_SSC_XJ;
+import static com.ski.box.bean.lottery.LotteryConstant.LOTTERY_ID_SSC_XY5FC;
+import static com.ski.box.bean.lottery.LotteryConstant.LOTTERY_ID_SSC_XYFFC;
+import static com.ski.box.bean.lottery.LotteryConstant.SER_ID_11X5;
+import static com.ski.box.bean.lottery.LotteryConstant.SER_ID_3D;
+import static com.ski.box.bean.lottery.LotteryConstant.SER_ID_K3;
+import static com.ski.box.bean.lottery.LotteryConstant.SER_ID_KL8;
+import static com.ski.box.bean.lottery.LotteryConstant.SER_ID_LHC;
+import static com.ski.box.bean.lottery.LotteryConstant.SER_ID_LOW;
+import static com.ski.box.bean.lottery.LotteryConstant.SER_ID_PK10;
+import static com.ski.box.bean.lottery.LotteryConstant.SER_ID_PL35;
+import static com.ski.box.bean.lottery.LotteryConstant.SER_ID_SSC;
+import static java.util.regex.Pattern.compile;
+
+public class LotteryUtil {
+    public static final List<String[]> shengXiaos = new ArrayList<>();
+    public static final int nowIndex;
+    public static final String[] shengXiao1 = new String[]{"鸡", "猴", "羊", "马", "蛇", "龙", "兔", "虎", "牛", "鼠", "猪", "狗"};
+    public static final String[] shengXiao2 = new String[]{"狗", "鸡", "猴", "羊", "马", "蛇", "龙", "兔", "虎", "牛", "鼠", "猪"};
+    public static final String[] shengXiao3 = new String[]{"猪", "狗", "鸡", "猴", "羊", "马", "蛇", "龙", "兔", "虎", "牛", "鼠"};
+    public static final String[] shengXiao4 = new String[]{"鼠", "猪", "狗", "鸡", "猴", "羊", "马", "蛇", "龙", "兔", "虎", "牛"};
+    public static final String[] shengXiao5 = new String[]{"牛", "鼠", "猪", "狗", "鸡", "猴", "羊", "马", "蛇", "龙", "兔", "虎"};
+    public static final String[] shengXiao6 = new String[]{"虎", "牛", "鼠", "猪", "狗", "鸡", "猴", "羊", "马", "蛇", "龙", "兔"};
+    public static final String[] shengXiao7 = new String[]{"兔", "虎", "牛", "鼠", "猪", "狗", "鸡", "猴", "羊", "马", "蛇", "龙"};
+    public static final String[] shengXiao8 = new String[]{"龙", "兔", "虎", "牛", "鼠", "猪", "狗", "鸡", "猴", "羊", "马", "蛇"};
+    public static final String[] shengXiao9 = new String[]{"蛇", "龙", "兔", "虎", "牛", "鼠", "猪", "狗", "鸡", "猴", "羊", "马"};
+    public static final String[] shengXiao10 = new String[]{"马", "蛇", "龙", "兔", "虎", "牛", "鼠", "猪", "狗", "鸡", "猴", "羊"};
+    public static final String[] shengXiao11 = new String[]{"羊", "马", "蛇", "龙", "兔", "虎", "牛", "鼠", "猪", "狗", "鸡", "猴"};
+    public static final String[] shengXiao12 = new String[]{"猴", "羊", "马", "蛇", "龙", "兔", "虎", "牛", "鼠", "猪", "狗", "鸡"};
+
+    static {
+        shengXiaos.add(shengXiao1);
+        shengXiaos.add(shengXiao2);
+        shengXiaos.add(shengXiao3);
+        shengXiaos.add(shengXiao4);
+        shengXiaos.add(shengXiao5);
+        shengXiaos.add(shengXiao6);
+        shengXiaos.add(shengXiao7);
+        shengXiaos.add(shengXiao8);
+        shengXiaos.add(shengXiao9);
+        shengXiaos.add(shengXiao10);
+        shengXiaos.add(shengXiao11);
+        shengXiaos.add(shengXiao12);
+        nowIndex = TimeUtils.getNowIndex();
+    }
+
+    public static String getSerNameBySerId(int serId) {
+        String  resName = "";
+        switch (serId) {
+            case SER_ID_PK10:
+                resName = LotteryConstant.SER_NAME_PK10;
+                break;
+            case SER_ID_SSC:
+                resName = LotteryConstant.SER_NAME_SSC;
+                break;
+            case SER_ID_LHC:
+                resName = LotteryConstant.SER_NAME_LHC;
+                break;
+            case SER_ID_11X5:
+                resName = LotteryConstant.SER_NAME_11X5;
+                break;
+            case SER_ID_K3:
+                resName = LotteryConstant.SER_NAME_K3;
+                break;
+            case SER_ID_3D:
+            case SER_ID_PL35:
+                resName = LotteryConstant.SER_NAME_3D;
+                break;
+            case SER_ID_KL8:
+                resName = LotteryConstant.SER_NAME_KL8;
+                break;
+           /* case SER_ID_PL35:
+                resName = LotteryConstant.SER_NAME_PL35;
+                break;*/
+        }
+        return resName;
+    }
+
+
+    public static boolean isLowTicket(int ticketId) {
+        ;
+        switch (ticketId) {
+            case LOTTERY_ID_LOW_XGLHC:
+            case LOTTERY_ID_LOW_FC3D:
+            case LOTTERY_ID_3D_PL35:
+                return true;
+        }
+        return false;
+    }
+
+
+    /**
+     * 获取根据彩种id彩系id
+     *
+     * @param lotteryId
+     * @return
+     */
+    public static int getSerIdByLotteryId(int lotteryId) {
+        int serId = 0;
+        switch (lotteryId) {
+            case LOTTERY_ID_PK10_JSSC:
+            case LOTTERY_ID_PK10_XYFT:
+            case LOTTERY_ID_PK10_BJ:
+            case LOTTERY_ID_PK10_AZ:
+            case LOTTERY_ID_PK10_JSFT:
+            case LOTTERY_ID_PK10_HLFT:
+            case LOTTERY_ID_PK10_METFT:
+                serId = SER_ID_PK10;
+                break;
+            case LOTTERY_ID_SSC_CQ:
+            case LOTTERY_ID_SSC_XJ:
+            case LOTTERY_ID_SSC_TJ:
+            case LOTTERY_ID_SSC_HLJ:
+            case LOTTERY_ID_SSC_AZXY5:
+            case LOTTERY_ID_SSC_JS:
+            case LOTTERY_ID_SSC_XYFFC:
+            case LOTTERY_ID_SSC_XY5FC:
+            case LOTTERY_ID_SSC_HN5FC:
+            case LOTTERY_ID_SSC_TX:
+                serId = SER_ID_SSC;
+                break;
+            case LOTTERY_ID_LHC_XG:
+            case LOTTERY_ID_LHC_JS:
+            case LOTTERY_ID_LHC_5F:
+                serId = SER_ID_LHC;
+                break;
+            case LOTTERY_ID_11X5_GD:
+            case LOTTERY_ID_11X5_SD:
+            case LOTTERY_ID_11X5_JX:
+            case LOTTERY_ID_11X5_FJ:
+            case LOTTERY_ID_11X5_GX:
+            case LOTTERY_ID_11X5_JS:
+            case LOTTERY_ID_11X5_XY:
+                serId = SER_ID_11X5;
+                break;
+            case LOTTERY_ID_K3_JL:
+            case LOTTERY_ID_K3_XY:
+            case LOTTERY_ID_K3_JINAGSU:
+            case LOTTERY_ID_K3_AH:
+            case LOTTERY_ID_K3_GX:
+            case LOTTERY_ID_K3_FJ:
+            case LOTTERY_ID_K3_JISU:
+                serId = SER_ID_K3;
+                break;
+            case LOTTERY_ID_3D_FC:
+            case LOTTERY_ID_3D_XY:
+            case LOTTERY_ID_3D_JS:
+                serId = SER_ID_3D;
+                break;
+            case LOTTERY_ID_PL35_PL35:
+                serId = SER_ID_PL35;
+                break;
+            case LOTTERY_ID_KL8_BJ:
+            case LOTTERY_ID_KL8_JS:
+                serId = SER_ID_KL8;
+                break;
+        }
+
+        return serId;
+    }
+
+    /**
+     * 根据不同的数字计算他的生肖
+     *
+     * @param code
+     * @return
+     */
+    public static String getLHCSX(int code) {
+        if (code >= 12) {
+            code = code % 12;
+        }
+        return shengXiaos.get(nowIndex)[code];
+    }
+
+    public static String getCurrentLHCSX(int code, int year) {
+        if (code >= 12) {
+            code = code % 12;
+        }
+        int currentIndex = getCurrentIndex(year);
+        return shengXiaos.get(currentIndex)[code];
+    }
+
+    public static int getCurrentIndex(int year) {
+        return year % 12;
+    }
+
+
+    /**
+     * 根据传入的年获取生肖
+     *
+     * @param year
+     * @return
+     */
+    public static String getYear_SX(Integer year) {
+        String[] years = new String[]{
+                "鼠", "牛", "虎", "兔",
+                "龙", "蛇", "马", "羊",
+                "猴", "鸡", "狗", "猪"
+        };
+        if (year < 1900) {
+            return "未知";
+        }
+
+        Integer start = 1900;
+        return years[(year - start) % years.length];
+    }
+
+    /*判断字符是否是数字*/
+    public static boolean isNumeric(String str) {
+        // 该正则表达式可以匹配所有的数字 包括负数
+        Pattern pattern = Pattern.compile("-?[0-9]+(\\.[0-9]+)?");
+        String bigStr;
+        try {
+            bigStr = new BigDecimal(str).toPlainString();
+        } catch (Exception e) {
+            return false;
+        }
+
+        Matcher isNum = pattern.matcher(bigStr);
+        return isNum.matches();
+    }
+
+
+    public static final List<Integer> red = new ArrayList<>(Arrays.asList(1, 2, 7, 8, 12, 13, 18, 19, 23, 24, 29, 30, 34, 35, 40, 45, 46));
+    public static final List<Integer> green = new ArrayList<>(Arrays.asList(5, 6, 11, 16, 17, 21, 22, 27, 28, 32, 33, 38, 39, 43, 44, 49));
+    public static final List<Integer> blue = new ArrayList<>(Arrays.asList(3, 4, 9, 10, 14, 15, 20, 25, 26, 31, 36, 37, 41, 42, 47, 48));
+
+    /**
+     * 六合彩双面盘方块背景
+     *
+     * @param code
+     * @return
+     */
+    public static Integer getLHCSquareBackgroudResource(int code) {
+        if (red.contains(code)) {
+            return R.drawable.ski_bg_lhc_num_red_selector;
+        } else if (green.contains(code)) {
+            return R.drawable.ski_bg_lhc_num_blue_selector;
+        } else if (blue.contains(code)) {
+            return R.drawable.ski_bg_lhc_num_green_selector;
+        }
+        return R.drawable.ski_bet_content_btn_item_selector;
+    }
+
+    /**
+     * 六合彩球型未选中的背景
+     *
+     * @param code
+     * @return
+     */
+    public static Integer getLHCBallBackgroundResource(int code) {
+        if (red.contains(code)) {
+            return R.drawable.ski_circle_lhc_num_red_selector;
+        } else if (green.contains(code)) {
+            return R.drawable.ski_circle_lhc_num_green_selector;
+        } else if (blue.contains(code)) {
+            return R.drawable.ski_circle_lhc_num_blue_selector;
+        }
+        return R.drawable.ski_circle_lhc_num_red_selector;
+    }
+
+    private static Map<String, String> doubleSideMutelIteMap = new HashMap<>();
+    public static ArrayList analyzingCode = new ArrayList() {
+    };
+    /**
+     * 双面盘互斥选项映射
+     */
+    public static Map<String, String> getDoubleSideMutelIteMap() {
+        return doubleSideMutelIteMap;
+    }
+
+    /**
+     * 互斥选项映射初始化
+     */
+    static {
+        doubleSideMutelIteMap.put("大", "小");
+        doubleSideMutelIteMap.put("单", "双");
+        doubleSideMutelIteMap.put("质", "合");
+        doubleSideMutelIteMap.put("前多", "后多");
+        doubleSideMutelIteMap.put("合大", "合小");
+        doubleSideMutelIteMap.put("合单", "合双");
+        doubleSideMutelIteMap.put("天肖", "地肖");
+        doubleSideMutelIteMap.put("前肖", "后肖");
+        doubleSideMutelIteMap.put("家肖", "野肖");
+        doubleSideMutelIteMap.put("尾大", "尾小");
+        doubleSideMutelIteMap.put("单多", "双多");
+        doubleSideMutelIteMap.put("龙", "虎");
+        doubleSideMutelIteMap.put("总肖单", "总肖双");
+        /**3D  两面  **/
+        doubleSideMutelIteMap.put("和尾质", "和尾合");
+        doubleSideMutelIteMap.put("和尾小", "和尾大");
+
+        /*投注筛选不符合金额区间的玩法*/
+        analyzingCode.add("大");
+        analyzingCode.add("小");
+        analyzingCode.add("单");
+        analyzingCode.add("双");
+
+        /*龙虎和*/
+        analyzingCode.add("龙");
+        analyzingCode.add("虎");
+        analyzingCode.add("和");
+        /*质合*/
+        analyzingCode.add("质");
+        analyzingCode.add("合");
+
+        /* 11选5特殊部分 尾大 尾小*/
+        analyzingCode.add("尾大");
+        analyzingCode.add("尾小");
+
+        /*快乐彩 特殊部分 前后多 单双多*/
+        analyzingCode.add("前多");
+        analyzingCode.add("后多");
+        analyzingCode.add("单多");
+        analyzingCode.add("双多");
+
+        /*六合彩 特殊部分*/
+        analyzingCode.add("合大");
+        analyzingCode.add("合小");
+        analyzingCode.add("合单");
+        analyzingCode.add("合双");
+        analyzingCode.add("天肖");
+        analyzingCode.add("地肖");
+        analyzingCode.add("前肖");
+        analyzingCode.add("后肖");
+        analyzingCode.add("家野");
+        analyzingCode.add("野肖");
+        analyzingCode.add("红波");
+        analyzingCode.add("蓝波");
+        analyzingCode.add("绿波");
+    }
+
+
+}

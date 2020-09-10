@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:background="@color/ski_white"
+    android:layout_gravity="start"
+    tools:ignore="ResourceName">
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:id="@+id/tv_back_hall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:gravity="center"
+        android:text="返回大厅"
+        android:textSize="14dp" />
+
+    <View
+        android:id="@+id/view_line"
+        android:layout_width="match_parent"
+        android:layout_height="0.3dp"
+        android:layout_below="@+id/tv_back_hall"
+        android:background="#9ca6bd" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rlv_hall_recent_ticket"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/view_line" />
+
+</merge>

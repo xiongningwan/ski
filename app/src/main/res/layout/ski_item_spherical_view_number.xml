@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:layout_marginTop="8dp">
+
+    <TextView
+        android:id="@+id/tv_select_num"
+        android:layout_width="@dimen/ski_dp_40"
+        android:layout_height="@dimen/ski_dp_40"
+        android:gravity="center"
+        android:textColor="@color/ski_555555_white_text_color"
+        android:textSize="@dimen/ski_dp_17"
+        android:textStyle="bold"
+        android:background="@drawable/ski_bet_d_content_btn_item_ball_selector"/>
+
+    <TextView
+        android:id="@+id/tv_cold_hot_missing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_select_num"
+        android:gravity="center"
+        android:visibility="visible"
+        tools:text="2"/>
+</LinearLayout>

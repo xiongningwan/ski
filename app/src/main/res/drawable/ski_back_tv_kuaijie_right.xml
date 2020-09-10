@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <corners android:radius="@dimen/ski_dp_8"/> 
+    <gradient
+        android:angle="270"
+        android:centerColor="#f9fafe"
+        android:endColor="@color/ski_white"
+        android:startColor="@color/ski_white"/>
+    <size
+        android:width="57dp"
+        android:height="@dimen/ski_dp_30"/>
+    <stroke
+        android:width="0.7dp"
+        android:color="#91c9cae4"/>
+</shape>

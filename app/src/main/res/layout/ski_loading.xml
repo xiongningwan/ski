@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@drawable/ski_ic_loading_bg"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/ski_dp_15"
+    android:paddingTop="@dimen/ski_dp_16"
+    android:paddingRight="@dimen/ski_dp_15"
+    android:paddingBottom="@dimen/ski_dp_13">
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ProgressBar
+            android:id="@+id/progress_loading"
+            android:layout_width="@dimen/ski_dp_37"
+            android:layout_height="@dimen/ski_dp_37"
+            android:indeterminateBehavior="repeat"
+            android:indeterminateDrawable="@drawable/ski_progress_drawable_white" />
+
+        <ImageView
+            android:id="@+id/iv_success"
+            android:layout_width="@dimen/ski_dp_37"
+            android:layout_height="@dimen/ski_dp_37"
+            android:src="@mipmap/ski_profress_successful" />
+    </FrameLayout>
+
+
+    <TextView
+        android:id="@+id/id_tv_loadingmsg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|center"
+        android:text="xxxxxx"
+        android:textColor="#fff"
+        android:textSize="15dp" />
+
+</LinearLayout>

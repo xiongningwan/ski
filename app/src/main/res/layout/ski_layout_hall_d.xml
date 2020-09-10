@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginEnd="16dp"
+    tools:ignore="ResourceName">
+
+
+    <TextView
+        android:id="@+id/tv_ssc"
+        android:layout_width="0dp"
+        android:layout_height="34dp"
+        android:background="@mipmap/bg_hall_d_ssc"
+        android:text="时时彩"
+        android:textColor="@color/ski_white"
+        android:gravity="center"
+        android:textSize="14dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tv_pk10"/>
+
+    <TextView
+        android:id="@+id/tv_pk10"
+        android:layout_width="0dp"
+        android:layout_height="34dp"
+        android:background="@mipmap/bg_hall_d_pk10"
+        android:text="PK10"
+        android:textColor="@color/ski_white"
+        android:gravity="center"
+        android:textSize="14dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintTop_toTopOf="@+id/tv_ssc"
+        app:layout_constraintStart_toEndOf="@+id/tv_ssc"
+        app:layout_constraintEnd_toStartOf="@+id/tv_k3"/>
+
+
+    <TextView
+        android:id="@+id/tv_k3"
+        android:layout_width="0dp"
+        android:layout_height="34dp"
+        android:background="@mipmap/bg_hall_d_k3"
+        android:text="快三"
+        android:textColor="@color/ski_white"
+        android:gravity="center"
+        android:textSize="14dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintTop_toTopOf="@+id/tv_ssc"
+        app:layout_constraintStart_toEndOf="@+id/tv_pk10"
+        app:layout_constraintEnd_toStartOf="@+id/tv_11x5"/>
+
+
+
+    <TextView
+        android:id="@+id/tv_11x5"
+        android:layout_width="0dp"
+        android:layout_height="34dp"
+        android:background="@mipmap/bg_hall_d_11x5"
+        android:text="11选5"
+        android:textColor="@color/ski_white"
+        android:gravity="center"
+        android:textSize="14dp"
+        app:layout_constraintTop_toTopOf="@+id/tv_ssc"
+        app:layout_constraintStart_toEndOf="@+id/tv_k3"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+
+    <TextView
+        android:id="@+id/tv_lhc"
+        android:layout_width="0dp"
+        android:layout_height="34dp"
+        android:background="@mipmap/bg_hall_d_lhc"
+        android:text="六合彩"
+        android:textColor="@color/ski_white"
+        android:gravity="center"
+        android:textSize="14dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/tv_kl8"
+        app:layout_constraintTop_toBottomOf="@+id/tv_ssc"
+        app:layout_constraintStart_toStartOf="@+id/tv_ssc"/>
+
+    <TextView
+        android:id="@+id/tv_kl8"
+        android:layout_width="0dp"
+        android:layout_height="34dp"
+        android:background="@mipmap/bg_hall_d_kl8"
+        android:text="快乐彩"
+        android:textColor="@color/ski_white"
+        android:gravity="center"
+        android:textSize="14dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintTop_toTopOf="@+id/tv_lhc"
+        app:layout_constraintStart_toEndOf="@+id/tv_lhc"
+        app:layout_constraintEnd_toStartOf="@+id/tv_3d"/>
+
+
+    <TextView
+        android:id="@+id/tv_3d"
+        android:layout_width="0dp"
+        android:layout_height="34dp"
+        android:background="@mipmap/bg_hall_d_3d"
+        android:text="3D"
+        android:textColor="@color/ski_white"
+        android:gravity="center"
+        android:textSize="14dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintTop_toTopOf="@+id/tv_lhc"
+        app:layout_constraintStart_toEndOf="@+id/tv_kl8"
+        app:layout_constraintEnd_toStartOf="@+id/tv_zj"/>
+
+
+
+    <TextView
+        android:id="@+id/tv_zj"
+        android:layout_width="0dp"
+        android:layout_height="34dp"
+        android:background="@mipmap/bg_hall_d_zj"
+        android:text="最近玩过"
+        android:textColor="@color/ski_white"
+        android:gravity="center"
+        android:textSize="14dp"
+        app:layout_constraintTop_toTopOf="@+id/tv_lhc"
+        app:layout_constraintStart_toEndOf="@+id/tv_3d"
+        app:layout_constraintEnd_toEndOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

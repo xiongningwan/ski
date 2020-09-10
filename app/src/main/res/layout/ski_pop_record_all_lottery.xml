@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/ski_shape_trend_game_expandable">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_all"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/btn_all"
+        android:clipToPadding="false"
+        android:paddingStart="5dp"
+        android:paddingEnd="5dp"
+        android:paddingBottom="@dimen/ski_dp_16"
+        android:scrollbars="vertical" />
+
+    <TextView
+        android:id="@+id/btn_all"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:textSize="@dimen/ski_dp_20"
+        android:background="@mipmap/ski_pub_bg_all_check"
+        android:gravity="center"
+        android:text="全部彩种"
+        android:textColor="@color/ski_white" />
+
+</RelativeLayout>

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ski_center_game_double"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:ignore="ResourceName">
+
+<!--    <Space-->
+<!--        android:id="@+id/view_space"-->
+<!--        android:layout_width="@dimen/ski_dp_86"-->
+<!--        android:layout_height="0dp"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--    <androidx.cardview.widget.CardView-->
+<!--        android:id="@+id/shadow_layout_doubleside"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_marginTop="@dimen/ski_dp_32"-->
+<!--        android:layout_marginEnd="37dp"-->
+<!--        android:layout_marginBottom="@dimen/ski_dp_150"-->
+<!--        app:cardCornerRadius="@dimen/ski_dp_25"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/view_space"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent">-->
+
+        <com.ski.box.view.view.verticaltablyout.VerticalTab2Layout
+            android:id="@+id/left_menu_tablelayout"
+            android:layout_width="90dp"
+            android:layout_height="match_parent"
+            android:visibility="visible"
+            app:ski_indicator_color_vertical="#FFFFFF"
+            app:ski_indicator_corners="0dp"
+            app:ski_indicator_drawable="@drawable/ski_bg_double_indicator_item2"
+            app:ski_indicator_gravity="fill"
+            app:ski_tab_height="@dimen/ski_dp_40"
+            app:ski_tab_mode="scrollable"
+            app:ski_tab_padding_top="@dimen/ski_dp_6"
+            app:ski_tab_trip_scroll="false"
+            android:background="#FAFAFA"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+<!--    </androidx.cardview.widget.CardView>-->
+
+    <View
+        android:id="@+id/view_yinying"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/ski_keyboard_yinying"
+        android:elevation="@dimen/ski_dp_3"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <android.widget.Space
+        android:id="@+id/space"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <android.widget.Space
+        android:id="@+id/space2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/space" />
+
+    <!--    站位-->
+    <com.ski.box.view.view.ShadowLayout
+        android:id="@+id/sl_bottom2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="false"
+        android:elevation="@dimen/ski_dp_4"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/space2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:ski_hl_bottomShow="false"
+        app:ski_hl_cornerRadius="@dimen/ski_dp_20"
+        app:ski_hl_leftShow="false"
+        app:ski_hl_rightShow="false"
+        app:ski_hl_shadowLimit="@dimen/ski_dp_3">
+
+        <com.ski.box.view.view.BetBottomView
+            android:id="@+id/view_bet_bottom2"
+            style="@style/MatchWrap"
+            android:clickable="false" />
+    </com.ski.box.view.view.ShadowLayout>
+    <!--    站位-->
+
+
+    <com.ski.box.view.view.ShadowLayout
+        android:id="@+id/sl_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="@dimen/ski_dp_4"
+        app:layout_constraintBottom_toBottomOf="@+id/space2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:ski_hl_bottomShow="false"
+        app:ski_hl_cornerRadius="@dimen/ski_dp_20"
+        app:ski_hl_leftShow="false"
+        app:ski_hl_rightShow="false"
+        app:ski_hl_shadowLimit="@dimen/ski_dp_3">
+
+        <com.ski.box.view.view.BetBottomView
+            android:id="@+id/view_bet_bottom"
+            style="@style/MatchWrap" />
+    </com.ski.box.view.view.ShadowLayout>
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/betting_area"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:paddingStart="@dimen/ski_dp_13"
+        android:paddingEnd="@dimen/ski_dp_15"
+        android:orientation="vertical"
+        android:overScrollMode="always"
+        android:background="@color/ski_white"
+        app:layout_constraintBottom_toTopOf="@+id/sl_bottom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/left_menu_tablelayout"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <include
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/left_menu_tablelayout"
+        app:layout_constraintTop_toTopOf="parent"
+        layout="@layout/ski_layout_bet_loading_header"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/tv_double_bet_prompt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/sl_bottom"
+        android:background="@drawable/ski_tv_prompt_background"
+        android:gravity="center"
+        android:paddingLeft="@dimen/ski_dp_8"
+        android:paddingRight="@dimen/ski_dp_8"
+        android:textColor="@color/ski_white"
+        android:textSize="@dimen/ski_dp_12"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/sl_bottom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

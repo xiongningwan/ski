@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <solid android:color="@color/ski_white"/>
+
+    <gradient
+        android:angle="0"
+        android:endColor="@color/ski_color_e3e5ec"
+        android:centerColor="@color/ski_white"
+        android:startColor="@color/ski_color_e3e5ec"/>
+</shape>

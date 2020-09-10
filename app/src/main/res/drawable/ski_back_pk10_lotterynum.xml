@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item >
+        <shape android:shape="rectangle">
+            <size
+                android:width="@dimen/ski_dp_23"
+                android:height="@dimen/ski_dp_23" />
+            <solid android:color="@color/ski_pk10_10" />
+            <corners android:radius="@dimen/ski_dp_5" />
+        </shape>
+    </item>
+    <item >
+        <shape android:shape="rectangle">
+            <size
+                android:width="@dimen/ski_dp_23"
+                android:height="@dimen/ski_dp_23" />
+            <solid android:color="@color/ski_white" />
+            <corners android:radius="@dimen/ski_dp_5" />
+        </shape>
+    </item>
+
+</layer-list>

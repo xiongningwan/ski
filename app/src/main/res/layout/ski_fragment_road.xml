@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:ignore="ResourceName">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/shadow_layout_doubleside"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignTop="@+id/rl_right_content"
+        android:layout_marginLeft="-25dp"
+        android:layout_marginTop="@dimen/ski_dp_43"
+        android:layout_marginBottom="@dimen/ski_dp_60"
+        app:cardCornerRadius="@dimen/ski_dp_26">
+
+        <com.ski.box.view.view.verticaltablyout.VerticalTabLayout
+            android:id="@+id/left_menu_tablelayout"
+            android:layout_width="@dimen/ski_dp_96"
+            android:layout_height="match_parent"
+            android:visibility="visible"
+            app:ski_indicator_color_vertical="#FFFFFF"
+            app:ski_indicator_corners="10dp"
+            app:ski_indicator_drawable="@drawable/ski_bg_road_item"
+            app:ski_indicator_gravity="fill"
+            app:ski_tab_height="@dimen/ski_dp_52"
+            app:ski_tab_mode="scrollable"
+            app:ski_tab_padding_left="@dimen/ski_dp_25"
+            app:ski_tab_padding_top="@dimen/ski_dp_6" />
+
+    </androidx.cardview.widget.CardView>
+
+
+    <RelativeLayout
+        android:id="@+id/rl_right_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_toRightOf="@+id/shadow_layout_doubleside"
+        android:orientation="vertical">
+        <com.scwang.smartrefresh.layout.SmartRefreshLayout
+            android:id="@+id/refreshLayout"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            app:srlAccentColor="#00000000"
+            app:srlEnablePreviewInEditMode="true"
+            app:srlPrimaryColor="#00000000">
+            <com.scwang.smartrefresh.layout.header.ClassicsHeader style="@style/MatchWrap" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <com.scwang.smartrefresh.layout.footer.ClassicsFooter style="@style/MatchWrap" />
+        </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+   <!--     <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewpager2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/ski_dp_20"
+            android:overScrollMode="never"
+            android:orientation="vertical"/>-->
+
+        <FrameLayout
+            android:id="@+id/viewpager2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+    </RelativeLayout>
+
+</RelativeLayout>

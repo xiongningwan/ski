@@ -1,0 +1,58 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/ski_dp_40"
+    android:layout_marginBottom="@dimen/ski_dp_9"
+    android:orientation="horizontal"
+    tools:ignore="ResourceName">
+
+    <View
+        android:id="@+id/view_flag"
+        android:layout_width="@dimen/ski_dp_1"
+        android:layout_height="@dimen/ski_dp_0_1" />
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_layout"
+        style="@style/widget_transfer"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/ski_dp_40"
+        android:layout_weight="332"
+        app:tabGravity="center"
+        app:tabIndicatorColor="@color/ski_white"
+        app:tabIndicatorHeight="0dp"
+        app:tabMode="scrollable"
+        app:tabRippleColor="@color/ski_transparent" />
+
+ <!--   <FrameLayout
+        android:id="@+id/tvCheckAll"
+        android:layout_width="@dimen/ski_dp_0"
+        android:layout_height="match_parent"
+        android:layout_weight="0.40"
+        android:background="@drawable/ski_bg_shadow_gameback_0dp_top_botton"
+        android:paddingLeft="@dimen/ski_dp_10">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:background="@drawable/ski_ic_more_dot"
+            android:gravity="center"
+            android:textColor="@color/ski_white" />
+    </FrameLayout>-->
+
+    <FrameLayout
+        android:layout_alignParentRight="true"
+        android:id="@+id/tvCheckAll"
+        android:layout_width="@dimen/ski_dp_0"
+        android:layout_height="match_parent"
+        android:layout_weight="42"
+        android:background="@drawable/ski_bg_shadow_fffff_0dp_top_botton"
+        android:visibility="visible">
+        <ImageView
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_gravity="center"
+            android:src="@mipmap/ski_trend_all_play" />
+    </FrameLayout>
+</LinearLayout>

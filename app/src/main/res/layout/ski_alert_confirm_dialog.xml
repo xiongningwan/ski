@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ll_dialog"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:ignore="ResourceName">
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/ski_dp_20"
+        android:gravity="center"
+        android:paddingLeft="@dimen/ski_dp_10"
+        android:paddingRight="@dimen/ski_dp_10"
+        android:textColor="@color/ski_color_666666"
+        android:textSize="@dimen/ski_dp_18" />
+
+    <RelativeLayout
+       android:paddingLeft="@dimen/ski_dp_5"
+        android:paddingRight="@dimen/ski_dp_5"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/ll_bottom"
+        android:layout_below="@+id/tv_title">
+        <TextView
+            android:gravity="center"
+            android:id="@+id/tv_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="你可你可在页你"
+            android:textColor="@color/ski_color_666666"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/ski_dp_48"
+        android:layout_alignParentBottom="true"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:id="@+id/tv_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/ski_tv_dialog_cancle"
+            android:gravity="center"
+            android:text="取消"
+            android:textColor="#8590AE" />
+
+        <TextView
+            android:id="@+id/tv_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/ski_dp_16"
+            android:background="@mipmap/ski_tv_back_dialog_sure"
+            android:gravity="center"
+            android:text="取消"
+            android:textColor="@color/ski_white" />
+    </LinearLayout>
+</RelativeLayout>

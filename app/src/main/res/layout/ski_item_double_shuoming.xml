@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/ski_dp_15"
+    android:paddingRight="@dimen/ski_dp_15"
+    android:paddingBottom="@dimen/ski_dp_25">
+
+    <TextView
+        android:id="@+id/tv_shuoming_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/ski_color_535d76"
+        android:textSize="15dp" />
+
+    <TextView
+        android:id="@+id/tv_shuoming"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/ski_dp_18"
+        android:textColor="@color/ski_color_999999"
+        android:textSize="12dp" />
+</LinearLayout>

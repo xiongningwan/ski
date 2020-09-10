@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <declare-styleable name="ski_ShadowLayout">
+        <!--阴影的圆角大小-->
+        <attr name="ski_hl_cornerRadius" format="dimension" />
+        <!--阴影的扩散范围(也可以理解为扩散程度)-->
+        <attr name="ski_hl_shadowLimit" format="dimension" />
+        <attr name="ski_hl_shadowColor" format="color" />
+        <attr name="ski_hl_shadowBackColor" format="color" />
+        <!--x轴的偏移量-->
+        <attr name="ski_hl_dx" format="dimension" />
+        <!--y轴的偏移量-->
+        <attr name="ski_hl_dy" format="dimension" />
+        <!--左边是否显示阴影-->
+        <attr name="ski_hl_leftShow" format="boolean" />
+        <!--右边是否显示阴影-->
+        <attr name="ski_hl_rightShow" format="boolean" />
+        <!--上边是否显示阴影-->
+        <attr name="ski_hl_topShow" format="boolean" />
+        <!--下面是否显示阴影-->
+        <attr name="ski_hl_bottomShow" format="boolean" />
+
+        <attr name="ski_hl_shadowArc" format="boolean" />
+        <!--弧度-->
+        <attr name="ski_hl_startAngle" format="dimension" />
+        <attr name="ski_hl_sweepAngle" format="dimension" />
+    </declare-styleable>
+
+
+    <declare-styleable name="ski_VerticalTabLayout">
+        <attr name="ski_indicator_color_vertical" format="color" />
+        <attr name="ski_indicator_width" format="dimension" />
+        <attr name="ski_indicator_corners" format="dimension" />
+        <attr name="ski_indicator_drawable" format="reference" />
+        <attr name="ski_indicator_gravity" format="enum">
+            <enum name="left" value="3" />
+            <enum name="right" value="5" />
+            <enum name="fill" value="119" />
+        </attr>
+        <attr name="ski_tab_margin" format="dimension" />
+        <attr name="ski_tab_padding_left" format="dimension" />
+        <attr name="ski_tab_padding_top" format="dimension" />
+        <attr name="ski_tab_mode" format="enum">
+            <enum name="fixed" value="10" />
+            <enum name="scrollable" value="11" />
+        </attr>
+        <attr name="ski_tab_height" format="dimension" />
+        <attr name="ski_tab_trip_scroll" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="ski_StrokeTextView">
+        <attr name="ski_strokeColor" format="color" />
+        <attr name="ski_strokeWidth" format="dimension" />
+        <attr name="ski_gradientOrientation" format="enum">
+            <enum name="horizontal" value="0" />
+            <enum name="vertical" value="1" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="pickerView" tools:ignore="ResourceName">
+        <attr name="num_width" format="dimension" />
+        <attr name="num_height" format="dimension" />
+        <attr name="num_textSize" format="dimension" />
+        <attr name="num_endText" format="string" />
+        <attr name="num_textColor" format="color" />
+
+    </declare-styleable>
+
+    <declare-styleable name="ski_ExpandableLayout2">
+        <attr name="ski_el_duration" format="integer" />
+        <attr name="ski_el_expanded" format="boolean" />
+        <attr name="ski_el_parallax" format="float" />
+        <attr name="android:orientation" />
+    </declare-styleable>
+</resources>
+
+

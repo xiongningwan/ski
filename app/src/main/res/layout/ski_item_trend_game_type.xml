@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/item_trend_game_type"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/ski_dp_30"
+    android:layout_margin="@dimen/ski_dp_5"
+    android:gravity="center_vertical|left"
+    android:textColor="@color/ski_color_999999"
+    tools:text="@string/ski_abc" />

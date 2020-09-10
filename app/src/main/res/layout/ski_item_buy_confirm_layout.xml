@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rl_item"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/ski_dp_60"
+    tools:ignore="ResourceName">
+    <LinearLayout
+        android:layout_alignParentLeft="true"
+        android:layout_marginRight="@dimen/ski_dp_15"
+        android:layout_toLeftOf="@+id/et_item_amount"
+        android:layout_centerVertical="true"
+        android:orientation="vertical"
+        android:id="@+id/ll_play_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:ellipsize="end"
+            android:lines="1"
+            android:id="@+id/tv_play_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="总和龙虎和"
+            android:textColor="#7c88a8"
+            android:textSize="12sp" />
+
+        <TextView
+            android:ellipsize="end"
+            android:lines="1"
+            android:id="@+id/tv_play_item_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="总和龙虎和总和龙虎和总和龙虎和总和龙虎和"
+            android:textColor="#535d76"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+
+    <EditText
+        android:layout_centerInParent="true"
+        android:id="@+id/et_item_amount"
+        android:layout_width="@dimen/ski_dp_93"
+        android:layout_height="@dimen/ski_dp_28"
+        android:background="@mipmap/ski_et_shurukuang"
+        android:digits="1234567890"
+        android:inputType="phone|number"
+        android:maxLength="7"
+        android:gravity="center"
+        android:paddingLeft="@dimen/ski_dp_10"
+        android:singleLine="true" />
+
+    <TextView
+        android:lines="1"
+        android:layout_marginLeft="@dimen/ski_dp_10"
+        android:layout_centerVertical="true"
+        android:textSize="12sp"
+        android:textColor="#7c88a8"
+        android:id="@+id/item_gain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/et_item_amount"
+        android:layout_toLeftOf="@+id/item_remove"
+        android:text="可赢9.52" />
+
+
+    <ImageView
+        android:padding="@dimen/ski_dp_10"
+        android:layout_centerVertical="true"
+        android:id="@+id/item_remove"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:src="@mipmap/ski_clear_away" />
+
+    <TextView
+        android:visibility="gone"
+        android:letterSpacing="-0.02"
+        android:gravity="center"
+        android:id="@+id/tv_remind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/et_item_amount"
+        android:background="@mipmap/ski_tv_gou_cai_lan_bufuhequjian"
+        android:text="不符合投注区间"
+        android:textColor="@color/ski_white"
+        android:textSize="10dp" />
+
+</RelativeLayout>

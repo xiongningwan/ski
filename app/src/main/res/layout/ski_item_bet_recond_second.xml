@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rl_bet_record"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/ski_dp_120"
+    android:layout_marginTop="@dimen/ski_dp_6"
+    android:background="@color/ski_white"
+    android:paddingTop="@dimen/ski_dp_10">
+
+    <TextView
+        android:id="@+id/tv_bet_day"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:ellipsize="end"
+        android:textColor="@color/ski_color_666666"
+        android:textSize="14dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="2019-10-11" />
+
+    <TextView
+
+        android:id="@+id/tv_betting_issue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:textColor="@color/ski_color_999999"
+        android:textSize="14dp"
+        app:layout_constraintBottom_toBottomOf="@id/tv_bet_day"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_bet_day"
+        tools:text="第000000期" />
+
+    <View
+        android:id="@+id/view_line"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/ski_dp_1"
+        android:layout_marginTop="@dimen/ski_dp_8"
+        android:background="@color/ski_color_e3e5ec"
+        app:layout_constraintTop_toBottomOf="@+id/tv_betting_issue" />
+
+    <TextView
+        android:id="@+id/tv_bet_play_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/ski_dp_5"
+        android:ellipsize="end"
+        android:textColor="@color/ski_color_333333"
+        android:textSize="14dp"
+        app:layout_constraintStart_toStartOf="@+id/tv_bet_day"
+        app:layout_constraintTop_toBottomOf="@+id/view_line"
+        tools:text="xxxx-xxxx-xxxx-xxx" />
+
+    <TextView
+        android:id="@+id/tv_bet_money"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="投注金额10000"
+        android:textColor="@color/ski_color_999999"
+        android:textSize="14dp"
+        android:layout_marginBottom="@dimen/ski_dp_10"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tv_bet_day" />
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="@dimen/ski_dp_7"
+        android:layout_height="@dimen/ski_dp_10"
+        android:layout_marginEnd="16dp"
+        android:src="@mipmap/ski_icon_right"
+        app:layout_constraintTop_toTopOf="@+id/view_line"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+    <TextView
+        app:layout_constraintTop_toTopOf="@+id/tv_bet_play_name"
+        android:id="@+id/tv_bet_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="xxxxxx"
+        android:textColor="@color/ski_color_666666"
+        android:textSize="14dp"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_win_money"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="000000000元"
+        android:textColor="@color/ski_acc_win"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/tv_bet_money"
+        tools:ignore="MissingConstraints" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <padding
+                android:bottom="@dimen/ski_dp_1"
+                android:left="@dimen/ski_dp_1"
+                android:right="@dimen/ski_dp_1"
+                android:top="@dimen/ski_dp_1" />
+            <solid android:color="#DADCF1" />
+            <corners android:radius="@dimen/ski_dp_10" />
+        </shape>
+    </item>
+    <item>
+        <shape>
+            <solid android:color="#FFFFFF" />
+            <corners android:radius="@dimen/ski_dp_10" />
+        </shape>
+    </item>
+</layer-list>

@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/MatchMatch">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_road_big"
+        style="@style/RoadRecyclerView"
+        android:layout_height="@dimen/ski_dp_90"
+        android:layout_marginStart="@dimen/ski_dp_6"
+        android:layout_marginTop="@dimen/ski_dp_8"
+        android:layout_marginEnd="@dimen/ski_dp_6"
+        android:scrollbars="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <!--圆-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_road_big_eye"
+        style="@style/RoadRecyclerView"
+        android:layout_height="@dimen/ski_dp_72"
+        android:layout_marginEnd="@dimen/ski_dp_6"
+        android:scrollbars="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/chk_positive_big_eye"
+        app:layout_constraintStart_toStartOf="@+id/recycler_road_big"
+        app:layout_constraintTop_toBottomOf="@+id/recycler_road_big" />
+
+    <TextView
+        android:id="@+id/chk_positive_big_eye"
+        style="@style/RoadFutureText"
+        android:textColor="@color/ski_road_positive"
+        app:layout_constraintBottom_toTopOf="@+id/chk_negative_big_eye"
+        app:layout_constraintEnd_toEndOf="@+id/recycler_road_big"
+        app:layout_constraintStart_toEndOf="@+id/recycler_road_big_eye"
+        app:layout_constraintTop_toTopOf="@+id/recycler_road_big_eye"
+        app:layout_constraintVertical_chainStyle="spread"
+        tools:text="@string/ski_road_future" />
+
+    <ImageView
+        android:id="@+id/icon_positive_big_eye"
+        style="@style/CommonImage_road"
+        android:src="@mipmap/ski_trend_positive1"
+        app:layout_constraintBottom_toBottomOf="@+id/chk_positive_big_eye"
+        app:layout_constraintEnd_toEndOf="@+id/chk_positive_big_eye"
+        app:layout_constraintTop_toTopOf="@+id/chk_positive_big_eye" />
+
+    <TextView
+        android:id="@+id/chk_negative_big_eye"
+        style="@style/RoadFutureText"
+        android:textColor="@color/ski_road_negative"
+        app:layout_constraintBottom_toBottomOf="@+id/recycler_road_big_eye"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/recycler_road_big_eye"
+        app:layout_constraintTop_toBottomOf="@+id/chk_positive_big_eye"
+        tools:text="@string/ski_road_future" />
+
+    <ImageView
+        android:id="@+id/icon_negative_big_eye"
+        style="@style/CommonImage_road"
+        android:src="@mipmap/ski_trend_negative1"
+        app:layout_constraintBottom_toBottomOf="@+id/chk_negative_big_eye"
+        app:layout_constraintEnd_toEndOf="@+id/chk_negative_big_eye"
+        app:layout_constraintTop_toTopOf="@+id/chk_negative_big_eye" />
+
+    <!--实心圆-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_road_small"
+        style="@style/RoadRecyclerView"
+        android:layout_height="@dimen/ski_dp_72"
+        android:scrollbars="horizontal"
+        app:layout_constraintEnd_toEndOf="@+id/recycler_road_big_eye"
+        app:layout_constraintStart_toStartOf="@+id/recycler_road_big"
+        app:layout_constraintTop_toBottomOf="@+id/recycler_road_big_eye" />
+
+    <TextView
+        android:id="@+id/chk_positive_small"
+        style="@style/RoadFutureText"
+        android:textColor="@color/ski_road_positive"
+        app:layout_constraintBottom_toTopOf="@+id/chk_negative_small"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/recycler_road_small"
+        app:layout_constraintTop_toTopOf="@+id/recycler_road_small"
+        app:layout_constraintVertical_chainStyle="spread"
+        tools:text="@string/ski_road_future" />
+
+    <ImageView
+        android:id="@+id/icon_positive_small"
+        style="@style/CommonImage_road"
+        android:layout_marginLeft="@dimen/ski_dp_4"
+        android:src="@mipmap/ski_trend_positive2"
+        app:layout_constraintBottom_toBottomOf="@+id/chk_positive_small"
+        app:layout_constraintEnd_toEndOf="@+id/chk_positive_small"
+        app:layout_constraintTop_toTopOf="@+id/chk_positive_small" />
+
+    <TextView
+        android:id="@+id/chk_negative_small"
+        style="@style/RoadFutureText"
+        android:textColor="@color/ski_road_negative"
+        app:layout_constraintBottom_toBottomOf="@+id/recycler_road_small"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/recycler_road_big_eye"
+        app:layout_constraintTop_toBottomOf="@+id/chk_positive_small"
+        tools:text="@string/ski_road_future" />
+
+    <ImageView
+        android:id="@+id/icon_negative_small"
+        style="@style/CommonImage_road"
+        android:layout_marginLeft="@dimen/ski_dp_4"
+        android:src="@mipmap/ski_trend_negative2"
+        app:layout_constraintBottom_toBottomOf="@+id/chk_negative_small"
+        app:layout_constraintEnd_toEndOf="@+id/chk_negative_small"
+        app:layout_constraintTop_toTopOf="@+id/chk_negative_small" />
+
+
+    <!--斜线-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_road_bug"
+        style="@style/RoadRecyclerView"
+        android:layout_height="@dimen/ski_dp_72"
+        android:scrollbars="horizontal"
+        app:layout_constraintEnd_toEndOf="@+id/recycler_road_big_eye"
+        app:layout_constraintStart_toStartOf="@+id/recycler_road_big"
+        app:layout_constraintTop_toBottomOf="@+id/recycler_road_small" />
+
+    <TextView
+        android:id="@+id/chk_positive_bug"
+        style="@style/RoadFutureText"
+        android:textColor="@color/ski_road_positive"
+        app:layout_constraintBottom_toTopOf="@+id/chk_negative_bug"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/recycler_road_bug"
+        app:layout_constraintTop_toTopOf="@+id/recycler_road_bug"
+        app:layout_constraintVertical_chainStyle="spread"
+        tools:text="@string/ski_road_future" />
+
+    <ImageView
+        android:id="@+id/icon_positive_bug"
+        style="@style/CommonImage"
+        android:layout_marginLeft="@dimen/ski_dp_4"
+        android:src="@mipmap/ski_trend_positive3"
+        app:layout_constraintBottom_toBottomOf="@+id/chk_positive_bug"
+        app:layout_constraintEnd_toEndOf="@+id/chk_positive_bug"
+        app:layout_constraintTop_toTopOf="@+id/chk_positive_bug" />
+
+    <TextView
+        android:id="@+id/chk_negative_bug"
+        style="@style/RoadFutureText"
+        android:textColor="@color/ski_road_negative"
+        app:layout_constraintBottom_toBottomOf="@+id/recycler_road_bug"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/recycler_road_bug"
+        app:layout_constraintTop_toBottomOf="@+id/chk_positive_bug"
+        tools:text="@string/ski_road_future" />
+
+    <ImageView
+        android:id="@+id/icon_negative_bug"
+        style="@style/CommonImage"
+        android:layout_marginLeft="@dimen/ski_dp_4"
+        android:src="@mipmap/ski_trend_negative3"
+        app:layout_constraintBottom_toBottomOf="@+id/chk_negative_bug"
+        app:layout_constraintEnd_toEndOf="@+id/chk_negative_bug"
+        app:layout_constraintTop_toTopOf="@+id/chk_negative_bug" />
+
+
+    <!--投注区块-->
+    <LinearLayout
+        android:id="@+id/layout_bet"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/ski_dp_38"
+        android:layout_marginTop="@dimen/ski_dp_60"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recycler_road_bug">
+
+        <LinearLayout
+            android:id="@+id/layout_bet1"
+            style="@style/RoadBetLayout">
+
+            <TextView
+                android:id="@+id/txt_bet1"
+                style="@style/RoadBetText"
+                android:textColor="@color/ski_road_positive"
+                tools:text="@string/ski_abc" />
+
+            <TextView
+                android:id="@+id/txt_odd1"
+                style="@style/RoadBetText"
+                android:layout_marginLeft="@dimen/ski_dp_4"
+                android:textColor="@color/ski_trend_game_item_normal"
+                tools:text="@string/ski_abc" />
+
+            <ImageView
+                android:id="@+id/img_positive_big_eye"
+                style="@style/CommonImage"
+                android:layout_marginLeft="@dimen/ski_dp_4"
+                android:src="@mipmap/ski_trend_positive1"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/img_positive_small"
+                style="@style/CommonImage"
+                android:layout_marginLeft="@dimen/ski_dp_4"
+                android:src="@mipmap/ski_trend_positive3"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/img_positive_bug"
+                style="@style/CommonImage"
+                android:layout_marginLeft="@dimen/ski_dp_4"
+                android:src="@mipmap/ski_trend_positive3"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_bet2"
+            style="@style/RoadBetLayout"
+            android:layout_marginLeft="@dimen/ski_dp_8">
+
+            <TextView
+                android:id="@+id/txt_bet2"
+                style="@style/RoadBetText"
+                android:textColor="@color/ski_road_negative"
+                tools:text="@string/ski_abc" />
+
+            <TextView
+                android:id="@+id/txt_odd2"
+                style="@style/RoadBetText"
+                android:layout_marginLeft="@dimen/ski_dp_4"
+                android:textColor="@color/ski_trend_game_item_normal"
+                tools:text="@string/ski_abc" />
+
+            <ImageView
+                android:id="@+id/img_negative_big_eye"
+                style="@style/CommonImage"
+                android:layout_marginLeft="@dimen/ski_dp_4"
+                android:src="@mipmap/ski_trend_negative1"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/img_negative_small"
+                style="@style/CommonImage"
+                android:layout_marginLeft="@dimen/ski_dp_4"
+                android:src="@mipmap/ski_trend_negative2"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/img_negative_bug"
+                style="@style/CommonImage"
+                android:layout_marginLeft="@dimen/ski_dp_4"
+                android:src="@mipmap/ski_trend_negative3"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txt_info"
+        style="@style/WrapWrap"
+        android:layout_marginTop="@dimen/ski_dp_20"
+        android:drawableLeft="@mipmap/ski_road_info"
+        android:drawablePadding="@dimen/ski_dp_8"
+        android:text="@string/ski_road_info"
+        android:textColor="@color/ski_trend_game_item_normal"
+        android:textSize="@dimen/ski_dp_12"
+        app:layout_constraintBottom_toTopOf="@+id/layout_bet"
+        app:layout_constraintEnd_toEndOf="@+id/recycler_road_big"
+        app:layout_constraintTop_toBottomOf="@+id/recycler_road_bug" />
+
+    <TextView
+        android:id="@+id/txt_refresh"
+        style="@style/WrapWrap"
+        android:text="@string/ski_road_refresh"
+        android:textColor="@color/ski_trend_game_item_normal"
+        android:textSize="@dimen/ski_dp_12"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/txt_info"
+        app:layout_constraintStart_toStartOf="@+id/recycler_road_big"
+        app:layout_constraintTop_toBottomOf="@+id/txt_info" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

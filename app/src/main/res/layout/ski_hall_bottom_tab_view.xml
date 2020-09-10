@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:ignore="ResourceName"
+    android:orientation="vertical">
+
+<!--        <View-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="1dp"-->
+<!--            android:background="@color/ski_tab_divider_line" />-->
+
+        <!--底部菜单-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/ski_tab_bar_height"
+            android:layout_marginBottom="0dp"
+            android:background="@mipmap/bottom_tb_bg"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:visibility="visible">
+<!--            android:background="@color/ski_tab_bg"-->
+            <!--首页大厅-->
+            <LinearLayout
+                android:id="@+id/lottery_hall_ll"
+                style="@style/tab_bottom_ll_style">
+
+                <ImageView
+                    android:id="@+id/iv_hall"
+                    style="@style/tab_bottom_icon_style"
+                    android:src="@drawable/ski_tab_hall_icon_selector" />
+
+
+                <TextView
+                    style="@style/tab_bottom_text_style"
+                    android:text="@string/ski_tab_lottery_hall" />
+            </LinearLayout>
+
+            <!--我的报表-->
+            <LinearLayout
+                android:id="@+id/lottery_record_ll"
+                style="@style/tab_bottom_ll_style">
+
+                <ImageView
+                    android:id="@+id/iv_record"
+                    style="@style/tab_bottom_icon_style"
+                    android:src="@drawable/ski_tab_record_icon_selector" />
+
+                <TextView
+                    style="@style/tab_bottom_text_style"
+                    android:text="@string/ski_tab_lottery_record" />
+            </LinearLayout>
+
+            <!--充值中心-->
+            <LinearLayout
+                android:id="@+id/lottery_recharge_ll"
+                style="@style/tab_bottom_ll_style">
+
+                <ImageView
+                    android:id="@+id/iv_recharge"
+                    style="@style/tab_bottom_icon_style"
+                    android:src="@drawable/ski_tab_recharge_icon_selector" />
+
+                <TextView
+                    style="@style/tab_bottom_text_style"
+                    android:text="@string/ski_tab_lottery_recharge" />
+            </LinearLayout>
+
+            <!--个人中心-->
+            <LinearLayout
+                android:id="@+id/lottery_personal_ll"
+                style="@style/tab_bottom_ll_style">
+
+                <ImageView
+                    android:id="@+id/iv_personal"
+                    style="@style/tab_bottom_icon_style"
+                    android:src="@drawable/ski_tab_recharge_icon_selector" />
+
+                <TextView
+                    style="@style/tab_bottom_text_style"
+                    android:text="@string/ski_tab_lottery_personal" />
+            </LinearLayout>
+
+        </LinearLayout>
+</LinearLayout>

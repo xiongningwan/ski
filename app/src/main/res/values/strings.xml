@@ -1,0 +1,31 @@
+<resources>
+    <string name="ski_app_name">SK国际</string>
+    <string name="ski_tab_lottery_hall">首页大厅</string>
+    <string name="ski_tab_lottery_record">我的报表</string>
+    <string name="ski_tab_lottery_recharge">充值中心</string>
+    <string name="ski_tab_lottery_personal">个人中心</string>
+
+
+    <!--路子图-->
+    <string name="ski_road_future">路{key}</string>
+    <string name="ski_road_info">问路说明</string>
+    <string name="ski_road_refresh">刷新</string>
+    <string name="ski_road_info1">用大眼路举例：</string>
+    <string name="ski_road_info2">的含义是：如果下一局</string>
+    <string name="ski_road_info3">开大，那么下一届据此路将会显示</string>
+    <string name="ski_road_info4">其余图标的应对关系逻辑相同</string>
+    <string name="ski_road_info5">大\u2000O</string>
+    <string name="ski_abc">abc...</string>
+
+    <!--长龙-->
+    <string name="ski_tv_long_dragon_remind_current">当前彩种</string>
+    <string name="ski_tv_long_dragon_remind_setting">长龙提醒彩种设置</string>
+    <string name="ski_tv_long_dragon_remind_hint">0个彩种</string>
+    <string name="ski_chaseplan_cancel_num">取消追号（已选择{key}个）</string>
+    <string name="ski_chase_list_dec">已完成{key1}期，共中奖{key2}期</string>
+
+    <string name="ski_miss_remind_hint">提示：提示内容为【%s】,欲出率为【%s%%】</string>
+    <string name="ski_tv_missing_remind_setting">遗漏提醒设置</string>
+    <string name="ski_tv_use_default_setting">使用默认设置</string>
+    <string name="ski_tv_lottery_num">已选择{key}个彩种</string>
+</resources>

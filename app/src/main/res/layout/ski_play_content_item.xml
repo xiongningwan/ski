@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center">
+
+    <ImageView
+        android:id="@+id/tv_tag_arrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ski_double_side_triangles_up"
+        app:layout_constraintBottom_toTopOf="@+id/rv_item"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_marginTop="@dimen/ski_dp_10"
+        android:id="@+id/tv_tag_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawablePadding="@dimen/ski_dp_6"
+        android:gravity="center_vertical"
+        android:text="总和龙虎和"
+        android:textColor="@color/ski_color_666666"
+        android:textSize="@dimen/ski_dp_13"
+        app:layout_constraintBottom_toTopOf="@+id/rv_item"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintTop_toBottomOf="@+id/tv_tag_title"
+        android:splitMotionEvents="false"/>
+
+
+    <View
+        android:id="@+id/view_divider_block"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/ski_dp_120"
+        android:layout_marginTop="@dimen/ski_dp_8"
+        android:layout_marginBottom="@dimen/ski_dp_8"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rv_item" />
+
+
+    <View
+        android:id="@+id/view_divider_line"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="@dimen/ski_dp_8"
+        android:layout_marginBottom="@dimen/ski_dp_8"
+        android:background="#e3e5ec"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rv_item" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

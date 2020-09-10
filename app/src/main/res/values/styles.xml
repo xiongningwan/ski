@@ -1,0 +1,236 @@
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="ResourceName">
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/ski_colorPrimary</item>
+        <item name="colorPrimaryDark">@color/ski_colorPrimaryDark</item>
+        <item name="colorAccent">@color/ski_colorAccent</item>
+    </style>
+
+    <style name="tab_bottom_ll_style">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="tab_bottom_icon_style">
+        <item name="android:layout_width">20dp</item>
+        <item name="android:layout_height">20dp</item>
+        <item name="android:scaleType">fitXY</item>
+    </style>
+
+    <style name="tab_bottom_text_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">6dp</item>
+        <item name="android:textColor">@color/ski_ffe0f8_white_text_color</item>
+        <item name="android:textSize">12dp</item>
+    </style>
+
+
+    <style name="hall_c_text">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">6dp</item>
+        <item name="android:textColor">@color/ski_text_color_gray_to_theme_color_selector</item>
+        <item name="android:textSize">10sp</item>
+    </style>
+
+    <style name="WrapWrap">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="WrapMatch">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="MatchWrap">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="MatchMatch">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="widget_transfer" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:background">#00000000</item>
+    </style>
+
+    <style name="RoadRecyclerView">
+        <item name="android:layout_width">@dimen/ski_dp_0</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/ski_dp_6</item>
+        <item name="android:background">@drawable/ski_shape_road_recycler</item>
+    </style>
+
+    <style name="RoadFutureText" parent="WrapWrap">
+        <item name="android:layout_width">@dimen/ski_dp_64</item>
+        <item name="android:layout_height">@dimen/ski_dp_30</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textSize">@dimen/ski_dp_12</item>
+        <item name="android:padding">@dimen/ski_dp_4</item>
+        <item name="android:background">@drawable/ski_selector_chart_road_future_box</item>
+    </style>
+
+    <style name="RoadBetLayout">
+        <item name="android:layout_width">@dimen/ski_dp_141</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@mipmap/ski_nor_road_item_bg</item>
+        <item name="android:gravity">center</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="CommonImage_road">
+        <item name="android:scaleType">centerCrop</item>
+        <item name="android:layout_marginEnd">@dimen/ski_dp_5</item>
+        <item name="android:layout_width">@dimen/ski_dp_9</item>
+        <item name="android:layout_height">@dimen/ski_dp_9</item>
+    </style>
+    
+    <style name="CommonImage" parent="WrapWrap">
+        <item name="android:scaleType">centerCrop</item>
+        <item name="android:layout_marginEnd">@dimen/ski_dp_5</item>
+    </style>
+
+    <style name="RoadBetText" parent="WrapWrap">
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/ski_dp_12</item>
+    </style>
+
+    <style name="MyTextViewStyleNormal">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/ybcp_color_gray_666666</item>
+        <item name="android:layout_margin">@dimen/ski_dp_5</item>
+    </style>
+
+
+
+    <style name="Top_result_lottery_style_pk10">
+        <item name="android:layout_width">@dimen/ski_dp_24</item>
+        <item name="android:layout_height">@dimen/ski_dp_24</item>
+        <item name="android:textColor">@color/ski_white</item>
+        <item name="ski_strokeColor">@color/ski_color_333333</item>
+        <item name="ski_strokeWidth">@dimen/ski_stroke_w</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">16dp</item>
+    </style>
+
+    <style name="Top_result_lottery_style_ssc">
+        <item name="android:layout_width">@dimen/ski_dp_36</item>
+        <item name="android:layout_height">@dimen/ski_dp_36</item>
+        <item name="android:textColor">@color/ski_white</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/ski_bet_top_result_ssc_bg</item>
+        <item name="android:textSize">16dp</item>
+    </style>
+
+    <style name="Top_result_lottery_style_ssc_h">
+        <item name="android:layout_width">@dimen/ski_dp_36</item>
+        <item name="android:layout_height">@dimen/ski_dp_36</item>
+        <item name="android:textColor">@color/ski_color_4F3B70</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">16dp</item>
+    </style>
+
+    <style name="Top_result_lottery_style_lhc_fl">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/ski_dp_50</item>
+    </style>
+
+    <style name="Top_result_lottery_style_lhc_num">
+        <item name="android:layout_width">@dimen/ski_dp_36</item>
+        <item name="android:layout_height">@dimen/ski_dp_36</item>
+        <item name="android:textColor">@color/ski_white</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">15dp</item>
+        <item name="android:paddingTop">-2dp</item>
+    </style>
+
+    <style name="Top_result_lottery_style_lhc_sx">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/ski_color_333333</item>
+        <item name="android:textSize">14dp</item>
+        <item name="android:layout_gravity">bottom|end</item>
+    </style>
+
+    <style name="Top_result_lottery_style_k3">
+        <item name="android:layout_width">@dimen/ski_dp_36</item>
+        <item name="android:layout_height">@dimen/ski_dp_36</item>
+    </style>
+
+    <style name="Top_result_lottery_style_k3_h">
+        <item name="android:layout_width">@dimen/ski_dp_36</item>
+        <item name="android:layout_height">@dimen/ski_dp_36</item>
+        <item name="android:padding">@dimen/ski_dp_4</item>
+    </style>
+
+    <style name="Top_result_lottery_style_kl8">
+        <item name="android:layout_width">@dimen/ski_dp_26</item>
+        <item name="android:layout_height">@dimen/ski_dp_26</item>
+        <item name="android:textColor">@color/ski_color_333333</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">16dp</item>
+    </style>
+
+    <!--离开弹框背景-->
+      <style name="alert_dialog_back_cor10" parent="Theme.AppCompat.Dialog">
+          <!-- 这里设置背景为透明，为了隐藏边框 -->
+    <item name="android:windowBackground">@drawable/ski_hall_bg_white_10dp_select</item>
+        </style>
+
+    <style name="progress_dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:background">@null</item>
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+
+    <!--底部弹框 样式-->
+    <style name="no_background" parent="@android:style/Theme.Dialog" tools:ignore="ResourceName">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:background">@android:color/transparent</item>
+        <!-- 背景透明 -->
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:windowAnimationStyle">@style/fromBottomToUp</item>
+    </style>
+
+    <style name="fromBottomToUp" mce_bogus="1" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/ski_enter_translate_dialog</item>
+        <item name="android:windowExitAnimation">@anim/ski_exit_translate_dialog</item>
+    </style>
+
+    <style name="double_dividing_style">
+        <item name="android:layout_height">@dimen/ski_dp_1</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:background">@color/ski_shopping_fengexian</item>
+    </style>
+
+    <!-- 自定义时间Dialog弹出样式(底部有动画效果) -->
+    <style name="dialog_with_alpha" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <!-- 边框 -->
+        <item name="android:windowIsFloating">true</item>
+        <!-- 是否浮现在activity之上 -->
+        <item name="android:windowIsTranslucent">false</item>
+        <!-- 半透明 -->
+        <item name="android:windowNoTitle">true</item>
+        <!-- 无标题 -->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!-- 背景透明 -->
+        <!-- <item name="android:backgroundDimEnabled">false</item> -->
+        <item name="android:backgroundDimAmount">0.6</item>
+    </style>
+</resources>

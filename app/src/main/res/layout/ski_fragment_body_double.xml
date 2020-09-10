@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="false"
+    android:orientation="vertical">
+
+
+    <include
+        layout="@layout/ski_item_double_fragment_miss_hot" />
+
+
+        <com.ski.box.view.view.RecyclerViewAtViewPager2
+            android:paddingLeft="@dimen/ski_dp_14"
+            android:paddingRight="@dimen/ski_dp_14"
+            android:id="@+id/allplay_content_xrecycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:orientation="vertical"
+            android:overScrollMode="always" />
+
+</LinearLayout>

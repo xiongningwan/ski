@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape>
+            <solid android:color="@color/ski_play_select_background" />
+        </shape>
+    </item>
+    <item android:width="@dimen/ski_dp_27">
+        <shape>
+            <solid android:color="@color/ski_color_B27496" />
+        </shape>
+    </item>
+
+</layer-list>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraint"
+    android:paddingLeft="@dimen/ski_dp_12"
+    android:paddingRight="@dimen/ski_dp_12"
+    android:layout_height="wrap_content">
+    <View
+        app:layout_constraintTop_toBottomOf="@+id/constraint_content"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@drawable/ski_shape_rec_red"
+        android:id="@+id/v_arrow"
+        android:layout_width="@dimen/ski_dp_10"
+        android:layout_height="@dimen/ski_dp_6" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        app:layout_constraintBottom_toTopOf="@+id/v_arrow"
+        android:paddingLeft="@dimen/ski_dp_11"
+        android:paddingTop="@dimen/ski_dp_6"
+        android:paddingRight="@dimen/ski_dp_11"
+        android:paddingBottom="@dimen/ski_dp_6"
+        android:id="@+id/constraint_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@drawable/ski_shape_rec_607ceb_cor9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title"
+            android:id="@+id/tv_content"
+            android:textSize="@dimen/ski_dp_12"
+            tools:text="蠢蠢蠢蠢蠢蠢蠢蠢蠢蠢蠢蠢蠢蠢蠢蠢蠢蠢蠢蠢蠢蠢蠢蠢蠢蠢蠢蠢蠢蠢"
+            android:textColor="@color/ski_white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

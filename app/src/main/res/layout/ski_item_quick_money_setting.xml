@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+    <EditText
+        android:id="@+id/set_amount"
+        android:layout_width="@dimen/ski_dp_66"
+        android:layout_height="@dimen/ski_dp_42"
+        android:layout_centerInParent="true"
+        android:background="@mipmap/ski_back_kuai_jie_jin_e_edit"
+        android:gravity="center"
+        android:hint="请输入"
+        android:inputType="number"
+        android:maxLength="5"
+        android:text="10"
+        android:textColorHint="#bdc3e5"
+        android:textCursorDrawable="@drawable/ski_edit_text_cursor" />
+
+
+    <ImageView
+        android:id="@+id/clear_amount"
+        android:layout_width="@dimen/ski_dp_20"
+        android:layout_height="@dimen/ski_dp_20"
+        android:layout_above="@+id/set_amount"
+        android:layout_marginLeft="-15dp"
+        android:layout_marginBottom="-15dp"
+        android:layout_toRightOf="@+id/set_amount"
+        android:onClick="onClick"
+        android:src="@mipmap/ski_cicle_delete_black" />
+</RelativeLayout>

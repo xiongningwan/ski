@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:ignore="ResourceName"
+    android:orientation="vertical"
+    android:background="@color/ski_color_FAFAFA">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginTop="@dimen/ski_status_bar_height">
+
+        <ImageView
+            android:id="@+id/iv_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/app_hall_logo"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="16dp"/>
+
+        <ImageView
+            android:id="@+id/iv_service"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toStartOf="@+id/iv_more"
+            android:src="@mipmap/icon_hall_service"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="10dp"/>
+
+        <ImageView
+            android:id="@+id/iv_more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/icon_hall_more"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="16dp"/>
+    </RelativeLayout>
+
+    <com.youth.banner.Banner
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/banner"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:banner_radius="8dp"
+        app:banner_indicator_gravity="right"
+        app:banner_indicator_marginRight="16dp"
+        app:banner_indicator_marginBottom="5dp"
+        app:banner_indicator_normal_color="@color/ski_color_cccccc"
+        app:banner_indicator_selected_color="@color/ski_hall_bg"
+        tools:background="@color/ski_yellow_color"/>
+
+
+    <include layout="@layout/ski_layout_hall_c"/>
+
+    <include layout="@layout/ski_layout_hall_d"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_lottery"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:padding="16dp"
+        android:background="@drawable/ski_bg_hall_content_rv"/>
+
+</LinearLayout>

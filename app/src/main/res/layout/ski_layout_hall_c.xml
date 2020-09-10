@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginEnd="16dp"
+    android:background="@drawable/ski_bg_hall_content_rv"
+    tools:ignore="ResourceName">
+
+
+    <ImageView
+        android:id="@+id/iv_user"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="16dp"
+        android:src="@mipmap/icon_hall_user"
+        app:layout_constraintBottom_toBottomOf="@+id/View_c_mid_line"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ImageView
+        android:id="@+id/iv_record"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:layout_marginEnd="8dp"
+        android:src="@mipmap/icon_hall_c_record"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_record"
+        app:layout_constraintEnd_toStartOf="@+id/tv_record"
+        app:layout_constraintTop_toTopOf="@+id/tv_record" />
+
+    <ImageView
+        android:id="@+id/iv_activity"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:layout_marginEnd="8dp"
+        android:src="@mipmap/icon_hall_c_activity"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_nick_name_label"
+        app:layout_constraintEnd_toStartOf="@+id/tv_activity" />
+
+    <ImageView
+        android:id="@+id/iv_recharge"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:layout_marginEnd="8dp"
+        android:src="@mipmap/icon_hall_c_recharge"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_recharge"
+        app:layout_constraintEnd_toStartOf="@+id/tv_recharge"
+        app:layout_constraintTop_toTopOf="@+id/tv_recharge" />
+
+    <ImageView
+        android:id="@+id/iv_draww"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:layout_marginEnd="8dp"
+        android:src="@mipmap/icon_hall_c_draww"
+        app:layout_constraintEnd_toStartOf="@+id/tv_draww"
+        app:layout_constraintTop_toTopOf="@+id/tv_nick_name_value" />
+
+    <ImageView
+        android:id="@+id/iv_gb"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:layout_marginStart="10dp"
+        android:src="@mipmap/icon_hall_c_gb"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/View_c_mid_line" />
+
+    <TextView
+        android:id="@+id/tv_nick_name_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="昵称:"
+        app:layout_constraintStart_toEndOf="@+id/iv_user"
+        app:layout_constraintTop_toTopOf="@+id/iv_user"
+        android:textColor="@color/ski_color_555555"
+        android:textSize="12dp"/>
+
+    <TextView
+        android:id="@+id/tv_user_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:textColor="@color/ski_color_333333"
+        android:textSize="12dp"
+        app:layout_constraintStart_toEndOf="@+id/tv_nick_name_label"
+        app:layout_constraintTop_toTopOf="@+id/tv_nick_name_label"
+        tools:text="今晚打老虎" />
+
+    <TextView
+        android:id="@+id/tv_nick_name_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="余额:"
+        android:textColor="@color/ski_color_555555"
+        android:textSize="12dp"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_user"
+        app:layout_constraintStart_toStartOf="@+id/tv_nick_name_label" />
+
+    <TextView
+        android:id="@+id/tv_amount_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/ski_color_E4393C"
+        android:textSize="12dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_nick_name_value"
+        app:layout_constraintStart_toStartOf="@+id/tv_user_name"
+        tools:text="￥9999.99" />
+
+    <TextView
+        android:id="@+id/tv_record"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="注单"
+        android:textColor="@color/ski_color_333333"
+        android:textSize="12dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_activity"
+        app:layout_constraintEnd_toStartOf="@+id/iv_activity"
+        app:layout_constraintTop_toTopOf="@+id/tv_activity" />
+
+    <TextView
+        android:id="@+id/tv_recharge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="充值"
+        android:textColor="@color/ski_color_333333"
+        android:textSize="12dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_draww"
+        app:layout_constraintEnd_toStartOf="@+id/iv_draww"
+        app:layout_constraintTop_toTopOf="@+id/tv_draww" />
+
+    <TextView
+        android:id="@+id/tv_activity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:gravity="center"
+        android:text="活动"
+        android:textColor="@color/ski_color_333333"
+        android:textSize="12dp"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_activity"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/iv_activity" />
+
+
+    <TextView
+        android:id="@+id/tv_draww"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:gravity="center"
+        android:text="提现"
+        android:textColor="@color/ski_color_333333"
+        android:textSize="12dp"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_draww"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/iv_draww" />
+
+<!--    <TextView-->
+<!--        android:id="@+id/tv_broadcast"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="30dp"-->
+<!--        android:layout_marginStart="5dp"-->
+<!--        android:gravity="center"-->
+<!--        android:textSize="12dp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/iv_gb"-->
+<!--        tools:text="广播广播广播广播广播广播广播" />-->
+
+    <com.ski.box.view.view.AutoScrollTextView
+        android:id="@+id/marqueeText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:gravity="center"
+        android:layout_marginStart="@dimen/ski_dp_5"
+        android:layout_weight="1"
+        android:maxLines="1"
+        tools:text="暂无公告..."
+        android:textColor="@color/ski_color_333333"
+        android:textSize="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/View_c_mid_line"
+        app:layout_constraintStart_toEndOf="@+id/iv_gb" />
+
+    <View
+        android:id="@+id/View_c_mid_line"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#DBE5EF"
+        app:layout_constraintBottom_toTopOf="@+id/marqueeText"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="5dp"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

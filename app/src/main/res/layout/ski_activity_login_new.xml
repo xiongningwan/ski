@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ski_white">
+
+
+    <ImageView
+        android:id="@+id/iv_login_banner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/img_login_banner"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+
+    <ImageView
+        android:id="@+id/iv_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/app_logo"
+        android:layout_marginTop="42dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_login_banner" />
+
+
+    <TextView
+        android:id="@+id/tv_environment"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="45dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="8dp"
+        android:background="@drawable/ski_bg_iknow_bt3"
+        android:drawableRight="@mipmap/ski_xiala"
+        android:padding="5dp"
+        android:paddingStart="16dp"
+        android:text="选择环境"
+        android:textColor="@color/ski_blue_color"
+        android:textSize="16dp"
+        app:layout_constraintEnd_toStartOf="@+id/tv_merchant"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_logo"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/tv_merchant"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="45dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="8dp"
+        android:background="@drawable/ski_bg_iknow_bt3"
+        android:drawableRight="@mipmap/ski_xiala"
+        android:padding="5dp"
+        android:paddingStart="16dp"
+        android:text="选择商户"
+        android:textColor="@color/ski_blue_color"
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tv_environment"
+        app:layout_constraintTop_toBottomOf="@+id/iv_logo"
+        android:visibility="gone"/>
+
+
+
+
+    <EditText
+        android:id="@+id/et_name"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginRight="32dp"
+        android:textColorHint="@color/ski_color_9EB6CA"
+        android:background="@drawable/ski_bg_iknow_bt3"
+        android:textSize="15dp"
+        android:ems="18"
+        android:hint="请输入账号"
+        android:inputType="textPersonName"
+        android:maxLines="1"
+        android:paddingStart="72dp"
+        android:paddingRight="10dp"
+        android:singleLine="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_environment" />
+
+    <EditText
+        android:id="@+id/et_password"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="26dp"
+        android:layout_marginRight="32dp"
+        android:inputType="textPassword"
+        android:textColorHint="@color/ski_color_9EB6CA"
+        android:background="@drawable/ski_bg_iknow_bt3"
+        android:textSize="15dp"
+        android:ems="18"
+        android:hint="请输入密码"
+        android:maxLines="1"
+        android:paddingStart="72dp"
+        android:paddingEnd="10dp"
+        android:singleLine="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_name" />
+
+    <ImageView
+        android:id="@+id/iv_login_icon_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/icon_login_name"
+        app:layout_constraintStart_toStartOf="@+id/et_name"
+        app:layout_constraintTop_toTopOf="@+id/et_name"
+        app:layout_constraintBottom_toBottomOf="@+id/et_name"
+        android:layout_marginStart="16dp"/>
+
+    <ImageView
+        android:id="@+id/iv_login_icon_pwd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/icon_login_pwd"
+        app:layout_constraintStart_toStartOf="@+id/et_password"
+        app:layout_constraintTop_toTopOf="@+id/et_password"
+        app:layout_constraintBottom_toBottomOf="@+id/et_password"
+        android:layout_marginStart="16dp"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="28dp"
+            android:background="@color/ski_color_B27496"
+            app:layout_constraintStart_toEndOf="@+id/iv_login_icon_name"
+            app:layout_constraintTop_toTopOf="@+id/et_name"
+            app:layout_constraintBottom_toBottomOf="@+id/et_name"
+            android:layout_marginStart="16dp"/>
+
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="28dp"
+        android:background="@color/ski_color_B27496"
+        app:layout_constraintStart_toEndOf="@+id/iv_login_icon_pwd"
+        app:layout_constraintTop_toTopOf="@+id/et_password"
+        app:layout_constraintBottom_toBottomOf="@+id/et_password"
+        android:layout_marginStart="16dp"/>
+
+    <Button
+        android:id="@+id/btn_login_dev"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="42dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/ski_bg_btn_default"
+        android:text="登录"
+        android:textColor="@color/ski_white"
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_password" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

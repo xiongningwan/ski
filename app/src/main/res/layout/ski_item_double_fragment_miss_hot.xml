@@ -1,0 +1,143 @@
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:ignore="ResourceName">
+
+    <View
+        android:id="@+id/view_flag"
+        android:layout_width="@dimen/ski_dp_1"
+        android:layout_height="@dimen/ski_dp_0_1" />
+
+    <LinearLayout
+        android:id="@+id/doubleside_TopLinerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/ski_dp_40"
+        android:layout_marginTop="@dimen/ski_dp_6"
+        android:orientation="horizontal"
+        >
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/all_ticketplay_describ"
+            style="@style/widget_transfer"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/ski_dp_40"
+            android:layout_marginLeft="-11dp"
+            android:layout_weight="4"
+            app:tabGravity="center"
+            app:tabIndicatorColor="@color/ski_white"
+            app:tabIndicatorHeight="0dp"
+            app:tabMode="scrollable"
+            app:tabPaddingStart="@dimen/ski_dp_10"
+            app:tabPaddingEnd="@dimen/ski_dp_10"
+            app:tabRippleColor="@color/ski_transparent" />
+
+        <FrameLayout
+            android:id="@+id/tvCheckAll"
+            android:layout_width="@dimen/ski_dp_0"
+            android:layout_height="match_parent"
+            android:layout_weight="0.40"
+            android:paddingLeft="@dimen/ski_dp_10">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="4dp"
+                android:layout_gravity="center"
+                android:background="@drawable/ski_ic_more_dot"
+                android:gravity="center"
+                android:textColor="@color/ski_white" />
+        </FrameLayout>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/ski_dp_10">
+
+        <TextView
+            android:id="@+id/ski_tv_double_playing_instrution"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/ski_dp_20"
+            android:drawableRight="@mipmap/ski_wenhao"
+            android:drawablePadding="5dp"
+            android:textColor="@color/ski_color_666666"
+            android:text="玩法说明" />
+
+        <LinearLayout
+            android:layout_alignParentRight="true"
+            android:id="@+id/ll_cold_hot_omit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <View
+                android:visibility="gone"
+                android:id="@+id/view_aid"
+                android:layout_width="@dimen/ski_dp_0"
+                android:layout_height="@dimen/ski_dp_6"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/tvAllFreshColdHot"
+                android:textColor="@color/ski_color_666666"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/ski_dp_20"
+                android:layout_centerVertical="true"
+                android:button="@null"
+                android:drawableLeft="@drawable/ski_switch_hotcold_miss_selector"
+                android:gravity="center"
+                android:drawablePadding="5dp"
+                android:text="冷热" />
+
+            <TextView
+                android:id="@+id/tvAllFreshOmission"
+                android:textColor="@color/ski_color_666666"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/ski_dp_20"
+                android:layout_centerVertical="true"
+                android:layout_gravity="right"
+                android:layout_marginLeft="@dimen/ski_dp_8"
+                android:button="@null"
+                android:drawableLeft="@drawable/ski_switch_hotcold_miss_selector"
+                android:gravity="center|right"
+                android:drawablePadding="5dp"
+                android:text="遗漏"
+                android:visibility="visible" />
+
+            <TextView
+                android:id="@+id/tv_odds"
+                android:textColor="@color/ski_color_666666"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ll_cold_hot_omit"
+                android:layout_weight="1"
+                android:layout_marginLeft="@dimen/ski_dp_8"
+                android:gravity="end"
+                android:visibility="gone"
+                tools:text="赔率：836.4496" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_special_odds"
+            android:textColor="@color/ski_color_666666"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ll_cold_hot_omit"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="@dimen/ski_dp_6"
+            android:visibility="gone"
+            tools:text="赔率：中特 1.08   中二 2.26"
+            tools:visibility="visible"/>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/ski_dp_0_5"
+        android:layout_marginTop="@dimen/ski_dp_12"
+        android:background="@color/ski_color_e3e5ec" />
+</merge>

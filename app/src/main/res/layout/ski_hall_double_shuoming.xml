@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="false"
+    android:background="@drawable/ski_shuoming_back"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/ski_dp_13">
+
+        <ImageView
+            android:id="@+id/iv_shuoming_show"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:padding="@dimen/ski_dp_10"
+            android:src="@mipmap/ski_icon_down" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="玩法说明"
+            android:textColor="@color/ski_color_666666"
+            android:textSize="@dimen/ski_dp_18" />
+    </FrameLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/ski_dp_1"
+        android:background="#dfe2f2"
+        />
+
+    <TextView
+        android:id="@+id/tv_series_name_shuoming"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/ski_dp_10"
+        android:layout_marginBottom="@dimen/ski_dp_10"
+        android:drawableRight="@mipmap/ski_ic_down_triangle"
+        android:drawablePadding="@dimen/ski_dp_3"
+        android:textColor="@color/ski_color_535d76"
+        android:textSize="15dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/ski_dp_1"
+        android:background="#f1f3f7" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyc_shouming"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/ski_dp_11"
+        android:paddingBottom="@dimen/ski_dp_20" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyc_series_kind"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/ski_dp_20"
+        android:visibility="gone" />
+
+</LinearLayout>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    tools:ignore="ResourceName"
+    android:background="@drawable/ski_hall_rv_item_selector">
+
+    <TextView
+        android:id="@+id/tv_ly"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        tools:text="最近玩过"
+        android:textColor="@color/ski_333333_white_text_color"
+        android:gravity="center"
+        android:textSize="12dp" />
+
+    <ImageView
+        android:id="@+id/iv_hot"
+        android:layout_width="18dp"
+        android:layout_height="9dp"
+        android:src="@mipmap/icon_hall_d_hot"/>
+</FrameLayout>

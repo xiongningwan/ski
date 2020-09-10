@@ -1,0 +1,2 @@
+rootProject.name='SKI'
+include ':app'

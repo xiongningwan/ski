@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="ski_colorPrimary">#008577</color>
+    <color name="ski_colorPrimaryDark">#00574B</color>
+    <color name="ski_colorAccent">#D81B60</color>
+
+    <!-- 常用配色 -->
+    <color name="ski_transparent">#00000000</color>
+    <color name="ski_transparent_half">#5f000000</color>
+    <color name="ski_white">#FFFFFF</color><!--白色 -->
+    <color name="ski_color_333333">#333333</color>
+    <color name="ski_color_444444">#444444</color>
+    <color name="ski_color_494949">#494949</color>
+    <color name="ski_color_555555">#555555</color>
+    <color name="ski_color_666666">#666666</color>
+    <color name="ski_color_777777">#777777</color>
+    <color name="ski_color_888888">#888888</color>
+    <color name="ski_color_999999">#999999</color>
+    <color name="ski_color_B2B2B2">#B2B2B2</color>
+    <color name="ski_color_cccccc">#cccccc</color>
+    <color name="ski_color_e3e5ec">#e3e5ec</color>
+
+    <color name="ski_color_4b5670">#4b5670</color>
+    <color name="ski_color_555f77">#555f77</color>
+    <color name="ski_color_694E85">#694E85</color>
+    <color name="ski_color_7c88a8">#7c88a8</color>
+    <color name="ski_color_8590ae">#8590ae</color>
+    <color name="ski_color_9EB6CA">#9EB6CA</color>
+    <color name="ski_color_A86A91">#A86A91</color>
+    <color name="ski_color_4F3B70">#4F3B70</color>
+    <color name="ski_color_F6F1F1">#F6F1F1</color>
+    <color name="ski_color_AA8398">#AA8398</color>
+    <color name="ski_color_AFA6BA">#AFA6BA</color>
+    <color name="ski_color_D0BACF">#D0BACF</color>
+    <color name="ski_color_E9F5FF">#E9F5FF</color>
+    <color name="ski_color_B27496">#B27496</color>
+    <color name="ski_color_70759f">#70759f</color>
+    <color name="ski_gray_blue_color">#80627ecd</color>
+    <color name="ski_color_6daced">#6daced</color>
+    <color name="ski_color_037bff_blue">#037BFF</color>
+    <color name="ski_color_E9EEF4">#E9EEF4</color>
+    <color name="ski_color_efefef">#efefef</color>
+    <color name="ski_color_f8f8f8">#f8f8f8</color>
+    <color name="ski_color_FAFAFA">#FAFAFA</color>
+    <color name="ski_color_ffffff">#ffffff</color>
+    <color name="ski_color_ff9307">#ff9307</color>
+    <color name="ski_acc_win">#e45e5e</color>
+    <color name="ski_color_c3c9d2">#c3c9d2</color>
+
+    <color name="ski_gold">#ffd700</color><!--金色 -->
+    <color name="ski_pink">#ffc0cb</color><!--粉红色 -->
+    <color name="ski_red">#ff0000</color><!--红色 -->
+    <color name="ski_color_fd6463">#fd6463</color><!--红色 -->
+    <color name="ski_color_ebecf0">#ebecf0</color><!--红色 -->
+
+    <color name="ski_keyborad_fengexian">#dfe2f2</color><!--红色 -->
+    <color name="ski_shopping_fengexian">#dee2f1</color><!--红色 -->
+    <color name="ski_salmon">#fa8072</color><!--鲜肉色 -->
+    <color name="ski_text_pub_blue">#4685eb</color><!--字体蓝，emptydata -->
+    <color name="ski_violet">#ee82ee</color><!--紫罗兰色 -->
+    <color name="ski_goldenrod">#FFD700</color><!--金麒麟色 -->
+    <color name="ski_wood">#DEB887</color>     <!--木色-->
+    <color name="ski_fire">#E2110C</color>     <!--火色-->
+    <color name="ski_loess">#C76114</color>       <!--黄土色-->
+    <color name="ski_water_blue">#FF8BB0CD</color> <!--水蓝色-->
+
+    <color name="ski_paleturquoise">#afeeee</color><!--苍宝石绿 -->
+    <color name="ski_mediumpurple">#9370db</color><!--中紫色 -->
+    <color name="ski_lawngreen">#7cfc00</color><!--草绿色 -->
+    <color name="ski_cornflowerblue">#6495ed</color><!--菊兰色 -->
+    <color name="ski_cadetblue">#5f9ea0</color><!--军兰色 -->
+    <!--钢兰色 -->
+    <color name="ski_royalblue">#4169e1</color><!--皇家蓝 -->
+    <!--水鸭色 -->
+    <color name="ski_green">#008000</color><!--绿色 -->
+    <!--暗绿色 -->
+    <color name="ski_blue">#0000ff</color><!--蓝色 -->
+    <!--海军色 -->
+    <color name="ski_refresh_status_textview_color">@android:color/black</color>
+    <color name="ski_keyboard_yinying">#80000000</color>
+
+    <color name="ski_color_E4393C">#E4393C</color>
+    <color name="ski_color_1C971B">#1C971B</color>
+    <color name="ski_color_1E85F1">#1E85F1</color>
+
+    <color name="ski_blue_color">#627ecd</color>
+    <color name="ski_yellow_color">#ff9307</color>
+    <color name="ski_tab_divider_line">#202327</color>
+    <color name="ski_tab_bg">#202327</color>
+    <color name="ski_tab_text_unselected">#979899</color>
+    <color name="ski_tab_text_selected">#FE4C4C</color>
+    <color name="ski_hall_bg">#B17496</color>
+    <color name="ski_default_shadow_color">#2a000000</color>
+    <color name="ski_default_shadowback_color">#fff</color>
+    <color name="ski_color_535d76">#535d76</color>
+    <color name="ski_play_select_background">#e0e8f9</color>
+    <color name="ski_play_select_color">#387bea</color>
+    <color name="ski_color_678CF0">#678CF0</color>
+    <color name="ski_color_eaebef">#eaebef</color>
+
+    <color name="ski_road_menu_text_normal">#555f77</color>
+    <color name="ski_road_menu_text_pressed">#3f7ad7</color>
+    <color name="ski_road_menu_divider">#ebebeb</color>
+    <color name="ski_road_positive">#ff2840</color>
+    <color name="ski_road_neutral">#84DF64</color>
+    <color name="ski_road_negative">#367af6</color>
+    <color name="ski_road_bet_center">#f7f9ff</color>
+    <color name="ski_road_bet_border">#eff1fb</color>
+    <color name="ski_road_guideline">#dfe2f2</color>
+    <color name="ski_road_future">#FFE89D</color>
+    <color name="ski_road_future_pressed">#F9E4E6</color>
+    <color name="ski_road_future_border">#dfe2f2</color>
+    <color name="ski_road_state_solid">#FEF9FA</color>
+    <color name="ski_road_state_border">#D7D7D7</color>
+    <color name="ski_text_road_blue">#367af6</color>
+    <color name="ski_text_road_red">#e3253a</color>
+    <color name="ski_trend_game_item_normal">#7c88a8</color>
+    <!--长龙-->
+    <color name="ski_long_dragon_tv2_color">#357af6</color>
+    <color name="ski_long_dragon_tv3_color">#252b3a</color>
+    <color name="ski_long_dragon_3b3b3b_color">#3b3b3b</color>
+    <color name="ski_long_dragon_999999_color">#999999</color>
+
+    <!--pk10开奖号码的颜色-->
+    <color name="ski_pk10_1">#fffe54</color>
+    <color name="ski_pk10_2">#4089f7</color>
+    <color name="ski_pk10_3">#4d4d4d</color>
+    <color name="ski_pk10_4">#eb7b30</color>
+    <color name="ski_pk10_5">#a5fcfe</color>
+    <color name="ski_pk10_6">#4b20f5</color>
+    <color name="ski_pk10_7">#b8b8b8</color>
+    <color name="ski_pk10_8">#e73323</color>
+    <color name="ski_pk10_9">#6a110a</color>
+    <color name="ski_pk10_10">#63be38</color>
+
+</resources>

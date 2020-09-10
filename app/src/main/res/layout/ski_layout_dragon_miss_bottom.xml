@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/ski_dp_93"
+    android:background="@color/ski_white"
+    android:id="@+id/dragon_miss_bottom_view">
+
+    <View
+        android:id="@+id/bottom_line"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/ski_dp_1"
+        android:background="@color/ski_color_e3e5ec"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:textColor="@color/ski_long_dragon_tv__color_select_1"
+        android:id="@+id/tv_lottery_current"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        app:layout_constraintHorizontal_weight="1"
+        android:layout_marginStart="@dimen/ski_dp_10"
+        android:layout_marginTop="@dimen/ski_dp_20"
+        android:layout_marginBottom="@dimen/ski_dp_30"
+        android:layout_marginEnd="@dimen/ski_dp_5"
+        android:background="@drawable/ski_long_dragon_bg_new_current_select"
+        android:gravity="center"
+        android:text="@string/ski_tv_long_dragon_remind_current"
+        android:textSize="@dimen/ski_dp_14"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bottom_line"
+        app:layout_constraintEnd_toStartOf="@+id/tv_lottery_chose"/>
+
+
+    <TextView
+        android:textColor="@color/ski_long_dragon_tv__color_select_1"
+        android:id="@+id/tv_lottery_chose"
+        android:layout_width="@dimen/ski_dp_54"
+        android:layout_height="match_parent"
+        app:layout_constraintHorizontal_weight="0.8"
+        android:layout_marginStart="@dimen/ski_dp_5"
+        android:layout_marginTop="@dimen/ski_dp_20"
+        android:layout_marginBottom="@dimen/ski_dp_30"
+        android:layout_marginEnd="@dimen/ski_dp_5"
+        android:background="@drawable/ski_long_dragon_bg_new_ser_select"
+        android:gravity="center"
+        android:text="时时彩"
+        android:textSize="@dimen/ski_dp_14"
+        app:layout_constraintStart_toEndOf="@+id/tv_lottery_current"
+        app:layout_constraintTop_toTopOf="@+id/tv_lottery_current"
+        app:layout_constraintEnd_toStartOf="@+id/rl_setting_lottery"/>
+
+
+
+    <LinearLayout
+        android:id="@+id/rl_setting_lottery"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        app:layout_constraintHorizontal_weight="1.3"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="@dimen/ski_dp_5"
+        android:layout_marginTop="@dimen/ski_dp_20"
+        android:layout_marginBottom="@dimen/ski_dp_30"
+        android:layout_marginEnd="@dimen/ski_dp_5"
+        android:background="@drawable/ski_long_dragon_bg_new_all_select"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toEndOf="@+id/tv_lottery_chose"
+        app:layout_constraintTop_toTopOf="@+id/tv_lottery_current"
+        app:layout_constraintEnd_toStartOf="@+id/rl_out">
+
+        <TextView
+            android:textColor="@color/ski_long_dragon_tv__color_select_1"
+            android:id="@+id/tv_setting"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="自定义"
+            android:textSize="@dimen/ski_dp_14" />
+
+        <View
+            android:layout_width="@dimen/ski_dp_0_5"
+            android:layout_height="match_parent"
+            android:background="@color/ski_color_e3e5ec" />
+
+        <LinearLayout
+            android:paddingLeft="@dimen/ski_dp_8"
+            android:gravity="center"
+            android:id="@+id/ll_tickets"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="0.6"
+            android:orientation="vertical">
+
+            <TextView
+                android:textColor="@color/ski_long_dragon_tv__color_select_1"
+                android:id="@+id/tv_lotterys"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="彩种"
+                android:textSize="@dimen/ski_dp_12" />
+
+            <TextView
+                android:textColor="@color/ski_long_dragon_tv__color_select_2"
+                android:id="@+id/tv_lotterys_no"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0个"
+                android:textSize="@dimen/ski_dp_12" />
+
+        </LinearLayout>
+        <ImageView
+            android:id="@+id/iv_ticket"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="@dimen/ski_dp_6"
+            android:src="@drawable/ski_dragon_arrow_select" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:gravity="center"
+        android:id="@+id/rl_out"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        app:layout_constraintHorizontal_weight="0.7"
+        app:layout_constraintStart_toEndOf="@+id/rl_setting_lottery"
+        app:layout_constraintTop_toTopOf="@+id/tv_lottery_current"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="@dimen/ski_dp_5"
+        android:layout_marginTop="@dimen/ski_dp_20"
+        android:layout_marginBottom="@dimen/ski_dp_30"
+        android:layout_marginEnd="@dimen/ski_dp_13">
+
+        <TextView
+            android:id="@+id/tv_out_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="连出期数"
+            android:textSize="@dimen/ski_dp_12"
+            android:autoSizeMaxTextSize="12dp"
+            android:autoSizeMinTextSize="10dp"
+            android:layout_toStartOf="@+id/iv_arrow_out"
+            android:layout_marginEnd="5dp"
+            android:gravity="end"/>
+
+        <TextView
+            android:layout_marginTop="@dimen/ski_dp_5"
+            android:paddingLeft="@dimen/ski_dp_8"
+            android:id="@+id/tv_out_value"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_out_label"
+            android:text="0"
+            android:textSize="@dimen/ski_dp_12"
+            android:textColor="@color/ski_long_dragon_tv2_color"
+            android:layout_alignStart="@+id/tv_out_label"
+            android:layout_alignEnd="@+id/tv_out_label"
+            android:layout_centerHorizontal="true"/>
+
+        <ImageView
+            android:id="@+id/iv_arrow_out"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ski_dragon_arrow_select" />
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

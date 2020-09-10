@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root"
+    android:orientation="horizontal"
+    android:layout_width="@dimen/ski_dp_116"
+    android:layout_height="@dimen/ski_dp_26"
+    android:background="@mipmap/pickview_unselect">
+
+    <ImageView
+        android:scaleType="centerInside"
+        android:paddingTop="@dimen/ski_dp_4"
+        android:paddingBottom="@dimen/ski_dp_4"
+        android:paddingLeft="@dimen/ski_dp_4"
+        android:paddingRight="@dimen/ski_dp_2"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/ll_change"
+        android:layout_height="match_parent"
+        android:layout_width="@dimen/ski_dp_0"
+        android:layout_centerVertical="true"
+        android:id="@+id/button_sub"
+        android:src="@mipmap/jianhao" />
+
+    <LinearLayout
+        app:layout_constraintHorizontal_weight="2.6"
+        app:layout_constraintStart_toEndOf="@+id/button_sub"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button_add"
+        android:id="@+id/ll_change"
+        android:gravity="center"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/middle_count"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:cursorVisible="true"
+            android:digits="0123456789"
+            android:inputType="number"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:text="1"
+            android:textColor="#666666"
+            android:textSize="12dp" />
+
+        <TextView
+            android:id="@+id/count_end_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="期"
+            android:gravity="left"
+            android:textColor="#666666"
+            android:textSize="12dp" />
+    </LinearLayout>
+
+    <ImageView
+        android:scaleType="centerInside"
+        android:paddingTop="@dimen/ski_dp_4"
+        android:paddingBottom="@dimen/ski_dp_4"
+        android:paddingRight="@dimen/ski_dp_4"
+        android:paddingLeft="@dimen/ski_dp_2"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@+id/ll_change"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:id="@+id/button_add"
+        android:src="@mipmap/jiahao" />
+</androidx.constraintlayout.widget.ConstraintLayout>

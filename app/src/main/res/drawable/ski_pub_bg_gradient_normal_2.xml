@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <corners android:radius="@dimen/ski_dp_4"/> 
+
+    <gradient
+        android:angle="45"
+        android:endColor="#fbfcfd"
+        android:centerColor="#f1f3fd"
+        android:startColor="#f1f3fd"
+        android:gradientRadius="@dimen/ski_dp_4"
+        android:type="linear"
+        android:useLevel="true"/>
+    <stroke android:width="@dimen/ski_dp_1" android:color="#EBEFFB"/>
+</shape>

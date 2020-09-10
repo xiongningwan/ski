@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <corners android:radius="@dimen/ski_dp_3"/> 
+    <gradient
+        android:startColor="#f8fafc"
+        android:centerColor="#F1F2fc"
+        android:endColor="#F9fcfa" />
+</shape>

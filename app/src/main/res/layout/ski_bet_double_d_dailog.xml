@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/rl_double_danshi"
+    android:layout_height="match_parent"
+    android:background="@drawable/ski_back_bet_confim_fushi"
+    android:orientation="vertical"
+    tools:ignore="ResourceName">
+    <RelativeLayout
+        android:id="@+id/rl_head"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/ski_dp_58"
+        android:paddingRight="@dimen/ski_dp_16">
+        <ImageView
+            android:paddingRight="@dimen/ski_dp_16"
+            android:paddingLeft="@dimen/ski_dp_16"
+            android:src="@mipmap/ski_keyboard_xiala"
+            android:layout_centerVertical="true"
+            android:id="@+id/iv_window_closed"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:textSize="18dp"
+            android:textColor="#666666"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="投注确认" />
+
+        <TextView
+            android:textSize="15dp"
+            android:textColor="#666666"
+            android:id="@+id/tv_window_clear"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:gravity="center_vertical"
+            android:text="清空" />
+    </RelativeLayout>
+
+    <View style="@style/double_dividing_style"
+        android:id="@+id/line_top"
+        android:layout_below="@+id/rl_head"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_above="@+id/num_keyboard"
+        android:id="@+id/rv_comfirm_list"
+        android:layout_below="@+id/line_top"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/ski_white"
+        android:paddingLeft="@dimen/ski_dp_16"
+        android:paddingRight="@dimen/ski_dp_16" />
+
+    <com.ski.box.view.view.keyboard.NumsKeyBoardView
+        android:layout_above="@+id/rl_bottom"
+        android:id="@+id/num_keyboard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <View style="@style/double_dividing_style"
+        android:id="@+id/line_bottom"
+        android:layout_above="@+id/rl_bottom"/>
+
+    <RelativeLayout
+        android:id="@+id/rl_bottom"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/ski_dp_120">
+
+        <TextView
+            android:layout_marginBottom="@dimen/ski_dp_34"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:textColor="@color/ski_white"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:background="@drawable/ski_pub_bg_setting_trend"
+            android:id="@+id/bet_confirm"
+            android:layout_width="match_parent"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_height="@dimen/ski_dp_45"
+            android:text="确认投注" />
+        <CheckBox
+            android:gravity="center"
+            android:layout_height="@dimen/ski_dp_20"
+            android:drawableRight="@drawable/ski_select_double_checkbox"
+            android:textSize="14dp"
+            android:textColor="#7c88a8"
+            android:button="@null"
+            android:drawablePadding="@dimen/ski_dp_5"
+            android:id="@+id/checkbox_danshi_close_kuang"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="@dimen/ski_dp_14"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/ski_dp_16"
+            android:text="以后关闭投注确认弹窗" />
+
+        <TextView
+            android:textSize="14dp"
+            android:gravity="center"
+            android:layout_height="@dimen/ski_dp_20"
+            android:layout_marginTop="@dimen/ski_dp_14"
+            android:id="@+id/betting_info"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="@dimen/ski_dp_16"
+            android:text="xxxxxxxdan" />
+    </RelativeLayout>
+</RelativeLayout>

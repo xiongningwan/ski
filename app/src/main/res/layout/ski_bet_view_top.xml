@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <LinearLayout
+        android:id="@+id/top_tool_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ski_status_bg"
+        android:paddingTop="@dimen/ski_status_bar_height"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp">
+
+            <FrameLayout
+                android:id="@+id/fl_close"
+                android:layout_width="40dp"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/icon_back"
+                    android:layout_gravity="center"/>
+            </FrameLayout>
+
+
+            <LinearLayout
+                android:id="@+id/ll_name"
+                style="@style/WrapMatch"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_name"
+                    style="@style/WrapWrap"
+                    android:gravity="center"
+                    tools:text="@string/ski_abc"
+                    android:textColor="@color/ski_white"
+                    android:layout_marginRight="@dimen/ski_dp_5"
+                    android:textSize="18dp" />
+
+                <ImageView
+                    android:id="@+id/iv_name_arrow"
+                    style="@style/CommonImage"
+                    android:src="@mipmap/icon_bet_arrow_more_lottery" />
+
+            </LinearLayout>
+
+
+            <FrameLayout
+                android:layout_width="40dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/icon_right_more_h"
+                    android:layout_gravity="center"/>
+            </FrameLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
+        <TextView
+            android:id="@+id/tv_plan_period"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="20160304-0946"
+            android:textSize="14dp"
+            android:textColor="@color/ski_color_333333"
+            android:layout_centerVertical="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+            android:id="@+id/tv_time_hour"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:text="00"
+            android:gravity="center"
+            android:textColor="@color/ski_white"
+            android:layout_centerVertical="true"
+            android:background="@drawable/ski_bet_top_time_bg"
+            android:layout_toStartOf="@+id/tv_time_minute"
+            android:textStyle="bold"
+            android:textSize="18dp"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintTop_toTopOf="@+id/tv_time_minute"
+            app:layout_constraintEnd_toStartOf="@+id/tv_time_minute"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/tv_time_minute"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:text="00"
+            android:gravity="center"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/ski_white"
+            android:background="@drawable/ski_bet_top_time_bg"
+            android:layout_centerVertical="true"
+            android:textStyle="bold"
+            android:textSize="18dp"
+            app:layout_constraintStart_toEndOf="@+id/tv_plan_period"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/tv_time_second"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:text="00"
+            android:gravity="center"
+            android:textColor="@color/ski_white"
+            android:layout_centerVertical="true"
+            android:background="@drawable/ski_bet_top_time_bg"
+            android:layout_toEndOf="@+id/tv_time_minute"
+            android:textStyle="bold"
+            android:textSize="18dp"
+            android:layout_marginStart="10dp"
+            app:layout_constraintTop_toTopOf="@+id/tv_time_minute"
+            app:layout_constraintStart_toEndOf="@+id/tv_time_minute"
+            android:visibility="gone"/>
+
+
+        <TextView
+            android:id="@+id/tv_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="投注中"
+            android:textColor="@color/ski_color_A86A91"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/tv_time_second"
+            android:layout_marginStart="20dp"
+            app:layout_constraintStart_toEndOf="@+id/tv_time_second"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_time_second"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/tv_stop_sale"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:text="暂停销售"
+            android:textColor="@color/ski_color_333333"
+            android:textSize="22dp"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/ski_road_menu_divider"
+        android:layout_marginTop="5dp"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
+        <TextView
+            android:id="@+id/tv_current_period"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            tools:text="20160304-0945"
+            android:textSize="14dp"
+            android:textColor="@color/ski_color_333333"
+            android:gravity="start|center_vertical" />
+
+        <com.ski.box.view.view.LotteryResultView
+            android:id="@+id/lottery_result_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toEndOf="@+id/tv_current_period"
+            android:layout_toStartOf="@+id/iv_arrow_down_result"
+            android:layout_marginEnd="5dp"
+            android:layout_marginStart="10dp"/>
+
+        <View
+            android:id="@+id/lottery_result_view_cover"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toEndOf="@+id/tv_current_period"
+            android:layout_toStartOf="@+id/iv_arrow_down_result"
+            android:layout_marginEnd="5dp"
+            android:layout_marginStart="10dp"/>
+
+        <ImageView
+            android:id="@+id/iv_arrow_down_result"
+            android:layout_width="14dp"
+            android:layout_height="14dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:src="@mipmap/icon_bet_arrow_open_result"/>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/ski_road_menu_divider" />
+</LinearLayout>
