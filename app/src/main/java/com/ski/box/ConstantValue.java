@@ -21,6 +21,8 @@ public interface ConstantValue {
     String EVENT_BET_BOTTOM_QUICK_DOUBLE_ET_CHANGE = "event_bet_bottom_quick_double_change";
     String EVENT_OPEN_RESULT_UPDATE = "event_open_result_update"; // 最新开奖结果已经更新
     String EVENT_UPDATE_RECENT_NO = "event_recent_no_update"; // 最近未结注单
+    // 100 期历史结果获取成功
+    String EVENT_RESULT_HISTORY_LIST_UPDATE = "event_result_history_list_update";
     // sp
     String SP_DOUBLE_QUICK_MONEY_DEFAULT_LIST = "double_default_money_list"; // 快捷金额 默认金额列表
     String SP_DOUBLE_QUICK_MONEY_DEFAULT_SELECTED = "double_default_money_selected"; // 快捷金额 默认选中金额

@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.hwangjr.rxbus.RxBus;
 import com.ski.box.bean.lottery.LotteryBean;
 import com.ski.box.bean.lottery.LotteryConstant;
 import com.ski.box.bean.lottery.LotteryPlayStart;
@@ -26,6 +27,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+import static com.ski.box.ConstantValue.EVENT_RESULT_HISTORY_LIST_UPDATE;
 import static com.ski.box.bean.lottery.LotteryConstant.LOTTERY_PLAY_MODE_STANDARD;
 
 public class DataCenter {
@@ -364,6 +366,7 @@ public class DataCenter {
 
     public void setLotteryHistory(Integer lotteryId, List<LotteryNumBean> lotteryNumList) {
         mLotteryHistoryMap.put(lotteryId, lotteryNumList);
+        RxBus.get().post(EVENT_RESULT_HISTORY_LIST_UPDATE, "100 期历史结果获取成功");
     }
 
     public List<LotteryNumBean> getLotteryHistory(Integer lotteryId) {
