@@ -6,7 +6,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
-import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import com.hwangjr.rxbus.RxBus;
@@ -20,9 +19,7 @@ import com.ski.box.bean.lottery.LotteryConstant;
 import com.ski.box.bean.lottery.LotteryUtil;
 import com.ski.box.bean.road.RoadFactory;
 import com.ski.box.bean.road.RoadTitle;
-import com.ski.box.mvp.contract.EmptyContract;
 import com.ski.box.mvp.contract.RoadContract;
-import com.ski.box.mvp.presenter.EmptyPresenter;
 import com.ski.box.mvp.presenter.RoadPresenter;
 import com.ski.box.view.view.verticaltablyout.TabAdapter;
 import com.ski.box.view.view.verticaltablyout.TabView;
@@ -148,16 +145,16 @@ public class RoadFragment extends BaseMVPFragment<RoadContract.Presenter> implem
     public void onRoadLoadSuccess(List<RoadTitle> roadTitles) {
         refreshLayout.finishRefresh();
         isLoadFinished = true;
-//        roadBodyFragment.updateData(roadTitles.get(mLeftPosition));
-//        roadBodyFragment.fragmentSelected();
+        roadBodyFragment.updateData(roadTitles.get(mLeftPosition));
+        roadBodyFragment.fragmentSelected();
     }
 
 
     private void initViewPager(List<RoadTitle> roadTitles) {
         String key = RoadFactory.ROAD_POSITION_PREFIX_TITLE + mLotteryId;
         int position = SPUtils.getInt(AppUtil.getContext(), key, 0);
-     //   roadBodyFragment = RoadBodyFragment.newInstance(mLotteryId, roadTitles.get(position));
-     //   FragmentUtils.add(getChildFragmentManager(), roadBodyFragment, R.id.viewpager2, false);
+        roadBodyFragment = RoadBodyFragment.newInstance(mLotteryId, roadTitles.get(position));
+        FragmentUtils.add(getChildFragmentManager(), roadBodyFragment, R.id.viewpager2, false);
 
     }
 
@@ -200,7 +197,7 @@ public class RoadFragment extends BaseMVPFragment<RoadContract.Presenter> implem
             @Override
             public TabView.TabIcon getIcon(int position) {
                 return new TabView.TabIcon.Builder()
-                        .setIcon(R.color.ybcp_transparent, R.drawable.ski_shape_dotted_line)
+                        .setIcon(R.color.ski_transparent, R.drawable.ski_shape_dotted_line)
                         .setIconGravity(Gravity.BOTTOM)
                         .setIconMargin(0)
                         .setIconSize(ScreenUtils.dp2px(96), ScreenUtils.dp2px(2))
@@ -213,7 +210,7 @@ public class RoadFragment extends BaseMVPFragment<RoadContract.Presenter> implem
                         .setContent(roadTitles.get(position).getTitle())
                         .setTextSize(13)
                         .setTitleTextBold(true)
-//                        .setTextColor(mContext.getResources().getColor(R.color.ybcp_color_678CF0), mContext.getResources().getColor(R.color.ybcp_double_play_side_uncheck))
+//                        .setTextColor(mContext.getResources().getColor(R.color.ski_color_678CF0), mContext.getResources().getColor(R.color.ski_double_play_side_uncheck))
                         .setTextColor(mContext.getResources().getColor(R.color.ski_white), mContext.getResources().getColor(R.color.ski_color_B27496))
                         .build();
             }
@@ -235,4 +232,7 @@ public class RoadFragment extends BaseMVPFragment<RoadContract.Presenter> implem
         String keyTitle = RoadFactory.ROAD_POSITION_PREFIX_TITLE + mLotteryId;
         SPUtils.putInt(AppUtil.getContext(), keyTitle, position);
     }
+
+
+
 }

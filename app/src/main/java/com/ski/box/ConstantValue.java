@@ -23,6 +23,8 @@ public interface ConstantValue {
     String EVENT_UPDATE_RECENT_NO = "event_recent_no_update"; // 最近未结注单
     // 100 期历史结果获取成功
     String EVENT_RESULT_HISTORY_LIST_UPDATE = "event_result_history_list_update";
+    // 路子图左侧菜单点击
+    String EVENT_ROAD_LEFT_BUTTON_CLICK = "event_road_left_button_click";
     // sp
     String SP_DOUBLE_QUICK_MONEY_DEFAULT_LIST = "double_default_money_list"; // 快捷金额 默认金额列表
     String SP_DOUBLE_QUICK_MONEY_DEFAULT_SELECTED = "double_default_money_selected"; // 快捷金额 默认选中金额
