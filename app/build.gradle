@@ -13,18 +13,93 @@ android {
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
+        flavorDimensions("channel")
     }
 
+    signingConfigs {
+        config {
+            //加载资源
+            Properties properties = new Properties()
+            InputStream inputStream = project.rootProject.file('config/key.properties').newDataInputStream()
+            properties.load(inputStream)
+
+            //读取文件
+            def sdkDir = properties.getProperty('keyFile')
+
+            //读取字段
+            def key_keyAlias = properties.getProperty('keyAlias')
+            def key_keyPassword = properties.getProperty('keyPassword')
+            def key_storePassword = properties.getProperty('storePassword')
+
+            storeFile file(sdkDir)
+            storePassword key_storePassword
+            keyAlias key_keyAlias
+            keyPassword key_keyPassword
+        }
+    }
+
+
     buildTypes {
-        release {
+        debug {
+            // 不开启混淆
             minifyEnabled false
+            // 不开启ZipAlign优化
+            zipAlignEnabled false
+            // 不移除无用的resource文件
+            shrinkResources false
+            // 使用config签名
+            signingConfig signingConfigs.config
+            // 混淆文件位置
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        release {
+            // 不开启混淆
+            minifyEnabled false
+            // 开启ZipAlign优化
+            zipAlignEnabled false
+            // 移除无用的resource文件
+            shrinkResources false
+            // 使用config签名
+            signingConfig signingConfigs.config
+
+            // 混淆文件位置
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+            // 批量打包
+            applicationVariants.all { variant ->
+                variant.outputs.all { output ->
+                    //输出apk名称为：渠道名_版本名_时间.apk
+                    outputFileName = "${variant.productFlavors[0].name}_${defaultConfig.versionName}.apk"
+                }
+            }
         }
     }
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    productFlavors {
+        mb_1_sk {
+            applicationId "com.ybdj.ski.1"
+            resValue "string", "ski_app_name", "sk国际"
+            resValue "string", "app_code", "sk"
+            resValue "string", "app_sid", "f0345a9da25c2471243f7675362g5f6c"
+            manifestPlaceholders = [app_icon: "@mipmap/app_icon", app_logo: "@mipmap/app_logo"]
+            versionCode 1
+            versionName '1.0.1'
+        }
+
+        mb_2_tycjt {
+            applicationId "com.ybdj.ski.2"
+            resValue "string", "ski_app_name", "太阳城集团"
+            resValue "string", "app_code", "tycjt"
+            resValue "string", "app_sid", "d0581a9da243476d18f7675362f596b"
+            manifestPlaceholders = [app_icon: "@mipmap/app_icon", app_logo: "@mipmap/app_logo"]
+            versionCode 1
+            versionName '1.0.1'
+        }
     }
 
 }
