@@ -7,6 +7,7 @@ import androidx.multidex.MultiDex;
 
 import com.ski.box.exception.ApiExLister;
 import com.ski.box.view.activity.old.HttpsUtils;
+import com.yb.core.net.RetrofitHelper;
 import com.yb.core.utils.ToastUtil;
 import com.zhy.http.okhttp.OkHttpUtils;
 
@@ -29,7 +30,8 @@ public class SKIApplication extends Application {
                 ToastUtil.showWarning("token已经失效，请重新登录!");
             }
         });
-        initOkhttp();
+      //  initOkhttp();
+
     }
 
 

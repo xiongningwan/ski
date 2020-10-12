@@ -3,15 +3,32 @@ package com.ski.box.mvp.remote.imodel;
 
 import com.ski.box.bean.PersonProfileEntity;
 import com.ski.box.bean.SelfProfileEntity;
-import com.yb.core.base.BaseConsumer;
 
 import java.util.List;
 
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
-import retrofit2.http.Field;
 
 public interface IUserModel {
+    Disposable register(Consumer s,
+                        Consumer e,
+                         String merchant,
+                         String member,
+                         String password,
+                         int tester,
+                        String prizeGroup,
+                         long timestamp,
+                         String sign);
+
+    Disposable register(Consumer s,
+                        Consumer e,
+                         String merchant,
+                         String member,
+                         String password,
+                         int tester,
+                         long timestamp,
+                         String sign);
+
     /**
      * 登录
      */

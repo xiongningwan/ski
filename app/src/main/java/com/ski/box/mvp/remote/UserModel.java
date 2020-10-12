@@ -24,14 +24,31 @@ import okhttp3.RequestBody;
 public class UserModel extends BaseModel implements IUserModel {
 
     @Override
+    public Disposable register(Consumer s, Consumer e, String merchant, String member, String password, int tester, String prizeGroup, long timestamp, String sign) {
+        Single<Object> single = RetrofitHelper
+                .getService(IUserService.class)
+                .register(merchant, member, password, tester, prizeGroup, timestamp, sign)
+                .map(new HttpResultFunc<>());
+        return toSubscribe(single, s, e);
+    }
+
+    @Override
+    public Disposable register(Consumer s, Consumer e, String merchant, String member, String password, int tester,  long timestamp, String sign) {
+        Single<Object> single = RetrofitHelper
+                .getService(IUserService.class)
+                .register(merchant, member, password, tester,  timestamp, sign)
+                .map(new HttpResultFunc<>());
+        return toSubscribe(single, s, e);
+    }
+
+    @Override
     public Disposable login(Consumer s, String environment, String merchantId, String account, String password, int loginType, String timestamp) {
         Single<Object> single = RetrofitHelper
                 .getService(IUserService.class)
-                .login(environment,merchantId, account, password, loginType, timestamp)
+                .login(environment, merchantId, account, password, loginType, timestamp)
                 .map(new HttpResultFunc<>());
         return toSubscribe(single, s);
     }
-
 
 
     @Override
@@ -63,10 +80,10 @@ public class UserModel extends BaseModel implements IUserModel {
     }
 
     @Override
-    public Disposable saveLongDragonLimit(Consumer s,Consumer e, String longDragonLimit, String longDragonLimitMax) {
+    public Disposable saveLongDragonLimit(Consumer s, Consumer e, String longDragonLimit, String longDragonLimitMax) {
         Single<Object> single = RetrofitHelper
                 .getService(IUserService.class)
-                .saveLongDragonLimit(longDragonLimit,longDragonLimitMax)
+                .saveLongDragonLimit(longDragonLimit, longDragonLimitMax)
                 .map(new HttpResultFunc<>());
         return toSubscribe(single, s, e);
     }
@@ -112,6 +129,7 @@ public class UserModel extends BaseModel implements IUserModel {
 
     /**
      * 首页公告
+     *
      * @param s
      * @param pageSize
      * @param pageNum

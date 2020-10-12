@@ -27,48 +27,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/iv_login_banner" />
 
-
-    <TextView
-        android:id="@+id/tv_environment"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="45dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginRight="8dp"
-        android:background="@drawable/ski_bg_iknow_bt3"
-        android:drawableRight="@mipmap/ski_xiala"
-        android:padding="5dp"
-        android:paddingStart="16dp"
-        android:text="选择环境"
-        android:textColor="@color/ski_blue_color"
-        android:textSize="16dp"
-        app:layout_constraintEnd_toStartOf="@+id/tv_merchant"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_logo"
-        android:visibility="gone"/>
-
-    <TextView
-        android:id="@+id/tv_merchant"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="45dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginRight="8dp"
-        android:background="@drawable/ski_bg_iknow_bt3"
-        android:drawableRight="@mipmap/ski_xiala"
-        android:padding="5dp"
-        android:paddingStart="16dp"
-        android:text="选择商户"
-        android:textColor="@color/ski_blue_color"
-        android:textSize="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/tv_environment"
-        app:layout_constraintTop_toBottomOf="@+id/iv_logo"
-        android:visibility="gone"/>
-
-
-
-
     <EditText
         android:id="@+id/et_name"
         android:layout_width="match_parent"
@@ -88,7 +46,7 @@
         android:singleLine="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_environment" />
+        app:layout_constraintTop_toBottomOf="@+id/iv_logo" />
 
     <EditText
         android:id="@+id/et_password"
@@ -151,7 +109,7 @@
         android:layout_marginStart="16dp"/>
 
     <Button
-        android:id="@+id/btn_login_dev"
+        android:id="@+id/btn_register"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginStart="32dp"
@@ -167,12 +125,12 @@
 
 
     <TextView
-        android:id="@+id/tv_line"
+        android:id="@+id/tv_line2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="我已有帐号？"
-        app:layout_constraintTop_toBottomOf="@+id/btn_login_dev"
-        app:layout_constraintStart_toStartOf="@+id/btn_login_dev"
+        app:layout_constraintTop_toBottomOf="@+id/btn_register"
+        app:layout_constraintStart_toStartOf="@+id/btn_register"
         android:layout_marginTop="26dp"/>
 
     <TextView
@@ -180,8 +138,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="返回登录"
-        app:layout_constraintTop_toTopOf="@+id/tv_line"
-        app:layout_constraintStart_toEndOf="@+id/tv_line"
+        app:layout_constraintTop_toTopOf="@+id/tv_line2"
+        app:layout_constraintStart_toEndOf="@+id/tv_line2"
         android:textColor="@color/ski_color_678CF0"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

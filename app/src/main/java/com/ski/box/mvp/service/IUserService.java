@@ -23,6 +23,31 @@ import static com.yb.core.ConstantValue.CONTENT_TYPE_JSON;
  * 用户接口
  */
 public interface IUserService {
+    /**
+     * 注册
+     */
+    @POST(UrlConfig.URL_REGISTER)
+    @Headers(CONTENT_TYPE_JSON)
+    @FormUrlEncoded
+    Single<HttpResult<Object>> register(
+            @Field("merchant") String merchant,
+            @Field("member") String member,
+            @Field("password") String password,
+            @Field("tester") int tester,
+            @Field("prizeGroup") String prizeGroup,
+            @Field("timestamp") long timestamp,
+            @Field("sign") String sign);
+
+    @POST(UrlConfig.URL_REGISTER)
+    @Headers(CONTENT_TYPE_JSON)
+    @FormUrlEncoded
+    Single<HttpResult<Object>> register(
+            @Field("merchant") String merchant,
+            @Field("member") String member,
+            @Field("password") String password,
+            @Field("tester") int tester,
+            @Field("timestamp") long timestamp,
+            @Field("sign") String sign);
 
     /**
      * 登录
