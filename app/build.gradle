@@ -6,7 +6,7 @@ android {
     resourcePrefix "ski_"
 
     defaultConfig {
-        applicationId "com.ybdj.ski"
+        applicationId "com.ski.box"
         minSdkVersion 17
         targetSdkVersion 29
         versionCode 1
@@ -81,24 +81,20 @@ android {
     }
 
     productFlavors {
-        mb_1_sk {
-            applicationId "com.ybdj.ski.1"
+        mb_1_skgj {
+            applicationId "com.ski.box.app1"
             resValue "string", "ski_app_name", "sk国际"
-            resValue "string", "app_code", "sk"
+            resValue "string", "app_code", "skgj"
             resValue "string", "app_sid", "f0345a9da25c2471243f7675362g5f6c"
             manifestPlaceholders = [app_icon: "@mipmap/app_icon", app_logo: "@mipmap/app_logo"]
-            versionCode 1
-            versionName '1.0.1'
         }
 
         mb_2_tycjt {
-            applicationId "com.ybdj.ski.2"
+            applicationId "com.ski.box.app2"
             resValue "string", "ski_app_name", "太阳城集团"
             resValue "string", "app_code", "tycjt"
             resValue "string", "app_sid", "d0581a9da243476d18f7675362f596b"
             manifestPlaceholders = [app_icon: "@mipmap/app_icon", app_logo: "@mipmap/app_logo"]
-            versionCode 1
-            versionName '1.0.1'
         }
     }
 

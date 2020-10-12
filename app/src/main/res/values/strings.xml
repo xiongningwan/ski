@@ -1,5 +1,4 @@
 <resources>
-    <string name="ski_app_name">SK国际</string>
     <string name="ski_tab_lottery_hall">首页大厅</string>
     <string name="ski_tab_lottery_record">我的报表</string>
     <string name="ski_tab_lottery_recharge">充值中心</string>

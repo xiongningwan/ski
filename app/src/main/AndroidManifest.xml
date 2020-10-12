@@ -7,9 +7,9 @@
         android:name=".SKIApplication"
         android:allowBackup="true"
         android:icon="@mipmap/app_icon"
+        android:roundIcon="@mipmap/app_icon_round"
         android:label="@string/ski_app_name"
         android:networkSecurityConfig="@xml/ski_network_security_config"
-        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
