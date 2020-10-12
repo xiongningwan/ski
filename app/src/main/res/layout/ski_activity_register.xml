@@ -80,7 +80,7 @@
         android:background="@drawable/ski_bg_iknow_bt3"
         android:textSize="15dp"
         android:ems="18"
-        android:hint="请输入账号"
+        android:hint="请设置账号"
         android:inputType="textPersonName"
         android:maxLines="1"
         android:paddingStart="72dp"
@@ -102,7 +102,7 @@
         android:background="@drawable/ski_bg_iknow_bt3"
         android:textSize="15dp"
         android:ems="18"
-        android:hint="请输入密码"
+        android:hint="请设置密码"
         android:maxLines="1"
         android:paddingStart="72dp"
         android:paddingEnd="10dp"
@@ -158,7 +158,7 @@
         android:layout_marginTop="42dp"
         android:layout_marginEnd="32dp"
         android:background="@drawable/ski_bg_btn_default"
-        android:text="登录"
+        android:text="注册"
         android:textColor="@color/ski_white"
         android:textSize="16dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -170,34 +170,18 @@
         android:id="@+id/tv_line"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="线路检测"
+        android:text="我已有帐号？"
         app:layout_constraintTop_toBottomOf="@+id/btn_login_dev"
         app:layout_constraintStart_toStartOf="@+id/btn_login_dev"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="26dp"/>
 
     <TextView
-        android:id="@+id/tv_kefu"
+        android:id="@+id/tv_back_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="联系客服"
+        android:text="返回登录"
         app:layout_constraintTop_toTopOf="@+id/tv_line"
         app:layout_constraintStart_toEndOf="@+id/tv_line"
-        app:layout_constraintEnd_toStartOf="@+id/tv_version"/>
+        android:textColor="@color/ski_color_678CF0"/>
 
-    <TextView
-        android:id="@+id/tv_version"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="版本检查"
-        app:layout_constraintTop_toTopOf="@+id/tv_line"
-        app:layout_constraintStart_toEndOf="@+id/tv_kefu"
-        app:layout_constraintEnd_toStartOf="@+id/tv_register"/>
-
-    <TextView
-        android:id="@+id/tv_register"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="用户注册"
-        app:layout_constraintTop_toTopOf="@+id/tv_line"
-        app:layout_constraintEnd_toEndOf="@+id/btn_login_dev"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

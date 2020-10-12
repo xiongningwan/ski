@@ -11,7 +11,6 @@ import android.widget.TextView;
 
 import com.gyf.immersionbar.ImmersionBar;
 import com.ski.box.BuildConfig;
-import com.ski.box.ConstantValue;
 import com.ski.box.R;
 import com.ski.box.SKISdkManger;
 import com.ski.box.mvp.contract.LoginContract;
@@ -22,9 +21,9 @@ import com.yb.core.utils.StringUtils;
 import com.yb.core.utils.ToastUtil;
 
 /**
- * 登录
+ * 注册
  */
-public class LoginActivity extends BaseMVPActivity<LoginContract.Presenter> implements LoginContract.View, View.OnClickListener {
+public class RegisterActivity extends BaseMVPActivity<LoginContract.Presenter> implements LoginContract.View, View.OnClickListener {
     private static final String KEY_NAME = "key_name";
     private static final String KEY_PWD = "key_pwd";
     private static final String KEY_ENV = "key_env";
@@ -32,7 +31,6 @@ public class LoginActivity extends BaseMVPActivity<LoginContract.Presenter> impl
     private EditText etName;
     private EditText etPassword;
     private Button btDevLogin;
-    private TextView tvRegister;
     private TextView tvEnvironment;
     private TextView tvMerchant;
     private ProgressDialog mLoading;
@@ -63,7 +61,6 @@ public class LoginActivity extends BaseMVPActivity<LoginContract.Presenter> impl
         tvMerchant = findViewById(R.id.tv_merchant);
         etPassword = findViewById(R.id.et_password);
         btDevLogin = findViewById(R.id.btn_login_dev);
-        tvRegister = findViewById(R.id.tv_register);
         btDevLogin.setOnClickListener(this);
         mLoading = new ProgressDialog(this);
         mLoading.setCancelable(true);
@@ -71,7 +68,6 @@ public class LoginActivity extends BaseMVPActivity<LoginContract.Presenter> impl
 
         tvEnvironment.setOnClickListener(this);
         tvMerchant.setOnClickListener(this);
-        tvRegister.setOnClickListener(this);
     }
 
 
@@ -99,8 +95,6 @@ public class LoginActivity extends BaseMVPActivity<LoginContract.Presenter> impl
 
         } else if (id == R.id.btn_login_dev) {
             doLogin();
-        } else if (id == R.id.tv_register) {
-            startActivity(new Intent(this, RegisterActivity.class));
         }
     }
 
@@ -140,7 +134,7 @@ public class LoginActivity extends BaseMVPActivity<LoginContract.Presenter> impl
                         SKISdkManger.setUrlAndToken(tvMerchant.getText().toString(), url, BuildConfig.DEBUG, token);
 //                                            DataCenter.getInstance().getLottery().clear();
 //                                            DataCenter.getInstance().getRemotePlayMap().clear();
-                        startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                        startActivity(new Intent(RegisterActivity.this, MainActivity.class));
                         finish();
 
                         // sp
