@@ -3,8 +3,11 @@ package com.ski.box.view.activity;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 
 import com.gyf.immersionbar.ImmersionBar;
 import com.ski.box.BuildConfig;
@@ -13,6 +16,7 @@ import com.ski.box.mvp.contract.RegisterContract;
 import com.ski.box.mvp.presenter.RegisterPresenter;
 import com.ski.box.mvp.service.IUserService;
 import com.ski.box.utils.SignUtil;
+import com.ski.box.utils.SoftHideKeyBoardUtil;
 import com.yb.core.base.BaseMVPActivity;
 import com.yb.core.net.RetrofitHelper;
 import com.yb.core.utils.StringUtils;
@@ -51,6 +55,7 @@ public class RegisterActivity extends BaseMVPActivity<RegisterContract.Presenter
         mLoading = new ProgressDialog(this);
         mLoading.setCancelable(true);
         mLoading.setCanceledOnTouchOutside(true);
+        SoftHideKeyBoardUtil.assistActivity(this);
     }
 
 
