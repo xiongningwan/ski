@@ -30,24 +30,19 @@ public interface IUserService {
     @Headers(CONTENT_TYPE_JSON)
     @FormUrlEncoded
     Single<HttpResult<Object>> register(
-            @Field("merchant") String merchant,
-            @Field("member") String member,
+            @Field("merchantAccount") String merchantAccount,
+            @Field("merchantId") String merchantId,
+            @Field("memberAccount") String memberAccount,
             @Field("password") String password,
-            @Field("tester") int tester,
-            @Field("prizeGroup") String prizeGroup,
-            @Field("timestamp") long timestamp,
-            @Field("sign") String sign);
+            @Field("tester") String tester);
 
     @POST(UrlConfig.URL_REGISTER)
     @Headers(CONTENT_TYPE_JSON)
     @FormUrlEncoded
     Single<HttpResult<Object>> register(
-            @Field("merchant") String merchant,
-            @Field("member") String member,
+            @Field("memberAccount") String memberAccount,
             @Field("password") String password,
-            @Field("tester") int tester,
-            @Field("timestamp") long timestamp,
-            @Field("sign") String sign);
+            @Field("tester") String tester);
 
     /**
      * 登录

@@ -56,7 +56,7 @@ public class RegisterActivity extends BaseMVPActivity<RegisterContract.Presenter
 
     @Override
     protected void initData(Bundle bundle) {
-        RetrofitHelper.getInstance().init("http://dev-sk-web.k5615.com/sk/", true, "");
+        RetrofitHelper.getInstance().init("https://web.k5615.com/sk/", true, "");
     }
 
 
@@ -72,12 +72,11 @@ public class RegisterActivity extends BaseMVPActivity<RegisterContract.Presenter
 
     private void doRegister() {
         mLoading.show();
-        String merchant = "43"; // 43 bob 47 ob
+        String merchant = "skcp"; // 43 bob 47 ob
+        String merchantId = "43"; // 43 bob 47 ob
         String member = etName.getText().toString();
         String password = etPassword.getText().toString();
-        int tester = 1; //1：正式会员，3：测试会员 测试会员不进入统计报表，并有其他功能限制
-        String prizeGroup = getResources().getString(R.string.prizeGroup);
-        long timestamp = System.currentTimeMillis();
+        String tester = "1"; //1：正式会员，3：测试会员 测试会员不进入统计报表，并有其他功能限制
         if (StringUtils.isEmpty(member)) {
             ToastUtil.showInfo("请输入帐号");
             return;
@@ -86,11 +85,7 @@ public class RegisterActivity extends BaseMVPActivity<RegisterContract.Presenter
             ToastUtil.showInfo("请输入密码");
             return;
         }
-        if("0".equals(prizeGroup)) {
-            mPresenter.doRegister(merchant, member, password, tester, timestamp);
-        } else {
-            mPresenter.doRegister(merchant, member, password, tester, prizeGroup, timestamp);
-        }
+        mPresenter.doRegister(merchant, merchantId, member, password, tester);
     }
 
 

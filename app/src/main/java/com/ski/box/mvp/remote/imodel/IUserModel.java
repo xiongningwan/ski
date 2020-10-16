@@ -8,26 +8,22 @@ import java.util.List;
 
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
+import retrofit2.http.Field;
 
 public interface IUserModel {
     Disposable register(Consumer s,
                         Consumer e,
-                         String merchant,
-                         String member,
-                         String password,
-                         int tester,
-                        String prizeGroup,
-                         long timestamp,
-                         String sign);
+                        String merchantAccount,
+                        String merchantId,
+                        String memberAccount,
+                        String password,
+                        String tester);
 
     Disposable register(Consumer s,
                         Consumer e,
-                         String merchant,
-                         String member,
-                         String password,
-                         int tester,
-                         long timestamp,
-                         String sign);
+                        String memberAccount,
+                        String password,
+                        String tester);
 
     /**
      * 登录

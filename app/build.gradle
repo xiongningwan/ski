@@ -86,7 +86,6 @@ android {
             resValue "string", "ski_app_name", "sk国际"
             resValue "string", "app_code", "skgj"
             resValue "string", "app_sid", "f0345a9da25c2471243f7675362g5f6c"
-            resValue "string", "prizeGroup", "0"
             manifestPlaceholders = [app_icon: "@mipmap/app_icon", app_logo: "@mipmap/app_logo"]
         }
 
@@ -95,7 +94,6 @@ android {
             resValue "string", "ski_app_name", "太阳城集团"
             resValue "string", "app_code", "tycjt"
             resValue "string", "app_sid", "d0581a9da243476d18f7675362f596b"
-            resValue "string", "prizeGroup", "1980"
             manifestPlaceholders = [app_icon: "@mipmap/app_icon", app_logo: "@mipmap/app_logo"]
         }
     }

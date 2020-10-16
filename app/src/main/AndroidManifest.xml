@@ -32,7 +32,7 @@
             android:name=".view.activity.RegisterActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustResize|stateAlwaysHidden"
+            android:windowSoftInputMode="adjustPan|stateAlwaysHidden"
             tools:ignore="LockedOrientationActivity">
         </activity>
         <!-- 刘海 -->

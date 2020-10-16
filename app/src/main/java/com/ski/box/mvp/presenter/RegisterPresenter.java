@@ -25,17 +25,9 @@ public class RegisterPresenter extends RxPresenter<RegisterContract.View> implem
     }
 
 
-    @Override
-    public void doRegister(String merchant, String member, String password, int tester, String prizeGroup, long timestamp) {
-        Map map = new HashMap();
-        map.put("merchant", merchant);
-        map.put("member", member);
-        map.put("password", password);
-        map.put("tester", tester);
-        map.put("prizeGroup", prizeGroup);
-        map.put("timestamp", timestamp);
-        String sign = SignUtil.sortHashMap(map);
 
+    @Override
+    public void doRegister(String merchantAccount, String merchantId, String memberAccount, String password, String tester) {
         Disposable disposable = mUserModel.register(new Consumer<String>() {
             @Override
             public void accept(String str) {
@@ -47,20 +39,12 @@ public class RegisterPresenter extends RxPresenter<RegisterContract.View> implem
                 super.accept(throwable);
                 mView.onRegisterFailResult("");
             }
-        },merchant, member, password, tester, prizeGroup, timestamp, sign);
+        },merchantAccount, merchantId, memberAccount, password, tester);
         addDisposable(disposable);
     }
 
     @Override
-    public void doRegister(String merchant, String member, String password, int tester, long timestamp) {
-        Map map = new HashMap();
-        map.put("merchant", merchant);
-        map.put("member", member);
-        map.put("password", password);
-        map.put("tester", tester);
-        map.put("timestamp", timestamp);
-        String sign = SignUtil.sortHashMap(map);
-
+    public void doRegister(String memberAccount, String password, String tester) {
         Disposable disposable = mUserModel.register(new Consumer<String>() {
             @Override
             public void accept(String str) {
@@ -72,10 +56,9 @@ public class RegisterPresenter extends RxPresenter<RegisterContract.View> implem
                 super.accept(throwable);
                 mView.onRegisterFailResult("");
             }
-        },merchant, member, password, tester,  timestamp, sign);
+        }, memberAccount, password, tester);
         addDisposable(disposable);
     }
-
 }
 
 

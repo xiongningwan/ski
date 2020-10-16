@@ -23,20 +23,21 @@ import okhttp3.RequestBody;
 
 public class UserModel extends BaseModel implements IUserModel {
 
+
     @Override
-    public Disposable register(Consumer s, Consumer e, String merchant, String member, String password, int tester, String prizeGroup, long timestamp, String sign) {
+    public Disposable register(Consumer s, Consumer e, String merchantAccount, String merchantId, String memberAccount, String password, String tester) {
         Single<Object> single = RetrofitHelper
                 .getService(IUserService.class)
-                .register(merchant, member, password, tester, prizeGroup, timestamp, sign)
+                .register(merchantAccount, merchantId, memberAccount, password, tester)
                 .map(new HttpResultFunc<>());
         return toSubscribe(single, s, e);
     }
 
     @Override
-    public Disposable register(Consumer s, Consumer e, String merchant, String member, String password, int tester,  long timestamp, String sign) {
+    public Disposable register(Consumer s, Consumer e, String memberAccount, String password, String tester) {
         Single<Object> single = RetrofitHelper
                 .getService(IUserService.class)
-                .register(merchant, member, password, tester,  timestamp, sign)
+                .register(memberAccount, password, tester)
                 .map(new HttpResultFunc<>());
         return toSubscribe(single, s, e);
     }

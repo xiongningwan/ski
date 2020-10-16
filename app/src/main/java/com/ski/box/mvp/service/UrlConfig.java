@@ -13,7 +13,7 @@ public final class UrlConfig {
      * 注册
      * POST
      */
-    public static final String URL_REGISTER = "botanic/api/member/register";
+    public static final String URL_REGISTER = "promen/member/register/direct";
 
     /**
      * 登录
