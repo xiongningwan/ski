@@ -26,18 +26,8 @@ public interface IUserService {
     /**
      * 注册
      */
-    @POST(UrlConfig.URL_REGISTER)
-    @Headers(CONTENT_TYPE_JSON)
-    @FormUrlEncoded
-    Single<HttpResult<Object>> register(
-            @Field("merchantAccount") String merchantAccount,
-            @Field("merchantId") String merchantId,
-            @Field("memberAccount") String memberAccount,
-            @Field("password") String password,
-            @Field("tester") String tester);
 
     @POST(UrlConfig.URL_REGISTER)
-    @Headers(CONTENT_TYPE_JSON)
     @FormUrlEncoded
     Single<HttpResult<Object>> register(
             @Field("memberAccount") String memberAccount,
@@ -46,16 +36,11 @@ public interface IUserService {
     /**
      * 登录
      */
-//    @POST("boracay/api/member/login")
     @POST(UrlConfig.URL_LOG_IN)
     @FormUrlEncoded
     Single<HttpResult<Object>> login(
-            @Field("environment") String environment,
-            @Field("merchantId") String merchantId,
-            @Field("account") String account,
-            @Field("password") String password,
-            @Field("loginType") int loginType,
-            @Field("timestamp") String timestamp);
+            @Field("memberAccount") String memberAccount,
+            @Field("password") String password);
 
     /**
      * 用户信息--用户余额

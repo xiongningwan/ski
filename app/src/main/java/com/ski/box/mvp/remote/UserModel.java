@@ -33,13 +33,22 @@ public class UserModel extends BaseModel implements IUserModel {
     }
 
     @Override
-    public Disposable login(Consumer s, String environment, String merchantId, String account, String password, int loginType, String timestamp) {
+    public Disposable login(Consumer s, String memberAccount, String password) {
         Single<Object> single = RetrofitHelper
                 .getService(IUserService.class)
-                .login(environment, merchantId, account, password, loginType, timestamp)
+                .login(memberAccount, password)
                 .map(new HttpResultFunc<>());
         return toSubscribe(single, s);
     }
+
+//    @Override
+//    public Disposable login(Consumer s, String environment, String merchantId, String account, String password, int loginType, String timestamp) {
+//        Single<Object> single = RetrofitHelper
+//                .getService(IUserService.class)
+//                .login(environment, merchantId, account, password, loginType, timestamp)
+//                .map(new HttpResultFunc<>());
+//        return toSubscribe(single, s);
+//    }
 
 
     @Override

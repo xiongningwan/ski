@@ -21,12 +21,8 @@ public interface IUserModel {
      * 登录
      */
     Disposable login(Consumer s,
-                     String environment,
-                     String merchantId,
-                     String account,
-                     String password,
-                     int loginType,
-                     String timestamp);
+                     String memberAccount,
+                     String password);
 
 
     Disposable getMemberDetails(Consumer s, Consumer e);

@@ -12,17 +12,6 @@ public interface LoginContract {
     }
 
     interface Presenter extends BaseContract.BasePresenter<View> {
-        void doLogin(String environment,
-                     String merchantId,
-                     String account,
-                     String password,
-                     int loginType,
-                     String timestamp);
-        void doLogin2(ProgressDialog mLoading, String environment,
-                      String merchantId,
-                      String account,
-                      String password,
-                      int loginType,
-                      String timestamp);
+        void doLogin(String memberAccount, String password);
     }
 }

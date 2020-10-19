@@ -46,90 +46,16 @@ public class LoginPresenter extends RxPresenter<LoginContract.View> implements L
 
 
     @Override
-    public void doLogin(String environment, String merchantId, String account, String password, int loginType, String timestamp) {
+    public void doLogin(String memberAccount, String password) {
         Disposable disposable = mUserModel.login(new Consumer<String>() {
             @Override
             public void accept(String str) {
                 mView.onLoginResult(str);
             }
-        },environment,merchantId, account, password, loginType, timestamp);
+        },memberAccount, password);
         addDisposable(disposable);
     }
-    private static final String KEY_CONTENT_TYPE_VALUE_JSON = "application/json;charset=UTF-8";
-    private static final String KEY_CONTENT_TYPE_VALUE_FORM = "application/x-www-form-urlencoded;charset=UTF-8";
-    private static final String KEY_CONTENT_TYPE = "Content-Type";
 
-    @Override
-    public void doLogin2(ProgressDialog mLoading, String environment, String merchantId, String account, String password, int loginType, String timestamp) {
-        String BASE_URL = "http://login.mkcp.online:8080";
-        String LOGIN_URL = "/merchant/merchant_user/memberLogin";
-
-        Map paraMap = new HashMap(7);
-        paraMap.put("merchantId", merchantId);
-        paraMap.put("account", account);
-        paraMap.put("password", password);
-        paraMap.put("loginType", String.valueOf(loginType));
-        paraMap.put("timestamp", timestamp);
-        paraMap.put("environment", environment);
-
-        mLoading.show();
-        String json = new Gson().toJson(paraMap);
-        OkHttpUtils.postString()
-                .url(BASE_URL + LOGIN_URL)
-                .headers(getHeader(1))
-                .content(json)
-                .mediaType(MediaType.parse(KEY_CONTENT_TYPE_VALUE_JSON))
-                .build()
-                .execute(new Callback() {
-                    @Override
-                    public Object parseNetworkResponse(Response response, int id) throws Exception {
-                        ResponseBody body = response.body();
-                        String s = body.string();
-                        Log.d("sss", "onResponse: " + s);
-                        return s;
-                    }
-
-                    @Override
-                    public void onError(Call call, Exception e, int id) {
-                        Toast.makeText(mContext, e.getMessage(), Toast.LENGTH_LONG).show();
-                        mLoading.dismiss();
-                    }
-
-                    @Override
-                    public void onResponse(Object response, int id) {
-                        mLoading.dismiss();
-                        String result = (String) response;
-                        HttpResult<String> httpResult = new Gson().fromJson(result, HttpResult.class);
-                        if (checkData(httpResult)) {
-                            return;
-                        }
-                        String str = (String) httpResult.getData();
-                        mView.onLoginResult(str);
-                    }
-                });
-    }
-
-
-    public Map<String, String> getHeader(int type) {
-        Map<String, String> headers = new HashMap<>();
-        switch (type) {
-            case 1:
-                headers.put(KEY_CONTENT_TYPE, KEY_CONTENT_TYPE_VALUE_JSON);
-                break;
-            case 2:
-                headers.put(KEY_CONTENT_TYPE, KEY_CONTENT_TYPE_VALUE_FORM);
-                break;
-        }
-        return headers;
-    }
-
-    private boolean checkData(HttpResult httpResult) {
-        if (httpResult.getCode() != 200) {
-            Toast.makeText(mContext, "code:" + httpResult.getCode() + "error:" + httpResult.getMessage(), Toast.LENGTH_LONG).show();
-            return true;
-        }
-        return false;
-    }
 }
 
 

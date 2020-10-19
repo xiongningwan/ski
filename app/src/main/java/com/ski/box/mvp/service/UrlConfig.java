@@ -11,16 +11,13 @@ public final class UrlConfig {
 
     /**
      * 注册
-     * POST
      */
     public static final String URL_REGISTER = "promen/member/register/direct";
 
     /**
      * 登录
-     * POST
-     * https://fat-login.emkcp.com:8010/merchant/merchant_user/memberLogin
      */
-    public static final String URL_LOG_IN = "merchant/merchant_user/memberLogin";
+    public static final String URL_LOG_IN = "promen/member/login";
 
 
     //----------------------boracay-start-------------------

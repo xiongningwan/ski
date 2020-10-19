@@ -1,6 +1,7 @@
 package com.ski.box.view.activity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
@@ -8,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
+import android.widget.TextView;
 
 import com.gyf.immersionbar.ImmersionBar;
 import com.ski.box.BuildConfig;
@@ -32,7 +34,9 @@ public class RegisterActivity extends BaseMVPActivity<RegisterContract.Presenter
     private EditText etName;
     private EditText etPassword;
     private Button btRegister;
+    private TextView tvBackLogin;
     private ProgressDialog mLoading;
+    private boolean isSuccess;
 
 
     @Override
@@ -51,6 +55,7 @@ public class RegisterActivity extends BaseMVPActivity<RegisterContract.Presenter
         etName = findViewById(R.id.et_name);
         etPassword = findViewById(R.id.et_password);
         btRegister = findViewById(R.id.btn_register);
+        tvBackLogin = findViewById(R.id.tv_back_login);
         btRegister.setOnClickListener(this);
         mLoading = new ProgressDialog(this);
         mLoading.setCancelable(true);
@@ -71,17 +76,22 @@ public class RegisterActivity extends BaseMVPActivity<RegisterContract.Presenter
         if (id == R.id.btn_register) {
             doRegister();
         } else if (id == R.id.tv_back_login) {
+            if(isSuccess) {
+                String member = etName.getText().toString();
+                String password = etPassword.getText().toString();
+                Intent intent = new Intent();
+                intent.putExtra(LoginActivity.KEY_NAME, member);
+                intent.putExtra(LoginActivity.KEY_PWD, password);
+                //设置返回数据
+                setResult(RESULT_OK, intent);
+            }
             finish();
         }
     }
 
     private void doRegister() {
-        mLoading.show();
-        String merchant = "skcp"; // 43 bob 47 ob
-        String merchantId = "43"; // 43 bob 47 ob
         String member = etName.getText().toString();
         String password = etPassword.getText().toString();
-        String tester = "1"; //1：正式会员，3：测试会员 测试会员不进入统计报表，并有其他功能限制
         if (StringUtils.isEmpty(member)) {
             ToastUtil.showInfo("请输入帐号");
             return;
@@ -90,6 +100,7 @@ public class RegisterActivity extends BaseMVPActivity<RegisterContract.Presenter
             ToastUtil.showInfo("请输入密码");
             return;
         }
+        mLoading.show();
         mPresenter.doRegister(member, password);
     }
 
@@ -98,6 +109,7 @@ public class RegisterActivity extends BaseMVPActivity<RegisterContract.Presenter
     public void onRegisterSuccessResult(String str) {
         ToastUtil.showInfo(str);
         mLoading.dismiss();
+        isSuccess = true;
     }
 
     @Override
