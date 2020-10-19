@@ -4,6 +4,7 @@ package com.ski.box.mvp.service;
 import com.ski.box.bean.Balance;
 import com.ski.box.bean.MemberDetailEntity;
 import com.ski.box.bean.SelfProfileEntity;
+import com.ski.box.bean.User;
 import com.yb.core.net.HttpResult;
 
 import io.reactivex.Single;
@@ -38,7 +39,7 @@ public interface IUserService {
      */
     @POST(UrlConfig.URL_LOG_IN)
     @FormUrlEncoded
-    Single<HttpResult<Object>> login(
+    Single<HttpResult<User>> login(
             @Field("memberAccount") String memberAccount,
             @Field("password") String password);
 

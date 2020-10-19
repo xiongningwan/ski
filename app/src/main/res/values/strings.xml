@@ -27,4 +27,6 @@
     <string name="ski_tv_missing_remind_setting">遗漏提醒设置</string>
     <string name="ski_tv_use_default_setting">使用默认设置</string>
     <string name="ski_tv_lottery_num">已选择{key}个彩种</string>
+
+    <string name="ski_login_register">注册成功!</string>
 </resources>

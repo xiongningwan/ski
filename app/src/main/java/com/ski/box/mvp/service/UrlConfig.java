@@ -33,7 +33,7 @@ public final class UrlConfig {
      * 用户信息--用户余额
      * POST
      */
-    public static final String URL_USER_INFO = "boracay/member/front/userInfo";
+    public static final String URL_USER_INFO = "botanic/member/front/userInfo";
 
     /**
      * 资金记录->账变类型
@@ -60,7 +60,7 @@ public final class UrlConfig {
     /**
      * 读取用户设置
      */
-    public static final String URL_USER_READ = "boracay/member/front/query";
+    public static final String URL_USER_READ = "botanic/member/front/userConf";
     /**
      * 写入用户设置
      */
@@ -250,13 +250,13 @@ public final class UrlConfig {
     /**
      * 当前销售奖期
      */
-    public static final String URL_CURRENT_SALE_ISSUE = "coron/ticketmod/currentSaleIssue.json";
+    public static final String URL_CURRENT_SALE_ISSUE = "cashew/ticketmod/currentSaleIssue.json";
 
     /**
      * 彩系彩种列表
      * POST
      */
-    public static final String URL_TICKET_TYPE_LIST = "coron/ticketmod/tickettypelist.json";
+    public static final String URL_TICKET_TYPE_LIST = "cashew/ticketmod/tickettypelist.json";
 
     /**
      * 获取彩种设置信息
@@ -288,7 +288,7 @@ public final class UrlConfig {
     /**
      * 系统配置信息：系统时间地址、 websocket地址、静态资源地址
      */
-    public static final String URL_SYSTEM_CONFIG = "coron/system/config/query";
+    public static final String URL_SYSTEM_CONFIG = "cashew/system/config/query";
 
     /**
      * 更新

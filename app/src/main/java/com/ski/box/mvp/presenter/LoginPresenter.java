@@ -10,7 +10,9 @@ import android.widget.Toast;
 import com.google.gson.Gson;
 import com.ski.box.BuildConfig;
 import com.ski.box.SKISdkManger;
+import com.ski.box.bean.User;
 import com.ski.box.bean.lottery.LotterySer;
+import com.ski.box.exception.CusConsumer;
 import com.ski.box.mvp.contract.EmptyContract;
 import com.ski.box.mvp.contract.LoginContract;
 import com.ski.box.mvp.remote.UserModel;
@@ -47,10 +49,16 @@ public class LoginPresenter extends RxPresenter<LoginContract.View> implements L
 
     @Override
     public void doLogin(String memberAccount, String password) {
-        Disposable disposable = mUserModel.login(new Consumer<String>() {
+        Disposable disposable = mUserModel.login(new Consumer<User>() {
             @Override
-            public void accept(String str) {
-                mView.onLoginResult(str);
+            public void accept(User user) {
+                mView.onLoginSuccessResult(user);
+            }
+        },new CusConsumer(){
+            @Override
+            public void accept(Throwable throwable) throws Exception {
+                super.accept(throwable);
+                mView.onLoginFailResult("");
             }
         },memberAccount, password);
         addDisposable(disposable);

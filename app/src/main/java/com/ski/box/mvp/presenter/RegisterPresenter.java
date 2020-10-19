@@ -29,10 +29,10 @@ public class RegisterPresenter extends RxPresenter<RegisterContract.View> implem
 
     @Override
     public void doRegister(String memberAccount, String password) {
-        Disposable disposable = mUserModel.register(new Consumer<String>() {
+        Disposable disposable = mUserModel.register(new Consumer<Object>() {
             @Override
-            public void accept(String str) {
-                mView.onRegisterSuccessResult(str);
+            public void accept(Object o) {
+                mView.onRegisterSuccessResult(o);
             }
         }, new CusConsumer(){
             @Override

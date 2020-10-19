@@ -9,15 +9,20 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import androidx.annotation.Nullable;
+
 import com.gyf.immersionbar.ImmersionBar;
 import com.ski.box.BuildConfig;
-import com.ski.box.ConstantValue;
 import com.ski.box.R;
 import com.ski.box.SKISdkManger;
 import com.ski.box.bean.DataCenter;
+import com.ski.box.bean.User;
 import com.ski.box.mvp.contract.LoginContract;
 import com.ski.box.mvp.presenter.LoginPresenter;
+import com.ski.box.utils.SoftHideKeyBoardUtil;
 import com.yb.core.base.BaseMVPActivity;
+import com.yb.core.net.RetrofitHelper;
+import com.yb.core.utils.MD5Util;
 import com.yb.core.utils.SPUtils;
 import com.yb.core.utils.StringUtils;
 import com.yb.core.utils.ToastUtil;
@@ -36,7 +41,6 @@ public class LoginActivity extends BaseMVPActivity<LoginContract.Presenter> impl
     private TextView tvEnvironment;
     private TextView tvMerchant;
     private ProgressDialog mLoading;
-
 
 
     @Override
@@ -66,15 +70,14 @@ public class LoginActivity extends BaseMVPActivity<LoginContract.Presenter> impl
         tvEnvironment.setOnClickListener(this);
         tvMerchant.setOnClickListener(this);
         tvRegister.setOnClickListener(this);
+        SoftHideKeyBoardUtil.assistActivity(this);
     }
 
 
     @Override
     protected void initData(Bundle bundle) {
-        if (!TextUtils.isEmpty(SPUtils.getString(this, KEY_NAME))) {
-            etName.setText(SPUtils.getString(this, KEY_NAME));
-            etPassword.setText(SPUtils.getString(this, KEY_PWD));
-        }
+        RetrofitHelper.getInstance().init("https://web.k5615.com/sk/", true, "");
+        initSetFromSp();
     }
 
 
@@ -101,22 +104,58 @@ public class LoginActivity extends BaseMVPActivity<LoginContract.Presenter> impl
             return;
         }
         mLoading.show();
+        // md5
+        password = MD5Util.md5Password(password);
         mPresenter.doLogin(member, password);
     }
 
 
     @Override
-    public void onLoginResult(String str) {
+    public void onLoginSuccessResult(User user) {
+        mLoading.dismiss();
         // sp
-        SPUtils.putString(this, KEY_NAME, etName.getText().toString().trim());
-        SPUtils.putString(this, KEY_PWD, etPassword.getText().toString().trim());
-
-//        SKISdkManger.setUrlAndToken(tvMerchant.getText().toString(), url, BuildConfig.DEBUG, token);
-//        DataCenter.getInstance().getLottery().clear();
-//        DataCenter.getInstance().getRemotePlayMap().clear();
-//        startActivity(new Intent(LoginActivity.this, MainActivity.class));
-//        finish();
+        String member = etName.getText().toString();
+        String password = etPassword.getText().toString();
+        saveSetSp(member, password);
+        SKISdkManger.setUrlAndToken("sk", "https://web.k5615.com/sk/", BuildConfig.DEBUG, user.getToken());
+        DataCenter.getInstance().getLottery().clear();
+        DataCenter.getInstance().getRemotePlayMap().clear();
+        startActivity(new Intent(LoginActivity.this, MainActivity.class));
+        finish();
     }
 
+    @Override
+    public void onLoginFailResult(String str) {
+        mLoading.dismiss();
+    }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (data == null) {
+            return;
+        }
+        String name = data.getStringExtra(LoginActivity.KEY_NAME);
+        String pwd = data.getStringExtra(LoginActivity.KEY_PWD);
+        saveSetSp(name, pwd);
+        // 设置
+        initSetFromSp();
+    }
+
+    private void initSetFromSp() {
+        if (!TextUtils.isEmpty(SPUtils.getString(this, KEY_NAME))) {
+            etName.setText(SPUtils.getString(this, KEY_NAME));
+        }
+        if (!TextUtils.isEmpty(SPUtils.getString(this, KEY_PWD))) {
+            etPassword.setText(SPUtils.getString(this, KEY_PWD));
+        }
+
+    }
+
+    private void saveSetSp(String name, String pwd) {
+        SPUtils.putString(this, KEY_NAME, name);
+        SPUtils.putString(this, KEY_PWD, pwd);
+    }
 
 }

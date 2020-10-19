@@ -21,6 +21,7 @@ import com.ski.box.utils.SignUtil;
 import com.ski.box.utils.SoftHideKeyBoardUtil;
 import com.yb.core.base.BaseMVPActivity;
 import com.yb.core.net.RetrofitHelper;
+import com.yb.core.utils.MD5Util;
 import com.yb.core.utils.StringUtils;
 import com.yb.core.utils.ToastUtil;
 
@@ -36,7 +37,6 @@ public class RegisterActivity extends BaseMVPActivity<RegisterContract.Presenter
     private Button btRegister;
     private TextView tvBackLogin;
     private ProgressDialog mLoading;
-    private boolean isSuccess;
 
 
     @Override
@@ -56,6 +56,7 @@ public class RegisterActivity extends BaseMVPActivity<RegisterContract.Presenter
         etPassword = findViewById(R.id.et_password);
         btRegister = findViewById(R.id.btn_register);
         tvBackLogin = findViewById(R.id.tv_back_login);
+        tvBackLogin.setOnClickListener(this);
         btRegister.setOnClickListener(this);
         mLoading = new ProgressDialog(this);
         mLoading.setCancelable(true);
@@ -66,7 +67,7 @@ public class RegisterActivity extends BaseMVPActivity<RegisterContract.Presenter
 
     @Override
     protected void initData(Bundle bundle) {
-        RetrofitHelper.getInstance().init("https://web.k5615.com/sk/", true, "");
+
     }
 
 
@@ -76,15 +77,6 @@ public class RegisterActivity extends BaseMVPActivity<RegisterContract.Presenter
         if (id == R.id.btn_register) {
             doRegister();
         } else if (id == R.id.tv_back_login) {
-            if(isSuccess) {
-                String member = etName.getText().toString();
-                String password = etPassword.getText().toString();
-                Intent intent = new Intent();
-                intent.putExtra(LoginActivity.KEY_NAME, member);
-                intent.putExtra(LoginActivity.KEY_PWD, password);
-                //设置返回数据
-                setResult(RESULT_OK, intent);
-            }
             finish();
         }
     }
@@ -101,15 +93,24 @@ public class RegisterActivity extends BaseMVPActivity<RegisterContract.Presenter
             return;
         }
         mLoading.show();
+        // md5
+        password = MD5Util.md5Password(password);
         mPresenter.doRegister(member, password);
     }
 
 
     @Override
-    public void onRegisterSuccessResult(String str) {
-        ToastUtil.showInfo(str);
+    public void onRegisterSuccessResult(Object o) {
+        ToastUtil.showSuccess(getString(R.string.ski_login_register));
         mLoading.dismiss();
-        isSuccess = true;
+        String member = etName.getText().toString();
+        String password = etPassword.getText().toString();
+        Intent intent = new Intent();
+        intent.putExtra(LoginActivity.KEY_NAME, member);
+        intent.putExtra(LoginActivity.KEY_PWD, password);
+        //设置返回数据
+        setResult(RESULT_OK, intent);
+        finish();
     }
 
     @Override

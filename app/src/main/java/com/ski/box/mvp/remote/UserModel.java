@@ -6,6 +6,8 @@ import com.ski.box.bean.Balance;
 import com.ski.box.bean.MemberDetailEntity;
 import com.ski.box.bean.PersonProfileEntity;
 import com.ski.box.bean.SelfProfileEntity;
+import com.ski.box.bean.User;
+import com.ski.box.exception.CusConsumer;
 import com.ski.box.mvp.remote.imodel.IUserModel;
 import com.ski.box.mvp.service.IUserService;
 import com.yb.core.base.BaseConsumer;
@@ -24,7 +26,7 @@ import okhttp3.RequestBody;
 public class UserModel extends BaseModel implements IUserModel {
 
     @Override
-    public Disposable register(Consumer s, Consumer e, String memberAccount, String password) {
+    public Disposable register(Consumer s, CusConsumer e, String memberAccount, String password) {
         Single<Object> single = RetrofitHelper
                 .getService(IUserService.class)
                 .register(memberAccount, password)
@@ -33,12 +35,12 @@ public class UserModel extends BaseModel implements IUserModel {
     }
 
     @Override
-    public Disposable login(Consumer s, String memberAccount, String password) {
-        Single<Object> single = RetrofitHelper
+    public Disposable login(Consumer s, CusConsumer e, String memberAccount, String password) {
+        Single<User> single = RetrofitHelper
                 .getService(IUserService.class)
                 .login(memberAccount, password)
                 .map(new HttpResultFunc<>());
-        return toSubscribe(single, s);
+        return toSubscribe(single, s, e);
     }
 
 //    @Override

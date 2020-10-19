@@ -7,7 +7,7 @@ import com.yb.core.base.BaseContract;
 
 public interface RegisterContract {
     interface View extends BaseContract.BaseView {
-        void onRegisterSuccessResult(String str);
+        void onRegisterSuccessResult(Object str);
 
         void onRegisterFailResult(String str);
     }

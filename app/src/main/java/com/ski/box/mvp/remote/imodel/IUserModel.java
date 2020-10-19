@@ -3,6 +3,8 @@ package com.ski.box.mvp.remote.imodel;
 
 import com.ski.box.bean.PersonProfileEntity;
 import com.ski.box.bean.SelfProfileEntity;
+import com.ski.box.exception.CusConsumer;
+import com.yb.core.base.BaseConsumer;
 
 import java.util.List;
 
@@ -13,7 +15,7 @@ import retrofit2.http.Field;
 public interface IUserModel {
 
     Disposable register(Consumer s,
-                        Consumer e,
+                        CusConsumer e,
                         String memberAccount,
                         String password);
 
@@ -21,6 +23,7 @@ public interface IUserModel {
      * 登录
      */
     Disposable login(Consumer s,
+                     CusConsumer e,
                      String memberAccount,
                      String password);
 
