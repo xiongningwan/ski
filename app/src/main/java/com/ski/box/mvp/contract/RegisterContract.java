@@ -13,14 +13,8 @@ public interface RegisterContract {
     }
 
     interface Presenter extends BaseContract.BasePresenter<View> {
-        void doRegister(String merchantAccount,
-                        String merchantId,
-                        String memberAccount,
-                        String password,
-                        String tester);
 
         void doRegister(String memberAccount,
-                        String password,
-                        String tester);
+                        String password);
     }
 }

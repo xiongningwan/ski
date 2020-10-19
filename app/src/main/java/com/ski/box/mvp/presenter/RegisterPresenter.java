@@ -26,25 +26,9 @@ public class RegisterPresenter extends RxPresenter<RegisterContract.View> implem
 
 
 
-    @Override
-    public void doRegister(String merchantAccount, String merchantId, String memberAccount, String password, String tester) {
-        Disposable disposable = mUserModel.register(new Consumer<String>() {
-            @Override
-            public void accept(String str) {
-                mView.onRegisterSuccessResult(str);
-            }
-        }, new CusConsumer(){
-            @Override
-            public void accept(Throwable throwable) throws Exception {
-                super.accept(throwable);
-                mView.onRegisterFailResult("");
-            }
-        },merchantAccount, merchantId, memberAccount, password, tester);
-        addDisposable(disposable);
-    }
 
     @Override
-    public void doRegister(String memberAccount, String password, String tester) {
+    public void doRegister(String memberAccount, String password) {
         Disposable disposable = mUserModel.register(new Consumer<String>() {
             @Override
             public void accept(String str) {
@@ -56,7 +40,7 @@ public class RegisterPresenter extends RxPresenter<RegisterContract.View> implem
                 super.accept(throwable);
                 mView.onRegisterFailResult("");
             }
-        }, memberAccount, password, tester);
+        }, memberAccount, password);
         addDisposable(disposable);
     }
 }

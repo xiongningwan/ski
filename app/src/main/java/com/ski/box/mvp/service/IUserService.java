@@ -41,8 +41,7 @@ public interface IUserService {
     @FormUrlEncoded
     Single<HttpResult<Object>> register(
             @Field("memberAccount") String memberAccount,
-            @Field("password") String password,
-            @Field("tester") String tester);
+            @Field("password") String password);
 
     /**
      * 登录

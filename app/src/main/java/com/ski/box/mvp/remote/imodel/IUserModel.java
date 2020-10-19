@@ -11,19 +11,11 @@ import io.reactivex.functions.Consumer;
 import retrofit2.http.Field;
 
 public interface IUserModel {
-    Disposable register(Consumer s,
-                        Consumer e,
-                        String merchantAccount,
-                        String merchantId,
-                        String memberAccount,
-                        String password,
-                        String tester);
 
     Disposable register(Consumer s,
                         Consumer e,
                         String memberAccount,
-                        String password,
-                        String tester);
+                        String password);
 
     /**
      * 登录

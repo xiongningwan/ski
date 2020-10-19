@@ -129,4 +129,6 @@ dependencies {
     // EasyPopup
     implementation 'com.github.zyyoona7:EasyPopup:1.1.2'
     implementation 'com.github.xujiaji:happy-bubble:1.1.7'
+
+    implementation 'com.just.agentweb:agentweb:4.0.3-beta' // (必选)
 }

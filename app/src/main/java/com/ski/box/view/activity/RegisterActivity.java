@@ -90,7 +90,7 @@ public class RegisterActivity extends BaseMVPActivity<RegisterContract.Presenter
             ToastUtil.showInfo("请输入密码");
             return;
         }
-        mPresenter.doRegister(merchant, merchantId, member, password, tester);
+        mPresenter.doRegister(member, password);
     }
 
 
