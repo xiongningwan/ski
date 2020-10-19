@@ -18,6 +18,7 @@ import com.ski.box.bean.lottery.RemoteLotteryPlay;
 import com.ski.box.utils.lottery.LotteryTimeUtil;
 import com.yb.core.utils.AppUtil;
 import com.yb.core.utils.AssetsReader;
+import com.yb.core.utils.LogUtils;
 import com.yb.core.utils.SPUtils;
 
 import java.io.File;
@@ -344,8 +345,10 @@ public class DataCenter {
     }
 
     public void updateLotteryTime(int id, String planId, long time) {
-        mLotteryTimeMap.put(id, time);
-        mLotteryPlanMap.put(id, planId);
+        if(0 != id && !TextUtils.isEmpty(planId)) {
+            mLotteryTimeMap.put(id, time);
+            mLotteryPlanMap.put(id, planId);
+        }
     }
 
     public long getLotteryTime(Integer id) {
