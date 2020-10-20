@@ -73,14 +73,8 @@ public class LotteryModel extends BaseModel implements ILotteryModel {
      */
     @Override
     public Disposable getLotteryNumHistory(Consumer s, Consumer e, String ticketId, String num) {
-        HashMap<String, String> paramsMap = new HashMap<>();
-        paramsMap.put("ticketId", ticketId);
-        paramsMap.put("num", num);
-        String s1 = new Gson().toJson(paramsMap);
-
-        RequestBody requestBody = RequestBody.create(s1, MediaType.parse("Content-Type, application/json"));
         Single<List<LotteryNumBean>> map = RetrofitHelper.getService(ILotteryService.class)
-                .getLotteryNum(requestBody).map(new HttpResultFunc<>(TYPE_LIST));
+                .getLotteryNum(ticketId, num).map(new HttpResultFunc<>(TYPE_LIST));
         return toSubscribe(map, s, e);
     }
 }

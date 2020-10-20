@@ -13,6 +13,7 @@ import com.hwangjr.rxbus.annotation.Subscribe;
 import com.hwangjr.rxbus.annotation.Tag;
 import com.ski.box.R;
 import com.ski.box.adapter.FragmentAdapter;
+import com.ski.box.bean.record.RecordBet;
 import com.ski.box.bean.record.RecordRecent;
 import com.ski.box.view.fragment.record.RecordFragment;
 import com.ski.box.view.fragment.bet.d.DoubleFragment;
@@ -126,7 +127,7 @@ public class BetFragment extends BaseFragment {
     }
 
     @Subscribe(tags = {@Tag(EVENT_UPDATE_RECENT_NO)})
-    public void updateUnSettleNum(RecordRecent bean) {
+    public void updateUnSettleNum(RecordBet bean) {
         mTabCpBet.setTvUnpaidNum(bean.getList().size());
     }
 

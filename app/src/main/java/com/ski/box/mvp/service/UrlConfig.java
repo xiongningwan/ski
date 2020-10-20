@@ -45,7 +45,7 @@ public final class UrlConfig {
      * 资金记录列表
      * POST
      */
-    public static final String URL_MONEY_RECORD = "boracay/member/front/queryBalanceRecords";
+    public static final String URL_MONEY_RECORD = "botanic/member/front/queryBalanceRecords";
 
     /**
      * 遗漏彩系,彩种,玩法保存接口
@@ -106,7 +106,7 @@ public final class UrlConfig {
      * 彩种历史开奖号码
      * POST
      */
-    public static final String URL_TICKET_SOURCE_RESULT_LIST = "coron/api/ticketSourceResult/ticketSourceResultList.json";
+    public static final String URL_TICKET_SOURCE_RESULT_LIST = "cashew/api/ticketSourceResult/ticketSourceResultList.json";
 
     /**
      * 投注记录列表
@@ -130,7 +130,7 @@ public final class UrlConfig {
      * 双面盘投注
      * POST
      */
-    public static final String URL_DOUBLE_BET = "coron/order/double/create";
+    public static final String URL_DOUBLE_BET = "cashew/order/double/create";
 
     /**
      * 追号 可追奖期列表
@@ -222,10 +222,6 @@ public final class UrlConfig {
      */
     public static final String URL_GET_SERVICE_TIME = "https://date.bobcp.vip/date";
 
-    /**
-     * Keno 分页获取订单列表
-     */
-    public static final String URL_KENO_ORDER_LIST = "coron/ticketmod/kenoOrderList";
 
     /**
      * Keno 获取特色详情
@@ -280,7 +276,7 @@ public final class UrlConfig {
      * 玩法种类列表
      * POST
      */
-    public static final String URL_TICKET_PLAY_LIST = "coron/ticketmod/ticketplaylist.json";
+    public static final String URL_TICKET_PLAY_LIST = "cashew/ticketmod/ticketplaylist.json";
 
     //-----------------------coron-end---------------------
 
@@ -361,7 +357,7 @@ public final class UrlConfig {
     /**
      * 等待倒计时
      */
-    public static final  String  URL_WAIT_TIME="coron/ticketmod/currentSaleIssue/list";
+    public static final  String  URL_WAIT_TIME="cashew/ticketmod/currentSaleIssue.json";
 
     /**
      * 是否出发单挑

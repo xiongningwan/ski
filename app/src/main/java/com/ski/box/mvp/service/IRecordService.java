@@ -19,7 +19,9 @@ import io.reactivex.Single;
 import retrofit2.http.Field;
 import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Query;
 
 public interface IRecordService {
 
@@ -28,11 +30,9 @@ public interface IRecordService {
      * memberId 暂时传空
      * status 0
      */
-    @POST(UrlConfig.URL_ORDERS_TOP)
-    @FormUrlEncoded
+    @GET(UrlConfig.URL_ORDERS_TOP)
     Single<HttpResult<RecordRecent>> getBettingRecordTop(
-            /*@Field("memberId") String memberId,*/
-            @Field("status") String status);
+            @Query("status") String status);
 
     /**
      * 每日盈亏列表
@@ -57,21 +57,20 @@ public interface IRecordService {
     Single<HttpResult<RecordMoney>> getMoneyRecordList(
             @FieldMap HashMap<String, String> hashMap);
 
-  /*  *//**
-     * 投注记录列表
-     * status：1-待开奖,2-未中奖,3-已中奖,4-挂起,5-已结算
-     *//*
-    @POST(UrlConfig.URL_ORDER_LIST)
-    @FormUrlEncoded
-    Single<HttpResult<MkOrderListEntity>> getBetRecordList(@FieldMap HashMap<String, String> hashMap);*/
 
     /**
      * 投注记录列表
      * status：1-待开奖,2-未中奖,3-已中奖,4-挂起,5-已结算
      */
-    @POST(UrlConfig.URL_ORDER_LIST)
-    @FormUrlEncoded
-    Single<HttpResult<RecordBet>> getBetRecordList(@FieldMap HashMap<String, String> hashMap);
+    @GET(UrlConfig.URL_ORDER_LIST)
+    Single<HttpResult<RecordBet>> getBetRecordList(
+            @Query("ticketId") String ticketId,
+            @Query("status") String status,
+            @Query("isLow") String isLow,
+            @Query("startDate") String startDate,
+            @Query("endDate") String endDate,
+            @Query("pageNum") String pageNum,
+            @Query("pageSize") String pageSize);
 
     /**
      * 投注记录详情

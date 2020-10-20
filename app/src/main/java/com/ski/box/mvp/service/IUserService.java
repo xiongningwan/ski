@@ -48,7 +48,7 @@ public interface IUserService {
      *
      * @return
      */
-    @POST(UrlConfig.URL_USER_INFO)
+    @GET(UrlConfig.URL_USER_INFO)
     Single<HttpResult<MemberDetailEntity>> getMemberDetails();
 
     /**

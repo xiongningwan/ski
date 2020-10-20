@@ -517,9 +517,9 @@ public class BetPresenter extends RxPresenter<BetContract.View> implements BetCo
 
     @Override
     public void getRecentBetList(String memberId, String status) {
-        Disposable disposable = mRecordModel.getBettingRecordTop(new Consumer<RecordRecent>() {
+        Disposable disposable = mRecordModel.getBettingRecordTop(new Consumer<RecordBet>() {
             @Override
-            public void accept(RecordRecent bean) throws Exception {
+            public void accept(RecordBet bean) throws Exception {
                 if ("0".equals(status) && bean != null) {
                     RxBus.get().post(EVENT_UPDATE_RECENT_NO, bean);
                 }

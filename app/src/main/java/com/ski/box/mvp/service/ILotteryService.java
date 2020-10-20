@@ -60,7 +60,6 @@ public interface ILotteryService {
     /**
      * 获取 开奖号码列表
      */
-    @Headers({CONTENT_TYPE_JSON})
-    @POST(UrlConfig.URL_TICKET_SOURCE_RESULT_LIST)
-    Single<HttpResult<List<LotteryNumBean>>> getLotteryNum(@Body RequestBody re);
+    @GET(UrlConfig.URL_TICKET_SOURCE_RESULT_LIST)
+    Single<HttpResult<List<LotteryNumBean>>> getLotteryNum(@Query("ticketId") String ticketId, @Query("num") String num);
 }

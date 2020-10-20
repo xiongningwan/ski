@@ -29,68 +29,38 @@ import io.reactivex.functions.Consumer;
 public class RecordModel extends BaseModel implements IRecordModel {
 
     @Override
-    public Disposable getBettingRecordTop(Consumer s, String memberId, String status) {
-        Single<RecordRecent> single = RetrofitHelper
-                .getService(IRecordService.class)
-                .getBettingRecordTop(/*memberId,*/ status)
-                .map(new HttpResultFunc<RecordRecent>());
-        return toSubscribe(single, s);
+    public Disposable getBettingRecordTop(Consumer s, String ticketId, String status) {
+//        Single<RecordRecent> single = RetrofitHelper
+//                .getService(IRecordService.class)
+//                .getBettingRecordTop(/*memberId,*/ status)
+//                .map(new HttpResultFunc<RecordRecent>());
+//        return toSubscribe(single, s);
+
+        Single<RecordBet> map = RetrofitHelper.getService(IRecordService.class)
+                .getBetRecordList(
+                        ticketId,
+                        status,
+                        "",
+                        "",
+                        "",
+                        "1",
+                        "20"
+                ).map(new HttpResultFunc<>());
+        return toSubscribe(map, s);
     }
 
     @Override
     public Disposable getBetRecordData(RecordBetRequest request, Consumer s, Consumer e) {
-        HashMap<String, String> requestResult = new HashMap<>();
-        requestResult.put("pageNum", request.getPageNum() + "");
-        requestResult.put("pageSize", request.getPageSize() + "");
-        if (!TextUtils.isEmpty(request.getTicketId())) {
-            requestResult.put("ticketId", request.getTicketId());
-        }
-        if (request.getStatus() != null) {
-            requestResult.put("status", request.getStatus());
-        }
-        if (request.getIsLow() != null) {
-            requestResult.put("isLow", request.getIsLow());
-        }
-        if (request.getStartDate() != null) {
-            requestResult.put("startDate", request.getStartDate());
-        }
-        if (request.getEndDate() != null) {
-            requestResult.put("endDate", request.getEndDate());
-        }
-
-
-
-     /*   JSONObject requestResult = new JSONObject();
-        try {
-            requestResult.put("pageNum", request.getPageNum() + "");
-            requestResult.put("pageSize", request.getPageSize() + "");
-
-
-            if (!TextUtils.isEmpty(request.getTicketId())) {
-                requestResult.put("ticketId", request.getTicketId());
-            }
-            if (request.getStatus() != null) {
-                requestResult.put("status", request.getStatus());
-            }
-            if (request.getIsLow() != null) {
-                requestResult.put("isLow", request.getIsLow());
-            }
-            if (request.getStartDate() != null) {
-                requestResult.put("startDate", request.getStartDate());
-            }
-            if (request.getEndDate() != null) {
-                requestResult.put("endDate", request.getEndDate());
-            }
-        } catch (JSONException ex) {
-            ex.printStackTrace();
-        }*/
-
-
-      /*  RequestBody requestBody = RequestBody.create(MediaType.parse("application/json"),requestResult.toString());
-
-        Single<RecordBet> map = RetrofitHelper.getService(IRecordService.class).getBetRecordList(requestBody).map(new HttpResultFunc<>());*/
         Single<RecordBet> map = RetrofitHelper.getService(IRecordService.class)
-                .getBetRecordList(requestResult).map(new HttpResultFunc<>());
+                .getBetRecordList(
+                        request.getTicketId(),
+                        request.getStatus(),
+                        request.getIsLow(),
+                        request.getStartDate(),
+                        request.getEndDate(),
+                        String.valueOf(request.getPageNum()),
+                        request.getPageSize()
+                ).map(new HttpResultFunc<>());
         return toSubscribe(map, s, e);
     }
 
