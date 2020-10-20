@@ -241,6 +241,13 @@ public class LotteryDialog {
         void leftButton();
     }
 
+    public LightReminder lightReminder;
+    public void showLightReminder(Context context, View targeView, String text) {
+        View inflateView = LayoutInflater.from(targeView.getContext()).inflate(R.layout.ski_pub_light_remind, null, false);
+        TextView tv_content = inflateView.findViewById(R.id.tv_content);
+        tv_content.setText(text);
+        lightReminder = new LightReminder(targeView, inflateView).show();
+    }
 
 
 }

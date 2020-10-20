@@ -15,6 +15,7 @@ import com.ski.box.bean.AlertConfigurationBean;
 import com.ski.box.bean.DataCenter;
 import com.ski.box.bean.DateBean;
 import com.ski.box.bean.ErrorBean;
+import com.ski.box.bean.LongDragonPushInfoEntity;
 import com.ski.box.bean.LotteryNumBean;
 import com.ski.box.bean.MemberDetailEntity;
 import com.ski.box.bean.MkBetParamEntity;
@@ -43,6 +44,7 @@ import com.ski.box.utils.lottery.LotteryTimeUtil;
 import com.ski.box.utils.lottery.SettingManager;
 import com.ski.box.view.fragment.bet.bottom.BetDanShiDialog;
 import com.ski.box.view.fragment.bet.bottom.BetFuShiDialog;
+import com.ski.box.view.fragment.bet.bottom.QuickBetDialog;
 import com.ski.box.view.view.BetBottomView;
 import com.ski.box.view.view.dialog.LoadingDialog;
 import com.ski.box.view.view.dialog.LotteryDialog;
@@ -79,6 +81,7 @@ public class BetPresenter extends RxPresenter<BetContract.View> implements BetCo
     //    private LotteryDialog mTipDialog;
     private BetDanShiDialog mBetDanShiDialog; // 立即投注单式弹窗
     private BetFuShiDialog mBetFuShiDialog; // 立即投注复试弹窗
+    private QuickBetDialog mQuickBetDialog;// 路子图，长龙快速投注弹窗
     public int mSaleStatus = 0;
 
     public BetPresenter(Context context) {
@@ -164,6 +167,28 @@ public class BetPresenter extends RxPresenter<BetContract.View> implements BetCo
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    //路子图
+    @Override
+    public void showQuickBet(int lotteryId, String planId, int isBet, String title) {
+        if (mQuickBetDialog != null) {
+            mQuickBetDialog.dismiss();
+            mQuickBetDialog = null;
+        }
+        mQuickBetDialog = new QuickBetDialog(mContext, title);
+        mQuickBetDialog.show();
+    }
+
+    //长龙提醒，
+    @Override
+    public void showLongDragonBet(int lotteryId, String planId, LongDragonPushInfoEntity infoEntity) {
+//        if (longDragonBetDialog != null) {
+//            longDragonBetDialog.dismiss();
+//            longDragonBetDialog = null;
+//        }
+//        longDragonBetDialog = new LongDragonBetDialog(mContext, infoEntity);
+//        longDragonBetDialog.show();
     }
 
 
@@ -388,10 +413,10 @@ public class BetPresenter extends RxPresenter<BetContract.View> implements BetCo
     }
 
     private void onDestroyDialog() {
-//        if (mQuickBetDialog != null) {
-//            mQuickBetDialog.dismiss();
-//            mQuickBetDialog = null;
-//        }
+        if (mQuickBetDialog != null) {
+            mQuickBetDialog.dismiss();
+            mQuickBetDialog = null;
+        }
 //        if (mShoppingDialog != null) {
 //            mShoppingDialog.dismiss();
 //            mShoppingDialog = null;
@@ -527,6 +552,8 @@ public class BetPresenter extends RxPresenter<BetContract.View> implements BetCo
         }, memberId, status);
         addDisposable(disposable);
     }
+
+
 
 }
 

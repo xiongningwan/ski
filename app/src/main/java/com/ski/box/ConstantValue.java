@@ -25,6 +25,7 @@ public interface ConstantValue {
     String EVENT_RESULT_HISTORY_LIST_UPDATE = "event_result_history_list_update";
     // 路子图左侧菜单点击
     String EVENT_ROAD_LEFT_BUTTON_CLICK = "event_road_left_button_click";
+    String EVENT_TYPE_QUICK_BET_CLICK = "event_type_quick_bet_right_click";
     // sp
     String SP_DOUBLE_QUICK_MONEY_DEFAULT_LIST = "double_default_money_list"; // 快捷金额 默认金额列表
     String SP_DOUBLE_QUICK_MONEY_DEFAULT_SELECTED = "double_default_money_selected"; // 快捷金额 默认选中金额

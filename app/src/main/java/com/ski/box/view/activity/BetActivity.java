@@ -11,6 +11,7 @@ import com.gyf.immersionbar.ImmersionBar;
 import com.hwangjr.rxbus.RxBus;
 import com.hwangjr.rxbus.annotation.Subscribe;
 import com.hwangjr.rxbus.annotation.Tag;
+import com.ski.box.ConstantValue;
 import com.ski.box.R;
 import com.ski.box.bean.DataCenter;
 import com.ski.box.bean.LotteryNumBean;
@@ -34,6 +35,7 @@ import static com.ski.box.ConstantValue.EVENT_TYPE_BALANCE_SET;
 import static com.ski.box.ConstantValue.EVENT_TYPE_BET_RiGHT_NOW_CLICK;
 import static com.ski.box.ConstantValue.EVENT_TYPE_CHANGE_OPEN_RESULT_HISTORY;
 import static com.ski.box.ConstantValue.EVENT_TYPE_CLOSE_RESULT_HISTORY;
+import static com.ski.box.ConstantValue.EVENT_TYPE_QUICK_BET_CLICK;
 import static com.ski.box.bean.lottery.LotteryConstant.LOTTERY_PLAY_MODE_DOUBLE;
 
 public class BetActivity extends BaseBetActivity {
@@ -174,6 +176,12 @@ public class BetActivity extends BaseBetActivity {
         if (LOTTERY_PLAY_MODE_DOUBLE == entity.getPlayMode()) {
             mPresenter.betSubmit(entity);
         }
+    }
+
+    //路子图快速投注
+    @Subscribe(tags = {@Tag(EVENT_TYPE_QUICK_BET_CLICK)})
+    public void showQuickBet(String title) {
+        mPresenter.showQuickBet(mLotteryId, mPlanId, ConstantValue.SUBMIT_MODE_BET, title);
     }
 
     // 推送最新的开奖结果

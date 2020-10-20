@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ll_fast_tou_zhu"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/ski_dp_5"
+    android:paddingBottom="@dimen/ski_dp_3"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/cb_first_touzhu_dragon"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/ski_dp_25"
+        android:button="@null"
+        android:gravity="center"
+        android:textColor="@color/ski_333333_white_text_color"
+        android:textSize="15dp"
+        tools:text="大" />
+
+    <TextView
+        android:id="@+id/tv_odds"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textSize="11dp"
+        tools:text="1.950" />
+</LinearLayout>

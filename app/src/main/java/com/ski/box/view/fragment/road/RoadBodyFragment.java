@@ -49,6 +49,7 @@ import java.util.Objects;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import static com.ski.box.ConstantValue.EVENT_TYPE_QUICK_BET_CLICK;
 
 
 /**
@@ -853,8 +854,8 @@ public class RoadBodyFragment extends BaseFragment {
         int index = view.getId() == R.id.layout_bet1 ? 0 : 1;
         Integer[] ids = mRoadSub.getRoadPlayIds();
         List<BallBean> odds = PlayUtil.getRoadOdds(ids, index);
-    //    DataCenter.getInstance().setBallBeanList(odds);
-   //     RxBus.get().post(EVENT_TYPE_QUICK_BET_CLICK, mRoadTitle.getTitle() + mRoadSub.getSubTitle());
+        DataCenter.getInstance().setBallBeanList(odds);
+        RxBus.get().post(EVENT_TYPE_QUICK_BET_CLICK, mRoadTitle.getTitle() + mRoadSub.getSubTitle());
     }
 
 

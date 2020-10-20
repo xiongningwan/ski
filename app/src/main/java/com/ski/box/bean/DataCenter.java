@@ -54,6 +54,7 @@ public class DataCenter {
     private Map<Integer, String> mLotteryPlanMap = new ConcurrentHashMap<>();
     private Map<Integer, List<LotteryNumBean>> mLotteryHistoryMap = new HashMap<>();//历史开奖
     private MemberDetailEntity balance;
+    private List<BallBean> ballBeanList;   // 路子图,快捷投注数据
 
     public static DataCenter getInstance() {
         if (instance == null) {
@@ -402,5 +403,13 @@ public class DataCenter {
                 LotteryTimeUtil.addLotteryIds(ticket.getTicketId());
             }
         }
+    }
+
+    public List<BallBean> getBallBeanList() {
+        return ballBeanList;
+    }
+
+    public void setBallBeanList(List<BallBean> ballBeanList) {
+        this.ballBeanList = ballBeanList;
     }
 }

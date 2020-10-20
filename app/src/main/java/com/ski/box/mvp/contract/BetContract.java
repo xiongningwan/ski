@@ -1,6 +1,7 @@
 package com.ski.box.mvp.contract;
 
 
+import com.ski.box.bean.LongDragonPushInfoEntity;
 import com.ski.box.bean.LotteryNumBean;
 import com.ski.box.bean.MemberDetailEntity;
 import com.ski.box.bean.MkBetParamEntity;
@@ -26,6 +27,12 @@ public interface BetContract {
 
 
         void setSaleStatus(int setSaleStatus);
+
+
+        //路子图 投注
+        void showQuickBet(int lotteryId, String planId, int isBet, String title);
+
+        void showLongDragonBet(int lotteryId, String planId, LongDragonPushInfoEntity infoEntity);
 
         //快速投注
         void showBetRightNow(BetBottomView betBottomView);
