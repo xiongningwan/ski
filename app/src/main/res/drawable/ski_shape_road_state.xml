@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/ski_road_state_solid"></solid>
+
+            <corners android:radius="@dimen/ski_dp_4"></corners>
+            <stroke
+                android:width="@dimen/ski_dp_1"
+                android:color="@color/ski_road_state_border"></stroke>
+        </shape>
+    </item>
+</layer-list>

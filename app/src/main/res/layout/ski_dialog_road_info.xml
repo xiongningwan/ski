@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_centerInParent="true"
+    android:gravity="center">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/dialog_cold_hot_miss_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_centerInParent="true"
+        android:background="@drawable/ski_shape_road_info"
+        android:padding="@dimen/ski_dp_20">
+
+        <TextView
+            android:id="@+id/txt_title"
+            style="@style/WrapWrap"
+            android:text="@string/ski_road_info"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:textColor="#535D76"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txt_info1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14dp"
+            android:gravity="center_vertical"
+            android:textColor="#535D76"
+            android:layout_marginTop="@dimen/ski_dp_14"
+            android:text="@string/ski_road_info1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_title" />
+
+        <TextView
+            android:id="@+id/txt_state1"
+            android:textSize="14dp"
+            android:gravity="center_vertical"
+            android:layout_width="@dimen/ski_dp_80"
+            android:layout_height="@dimen/ski_dp_28"
+            android:layout_marginTop="@dimen/ski_dp_15"
+            android:background="@drawable/ski_shape_road_state"
+            android:paddingLeft="@dimen/ski_dp_10"
+            tools:text="@string/ski_road_info5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_info1" />
+
+        <TextView
+            android:id="@+id/txt_info2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14dp"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="@dimen/ski_dp_4"
+            android:text="@string/ski_road_info2"
+            android:textColor="#969cbf"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_state1"
+            app:layout_constraintStart_toEndOf="@+id/txt_state1"
+            app:layout_constraintTop_toTopOf="@+id/txt_state1" />
+
+        <TextView
+            android:id="@+id/txt_info3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14dp"
+            android:gravity="center_vertical"
+            android:layout_marginTop="@dimen/ski_dp_12"
+            android:text="@string/ski_road_info3"
+            android:textColor="#969cbf"
+            app:layout_constraintStart_toStartOf="@+id/txt_state1"
+            app:layout_constraintTop_toBottomOf="@+id/txt_state1" />
+
+        <TextView
+            android:id="@+id/txt_title6"
+            android:textSize="14dp"
+            android:layout_width="@dimen/ski_dp_32"
+            android:layout_height="@dimen/ski_dp_24"
+            android:layout_marginLeft="@dimen/ski_dp_4"
+            android:background="@drawable/ski_shape_road_state"
+            android:gravity="center"
+            tools:text="O"
+            android:textColor="@color/ski_red"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_info3"
+            app:layout_constraintStart_toEndOf="@+id/txt_info3"
+            app:layout_constraintTop_toTopOf="@+id/txt_info3" />
+
+        <TextView
+            android:id="@+id/txt_info4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14dp"
+            android:gravity="center_vertical"
+            android:textColor="#969cbf"
+            android:layout_marginTop="@dimen/ski_dp_16"
+            android:text="@string/ski_road_info4"
+            app:layout_constraintStart_toStartOf="@+id/txt_info1"
+            app:layout_constraintTop_toBottomOf="@+id/txt_info3" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/dialog_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/dialog_cold_hot_miss_content"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:background="@mipmap/ski_ic_dialog_close" />
+</RelativeLayout>

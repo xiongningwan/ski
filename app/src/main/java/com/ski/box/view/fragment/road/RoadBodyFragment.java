@@ -31,6 +31,7 @@ import com.ski.box.bean.road.RoadBean;
 import com.ski.box.bean.road.RoadFactory;
 import com.ski.box.bean.road.RoadSub;
 import com.ski.box.bean.road.RoadTitle;
+import com.ski.box.view.view.dialog.zd.ZDialog;
 import com.yb.core.base.BaseFragment;
 import com.yb.core.utils.AppUtil;
 import com.yb.core.utils.SPUtils;
@@ -48,7 +49,6 @@ import java.util.Objects;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import static com.ski.box.ConstantValue.EVENT_ROAD_LEFT_BUTTON_CLICK;
 
 
 /**
@@ -97,7 +97,7 @@ public class RoadBodyFragment extends BaseFragment {
     private String positiveKey, negativeKey;
     private int index1, index2, index3, index4;
     private Timer mTimer;
-//    private ZDialog askWay;
+    private ZDialog askWay;
 
     private boolean isFirstLoad = true, isFuture = true, isExistBig = true, isExistSmall = true, isExistBug = true;
     private RoadSub mRoadSub;
@@ -125,6 +125,98 @@ public class RoadBodyFragment extends BaseFragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
+        clearTimer();
+        try {
+            RxBus.get().unregister(this);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        if (mTabLayout_2 != null) {
+            mTabLayout_2.removeAllTabs();
+            mTabLayout_2 = null;
+        }
+        if (mRv1 != null) {
+            mRv1.removeAllViews();
+            mRv1 = null;
+        }
+        if (mRv2 != null) {
+            mRv2.removeAllViews();
+            mRv2 = null;
+        }
+        if (mRv3 != null) {
+            mRv3.removeAllViews();
+            mRv3 = null;
+        }
+        if (mRv4 != null) {
+            mRv4.removeAllViews();
+            mRv4 = null;
+        }
+        if (mAdapters1 != null) {
+            for (Rv1Adapter adapter : mAdapters1) {
+                adapter = null;
+            }
+            mAdapters1.clear();
+            mAdapters1 = null;
+        }
+        if (mAdapters2 != null) {
+            for (Rv2Adapter adapter : mAdapters2) {
+                adapter = null;
+            }
+            mAdapters2.clear();
+            mAdapters2 = null;
+        }
+        if (mAdapters3 != null) {
+            for (Rv3Adapter adapter : mAdapters3) {
+                adapter = null;
+            }
+            mAdapters3.clear();
+            mAdapters3 = null;
+        }
+        if (mAdapters4 != null) {
+            for (Rv4Adapter adapter : mAdapters4) {
+                adapter = null;
+            }
+            mAdapters4.clear();
+            mAdapters4 = null;
+        }
+        if (mTimer != null) {
+            mTimer.cancel();
+            mTimer = null;
+        }
+        if (askWay != null) {
+            askWay.dismiss();
+            askWay = null;
+        }
+        if (mCheckAllPopup != null) {
+            mCheckAllPopup.dismiss();
+            mCheckAllPopup = null;
+        }
+        if (mRoadSub != null) {
+            mRoadSub = null;
+        }
+
+        mCheckAllLayout = null;
+        mViewFlag = null;
+        bet1 = null;
+        bet2 = null;
+        txtBet1 = null;
+        txtBet2 = null;
+        txtOdd1 = null;
+        txtOdd2 = null;
+        tvInfo = null;
+        mPositiveBigEye = null;
+        mPositiveSmall = null;
+        mPositiveBug = null;
+        mNegativeBigEye = null;
+        mNegativeSmall = null;
+        mNegativeBug = null;
+        mPositiveBigEyeImage = null;
+        mPositiveSmallImage = null;
+        mPositiveBugImage = null;
+        mNegativeBigEyeImage = null;
+        mNegativeSmallImage = null;
+        mNegativeBugImage = null;
+        mRoadTitle = null;
     }
 
     @Override
@@ -299,36 +391,36 @@ public class RoadBodyFragment extends BaseFragment {
      * @param view
      */
     private void askWayInfo(View view) {
-//        if (askWay != null) {
-//            askWay = null;
-//        }
-//        ZDialog.Builder builder = new ZDialog.Builder(getChildFragmentManager())
-//                .setLayoutRes(R.layout.ski_dialog_road_info)
-//                .setScreenWidthAspect(AppUtil.getContext(), 0.8f)
-//                .setScreenHeightAspect(AppUtil.getContext(), 0.4f)
-//                .setGravity(Gravity.CENTER)
-//                .setDimAmount(0.8f)
-//                .setCancelableOutside(false);
-//        palyDescribBind(builder);
-//        askWay = builder.create();
-//        askWay.show();
+        if (askWay != null) {
+            askWay = null;
+        }
+        ZDialog.Builder builder = new ZDialog.Builder(getChildFragmentManager())
+                .setLayoutRes(R.layout.ski_dialog_road_info)
+                .setScreenWidthAspect(AppUtil.getContext(), 0.8f)
+                .setScreenHeightAspect(AppUtil.getContext(), 0.5f)
+                .setGravity(Gravity.CENTER)
+                .setDimAmount(0.8f)
+                .setCancelableOutside(false);
+        palyDescribBind(builder);
+        askWay = builder.create();
+        askWay.show();
     }
 
-//    private void palyDescribBind(ZDialog.Builder builder) {
-//        builder.setOnBindViewListener(viewHolder -> {
-//            viewHolder.setText(R.id.txt_state1,
-//                    Html.fromHtml("下期<font color='#e35555'>大 O</font>"));
-//            viewHolder.setText(
-//                    R.id.txt_title6,
-//                    Html.fromHtml("<font color='#e35555'>O</font>")
-//            );
-//            viewHolder.getView(R.id.dialog_close).setOnClickListener(v -> {
-//                if (askWay != null) {
-//                    askWay.dismiss();
-//                }
-//            });
-//        });
-//    }
+    private void palyDescribBind(ZDialog.Builder builder) {
+        builder.setOnBindViewListener(viewHolder -> {
+            viewHolder.setText(R.id.txt_state1,
+                    Html.fromHtml("下期<font color='#e35555'>大 O</font>"));
+            viewHolder.setText(
+                    R.id.txt_title6,
+                    Html.fromHtml("<font color='#e35555'>O</font>")
+            );
+            viewHolder.getView(R.id.dialog_close).setOnClickListener(v -> {
+                if (askWay != null) {
+                    askWay.dismiss();
+                }
+            });
+        });
+    }
 
     /*问路监听*/
     private void initListener() {
@@ -352,11 +444,6 @@ public class RoadBodyFragment extends BaseFragment {
         });
     }
 
-    // 左侧菜单栏点击
-    @Subscribe(tags = {@Tag(EVENT_ROAD_LEFT_BUTTON_CLICK)})
-    public void leftClick(Integer leftPosition) {
-        mLeftPosition = leftPosition;
-    }
 
 
     /*二级栏目Tab*/
@@ -417,7 +504,8 @@ public class RoadBodyFragment extends BaseFragment {
     }
 
     /*更新数据*/
-    public void updateData(RoadTitle roadTitle) {
+    public void updateData(int leftPosition,RoadTitle roadTitle) {
+        mLeftPosition = leftPosition;
         mRoadTitle = roadTitle;
         mAdapters1.clear();
         mAdapters2.clear();

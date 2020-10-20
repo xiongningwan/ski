@@ -145,7 +145,7 @@ public class RoadFragment extends BaseMVPFragment<RoadContract.Presenter> implem
     public void onRoadLoadSuccess(List<RoadTitle> roadTitles) {
         refreshLayout.finishRefresh();
         isLoadFinished = true;
-        roadBodyFragment.updateData(roadTitles.get(mLeftPosition));
+        roadBodyFragment.updateData(mLeftPosition, roadTitles.get(mLeftPosition));
         roadBodyFragment.fragmentSelected();
     }
 
@@ -163,19 +163,15 @@ public class RoadFragment extends BaseMVPFragment<RoadContract.Presenter> implem
             @Override
             public void onTabSelected(TabView tab, int position, boolean isOnclick) {
                 mLeftPosition = position;
-//
-//                roadBodyFragment.updateData(roadTitles.get(position));
-//
-//                // 左侧菜单栏点击
-//                RxBus.get().post(EVENT_ROAD_LEFT_BUTTON_CLICK, new Integer(mLeftPosition));
-//                savePosition_title(position);
-//                if (null != roadBodyFragment) {
-//                    /*清空问路状态*/
-//                    roadBodyFragment.clearState();
-//                }
-//                if (isLoadFinished) {
-//                    roadBodyFragment.fragmentSelected();
-//                }
+                roadBodyFragment.updateData(mLeftPosition,roadTitles.get(position));
+                savePosition_title(position);
+                if (null != roadBodyFragment) {
+                    /*清空问路状态*/
+                    roadBodyFragment.clearState();
+                }
+                if (isLoadFinished) {
+                    roadBodyFragment.fragmentSelected();
+                }
             }
 
             @Override
