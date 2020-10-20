@@ -46,7 +46,8 @@
             android:layout_width="match_parent"
             app:srlAccentColor="#00000000"
             app:srlEnablePreviewInEditMode="true"
-            app:srlPrimaryColor="#00000000">
+            app:srlPrimaryColor="#00000000"
+            app:srlEnableLoadMore="false">
             <com.scwang.smartrefresh.layout.header.ClassicsHeader style="@style/MatchWrap" />
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="wrap_content"
