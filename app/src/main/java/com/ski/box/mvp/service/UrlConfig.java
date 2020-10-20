@@ -112,7 +112,7 @@ public final class UrlConfig {
      * 投注记录列表
      * POST
      */
-    public static final String URL_ORDER_LIST = "coron/ticketmod/orderList";
+    public static final String URL_ORDER_LIST = "cashew/ticketmod/orderList";
 
     /**
      * 投注记录详情
@@ -185,7 +185,7 @@ public final class UrlConfig {
      * <p>
      * GET
      */
-    public static final String URL_ORDERS_TOP = "coron/ticketmod/ordersTop";
+    public static final String URL_ORDERS_TOP = "cashew/ticketmod/ordersTop";
 
     /**
      * 标椎盘冷热遗漏

@@ -29,24 +29,12 @@ import io.reactivex.functions.Consumer;
 public class RecordModel extends BaseModel implements IRecordModel {
 
     @Override
-    public Disposable getBettingRecordTop(Consumer s, String ticketId, String status) {
-//        Single<RecordRecent> single = RetrofitHelper
-//                .getService(IRecordService.class)
-//                .getBettingRecordTop(/*memberId,*/ status)
-//                .map(new HttpResultFunc<RecordRecent>());
-//        return toSubscribe(single, s);
-
-        Single<RecordBet> map = RetrofitHelper.getService(IRecordService.class)
-                .getBetRecordList(
-                        ticketId,
-                        status,
-                        "",
-                        "",
-                        "",
-                        "1",
-                        "20"
-                ).map(new HttpResultFunc<>());
-        return toSubscribe(map, s);
+    public Disposable getBettingRecordTop(Consumer s, String memberId, String status) {
+        Single<RecordRecent> single = RetrofitHelper
+                .getService(IRecordService.class)
+                .getBettingRecordTop(/*memberId,*/ status)
+                .map(new HttpResultFunc<RecordRecent>());
+        return toSubscribe(single, s);
     }
 
     @Override

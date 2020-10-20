@@ -20,6 +20,7 @@ import retrofit2.http.Field;
 import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.Headers;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
 
@@ -30,9 +31,10 @@ public interface IRecordService {
      * memberId 暂时传空
      * status 0
      */
-    @GET(UrlConfig.URL_ORDERS_TOP)
+    @POST(UrlConfig.URL_ORDERS_TOP)
+    @FormUrlEncoded
     Single<HttpResult<RecordRecent>> getBettingRecordTop(
-            @Query("status") String status);
+            @Field("status") String status);
 
     /**
      * 每日盈亏列表
