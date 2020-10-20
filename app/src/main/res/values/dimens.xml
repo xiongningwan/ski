@@ -4,6 +4,9 @@
     <dimen name="ski_tab_bar_height">56dp</dimen>
     <dimen name="ski_stroke_w">2dp</dimen>
 
+    <dimen name="ski_arrow_size_w">5.9dp</dimen>
+    <dimen name="ski_arrow_size_h">10dp</dimen>
+
 
     <dimen name="ski_dp_0">0dp</dimen>
     <dimen name="ski_dp_0_1">0.1dp</dimen>

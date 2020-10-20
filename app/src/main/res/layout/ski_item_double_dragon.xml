@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootview"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/ski_dp_60"
+    android:background="@drawable/ski_bg_ffffff_6dp_uncheck"
+    android:paddingLeft="@dimen/ski_dp_13">
+
+    <TextView
+        android:id="@+id/tv_name_d_dragon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:lines="1"
+        android:textColor="@color/ski_long_dragon_999999_color"
+        android:textSize="@dimen/ski_dp_14"
+        app:layout_constraintBottom_toTopOf="@+id/tv_play_d_dragon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:text="重庆时时彩" />
+
+    <TextView
+        android:id="@+id/tv_play_d_dragon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/ski_dp_2"
+        android:ellipsize="end"
+        android:lines="1"
+        android:textColor="@color/ski_long_dragon_3b3b3b_color"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tv_name_d_dragon"
+        app:layout_constraintTop_toBottomOf="@+id/tv_name_d_dragon"
+        tools:text="第一球-大" />
+
+
+    <LinearLayout
+        android:id="@+id/ll_period_d_dragon"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingRight="@dimen/ski_dp_6"
+        app:layout_constraintTop_toTopOf="@+id/tv_play_d_dragon"
+        app:layout_constraintEnd_toStartOf="@+id/iv_arrow_right"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_play_d_dragon"
+        android:gravity="top">
+        <TextView
+            android:id="@+id/tv_key1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/ski_long_dragon_999999_color"
+            android:textSize="14dp"
+            android:gravity="top"
+            tools:text="连出" />
+        <TextView
+            android:id="@+id/tv_period_d_dragon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ea6464"
+            android:paddingLeft="@dimen/ski_dp_2"
+            android:paddingRight="@dimen/ski_dp_2"
+            android:textSize="18dp"
+            android:gravity="top"
+            tools:text="8" />
+        <TextView
+            android:id="@+id/tv_key2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/ski_long_dragon_999999_color"
+            android:textSize="14dp"
+            android:gravity="top"
+            tools:text="期" />
+
+    </LinearLayout>
+
+    <com.yabo.cpsdk.view.view.CountdownLongDragonTextView
+        android:id="@+id/ctv_d_dragon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingRight="@dimen/ski_dp_6"
+        android:text="00:00:00"
+        android:textColor="@color/ski_long_dragon_999999_color"
+        android:textSize="@dimen/ski_dp_14"
+        android:gravity="center"
+        app:layout_constraintRight_toRightOf="@+id/ll_period_d_dragon"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_name_d_dragon"
+        app:layout_constraintTop_toTopOf="@+id/tv_name_d_dragon"
+        />
+
+    <ImageView
+        android:id="@+id/iv_arrow_right"
+        android:layout_width="@dimen/ski_arrow_size_w"
+        android:layout_height="@dimen/ski_arrow_size_h"
+        android:layout_marginEnd="10dp"
+        android:src="@mipmap/ski_icon_right"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

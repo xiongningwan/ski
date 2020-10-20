@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/ski_dp_53"
+    android:id="@+id/rootview"
+    android:background="@drawable/ski_bg_ffffff_6dp_uncheck"
+    android:paddingLeft="@dimen/ski_dp_13">
+
+
+    <TextView
+        android:id="@+id/tv_play_d_dragon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:lines="1"
+        android:textColor="#3b3b3b"
+        android:textSize="@dimen/ski_dp_16"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tv_name_d_dragon"
+        tools:text="第一球-大" />
+
+
+    <LinearLayout
+        android:id="@+id/ll_period_d_dragon"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginEnd="@dimen/ski_dp_7"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/iv_arrow_right"
+        android:gravity="center">
+        <TextView
+            android:id="@+id/tv_key1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/ski_long_dragon_999999_color"
+            android:textSize="14dp"
+            tools:text="连出" />
+        <TextView
+            android:id="@+id/tv_period_d_dragon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ea6464"
+            android:paddingLeft="@dimen/ski_dp_2"
+            android:paddingRight="@dimen/ski_dp_2"
+            android:textSize="18dp"
+            tools:text="8" />
+        <TextView
+            android:id="@+id/tv_key2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/ski_long_dragon_999999_color"
+            android:textSize="14dp"
+            tools:text="期" />
+
+    </LinearLayout>
+
+
+    <ImageView
+        android:id="@+id/iv_arrow_right"
+        android:layout_width="@dimen/ski_arrow_size_w"
+        android:layout_height="@dimen/ski_arrow_size_h"
+        android:layout_marginEnd="10dp"
+        android:src="@mipmap/ski_icon_right"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

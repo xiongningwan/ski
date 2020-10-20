@@ -222,6 +222,10 @@ public final class UrlConfig {
      */
     public static final String URL_GET_SERVICE_TIME = "https://date.bobcp.vip/date";
 
+    /**
+     * Keno 分页获取订单列表
+     */
+    public static final String URL_KENO_ORDER_LIST = "/coron/ticketmod/kenoOrderList";
 
     /**
      * Keno 获取特色详情

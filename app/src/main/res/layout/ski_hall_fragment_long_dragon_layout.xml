@@ -10,7 +10,7 @@
         android:id="@+id/view_empty"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="visible"
+        android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@+id/dragon_miss_bottom_view"
         app:layout_constraintTop_toTopOf="parent">
 
