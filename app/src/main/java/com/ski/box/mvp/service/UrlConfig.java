@@ -214,7 +214,7 @@ public final class UrlConfig {
      * 2：长龙提醒
      * GET
      */
-    public static final String URL_LONG_DRAGON_PUSH_INFO = "coron/ticketmod/remindTop";
+    public static final String URL_LONG_DRAGON_PUSH_INFO = "cashew/ticketmod/remindTop";
 
     /**
      * 服务器时间

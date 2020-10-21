@@ -16,9 +16,11 @@ import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.URLSpan;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.core.content.ContextCompat;
 
@@ -250,4 +252,20 @@ public class LotteryDialog {
     }
 
 
+    Toast toastReminder;
+
+    public void showCenterRemind(Context context, String text) {
+        if (toastReminder != null) {
+            toastReminder.cancel();
+        }
+        View v = LayoutInflater.from(context).inflate(R.layout.ski_eplay_toast, null);
+        TextView textView = v.findViewById(R.id.textView1);
+        textView.setText(text);
+        toastReminder = new Toast(context);
+        toastReminder.setDuration(Toast.LENGTH_SHORT);
+        toastReminder.setView(v);
+        toastReminder.setGravity(Gravity.CENTER, 0, 0);
+        toastReminder.show();
+
+    }
 }

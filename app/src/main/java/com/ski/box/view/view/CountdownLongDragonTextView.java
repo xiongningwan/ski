@@ -18,6 +18,8 @@ import com.ski.box.bean.DataCenter;
 import com.ski.box.service.AlarmService;
 import com.ski.box.utils.lottery.LotteryNoUtil;
 
+import static com.ski.box.ConstantValue.EVENT_DRAGON_ITEM_REQUEST_COUNT_DOWN;
+
 
 public class CountdownLongDragonTextView extends AppCompatTextView {
     private Context mContext;
@@ -57,7 +59,7 @@ public class CountdownLongDragonTextView extends AppCompatTextView {
                 setTextColor(Color.parseColor(time >= 1000 && time < 6000 ? colorRed : colorNormal));
 
                 if(0 == time) {
-                   // RxBus.get().post(EVENT_DRAGON_ITEM_REQUEST_COUNT_DOWN,new Integer(mTicketId));
+                    RxBus.get().post(EVENT_DRAGON_ITEM_REQUEST_COUNT_DOWN,new Integer(mTicketId));
                 }
             }
 //            else {

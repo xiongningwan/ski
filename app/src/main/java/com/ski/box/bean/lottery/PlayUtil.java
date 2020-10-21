@@ -561,34 +561,5 @@ public class PlayUtil {
         return codes;
     }
 
-    public static List<Integer> addTicketIdList(List<Integer> mTicketIdList) {
-        mTicketIdList.clear();
-        int seriesId = DataCenter.getInstance().getLotterySeriesId();
-        List<LotterySer> mLotterySers = DataCenter.getInstance().getLottery();
-        if (LotteryConstant.SER_ID_PL35 == seriesId) { // 特别处理 pl35
-            for (int i = 0; i < mLotterySers.size(); i++) {
-                LotterySer lotterySer = mLotterySers.get(i);
-                List<LotteryBean> lotteryBeans = lotterySer.getList();
-                for (int j = 0; j < lotteryBeans.size(); j++) {
-                    LotteryBean lotteryBean = lotteryBeans.get(j);
-                    if(LotteryConstant.LOTTERY_ID_PL35_PL35 == lotteryBean.getTicketId()) {
-                        mTicketIdList.add(lotteryBean.getTicketId());
-                    }
-                }
-            }
-        } else {
-            for (int i = 0; i < mLotterySers.size(); i++) {
-                LotterySer lotterySer = mLotterySers.get(i);
-                if (seriesId == lotterySer.getId()) {
-                    List<LotteryBean> lotteryBeans = lotterySer.getList();
-                    for (int j = 0; j < lotteryBeans.size(); j++) {
-                        LotteryBean lotteryBean = lotteryBeans.get(j);
-                        mTicketIdList.add(lotteryBean.getTicketId());
-                    }
-                }
-            }
-        }
 
-        return mTicketIdList;
-    }
 }

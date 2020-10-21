@@ -76,7 +76,7 @@
 
     </LinearLayout>
 
-    <com.yabo.cpsdk.view.view.CountdownLongDragonTextView
+    <com.ski.box.view.view.CountdownLongDragonTextView
         android:id="@+id/ctv_d_dragon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -63,7 +63,7 @@
 
     <include layout="@layout/ski_layout_dragon_miss_bottom"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/ski_dp_93"
+        android:layout_height="@dimen/ski_dp_45"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -26,6 +26,9 @@ public interface ConstantValue {
     // 路子图左侧菜单点击
     String EVENT_ROAD_LEFT_BUTTON_CLICK = "event_road_left_button_click";
     String EVENT_TYPE_QUICK_BET_CLICK = "event_type_quick_bet_right_click";
+    // 长龙列表子项 请求倒计时
+    String EVENT_DRAGON_ITEM_REQUEST_COUNT_DOWN = "event_dragon_item_request_count_down";
+
     // sp
     String SP_DOUBLE_QUICK_MONEY_DEFAULT_LIST = "double_default_money_list"; // 快捷金额 默认金额列表
     String SP_DOUBLE_QUICK_MONEY_DEFAULT_SELECTED = "double_default_money_selected"; // 快捷金额 默认选中金额
