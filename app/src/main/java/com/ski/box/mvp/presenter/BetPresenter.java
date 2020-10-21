@@ -44,6 +44,7 @@ import com.ski.box.utils.lottery.LotteryTimeUtil;
 import com.ski.box.utils.lottery.SettingManager;
 import com.ski.box.view.fragment.bet.bottom.BetDanShiDialog;
 import com.ski.box.view.fragment.bet.bottom.BetFuShiDialog;
+import com.ski.box.view.fragment.bet.bottom.LongDragonBetDialog;
 import com.ski.box.view.fragment.bet.bottom.QuickBetDialog;
 import com.ski.box.view.view.BetBottomView;
 import com.ski.box.view.view.dialog.LoadingDialog;
@@ -81,7 +82,8 @@ public class BetPresenter extends RxPresenter<BetContract.View> implements BetCo
     //    private LotteryDialog mTipDialog;
     private BetDanShiDialog mBetDanShiDialog; // 立即投注单式弹窗
     private BetFuShiDialog mBetFuShiDialog; // 立即投注复试弹窗
-    private QuickBetDialog mQuickBetDialog;// 路子图，长龙快速投注弹窗
+    private QuickBetDialog mQuickBetDialog;// 路子图快速投注弹窗
+    private LongDragonBetDialog longDragonBetDialog; // 长龙快速投注弹窗
     public int mSaleStatus = 0;
 
     public BetPresenter(Context context) {
@@ -183,12 +185,12 @@ public class BetPresenter extends RxPresenter<BetContract.View> implements BetCo
     //长龙提醒，
     @Override
     public void showLongDragonBet(int lotteryId, String planId, LongDragonPushInfoEntity infoEntity) {
-//        if (longDragonBetDialog != null) {
-//            longDragonBetDialog.dismiss();
-//            longDragonBetDialog = null;
-//        }
-//        longDragonBetDialog = new LongDragonBetDialog(mContext, infoEntity);
-//        longDragonBetDialog.show();
+        if (longDragonBetDialog != null) {
+            longDragonBetDialog.dismiss();
+            longDragonBetDialog = null;
+        }
+        longDragonBetDialog = new LongDragonBetDialog(mContext, infoEntity);
+        longDragonBetDialog.show();
     }
 
 
@@ -454,10 +456,10 @@ public class BetPresenter extends RxPresenter<BetContract.View> implements BetCo
             mBetFuShiDialog = null;
         }
         /*关闭长龙追号框*/
-//        if (longDragonBetDialog != null) {
-//            longDragonBetDialog.dismiss();
-//            longDragonBetDialog = null;
-//        }
+        if (longDragonBetDialog != null) {
+            longDragonBetDialog.dismiss();
+            longDragonBetDialog = null;
+        }
     }
 
     private void limitRed(View view, MkBetParamEntity entity, String exception) {

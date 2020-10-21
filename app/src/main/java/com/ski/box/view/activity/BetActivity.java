@@ -14,6 +14,7 @@ import com.hwangjr.rxbus.annotation.Tag;
 import com.ski.box.ConstantValue;
 import com.ski.box.R;
 import com.ski.box.bean.DataCenter;
+import com.ski.box.bean.LongDragonPushInfoEntity;
 import com.ski.box.bean.LotteryNumBean;
 import com.ski.box.bean.MemberDetailEntity;
 import com.ski.box.bean.MkBetParamEntity;
@@ -35,6 +36,7 @@ import static com.ski.box.ConstantValue.EVENT_TYPE_BALANCE_SET;
 import static com.ski.box.ConstantValue.EVENT_TYPE_BET_RiGHT_NOW_CLICK;
 import static com.ski.box.ConstantValue.EVENT_TYPE_CHANGE_OPEN_RESULT_HISTORY;
 import static com.ski.box.ConstantValue.EVENT_TYPE_CLOSE_RESULT_HISTORY;
+import static com.ski.box.ConstantValue.EVENT_TYPE_LONG_DRAGON_BET_CLICK;
 import static com.ski.box.ConstantValue.EVENT_TYPE_QUICK_BET_CLICK;
 import static com.ski.box.bean.lottery.LotteryConstant.LOTTERY_PLAY_MODE_DOUBLE;
 
@@ -183,6 +185,13 @@ public class BetActivity extends BaseBetActivity {
     public void showQuickBet(String title) {
         mPresenter.showQuickBet(mLotteryId, mPlanId, ConstantValue.SUBMIT_MODE_BET, title);
     }
+
+    //长龙投注
+    @Subscribe(tags = {@Tag(EVENT_TYPE_LONG_DRAGON_BET_CLICK)})
+    public void showLongDragonBet(LongDragonPushInfoEntity infoEntity) {
+        mPresenter.showLongDragonBet(mLotteryId, mPlanId, infoEntity);
+    }
+
 
     // 推送最新的开奖结果
     @Subscribe(tags = {@Tag(EVENT_OPEN_RESULT_UPDATE)})

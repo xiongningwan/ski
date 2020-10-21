@@ -17,9 +17,8 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/ski_dp_52"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
         android:text="投注确认"
-        android:textColor="@color/ski_black"
+        android:textColor="#666666"
         android:textSize="18dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -41,9 +40,8 @@
     <View
         android:id="@+id/line_top"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/ski_dp_1"
-        android:background="@color/ski_color_f8f8f8"
-        android:layerType="software"
+        android:layout_height="@dimen/ski_dp_0_5"
+        android:background="#e5e5e5"
         app:layout_constraintTop_toBottomOf="@+id/tv_title" />
 
     <com.ski.box.view.view.CustomConlationLayout
@@ -54,12 +52,12 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_title">
 
         <TextView
-            android:paddingLeft="@dimen/ski_dp_15"
-            android:paddingRight="@dimen/ski_dp_15"
             android:id="@+id/tv_ticketName_fast"
             android:layout_width="@dimen/ski_dp_0"
             android:layout_height="wrap_content"
-            android:textColor="@color/ski_color_535d76"
+            android:paddingLeft="@dimen/ski_dp_15"
+            android:paddingRight="@dimen/ski_dp_15"
+            android:textColor="#525d75"
             android:textSize="15dp"
             app:layout_constraintHorizontal_chainStyle="spread"
             app:layout_constraintStart_toStartOf="parent"
@@ -68,6 +66,7 @@
 
         <TextView
             android:id="@+id/tv_period_fast"
+
             android:layout_width="@dimen/ski_dp_0"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/ski_dp_18"
@@ -84,12 +83,13 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginLeft="@dimen/ski_dp_18"
-            android:textColor="@color/ski_color_535d76"
+            android:textColor="#525d75"
             android:textSize="13dp"
             app:layout_constraintBottom_toBottomOf="@+id/tv_ticketName_fast"
             app:layout_constraintStart_toEndOf="@+id/tv_period_fast"
             app:layout_constraintTop_toTopOf="@+id/tv_ticketName_fast"
             tools:text="00:02:23" />
+
 
         <TextView
             android:id="@+id/tv_palyname_fast"
@@ -98,7 +98,7 @@
             android:layout_marginTop="@dimen/dp_10"
             android:layout_marginBottom="@dimen/ski_dp_0"
             android:gravity="center_horizontal"
-            android:textColor="@color/ski_color_7c88a8"
+            android:textColor="#7c88a7"
             android:textSize="15dp"
             android:visibility="visible"
             app:layout_constraintStart_toStartOf="@+id/tv_ticketName_fast"
@@ -115,21 +115,23 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_palyname_fast" />
 
         <EditText
+            android:selectAllOnFocus="true"
             android:id="@+id/et_input_money_fast"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/ski_dp_42"
+            android:layout_marginLeft="@dimen/ski_dp_15"
             android:layout_marginTop="@dimen/ski_dp_20"
+            android:layout_marginRight="@dimen/ski_dp_15"
             android:background="@mipmap/ski_back_kuai_jie_jin_e_edit_bg"
             android:hint="输入金额"
             android:imeOptions="flagNoExtractUi"
             android:inputType="number"
             android:maxLength="5"
             android:paddingLeft="@dimen/ski_dp_30"
+            android:text="10"
             android:textColor="@color/ski_color_535d76"
             android:textColorHint="#bdc3e5"
             android:textSize="20dp"
-            android:layout_marginLeft="@dimen/ski_dp_15"
-            android:layout_marginRight="@dimen/ski_dp_15"
             app:layout_constraintTop_toBottomOf="@+id/recyc_fast_dailog" />
         <ImageView
             android:visibility="gone"
@@ -138,10 +140,9 @@
             android:layout_height="wrap_content"
             android:src="@mipmap/ski_keyboard_delet_money"
             android:layout_marginEnd="@dimen/ski_dp_10"
+            app:layout_constraintTop_toTopOf="@+id/et_input_money_fast"
             app:layout_constraintBottom_toBottomOf="@+id/et_input_money_fast"
-            app:layout_constraintEnd_toEndOf="@+id/et_input_money_fast"
-            app:layout_constraintTop_toTopOf="@+id/et_input_money_fast" />
-
+            app:layout_constraintEnd_toEndOf="@+id/et_input_money_fast" />
         <ImageView
             android:id="@+id/iv_money"
             android:layout_width="wrap_content"
@@ -156,11 +157,11 @@
             android:id="@+id/tv_balance"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/ski_dp_15"
             android:layout_marginTop="@dimen/ski_dp_14"
             android:layout_marginBottom="@dimen/ski_dp_13"
             android:text="余额："
             android:textSize="13dp"
-            android:layout_marginLeft="@dimen/ski_dp_15"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_input_money_fast" />
 
@@ -182,7 +183,6 @@
             android:text="1单"
             android:textColor="@color/ski_color_7c88a8"
             android:textSize="15dp"
-            android:visibility="invisible"
             app:layout_constraintStart_toStartOf="@+id/tv_balance"
             app:layout_constraintTop_toBottomOf="@+id/tv_balance" />
 
@@ -195,42 +195,48 @@
             android:text="可赢金额:0"
             android:textColor="@color/ski_color_7c88a8"
             android:textSize="15dp"
-            android:visibility="invisible"
             app:layout_constraintStart_toEndOf="@+id/tv_bet_money_fast"
             app:layout_constraintTop_toTopOf="@+id/tv_bet_money_fast" />
 
-        <include
-            android:visibility="gone"
-            layout="@layout/ski_keyboard_layout" />
-
-        <TextView
-            android:id="@+id/tv_go_to_touzhu"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/ski_dp_45"
-            android:background="@drawable/ski_pub_bg_setting_trend"
-            android:gravity="center"
-            android:text="进入投注页"
-            android:textColor="@color/ski_white"
-            android:textSize="16dp"
-            android:layout_marginTop="@dimen/ski_dp_10"
+        <View
+            android:id="@+id/line_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/ski_dp_0_5"
             android:layout_marginLeft="@dimen/ski_dp_15"
+            android:layout_marginTop="@dimen/ski_dp_2"
             android:layout_marginRight="@dimen/ski_dp_15"
-            app:layout_constraintEnd_toStartOf="@+id/cl_bet"
-            app:layout_constraintHorizontal_chainStyle="spread"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/view_01" />
+            android:background="#e5e5e5"
+            app:layout_constraintTop_toBottomOf="@+id/tv_available_money" />
+
+        <include
+            layout="@layout/ski_keyboard_layout"
+            android:visibility="gone" />
+
+<!--        <TextView-->
+<!--            android:id="@+id/tv_zhuihao"-->
+<!--            android:layout_width="@dimen/ski_dp_120"-->
+<!--            android:layout_height="@dimen/ski_dp_45"-->
+<!--            android:layout_marginLeft="@dimen/ski_dp_15"-->
+<!--            android:layout_marginTop="@dimen/ski_dp_10"-->
+<!--            android:layout_marginRight="@dimen/ski_dp_15"-->
+<!--            android:background="@mipmap/dragon_button_chase_back"-->
+<!--            android:gravity="center"-->
+<!--            android:text="追号"-->
+<!--            android:textColor="@color/ski_double_bottom_undisabled"-->
+<!--            android:textSize="@dimen/ski_sp_16"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/view_01" />-->
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_bet"
             android:layout_width="@dimen/ski_dp_0"
-            android:layout_height="@dimen/ski_dp_45"
-            android:layout_marginTop="@dimen/ski_dp_10"
+            android:layout_height="@dimen/ski_dp_43"
             android:layout_marginLeft="@dimen/ski_dp_15"
+            android:layout_marginTop="@dimen/ski_dp_10"
             android:layout_marginRight="@dimen/ski_dp_15"
             android:background="@drawable/ski_record_quick_bet_normal"
-            android:padding="@dimen/ski_dp_5"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/tv_go_to_touzhu"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/view_01">
 
             <TextView

@@ -28,6 +28,7 @@ public interface ConstantValue {
     String EVENT_TYPE_QUICK_BET_CLICK = "event_type_quick_bet_right_click";
     // 长龙列表子项 请求倒计时
     String EVENT_DRAGON_ITEM_REQUEST_COUNT_DOWN = "event_dragon_item_request_count_down";
+    String EVENT_TYPE_LONG_DRAGON_BET_CLICK = "event_type_long_dragon_bet_click";
 
     // sp
     String SP_DOUBLE_QUICK_MONEY_DEFAULT_LIST = "double_default_money_list"; // 快捷金额 默认金额列表

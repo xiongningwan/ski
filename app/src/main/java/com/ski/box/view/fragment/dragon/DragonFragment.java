@@ -22,6 +22,7 @@ import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 import com.ski.box.R;
 import com.ski.box.adapter.DragonAdapter;
+import com.ski.box.bean.BallBean;
 import com.ski.box.bean.DataCenter;
 import com.ski.box.bean.LongDragonPushInfoEntity;
 import com.ski.box.bean.LotteryNumBean;
@@ -50,6 +51,7 @@ import java.util.List;
 
 import static com.ski.box.ConstantValue.EVENT_DRAGON_ITEM_REQUEST_COUNT_DOWN;
 import static com.ski.box.ConstantValue.EVENT_OPEN_RESULT_UPDATE;
+import static com.ski.box.ConstantValue.EVENT_TYPE_LONG_DRAGON_BET_CLICK;
 
 
 public class DragonFragment extends BaseMVPFragment<DragonContract.Presenter> implements DragonContract.View, View.OnClickListener, OnRefreshListener {
@@ -129,7 +131,7 @@ public class DragonFragment extends BaseMVPFragment<DragonContract.Presenter> im
             if (0 == plays.size()) {
                 mPresenter.getPlays(ticketId, mode);
             } else {
-                // setBetDragon();
+                 setBetDragon();
             }
         });
         mRVDragon.setAdapter(mDragonAdapter);
@@ -195,11 +197,26 @@ public class DragonFragment extends BaseMVPFragment<DragonContract.Presenter> im
         mPresenter.getLongDragonPushInfo(LONG_DRAGON_MODE, "4", "0", mRequestTicketIdList);
     }
 
-
+    private void setBetDragon() {
+        if (mInfoEntity == null) {
+            return;
+        }
+        Number playId = mInfoEntity.getPlayItemId();
+        int ticketId = mInfoEntity.getTicketId().intValue();
+        long l = playId.longValue();
+        int mode = LotteryConstant.LOTTERY_PLAY_MODE_DOUBLE;
+        List<BallBean> odds = PlayUtil.getDragonOdds(l, ticketId, mode);
+        for (int i = 0; i < odds.size(); i++) {
+            BallBean ballBean = odds.get(i);
+            ballBean.setCheck(false);
+        }
+        DataCenter.getInstance().setBallBeanList(odds);
+        RxBus.get().post(EVENT_TYPE_LONG_DRAGON_BET_CLICK, mInfoEntity);
+    }
 
     @Override
     public void onPlaysResult(List<RemoteLotteryPlay> plays) {
-
+        setBetDragon();
     }
 
     @Override
