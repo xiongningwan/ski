@@ -11,14 +11,16 @@ import com.hwangjr.rxbus.RxBus;
 import com.ski.box.bean.lottery.LotteryBean;
 import com.ski.box.bean.lottery.LotteryConstant;
 import com.ski.box.bean.lottery.LotteryPlayStart;
-import com.ski.box.bean.lottery.LotteryPlaySub;
 import com.ski.box.bean.lottery.LotterySer;
 import com.ski.box.bean.lottery.LotteryUtil;
 import com.ski.box.bean.lottery.RemoteLotteryPlay;
+import com.ski.box.bean.user.LoginInfo;
+import com.ski.box.bean.user.User;
+import com.ski.box.bean.user.UserInfo;
+import com.ski.box.bean.user.MemberInfo;
 import com.ski.box.utils.lottery.LotteryTimeUtil;
 import com.yb.core.utils.AppUtil;
 import com.yb.core.utils.AssetsReader;
-import com.yb.core.utils.LogUtils;
 import com.yb.core.utils.SPUtils;
 
 import java.io.File;
@@ -29,7 +31,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 import static com.ski.box.ConstantValue.EVENT_RESULT_HISTORY_LIST_UPDATE;
-import static com.ski.box.ConstantValue.EVENT_TYPE_BALANCE_SET;
+import static com.ski.box.ConstantValue.EVENT_TYPE_BALANCE_UPDATE;
 import static com.ski.box.bean.lottery.LotteryConstant.LOTTERY_PLAY_MODE_STANDARD;
 
 public class DataCenter {
@@ -54,9 +56,8 @@ public class DataCenter {
     private Map<Integer, Long> mLotteryTimeMap = new ConcurrentHashMap<>();
     private Map<Integer, String> mLotteryPlanMap = new ConcurrentHashMap<>();
     private Map<Integer, List<LotteryNumBean>> mLotteryHistoryMap = new HashMap<>();//历史开奖
-    private MemberDetailEntity balance;
     private List<BallBean> ballBeanList;   // 路子图,快捷投注数据
-    private User mUser;
+    private User mUser = new User();
 
     public static DataCenter getInstance() {
         if (instance == null) {
@@ -383,13 +384,6 @@ public class DataCenter {
         return list;
     }
 
-    public void setBalance(MemberDetailEntity balance) {
-        this.balance = balance;
-    }
-
-    public MemberDetailEntity getBalance() {
-        return balance;
-    }
 
     public void cleanBetData() {
         betParamEntity = new MkBetParamEntity();
@@ -415,11 +409,50 @@ public class DataCenter {
         this.ballBeanList = ballBeanList;
     }
 
-    public void setUser(User user) {
-        mUser = user;
+    public void setUser(Object o) {
+        if(o instanceof LoginInfo) {
+            LoginInfo bean = (LoginInfo)o;
+            mUser.setAccount(bean.getMemberAccount());
+            mUser.setAlias(bean.getMemberAlias());
+            mUser.setProfile(bean.getMemberProfile());
+            mUser.setAuthorization(bean.getAuthorization());
+            mUser.setToken(bean.getToken());
+        } else if(o instanceof UserInfo) {
+            UserInfo bean = (UserInfo)o;
+            mUser.setId(bean.getMemberId());
+            mUser.setAccount(bean.getMemberAccount());
+
+            mUser.setTransferType(bean.getTransferType());
+            mUser.setMerchantAccout(bean.getMerchantAccout());
+            if(!TextUtils.isEmpty(bean.getBalance())) {
+                mUser.setBalance(bean.getBalance());
+                RxBus.get().post(EVENT_TYPE_BALANCE_UPDATE, bean.getBalance());
+            }
+        }  else if(o instanceof MemberInfo) {
+            MemberInfo bean = (MemberInfo)o;
+            mUser.setAccount(bean.getAccount());
+            mUser.setAlias(bean.getAlias());
+            mUser.setProfile(bean.getProfile());
+            mUser.setVip(bean.getVip());
+            mUser.setRebate(bean.getRebate());
+            mUser.setTester(bean.getTester());
+            mUser.setLoginIp(bean.getLoginIp());
+            mUser.setLoginLocation(bean.getLoginLocation());
+            mUser.setLoginTime(bean.getLoginTime());
+            mUser.setLoginPwdTime(bean.getLoginPwdTime());
+            mUser.setFundPwdTime(bean.getFundPwdTime());
+            mUser.setHavefundPwd(bean.getHavefundPwd());
+            mUser.setMobile(bean.getMobile());
+            mUser.setEmail(bean.getEmail());
+        }
     }
 
     public User getUser() {
         return mUser;
+    }
+
+    public void setBalance(String balanceStr) {
+        mUser.setBalance(balanceStr);
+        RxBus.get().post(EVENT_TYPE_BALANCE_UPDATE, balanceStr);
     }
 }

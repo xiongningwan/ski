@@ -30,6 +30,8 @@ public interface IUserModel {
 
     Disposable getMemberDetails(Consumer s, Consumer e);
 
+    Disposable getMemberInfo(Consumer s, Consumer e);
+
     Disposable getSelfProfile(Consumer s);
 
     Disposable saveSelfProfile(Consumer s, PersonProfileEntity entity);

@@ -2,9 +2,6 @@ package com.ski.box.view.fragment.bet.d;
 
 import android.os.Bundle;
 import android.os.Handler;
-import android.text.SpannableStringBuilder;
-import android.text.Spanned;
-import android.text.style.AbsoluteSizeSpan;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,7 +18,6 @@ import com.ski.box.adapter.FragmentPager2Adapter;
 import com.ski.box.bean.BetStatus;
 import com.ski.box.bean.DataCenter;
 import com.ski.box.bean.MemberDetailEntity;
-import com.ski.box.bean.lottery.LotteryConstant;
 import com.ski.box.bean.lottery.LotteryPlayStart;
 import com.ski.box.bean.lottery.RemoteLotteryPlay;
 import com.ski.box.mvp.contract.PlayContract;
@@ -36,10 +32,9 @@ import com.yb.core.utils.ScreenUtils;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 import static com.ski.box.ConstantValue.EVENT_CLEAN_XUAN_HAO_PAN;
-import static com.ski.box.ConstantValue.EVENT_TYPE_BALANCE_SET;
+import static com.ski.box.ConstantValue.EVENT_TYPE_BALANCE_UPDATE;
 import static com.ski.box.ConstantValue.EVENT_TYPE_BET_NO_CHECK_UPDATE;
 import static com.ski.box.bean.lottery.LotteryConstant.LOTTERY_PLAY_MODE_DOUBLE;
 
@@ -214,10 +209,9 @@ public class DoubleFragment extends BaseMVPFragment<PlayContract.Presenter> impl
         });
     }
 
-    @Subscribe(tags = {@Tag(EVENT_TYPE_BALANCE_SET)})
-    @Override
-    public void onBalanceResult(MemberDetailEntity bean) {
-        mViewBottom.setBalance(bean);
+    @Subscribe(tags = {@Tag(EVENT_TYPE_BALANCE_UPDATE)})
+    public void onBalanceUpdate(String balanceStr) {
+        mViewBottom.setBalance(balanceStr);
     }
 
 //    @Subscribe(tags = {@Tag(EVENT_TYPE_BALANCE_SET)})

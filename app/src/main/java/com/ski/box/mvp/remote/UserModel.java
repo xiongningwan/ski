@@ -6,11 +6,13 @@ import com.ski.box.bean.Balance;
 import com.ski.box.bean.MemberDetailEntity;
 import com.ski.box.bean.PersonProfileEntity;
 import com.ski.box.bean.SelfProfileEntity;
-import com.ski.box.bean.User;
+import com.ski.box.bean.user.LoginInfo;
+import com.ski.box.bean.user.MemberInfo;
+import com.ski.box.bean.user.User;
+import com.ski.box.bean.user.UserInfo;
 import com.ski.box.exception.CusConsumer;
 import com.ski.box.mvp.remote.imodel.IUserModel;
 import com.ski.box.mvp.service.IUserService;
-import com.yb.core.base.BaseConsumer;
 import com.yb.core.base.BaseModel;
 import com.yb.core.net.RetrofitHelper;
 
@@ -36,7 +38,7 @@ public class UserModel extends BaseModel implements IUserModel {
 
     @Override
     public Disposable login(Consumer s, CusConsumer e, String memberAccount, String password) {
-        Single<User> single = RetrofitHelper
+        Single<LoginInfo> single = RetrofitHelper
                 .getService(IUserService.class)
                 .login(memberAccount, password)
                 .map(new HttpResultFunc<>());
@@ -55,9 +57,18 @@ public class UserModel extends BaseModel implements IUserModel {
 
     @Override
     public Disposable getMemberDetails(Consumer s, Consumer e) {
-        Single<MemberDetailEntity> single = RetrofitHelper
+        Single<UserInfo> single = RetrofitHelper
                 .getService(IUserService.class)
                 .getMemberDetails()
+                .map(new HttpResultFunc<>());
+        return toSubscribe(single, s, e);
+    }
+
+    @Override
+    public Disposable getMemberInfo(Consumer s, Consumer e) {
+        Single<MemberInfo> single = RetrofitHelper
+                .getService(IUserService.class)
+                .getMemberInfo()
                 .map(new HttpResultFunc<>());
         return toSubscribe(single, s, e);
     }

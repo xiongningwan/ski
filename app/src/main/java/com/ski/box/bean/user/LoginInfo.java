@@ -1,17 +1,9 @@
-package com.ski.box.bean;
+package com.ski.box.bean.user;
 
 /**
- * Created by tom on 2020/10/19.
+ * Created by tom on 2020/10/23.
  */
-public class User {
-    /**
-     * memberAccount : water14
-     * memberAlias : water14的昵称
-     * memberProfile :
-     * authorization : 8eb847b60b13442c812e3b65e94dd039
-     * token : 6424fb0f00a340e09ffa7c130e0d97d81603109585906
-     */
-
+public class LoginInfo {
     private String memberAccount;
     private String memberAlias;
     private String memberProfile;

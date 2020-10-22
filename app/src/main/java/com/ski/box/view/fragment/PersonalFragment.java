@@ -16,11 +16,15 @@ import com.hwangjr.rxbus.annotation.Subscribe;
 import com.hwangjr.rxbus.annotation.Tag;
 import com.ski.box.R;
 import com.ski.box.adapter.FragmentAdapter;
+import com.ski.box.bean.DataCenter;
 import com.ski.box.bean.MemberDetailEntity;
 import com.ski.box.bean.PTabBean;
-import com.ski.box.bean.User;
+import com.ski.box.bean.user.MemberInfo;
+import com.ski.box.bean.user.User;
 import com.ski.box.mvp.contract.EmptyContract;
+import com.ski.box.mvp.contract.PersonalContract;
 import com.ski.box.mvp.presenter.EmptyPresenter;
+import com.ski.box.mvp.presenter.PersonalPresenter;
 import com.ski.box.view.fragment.personal.PersonalTabFragment;
 import com.yb.core.base.BaseMVPFragment;
 
@@ -28,16 +32,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import static com.ski.box.ConstantValue.EVENT_TYPE_BALANCE_SET;
+import static com.ski.box.ConstantValue.EVENT_TYPE_BALANCE_UPDATE;
 import static com.ski.box.ConstantValue.EVENT_TYPE_USER_NAME_NICK_NAME;
 
-public class PersonalFragment extends BaseMVPFragment<EmptyContract.Presenter> implements EmptyContract.View, View.OnClickListener {
+public class PersonalFragment extends BaseMVPFragment<PersonalContract.Presenter> implements PersonalContract.View, View.OnClickListener {
 
     private TabLayout mTabLayout;
     private ViewPager mViewPager;
     private TextView mTvUserName;
     private TextView mTvUserAcc;
     private TextView mTvBalance;
+    private TextView mTvLevel;
+    private TextView mGroupValue;
 
     public PersonalFragment() {
     }
@@ -68,6 +74,8 @@ public class PersonalFragment extends BaseMVPFragment<EmptyContract.Presenter> i
         mTvUserAcc =  view.findViewById(R.id.tv_user_acc);
         mTvUserAcc =  view.findViewById(R.id.tv_user_acc);
         mTvBalance =  view.findViewById(R.id.tv_balance_value);
+        mTvLevel =  view.findViewById(R.id.iv_level_value);
+        mGroupValue =  view.findViewById(R.id.iv_group_value);
     }
 
     @Override
@@ -82,6 +90,7 @@ public class PersonalFragment extends BaseMVPFragment<EmptyContract.Presenter> i
     //这个是一个懒加载
     @Override
     protected void loadData() {
+        mPresenter.getMemberInfo();
     }
 
     @Override
@@ -91,8 +100,8 @@ public class PersonalFragment extends BaseMVPFragment<EmptyContract.Presenter> i
 
 
     @Override
-    protected EmptyContract.Presenter bindPresenter() {
-        return new EmptyPresenter(mContext);
+    protected PersonalContract.Presenter bindPresenter() {
+        return new PersonalPresenter(mContext);
     }
 
 
@@ -179,14 +188,26 @@ public class PersonalFragment extends BaseMVPFragment<EmptyContract.Presenter> i
     }
 
 
-    @Subscribe(tags = {@Tag(EVENT_TYPE_BALANCE_SET)})
-    public void onBalanceResult(MemberDetailEntity bean) {
-        mTvBalance.setText(bean.getBalance());
+    @Subscribe(tags = {@Tag(EVENT_TYPE_BALANCE_UPDATE)})
+    public void onBalanceUpdate(String balanceStr) {
+        mTvBalance.setText(balanceStr);
     }
 
     @Subscribe(tags = {@Tag(EVENT_TYPE_USER_NAME_NICK_NAME)})
-    public void onUserNameUpdate(User user) {
-        mTvUserName.setText(user.getMemberAccount());
-        mTvUserAcc.setText(user.getMemberAlias());
+    public void onUserNameUpdate(String s) {
+        User user = DataCenter.getInstance().getUser();
+        mTvUserName.setText(user.getAccount());
+        mTvUserAcc.setText(user.getAlias());
+    }
+
+    @Override
+    public void onMemberInfoResult(MemberInfo memberInfo) {
+        mTvLevel.setText("VIP"+ memberInfo.getVip());
+        mGroupValue.setText(String.valueOf(memberInfo.getRebate()));
+    }
+
+    @Override
+    public void onMemberInfoFailResult(String s) {
+
     }
 }

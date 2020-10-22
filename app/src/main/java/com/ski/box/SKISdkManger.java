@@ -30,13 +30,12 @@ public class SKISdkManger {
         ProcessLifecycleOwner.get().getLifecycle().addObserver(new LifecycleChecker());
     }
 
-    public static void setUrlAndToken(String merchant, String url,boolean isDebug, String token) {
+    public static void initLotteryIds(boolean isDebug) {
         LogUtils.setDebug(isDebug);
-        DataCenter.getInstance().setMerchant(merchant);
-        DataCenter.getInstance().setToken(token);
+//        DataCenter.getInstance().setMerchant(merchant);
+//        DataCenter.getInstance().setToken(token);
 //        DataCenter.getInstance().getLottery();
         DataCenter.getInstance().initLotteryIds();
-        RetrofitHelper.getInstance().init(url, isDebug, token);
     }
 
     //------------------倒计时服务---------------------------------------

@@ -135,8 +135,8 @@ public class BetBottomView extends ConstraintLayout implements View.OnClickListe
     }
 
 
-    public void setBalance(MemberDetailEntity bean) {
-        String balance = DecimalSetUtils.setMoneySaveThree(bean.getBalance());
+    public void setBalance(String balanceStr) {
+        String balance = DecimalSetUtils.setMoneySaveThree(balanceStr);
 //        String yue = "余额";
         String yue = "总金额:";
 //        String zhegnshu = "";

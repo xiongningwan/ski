@@ -9,7 +9,6 @@ import java.util.List;
 
 public interface PlayContract {
     interface View extends BaseContract.BaseView {
-        void onBalanceResult(MemberDetailEntity bean);
         void onPlaysResult(List<RemoteLotteryPlay> plays);
         void onPlaysErrorResult(String s);
 

@@ -64,20 +64,7 @@
         </activity>
         <!-- 刘海 -->
         <!-- 适配华为（huawei）刘海屏 -->
-        <activity
-            android:name=".view.activity.LoginActivityOld"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustResize|stateAlwaysHidden"
-            tools:ignore="LockedOrientationActivity">
-
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
-
-
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
-        </activity> <!-- 适配小米（xiaomi）刘海屏 -->
+        <!-- 适配小米（xiaomi）刘海屏 -->
         <activity
             android:name=".view.activity.MainActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"

@@ -374,4 +374,8 @@ public final class UrlConfig {
      */
 
     public static final  String URL_WIN_MONEY_UP="boracay/member/front/profit/list";
+
+    // 用户详细信息
+    public static final  String URL_USER_MEMBER_INFO ="promen/member/memberInfo";
+
 }

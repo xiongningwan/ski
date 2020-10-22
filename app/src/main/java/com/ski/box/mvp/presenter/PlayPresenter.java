@@ -11,6 +11,7 @@ import com.ski.box.bean.lottery.LotteryPlayStart;
 import com.ski.box.bean.lottery.LotteryPlaySub;
 import com.ski.box.bean.lottery.PlayUtil;
 import com.ski.box.bean.lottery.RemoteLotteryPlay;
+import com.ski.box.bean.user.UserInfo;
 import com.ski.box.exception.CusConsumer;
 import com.ski.box.mvp.contract.PlayContract;
 import com.ski.box.mvp.remote.LotteryModel;
@@ -40,13 +41,12 @@ public class PlayPresenter extends RxPresenter<PlayContract.View> implements Pla
 
     @Override
     public void getBalance() {
-        Disposable disposable = mUserModel.getMemberDetails(new Consumer<MemberDetailEntity>() {
+        Disposable disposable = mUserModel.getMemberDetails(new Consumer<UserInfo>() {
             @Override
-            public void accept(MemberDetailEntity bean) throws Exception {
+            public void accept(UserInfo bean) throws Exception {
                 if (bean != null) {
                     if (!StringUtils.isEmpty(bean.getBalance())) {
-                        DataCenter.getInstance().setBalance(bean);
-                        mView.onBalanceResult(bean);
+                        DataCenter.getInstance().setUser(bean);
                     }
                 }
             }

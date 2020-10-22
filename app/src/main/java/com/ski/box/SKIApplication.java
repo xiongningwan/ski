@@ -6,14 +6,7 @@ import android.content.Context;
 import androidx.multidex.MultiDex;
 
 import com.ski.box.exception.ApiExLister;
-import com.ski.box.view.activity.old.HttpsUtils;
-import com.yb.core.net.RetrofitHelper;
 import com.yb.core.utils.ToastUtil;
-import com.zhy.http.okhttp.OkHttpUtils;
-
-import java.util.concurrent.TimeUnit;
-
-import okhttp3.OkHttpClient;
 
 
 public class SKIApplication extends Application {
@@ -50,18 +43,4 @@ public class SKIApplication extends Application {
     }
 
 
-    private void initOkhttp() {
-        HttpsUtils.SSLParams ssf = HttpsUtils.getSslSocketFactory(null, null, null);
-        OkHttpClient okHttpClient = new OkHttpClient.Builder()
-//                .addInterceptor(new LoggerInterceptor("TAG"))
-                .connectTimeout(10000L, TimeUnit.MILLISECONDS)
-                .readTimeout(10000L, TimeUnit.MILLISECONDS)
-                //其他配置
-                .sslSocketFactory(ssf.sSLSocketFactory, ssf.trustManager)
-                .hostnameVerifier(ssf.unSafeHostnameVerifier)
-                .build();
-
-        OkHttpUtils.initClient(okHttpClient);
-
-    }
 }

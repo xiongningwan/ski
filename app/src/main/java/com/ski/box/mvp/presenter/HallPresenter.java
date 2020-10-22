@@ -1,18 +1,10 @@
 package com.ski.box.mvp.presenter;
 
 import android.content.Context;
-import android.os.Build;
-import android.text.Html;
-import android.text.Spanned;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.TextView;
 
 import androidx.fragment.app.FragmentManager;
 
 import com.hwangjr.rxbus.RxBus;
-import com.ski.box.R;
 import com.ski.box.bean.DataCenter;
 import com.ski.box.bean.MemberDetailEntity;
 import com.ski.box.bean.NoticeBean;
@@ -20,6 +12,8 @@ import com.ski.box.bean.SelfProfileEntity;
 import com.ski.box.bean.SystemConfig;
 import com.ski.box.bean.lottery.LotteryBean;
 import com.ski.box.bean.lottery.LotterySer;
+import com.ski.box.bean.user.User;
+import com.ski.box.bean.user.UserInfo;
 import com.ski.box.mvp.contract.HallContract;
 import com.ski.box.mvp.remote.LotteryModel;
 import com.ski.box.mvp.remote.SysModel;
@@ -33,7 +27,6 @@ import com.ski.box.utils.lottery.LotteryTimeUtil;
 import com.yb.core.base.BaseConsumer;
 import com.yb.core.base.RxPresenter;
 import com.yb.core.utils.AppUtil;
-import com.yb.core.utils.LogUtils;
 import com.yb.core.utils.SPUtils;
 import com.yb.core.utils.StringUtils;
 
@@ -45,8 +38,8 @@ import io.reactivex.Observable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 
-import static com.ski.box.ConstantValue.EVENT_TYPE_BALANCE_SET;
-import static com.yb.core.utils.AppUtil.getContext;
+import static com.ski.box.ConstantValue.EVENT_TYPE_BALANCE_UPDATE;
+import static com.ski.box.ConstantValue.EVENT_TYPE_USER_NAME_NICK_NAME;
 
 public class HallPresenter extends RxPresenter<HallContract.View> implements HallContract.Presenter {
     private ILotteryModel mLotteryModel;
@@ -95,23 +88,19 @@ public class HallPresenter extends RxPresenter<HallContract.View> implements Hal
         if (mUserModel==null){
             mUserModel = new UserModel();
         }
-        Disposable disposable = mUserModel.getMemberDetails(new Consumer<MemberDetailEntity>() {
+        Disposable disposable = mUserModel.getMemberDetails(new Consumer<UserInfo>() {
             @Override
-            public void accept(MemberDetailEntity bean) throws Exception {
+            public void accept(UserInfo bean) throws Exception {
                 if (bean != null) {
                     if (!StringUtils.isEmpty(bean.getBalance())) {
-                        DataCenter.getInstance().setBalance(bean);
-                        if (!StringUtils.isEmpty(bean.getBalance())) {
-                            DataCenter.getInstance().setBalance(bean);
-                            RxBus.get().post(EVENT_TYPE_BALANCE_SET, bean);
-                            mView.onBalanceResult(bean);
-                        }
+                        DataCenter.getInstance().setUser(bean);
+                        RxBus.get().post(EVENT_TYPE_USER_NAME_NICK_NAME, "");
                         Disposable disposable2 = mSysModel.getSysConfig(new Consumer<SystemConfig>() {
                             @Override
                             public void accept(SystemConfig config) {
                                 String mqttUrl = config.getMqtt_url();
-                                MemberDetailEntity memberDetailEntity = DataCenter.getInstance().getBalance();
-                                String topic = "BORACAY_UNICAST_MEMBER_TOPIC|" + memberDetailEntity.getMerchantAccout() + "|" + memberDetailEntity.getMemberAccount();
+                                User user = DataCenter.getInstance().getUser();
+                                String topic = "BORACAY_UNICAST_MEMBER_TOPIC|" + user.getMerchantAccout() + "|" + user.getAccount();
                                 String token = DataCenter.getInstance().getToken();
                                 MQTTHelper.getInstance().init(AppUtil.getContext(), mqttUrl, token, topic);
                                 SPUtils.putString(AppUtil.getContext(), "mqtt_topic_balance", topic);
@@ -179,13 +168,12 @@ public class HallPresenter extends RxPresenter<HallContract.View> implements Hal
 
     @Override
     public void getBalance() {
-        Disposable disposable = mUserModel.getMemberDetails(new Consumer<MemberDetailEntity>() {
+        Disposable disposable = mUserModel.getMemberDetails(new Consumer<UserInfo>() {
             @Override
-            public void accept(MemberDetailEntity bean) throws Exception {
+            public void accept(UserInfo bean) throws Exception {
                 if (bean != null) {
                     if (!StringUtils.isEmpty(bean.getBalance())) {
-                        DataCenter.getInstance().setBalance(bean);
-                        mView.onBalanceResult(bean);
+                        DataCenter.getInstance().setUser(bean);
                     }
                 }
             }

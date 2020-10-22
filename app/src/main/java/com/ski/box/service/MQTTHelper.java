@@ -3,7 +3,6 @@ package com.ski.box.service;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.util.Log;
 
 import com.google.gson.Gson;
 import com.hwangjr.rxbus.RxBus;
@@ -32,7 +31,7 @@ import io.reactivex.functions.Consumer;
 
 import static com.ski.box.ConstantValue.EVENT_GET_UNSETTLE_LIST;
 import static com.ski.box.ConstantValue.EVENT_OPEN_RESULT_UPDATE;
-import static com.ski.box.ConstantValue.EVENT_TYPE_BALANCE_SET;
+import static com.ski.box.ConstantValue.EVENT_TYPE_BALANCE_UPDATE;
 
 
 public class MQTTHelper {
@@ -223,8 +222,7 @@ public class MQTTHelper {
                     case "5":
                         // 余额变化
                         MemberDetailEntity bean = mGson.fromJson(data, MemberDetailEntity.class);
-                        DataCenter.getInstance().setBalance(bean);
-                        RxBus.get().post(EVENT_TYPE_BALANCE_SET, bean);
+                        DataCenter.getInstance().setBalance(bean.getBalance());
                         break;
                     case "6":
                         // 开奖结果

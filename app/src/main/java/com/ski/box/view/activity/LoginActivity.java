@@ -16,9 +16,11 @@ import com.ski.box.BuildConfig;
 import com.ski.box.R;
 import com.ski.box.SKISdkManger;
 import com.ski.box.bean.DataCenter;
-import com.ski.box.bean.User;
+import com.ski.box.bean.user.LoginInfo;
+import com.ski.box.bean.user.User;
 import com.ski.box.mvp.contract.LoginContract;
 import com.ski.box.mvp.presenter.LoginPresenter;
+import com.ski.box.utils.HeaderUtil;
 import com.ski.box.utils.SoftHideKeyBoardUtil;
 import com.yb.core.base.BaseMVPActivity;
 import com.yb.core.net.RetrofitHelper;
@@ -76,7 +78,7 @@ public class LoginActivity extends BaseMVPActivity<LoginContract.Presenter> impl
 
     @Override
     protected void initData(Bundle bundle) {
-        RetrofitHelper.getInstance().init("https://web.k5615.com/sk/", true, "");
+        RetrofitHelper.getInstance().init("https://web.k5615.com/sk/", true, HeaderUtil.getHeader("","","3"));
         initSetFromSp();
     }
 
@@ -111,14 +113,15 @@ public class LoginActivity extends BaseMVPActivity<LoginContract.Presenter> impl
 
 
     @Override
-    public void onLoginSuccessResult(User user) {
+    public void onLoginSuccessResult(LoginInfo loginInfo) {
         mLoading.dismiss();
-        DataCenter.getInstance().setUser(user);
+        DataCenter.getInstance().setUser(loginInfo);
         // sp
         String member = etName.getText().toString();
         String password = etPassword.getText().toString();
         saveSetSp(member, password);
-        SKISdkManger.setUrlAndToken("sk", "https://web.k5615.com/sk/", BuildConfig.DEBUG, user.getToken());
+        RetrofitHelper.getInstance().init("https://web.k5615.com/sk/", true, HeaderUtil.getHeader( loginInfo.getToken(), loginInfo.getAuthorization(),"3"));
+        SKISdkManger.initLotteryIds(BuildConfig.DEBUG);
         DataCenter.getInstance().getLottery().clear();
         DataCenter.getInstance().getRemotePlayMap().clear();
         startActivity(new Intent(LoginActivity.this, MainActivity.class));

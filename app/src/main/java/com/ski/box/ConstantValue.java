@@ -12,7 +12,7 @@ public interface ConstantValue {
     String EVENT_TYPE_CLOSE_RESULT_HISTORY = "event_type_change_open_result_history"; //关闭投注历史页
     String EVENT_BET_TOP_CHOSE_LOTTERY_DIALOG_START_OPEN = "event_bet_top_chose_lottery_dialog_start_open"; // 顶部选择彩种弹窗打开
     String EVENT_BET_ACTIVITY_FINISH = "event_bet_bet_activity_finish"; // 关闭投注页面
-    String EVENT_TYPE_BALANCE_SET = "event_type_balance_set"; // 余额设置
+    String EVENT_TYPE_BALANCE_UPDATE = "event_type_balance_update"; // 余额设置
     String EVENT_REQUEST_BET_SUBMIT = "event_request_bet_submit"; // 提交投注
     String EVENT_GET_UNSETTLE_LIST = "event_get_unsettle_list";// 推送未结算注单
     String EVENT_CLEAN_XUAN_HAO_PAN = "EVENT_CLEAN_XUAN_HAO_PAN"; //清空选号盘

@@ -3,9 +3,6 @@ package com.ski.box.view.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.PersistableBundle;
-
-import androidx.annotation.Nullable;
 
 import com.gyf.immersionbar.ImmersionBar;
 import com.hwangjr.rxbus.RxBus;
@@ -16,14 +13,12 @@ import com.ski.box.R;
 import com.ski.box.bean.DataCenter;
 import com.ski.box.bean.LongDragonPushInfoEntity;
 import com.ski.box.bean.LotteryNumBean;
-import com.ski.box.bean.MemberDetailEntity;
 import com.ski.box.bean.MkBetParamEntity;
 import com.ski.box.bean.TicketLotteryTimeBean;
 import com.ski.box.utils.AnimationUtil;
 import com.ski.box.view.fragment.bet.top.TopHistoryFragment;
 import com.ski.box.view.view.BetBottomView;
 import com.yb.core.utils.FragmentUtils;
-import com.yb.core.utils.LogUtils;
 
 import java.util.List;
 
@@ -32,7 +27,6 @@ import static com.ski.box.ConstantValue.EVENT_BET_TOP_CHOSE_LOTTERY_DIALOG_START
 import static com.ski.box.ConstantValue.EVENT_GET_UNSETTLE_LIST;
 import static com.ski.box.ConstantValue.EVENT_OPEN_RESULT_UPDATE;
 import static com.ski.box.ConstantValue.EVENT_REQUEST_BET_SUBMIT;
-import static com.ski.box.ConstantValue.EVENT_TYPE_BALANCE_SET;
 import static com.ski.box.ConstantValue.EVENT_TYPE_BET_RiGHT_NOW_CLICK;
 import static com.ski.box.ConstantValue.EVENT_TYPE_CHANGE_OPEN_RESULT_HISTORY;
 import static com.ski.box.ConstantValue.EVENT_TYPE_CLOSE_RESULT_HISTORY;

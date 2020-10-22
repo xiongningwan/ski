@@ -39,6 +39,7 @@ import com.ski.box.bean.DataCenter;
 import com.ski.box.bean.MkBetParamEntity;
 import com.ski.box.bean.RedLimitBean;
 import com.ski.box.bean.lottery.LotteryConstant;
+import com.ski.box.bean.user.User;
 import com.ski.box.service.AlarmService;
 import com.ski.box.utils.MyImageSpan;
 import com.ski.box.utils.lottery.LimitRedUtil;
@@ -219,7 +220,8 @@ public class RoadDragonQuickBetView extends LinearLayout implements View.OnClick
 
         tvGoToTouzhu.setVisibility(mType == 1 ? VISIBLE : GONE);
         tvAvailableBalance.setVisibility(mType == 1 ? VISIBLE : GONE);
-        tvAvailableBalance.setText("可用余额：" + DataCenter.getInstance().getBalance());
+        User user = DataCenter.getInstance().getUser();
+        tvAvailableBalance.setText("可用余额：" + user.getBalance());
 //        initCirclePop();
         etInputMoneyFast.addTextChangedListener(new TextWatcher() {
 
@@ -360,8 +362,9 @@ public class RoadDragonQuickBetView extends LinearLayout implements View.OnClick
             menuTitle = "总和龙虎".equalsIgnoreCase(menuTitle) ? "龙虎和" : menuTitle;
         }
         tvPalynameFast.setText(menuTitle);
-        if (DataCenter.getInstance().getBalance() != null) {
-            setBalanceStr(DataCenter.getInstance().getBalance().getBalance());
+        User user = DataCenter.getInstance().getUser();
+        if (user.getBalance() != null) {
+            setBalanceStr(user.getBalance());
         }
         /**动态设置布局个数 是单选还是多选**/
         bigSmallBeans = DataCenter.getInstance().getBallBeanList();
