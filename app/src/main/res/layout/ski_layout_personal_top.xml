@@ -56,8 +56,18 @@
        app:layout_constraintStart_toStartOf="parent"
        app:layout_constraintEnd_toEndOf="parent"
        app:layout_constraintTop_toBottomOf="@+id/tv_user_name"
-       tools:text="登录帐号:sadsad"
+       tools:text="登录帐号:  sadsad"
        android:layout_marginTop="2dp"/>
+
+   <ImageView
+       android:id="@+id/iv_et_nick_name"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:src="@mipmap/ski_icon_nick_name"
+       app:layout_constraintStart_toEndOf="@+id/tv_user_acc"
+       app:layout_constraintTop_toTopOf="@+id/tv_user_acc"
+       app:layout_constraintBottom_toBottomOf="@+id/tv_user_acc"
+       android:layout_marginStart="8dp"/>
 
    <androidx.constraintlayout.widget.ConstraintLayout
        android:layout_width="match_parent"
@@ -158,7 +168,7 @@
           android:textColor="@color/ski_white" />
 
       <TextView
-          android:id="@+id/iv_balance_value"
+          android:id="@+id/tv_balance_value"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:text="1000,000"

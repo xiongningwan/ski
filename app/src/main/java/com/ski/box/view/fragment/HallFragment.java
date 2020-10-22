@@ -22,6 +22,7 @@ import com.ski.box.adapter.ImageAdapter;
 import com.ski.box.bean.BannerBean;
 import com.ski.box.bean.DataCenter;
 import com.ski.box.bean.MemberDetailEntity;
+import com.ski.box.bean.User;
 import com.ski.box.bean.lottery.LotteryBean;
 import com.ski.box.bean.lottery.LotteryConstant;
 import com.ski.box.bean.lottery.LotterySer;
@@ -42,6 +43,7 @@ import java.util.List;
 
 import static com.ski.box.ConstantValue.EVENT_BET_ACTIVITY_FINISH;
 import static com.ski.box.ConstantValue.EVENT_TYPE_BALANCE_SET;
+import static com.ski.box.ConstantValue.EVENT_TYPE_USER_NAME_NICK_NAME;
 
 public class HallFragment extends BaseMVPFragment<HallContract.Presenter> implements HallContract.View, View.OnClickListener {
 
@@ -201,8 +203,14 @@ public class HallFragment extends BaseMVPFragment<HallContract.Presenter> implem
     @Subscribe(tags = {@Tag(EVENT_TYPE_BALANCE_SET)})
     @Override
     public void onBalanceResult(MemberDetailEntity bean) {
-        mTvUserName.setText(bean.getMemberAccount());
         mTvAmount.setText("￥" + bean.getBalance());
+        User user = DataCenter.getInstance().getUser();
+        RxBus.get().post(EVENT_TYPE_USER_NAME_NICK_NAME, user);
+    }
+
+    @Subscribe(tags = {@Tag(EVENT_TYPE_USER_NAME_NICK_NAME)})
+    public void onUserNameUpdate(User user) {
+        mTvUserName.setText(user.getMemberAlias());
     }
 
     private void setData(int serId) {

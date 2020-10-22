@@ -29,6 +29,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 import static com.ski.box.ConstantValue.EVENT_RESULT_HISTORY_LIST_UPDATE;
+import static com.ski.box.ConstantValue.EVENT_TYPE_BALANCE_SET;
 import static com.ski.box.bean.lottery.LotteryConstant.LOTTERY_PLAY_MODE_STANDARD;
 
 public class DataCenter {
@@ -55,6 +56,7 @@ public class DataCenter {
     private Map<Integer, List<LotteryNumBean>> mLotteryHistoryMap = new HashMap<>();//历史开奖
     private MemberDetailEntity balance;
     private List<BallBean> ballBeanList;   // 路子图,快捷投注数据
+    private User mUser;
 
     public static DataCenter getInstance() {
         if (instance == null) {
@@ -411,5 +413,13 @@ public class DataCenter {
 
     public void setBallBeanList(List<BallBean> ballBeanList) {
         this.ballBeanList = ballBeanList;
+    }
+
+    public void setUser(User user) {
+        mUser = user;
+    }
+
+    public User getUser() {
+        return mUser;
     }
 }

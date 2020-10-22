@@ -113,6 +113,7 @@ public class LoginActivity extends BaseMVPActivity<LoginContract.Presenter> impl
     @Override
     public void onLoginSuccessResult(User user) {
         mLoading.dismiss();
+        DataCenter.getInstance().setUser(user);
         // sp
         String member = etName.getText().toString();
         String password = etPassword.getText().toString();

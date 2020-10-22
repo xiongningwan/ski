@@ -14,6 +14,7 @@
         android:id="@+id/v_arrow"
         android:layout_width="@dimen/ski_dp_10"
         android:layout_height="@dimen/ski_dp_6" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         app:layout_constraintBottom_toTopOf="@+id/v_arrow"
         android:paddingLeft="@dimen/ski_dp_11"
@@ -28,19 +29,14 @@
         android:layout_height="wrap_content">
 
         <TextView
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_title"
             android:id="@+id/tv_content"
             android:textSize="@dimen/ski_dp_12"
-            tools:text="蠢蠢蠢蠢蠢蠢蠢蠢蠢蠢蠢蠢蠢蠢蠢蠢蠢蠢蠢蠢蠢蠢蠢蠢蠢蠢蠢蠢蠢蠢"
+            tools:text="aa"
             android:textColor="@color/ski_white"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-
-
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

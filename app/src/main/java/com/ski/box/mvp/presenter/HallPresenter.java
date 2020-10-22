@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import androidx.fragment.app.FragmentManager;
 
+import com.hwangjr.rxbus.RxBus;
 import com.ski.box.R;
 import com.ski.box.bean.DataCenter;
 import com.ski.box.bean.MemberDetailEntity;
@@ -44,6 +45,7 @@ import io.reactivex.Observable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 
+import static com.ski.box.ConstantValue.EVENT_TYPE_BALANCE_SET;
 import static com.yb.core.utils.AppUtil.getContext;
 
 public class HallPresenter extends RxPresenter<HallContract.View> implements HallContract.Presenter {
@@ -101,6 +103,7 @@ public class HallPresenter extends RxPresenter<HallContract.View> implements Hal
                         DataCenter.getInstance().setBalance(bean);
                         if (!StringUtils.isEmpty(bean.getBalance())) {
                             DataCenter.getInstance().setBalance(bean);
+                            RxBus.get().post(EVENT_TYPE_BALANCE_SET, bean);
                             mView.onBalanceResult(bean);
                         }
                         Disposable disposable2 = mSysModel.getSysConfig(new Consumer<SystemConfig>() {

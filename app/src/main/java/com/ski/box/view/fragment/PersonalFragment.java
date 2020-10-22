@@ -12,9 +12,13 @@ import androidx.viewpager.widget.ViewPager;
 import com.google.android.material.tabs.TabLayout;
 import com.gyf.immersionbar.ImmersionBar;
 import com.hwangjr.rxbus.RxBus;
+import com.hwangjr.rxbus.annotation.Subscribe;
+import com.hwangjr.rxbus.annotation.Tag;
 import com.ski.box.R;
 import com.ski.box.adapter.FragmentAdapter;
+import com.ski.box.bean.MemberDetailEntity;
 import com.ski.box.bean.PTabBean;
+import com.ski.box.bean.User;
 import com.ski.box.mvp.contract.EmptyContract;
 import com.ski.box.mvp.presenter.EmptyPresenter;
 import com.ski.box.view.fragment.personal.PersonalTabFragment;
@@ -24,10 +28,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import static com.ski.box.ConstantValue.EVENT_TYPE_BALANCE_SET;
+import static com.ski.box.ConstantValue.EVENT_TYPE_USER_NAME_NICK_NAME;
+
 public class PersonalFragment extends BaseMVPFragment<EmptyContract.Presenter> implements EmptyContract.View, View.OnClickListener {
 
     private TabLayout mTabLayout;
     private ViewPager mViewPager;
+    private TextView mTvUserName;
+    private TextView mTvUserAcc;
+    private TextView mTvBalance;
 
     public PersonalFragment() {
     }
@@ -54,7 +64,10 @@ public class PersonalFragment extends BaseMVPFragment<EmptyContract.Presenter> i
         RxBus.get().register(this);
         mTabLayout =  view.findViewById(R.id.tab_layout);
         mViewPager =  view.findViewById(R.id.tab_vp);
-      //  mTabLayout.setupWithViewPager(mViewPager,false);
+        mTvUserName =  view.findViewById(R.id.tv_user_name);
+        mTvUserAcc =  view.findViewById(R.id.tv_user_acc);
+        mTvUserAcc =  view.findViewById(R.id.tv_user_acc);
+        mTvBalance =  view.findViewById(R.id.tv_balance_value);
     }
 
     @Override
@@ -165,4 +178,15 @@ public class PersonalFragment extends BaseMVPFragment<EmptyContract.Presenter> i
         return list;
     }
 
+
+    @Subscribe(tags = {@Tag(EVENT_TYPE_BALANCE_SET)})
+    public void onBalanceResult(MemberDetailEntity bean) {
+        mTvBalance.setText(bean.getBalance());
+    }
+
+    @Subscribe(tags = {@Tag(EVENT_TYPE_USER_NAME_NICK_NAME)})
+    public void onUserNameUpdate(User user) {
+        mTvUserName.setText(user.getMemberAccount());
+        mTvUserAcc.setText(user.getMemberAlias());
+    }
 }
