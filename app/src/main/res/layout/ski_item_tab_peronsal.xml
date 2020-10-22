@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="80dp"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/iv_tab_label"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        tools:src="@mipmap/icon_personal_tab_my_acc" />
+
+    <TextView
+        android:id="@+id/tv_item_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="我的账户"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/ski_333333_red_text_color"
+        android:textSize="14dp" />
+</LinearLayout>

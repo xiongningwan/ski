@@ -24,7 +24,7 @@ import okhttp3.Headers;
  * Created by tom on 2020/6/29.
  */
 public class LotteryTimeUtil {
-    private static List<Integer> mLotteryIds = new ArrayList<>();
+    private static  List<Integer> mLotteryIds = new ArrayList<>();
     private static ILotteryModel mLotteryModel = new LotteryModel();
     private static CompositeDisposable mDisposable;
 
