@@ -53,7 +53,7 @@ public class UpdateLoginPwdActivity extends BaseMVPActivity<UpdateLoginPwdContra
         mEtNew = findViewById(R.id.et_new);
         mEtConfirm = findViewById(R.id.et_new_confirm);
         mBtnSure = findViewById(R.id.btn_sure);
-        mHeadView.setHeader(getString(R.string.ski_my_nick_name), true);
+        mHeadView.setHeader(getString(R.string.ski_my_login_pwd), true);
 
         mBtnSure.setOnClickListener(this);
     }
