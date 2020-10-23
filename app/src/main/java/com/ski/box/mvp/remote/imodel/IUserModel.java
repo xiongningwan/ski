@@ -28,7 +28,16 @@ public interface IUserModel {
                      String password);
 
     Disposable logout(Consumer s,
-                     CusConsumer e);
+                      CusConsumer e);
+
+    Disposable memberUpdateAlias(Consumer s,
+                                 CusConsumer e,
+                                 String alias);
+
+    Disposable updateLoginPwd(Consumer s,
+                              CusConsumer e,
+                              String loginPwd,
+                              String loginPwdNew);
 
     Disposable getMemberDetails(Consumer s, Consumer e);
 

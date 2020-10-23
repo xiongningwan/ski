@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:background="@color/ski_color_FAFAFA">
+
+    <com.ski.box.view.view.HeaderView
+        android:id="@+id/head_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+   <androidx.constraintlayout.widget.ConstraintLayout
+       android:layout_width="match_parent"
+       android:layout_height="120dp"
+       android:background="@color/ski_white">
+
+       <ImageView
+           android:id="@+id/iv_level"
+           android:layout_width="30dp"
+           android:layout_height="30dp"
+           app:layout_constraintTop_toTopOf="parent"
+           app:layout_constraintStart_toStartOf="parent"
+           android:src="@mipmap/ski_icon_vip_lv"
+           android:layout_marginStart="32dp"
+           android:layout_marginTop="32dp"/>
+
+       <TextView
+           android:id="@+id/tv_level"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           app:layout_constraintTop_toTopOf="@+id/iv_level"
+           app:layout_constraintStart_toEndOf="@+id/iv_level"
+           app:layout_constraintBottom_toBottomOf="@+id/iv_level"
+           android:textColor="@color/ski_color_222222"
+           android:gravity="center"
+           tools:text="VIP3"
+           android:layout_marginStart="8dp"
+           android:textSize="18dp"/>
+
+
+       <TextView
+           android:id="@+id/tv_label_level"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           app:layout_constraintTop_toBottomOf="@+id/iv_level"
+           app:layout_constraintStart_toStartOf="parent"
+           android:text="我的会员等级"
+           android:layout_marginStart="16dp"
+           android:layout_marginTop="10dp"
+           android:textColor="@color/ski_color_222222"
+           android:textSize="17dp"/>
+
+       <View
+           android:id="@+id/view_vertical_line"
+           android:layout_width="1dp"
+           android:layout_height="match_parent"
+           android:background="@color/ski_color_efefef"
+           app:layout_constraintTop_toTopOf="parent"
+           app:layout_constraintStart_toEndOf="@+id/tv_label_level"
+           android:layout_marginStart="20dp"/>
+
+       <TextView
+           android:id="@+id/tv_label_ip"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           app:layout_constraintTop_toTopOf="parent"
+           app:layout_constraintStart_toEndOf="@+id/view_vertical_line"
+           android:text="最近登录的iP"
+           android:textColor="@color/ski_color_333333"
+           android:layout_marginTop="16dp"
+           android:layout_marginStart="16dp"/>
+
+       <TextView
+           android:id="@+id/tv_label_add"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           app:layout_constraintTop_toBottomOf="@+id/tv_label_ip"
+           app:layout_constraintStart_toStartOf="@+id/tv_label_ip"
+           android:text="最近登录地区"
+           android:textColor="@color/ski_color_333333"
+           android:layout_marginTop="10dp"/>
+
+       <TextView
+           android:id="@+id/tv_label_time"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           app:layout_constraintTop_toBottomOf="@+id/tv_label_add"
+           app:layout_constraintStart_toStartOf="@+id/tv_label_ip"
+           android:text="最近登录时间"
+           android:textColor="@color/ski_color_333333"
+           android:layout_marginTop="10dp"/>
+
+       <TextView
+           android:id="@+id/tv_value_ip"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           app:layout_constraintTop_toTopOf="@+id/tv_label_ip"
+           app:layout_constraintStart_toEndOf="@+id/tv_label_ip"
+           tools:text="172.31.14.172"
+           android:textColor="@color/ski_color_333333"
+           android:layout_marginStart="10dp"/>
+
+       <TextView
+           android:id="@+id/tv_value_add"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           tools:text="中国 北京"
+           android:textColor="@color/ski_color_333333"
+           app:layout_constraintTop_toTopOf="@+id/tv_label_add"
+           app:layout_constraintStart_toStartOf="@+id/tv_value_ip"/>
+
+       <TextView
+           android:id="@+id/tv_value_time"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           tools:text="2020-10-23 16:16:25"
+           android:textColor="@color/ski_color_333333"
+           app:layout_constraintTop_toTopOf="@+id/tv_label_time"
+           app:layout_constraintStart_toStartOf="@+id/tv_value_ip"/>
+   </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/ski_bg_hall_content_rv"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="32dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_nick_name"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:paddingStart="16dp">
+
+            <TextView
+                style="@style/item_content_text_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ski_my_nick_name"
+                android:layout_marginStart="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <TextView
+                android:id="@+id/tv_tip_nick"
+                style="@style/item_content_text_style"
+                android:text="@string/ski_my_unset"
+                android:textColor="@color/ski_color_999999"
+                android:textSize="14dp"
+                android:layout_marginEnd="48dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <ImageView
+                android:id="@+id/iv_arrow_right"
+                android:layout_width="12dp"
+                android:layout_height="18dp"
+                android:layout_marginEnd="16dp"
+                android:src="@mipmap/icon_arrow_right"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/ski_color_dfe2f2" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_login_pwd"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:paddingStart="16dp">
+
+            <TextView
+                style="@style/item_content_text_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ski_my_login_pwd"
+                android:layout_marginStart="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+            <ImageView
+                android:id="@+id/iv_arrow_right2"
+                android:layout_width="12dp"
+                android:layout_height="18dp"
+                android:layout_marginEnd="16dp"
+                android:src="@mipmap/icon_arrow_right"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/ski_color_dfe2f2" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_money_pwd"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:paddingStart="16dp">
+
+            <TextView
+                style="@style/item_content_text_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ski_my_money_pwd"
+                android:layout_marginStart="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <TextView
+                android:id="@+id/tv_tip_money_pwd"
+                style="@style/item_content_text_style"
+                android:text="@string/ski_my_unset"
+                android:textColor="@color/ski_color_999999"
+                android:textSize="14dp"
+                android:layout_marginEnd="48dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <ImageView
+                android:id="@+id/iv_arrow_right3"
+                android:layout_width="12dp"
+                android:layout_height="18dp"
+                android:layout_marginEnd="16dp"
+                android:src="@mipmap/icon_arrow_right"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/ski_color_dfe2f2" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_safe_qua"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="16dp"
+            android:visibility="gone">
+
+            <TextView
+                style="@style/item_content_text_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ski_my_safe_qua"
+                android:layout_marginStart="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <TextView
+                android:id="@+id/tv_tip_safe_qua"
+                style="@style/item_content_text_style"
+                android:text="@string/ski_my_unset"
+                android:textColor="@color/ski_color_999999"
+                android:textSize="14dp"
+                android:layout_marginEnd="48dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <ImageView
+                android:id="@+id/iv_arrow_right4"
+                android:layout_width="12dp"
+                android:layout_height="18dp"
+                android:layout_marginEnd="16dp"
+                android:src="@mipmap/icon_arrow_right"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/ski_color_dfe2f2"
+            android:visibility="gone"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_bind_phone"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:paddingStart="16dp">
+
+            <TextView
+                style="@style/item_content_text_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ski_my_bind_phone"
+                android:layout_marginStart="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <TextView
+                android:id="@+id/tv_tip_phone"
+                style="@style/item_content_text_style"
+                android:text="@string/ski_my_unset"
+                android:textColor="@color/ski_color_999999"
+                android:textSize="14dp"
+                android:layout_marginEnd="48dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <ImageView
+                android:id="@+id/iv_arrow_right5"
+                android:layout_width="12dp"
+                android:layout_height="18dp"
+                android:layout_marginEnd="16dp"
+                android:src="@mipmap/icon_arrow_right"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/ski_color_dfe2f2" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_bind_email"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:paddingStart="16dp">
+
+            <TextView
+                style="@style/item_content_text_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ski_my_bind_email"
+                android:layout_marginStart="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <TextView
+                android:id="@+id/tv_tip_email"
+                style="@style/item_content_text_style"
+                android:text="@string/ski_my_unset"
+                android:textColor="@color/ski_color_999999"
+                android:textSize="14dp"
+                android:layout_marginEnd="48dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <ImageView
+                android:id="@+id/iv_arrow_right6"
+                android:layout_width="12dp"
+                android:layout_height="18dp"
+                android:layout_marginEnd="16dp"
+                android:src="@mipmap/icon_arrow_right"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/ski_color_dfe2f2" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_game_set"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:paddingStart="16dp">
+
+            <TextView
+                style="@style/item_content_text_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ski_my_game_set"
+                android:layout_marginStart="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+            <ImageView
+                android:id="@+id/iv_arrow_right7"
+                android:layout_width="12dp"
+                android:layout_height="18dp"
+                android:layout_marginEnd="16dp"
+                android:src="@mipmap/icon_arrow_right"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+</LinearLayout>

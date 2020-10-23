@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/ski_status_bg"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/ski_status_bar_height"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/ski_head_height">
+
+    <LinearLayout
+        android:id="@+id/left_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="8dp">
+
+        <ImageView
+            android:id="@+id/left_iv"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:src="@mipmap/icon_back" />
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/title_name"
+        android:layout_width="160dp"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:gravity="center"
+        android:textColor="@color/ski_white"
+        android:textSize="@dimen/ski_text_title_size" />
+
+
+    <TextView
+        android:id="@+id/tv_right"
+        android:layout_width="80dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:gravity="right|center_vertical"
+        android:paddingRight="@dimen/dp_10"
+        android:text=""
+        android:textColor="@color/white"
+        android:textSize="15dp" />
+
+    <RelativeLayout
+        android:id="@+id/rl_right_image_btn"
+        android:layout_width="80dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true">
+
+        <ImageView
+            android:id="@+id/iv_right_add"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dp_10"
+            android:background="@mipmap/icon_navbar_btn_add_plus_white"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/iv_right_more"
+            android:layout_width="18dp"
+            android:layout_height="4dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dp_10"
+            android:background="@mipmap/icon_navbar_btn_more_point_white"
+            android:visibility="gone" />
+        </RelativeLayout>
+    </RelativeLayout>
+</LinearLayout>

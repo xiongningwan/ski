@@ -50,6 +50,18 @@ public interface IUserService {
      */
     @GET(UrlConfig.URL_LOG_OUT)
     Single<HttpResult<Object>> logout();
+    /**
+     * 修改用户信息
+     */
+    @POST(UrlConfig.URL_MEM_UPDATE)
+    @FormUrlEncoded
+    Single<HttpResult<Object>> memberUpdateAlias(@Field("alias") String alias);
+    /**
+     * 更新登录密码
+     */
+    @POST(UrlConfig.URL_MEM_UPDATE_LOGIN_PWD)
+    @FormUrlEncoded
+    Single<HttpResult<Object>> updateLoginPwd(@Field("loginPwd") String loginPwd,@Field("loginPwdNew") String loginPwdNew);
 
     /**
      * 用户信息--用户余额

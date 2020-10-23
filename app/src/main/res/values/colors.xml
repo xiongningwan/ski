@@ -10,6 +10,7 @@
     <color name="ski_transparent_half">#5f000000</color>
     <color name="ski_white">#FFFFFF</color><!--白色 -->
     <color name="ski_black">#000000</color>
+    <color name="ski_color_222222">#222222</color>
     <color name="ski_color_333333">#333333</color>
     <color name="ski_color_444444">#444444</color>
     <color name="ski_color_494949">#494949</color>

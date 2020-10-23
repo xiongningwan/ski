@@ -48,6 +48,26 @@
         </activity>
 
         <activity
+            android:name=".view.activity.my.UpdateLoginPwdActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateAlwaysHidden"
+            tools:ignore="LockedOrientationActivity"/>
+
+        <activity
+            android:name=".view.activity.my.UpdateNickNameActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateAlwaysHidden"
+            tools:ignore="LockedOrientationActivity"/>
+
+        <activity
+            android:name=".view.activity.my.PersonalInfoActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+
+        <activity
             android:name=".view.activity.GuideActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait"

@@ -28,6 +28,7 @@ import com.ski.box.mvp.contract.PersonalContract;
 import com.ski.box.mvp.presenter.EmptyPresenter;
 import com.ski.box.mvp.presenter.PersonalPresenter;
 import com.ski.box.view.activity.LoginActivity;
+import com.ski.box.view.activity.my.PersonalInfoActivity;
 import com.ski.box.view.fragment.personal.PersonalTabFragment;
 import com.yb.core.base.BaseMVPFragment;
 import com.yb.core.utils.SPUtils;
@@ -49,6 +50,7 @@ public class PersonalFragment extends BaseMVPFragment<PersonalContract.Presenter
     private TextView mTvLevel;
     private TextView mGroupValue;
     private Button mBtnLogout;
+    private ImageView mIvEt;
 
     public PersonalFragment() {
     }
@@ -65,6 +67,11 @@ public class PersonalFragment extends BaseMVPFragment<PersonalContract.Presenter
     }
 
     @Override
+    protected PersonalContract.Presenter bindPresenter() {
+        return new PersonalPresenter(mContext);
+    }
+
+    @Override
     protected int getLayoutId() {
         return R.layout.ski_fragment_personal;
     }
@@ -77,11 +84,14 @@ public class PersonalFragment extends BaseMVPFragment<PersonalContract.Presenter
         mViewPager =  view.findViewById(R.id.tab_vp);
         mTvUserName =  view.findViewById(R.id.tv_user_name);
         mTvUserAcc =  view.findViewById(R.id.tv_user_acc);
-        mTvUserAcc =  view.findViewById(R.id.tv_user_acc);
+        mIvEt =  view.findViewById(R.id.iv_et_nick_name);
         mTvBalance =  view.findViewById(R.id.tv_balance_value);
         mTvLevel =  view.findViewById(R.id.iv_level_value);
         mGroupValue =  view.findViewById(R.id.iv_group_value);
         mBtnLogout =  view.findViewById(R.id.btn_logout);
+
+        mIvEt.setOnClickListener(this);
+        mTvUserName.setOnClickListener(this);
         mBtnLogout.setOnClickListener(this);
     }
 
@@ -93,22 +103,16 @@ public class PersonalFragment extends BaseMVPFragment<PersonalContract.Presenter
     }
 
 
-
     //这个是一个懒加载
     @Override
     protected void loadData() {
-        mPresenter.getMemberInfo();
+
     }
 
     @Override
     protected void processLogic() {
         super.processLogic();
-    }
-
-
-    @Override
-    protected PersonalContract.Presenter bindPresenter() {
-        return new PersonalPresenter(mContext);
+        mPresenter.getMemberInfo();
     }
 
 
@@ -117,9 +121,10 @@ public class PersonalFragment extends BaseMVPFragment<PersonalContract.Presenter
         int id = view.getId();
         if(id == R.id.btn_logout) {
             mPresenter.logout();
+        } else if(id == R.id.iv_et_nick_name || id == R.id.tv_user_name || id == R.id.tv_user_acc) {
+            startActivity(new Intent(requireActivity(), PersonalInfoActivity.class));
         }
     }
-
 
 
     private void createTab(List<PTabBean> list) {
@@ -206,8 +211,8 @@ public class PersonalFragment extends BaseMVPFragment<PersonalContract.Presenter
     @Subscribe(tags = {@Tag(EVENT_TYPE_USER_NAME_NICK_NAME)})
     public void onUserNameUpdate(String s) {
         User user = DataCenter.getInstance().getUser();
-        mTvUserName.setText(user.getAccount());
-        mTvUserAcc.setText(user.getAlias());
+        mTvUserAcc.setText(user.getAccount());
+        mTvUserName.setText(user.getAlias());
     }
 
     @Override

@@ -94,7 +94,6 @@ public class HallPresenter extends RxPresenter<HallContract.View> implements Hal
                 if (bean != null) {
                     if (!StringUtils.isEmpty(bean.getBalance())) {
                         DataCenter.getInstance().setUser(bean);
-                        RxBus.get().post(EVENT_TYPE_USER_NAME_NICK_NAME, "");
                         Disposable disposable2 = mSysModel.getSysConfig(new Consumer<SystemConfig>() {
                             @Override
                             public void accept(SystemConfig config) {

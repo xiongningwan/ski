@@ -117,7 +117,7 @@ public class MainActivity extends BaseMVPActivity<EmptyContract.Presenter> imple
             // 清除登录后用户数据
            // DataCenter.getInstance().clearUser();
             // 退出
-            ActivityStackManager.getInstance().finishAllActivity();
+            finish();
         }
     }
 }

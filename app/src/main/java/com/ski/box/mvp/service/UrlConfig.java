@@ -22,6 +22,14 @@ public final class UrlConfig {
      * 登出
      */
     public static final String URL_LOG_OUT = "promen/member/logout";
+    /**
+     * 修改用户信息
+     */
+    public static final String URL_MEM_UPDATE = "promen/member/update/base";
+    /**
+     * 更新登录密码
+     */
+    public static final String URL_MEM_UPDATE_LOGIN_PWD = "promen/member/update/loginPwd";
 
 
     //----------------------boracay-start-------------------
