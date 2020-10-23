@@ -230,7 +230,9 @@ public class PersonalFragment extends BaseMVPFragment<PersonalContract.Presenter
 
     @Override
     public void onLogoutFailResult(String s) {
-
+        saveSetSp_token_authorization("","");
+        startActivity(new Intent(requireActivity(), LoginActivity.class));
+        requireActivity().finish();
     }
 
     private void saveSetSp_token_authorization(String token, String authorization) {
