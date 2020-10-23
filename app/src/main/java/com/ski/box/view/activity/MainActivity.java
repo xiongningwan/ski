@@ -2,6 +2,7 @@ package com.ski.box.view.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -11,6 +12,7 @@ import com.hwangjr.rxbus.annotation.Subscribe;
 import com.hwangjr.rxbus.annotation.Tag;
 import com.ski.box.R;
 import com.ski.box.adapter.FragmentAdapter;
+import com.ski.box.bean.DataCenter;
 import com.ski.box.exception.ApiExLister;
 import com.ski.box.mvp.contract.EmptyContract;
 import com.ski.box.mvp.presenter.EmptyPresenter;
@@ -22,7 +24,9 @@ import com.ski.box.view.fragment.record.RecordFragment;
 import com.ski.box.view.view.HallTabLayout;
 import com.ski.box.view.view.NoScrollViewPager;
 import com.yb.core.base.BaseMVPActivity;
+import com.yb.core.utils.ActivityStackManager;
 import com.yb.core.utils.SPUtils;
+import com.yb.core.utils.ToastUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,6 +37,10 @@ import static com.ski.box.ConstantValue.EVENT_TOKEN_DISABLE;
 public class MainActivity extends BaseMVPActivity<EmptyContract.Presenter> implements EmptyContract.View {
     private NoScrollViewPager mViewPager;
     private HallTabLayout mTabView;
+    // 退出时间
+    private long currentBackPressedTime = 0;
+    // 退出间隔
+    private static final int BACK_PRESSED_INTERVAL = 2000;
 
     @Override
     protected int getLayoutId() {
@@ -92,5 +100,24 @@ public class MainActivity extends BaseMVPActivity<EmptyContract.Presenter> imple
     private void saveSetSp_token_authorization(String token, String authorization) {
         SPUtils.putString(this, LoginActivity.KEY_TOKEN, token);
         SPUtils.putString(this,  LoginActivity.KEY_AUTHORIZATION, authorization);
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        closeApp();
+    }
+
+    private void closeApp() {
+        // 判断时间间隔
+        if (System.currentTimeMillis() - currentBackPressedTime > BACK_PRESSED_INTERVAL) {
+            currentBackPressedTime = System.currentTimeMillis();
+            ToastUtil.showInfo("再按一次返回键退出程序");
+        } else {
+            // 清除登录后用户数据
+           // DataCenter.getInstance().clearUser();
+            // 退出
+            ActivityStackManager.getInstance().finishAllActivity();
+        }
     }
 }

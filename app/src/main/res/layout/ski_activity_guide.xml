@@ -5,7 +5,7 @@
     android:background="@mipmap/guide_03"
     android:orientation="vertical">
 
-    <android.support.v4.view.ViewPager
+    <androidx.viewpager.widget.ViewPager
         android:id="@+id/welcome_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
@@ -28,28 +28,5 @@
         android:layout_marginBottom="20dp"
         android:layout_centerHorizontal="true">
 
-        <!--<View-->
-            <!--android:layout_width="8dp"-->
-            <!--android:layout_height="8dp"-->
-            <!--android:layout_marginStart="5dp"-->
-            <!--android:background="@drawable/ski_shape_oval_gray_white_bg_unselected" />-->
-
-        <!--<View-->
-            <!--android:layout_width="8dp"-->
-            <!--android:layout_height="8dp"-->
-            <!--android:layout_marginStart="5dp"-->
-            <!--android:background="@drawable/ski_shape_oval_gray_white_bg_unselected" />-->
-
-        <!--<View-->
-            <!--android:layout_width="8dp"-->
-            <!--android:layout_height="8dp"-->
-            <!--android:layout_marginStart="5dp"-->
-            <!--android:background="@drawable/ski_shape_oval_gray_white_bg_unselected" />-->
-
-        <!--<View-->
-            <!--android:layout_width="8dp"-->
-            <!--android:layout_height="8dp"-->
-            <!--android:layout_marginStart="5dp"-->
-            <!--android:background="@drawable/ski_shape_oval_gray_white_bg_unselected" />-->
     </LinearLayout>
 </RelativeLayout>

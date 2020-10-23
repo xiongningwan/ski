@@ -43,6 +43,7 @@ public class SplashActivity extends BaseMVPActivity<EmptyContract.Presenter> imp
     protected void initData(Bundle bundle) {
         boolean isInstall = SPUtils.getBoolean(this, KEY_IS_INSTALL, false);
         if(!isInstall) {
+            SPUtils.putBoolean(this, KEY_IS_INSTALL, true);
             startActivity(new Intent(this, GuideActivity.class));
             finish();
         } else {
