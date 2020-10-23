@@ -14,7 +14,7 @@
 
    <androidx.constraintlayout.widget.ConstraintLayout
        android:layout_width="match_parent"
-       android:layout_height="120dp"
+       android:layout_height="115dp"
        android:background="@color/ski_white">
 
        <ImageView
