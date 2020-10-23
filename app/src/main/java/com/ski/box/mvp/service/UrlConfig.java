@@ -18,6 +18,10 @@ public final class UrlConfig {
      * 登录
      */
     public static final String URL_LOG_IN = "promen/member/login";
+    /**
+     * 登出
+     */
+    public static final String URL_LOG_OUT = "promen/member/logout";
 
 
     //----------------------boracay-start-------------------

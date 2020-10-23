@@ -27,6 +27,8 @@ public interface IUserModel {
                      String memberAccount,
                      String password);
 
+    Disposable logout(Consumer s,
+                     CusConsumer e);
 
     Disposable getMemberDetails(Consumer s, Consumer e);
 

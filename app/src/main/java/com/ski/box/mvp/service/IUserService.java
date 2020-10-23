@@ -45,6 +45,11 @@ public interface IUserService {
     Single<HttpResult<LoginInfo>> login(
             @Field("memberAccount") String memberAccount,
             @Field("password") String password);
+    /**
+     * 登出
+     */
+    @GET(UrlConfig.URL_LOG_OUT)
+    Single<HttpResult<Object>> logout();
 
     /**
      * 用户信息--用户余额

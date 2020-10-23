@@ -8,6 +8,12 @@
         <item name="colorAccent">@color/ski_colorAccent</item>
     </style>
 
+    <style name="SplashTheme" parent="AppTheme">
+        <!-- 将splash图片设置在这，这样这张图片取代白屏 -->
+        <item name="android:windowBackground">@mipmap/splash</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
     <style name="tab_bottom_ll_style">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>

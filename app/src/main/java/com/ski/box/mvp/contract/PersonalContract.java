@@ -9,9 +9,13 @@ public interface PersonalContract {
     interface View extends BaseContract.BaseView {
         void onMemberInfoResult(MemberInfo memberInfo);
         void onMemberInfoFailResult(String s);
+
+        void onLogoutResult(Object o);
+        void onLogoutFailResult(String s);
     }
 
     interface Presenter extends BaseContract.BasePresenter<View> {
         void getMemberInfo();
+        void logout();
     }
 }

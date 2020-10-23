@@ -13,11 +13,11 @@ import androidx.annotation.Nullable;
 
 import com.gyf.immersionbar.ImmersionBar;
 import com.ski.box.BuildConfig;
+import com.ski.box.ConstantValue;
 import com.ski.box.R;
 import com.ski.box.SKISdkManger;
 import com.ski.box.bean.DataCenter;
 import com.ski.box.bean.user.LoginInfo;
-import com.ski.box.bean.user.User;
 import com.ski.box.mvp.contract.LoginContract;
 import com.ski.box.mvp.presenter.LoginPresenter;
 import com.ski.box.utils.HeaderUtil;
@@ -36,6 +36,8 @@ public class LoginActivity extends BaseMVPActivity<LoginContract.Presenter> impl
     public static final int REQUEST_CODE_LOGIN_REGISTER = 100;
     public static final String KEY_NAME = "login_key_name";
     public static final String KEY_PWD = "login_key_pwd";
+    public static final String KEY_TOKEN = "login_key_token";
+    public static final String KEY_AUTHORIZATION = "login_key_authorization";
     private EditText etName;
     private EditText etPassword;
     private Button btDevLogin;
@@ -78,7 +80,7 @@ public class LoginActivity extends BaseMVPActivity<LoginContract.Presenter> impl
 
     @Override
     protected void initData(Bundle bundle) {
-        RetrofitHelper.getInstance().init("https://web.k5615.com/sk/", true, HeaderUtil.getHeader("","","3"));
+        RetrofitHelper.getInstance().init(ConstantValue.BASE_HOST, BuildConfig.DEBUG, HeaderUtil.getHeader("","", ConstantValue.DEVICE));
         initSetFromSp();
     }
 
@@ -119,8 +121,9 @@ public class LoginActivity extends BaseMVPActivity<LoginContract.Presenter> impl
         // sp
         String member = etName.getText().toString();
         String password = etPassword.getText().toString();
-        saveSetSp(member, password);
-        RetrofitHelper.getInstance().init("https://web.k5615.com/sk/", true, HeaderUtil.getHeader( loginInfo.getToken(), loginInfo.getAuthorization(),"3"));
+        saveSetSp_name_pwd(member, password);
+        saveSetSp_token_authorization(loginInfo.getToken(), loginInfo.getAuthorization());
+        RetrofitHelper.getInstance().init(ConstantValue.BASE_HOST, BuildConfig.DEBUG, HeaderUtil.getHeader( loginInfo.getToken(), loginInfo.getAuthorization(),ConstantValue.DEVICE));
         SKISdkManger.initLotteryIds(BuildConfig.DEBUG);
         DataCenter.getInstance().getLottery().clear();
         DataCenter.getInstance().getRemotePlayMap().clear();
@@ -142,7 +145,7 @@ public class LoginActivity extends BaseMVPActivity<LoginContract.Presenter> impl
         }
         String name = data.getStringExtra(LoginActivity.KEY_NAME);
         String pwd = data.getStringExtra(LoginActivity.KEY_PWD);
-        saveSetSp(name, pwd);
+        saveSetSp_name_pwd(name, pwd);
         // 设置
         initSetFromSp();
     }
@@ -157,9 +160,13 @@ public class LoginActivity extends BaseMVPActivity<LoginContract.Presenter> impl
 
     }
 
-    private void saveSetSp(String name, String pwd) {
+    private void saveSetSp_name_pwd(String name, String pwd) {
         SPUtils.putString(this, KEY_NAME, name);
         SPUtils.putString(this, KEY_PWD, pwd);
+    }
+    private void saveSetSp_token_authorization(String token, String authorization) {
+        SPUtils.putString(this, KEY_TOKEN, token);
+        SPUtils.putString(this, KEY_AUTHORIZATION, authorization);
     }
 
 }

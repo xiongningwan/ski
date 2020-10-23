@@ -21,12 +21,10 @@ import com.yb.core.utils.ToastUtil;
 import java.util.ArrayList;
 
 public class SKISdkManger {
-    private static ApiExLister mApiExLister;
-    public static void init(@NonNull Context context, ApiExLister apiExLister) {
+    public static void init(@NonNull Context context) {
         AppUtil.init(context);
         ScreenUtils.init(context);
         ToastUtil.initToasty();
-        mApiExLister = apiExLister;
         ProcessLifecycleOwner.get().getLifecycle().addObserver(new LifecycleChecker());
     }
 

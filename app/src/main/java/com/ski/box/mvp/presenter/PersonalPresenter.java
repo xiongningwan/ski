@@ -47,6 +47,23 @@ public class PersonalPresenter extends RxPresenter<PersonalContract.View> implem
         });
         addDisposable(disposable);
     }
+
+    @Override
+    public void logout() {
+        Disposable disposable = mUserModel.logout(new Consumer<Object>() {
+            @Override
+            public void accept(Object o) throws Exception {
+                    mView.onLogoutResult(o);
+            }
+        }, new CusConsumer() {
+            @Override
+            public void accept(Throwable throwable) throws Exception {
+                super.accept(throwable);
+                mView.onLogoutFailResult(throwable.getMessage());
+            }
+        });
+        addDisposable(disposable);
+    }
 }
 
 

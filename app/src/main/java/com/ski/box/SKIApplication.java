@@ -17,12 +17,7 @@ public class SKIApplication extends Application {
     public void onCreate() {
         super.onCreate();
         context = getApplicationContext();
-        SKISdkManger.init(context, new ApiExLister() {
-            @Override
-            public void tokenExpired() {
-                ToastUtil.showWarning("token已经失效，请重新登录!");
-            }
-        });
+        SKISdkManger.init(context);
       //  initOkhttp();
 
     }

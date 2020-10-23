@@ -45,6 +45,15 @@ public class UserModel extends BaseModel implements IUserModel {
         return toSubscribe(single, s, e);
     }
 
+    @Override
+    public Disposable logout(Consumer s, CusConsumer e) {
+        Single<Object> single = RetrofitHelper
+                .getService(IUserService.class)
+                .logout()
+                .map(new HttpResultFunc<>());
+        return toSubscribe(single, s, e);
+    }
+
 //    @Override
 //    public Disposable login(Consumer s, String environment, String merchantId, String account, String password, int loginType, String timestamp) {
 //        Single<Object> single = RetrofitHelper

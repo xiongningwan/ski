@@ -1,7 +1,9 @@
 package com.ski.box.view.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -25,8 +27,10 @@ import com.ski.box.mvp.contract.EmptyContract;
 import com.ski.box.mvp.contract.PersonalContract;
 import com.ski.box.mvp.presenter.EmptyPresenter;
 import com.ski.box.mvp.presenter.PersonalPresenter;
+import com.ski.box.view.activity.LoginActivity;
 import com.ski.box.view.fragment.personal.PersonalTabFragment;
 import com.yb.core.base.BaseMVPFragment;
+import com.yb.core.utils.SPUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,6 +48,7 @@ public class PersonalFragment extends BaseMVPFragment<PersonalContract.Presenter
     private TextView mTvBalance;
     private TextView mTvLevel;
     private TextView mGroupValue;
+    private Button mBtnLogout;
 
     public PersonalFragment() {
     }
@@ -76,6 +81,8 @@ public class PersonalFragment extends BaseMVPFragment<PersonalContract.Presenter
         mTvBalance =  view.findViewById(R.id.tv_balance_value);
         mTvLevel =  view.findViewById(R.id.iv_level_value);
         mGroupValue =  view.findViewById(R.id.iv_group_value);
+        mBtnLogout =  view.findViewById(R.id.btn_logout);
+        mBtnLogout.setOnClickListener(this);
     }
 
     @Override
@@ -107,7 +114,10 @@ public class PersonalFragment extends BaseMVPFragment<PersonalContract.Presenter
 
     @Override
     public void onClick(View view) {
-
+        int id = view.getId();
+        if(id == R.id.btn_logout) {
+            mPresenter.logout();
+        }
     }
 
 
@@ -209,5 +219,22 @@ public class PersonalFragment extends BaseMVPFragment<PersonalContract.Presenter
     @Override
     public void onMemberInfoFailResult(String s) {
 
+    }
+
+    @Override
+    public void onLogoutResult(Object o) {
+        saveSetSp_token_authorization("","");
+        startActivity(new Intent(requireActivity(), LoginActivity.class));
+        requireActivity().finish();
+    }
+
+    @Override
+    public void onLogoutFailResult(String s) {
+
+    }
+
+    private void saveSetSp_token_authorization(String token, String authorization) {
+        SPUtils.putString(requireActivity(), LoginActivity.KEY_TOKEN, token);
+        SPUtils.putString(requireActivity(),  LoginActivity.KEY_AUTHORIZATION, authorization);
     }
 }

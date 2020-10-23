@@ -30,14 +30,16 @@ public interface ConstantValue {
     String EVENT_DRAGON_ITEM_REQUEST_COUNT_DOWN = "event_dragon_item_request_count_down";
     String EVENT_TYPE_LONG_DRAGON_BET_CLICK = "event_type_long_dragon_bet_click";
     String EVENT_TYPE_USER_NAME_NICK_NAME = "event_type_user_name_nick_name";
-
+    String EVENT_TOKEN_DISABLE = "event_token_disable";
     // sp
     String SP_DOUBLE_QUICK_MONEY_DEFAULT_LIST = "double_default_money_list"; // 快捷金额 默认金额列表
     String SP_DOUBLE_QUICK_MONEY_DEFAULT_SELECTED = "double_default_money_selected"; // 快捷金额 默认选中金额
 
     int PAGE_SIZE = 10;
     int PAGE_NO = 1;
-    int loginType = 3;
+
+    String BASE_HOST = "https://web.k5615.com/sk/";
+    String DEVICE = "3";
 
     int SUBMIT_MODE_BET = 0; //投注
     int SUBMIT_MODE_CHASE = 1;//追号
