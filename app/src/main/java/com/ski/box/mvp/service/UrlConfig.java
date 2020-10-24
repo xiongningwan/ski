@@ -34,6 +34,10 @@ public final class UrlConfig {
      * 更新资金密码
      */
     public static final String URL_MEM_UPDATE_FUND_PWD = "promen/member/update/fundPwd";
+    /**
+     * 绑定手机号
+     */
+    public static final String URL_MEM_UPDATE_PHONE = "promen/member/update/phone";
 
 
     //----------------------boracay-start-------------------

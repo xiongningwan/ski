@@ -68,6 +68,12 @@ public interface IUserService {
     @POST(UrlConfig.URL_MEM_UPDATE_FUND_PWD)
     @FormUrlEncoded
     Single<HttpResult<Object>> updateFundPwd(@Field("fundPwd") String fundPwd,@Field("fundPwdNew") String fundPwdNew);
+    /**
+     * 绑定手机号
+     */
+    @POST(UrlConfig.URL_MEM_UPDATE_PHONE)
+    @FormUrlEncoded
+    Single<HttpResult<Object>> bindPhone(@Field("mobile") String mobile);
 
     /**
      * 用户信息--用户余额

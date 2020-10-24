@@ -44,6 +44,10 @@ public interface IUserModel {
                               String fundPwd,
                               String fundPwdNew);
 
+    Disposable bindPhone(Consumer s,
+                              CusConsumer e,
+                              String mobile);
+
     Disposable getMemberDetails(Consumer s, Consumer e);
 
     Disposable getMemberInfo(Consumer s, Consumer e);

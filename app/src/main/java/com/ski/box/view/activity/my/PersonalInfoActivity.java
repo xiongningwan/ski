@@ -22,7 +22,10 @@ import com.ski.box.mvp.presenter.PersonalInfoPresenter;
 import com.ski.box.view.view.HeaderView;
 import com.yb.core.base.BaseActivity;
 import com.yb.core.base.BaseMVPActivity;
+import com.yb.core.utils.ToastUtil;
 
+import static com.ski.box.ConstantValue.EVENT_BIND_EMAIL_SUCCESS;
+import static com.ski.box.ConstantValue.EVENT_BIND_PHONE_SUCCESS;
 import static com.ski.box.ConstantValue.EVENT_FUND_PWD_UPDATE;
 import static com.ski.box.ConstantValue.EVENT_TYPE_USER_NAME_NICK_NAME;
 
@@ -40,6 +43,8 @@ public class PersonalInfoActivity extends BaseMVPActivity<PersonalInfoContract.P
     private ConstraintLayout mClNickName;
     private ConstraintLayout mClLoginPwd;
     private ConstraintLayout mClFundPwd;
+    private ConstraintLayout mClBindPhone;
+    private ConstraintLayout mClBindEmail;
 
     @Override
     protected void onDestroy() {
@@ -76,9 +81,14 @@ public class PersonalInfoActivity extends BaseMVPActivity<PersonalInfoContract.P
         mClNickName = findViewById(R.id.cl_nick_name);
         mClLoginPwd = findViewById(R.id.cl_login_pwd);
         mClFundPwd = findViewById(R.id.cl_money_pwd);
+        mClBindPhone = findViewById(R.id.cl_bind_phone);
+        mClBindEmail = findViewById(R.id.cl_bind_email);
+
         mClNickName.setOnClickListener(this);
         mClLoginPwd.setOnClickListener(this);
         mClFundPwd.setOnClickListener(this);
+        mClBindPhone.setOnClickListener(this);
+        mClBindEmail.setOnClickListener(this);
     }
 
     @Override
@@ -133,6 +143,16 @@ public class PersonalInfoActivity extends BaseMVPActivity<PersonalInfoContract.P
         mTvTipMoneyPwd.setVisibility(View.GONE);
     }
 
+    @Subscribe(tags = {@Tag(EVENT_BIND_PHONE_SUCCESS)})
+    public void onBindPhoneSuccess(String s) {
+        mTvTipPhone.setVisibility(View.GONE);
+    }
+
+    @Subscribe(tags = {@Tag(EVENT_BIND_EMAIL_SUCCESS)})
+    public void onBindEmailSuccess(String s) {
+        mTvTipEmail.setVisibility(View.GONE);
+    }
+
 
     @Override
     public void onClick(View view) {
@@ -143,7 +163,18 @@ public class PersonalInfoActivity extends BaseMVPActivity<PersonalInfoContract.P
             startActivity(new Intent(this, UpdateLoginPwdActivity.class));
         } else if(id == R.id.cl_money_pwd) {
             startActivity(new Intent(this, UpdateFundPwdActivity.class));
+        } else if(id == R.id.cl_bind_phone) {
+            if(View.GONE == mTvTipPhone.getVisibility()) {
+                ToastUtil.showInfo("请联系客服修改");
+                return;
+            }
+            startActivity(new Intent(this, BindPhoneActivity.class));
+        } else if(id == R.id.cl_bind_email) {
+            if(View.GONE == mTvTipEmail.getVisibility()) {
+                ToastUtil.showInfo("请联系客服修改");
+                return;
+            }
+            startActivity(new Intent(this, BindEmailActivity.class));
         }
-
     }
 }
