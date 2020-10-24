@@ -148,12 +148,14 @@ public class PersonalInfoActivity extends BaseMVPActivity<PersonalInfoContract.P
 
     @Subscribe(tags = {@Tag(EVENT_BIND_PHONE_SUCCESS)})
     public void onBindPhoneSuccess(String s) {
-        mTvTipPhone.setVisibility(View.GONE);
+        User user = DataCenter.getInstance().getUser();
+        mTvTipPhone.setText(user.getMobile());
     }
 
     @Subscribe(tags = {@Tag(EVENT_BIND_EMAIL_SUCCESS)})
     public void onBindEmailSuccess(String s) {
-        mTvTipEmail.setVisibility(View.GONE);
+        User user = DataCenter.getInstance().getUser();
+        mTvTipEmail.setText(user.getMobile());
     }
 
 
