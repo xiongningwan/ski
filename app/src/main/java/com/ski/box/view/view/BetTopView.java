@@ -4,6 +4,9 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.res.AssetFileDescriptor;
+import android.content.res.AssetManager;
+import android.media.MediaPlayer;
 import android.os.Handler;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -24,7 +27,10 @@ import com.ski.box.bean.LotteryNumBean;
 import com.ski.box.bean.TicketLotteryTimeBean;
 import com.ski.box.service.AlarmService;
 import com.ski.box.utils.lottery.LotteryNoUtil;
+import com.ski.box.utils.lottery.SettingManager;
+import com.yb.core.utils.AppUtil;
 
+import java.io.IOException;
 import java.util.List;
 
 import static com.ski.box.ConstantValue.EVENT_BET_ACTIVITY_FINISH;
@@ -152,6 +158,7 @@ public class BetTopView extends FrameLayout implements OnClickListener {
         mTvMinute.setText(arr[1]);
         mTvSecond.setText(arr[2]);
         setCDTextColor(countDownTimes);
+        downTimeVoice(countDownTimes);
     }
 
     private void setCDTextColor(long countDownTimes) {
@@ -164,6 +171,30 @@ public class BetTopView extends FrameLayout implements OnClickListener {
                 mTvSecond.setTextColor(normalColor);
                 mTvMinute.setTextColor(normalColor);
                 mTvHour.setTextColor(normalColor);
+            }
+        }
+    }
+
+    /**
+     * 设置倒计时声音
+     *
+     * @param countDownTimes
+     */
+    private void downTimeVoice(long countDownTimes) {
+        if (SettingManager.isBettingCountdownTone()) {
+
+            // 最后3秒播放倒计时
+            if (countDownTimes == 3000) {
+                try {
+                    AssetManager assetManager = AppUtil.getContext().getAssets();
+                    AssetFileDescriptor afd = assetManager.openFd("voice/ski_time_down.mp3");
+                    MediaPlayer mediaPlayer = new MediaPlayer();
+                    mediaPlayer.setDataSource(afd.getFileDescriptor(), afd.getStartOffset(), afd.getLength());
+                    mediaPlayer.prepare();
+                    mediaPlayer.start();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         }
     }

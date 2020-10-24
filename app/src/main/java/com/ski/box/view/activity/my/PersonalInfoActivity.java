@@ -45,6 +45,7 @@ public class PersonalInfoActivity extends BaseMVPActivity<PersonalInfoContract.P
     private ConstraintLayout mClFundPwd;
     private ConstraintLayout mClBindPhone;
     private ConstraintLayout mClBindEmail;
+    private ConstraintLayout mClGameSet;
 
     @Override
     protected void onDestroy() {
@@ -83,12 +84,14 @@ public class PersonalInfoActivity extends BaseMVPActivity<PersonalInfoContract.P
         mClFundPwd = findViewById(R.id.cl_money_pwd);
         mClBindPhone = findViewById(R.id.cl_bind_phone);
         mClBindEmail = findViewById(R.id.cl_bind_email);
+        mClGameSet = findViewById(R.id.cl_game_set);
 
         mClNickName.setOnClickListener(this);
         mClLoginPwd.setOnClickListener(this);
         mClFundPwd.setOnClickListener(this);
         mClBindPhone.setOnClickListener(this);
         mClBindEmail.setOnClickListener(this);
+        mClGameSet.setOnClickListener(this);
     }
 
     @Override
@@ -175,6 +178,8 @@ public class PersonalInfoActivity extends BaseMVPActivity<PersonalInfoContract.P
                 return;
             }
             startActivity(new Intent(this, BindEmailActivity.class));
+        } else if(id == R.id.cl_game_set) {
+            startActivity(new Intent(this, GameSetActivity.class));
         }
     }
 }

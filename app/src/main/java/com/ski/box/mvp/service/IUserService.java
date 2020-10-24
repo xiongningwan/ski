@@ -74,6 +74,12 @@ public interface IUserService {
     @POST(UrlConfig.URL_MEM_UPDATE_PHONE)
     @FormUrlEncoded
     Single<HttpResult<Object>> bindPhone(@Field("mobile") String mobile);
+    /**
+     * 绑定手机号
+     */
+    @POST(UrlConfig.URL_MEM_UPDATE_EMAIL)
+    @FormUrlEncoded
+    Single<HttpResult<Object>> bindEmail(@Field("email") String email);
 
     /**
      * 用户信息--用户余额

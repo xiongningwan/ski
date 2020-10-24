@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ski_color_efefef"
+    android:orientation="vertical">
+
+    <com.ski.box.view.view.HeaderView
+        android:id="@+id/head_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_bet_sure"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/ski_white">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="投注确认提示"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginStart="16dp"/>
+
+        <Switch
+            android:id="@+id/sw_bet_sure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:thumb="@drawable/ski_switch_custom_thumb_selector"
+            android:track="@drawable/ski_switch_custom_track_selector"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginEnd="16dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:layout_height="1dp"
+        android:layout_width="match_parent"
+        android:background="@color/ski_color_dfe2f2" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_count_down_sound"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/ski_white">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="开奖倒计时音效"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginStart="16dp"/>
+
+        <Switch
+            android:id="@+id/sw_sound"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:thumb="@drawable/ski_switch_custom_thumb_selector"
+            android:track="@drawable/ski_switch_custom_track_selector"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginEnd="16dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:layout_height="1dp"
+        android:layout_width="match_parent"
+        android:background="@color/ski_color_dfe2f2" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/ski_white">
+    <TextView
+        android:id="@+id/tv_tip_range"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint=" 玩法投注金额区间"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"/>
+    
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_range"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/tv_tip_range"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_double_bet_amount_range"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/ski_dp_15"
+        android:paddingRight="@dimen/ski_dp_15"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@mipmap/ic_setting_lock"
+            android:drawablePadding="@dimen/ski_dp_5"
+            android:text="上调锁定到 " />
+
+        <TextView
+            android:id="@+id/tv_double_bet_amount_range"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/ski_red" />
+    </LinearLayout>
+</LinearLayout>

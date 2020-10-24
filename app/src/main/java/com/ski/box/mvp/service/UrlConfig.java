@@ -38,6 +38,10 @@ public final class UrlConfig {
      * 绑定手机号
      */
     public static final String URL_MEM_UPDATE_PHONE = "promen/member/update/phone";
+    /**
+     * 绑定邮箱
+     */
+    public static final String URL_MEM_UPDATE_EMAIL = "promen/member/update/email";
 
 
     //----------------------boracay-start-------------------

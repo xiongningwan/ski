@@ -48,6 +48,10 @@ public interface IUserModel {
                               CusConsumer e,
                               String mobile);
 
+    Disposable bindEmail(Consumer s,
+                              CusConsumer e,
+                              String email);
+
     Disposable getMemberDetails(Consumer s, Consumer e);
 
     Disposable getMemberInfo(Consumer s, Consumer e);
