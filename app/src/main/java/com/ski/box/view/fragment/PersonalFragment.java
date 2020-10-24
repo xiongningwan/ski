@@ -92,6 +92,7 @@ public class PersonalFragment extends BaseMVPFragment<PersonalContract.Presenter
 
         mIvEt.setOnClickListener(this);
         mTvUserName.setOnClickListener(this);
+        mTvUserAcc.setOnClickListener(this);
         mBtnLogout.setOnClickListener(this);
     }
 
