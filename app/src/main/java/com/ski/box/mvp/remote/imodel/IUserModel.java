@@ -39,6 +39,11 @@ public interface IUserModel {
                               String loginPwd,
                               String loginPwdNew);
 
+    Disposable updateFundPwd(Consumer s,
+                              CusConsumer e,
+                              String fundPwd,
+                              String fundPwdNew);
+
     Disposable getMemberDetails(Consumer s, Consumer e);
 
     Disposable getMemberInfo(Consumer s, Consumer e);

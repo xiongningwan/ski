@@ -224,7 +224,7 @@
                 style="@style/item_content_text_style"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/ski_my_money_pwd"
+                android:text="@string/ski_my_money_pwd_update"
                 android:layout_marginStart="16dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"

@@ -31,6 +31,7 @@ public interface ConstantValue {
     String EVENT_TYPE_LONG_DRAGON_BET_CLICK = "event_type_long_dragon_bet_click";
     String EVENT_TYPE_USER_NAME_NICK_NAME = "event_type_user_name_nick_name";
     String EVENT_TOKEN_DISABLE = "event_token_disable";
+    String EVENT_FUND_PWD_UPDATE = "event_fund_pwd_update";
     // sp
     String SP_DOUBLE_QUICK_MONEY_DEFAULT_LIST = "double_default_money_list"; // 快捷金额 默认金额列表
     String SP_DOUBLE_QUICK_MONEY_DEFAULT_SELECTED = "double_default_money_selected"; // 快捷金额 默认选中金额

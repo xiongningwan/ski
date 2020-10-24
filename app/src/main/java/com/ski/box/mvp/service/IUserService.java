@@ -62,6 +62,12 @@ public interface IUserService {
     @POST(UrlConfig.URL_MEM_UPDATE_LOGIN_PWD)
     @FormUrlEncoded
     Single<HttpResult<Object>> updateLoginPwd(@Field("loginPwd") String loginPwd,@Field("loginPwdNew") String loginPwdNew);
+    /**
+     * 更新资金密码
+     */
+    @POST(UrlConfig.URL_MEM_UPDATE_FUND_PWD)
+    @FormUrlEncoded
+    Single<HttpResult<Object>> updateFundPwd(@Field("fundPwd") String fundPwd,@Field("fundPwdNew") String fundPwdNew);
 
     /**
      * 用户信息--用户余额

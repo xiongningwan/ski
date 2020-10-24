@@ -36,7 +36,8 @@
     <string name="ski_my_unset">尚未设置</string>
     <string name="ski_my_nick_name">修改昵称</string>
     <string name="ski_my_login_pwd">修改登录密码</string>
-    <string name="ski_my_money_pwd">修改资金密码</string>
+    <string name="ski_my_money_pwd_update">修改资金密码</string>
+    <string name="ski_my_money_pwd_set">设置资金密码</string>
     <string name="ski_my_safe_qua">安全问题设置</string>
     <string name="ski_my_bind_phone">绑定手机号</string>
     <string name="ski_my_bind_email">绑定邮箱</string>

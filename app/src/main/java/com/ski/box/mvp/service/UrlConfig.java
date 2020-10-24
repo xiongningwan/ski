@@ -30,6 +30,10 @@ public final class UrlConfig {
      * 更新登录密码
      */
     public static final String URL_MEM_UPDATE_LOGIN_PWD = "promen/member/update/loginPwd";
+    /**
+     * 更新资金密码
+     */
+    public static final String URL_MEM_UPDATE_FUND_PWD = "promen/member/update/fundPwd";
 
 
     //----------------------boracay-start-------------------

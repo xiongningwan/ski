@@ -23,6 +23,7 @@ import com.ski.box.view.view.HeaderView;
 import com.yb.core.base.BaseActivity;
 import com.yb.core.base.BaseMVPActivity;
 
+import static com.ski.box.ConstantValue.EVENT_FUND_PWD_UPDATE;
 import static com.ski.box.ConstantValue.EVENT_TYPE_USER_NAME_NICK_NAME;
 
 public class PersonalInfoActivity extends BaseMVPActivity<PersonalInfoContract.Presenter> implements PersonalInfoContract.View, View.OnClickListener {
@@ -38,6 +39,7 @@ public class PersonalInfoActivity extends BaseMVPActivity<PersonalInfoContract.P
     private TextView mTvTipEmail;
     private ConstraintLayout mClNickName;
     private ConstraintLayout mClLoginPwd;
+    private ConstraintLayout mClFundPwd;
 
     @Override
     protected void onDestroy() {
@@ -73,8 +75,10 @@ public class PersonalInfoActivity extends BaseMVPActivity<PersonalInfoContract.P
 
         mClNickName = findViewById(R.id.cl_nick_name);
         mClLoginPwd = findViewById(R.id.cl_login_pwd);
+        mClFundPwd = findViewById(R.id.cl_money_pwd);
         mClNickName.setOnClickListener(this);
         mClLoginPwd.setOnClickListener(this);
+        mClFundPwd.setOnClickListener(this);
     }
 
     @Override
@@ -124,6 +128,11 @@ public class PersonalInfoActivity extends BaseMVPActivity<PersonalInfoContract.P
         mTvTipNick.setText(user.getAlias());
     }
 
+    @Subscribe(tags = {@Tag(EVENT_FUND_PWD_UPDATE)})
+    public void onFundPwdUpdate(String s) {
+        mTvTipMoneyPwd.setVisibility(View.GONE);
+    }
+
 
     @Override
     public void onClick(View view) {
@@ -132,6 +141,8 @@ public class PersonalInfoActivity extends BaseMVPActivity<PersonalInfoContract.P
             startActivity(new Intent(this, UpdateNickNameActivity.class));
         } else if(id == R.id.cl_login_pwd) {
             startActivity(new Intent(this, UpdateLoginPwdActivity.class));
+        } else if(id == R.id.cl_money_pwd) {
+            startActivity(new Intent(this, UpdateFundPwdActivity.class));
         }
 
     }
