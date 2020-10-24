@@ -3,8 +3,8 @@
 
     <corners android:radius="10dp" />
     <gradient
-        android:endColor="#678CF0"
-        android:startColor="#678CF0" />
+        android:endColor="@color/ski_color_A86A91"
+        android:startColor="@color/ski_color_B27496" />
     <size android:height="@dimen/ski_dp_20" />
 
 </shape>

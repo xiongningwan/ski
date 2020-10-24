@@ -88,7 +88,7 @@ public final class UrlConfig {
     /**
      * 写入用户设置
      */
-    public static final String URL_USER_WRITE = "boracay/member/front/save";
+    public static final String URL_USER_WRITE = "botanic/member/front/save";
 
     /**
      * 双面盘，长龙提醒自定义彩种保存
