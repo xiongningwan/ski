@@ -57,6 +57,7 @@ public class BindPhoneActivity extends BaseMVPActivity<BindPhoneContract.Present
         mBtnSure = findViewById(R.id.btn_sure);
         mHeadView.setHeader(getString(R.string.ski_my_bind_phone), true);
 
+        mTvSendCode.setOnClickListener(this);
         mBtnSure.setOnClickListener(this);
     }
 

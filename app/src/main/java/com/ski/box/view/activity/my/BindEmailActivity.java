@@ -19,6 +19,7 @@ import com.ski.box.view.view.HeaderView;
 import com.yb.core.base.BaseMVPActivity;
 import com.yb.core.utils.ToastUtil;
 
+import static com.ski.box.ConstantValue.EVENT_BIND_EMAIL_SUCCESS;
 import static com.ski.box.ConstantValue.EVENT_BIND_PHONE_SUCCESS;
 
 
@@ -54,6 +55,7 @@ public class BindEmailActivity extends BaseMVPActivity<BindPhoneContract.Present
         mBtnSure = findViewById(R.id.btn_sure);
         mHeadView.setHeader(getString(R.string.ski_my_bind_email), true);
 
+        mTvSendCode.setOnClickListener(this);
         mBtnSure.setOnClickListener(this);
     }
 
@@ -106,7 +108,7 @@ public class BindEmailActivity extends BaseMVPActivity<BindPhoneContract.Present
         String phone = mEtPhone.getText().toString().trim();
         DataCenter.getInstance().getUser().setMobile(phone);
         ToastUtil.showSuccess("修改成功!");
-        RxBus.get().post(EVENT_BIND_PHONE_SUCCESS, "");
+        RxBus.get().post(EVENT_BIND_EMAIL_SUCCESS, "");
         finish();
 
     }
