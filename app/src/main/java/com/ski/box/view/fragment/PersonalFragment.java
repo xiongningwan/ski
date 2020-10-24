@@ -19,17 +19,14 @@ import com.hwangjr.rxbus.annotation.Tag;
 import com.ski.box.R;
 import com.ski.box.adapter.FragmentAdapter;
 import com.ski.box.bean.DataCenter;
-import com.ski.box.bean.MemberDetailEntity;
 import com.ski.box.bean.PTabBean;
 import com.ski.box.bean.user.MemberInfo;
 import com.ski.box.bean.user.User;
-import com.ski.box.mvp.contract.EmptyContract;
 import com.ski.box.mvp.contract.PersonalContract;
-import com.ski.box.mvp.presenter.EmptyPresenter;
 import com.ski.box.mvp.presenter.PersonalPresenter;
 import com.ski.box.view.activity.LoginActivity;
 import com.ski.box.view.activity.my.PersonalInfoActivity;
-import com.ski.box.view.fragment.personal.PersonalTabFragment;
+import com.ski.box.view.fragment.my.PersonalTabFragment;
 import com.yb.core.base.BaseMVPFragment;
 import com.yb.core.utils.SPUtils;
 

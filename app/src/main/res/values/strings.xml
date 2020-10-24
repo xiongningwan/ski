@@ -42,4 +42,10 @@
     <string name="ski_my_bind_phone">绑定手机号</string>
     <string name="ski_my_bind_email">绑定邮箱</string>
     <string name="ski_my_game_set">游戏设置</string>
+    <string name="ski_my_bank_card">银行卡管理</string>
+    <string name="ski_my_bank_card_tip">1.银行卡添加成功后，平台任何区域都不会出现您完整的银行卡账号，开户名等信息。
+2.每个平台账号最多可以添加 5 张银行卡。
+3.每个账号只能添加同一个持卡人姓名的银行卡。
+4.添加银行卡信息后，需 12 小时后方可提现。
+5.必须绑定银行卡后方可提现。</string>
 </resources>

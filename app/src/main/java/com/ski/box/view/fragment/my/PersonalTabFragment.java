@@ -1,25 +1,26 @@
-package com.ski.box.view.fragment.personal;
+package com.ski.box.view.fragment.my;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.viewpager.widget.ViewPager;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.chad.library.adapter.base.listener.OnItemClickListener;
 import com.chad.library.adapter.base.viewholder.BaseViewHolder;
-import com.google.android.material.tabs.TabLayout;
 import com.hwangjr.rxbus.RxBus;
 import com.ski.box.R;
 import com.ski.box.bean.PTabBean;
-import com.ski.box.bean.lottery.LotteryBean;
 import com.ski.box.mvp.contract.EmptyContract;
 import com.ski.box.mvp.presenter.EmptyPresenter;
+import com.ski.box.view.activity.my.BankCardActivity;
+import com.ski.box.view.activity.my.PersonalInfoActivity;
 import com.yb.core.base.BaseMVPFragment;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -72,6 +73,15 @@ public class PersonalTabFragment extends BaseMVPFragment<EmptyContract.Presenter
     protected void initData(Bundle savedInstanceState) {
         List<PTabBean>  list = getData(mId);
         mTabListAdapter.setNewInstance(list);
+        mTabListAdapter.setOnItemClickListener(new OnItemClickListener() {
+            @Override
+            public void onItemClick(@NonNull BaseQuickAdapter<?, ?> adapter, @NonNull View view, int position) {
+                List<PTabBean>  list = (List<PTabBean>) adapter.getData();
+                PTabBean bean = list.get(position);
+                dispatch(bean);
+            }
+
+        });
     }
 
 
@@ -146,4 +156,15 @@ public class PersonalTabFragment extends BaseMVPFragment<EmptyContract.Presenter
         }
         return list;
    }
+
+    private void dispatch(PTabBean bean) {
+        switch (bean.getId()){
+            case 11: // 基本信息
+                startActivity(new Intent(requireActivity(), PersonalInfoActivity.class));
+                break;
+            case 12: // 银行卡管理
+                startActivity(new Intent(requireActivity(), BankCardActivity.class));
+                break;
+        }
+    }
 }
