@@ -1,0 +1,19 @@
+<resources>
+    <string name="ybcp_app_name">CoreLibrary</string>
+
+    <string name="ybcp_Network_Connection_timeout">网络请求超时</string>
+    <string name="ybcp_no_network">网络连接异常</string>
+    <string name="ybcp_no_address_associated_with_hostname">不能连接到服务器，请检查网络连接</string>
+    <string name="ybcp_cant_parse_illegalStateException">解析数据出错</string>
+    <string name="ybcp_loading_tip">加载中…</string>
+
+    <!-- HttpCodeException -->
+    <string name="ybcp_http_code_default">未知错误%1$d</string>
+    <string name="ybcp_http_code_201">新资源被创建</string>
+    <string name="ybcp_http_code_401">未授权用户</string>
+    <string name="ybcp_http_code_403">禁止访问</string>
+    <string name="ybcp_http_code_404">你访问的资源不存在</string>
+    <string name="ybcp_http_code_500">后台服务器出错</string>
+    <string name="ybcp_http_code_503">服务器更新维护中</string>
+
+</resources>
