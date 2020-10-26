@@ -15,7 +15,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp">
+        android:layout_height="50dp"
+        android:background="@color/ski_white">
 
         <TextView
             android:id="@+id/tv_1"
@@ -59,7 +60,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp">
+        android:layout_height="50dp"
+        android:background="@color/ski_white">
 
         <TextView
             android:id="@+id/tv_2"
@@ -111,7 +113,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp">
+        android:layout_height="50dp"
+        android:background="@color/ski_white">
 
         <TextView
             android:id="@+id/tv_3"
@@ -164,7 +167,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp">
+        android:layout_height="50dp"
+        android:background="@color/ski_white">
 
         <TextView
             android:id="@+id/tv_4"
@@ -217,7 +221,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp">
+        android:layout_height="50dp"
+        android:background="@color/ski_white">
 
         <TextView
             android:id="@+id/tv_5"
