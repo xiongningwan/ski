@@ -48,4 +48,6 @@
 3.每个账号只能添加同一个持卡人姓名的银行卡。
 4.添加银行卡信息后，需 12 小时后方可提现。
 5.必须绑定银行卡后方可提现。</string>
+    <string name="ski_my_bank_card_add">添加银行卡</string>
+    <string name="ski_my_bank_card_bind">绑定银行卡</string>
 </resources>

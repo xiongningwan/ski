@@ -139,7 +139,7 @@ public class GameSetActivity extends BaseMVPActivity<GameSetContract.Presenter> 
         protected void convert(@NotNull BaseViewHolder holder, @Nullable SelfProfileEntity.DoubleBetRangeListBean bean) {
             String rangStr = LotteryNoUtil.getRangeStr(bean.getDoublePlayBetMin(), bean.getDoublePlayBetMax());
             TextView tvTishi = holder.getView(R.id.tv_tishi);
-            ImageView ivChose = holder.getView(R.id.iv_chose);
+//            ImageView ivChose = holder.getView(R.id.iv_chose);
             TextView tvName = holder.getView(R.id.bt_name);
             tvName.setText(rangStr);
             if (TextUtils.isEmpty(rangStr)) {
@@ -152,11 +152,11 @@ public class GameSetActivity extends BaseMVPActivity<GameSetContract.Presenter> 
                 if (bean.isCurrent()) {
                     tvName.setSelected(true);
                     tvName.setEnabled(true);
-                    ivChose.setVisibility(View.VISIBLE);
+//                    ivChose.setVisibility(View.VISIBLE);
                 } else {
                     tvName.setSelected(false);
                     tvName.setEnabled(true);
-                    ivChose.setVisibility(View.GONE);
+//                    ivChose.setVisibility(View.GONE);
                     if (bean.isLock()) {
                         tvName.setEnabled(false);
                     }

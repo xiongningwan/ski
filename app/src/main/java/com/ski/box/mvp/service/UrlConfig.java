@@ -42,6 +42,18 @@ public final class UrlConfig {
      * 绑定邮箱
      */
     public static final String URL_MEM_UPDATE_EMAIL = "promen/member/update/email";
+    /**
+     * 银行卡列表
+     */
+    public static final String URL_MEM_BANK_CARDS = "promen/card/query";
+    /**
+     * 银行列表
+     */
+    public static final String URL_MEM_BANK_LIST = "promen/card/platform/bankList";
+    /**
+     * 银行列表
+     */
+    public static final String URL_MEM_BANK_BIND = "promen/card/bind";
 
 
     //----------------------boracay-start-------------------

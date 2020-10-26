@@ -3,12 +3,12 @@ package com.ski.box.mvp.remote;
 
 import com.google.gson.Gson;
 import com.ski.box.bean.Balance;
-import com.ski.box.bean.MemberDetailEntity;
 import com.ski.box.bean.PersonProfileEntity;
 import com.ski.box.bean.SelfProfileEntity;
+import com.ski.box.bean.user.Bank;
+import com.ski.box.bean.user.BankCard;
 import com.ski.box.bean.user.LoginInfo;
 import com.ski.box.bean.user.MemberInfo;
-import com.ski.box.bean.user.User;
 import com.ski.box.bean.user.UserInfo;
 import com.ski.box.exception.CusConsumer;
 import com.ski.box.mvp.remote.imodel.IUserModel;
@@ -95,6 +95,33 @@ public class UserModel extends BaseModel implements IUserModel {
         Single<Object> single = RetrofitHelper
                 .getService(IUserService.class)
                 .bindEmail(email)
+                .map(new HttpResultFunc<>());
+        return toSubscribe(single, s, e);
+    }
+
+    @Override
+    public Disposable getBankCardList(Consumer s, CusConsumer e) {
+        Single<List<BankCard>> single = RetrofitHelper
+                .getService(IUserService.class)
+                .getBankCardList()
+                .map(new HttpResultFunc<>());
+        return toSubscribe(single, s, e);
+    }
+
+    @Override
+    public Disposable getBankList(Consumer s, CusConsumer e) {
+        Single<List<Bank>> single = RetrofitHelper
+                .getService(IUserService.class)
+                .getBankList()
+                .map(new HttpResultFunc<>());
+        return toSubscribe(single, s, e);
+    }
+
+    @Override
+    public Disposable bindBank(Consumer s, CusConsumer e, String bankCode, String bankName, String bankSubName, String cardName, String cardNo, String cardNoSec) {
+        Single<Object> single = RetrofitHelper
+                .getService(IUserService.class)
+                .bindBank(bankCode, bankName, bankSubName, cardName, cardNo, cardNoSec)
                 .map(new HttpResultFunc<>());
         return toSubscribe(single, s, e);
     }

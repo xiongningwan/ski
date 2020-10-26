@@ -40,17 +40,32 @@ public interface IUserModel {
                               String loginPwdNew);
 
     Disposable updateFundPwd(Consumer s,
-                              CusConsumer e,
-                              String fundPwd,
-                              String fundPwdNew);
+                             CusConsumer e,
+                             String fundPwd,
+                             String fundPwdNew);
 
     Disposable bindPhone(Consumer s,
-                              CusConsumer e,
-                              String mobile);
+                         CusConsumer e,
+                         String mobile);
 
     Disposable bindEmail(Consumer s,
-                              CusConsumer e,
-                              String email);
+                         CusConsumer e,
+                         String email);
+
+    Disposable getBankCardList(Consumer s,
+                               CusConsumer e);
+
+    Disposable getBankList(Consumer s,
+                           CusConsumer e);
+
+    Disposable bindBank(Consumer s,
+                        CusConsumer e,
+                        String bankCode,
+                        String bankName,
+                        String bankSubName,
+                        String cardName,
+                        String cardNo,
+                        String cardNoSec);
 
     Disposable getMemberDetails(Consumer s, Consumer e);
 

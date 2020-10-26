@@ -48,6 +48,12 @@
         </activity>
 
         <activity
+            android:name=".view.activity.my.BankCardAddActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateAlwaysHidden"
+            tools:ignore="LockedOrientationActivity"/>
+        <activity
             android:name=".view.activity.my.BankCardActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait"

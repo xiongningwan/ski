@@ -34,6 +34,7 @@ public interface ConstantValue {
     String EVENT_FUND_PWD_UPDATE = "event_fund_pwd_update";
     String EVENT_BIND_PHONE_SUCCESS = "event_bind_phone_success";
     String EVENT_BIND_EMAIL_SUCCESS = "event_bind_email_success";
+    String EVENT_BIND_BANK_CARD_SUCCESS = "event_bind_bank_card_success";
     // sp
     String SP_DOUBLE_QUICK_MONEY_DEFAULT_LIST = "double_default_money_list"; // 快捷金额 默认金额列表
     String SP_DOUBLE_QUICK_MONEY_DEFAULT_SELECTED = "double_default_money_selected"; // 快捷金额 默认选中金额

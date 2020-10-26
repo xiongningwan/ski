@@ -2,13 +2,15 @@ package com.ski.box.mvp.service;
 
 
 import com.ski.box.bean.Balance;
-import com.ski.box.bean.MemberDetailEntity;
 import com.ski.box.bean.SelfProfileEntity;
+import com.ski.box.bean.user.Bank;
+import com.ski.box.bean.user.BankCard;
 import com.ski.box.bean.user.LoginInfo;
 import com.ski.box.bean.user.MemberInfo;
-import com.ski.box.bean.user.User;
 import com.ski.box.bean.user.UserInfo;
 import com.yb.core.net.HttpResult;
+
+import java.util.List;
 
 import io.reactivex.Single;
 import okhttp3.RequestBody;
@@ -80,6 +82,26 @@ public interface IUserService {
     @POST(UrlConfig.URL_MEM_UPDATE_EMAIL)
     @FormUrlEncoded
     Single<HttpResult<Object>> bindEmail(@Field("email") String email);
+    /**
+     * 银行卡列表
+     */
+    @GET(UrlConfig.URL_MEM_BANK_CARDS)
+    Single<HttpResult<List<BankCard>>> getBankCardList();
+    /**
+     * 银行列表
+     */
+    @GET(UrlConfig.URL_MEM_BANK_LIST)
+    Single<HttpResult<List<Bank>>> getBankList();
+    /**
+     * 银行列表
+     */
+    @POST(UrlConfig.URL_MEM_BANK_BIND)
+    Single<HttpResult<Object>> bindBank(@Field("bankCode") String bankCode,
+                                            @Field("bankName") String bankName,
+                                            @Field("bankSubName") String bankSubName,
+                                            @Field("cardName") String cardName,
+                                            @Field("cardNo") String cardNo,
+                                            @Field("cardNoSec") String cardNoSec);
 
     /**
      * 用户信息--用户余额

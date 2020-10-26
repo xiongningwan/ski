@@ -126,6 +126,7 @@ public class UpdateFundPwdActivity extends BaseMVPActivity<UpdateFundPwdContract
     @Override
     public void onSuccessResult() {
         ToastUtil.showSuccess("修改成功!");
+        mUser.setHavefundPwd(1);
         RxBus.get().post(EVENT_FUND_PWD_UPDATE,"");
         finish();
     }
