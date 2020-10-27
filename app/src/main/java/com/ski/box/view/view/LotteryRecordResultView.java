@@ -100,7 +100,7 @@ public class LotteryRecordResultView extends LinearLayout {
                 w = ScreenUtils.dip2px(100);
                 break;
             case LotteryConstant.SER_ID_KL8:
-                w = ScreenUtils.dip2px(240);
+                w = ScreenUtils.dip2px(280);
                 break;
         }
         return w;

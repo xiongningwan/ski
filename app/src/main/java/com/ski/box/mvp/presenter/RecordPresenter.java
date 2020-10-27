@@ -130,7 +130,7 @@ public class RecordPresenter extends RxPresenter<RecordContract.View> implements
     }
 
     @Override
-    public void showCancelDialog(RecordBet.ListBean listBean, int position) {
+    public void showCancelDialog(RecordBet.ListBean listBean) {
         String orderId = listBean.getOrderId();
         Disposable disposable = mRecordModel.betOrderCancel(orderId, new Consumer<Object>() {
             @Override

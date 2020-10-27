@@ -68,6 +68,11 @@ public class LotteryResultView extends LinearLayout {
         mAdapter.setNewInstance(list);
     }
 
+    public void setResult(List<LotteryNumBean> list, int mode) {
+        mAdapter.setMode(mode);
+        mAdapter.setNewInstance(list);
+    }
+
 
 
 

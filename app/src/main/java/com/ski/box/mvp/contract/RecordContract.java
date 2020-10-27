@@ -34,7 +34,7 @@ public interface RecordContract {
 
         void getProfitLossDaily(ProfitLossRequest mkProfitLossRequest);
 
-        void showCancelDialog(RecordBet.ListBean bean, int position);
+        void showCancelDialog(RecordBet.ListBean bean);
 
 
     }

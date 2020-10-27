@@ -55,6 +55,7 @@ public class TopResultAdapter extends BaseMultiItemQuickAdapter<LotteryNumBean, 
     String systemModel;
     Random mRandom;
     Typeface mTf_DinABold;
+    private int mode;
 
     public TopResultAdapter(Context context) {
         addItemType(LotteryConstant.SER_ID_PK10, R.layout.ski_item_top_result_type_pk10);
@@ -73,6 +74,10 @@ public class TopResultAdapter extends BaseMultiItemQuickAdapter<LotteryNumBean, 
         AssetManager mgr = context.getAssets();
         //根据路径得到Typeface
         mTf_DinABold = Typeface.createFromAsset(mgr, "fonts/DIN_Alternate_Bold.ttf");
+    }
+
+    public void setMode(int i) {
+        mode = i;
     }
 
 
@@ -230,6 +235,9 @@ public class TopResultAdapter extends BaseMultiItemQuickAdapter<LotteryNumBean, 
         if ("vivo Y67A".equalsIgnoreCase(systemModel)) {
             return;
         }
+        if(2 == mode) {
+            return;
+        }
 
         int distance = mViewHeight + 10;
         float[] floats = {distance, -distance};
@@ -252,6 +260,9 @@ public class TopResultAdapter extends BaseMultiItemQuickAdapter<LotteryNumBean, 
 
     private void startAnimal_lhc(View view, int index, int numInt, TextView tv) {
         if ("vivo Y67A".equalsIgnoreCase(systemModel)) {
+            return;
+        }
+        if(2 == mode) {
             return;
         }
 
@@ -279,6 +290,11 @@ public class TopResultAdapter extends BaseMultiItemQuickAdapter<LotteryNumBean, 
 
 
     private void startIVAni(ImageView iv, String code) {
+        if(2 == mode) {
+            Integer k3IconResId = ConfigurationUiUtils.kuaiSanMap.get(code);
+            iv.setImageResource(k3IconResId);
+            return;
+        }
         RequestOptions options = new RequestOptions()
                 .diskCacheStrategy(DiskCacheStrategy.RESOURCE);
         MyCustomTarage myCustomTarage = new MyCustomTarage(iv, new MyCustomTarage.GifListener() {

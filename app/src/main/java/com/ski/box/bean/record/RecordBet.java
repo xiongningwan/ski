@@ -1,5 +1,8 @@
 package com.ski.box.bean.record;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.chad.library.adapter.base.entity.MultiItemEntity;
 
 import java.io.Serializable;
@@ -8,7 +11,7 @@ import java.util.List;
 /**
  * 四大列表 投注记录 返回ben对象
  */
-public class RecordBet implements Serializable {
+public class RecordBet implements Parcelable {
 
 
     /**
@@ -65,7 +68,7 @@ public class RecordBet implements Serializable {
         this.list = list;
     }
 
-    public static class ListBean implements Serializable , MultiItemEntity {
+    public static class ListBean implements  MultiItemEntity, Parcelable {
         /**
          * orderId : 1252527973630738487
          * betTime : 2020-04-21 17:21:54
@@ -104,7 +107,7 @@ public class RecordBet implements Serializable {
         private String orderId;
         private String betTime;
         private String playId;
-        private Object playCode;
+        private String playCode;
         private String playName;
         private String betContent;
         private double winAmount;
@@ -113,7 +116,7 @@ public class RecordBet implements Serializable {
         private String ticketName;
         private boolean canCancel;
         private int seriesId;
-        private Object seriesCode;
+        private String seriesCode;
         private String odd;
         private String betPrize;
         private String ticketResult;
@@ -127,8 +130,8 @@ public class RecordBet implements Serializable {
         private int betMultiple;
         private float betModel;
         private int betNums;
-        private Object chaseId;
-        private Object preOrderId;
+        private long chaseId;
+        private long preOrderId;
         private String nextOrderId;
         private boolean win;
         private boolean displayZuHe;
@@ -172,7 +175,7 @@ public class RecordBet implements Serializable {
             return playCode;
         }
 
-        public void setPlayCode(Object playCode) {
+        public void setPlayCode(String playCode) {
             this.playCode = playCode;
         }
 
@@ -240,11 +243,11 @@ public class RecordBet implements Serializable {
             this.seriesId = seriesId;
         }
 
-        public Object getSeriesCode() {
+        public String getSeriesCode() {
             return seriesCode;
         }
 
-        public void setSeriesCode(Object seriesCode) {
+        public void setSeriesCode(String seriesCode) {
             this.seriesCode = seriesCode;
         }
 
@@ -352,19 +355,19 @@ public class RecordBet implements Serializable {
             this.betNums = betNums;
         }
 
-        public Object getChaseId() {
+        public long getChaseId() {
             return chaseId;
         }
 
-        public void setChaseId(Object chaseId) {
+        public void setChaseId(long chaseId) {
             this.chaseId = chaseId;
         }
 
-        public Object getPreOrderId() {
+        public long getPreOrderId() {
             return preOrderId;
         }
 
-        public void setPreOrderId(Object preOrderId) {
+        public void setPreOrderId(long preOrderId) {
             this.preOrderId = preOrderId;
         }
 
@@ -399,5 +402,135 @@ public class RecordBet implements Serializable {
         public void setBetNum(String betNum) {
             this.betNum = betNum;
         }
+
+        @Override
+        public int describeContents() {
+            return 0;
+        }
+
+        @Override
+        public void writeToParcel(Parcel dest, int flags) {
+            dest.writeString(this.orderId);
+            dest.writeString(this.betTime);
+            dest.writeString(this.playId);
+            dest.writeString(this.playCode);
+            dest.writeString(this.playName);
+            dest.writeString(this.betContent);
+            dest.writeDouble(this.winAmount);
+            dest.writeFloat(this.betMoney);
+            dest.writeInt(this.ticketId);
+            dest.writeString(this.ticketName);
+            dest.writeByte(this.canCancel ? (byte) 1 : (byte) 0);
+            dest.writeInt(this.seriesId);
+            dest.writeString(this.seriesCode);
+            dest.writeString(this.odd);
+            dest.writeString(this.betPrize);
+            dest.writeString(this.ticketResult);
+            dest.writeByte(this.solo ? (byte) 1 : (byte) 0);
+            dest.writeByte(this.chaseOrder ? (byte) 1 : (byte) 0);
+            dest.writeInt(this.groupMode);
+            dest.writeByte(this.singleGame ? (byte) 1 : (byte) 0);
+            dest.writeString(this.ticketPlanNo);
+            dest.writeInt(this.betStatus);
+            dest.writeString(this.betStatusDes);
+            dest.writeInt(this.betMultiple);
+            dest.writeFloat(this.betModel);
+            dest.writeInt(this.betNums);
+            dest.writeLong(this.chaseId);
+            dest.writeLong(this.preOrderId);
+            dest.writeString(this.nextOrderId);
+            dest.writeByte(this.win ? (byte) 1 : (byte) 0);
+            dest.writeByte(this.displayZuHe ? (byte) 1 : (byte) 0);
+            dest.writeString(this.betNum);
+            dest.writeInt(this.itemType);
+        }
+
+        public ListBean() {
+        }
+
+        protected ListBean(Parcel in) {
+            this.orderId = in.readString();
+            this.betTime = in.readString();
+            this.playId = in.readString();
+            this.playCode = in.readString();
+            this.playName = in.readString();
+            this.betContent = in.readString();
+            this.winAmount = in.readDouble();
+            this.betMoney = in.readFloat();
+            this.ticketId = in.readInt();
+            this.ticketName = in.readString();
+            this.canCancel = in.readByte() != 0;
+            this.seriesId = in.readInt();
+            this.seriesCode = in.readString();
+            this.odd = in.readString();
+            this.betPrize = in.readString();
+            this.ticketResult = in.readString();
+            this.solo = in.readByte() != 0;
+            this.chaseOrder = in.readByte() != 0;
+            this.groupMode = in.readInt();
+            this.singleGame = in.readByte() != 0;
+            this.ticketPlanNo = in.readString();
+            this.betStatus = in.readInt();
+            this.betStatusDes = in.readString();
+            this.betMultiple = in.readInt();
+            this.betModel = in.readFloat();
+            this.betNums = in.readInt();
+            this.chaseId = in.readLong();
+            this.preOrderId = in.readLong();
+            this.nextOrderId = in.readString();
+            this.win = in.readByte() != 0;
+            this.displayZuHe = in.readByte() != 0;
+            this.betNum = in.readString();
+            this.itemType = in.readInt();
+        }
+
+        public static final Creator<ListBean> CREATOR = new Creator<ListBean>() {
+            @Override
+            public ListBean createFromParcel(Parcel source) {
+                return new ListBean(source);
+            }
+
+            @Override
+            public ListBean[] newArray(int size) {
+                return new ListBean[size];
+            }
+        };
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(this.total);
+        dest.writeInt(this.totalPage);
+        dest.writeInt(this.pageSize);
+        dest.writeInt(this.currentPage);
+        dest.writeTypedList(this.list);
+    }
+
+    public RecordBet() {
+    }
+
+    protected RecordBet(Parcel in) {
+        this.total = in.readInt();
+        this.totalPage = in.readInt();
+        this.pageSize = in.readInt();
+        this.currentPage = in.readInt();
+        this.list = in.createTypedArrayList(ListBean.CREATOR);
+    }
+
+    public static final Creator<RecordBet> CREATOR = new Creator<RecordBet>() {
+        @Override
+        public RecordBet createFromParcel(Parcel source) {
+            return new RecordBet(source);
+        }
+
+        @Override
+        public RecordBet[] newArray(int size) {
+            return new RecordBet[size];
+        }
+    };
 }

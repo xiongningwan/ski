@@ -92,7 +92,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ellipsize="end"
-        android:textColor="#FE6464"
+        android:textColor="@color/ski_win_money_red"
         android:textSize="14dp"
         app:layout_constraintStart_toStartOf="@+id/tv_period"
         app:layout_constraintTop_toTopOf="@+id/tv_bet_money"

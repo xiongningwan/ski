@@ -3,6 +3,7 @@ package com.ski.box.view.fragment.record;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -16,7 +17,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.listener.OnItemChildClickListener;
+import com.chad.library.adapter.base.listener.OnItemClickListener;
 import com.hwangjr.rxbus.RxBus;
+import com.hwangjr.rxbus.annotation.Subscribe;
+import com.hwangjr.rxbus.annotation.Tag;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
@@ -29,6 +33,7 @@ import com.ski.box.bean.record.RecordBet;
 import com.ski.box.bean.record.RecordBetRequest;
 import com.ski.box.mvp.contract.RecordContract;
 import com.ski.box.mvp.presenter.RecordPresenter;
+import com.ski.box.view.activity.RecordDetailActivity;
 import com.ski.box.view.view.dialog.CancelDialog;
 import com.ski.box.view.view.dialog.pop.record.AllLotteryPop;
 import com.ski.box.view.view.dialog.pop.record.RecordDatePop;
@@ -41,6 +46,9 @@ import com.zyyoona7.popup.YGravity;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.ski.box.ConstantValue.EVENT_BIND_BANK_CARD_SUCCESS;
+import static com.ski.box.ConstantValue.EVENT_RECORD_CANCEL_SUCCESS;
 
 public class RecordFragment extends BaseMVPFragment<RecordContract.Presenter> implements RecordContract.View, View.OnClickListener, OnRefreshListener, OnLoadMoreListener,
         RecordDatePop.DateChooseListener, AllLotteryPop.LotteryChooseListener, RecordMorePop.MoreChooseListener {
@@ -124,14 +132,23 @@ public class RecordFragment extends BaseMVPFragment<RecordContract.Presenter> im
                 List<RecordBet.ListBean> list = adapter.getData();
                 RecordBet.ListBean bean = list.get(position);
                 int id = view.getId();
-//                if (id == R.id.tv_copy) { // 复制
-//                    copyText(bean.getOrderId());
-//                } else
-                    if (id == R.id.tv_cancel) { // 撤销订单
-                    showBetCancelDialog(bean, position);
+                if (id == R.id.tv_cancel) { // 撤销订单
+                    showBetCancelDialog(bean);
                 }
             }
         });
+
+        mRecordAdapter.setOnItemClickListener(new OnItemClickListener() {
+            @Override
+            public void onItemClick(@NonNull BaseQuickAdapter<?, ?> adapter, @NonNull View view, int position) {
+                List<RecordBet.ListBean> list = (List<RecordBet.ListBean>) adapter.getData();
+                RecordBet.ListBean bean = list.get(position);
+                Intent intent = new Intent(requireActivity(), RecordDetailActivity.class);
+                intent.putExtra(RecordDetailActivity.KEY_RECORD_BEAN, bean);
+                startActivity(intent);
+            }
+        });
+
     }
 
     //这个是一个懒加载
@@ -215,6 +232,11 @@ public class RecordFragment extends BaseMVPFragment<RecordContract.Presenter> im
 
     @Override
     public void onCancelSuccess() {
+        mRefreshLayout.autoRefresh();
+    }
+
+    @Subscribe(tags = {@Tag(EVENT_RECORD_CANCEL_SUCCESS)})
+    public void onCancelSuccess(String s) {
         mRefreshLayout.autoRefresh();
     }
 
@@ -333,12 +355,12 @@ public class RecordFragment extends BaseMVPFragment<RecordContract.Presenter> im
      *
      * @param bean
      */
-    private void showBetCancelDialog(RecordBet.ListBean bean, int position) {
+    private void showBetCancelDialog(RecordBet.ListBean bean) {
         mCancelDialog = new CancelDialog(getActivity(), new CancelDialog.OnClickconfirmListener() {
             @Override
             public void confirm() {
                 /** 撤单 **/
-                mPresenter.showCancelDialog(bean, position);
+                mPresenter.showCancelDialog(bean);
             }
 
             @Override
