@@ -22,29 +22,29 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/ski_dp_28"
+        android:layout_height="30dp"
         android:layout_marginBottom="@dimen/ski_dp_29">
 
         <LinearLayout
             android:layout_centerInParent="true"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
             android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/tvCancle"
                 android:layout_width="@dimen/ski_dp_76"
-                android:layout_height="match_parent"
+                android:layout_height="30dp"
                 android:gravity="center"
                 android:text="取消"
                 android:textColor="@color/ski_color_8590ae"
-                android:background="@mipmap/ski_bg_trend_setting_bottom"
+                android:background="@drawable/ski_pub_bg_gradient_normal_2"
                 android:textSize="14dp" />
 
 
 
             <TextView
-                android:background="@mipmap/ski_bg_trend_setting_right_bottom"
+                android:background="@drawable/ski_pub_bg_setting_trend"
                 android:layout_marginLeft="@dimen/ski_dp_20"
                 android:id="@+id/tvCheDan"
                 android:layout_width="@dimen/ski_dp_76"

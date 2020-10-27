@@ -11,6 +11,6 @@ public class RecordDetailActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_record_detail);
+        setContentView(R.layout.ski_activity_record_detail);
     }
 }

@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="40dp"
+    android:layout_height="50dp"
     tools:ignore="ResourceName"
-    android:background="@color/ski_color_f8f8f8">
+    android:background="@color/ski_white">
 
 
     <androidx.constraintlayout.widget.Guideline
@@ -84,7 +84,7 @@
             android:layout_height="wrap_content"
             android:textSize="14dp"
             android:textColor="@color/ski_color_333333"
-            android:text="今日" />
+            android:text="今天" />
 
         <ImageView
             android:id="@+id/iv_day"

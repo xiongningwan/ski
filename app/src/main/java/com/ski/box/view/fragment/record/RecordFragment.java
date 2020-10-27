@@ -124,9 +124,10 @@ public class RecordFragment extends BaseMVPFragment<RecordContract.Presenter> im
                 List<RecordBet.ListBean> list = adapter.getData();
                 RecordBet.ListBean bean = list.get(position);
                 int id = view.getId();
-                if (id == R.id.tv_copy) { // 复制
-                    copyText(bean.getOrderId());
-                } else if (id == R.id.tv_cancel) { // 撤销订单
+//                if (id == R.id.tv_copy) { // 复制
+//                    copyText(bean.getOrderId());
+//                } else
+                    if (id == R.id.tv_cancel) { // 撤销订单
                     showBetCancelDialog(bean, position);
                 }
             }

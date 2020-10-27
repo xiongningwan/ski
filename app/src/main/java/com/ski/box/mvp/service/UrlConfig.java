@@ -160,7 +160,7 @@ public final class UrlConfig {
      * 投注撤单
      * POST
      */
-    public static final String URL_GENERAL_BET_CANCLE = "coron/ticketmod/memberBetCancel";
+    public static final String URL_GENERAL_BET_CANCLE = "cashew/ticketmod/memberBetCancel";
 
     /**
      * 双面盘投注

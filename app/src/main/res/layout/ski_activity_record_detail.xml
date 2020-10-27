@@ -6,4 +6,5 @@
     android:layout_height="match_parent"
     tools:context="com.ski.box.view.activity.RecordDetailActivity">
 
+
 </androidx.constraintlayout.widget.ConstraintLayout>

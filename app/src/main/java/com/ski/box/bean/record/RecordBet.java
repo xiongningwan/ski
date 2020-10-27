@@ -1,5 +1,7 @@
 package com.ski.box.bean.record;
 
+import com.chad.library.adapter.base.entity.MultiItemEntity;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -63,7 +65,7 @@ public class RecordBet implements Serializable {
         this.list = list;
     }
 
-    public static class ListBean implements Serializable{
+    public static class ListBean implements Serializable , MultiItemEntity {
         /**
          * orderId : 1252527973630738487
          * betTime : 2020-04-21 17:21:54
@@ -131,6 +133,16 @@ public class RecordBet implements Serializable {
         private boolean win;
         private boolean displayZuHe;
         private String betNum;
+        private int itemType;
+
+        @Override
+        public int getItemType() {
+            return itemType;
+        }
+
+        public void setItemType(int itemType) {
+            this.itemType = itemType;
+        }
 
         public String getOrderId() {
             return orderId;

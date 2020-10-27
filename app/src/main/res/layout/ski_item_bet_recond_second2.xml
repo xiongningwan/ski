@@ -5,10 +5,16 @@
     android:id="@+id/cl_bet_record"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="@dimen/ski_dp_5"
-    android:background="@color/ski_white"
-    android:paddingTop="@dimen/ski_dp_10"
-    android:paddingBottom="5dp">
+    android:background="@color/ski_white">
+
+    <View
+        android:id="@+id/view_space"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="@color/ski_color_FAFAFA"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <TextView
         android:id="@+id/tv_lottery_name"
@@ -19,57 +25,9 @@
         android:textColor="@color/ski_color_333333"
         android:textSize="14dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="sk极速飞艇" />
-
-    <TextView
-        android:id="@+id/tv_time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:ellipsize="end"
-        android:textColor="@color/ski_color_333333"
-        android:textSize="14dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="2016-03-04 13:56:32" />
-
-    <View
-        android:id="@+id/view_line"
-        android:layout_height="1dp"
-        android:layout_width="match_parent"
-        android:background="@color/ski_color_f8f8f8"
-        app:layout_constraintTop_toBottomOf="@+id/tv_lottery_name"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view_space"
+        tools:text="sk极速飞艇"
         android:layout_marginTop="10dp"/>
-
-    <TextView
-        android:id="@+id/tv_no"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ellipsize="end"
-        android:textColor="@color/ski_color_333333"
-        android:textSize="14dp"
-        app:layout_constraintStart_toStartOf="@+id/tv_lottery_name"
-        app:layout_constraintTop_toTopOf="@+id/view_line"
-        tools:text="1290942582469169210"
-        android:layout_marginTop="10dp"/>
-
-    <TextView
-        android:id="@+id/tv_copy"
-        android:layout_width="55dp"
-        android:layout_height="24dp"
-        android:gravity="center"
-        android:text="复制"
-        android:background="@drawable/ski_bg_record_copy_selector"
-        android:textColor="@color/ski_white"
-        android:textSize="13dp"
-        app:layout_constraintStart_toEndOf="@+id/tv_no"
-        app:layout_constraintTop_toTopOf="@+id/tv_no"
-        android:layout_marginStart="10dp"
-        android:visibility="gone"/>
-
 
     <TextView
         android:id="@+id/tv_period"
@@ -78,9 +36,20 @@
         android:ellipsize="end"
         android:textColor="@color/ski_color_333333"
         android:textSize="14dp"
-        app:layout_constraintStart_toStartOf="@+id/tv_time"
-        app:layout_constraintTop_toTopOf="@+id/view_line"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_lottery_name"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_lottery_name"
         tools:text="20160304 - 0943"
+        android:layout_marginEnd="16dp"/>
+
+    <View
+        android:id="@+id/view_line"
+        android:layout_height="0.5dp"
+        android:layout_width="match_parent"
+        android:background="#D3DFEB"
+        app:layout_constraintTop_toBottomOf="@+id/tv_lottery_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="10dp"/>
 
 
@@ -92,23 +61,17 @@
         android:textColor="@color/ski_color_333333"
         android:textSize="14dp"
         app:layout_constraintStart_toStartOf="@+id/tv_lottery_name"
-        app:layout_constraintTop_toBottomOf="@+id/tv_no"
+        app:layout_constraintTop_toBottomOf="@+id/view_line"
         tools:text="冠军大小"
-        android:layout_marginTop="8dp"/>
+        android:layout_marginTop="10dp"/>
 
-
-    <TextView
-        android:id="@+id/tv_bet_content"
-        android:layout_width="0dp"
+    <com.ski.box.view.view.LotteryRecordResultView
+        android:id="@+id/lottery_record_result_view"
+        android:layout_width="220dp"
         android:layout_height="wrap_content"
-        android:textColor="@color/ski_color_333333"
-        android:textSize="14dp"
-        android:gravity="start"
-        app:layout_constraintStart_toStartOf="@+id/tv_time"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_no"
-        tools:text="大大大大大大大大11111"
-        android:layout_marginTop="8dp"/>
+        app:layout_constraintTop_toTopOf="@+id/tv_play_name"
+        app:layout_constraintEnd_toEndOf="@+id/tv_period"/>
+
 
     <TextView
         android:id="@+id/tv_bet_money"
@@ -118,34 +81,47 @@
         android:textColor="@color/ski_color_333333"
         android:textSize="14dp"
         app:layout_constraintStart_toStartOf="@+id/tv_lottery_name"
-        app:layout_constraintTop_toBottomOf="@+id/tv_bet_content"
+        app:layout_constraintTop_toBottomOf="@+id/lottery_record_result_view"
+        app:layout_constraintBottom_toBottomOf="parent"
         tools:text="投注：50元"
-        android:layout_marginTop="8dp"/>
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"/>
 
     <TextView
-        android:id="@+id/tv_bet_win"
+        android:id="@+id/tv_win"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:textColor="#FE6464"
+        android:textSize="14dp"
+        app:layout_constraintStart_toStartOf="@+id/tv_period"
+        app:layout_constraintTop_toTopOf="@+id/tv_bet_money"
+        tools:text="已中奖 99.85 元"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/tv_status"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ellipsize="end"
         android:textColor="@color/ski_color_333333"
         android:textSize="14dp"
-        app:layout_constraintStart_toStartOf="@+id/tv_time"
+        app:layout_constraintEnd_toStartOf="@+id/tv_cancel"
         app:layout_constraintTop_toTopOf="@+id/tv_bet_money"
-        tools:text="中奖 99.85 元" />
+        tools:text="待开奖"
+        android:layout_marginEnd="5dp"/>
 
-
-    <TextView
+    <Button
         android:id="@+id/tv_cancel"
-        android:layout_width="35dp"
+        android:layout_width="55dp"
         android:layout_height="24dp"
         android:gravity="center"
         android:text="撤单"
         android:background="@drawable/ski_bg_record_copy_selector"
         android:textColor="@color/ski_white"
         android:textSize="13dp"
-        app:layout_constraintStart_toEndOf="@+id/tv_bet_win"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tv_bet_win"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="16dp"/>
+        app:layout_constraintEnd_toEndOf="@+id/tv_period"
+        app:layout_constraintTop_toTopOf="@+id/tv_status"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_status"
+        android:visibility="visible"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

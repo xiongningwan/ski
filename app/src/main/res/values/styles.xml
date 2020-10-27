@@ -129,6 +129,16 @@
         <item name="android:textSize">16dp</item>
     </style>
 
+    <style name="record_result_lottery_style_pk10">
+        <item name="android:layout_width">@dimen/ski_dp_18</item>
+        <item name="android:layout_height">@dimen/ski_dp_18</item>
+        <item name="android:textColor">@color/ski_white</item>
+        <item name="ski_strokeColor">@color/ski_color_333333</item>
+        <item name="ski_strokeWidth">@dimen/ski_stroke_w</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">12dp</item>
+    </style>
+
     <style name="Top_result_lottery_style_ssc">
         <item name="android:layout_width">@dimen/ski_dp_36</item>
         <item name="android:layout_height">@dimen/ski_dp_36</item>
@@ -136,6 +146,15 @@
         <item name="android:gravity">center</item>
         <item name="android:background">@drawable/ski_bet_top_result_ssc_bg</item>
         <item name="android:textSize">16dp</item>
+    </style>
+
+    <style name="record_result_lottery_style_ssc">
+        <item name="android:layout_width">@dimen/ski_dp_22</item>
+        <item name="android:layout_height">@dimen/ski_dp_22</item>
+        <item name="android:textColor">@color/ski_white</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/ski_bet_top_result_ssc_bg</item>
+        <item name="android:textSize">12dp</item>
     </style>
 
     <style name="Top_result_lottery_style_ssc_h">
@@ -151,6 +170,11 @@
         <item name="android:layout_height">@dimen/ski_dp_50</item>
     </style>
 
+    <style name="record_result_lottery_style_lhc_fl">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/ski_dp_24</item>
+    </style>
+
     <style name="Top_result_lottery_style_lhc_num">
         <item name="android:layout_width">@dimen/ski_dp_36</item>
         <item name="android:layout_height">@dimen/ski_dp_36</item>
@@ -158,6 +182,14 @@
         <item name="android:gravity">center</item>
         <item name="android:textSize">15dp</item>
         <item name="android:paddingTop">-2dp</item>
+    </style>
+
+    <style name="record_result_lottery_style_lhc_num">
+        <item name="android:layout_width">@dimen/ski_dp_24</item>
+        <item name="android:layout_height">@dimen/ski_dp_24</item>
+        <item name="android:textColor">@color/ski_white</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">12dp</item>
     </style>
 
     <style name="Top_result_lottery_style_lhc_sx">
@@ -168,9 +200,22 @@
         <item name="android:layout_gravity">bottom|end</item>
     </style>
 
+    <style name="record_result_lottery_style_lhc_sx">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/ski_color_333333</item>
+        <item name="android:textSize">12dp</item>
+        <item name="android:layout_gravity">bottom|end</item>
+    </style>
+
     <style name="Top_result_lottery_style_k3">
         <item name="android:layout_width">@dimen/ski_dp_36</item>
         <item name="android:layout_height">@dimen/ski_dp_36</item>
+    </style>
+
+    <style name="record_result_lottery_style_k3">
+        <item name="android:layout_width">@dimen/ski_dp_22</item>
+        <item name="android:layout_height">@dimen/ski_dp_22</item>
     </style>
 
     <style name="Top_result_lottery_style_k3_h">
