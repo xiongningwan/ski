@@ -143,12 +143,15 @@ public class RecordFragment extends BaseMVPFragment<RecordContract.Presenter> im
             public void onItemClick(@NonNull BaseQuickAdapter<?, ?> adapter, @NonNull View view, int position) {
                 List<RecordBet.ListBean> list = (List<RecordBet.ListBean>) adapter.getData();
                 RecordBet.ListBean bean = list.get(position);
-                Intent intent = new Intent(requireActivity(), RecordDetailActivity.class);
-                intent.putExtra(RecordDetailActivity.KEY_RECORD_BEAN, bean);
-                startActivity(intent);
+                gotoDetail(bean);
             }
         });
+    }
 
+    private void gotoDetail(RecordBet.ListBean bean) {
+        Intent intent = new Intent(requireActivity(), RecordDetailActivity.class);
+        intent.putExtra(RecordDetailActivity.KEY_RECORD_BEAN, bean);
+        startActivity(intent);
     }
 
     //这个是一个懒加载

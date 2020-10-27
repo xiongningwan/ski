@@ -232,6 +232,15 @@
         <item name="android:textSize">16dp</item>
     </style>
 
+    <style name="record_result_lottery_style_kl8">
+        <item name="android:layout_width">@dimen/ski_dp_18</item>
+        <item name="android:layout_height">@dimen/ski_dp_18</item>
+        <item name="android:textColor">@color/ski_color_666666</item>
+        <item name="android:background">@drawable/ski_bg_record_item_kl8</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">11dp</item>
+    </style>
+
     <!--离开弹框背景-->
       <style name="alert_dialog_back_cor10" parent="Theme.AppCompat.Dialog">
           <!-- 这里设置背景为透明，为了隐藏边框 -->

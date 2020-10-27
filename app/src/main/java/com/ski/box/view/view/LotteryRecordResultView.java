@@ -2,14 +2,18 @@ package com.ski.box.view.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
+import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.chad.library.adapter.base.listener.OnItemClickListener;
 import com.ski.box.R;
 import com.ski.box.adapter.RecordResultAdapter;
 import com.ski.box.adapter.top.TopResultAdapter;
@@ -61,49 +65,34 @@ public class LotteryRecordResultView extends LinearLayout {
         bean.setItemType(serId);
         mList.clear();
         mList.add(bean);
-        ConstraintLayout.LayoutParams lp = (ConstraintLayout.LayoutParams) rvLotteryResult.getLayoutParams();
-        lp.width = getW(serId);
-        rvLotteryResult.setLayoutParams(lp);
         mAdapter = new RecordResultAdapter(mContext);
         rvLotteryResult.setAdapter(mAdapter);
-        rvLotteryResult.setLayoutManager(new LinearLayoutManager(mContext) {
+        rvLotteryResult.setLayoutManager(new LinearLayoutManager(mContext));
+        mAdapter.setNewInstance(mList);
+        mAdapter.setOnItemClickListener(new OnItemClickListener() {
             @Override
-            public boolean canScrollVertically() {
-                return false;
+            public void onItemClick(@NonNull BaseQuickAdapter<?, ?> adapter, @NonNull View view, int position) {
+
             }
         });
-        mAdapter.setNewInstance(mList);
     }
 
 
-    public static int getW(int serId) {
-        int w  = 0;
-        switch (serId) {
-            case LotteryConstant.SER_ID_PK10:
-                w = LayoutParams.WRAP_CONTENT;
-//                w = ScreenUtils.dip2px(320);
-                break;
-            case LotteryConstant.SER_ID_SSC:
-            case LotteryConstant.SER_ID_PL35:
-                w = ScreenUtils.dip2px(140);
-                break;
-            case LotteryConstant.SER_ID_LHC:
-                w = ScreenUtils.dip2px(180);
-                break;
-            case LotteryConstant.SER_ID_11X5:
-                w = ScreenUtils.dip2px(100);
-                break;
-            case LotteryConstant.SER_ID_K3:
-                w = ScreenUtils.dip2px(100);
-                break;
-            case LotteryConstant.SER_ID_3D:
-                w = ScreenUtils.dip2px(100);
-                break;
-            case LotteryConstant.SER_ID_KL8:
-                w = ScreenUtils.dip2px(280);
-                break;
-        }
-        return w;
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        return false;
+
     }
+
+    //    public boolean dispatchTouchEvent(MotionEvent ev) {
+//        boolean consume = false;
+//        if(onInterceptTouchEvent(ev)){
+//            consume = onTouchEvent(ev);
+//        } else {
+//            consume = child.dispatchTouchEvent(ev);
+//        }
+//        return consume;
+//    }
 
 }

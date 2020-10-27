@@ -67,10 +67,10 @@
 
     <com.ski.box.view.view.LotteryRecordResultView
         android:id="@+id/lottery_record_result_view"
-        android:layout_width="220dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="@+id/tv_play_name"
-        app:layout_constraintEnd_toEndOf="@+id/tv_period"/>
+        app:layout_constraintEnd_toEndOf="@+id/tv_period" />
 
 
     <TextView
@@ -94,7 +94,7 @@
         android:ellipsize="end"
         android:textColor="@color/ski_win_money_red"
         android:textSize="14dp"
-        app:layout_constraintStart_toStartOf="@+id/tv_period"
+        app:layout_constraintEnd_toEndOf="@+id/tv_period"
         app:layout_constraintTop_toTopOf="@+id/tv_bet_money"
         tools:text="已中奖 99.85 元"
         android:visibility="gone"/>
