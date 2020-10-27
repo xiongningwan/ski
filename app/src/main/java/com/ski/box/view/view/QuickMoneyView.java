@@ -298,6 +298,9 @@ public class QuickMoneyView extends ConstraintLayout implements View.OnClickList
     private void setEditQuick_double(String money) {
 
         try {
+            if(TextUtils.isEmpty(money)) {
+                money = "0";
+            }
             int i = Integer.parseInt(money);
             DataCenter.getInstance().setQuiickMoney(i);
         } catch (NumberFormatException e) {

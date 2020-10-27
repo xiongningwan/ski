@@ -77,7 +77,7 @@ public interface IUserService {
     @FormUrlEncoded
     Single<HttpResult<Object>> bindPhone(@Field("mobile") String mobile);
     /**
-     * 绑定手机号
+     * 绑定邮箱
      */
     @POST(UrlConfig.URL_MEM_UPDATE_EMAIL)
     @FormUrlEncoded
@@ -96,6 +96,7 @@ public interface IUserService {
      * 银行列表
      */
     @POST(UrlConfig.URL_MEM_BANK_BIND)
+    @FormUrlEncoded
     Single<HttpResult<Object>> bindBank(@Field("bankCode") String bankCode,
                                             @Field("bankName") String bankName,
                                             @Field("bankSubName") String bankSubName,

@@ -46,12 +46,6 @@ public interface IBetService {
     Single<HttpResult<String>> doubleTraceBet(@FieldMap Map<String, Object> map);
 
 
-    /**
-     * golang 双面盘投注
-     */
-    @POST(UrlConfig_new.BET_DOUBLE)
-    @FormUrlEncoded
-    Single<HttpResult_new<String>> doubleBetNew(@FieldMap Map<String, Object> map);
 
 
     /**

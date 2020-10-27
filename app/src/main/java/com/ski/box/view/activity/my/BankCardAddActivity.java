@@ -42,7 +42,6 @@ public class BankCardAddActivity extends BaseMVPActivity<BankCardAddContract.Pre
     private ClearEditText mEtBankNoConfirm;
 //    private ClearEditText mEtFundPwd;
     private Button mBtnSure;
-    private Bank mBank;
 
     @Override
     protected void onDestroy() {
@@ -95,7 +94,8 @@ public class BankCardAddActivity extends BaseMVPActivity<BankCardAddContract.Pre
 
 
     private void doBind() {
-        if(mBank == null) {
+        Bank bank = (Bank)mSpinnerBankName.getSelectedItem();
+        if(bank == null) {
             ToastUtil.showInfo("请先选择银行");
             return;
         }
@@ -112,7 +112,7 @@ public class BankCardAddActivity extends BaseMVPActivity<BankCardAddContract.Pre
             ToastUtil.showInfo("两次输入银行卡号不一致");
             return;
         }
-        mPresenter.bindBank(String.valueOf(mBank.getBankCode()), mBank.getBankName(), point, ownerName, bankNo, bankNoConfirm);
+        mPresenter.bindBank(String.valueOf(bank.getBankCode()), bank.getBankName(), point, ownerName, bankNo, bankNoConfirm);
     }
 
 
@@ -154,8 +154,7 @@ public class BankCardAddActivity extends BaseMVPActivity<BankCardAddContract.Pre
         mSpinnerBankName.setOnSpinnerItemSelectedListener(new OnSpinnerItemSelectedListener() {
             @Override
             public void onItemSelected(NiceSpinner parent, View view, int position, long id) {
-                Bank bank = (Bank) parent.getSelectedItem();
-                mBank = bank;
+               // Bank bank = (Bank) parent.getSelectedItem();
             }
         });
         mSpinnerBankName.attachDataSource(list);
