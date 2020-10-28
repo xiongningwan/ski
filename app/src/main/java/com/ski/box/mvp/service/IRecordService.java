@@ -54,10 +54,12 @@ public interface IRecordService {
      * 资金记录列表
      * tradeType：//帐变类型 1资金转入，2资金转出，3投注，4投注返点，5派奖，6撤销派奖，7撤销返点，8撤单返款，9追号扣款，10当期追号返款，11撤销追号，12单期总利润超限扣款，13单期单挑利润超限扣款, 14单期总利润超限返款，16撤单返款
      */
-    @POST(UrlConfig.URL_MONEY_RECORD)
-    @FormUrlEncoded
+    @GET(UrlConfig.URL_MONEY_RECORD)
     Single<HttpResult<RecordMoney>> getMoneyRecordList(
-            @FieldMap HashMap<String, String> hashMap);
+            @Query("queryDate") String queryDate,
+            @Query("tradeType") String tradeType,
+            @Query("pageSize") String pageSize,
+            @Query("pageNum") String pageNum);
 
 
     /**

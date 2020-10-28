@@ -11,32 +11,18 @@ import com.yb.core.base.BaseContract;
 
 import java.util.List;
 
-public interface RecordContract {
+public interface RecordMoneyContract {
 
     interface View extends BaseContract.BaseView {
         void onSuccessful(Object o);
         void onError(Throwable o);
-        void getMoneyTypeSuccess(List<FrontTradeTypesBean> beans);
-
-        void onCancelSuccess();
-
-        void onCancelFail(String s);
-
+        void onMoneyTypeSuccess(List<FrontTradeTypesBean> beans);
     }
 
     interface Presenter extends BaseContract.BasePresenter<View> {
-        void getBetRecordData(RecordBetRequest mkBettingRecordRequest);
-
-        void getChaseNumsData(ChaseRecordRequest mkChaseRecordRequest);
        /*获取资金记录筛选样式*/
         void getFrontTradeTypes();
         void getMoneyRecordData(RecordMoneyRequest mkMoneyRecordRequest);
-
-        void getProfitLossDaily(ProfitLossRequest mkProfitLossRequest);
-
-        void showCancelDialog(RecordBet.ListBean bean);
-
-
     }
 
 }

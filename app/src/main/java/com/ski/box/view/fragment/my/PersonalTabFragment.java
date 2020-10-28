@@ -19,7 +19,8 @@ import com.ski.box.mvp.presenter.EmptyPresenter;
 import com.ski.box.view.activity.ContainerActivity;
 import com.ski.box.view.activity.my.BankCardActivity;
 import com.ski.box.view.activity.my.PersonalInfoActivity;
-import com.ski.box.view.fragment.record.RecordFragment;
+import com.ski.box.view.fragment.record.RecordBetFragment;
+import com.ski.box.view.fragment.record.RecordMoneyFragment;
 import com.yb.core.base.BaseMVPFragment;
 
 import org.jetbrains.annotations.NotNull;
@@ -135,8 +136,8 @@ public class PersonalTabFragment extends BaseMVPFragment<EmptyContract.Presenter
                 break;
             case 2:
                 list.add(new PTabBean(21,R.mipmap.icon_personal_tab_my_acc, "投注记录"));
-                list.add(new PTabBean(22,R.mipmap.icon_personal_tab_baobiao, "游戏资金记录"));
-                list.add(new PTabBean(23,R.mipmap.icon_personal_tab_tuandui, "钱包资金记录"));
+                list.add(new PTabBean(22,R.mipmap.icon_personal_tab_baobiao, "账变记录"));
+//                list.add(new PTabBean(23,R.mipmap.icon_personal_tab_tuandui, "钱包资金记录"));
                 break;
             case 3:
                 list.add(new PTabBean(31,R.mipmap.icon_personal_tab_my_acc, "开立下级账户"));
@@ -169,7 +170,12 @@ public class PersonalTabFragment extends BaseMVPFragment<EmptyContract.Presenter
                 break;
             case 21: {// 投注记录
                 Intent intent =  new Intent(requireActivity(), ContainerActivity.class);
-                intent.putExtra(ContainerActivity.KEY_CLASS, RecordFragment.class.getSimpleName());
+                intent.putExtra(ContainerActivity.KEY_CLASS, RecordBetFragment.class.getSimpleName());
+                startActivity(intent);
+                break;}
+            case 22: {// 账变记录
+                Intent intent =  new Intent(requireActivity(), ContainerActivity.class);
+                intent.putExtra(ContainerActivity.KEY_CLASS, RecordMoneyFragment.class.getSimpleName());
                 startActivity(intent);
                 break;}
         }

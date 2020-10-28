@@ -75,7 +75,7 @@ public final class UrlConfig {
      * 资金记录->账变类型
      * POST
      */
-    public static final String URL_MONEY_RECORD_TRADE_TYPES = "boracay/member/front/getFrontTradeTypes";
+    public static final String URL_MONEY_RECORD_TRADE_TYPES = "botanic/member/front/getFrontTradeTypes";
 
     /**
      * 资金记录列表

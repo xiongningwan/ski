@@ -8,7 +8,8 @@ import androidx.fragment.app.Fragment;
 
 import com.gyf.immersionbar.ImmersionBar;
 import com.ski.box.R;
-import com.ski.box.view.fragment.record.RecordFragment;
+import com.ski.box.view.fragment.record.RecordBetFragment;
+import com.ski.box.view.fragment.record.RecordMoneyFragment;
 import com.ski.box.view.view.HeaderView;
 import com.yb.core.base.BaseActivity;
 import com.yb.core.utils.FragmentUtils;
@@ -37,9 +38,12 @@ public class ContainerActivity extends BaseActivity implements View.OnClickListe
         Intent intent = getIntent();
         String key = intent.getStringExtra(KEY_CLASS);
         Fragment fragment = new Fragment();
-        if (RecordFragment.class.getSimpleName().equals(key)) {
+        if (RecordBetFragment.class.getSimpleName().equals(key)) {
             mHeadView.setHeader(getString(R.string.ski_record_bet), true);
-            fragment = RecordFragment.newInstance();
+            fragment = RecordBetFragment.newInstance();
+        } else if (RecordMoneyFragment.class.getSimpleName().equals(key)) {
+            mHeadView.setHeader(getString(R.string.ski_record_money), true);
+            fragment = RecordMoneyFragment.newInstance();
         }
         FragmentUtils.add(getSupportFragmentManager(), fragment, R.id.f_container, false);
     }

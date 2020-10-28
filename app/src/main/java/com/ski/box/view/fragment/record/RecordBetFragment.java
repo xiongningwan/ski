@@ -31,8 +31,8 @@ import com.ski.box.bean.FrontTradeTypesBean;
 import com.ski.box.bean.TopGameBean;
 import com.ski.box.bean.record.RecordBet;
 import com.ski.box.bean.record.RecordBetRequest;
-import com.ski.box.mvp.contract.RecordContract;
-import com.ski.box.mvp.presenter.RecordPresenter;
+import com.ski.box.mvp.contract.RecordBetContract;
+import com.ski.box.mvp.presenter.RecordBetPresenter;
 import com.ski.box.view.activity.RecordDetailActivity;
 import com.ski.box.view.view.dialog.CancelDialog;
 import com.ski.box.view.view.dialog.pop.record.AllLotteryPop;
@@ -47,10 +47,9 @@ import com.zyyoona7.popup.YGravity;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.ski.box.ConstantValue.EVENT_BIND_BANK_CARD_SUCCESS;
 import static com.ski.box.ConstantValue.EVENT_RECORD_CANCEL_SUCCESS;
 
-public class RecordFragment extends BaseMVPFragment<RecordContract.Presenter> implements RecordContract.View, View.OnClickListener, OnRefreshListener, OnLoadMoreListener,
+public class RecordBetFragment extends BaseMVPFragment<RecordBetContract.Presenter> implements RecordBetContract.View, View.OnClickListener, OnRefreshListener, OnLoadMoreListener,
         RecordDatePop.DateChooseListener, AllLotteryPop.LotteryChooseListener, RecordMorePop.MoreChooseListener {
 
     private LinearLayout mLLDay;
@@ -73,11 +72,11 @@ public class RecordFragment extends BaseMVPFragment<RecordContract.Presenter> im
     private long lastMills = 0;
     private CancelDialog mCancelDialog;
 
-    public RecordFragment() {
+    public RecordBetFragment() {
     }
 
-    public static RecordFragment newInstance() {
-        RecordFragment fragment = new RecordFragment();
+    public static RecordBetFragment newInstance() {
+        RecordBetFragment fragment = new RecordBetFragment();
         return fragment;
     }
 
@@ -89,7 +88,7 @@ public class RecordFragment extends BaseMVPFragment<RecordContract.Presenter> im
 
     @Override
     protected int getLayoutId() {
-        return R.layout.ski_fragment_record;
+        return R.layout.ski_fragment_record_bet;
     }
 
     @Override
@@ -118,6 +117,7 @@ public class RecordFragment extends BaseMVPFragment<RecordContract.Presenter> im
     protected void initData(Bundle savedInstanceState) {
         mRecordRequest = new RecordBetRequest();
         mRecordAdapter = new RecordBetAdapter2(getActivity());
+        mRecordAdapter.setEmptyView(getEmptyView());
         mRvRecord.setLayoutManager(new LinearLayoutManager(getActivity()));
         mRvRecord.setAdapter(mRecordAdapter);
         mRecordAdapter.setOnItemChildClickListener(new OnItemChildClickListener() {
@@ -167,8 +167,8 @@ public class RecordFragment extends BaseMVPFragment<RecordContract.Presenter> im
 
 
     @Override
-    protected RecordContract.Presenter bindPresenter() {
-        return new RecordPresenter(mContext);
+    protected RecordBetContract.Presenter bindPresenter() {
+        return new RecordBetPresenter(mContext);
     }
 
 
@@ -374,12 +374,15 @@ public class RecordFragment extends BaseMVPFragment<RecordContract.Presenter> im
         mCancelDialog.show();
     }
 
-    private void copyText(String text) {
-        //获取剪贴板管理器：
-        ClipboardManager cm = (ClipboardManager) requireActivity().getSystemService(Context.CLIPBOARD_SERVICE);
-        // 创建普通字符型ClipData
-        ClipData mClipData = ClipData.newPlainText("Label", text);
-        // 将ClipData内容放到系统剪贴板里。
-        cm.setPrimaryClip(mClipData);
+
+    //空布局
+    public View getEmptyView() {
+        View notDataView = View.inflate(requireActivity(),R.layout.ski_recycler_empty_view,  null);
+        notDataView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            }
+        });
+        return notDataView;
     }
 }

@@ -127,23 +127,16 @@ public class RecordModel extends BaseModel implements IRecordModel {
     public Disposable getFrontTradeTypes(Consumer s, Consumer e) {
         Single<List<FrontTradeTypesBean>> map = RetrofitHelper.getService(IRecordService.class)
                 .getFrontTradeTypes().map(new HttpResultFunc<>());
-
-
         return toSubscribe(map, s, e);
     }
 
     @Override
     public Disposable getMoneyRecordData(RecordMoneyRequest request, Consumer s, Consumer e) {
-        HashMap<String, String> hashMap = new HashMap<>();
-        hashMap.put("queryDate", TimeUtils.getDateFormat(request.getStartTime()));
-        hashMap.put("pageNum", request.getPageNum() + "");
-        hashMap.put("pageSize", request.getPageSize() + "");
-        String tradeType = request.getTradeType();
-        if (!TextUtils.isEmpty(tradeType)) {
-            hashMap.put("tradeType", tradeType);
-        }
         Single<RecordMoney> map = RetrofitHelper.getService(IRecordService.class)
-                .getMoneyRecordList(hashMap).map(new HttpResultFunc<>());
+                .getMoneyRecordList(TimeUtils.getDateFormat(request.getStartTime()),
+                        request.getTradeType(),
+                        request.getPageSize(),
+                        String.valueOf(request.getPageNum())).map(new HttpResultFunc<>());
         return toSubscribe(map, s, e);
     }
 

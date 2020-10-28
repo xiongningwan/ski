@@ -10,7 +10,25 @@ import java.util.List;
 public class RecordMoney {
     private int total;
     private int totalPage;
-    private int currentPage;
+    private int pages;
+    private  boolean hasPreviousPage;
+    private  boolean hasNextPage;
+
+    public boolean isHasPreviousPage() {
+        return hasPreviousPage;
+    }
+
+    public void setHasPreviousPage(boolean hasPreviousPage) {
+        this.hasPreviousPage = hasPreviousPage;
+    }
+
+    public boolean isHasNextPage() {
+        return hasNextPage;
+    }
+
+    public void setHasNextPage(boolean hasNextPage) {
+        this.hasNextPage = hasNextPage;
+    }
 
     private List<ListBean> list;
 
@@ -30,12 +48,12 @@ public class RecordMoney {
         this.totalPage = totalPage;
     }
 
-    public int getCurrentPage() {
-        return currentPage;
+    public int getPages() {
+        return pages;
     }
 
-    public void setCurrentPage(int currentPage) {
-        this.currentPage = currentPage;
+    public void setPages(int pages) {
+        this.pages = pages;
     }
 
     public List<ListBean> getList() {
@@ -55,7 +73,7 @@ public class RecordMoney {
         private int tradeType;
         private String balanceBefore;
         private String balanceAfter;
-        private String amount;
+        private double amount;
 
         public String getCreatedAt() {
             return createdAt;
@@ -105,12 +123,12 @@ public class RecordMoney {
             this.balanceAfter = balanceAfter;
         }
 
-        public String getAmount() {
+        public double getAmount() {
             /*dd*/
             return amount;
         }
 
-        public void setAmount(String amount) {
+        public void setAmount(double amount) {
             this.amount = amount;
         }
     }

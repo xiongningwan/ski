@@ -2,7 +2,6 @@ package com.ski.box.view.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -12,19 +11,15 @@ import com.hwangjr.rxbus.annotation.Subscribe;
 import com.hwangjr.rxbus.annotation.Tag;
 import com.ski.box.R;
 import com.ski.box.adapter.FragmentAdapter;
-import com.ski.box.bean.DataCenter;
-import com.ski.box.exception.ApiExLister;
 import com.ski.box.mvp.contract.EmptyContract;
 import com.ski.box.mvp.presenter.EmptyPresenter;
 import com.ski.box.view.fragment.HallFragment;
 import com.ski.box.view.fragment.PersonalFragment;
 import com.ski.box.view.fragment.RechargeFragment;
 import com.ski.box.view.fragment.ReportFragment;
-import com.ski.box.view.fragment.record.RecordFragment;
 import com.ski.box.view.view.HallTabLayout;
 import com.ski.box.view.view.NoScrollViewPager;
 import com.yb.core.base.BaseMVPActivity;
-import com.yb.core.utils.ActivityStackManager;
 import com.yb.core.utils.SPUtils;
 import com.yb.core.utils.ToastUtil;
 

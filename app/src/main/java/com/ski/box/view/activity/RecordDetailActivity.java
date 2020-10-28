@@ -1,6 +1,5 @@
 package com.ski.box.view.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import android.content.ClipData;
@@ -21,10 +20,8 @@ import com.ski.box.bean.FrontTradeTypesBean;
 import com.ski.box.bean.LotteryNumBean;
 import com.ski.box.bean.lottery.LotteryUtil;
 import com.ski.box.bean.record.RecordBet;
-import com.ski.box.mvp.contract.EmptyContract;
-import com.ski.box.mvp.contract.RecordContract;
-import com.ski.box.mvp.presenter.EmptyPresenter;
-import com.ski.box.mvp.presenter.RecordPresenter;
+import com.ski.box.mvp.contract.RecordBetContract;
+import com.ski.box.mvp.presenter.RecordBetPresenter;
 import com.ski.box.utils.DecimalSetUtils;
 import com.ski.box.view.view.HeaderView;
 import com.ski.box.view.view.LotteryResultView;
@@ -39,7 +36,7 @@ import java.util.List;
 
 import static com.ski.box.ConstantValue.EVENT_RECORD_CANCEL_SUCCESS;
 
-public class RecordDetailActivity extends BaseMVPActivity<RecordContract.Presenter> implements RecordContract.View, View.OnClickListener {
+public class RecordDetailActivity extends BaseMVPActivity<RecordBetContract.Presenter> implements RecordBetContract.View, View.OnClickListener {
     public static final String KEY_RECORD_BEAN = "key_record_bean";
     private HeaderView mHeadView;
     private TextView mTvName;
@@ -60,8 +57,8 @@ public class RecordDetailActivity extends BaseMVPActivity<RecordContract.Present
     private CancelDialog mCancelDialog;
 
     @Override
-    protected RecordContract.Presenter bindPresenter() {
-        return new RecordPresenter(this);
+    protected RecordBetContract.Presenter bindPresenter() {
+        return new RecordBetPresenter(this);
     }
 
     @Override
