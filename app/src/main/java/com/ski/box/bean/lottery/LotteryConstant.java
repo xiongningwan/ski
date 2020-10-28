@@ -133,7 +133,7 @@ public interface LotteryConstant {
 
     //////////////////////////KL8//////////////////////////
     int LOTTERY_ID_KL8_BJ = 26;
-    String LOTTERY_NAME_KL8_BJ = "北京快乐8";
+    String LOTTERY_NAME_KL8_BJ = "福彩快乐8";
     int LOTTERY_ID_KL8_JS = 47;
     String LOTTERY_NAME_KL8_JS = "极速快乐8";
     ////////////////////////////////////////////////////

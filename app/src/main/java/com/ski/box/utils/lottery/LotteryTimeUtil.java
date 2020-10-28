@@ -65,7 +65,6 @@ public class LotteryTimeUtil {
                 return 89000;
             // 5分钟1期
             case LotteryConstant.LOTTERY_ID_3D_XY:
-            case LotteryConstant.LOTTERY_ID_KL8_BJ:
             case LotteryConstant.LOTTERY_ID_PK10_HLFT:
             case LotteryConstant.LOTTERY_ID_SSC_XY5FC:
             case LotteryConstant.LOTTERY_ID_SSC_HN5FC:
@@ -97,6 +96,7 @@ public class LotteryTimeUtil {
             // 1天1期
             case LotteryConstant.LOTTERY_ID_3D_FC:
             case LotteryConstant.LOTTERY_ID_PL35_PL35:
+            case LotteryConstant.LOTTERY_ID_KL8_BJ:
                 return 86399000;
             // 每周2-3期
             case LotteryConstant.LOTTERY_ID_LHC_XG:

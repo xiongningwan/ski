@@ -11,18 +11,18 @@
         android:id="@+id/iv_num_1"
         style="@style/Top_result_lottery_style_k3"
         tools:src="@mipmap/touzi1"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/iv_num_2"/>
+        app:layout_constraintEnd_toStartOf="@+id/iv_num_2"
+        android:layout_marginEnd="14dp"/>
 
     <ImageView
         android:id="@+id/iv_num_2"
         style="@style/Top_result_lottery_style_k3"
         tools:src="@mipmap/touzi2"
-        app:layout_constraintStart_toEndOf="@+id/iv_num_1"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/iv_num_1"
-        app:layout_constraintEnd_toStartOf="@+id/iv_num_3"/>
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <ImageView
         android:id="@+id/iv_num_3"
@@ -30,6 +30,6 @@
         tools:src="@mipmap/touzi3"
         app:layout_constraintStart_toEndOf="@+id/iv_num_2"
         app:layout_constraintTop_toTopOf="@+id/iv_num_1"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        android:layout_marginStart="14dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
