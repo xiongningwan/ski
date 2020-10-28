@@ -16,8 +16,10 @@ import com.ski.box.R;
 import com.ski.box.bean.PTabBean;
 import com.ski.box.mvp.contract.EmptyContract;
 import com.ski.box.mvp.presenter.EmptyPresenter;
+import com.ski.box.view.activity.ContainerActivity;
 import com.ski.box.view.activity.my.BankCardActivity;
 import com.ski.box.view.activity.my.PersonalInfoActivity;
+import com.ski.box.view.fragment.record.RecordFragment;
 import com.yb.core.base.BaseMVPFragment;
 
 import org.jetbrains.annotations.NotNull;
@@ -165,6 +167,11 @@ public class PersonalTabFragment extends BaseMVPFragment<EmptyContract.Presenter
             case 12: // 银行卡管理
                 startActivity(new Intent(requireActivity(), BankCardActivity.class));
                 break;
+            case 21: {// 投注记录
+                Intent intent =  new Intent(requireActivity(), ContainerActivity.class);
+                intent.putExtra(ContainerActivity.KEY_CLASS, RecordFragment.class.getSimpleName());
+                startActivity(intent);
+                break;}
         }
     }
 }

@@ -50,4 +50,5 @@
 5.必须绑定银行卡后方可提现。</string>
     <string name="ski_my_bank_card_add">添加银行卡</string>
     <string name="ski_my_bank_card_bind">绑定银行卡</string>
+    <string name="ski_record_bet">投注记录</string>
 </resources>

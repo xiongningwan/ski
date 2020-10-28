@@ -26,7 +26,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:textSize="@dimen/ski_dp_20"
-        android:background="@mipmap/ski_pub_bg_all_check"
+        android:background="@drawable/ski_pub_bg_setting_trend"
         android:gravity="center"
         android:text="全部彩种"
         android:textColor="@color/ski_white" />
