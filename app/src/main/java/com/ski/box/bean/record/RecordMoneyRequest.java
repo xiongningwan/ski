@@ -8,7 +8,7 @@ public class RecordMoneyRequest {
     private String queryDate;
     private String startTime;
     private String endTime;
-    private String pageSize = "20";
+    private String pageSize = "10";
     private int pageNum = 1;
     private String tradeType;
     //账变类型 1资金转入，2资金转出，3投注，4投注返点，5派奖，6撤销派奖，7撤销返点，8撤单返款，9追号扣款，10当期追号返款，

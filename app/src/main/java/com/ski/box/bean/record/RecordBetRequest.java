@@ -10,7 +10,7 @@ public class RecordBetRequest {
     //    private String playId;
     //status状态：1-待开奖，2-未中奖
     private String status;//追号状态1-待开奖,2-未中奖,3-已中奖,4-挂起,5-已结算
-    private String pageSize = "20";//每页显示条数
+    private String pageSize = "10";//每页显示条数
     private int pageNum = 1;//当前是第几页
     //    private String diskSurface;//区分玩法，0 标准盘；1 双面盘；空全部
     private String isLow; //查询低频彩 1 低频彩；空全部

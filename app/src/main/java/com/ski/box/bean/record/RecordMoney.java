@@ -9,7 +9,6 @@ import java.util.List;
  */
 public class RecordMoney {
     private int total;
-    private int totalPage;
     private int pages;
     private  boolean hasPreviousPage;
     private  boolean hasNextPage;
@@ -40,13 +39,6 @@ public class RecordMoney {
         this.total = total;
     }
 
-    public int getTotalPage() {
-        return totalPage;
-    }
-
-    public void setTotalPage(int totalPage) {
-        this.totalPage = totalPage;
-    }
 
     public int getPages() {
         return pages;

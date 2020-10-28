@@ -109,6 +109,7 @@ public class RecordMoneyFragment extends BaseMVPFragment<RecordMoneyContract.Pre
         mLLType.setOnClickListener(this);
         mRefreshLayout.setOnRefreshListener(this);
         mRefreshLayout.setOnLoadMoreListener(this);
+        createType();
     }
 
     @Override
@@ -186,15 +187,12 @@ public class RecordMoneyFragment extends BaseMVPFragment<RecordMoneyContract.Pre
         mRefreshLayout.finishLoadMore();
 
         RecordMoney recordMoney = (RecordMoney) o;
-        mTotalPage = recordMoney.getTotalPage();
-        int currentPage = recordMoney.getPages();
-        if (currentPage == 0) {
-            mRecordAdapter.setList(new ArrayList<>());
-        }  else if (currentPage > 1) {
-            /*加载更多*/
-            mRecordAdapter.addData(recordMoney.getList());
-        } else {
+        mTotalPage = recordMoney.getPages();
+        boolean isHasPreviousPage = recordMoney.isHasPreviousPage();
+        if (!isHasPreviousPage) {
             mRecordAdapter.setList(recordMoney.getList());
+        }  else {
+            mRecordAdapter.addData(recordMoney.getList());
         }
     }
 
@@ -207,6 +205,7 @@ public class RecordMoneyFragment extends BaseMVPFragment<RecordMoneyContract.Pre
     @Override
     public void onMoneyTypeSuccess(List<FrontTradeTypesBean> beans) {
         mTypeList = beans;
+        mMoneyTypePop.setMoneyType(mTypeList);
         mRecordAdapter.setMoneyType(mTypeList);
         mRefreshLayout.autoRefresh();
     }
@@ -255,9 +254,7 @@ public class RecordMoneyFragment extends BaseMVPFragment<RecordMoneyContract.Pre
         mDatePop.showAtAnchorView(mLLDay, YGravity.BELOW, XGravity.LEFT, 0, ScreenUtils.dip2px(5));
     }
 
-
-
-    private void showType() {
+    private void createType() {
         if (mMoneyTypePop == null) {
             mMoneyTypePop = MoneyTypePop.create(getActivity());
             mMoneyTypePop.setMoneyTypeChooseListener(this);
@@ -268,6 +265,10 @@ public class RecordMoneyFragment extends BaseMVPFragment<RecordMoneyContract.Pre
                 }
             });
         }
+    }
+
+
+    private void showType() {
         onArrowAnimation(mIvType, 180);
         mMoneyTypePop.showAtAnchorView(mLLType, YGravity.BELOW, XGravity.LEFT, 0, ScreenUtils.dip2px(5));
     }
