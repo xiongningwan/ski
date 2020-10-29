@@ -53,4 +53,5 @@
     <string name="ski_record_bet">投注记录</string>
     <string name="ski_record_money">账变记录</string>
     <string name="ski_record_money_after_balance">账变后余额:</string>
+    <string name="ski_group_add">开立下级账户</string>
 </resources>

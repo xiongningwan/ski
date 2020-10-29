@@ -17,6 +17,7 @@ import com.ski.box.bean.PTabBean;
 import com.ski.box.mvp.contract.EmptyContract;
 import com.ski.box.mvp.presenter.EmptyPresenter;
 import com.ski.box.view.activity.ContainerActivity;
+import com.ski.box.view.activity.group.GroupAddActivity;
 import com.ski.box.view.activity.my.BankCardActivity;
 import com.ski.box.view.activity.my.PersonalInfoActivity;
 import com.ski.box.view.fragment.record.RecordBetFragment;
@@ -142,12 +143,12 @@ public class PersonalTabFragment extends BaseMVPFragment<EmptyContract.Presenter
             case 3:
                 list.add(new PTabBean(31,R.mipmap.icon_personal_tab_my_acc, "开立下级账户"));
                 list.add(new PTabBean(32,R.mipmap.icon_personal_tab_baobiao, "推广链接"));
-                list.add(new PTabBean(33,R.mipmap.icon_personal_tab_tuandui, "团队统计分析"));
+//                list.add(new PTabBean(33,R.mipmap.icon_personal_tab_tuandui, "团队统计分析"));
                 list.add(new PTabBean(34,R.mipmap.icon_personal_tab_setting, "团队会员管理"));
                 list.add(new PTabBean(35,R.mipmap.icon_personal_tab_setting, "团队投注记录"));
-                list.add(new PTabBean(36,R.mipmap.icon_personal_tab_setting, "团队游戏金流"));
-                list.add(new PTabBean(37,R.mipmap.icon_personal_tab_setting, "团队钱包金流"));
-                list.add(new PTabBean(38,R.mipmap.icon_personal_tab_setting, "团队盈亏报表"));
+                list.add(new PTabBean(36,R.mipmap.icon_personal_tab_setting, "团队账变记录"));
+//                list.add(new PTabBean(37,R.mipmap.icon_personal_tab_setting, "团队钱包金流"));
+//                list.add(new PTabBean(38,R.mipmap.icon_personal_tab_setting, "团队盈亏报表"));
                 break;
             case 4:
                 list.add(new PTabBean(41,R.mipmap.icon_personal_tab_my_acc, "活动优惠"));
@@ -178,6 +179,9 @@ public class PersonalTabFragment extends BaseMVPFragment<EmptyContract.Presenter
                 intent.putExtra(ContainerActivity.KEY_CLASS, RecordMoneyFragment.class.getSimpleName());
                 startActivity(intent);
                 break;}
+            case 31: // 开立下级账户
+                startActivity(new Intent(requireActivity(), GroupAddActivity.class));
+                break;
         }
     }
 }

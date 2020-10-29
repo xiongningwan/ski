@@ -414,4 +414,10 @@ public final class UrlConfig {
     // 用户详细信息
     public static final  String URL_USER_MEMBER_INFO ="promen/member/memberInfo";
 
+    // 代理返奖率范围
+    public static final  String URL_GROUP_REBATE_SCOPE ="promen/agent/rebateScope";
+    // 创建下级代理
+    public static final  String URL_GROUP_AGENT_CREATE ="promen/member/agent/create";
+
+
 }
