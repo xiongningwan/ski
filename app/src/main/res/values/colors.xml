@@ -60,6 +60,7 @@
     <color name="ski_acc_lose">#20b376</color>
     <color name="ski_color_c3c9d2">#c3c9d2</color>
     <color name="ski_trend_top_game_item_normal">#4b5670</color>
+    <color name="ski_default_line">#D3DFEB</color>
 
     <color name="ski_gold">#ffd700</color><!--金色 -->
     <color name="ski_pink">#ffc0cb</color><!--粉红色 -->

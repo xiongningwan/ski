@@ -84,7 +84,7 @@ public class GroupAddActivity extends BaseMVPActivity<GroupAddContract.Presenter
     private void doCreate() {
         RebateKV bean = (RebateKV)mSpBackRate.getSelectedItem();
         if(bean == null) {
-            ToastUtil.showInfo("请先选择返点率");
+            ToastUtil.showInfo("请先选择奖金返点");
             return;
         }
         String name = mEtName.getText().toString().trim();

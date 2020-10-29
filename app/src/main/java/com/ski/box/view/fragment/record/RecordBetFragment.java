@@ -33,6 +33,7 @@ import com.ski.box.bean.record.RecordBet;
 import com.ski.box.bean.record.RecordBetRequest;
 import com.ski.box.mvp.contract.RecordBetContract;
 import com.ski.box.mvp.presenter.RecordBetPresenter;
+import com.ski.box.utils.ActivityUtil;
 import com.ski.box.view.activity.RecordDetailActivity;
 import com.ski.box.view.view.dialog.CancelDialog;
 import com.ski.box.view.view.dialog.pop.record.AllLotteryPop;
@@ -117,7 +118,7 @@ public class RecordBetFragment extends BaseMVPFragment<RecordBetContract.Present
     protected void initData(Bundle savedInstanceState) {
         mRecordRequest = new RecordBetRequest();
         mRecordAdapter = new RecordBetAdapter2(getActivity());
-        mRecordAdapter.setEmptyView(getEmptyView());
+        mRecordAdapter.setEmptyView(ActivityUtil.getEmptyView(requireActivity()));
         mRvRecord.setLayoutManager(new LinearLayoutManager(getActivity()));
         mRvRecord.setAdapter(mRecordAdapter);
         mRecordAdapter.setOnItemChildClickListener(new OnItemChildClickListener() {
@@ -375,14 +376,5 @@ public class RecordBetFragment extends BaseMVPFragment<RecordBetContract.Present
     }
 
 
-    //空布局
-    public View getEmptyView() {
-        View notDataView = View.inflate(requireActivity(),R.layout.ski_recycler_empty_view,  null);
-        notDataView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-            }
-        });
-        return notDataView;
-    }
+
 }

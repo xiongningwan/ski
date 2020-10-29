@@ -3,6 +3,8 @@ package com.ski.box.mvp.service;
 
 import com.ski.box.bean.Balance;
 import com.ski.box.bean.SelfProfileEntity;
+import com.ski.box.bean.group.InviteData;
+import com.ski.box.bean.group.InviteUrl;
 import com.ski.box.bean.group.RebateScope;
 import com.ski.box.bean.user.Bank;
 import com.ski.box.bean.user.BankCard;
@@ -41,4 +43,17 @@ public interface IGroupService {
             @Field("memberAccount") String memberAccount,
             @Field("password") String password,
             @Field("prizeGroup") int prizeGroup);
+
+    // 推广链接
+    @GET(UrlConfig.URL_GROUP_INVITE_URL)
+    Single<HttpResult<InviteData>> getInviteUrlList(
+            @Query("pageSize") int pageSize,
+            @Query("pageNum") int pageNum);
+
+    // 创建推广链接
+    @POST(UrlConfig.URL_GROUP_INVITE_CREATE)
+    @FormUrlEncoded
+    Single<HttpResult<Object>> inviteCreate(
+            @Field("inviteWord") String inviteWord,
+            @Field("memberRebate") String memberRebate);
 }

@@ -9,6 +9,8 @@ import java.util.List;
 
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
+import retrofit2.http.Field;
+import retrofit2.http.Query;
 
 public interface IGroupModel {
     Disposable getRebateScope(Consumer s, CusConsumer e);
@@ -19,5 +21,10 @@ public interface IGroupModel {
                         String password,
                         int prizeGroup);
 
+    Disposable getInviteUrlList(Consumer s, CusConsumer e,int pageSize, int pageNum);
 
+    Disposable inviteCreate(Consumer s,
+                           CusConsumer e,
+                           String inviteWord,
+                            String memberRebate);
 }

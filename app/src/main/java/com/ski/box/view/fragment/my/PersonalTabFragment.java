@@ -18,6 +18,7 @@ import com.ski.box.mvp.contract.EmptyContract;
 import com.ski.box.mvp.presenter.EmptyPresenter;
 import com.ski.box.view.activity.ContainerActivity;
 import com.ski.box.view.activity.group.GroupAddActivity;
+import com.ski.box.view.activity.group.GroupInviteUrlActivity;
 import com.ski.box.view.activity.my.BankCardActivity;
 import com.ski.box.view.activity.my.PersonalInfoActivity;
 import com.ski.box.view.fragment.record.RecordBetFragment;
@@ -181,6 +182,9 @@ public class PersonalTabFragment extends BaseMVPFragment<EmptyContract.Presenter
                 break;}
             case 31: // 开立下级账户
                 startActivity(new Intent(requireActivity(), GroupAddActivity.class));
+                break;
+            case 32: // 推广链接
+                startActivity(new Intent(requireActivity(), GroupInviteUrlActivity.class));
                 break;
         }
     }

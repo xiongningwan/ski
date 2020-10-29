@@ -31,6 +31,7 @@ import com.ski.box.bean.record.RecordMoney;
 import com.ski.box.bean.record.RecordMoneyRequest;
 import com.ski.box.mvp.contract.RecordMoneyContract;
 import com.ski.box.mvp.presenter.RecordMoneyPresenter;
+import com.ski.box.utils.ActivityUtil;
 import com.ski.box.view.activity.RecordDetailActivity;
 import com.ski.box.view.view.dialog.CancelDialog;
 import com.ski.box.view.view.dialog.pop.record.AllLotteryPop;
@@ -116,7 +117,7 @@ public class RecordMoneyFragment extends BaseMVPFragment<RecordMoneyContract.Pre
     protected void initData(Bundle savedInstanceState) {
         mRecordRequest = new RecordMoneyRequest();
         mRecordAdapter = new RecordMoneyAdapter(getActivity());
-        mRecordAdapter.setEmptyView(getEmptyView());
+        mRecordAdapter.setEmptyView(ActivityUtil.getEmptyView(requireActivity()));
         mRvRecord.setLayoutManager(new LinearLayoutManager(getActivity()));
         mRvRecord.setAdapter(mRecordAdapter);
 
