@@ -41,7 +41,9 @@ public class RecordBetAdapter2 extends BaseQuickAdapter<RecordBet.ListBean , Bas
         holder.setText(R.id.tv_period, bean.getTicketPlanNo());
         holder.setText(R.id.tv_play_name, bean.getPlayName());
         LotteryRecordResultView lotteryResultView = holder.getView(R.id.lottery_record_result_view);
-        lotteryResultView.setResult(bean);
+        String code = bean.getTicketResult();
+        code = code.replace(",", " ");
+        lotteryResultView.setResult(bean.getTicketId(), code);
         /*投注金额*/
         String s = DecimalSetUtils.setMoneySaveFour(bean.getBetMoney() + "");
         String betMoney = s + "元";

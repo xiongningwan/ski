@@ -3,6 +3,7 @@ package com.ski.box.mvp.service;
 
 import com.ski.box.bean.Balance;
 import com.ski.box.bean.SelfProfileEntity;
+import com.ski.box.bean.group.GroupBetData;
 import com.ski.box.bean.group.GroupMemberData;
 import com.ski.box.bean.group.InviteData;
 import com.ski.box.bean.group.InviteUrl;
@@ -68,6 +69,17 @@ public interface IGroupService {
     // 团队管理列表
     @GET(UrlConfig.URL_GROUP_TEAM_MEMBER_LIST)
     Single<HttpResult<GroupMemberData>> getTeamMemberList(
+            @Query("memberAccount") String memberAccount,
+            @Query("pageSize") int pageSize,
+            @Query("pageNum") int pageNum);
+
+    // 团队投注记录
+    @GET(UrlConfig.URL_GROUP_TEAM_ORDER_LIST)
+    Single<HttpResult<GroupBetData>> getTeamOrderList(
+            @Query("startDate") String startDate,
+            @Query("endDate") String endDate,
+            @Query("ticketId") String ticketId,
+            @Query("status") String status,
             @Query("memberAccount") String memberAccount,
             @Query("pageSize") int pageSize,
             @Query("pageNum") int pageNum);

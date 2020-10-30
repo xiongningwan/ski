@@ -19,13 +19,17 @@ import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 import com.ski.box.R;
 import com.ski.box.adapter.RecordBetAdapter2;
+import com.ski.box.adapter.RecordGroupBetAdapter;
 import com.ski.box.bean.ConditionBean;
 import com.ski.box.bean.FrontTradeTypesBean;
 import com.ski.box.bean.TopGameBean;
+import com.ski.box.bean.group.GroupBetData;
 import com.ski.box.bean.record.RecordBet;
 import com.ski.box.bean.record.RecordBetRequest;
 import com.ski.box.mvp.contract.RecordBetContract;
+import com.ski.box.mvp.contract.group.GroupRecordBetContract;
 import com.ski.box.mvp.presenter.RecordBetPresenter;
+import com.ski.box.mvp.presenter.group.GroupRecordBetPresenter;
 import com.ski.box.utils.ActivityUtil;
 import com.ski.box.view.view.ClearEditText;
 import com.ski.box.view.view.HeaderView;
@@ -34,6 +38,7 @@ import com.ski.box.view.view.dialog.pop.record.RecordDatePop;
 import com.ski.box.view.view.dialog.pop.record.RecordMorePop;
 import com.yb.core.base.BaseMVPActivity;
 import com.yb.core.utils.ScreenUtils;
+import com.yb.core.utils.TimeUtils;
 import com.yb.core.utils.ToastUtil;
 import com.zyyoona7.popup.XGravity;
 import com.zyyoona7.popup.YGravity;
@@ -41,7 +46,7 @@ import com.zyyoona7.popup.YGravity;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GroupRecordBetActivity extends BaseMVPActivity<RecordBetContract.Presenter> implements RecordBetContract.View, View.OnClickListener, OnRefreshListener, OnLoadMoreListener,
+public class GroupRecordBetActivity extends BaseMVPActivity<GroupRecordBetContract.Presenter> implements GroupRecordBetContract.View, View.OnClickListener, OnRefreshListener, OnLoadMoreListener,
         RecordDatePop.DateChooseListener, AllLotteryPop.LotteryChooseListener, RecordMorePop.MoreChooseListener {
 
     private HeaderView mHeadView;
@@ -56,23 +61,26 @@ public class GroupRecordBetActivity extends BaseMVPActivity<RecordBetContract.Pr
     private ImageView mIvStatus;
     private RefreshLayout mRefreshLayout;
     private RecyclerView mRvRecord;
-    private RecordBetAdapter2 mRecordAdapter;
-    private RecordBetRequest mRecordRequest;
-    private int mTotalPage = 1;
+    private RecordGroupBetAdapter mRecordAdapter;
     private RecordDatePop mDatePop;
     private AllLotteryPop mLotteryPop;
     private RecordMorePop mMorePop;
-    private long lastMills = 0;
     private ClearEditText mEtAccount;
     private Button mBtnSure;
+    private String startDate;
+    private String endDate;
+    private String ticketId;
+    private String status;
+    private String memberAccount;
+    private int mPageSize = 10;
+    private int mPageNo = 1;
+    private int mTotalPage = 1;
 
-    public GroupRecordBetActivity() {
+    @Override
+    protected GroupRecordBetContract.Presenter bindPresenter() {
+        return new GroupRecordBetPresenter(this);
     }
 
-    public static GroupRecordBetActivity newInstance() {
-        GroupRecordBetActivity fragment = new GroupRecordBetActivity();
-        return fragment;
-    }
 
     @Override
     protected void onDestroy() {
@@ -104,34 +112,33 @@ public class GroupRecordBetActivity extends BaseMVPActivity<RecordBetContract.Pr
         mRefreshLayout = findViewById(R.id.refreshLayout);
         mRvRecord = findViewById(R.id.recycler_view);
 
-        mHeadView.setHeader(getString(R.string.ski_group_manage), true);
+        mHeadView.setHeader(getString(R.string.ski_group_record_bet), true);
 
         mLLDay.setOnClickListener(this);
         mLLLottery.setOnClickListener(this);
         mLLStatus.setOnClickListener(this);
+        mBtnSure.setOnClickListener(this);
         mRefreshLayout.setOnRefreshListener(this);
         mRefreshLayout.setOnLoadMoreListener(this);
     }
 
     @Override
     protected void initData(Bundle savedInstanceState) {
-        mRecordRequest = new RecordBetRequest();
-        mRecordAdapter = new RecordBetAdapter2(this);
+        mRecordAdapter = new RecordGroupBetAdapter(this);
         mRecordAdapter.setEmptyView(ActivityUtil.getEmptyView(this));
         mRvRecord.setLayoutManager(new LinearLayoutManager(this));
         mRvRecord.setAdapter(mRecordAdapter);
+
+        startDate = TimeUtils.getBeginStringOfToday();
+        endDate = TimeUtils.getEndStringOfToday();
+        mTvDay.setText("今天");
     }
 
 
     @Override
     protected void processLogic() {
         super.processLogic();
-    }
-
-
-    @Override
-    protected RecordBetContract.Presenter bindPresenter() {
-        return new RecordBetPresenter(this);
+        mRefreshLayout.autoRefresh();
     }
 
 
@@ -144,78 +151,62 @@ public class GroupRecordBetActivity extends BaseMVPActivity<RecordBetContract.Pr
             showLottery();
         } else if (id == R.id.ll_status) {
             showMore();
+        }  else if (id == R.id.btn_sure) {
+            memberAccount = mEtAccount.getText().toString().trim();
+            mRefreshLayout.autoRefresh();
         }
     }
 
     @Override
     public void onRefresh(@NonNull RefreshLayout refreshLayout) {
-        mRecordRequest.setPageNum(1);
-        mPresenter.getBetRecordData(mRecordRequest);
+        mPageNo = 1;
+        mPresenter.getTeamOrderList(startDate, endDate, ticketId, status, memberAccount, mPageSize, mPageNo);
     }
 
     @Override
     public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
-        int pageNum = mRecordRequest.getPageNum();
-        if (pageNum > mTotalPage) {
+        if (mPageNo > mTotalPage) {
             mRefreshLayout.finishLoadMore();
             ToastUtil.showInfo("已经是最后一页了");
             return;
         }
-        mRecordRequest.setPageNum(pageNum + 1);
-        mPresenter.getBetRecordData(mRecordRequest);
+        mPageNo++;
+        mPresenter.getTeamOrderList(startDate, endDate, ticketId, status, memberAccount, mPageSize, mPageNo);
     }
 
     @Override
-    public void onSuccessful(Object o) {
+    public void onSuccessResult(GroupBetData bean) {
         mRefreshLayout.finishRefresh();
         mRefreshLayout.finishLoadMore();
 
         mRecordAdapter.setUseEmpty(true);
-        RecordBet recordBet = (RecordBet) o;
-        mTotalPage = recordBet.getTotalPage();
-        int currentPage = recordBet.getCurrentPage();
+        mTotalPage = bean.getTotalPage();
+        int currentPage = bean.getCurrentPage();
         if (currentPage == 0) {
             /*返回为null*/
             mRecordAdapter.setList(new ArrayList<>());
         } else if (currentPage > 1) {
 //            加载更多
-            mRecordAdapter.addData(recordBet.getList());
+            mRecordAdapter.addData(bean.getList());
         } else {
-            mRecordAdapter.setList(recordBet.getList());
+            mRecordAdapter.setList(bean.getList());
         }
     }
 
     @Override
-    public void onError(Throwable o) {
+    public void onFailResult(String s) {
         mRefreshLayout.finishRefresh();
         mRefreshLayout.finishLoadMore();
     }
 
-    @Override
-    public void getMoneyTypeSuccess(List<FrontTradeTypesBean> beans) {
-
-    }
-
-    @Override
-    public void onCancelSuccess() {
-        mRefreshLayout.autoRefresh();
-    }
-
-
-    @Override
-    public void onCancelFail(String s) {
-
-    }
 
     @Override
     public void onDateChoose(ConditionBean bean) {
         if (mDatePop != null) {
             mDatePop.dismiss();
         }
-
-        mRecordRequest.setStartDate(bean.getStartDate());
-        mRecordRequest.setEndDate(bean.getEndDate());
-        mRecordRequest.setIsLow(bean.getIsLow());
+        startDate = bean.getStartDate();
+        endDate = bean.getEndDate();
         mTvDay.setText(bean.getName());
         mRefreshLayout.autoRefresh();
     }
@@ -271,13 +262,11 @@ public class GroupRecordBetActivity extends BaseMVPActivity<RecordBetContract.Pr
         if (mLotteryPop != null) {
             mLotteryPop.dismiss();
         }
-        String lotteryId;
         if (0 == bean.getTicketId()) {
-            lotteryId = "";
+            ticketId = "";
         } else {
-            lotteryId = String.valueOf(bean.getTicketId());
+            ticketId = String.valueOf(bean.getTicketId());
         }
-        mRecordRequest.setTicketId(lotteryId);
         mTvLottery.setText(bean.getTicketName());
         mRefreshLayout.autoRefresh();
     }
@@ -287,7 +276,7 @@ public class GroupRecordBetActivity extends BaseMVPActivity<RecordBetContract.Pr
         if (mMorePop != null) {
             mMorePop.dismiss();
         }
-        mRecordRequest.setStatus(status);
+        this.status = status;
         mRefreshLayout.autoRefresh();
     }
 
@@ -297,7 +286,6 @@ public class GroupRecordBetActivity extends BaseMVPActivity<RecordBetContract.Pr
         ivArrowIcon.setPivotY(ivArrowIcon.getHeight() / 2);
         ivArrowIcon.setRotation(angle);
     }
-
 
 
 }

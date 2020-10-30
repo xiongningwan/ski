@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.chad.library.adapter.base.BaseMultiItemQuickAdapter;
 import com.chad.library.adapter.base.viewholder.BaseViewHolder;
 import com.ski.box.R;
+import com.ski.box.bean.RecordResultBean;
 import com.ski.box.bean.lottery.LotteryConstant;
 import com.ski.box.bean.record.RecordBet;
 import com.ski.box.utils.SystemUtil;
@@ -25,7 +26,7 @@ import java.util.Random;
 /**
  * Created by tom on 2020/10/27.
  */
-public class RecordResultAdapter extends BaseMultiItemQuickAdapter<RecordBet.ListBean, BaseViewHolder> {
+public class RecordResultAdapter extends BaseMultiItemQuickAdapter<RecordResultBean, BaseViewHolder> {
     private final int mViewHeight;
     private final Context mContext;
     String systemModel;
@@ -53,9 +54,8 @@ public class RecordResultAdapter extends BaseMultiItemQuickAdapter<RecordBet.Lis
 
 
     @Override
-    protected void convert(@NotNull BaseViewHolder holder, RecordBet.ListBean  bean) {
-        String code = bean.getTicketResult();
-        code = code.replace(",", " ");
+    protected void convert(@NotNull BaseViewHolder holder, RecordResultBean  bean) {
+        String code = bean.getCode();
         String[] arr_code = new String[0];
         if (!Strings.isEmpty(code) && code.contains(" ")) {
             arr_code = code.split(" ");

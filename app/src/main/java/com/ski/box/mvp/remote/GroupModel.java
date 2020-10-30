@@ -1,6 +1,7 @@
 package com.ski.box.mvp.remote;
 
 
+import com.ski.box.bean.group.GroupBetData;
 import com.ski.box.bean.group.GroupMemberData;
 import com.ski.box.bean.group.InviteData;
 import com.ski.box.bean.group.InviteUrl;
@@ -20,7 +21,7 @@ import io.reactivex.functions.Consumer;
 public class GroupModel extends BaseModel implements IGroupModel {
 
     @Override
-    public Disposable getRebateScope(Consumer s,CusConsumer e) {
+    public Disposable getRebateScope(Consumer s, CusConsumer e) {
         Single<RebateScope> single = RetrofitHelper
                 .getService(IGroupService.class)
                 .getRebateScope()
@@ -72,4 +73,14 @@ public class GroupModel extends BaseModel implements IGroupModel {
                 .map(new HttpResultFunc<>());
         return toSubscribe(single, s, e);
     }
+
+    @Override
+    public Disposable getTeamOrderList(Consumer s, CusConsumer e, String startDate, String endDate, String ticketId, String status, String memberAccount, int pageSize, int pageNum) {
+        Single<GroupBetData> single = RetrofitHelper
+                .getService(IGroupService.class)
+                .getTeamOrderList(startDate, endDate, ticketId, status, memberAccount, pageSize, pageNum)
+                .map(new HttpResultFunc<>());
+        return toSubscribe(single, s, e);
+    }
+
 }

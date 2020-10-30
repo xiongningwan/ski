@@ -57,4 +57,5 @@
     <string name="ski_group_invite_url">推广链接</string>
     <string name="ski_group_invite_url_add">新增推广链接</string>
     <string name="ski_group_manage">团队会员管理</string>
+    <string name="ski_group_record_bet">团队投注记录</string>
 </resources>

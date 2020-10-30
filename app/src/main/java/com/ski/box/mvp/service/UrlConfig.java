@@ -426,6 +426,8 @@ public final class UrlConfig {
     public static final  String URL_GROUP_INVITE_DELETE ="promen/agent/invite/";
     // 团队管理列表
     public static final  String URL_GROUP_TEAM_MEMBER_LIST ="promen/team/memberList";
+    // 团队投注记录
+    public static final  String URL_GROUP_TEAM_ORDER_LIST ="promen/team/orderList";
 
 
 }

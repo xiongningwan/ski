@@ -18,6 +18,8 @@ import com.ski.box.R;
 import com.ski.box.adapter.RecordResultAdapter;
 import com.ski.box.adapter.top.TopResultAdapter;
 import com.ski.box.bean.LotteryNumBean;
+import com.ski.box.bean.RecordResultBean;
+import com.ski.box.bean.group.GroupBetData;
 import com.ski.box.bean.lottery.LotteryConstant;
 import com.ski.box.bean.lottery.LotteryUtil;
 import com.ski.box.bean.record.RecordBet;
@@ -35,7 +37,7 @@ public class LotteryRecordResultView extends LinearLayout {
 
     private RecyclerView rvLotteryResult;
     private RecordResultAdapter mAdapter;
-    List<RecordBet.ListBean> mList = new ArrayList<>();
+    List<RecordResultBean> mList = new ArrayList<>();
     private Context mContext;
 
     public LotteryRecordResultView(Context context) {
@@ -60,24 +62,6 @@ public class LotteryRecordResultView extends LinearLayout {
     }
 
 
-    public void setResult(RecordBet.ListBean bean) {
-        int serId = LotteryUtil.getSerIdByLotteryId(bean.getTicketId());
-        bean.setItemType(serId);
-        mList.clear();
-        mList.add(bean);
-        mAdapter = new RecordResultAdapter(mContext);
-        rvLotteryResult.setAdapter(mAdapter);
-        rvLotteryResult.setLayoutManager(new LinearLayoutManager(mContext));
-        mAdapter.setNewInstance(mList);
-        mAdapter.setOnItemClickListener(new OnItemClickListener() {
-            @Override
-            public void onItemClick(@NonNull BaseQuickAdapter<?, ?> adapter, @NonNull View view, int position) {
-
-            }
-        });
-    }
-
-
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
@@ -85,14 +69,16 @@ public class LotteryRecordResultView extends LinearLayout {
 
     }
 
-    //    public boolean dispatchTouchEvent(MotionEvent ev) {
-//        boolean consume = false;
-//        if(onInterceptTouchEvent(ev)){
-//            consume = onTouchEvent(ev);
-//        } else {
-//            consume = child.dispatchTouchEvent(ev);
-//        }
-//        return consume;
-//    }
-
+    public void setResult(int ticketId, String code) {
+        RecordResultBean bean = new RecordResultBean();
+        int serId = LotteryUtil.getSerIdByLotteryId(ticketId);
+        bean.setItemType(serId);
+        bean.setCode(code);
+        mList.clear();
+        mList.add(bean);
+        mAdapter = new RecordResultAdapter(mContext);
+        rvLotteryResult.setAdapter(mAdapter);
+        rvLotteryResult.setLayoutManager(new LinearLayoutManager(mContext));
+        mAdapter.setNewInstance(mList);
+    }
 }
