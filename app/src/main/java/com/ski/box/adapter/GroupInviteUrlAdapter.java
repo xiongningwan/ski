@@ -1,6 +1,7 @@
 package com.ski.box.adapter;
 
 import android.content.Context;
+import android.util.ArrayMap;
 import android.view.View;
 import android.widget.TextView;
 
@@ -8,6 +9,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.viewholder.BaseViewHolder;
 import com.ski.box.R;
 import com.ski.box.bean.group.InviteUrl;
+import com.ski.box.bean.group.RebateKV;
 import com.ski.box.bean.record.RecordBet;
 import com.ski.box.utils.DecimalSetUtils;
 import com.ski.box.view.view.LotteryRecordResultView;
@@ -15,8 +17,13 @@ import com.ski.box.view.view.LotteryRecordResultView;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 public class GroupInviteUrlAdapter extends BaseQuickAdapter<InviteUrl, BaseViewHolder> {
     private  Context mContext;
+    private Map<Integer,String> mMap = new HashMap<>();
 
     public GroupInviteUrlAdapter(Context context) {
         super(R.layout.ski_item_group_invite_url);
@@ -29,8 +36,14 @@ public class GroupInviteUrlAdapter extends BaseQuickAdapter<InviteUrl, BaseViewH
       //  float f = (i - rebateScope.getBaseRebate())*100f / 2000;
        // String percent = String.format("%.2f", f) + "%";
 
-        holder.setText(R.id.tv_rebate, String.valueOf(bean.getRebate()));
+        holder.setText(R.id.tv_rebate, String.valueOf(mMap.get(bean.getRebate())));
         holder.setText(R.id.tv_time, bean.getCreateAt());
+    }
+
+    public void setReBateList(List<RebateKV> reBateList) {
+        for(RebateKV bean : reBateList) {
+            mMap.put(bean.getRebate(),bean.getRebate() + "-" + bean.getPercent());
+        }
     }
 
 }

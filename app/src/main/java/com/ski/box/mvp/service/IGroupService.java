@@ -55,5 +55,5 @@ public interface IGroupService {
     @FormUrlEncoded
     Single<HttpResult<Object>> inviteCreate(
             @Field("inviteWord") String inviteWord,
-            @Field("memberRebate") String memberRebate);
+            @Field("memberRebate") int memberRebate);
 }

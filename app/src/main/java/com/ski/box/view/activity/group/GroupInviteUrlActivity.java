@@ -1,9 +1,7 @@
 package com.ski.box.view.activity.group;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.text.Spannable;
-import android.text.SpannableString;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 
@@ -14,33 +12,29 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.listener.OnItemChildClickListener;
 import com.gyf.immersionbar.ImmersionBar;
+import com.hwangjr.rxbus.RxBus;
+import com.hwangjr.rxbus.annotation.Subscribe;
+import com.hwangjr.rxbus.annotation.Tag;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
+import com.ski.box.ConstantValue;
 import com.ski.box.R;
 import com.ski.box.adapter.GroupInviteUrlAdapter;
-import com.ski.box.adapter.RecordBetAdapter2;
 import com.ski.box.bean.group.InviteData;
 import com.ski.box.bean.group.InviteUrl;
 import com.ski.box.bean.group.RebateKV;
-import com.ski.box.bean.record.RecordBet;
-import com.ski.box.mvp.contract.group.GroupAddContract;
 import com.ski.box.mvp.contract.group.GroupInviteUrlContract;
-import com.ski.box.mvp.presenter.group.GroupAddPresenter;
 import com.ski.box.mvp.presenter.group.GroupInviteUrlPresenter;
 import com.ski.box.utils.ActivityUtil;
-import com.ski.box.view.view.ClearEditText;
 import com.ski.box.view.view.HeaderView;
 import com.yb.core.base.BaseMVPActivity;
-import com.yb.core.utils.MD5Util;
 import com.yb.core.utils.ToastUtil;
-
-import org.angmarch.views.NiceSpinner;
-import org.angmarch.views.OnSpinnerItemSelectedListener;
-import org.angmarch.views.SpinnerTextFormatter;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.ski.box.ConstantValue.EVENT_BIND_BANK_CARD_SUCCESS;
 
 
 public class GroupInviteUrlActivity extends BaseMVPActivity<GroupInviteUrlContract.Presenter> implements GroupInviteUrlContract.View, View.OnClickListener,
@@ -53,10 +47,12 @@ public class GroupInviteUrlActivity extends BaseMVPActivity<GroupInviteUrlContra
     private int mPageNo = 1;
     private int mTotalPage = 1;
     private GroupInviteUrlAdapter mAdapter;
+    private ArrayList<RebateKV> mRebateKVList = new ArrayList<>();
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        RxBus.get().unregister(this);
     }
 
     @Override
@@ -72,6 +68,7 @@ public class GroupInviteUrlActivity extends BaseMVPActivity<GroupInviteUrlContra
     @Override
     protected void initViews() {
         ImmersionBar.with(this).init();
+        RxBus.get().register(this);
         mHeadView = findViewById(R.id.head_view);
         mRefreshLayout = findViewById(R.id.refreshLayout);
         mRv = findViewById(R.id.recycler_view);
@@ -106,14 +103,16 @@ public class GroupInviteUrlActivity extends BaseMVPActivity<GroupInviteUrlContra
     @Override
     protected void processLogic() {
         super.processLogic();
-        mRefreshLayout.autoRefresh();
+        mPresenter.getRebateScope();
     }
 
     @Override
     public void onClick(View view) {
         int id = view.getId();
         if(id == R.id.btn_sure) {
-
+            Intent intent = new Intent(this, GroupInviteUrlAddActivity.class);
+            intent.putParcelableArrayListExtra(GroupInviteUrlAddActivity.KEY_REBATE_KV_LIST, mRebateKVList);
+            startActivity(intent);
         }
     }
 
@@ -135,6 +134,19 @@ public class GroupInviteUrlActivity extends BaseMVPActivity<GroupInviteUrlContra
         mPresenter.getInviteUrlList(mPageSize, mPageNo);
     }
 
+
+    @Override
+    public void onRebateScopeResult(List<RebateKV> list) {
+        mRebateKVList.clear();
+        mRebateKVList.addAll(list);
+        mAdapter.setReBateList(list);
+        mRefreshLayout.autoRefresh();
+    }
+
+    @Override
+    public void onRebateScopeFailResult(String s) {
+
+    }
 
     @Override
     public void onSuccessResult(InviteData o) {
@@ -159,6 +171,9 @@ public class GroupInviteUrlActivity extends BaseMVPActivity<GroupInviteUrlContra
 
     }
 
-
+    @Subscribe(tags = {@Tag(ConstantValue.EVENT_GROUP_INVITE_URL_ADD_SUCCESS)})
+    public void onAddSuccess(String s) {
+        mRefreshLayout.autoRefresh();
+    }
 
 }

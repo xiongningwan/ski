@@ -46,7 +46,7 @@ public class GroupModel extends BaseModel implements IGroupModel {
     }
 
     @Override
-    public Disposable inviteCreate(Consumer s, CusConsumer e, String inviteWord, String memberRebate) {
+    public Disposable inviteCreate(Consumer s, CusConsumer e, String inviteWord, int memberRebate) {
         Single<Object> single = RetrofitHelper
                 .getService(IGroupService.class)
                 .inviteCreate(inviteWord, memberRebate)

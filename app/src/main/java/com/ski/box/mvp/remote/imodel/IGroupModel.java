@@ -26,5 +26,5 @@ public interface IGroupModel {
     Disposable inviteCreate(Consumer s,
                            CusConsumer e,
                            String inviteWord,
-                            String memberRebate);
+                            int memberRebate);
 }

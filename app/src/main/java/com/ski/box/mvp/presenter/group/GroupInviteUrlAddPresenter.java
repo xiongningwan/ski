@@ -6,6 +6,7 @@ import com.ski.box.bean.group.RebateKV;
 import com.ski.box.bean.group.RebateScope;
 import com.ski.box.exception.CusConsumer;
 import com.ski.box.mvp.contract.group.GroupAddContract;
+import com.ski.box.mvp.contract.group.GroupInviteUrlAddContract;
 import com.ski.box.mvp.remote.GroupModel;
 import com.ski.box.mvp.remote.imodel.IGroupModel;
 import com.yb.core.base.RxPresenter;
@@ -17,7 +18,7 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 
 
-public class GroupInviteUrlAddPresenter extends RxPresenter<GroupAddContract.View> implements GroupAddContract.Presenter {
+public class GroupInviteUrlAddPresenter extends RxPresenter<GroupInviteUrlAddContract.View> implements GroupInviteUrlAddContract.Presenter {
     private IGroupModel mGroupModel;
 
     public GroupInviteUrlAddPresenter(Context context) {
@@ -52,8 +53,8 @@ public class GroupInviteUrlAddPresenter extends RxPresenter<GroupAddContract.Vie
     }
 
     @Override
-    public void agentCreate(String memberAccount, String password, int prizeGroup) {
-        Disposable disposable = mGroupModel.agentCreate(new Consumer<Object>() {
+    public void inviteCreate(String inviteWord, int memberRebate) {
+        Disposable disposable = mGroupModel.inviteCreate(new Consumer<Object>() {
             @Override
             public void accept(Object o) throws Exception {
                 mView.onAddSuccessResult();
@@ -64,7 +65,7 @@ public class GroupInviteUrlAddPresenter extends RxPresenter<GroupAddContract.Vie
                 super.accept(throwable);
                 mView.onAddFailResult(throwable.getMessage());
             }
-        }, memberAccount, password, prizeGroup);
+        }, inviteWord, memberRebate);
         addDisposable(disposable);
     }
 }

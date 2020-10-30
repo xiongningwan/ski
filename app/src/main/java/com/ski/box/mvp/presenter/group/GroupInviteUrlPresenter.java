@@ -28,6 +28,31 @@ public class GroupInviteUrlPresenter extends RxPresenter<GroupInviteUrlContract.
         mGroupModel = new GroupModel();
     }
 
+    @Override
+    public void getRebateScope() {
+        Disposable disposable = mGroupModel.getRebateScope(new Consumer<RebateScope>() {
+            @Override
+            public void accept(RebateScope rebateScope) throws Exception {
+                List<RebateKV> list = new ArrayList<>();
+                for(int i = rebateScope.getMaxRebate(); i >= rebateScope.getBaseRebate(); i--) {
+                    RebateKV rebateKV = new RebateKV();
+                    rebateKV.setRebate(i);
+                    float f = (i - rebateScope.getBaseRebate())*100f / 2000;
+                    String percent = String.format("%.2f", f) + "%";
+                    rebateKV.setPercent(percent);
+                    list.add(rebateKV);
+                }
+                mView.onRebateScopeResult(list);
+            }
+        }, new CusConsumer() {
+            @Override
+            public void accept(Throwable throwable) throws Exception {
+                super.accept(throwable);
+                mView.onRebateScopeFailResult(throwable.getMessage());
+            }
+        });
+        addDisposable(disposable);
+    }
 
     @Override
     public void getInviteUrlList(int pageSize, int pageNum) {
