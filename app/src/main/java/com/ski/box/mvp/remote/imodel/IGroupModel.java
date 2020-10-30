@@ -31,4 +31,6 @@ public interface IGroupModel {
     Disposable inviteDelete(Consumer s,
                            CusConsumer e,
                             String inviteCode);
+
+    Disposable getTeamMemberList(Consumer s, CusConsumer e,String memberAccount, int pageSize, int pageNum);
 }

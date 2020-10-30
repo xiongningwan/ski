@@ -3,6 +3,7 @@ package com.ski.box.mvp.service;
 
 import com.ski.box.bean.Balance;
 import com.ski.box.bean.SelfProfileEntity;
+import com.ski.box.bean.group.GroupMemberData;
 import com.ski.box.bean.group.InviteData;
 import com.ski.box.bean.group.InviteUrl;
 import com.ski.box.bean.group.RebateScope;
@@ -63,4 +64,11 @@ public interface IGroupService {
     @DELETE("promen/agent/invite/{inviteCode}")
     Single<HttpResult<Object>> inviteDelete(
             @Path("inviteCode") String inviteCode);
+
+    // 团队管理列表
+    @GET(UrlConfig.URL_GROUP_TEAM_MEMBER_LIST)
+    Single<HttpResult<GroupMemberData>> getTeamMemberList(
+            @Query("memberAccount") String memberAccount,
+            @Query("pageSize") int pageSize,
+            @Query("pageNum") int pageNum);
 }

@@ -156,12 +156,11 @@ public class GroupInviteUrlActivity extends BaseMVPActivity<GroupInviteUrlContra
     }
 
     @Override
-    public void onSuccessResult(InviteData o) {
+    public void onSuccessResult(InviteData bean) {
         mRefreshLayout.finishRefresh();
         mRefreshLayout.finishLoadMore();
 
         mAdapter.setUseEmpty(true);
-        InviteData bean = (InviteData) o;
         mTotalPage = bean.getTotalPage();
 
         int currentPage = bean.getCurrentPage();
