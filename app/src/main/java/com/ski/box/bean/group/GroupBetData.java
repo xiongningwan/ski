@@ -1,5 +1,8 @@
 package com.ski.box.bean.group;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.List;
 
 /**
@@ -100,7 +103,7 @@ public class GroupBetData {
         this.list = list;
     }
 
-    public static class ListBean {
+    public static class ListBean implements Parcelable {
         /**
          * memberAccount : agent11
          * orderId : 1321530757339942972
@@ -234,5 +237,58 @@ public class GroupBetData {
         public void setOpenResult(String openResult) {
             this.openResult = openResult;
         }
+
+        @Override
+        public int describeContents() {
+            return 0;
+        }
+
+        @Override
+        public void writeToParcel(Parcel dest, int flags) {
+            dest.writeString(this.memberAccount);
+            dest.writeLong(this.orderId);
+            dest.writeString(this.issueNo);
+            dest.writeString(this.ticketName);
+            dest.writeString(this.playName);
+            dest.writeString(this.betContent);
+            dest.writeString(this.betAmt);
+            dest.writeString(this.winAmt);
+            dest.writeString(this.status);
+            dest.writeString(this.betTime);
+            dest.writeString(this.rebate);
+            dest.writeString(this.odds);
+            dest.writeString(this.openResult);
+        }
+
+        public ListBean() {
+        }
+
+        protected ListBean(Parcel in) {
+            this.memberAccount = in.readString();
+            this.orderId = in.readLong();
+            this.issueNo = in.readString();
+            this.ticketName = in.readString();
+            this.playName = in.readString();
+            this.betContent = in.readString();
+            this.betAmt = in.readString();
+            this.winAmt = in.readString();
+            this.status = in.readString();
+            this.betTime = in.readString();
+            this.rebate = in.readString();
+            this.odds = in.readString();
+            this.openResult = in.readString();
+        }
+
+        public static final Parcelable.Creator<ListBean> CREATOR = new Parcelable.Creator<ListBean>() {
+            @Override
+            public ListBean createFromParcel(Parcel source) {
+                return new ListBean(source);
+            }
+
+            @Override
+            public ListBean[] newArray(int size) {
+                return new ListBean[size];
+            }
+        };
     }
 }

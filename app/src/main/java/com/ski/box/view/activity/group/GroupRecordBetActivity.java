@@ -1,5 +1,6 @@
 package com.ski.box.view.activity.group;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,6 +13,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.chad.library.adapter.base.listener.OnItemClickListener;
 import com.gyf.immersionbar.ImmersionBar;
 import com.hwangjr.rxbus.RxBus;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
@@ -31,6 +34,7 @@ import com.ski.box.mvp.contract.group.GroupRecordBetContract;
 import com.ski.box.mvp.presenter.RecordBetPresenter;
 import com.ski.box.mvp.presenter.group.GroupRecordBetPresenter;
 import com.ski.box.utils.ActivityUtil;
+import com.ski.box.view.activity.RecordDetailActivity;
 import com.ski.box.view.view.ClearEditText;
 import com.ski.box.view.view.HeaderView;
 import com.ski.box.view.view.dialog.pop.record.AllLotteryPop;
@@ -132,8 +136,21 @@ public class GroupRecordBetActivity extends BaseMVPActivity<GroupRecordBetContra
         startDate = TimeUtils.getBeginStringOfToday();
         endDate = TimeUtils.getEndStringOfToday();
         mTvDay.setText("今天");
+        mRecordAdapter.setOnItemClickListener(new OnItemClickListener() {
+            @Override
+            public void onItemClick(@NonNull BaseQuickAdapter<?, ?> adapter, @NonNull View view, int position) {
+                List<GroupBetData.ListBean> list = (List<GroupBetData.ListBean>) adapter.getData();
+                GroupBetData.ListBean bean = list.get(position);
+                gotoDetail(bean);
+            }
+        });
     }
 
+    private void gotoDetail(GroupBetData.ListBean bean) {
+        Intent intent = new Intent(this, GroupRecordDetailActivity.class);
+        intent.putExtra(RecordDetailActivity.KEY_RECORD_BEAN, bean);
+        startActivity(intent);
+    }
 
     @Override
     protected void processLogic() {
