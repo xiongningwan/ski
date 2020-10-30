@@ -75,7 +75,7 @@ public class GroupMoneyData {
 
         private String memberAccount;
         private long transId;
-        private String transType;
+        private int transType;
         private String ticketName;
         private long orderId;
         private String beforeAmt;
@@ -99,11 +99,11 @@ public class GroupMoneyData {
             this.transId = transId;
         }
 
-        public String getTransType() {
+        public int getTransType() {
             return transType;
         }
 
-        public void setTransType(String transType) {
+        public void setTransType(int transType) {
             this.transType = transType;
         }
 

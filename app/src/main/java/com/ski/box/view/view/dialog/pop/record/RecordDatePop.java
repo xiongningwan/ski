@@ -42,8 +42,6 @@ public class RecordDatePop extends BasePopup<RecordDatePop> implements View.OnCl
         // setNeedReMeasureWH(true);
     }
 
-
-
     @Override
     protected void initViews(View view, RecordDatePop recordDatePop) {
         mRvDate = view.findViewById(R.id.rv_record_date);
@@ -53,10 +51,7 @@ public class RecordDatePop extends BasePopup<RecordDatePop> implements View.OnCl
         mRvDate.setAdapter(mDateAdapter);
         mSpace.setOnClickListener(this);
         initBetData();
-
     }
-
-
 
     private void initBetData() {
         List<ConditionBean> list = new ArrayList<>();
@@ -64,7 +59,7 @@ public class RecordDatePop extends BasePopup<RecordDatePop> implements View.OnCl
         list.add(new ConditionBean("昨天", TimeUtils.getBeginStringOfYesterday(1), TimeUtils.getEndStringOfYesterday(1), "0", false));
         list.add(new ConditionBean("近三日", TimeUtils.getLatelyStringOfN(3), TimeUtils.getEndStringOfToday(), "0", false));
         list.add(new ConditionBean("近七日", TimeUtils.getLatelyStringOfN(7), TimeUtils.getEndStringOfToday(), "0", false));
-        list.add(new ConditionBean("近15日(低频)", TimeUtils.getLatelyStringOfN(15), TimeUtils.getEndStringOfToday(), "1", false));
+        list.add(new ConditionBean("近15日", TimeUtils.getLatelyStringOfN(15), TimeUtils.getEndStringOfToday(), "1", false));
 
         mDateAdapter.setNewInstance(list);
     }

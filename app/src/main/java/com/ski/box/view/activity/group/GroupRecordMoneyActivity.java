@@ -1,6 +1,5 @@
 package com.ski.box.view.activity.group;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,8 +12,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.chad.library.adapter.base.listener.OnItemClickListener;
 import com.gyf.immersionbar.ImmersionBar;
 import com.hwangjr.rxbus.RxBus;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
@@ -22,27 +19,17 @@ import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 import com.ski.box.R;
 import com.ski.box.adapter.GroupRecordMoneyAdapter;
-import com.ski.box.adapter.RecordGroupBetAdapter;
-import com.ski.box.adapter.RecordMoneyAdapter;
 import com.ski.box.bean.ConditionBean;
 import com.ski.box.bean.FrontTradeTypesBean;
-import com.ski.box.bean.TopGameBean;
-import com.ski.box.bean.group.GroupBetData;
 import com.ski.box.bean.group.GroupMoneyData;
-import com.ski.box.bean.record.RecordMoney;
-import com.ski.box.mvp.contract.group.GroupRecordBetContract;
 import com.ski.box.mvp.contract.group.GroupRecordMoneyContract;
-import com.ski.box.mvp.presenter.group.GroupRecordBetPresenter;
 import com.ski.box.mvp.presenter.group.GroupRecordMoneyPresenter;
 import com.ski.box.utils.ActivityUtil;
-import com.ski.box.view.activity.RecordDetailActivity;
 import com.ski.box.view.view.ClearEditText;
 import com.ski.box.view.view.HeaderView;
-import com.ski.box.view.view.dialog.pop.record.AllLotteryPop;
 import com.ski.box.view.view.dialog.pop.record.MoneyTypePop;
 import com.ski.box.view.view.dialog.pop.record.RecordDate2Pop;
 import com.ski.box.view.view.dialog.pop.record.RecordDatePop;
-import com.ski.box.view.view.dialog.pop.record.RecordMorePop;
 import com.yb.core.base.BaseMVPActivity;
 import com.yb.core.utils.ScreenUtils;
 import com.yb.core.utils.TimeUtils;
@@ -50,11 +37,10 @@ import com.yb.core.utils.ToastUtil;
 import com.zyyoona7.popup.XGravity;
 import com.zyyoona7.popup.YGravity;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class GroupRecordMoneyActivity extends BaseMVPActivity<GroupRecordMoneyContract.Presenter> implements GroupRecordMoneyContract.View, View.OnClickListener,
-        OnRefreshListener, OnLoadMoreListener, RecordDate2Pop.DateChooseListener, MoneyTypePop.MoneyTypeChooseListener {
+        OnRefreshListener, OnLoadMoreListener, RecordDatePop.DateChooseListener, MoneyTypePop.MoneyTypeChooseListener {
 
     private HeaderView mHeadView;
     private LinearLayout mLLDay;
@@ -66,7 +52,7 @@ public class GroupRecordMoneyActivity extends BaseMVPActivity<GroupRecordMoneyCo
     private RefreshLayout mRefreshLayout;
     private RecyclerView mRvRecord;
     private GroupRecordMoneyAdapter mRecordAdapter;
-    private RecordDate2Pop mDatePop;
+    private RecordDatePop mDatePop;
     private MoneyTypePop mMoneyTypePop;
     private ClearEditText mEtAccount;
     private Button mBtnSure;
@@ -93,7 +79,7 @@ public class GroupRecordMoneyActivity extends BaseMVPActivity<GroupRecordMoneyCo
 
     @Override
     protected int getLayoutId() {
-        return R.layout.ski_activity_record_group_bet;
+        return R.layout.ski_activity_record_group_money;
     }
 
     @Override
@@ -233,7 +219,7 @@ public class GroupRecordMoneyActivity extends BaseMVPActivity<GroupRecordMoneyCo
 
     private void showDay() {
         if (mDatePop == null) {
-            mDatePop = RecordDate2Pop.create(this);
+            mDatePop = RecordDatePop.create(this);
             mDatePop.setDateChooseListener(this);
             mDatePop.setOnDismissListener(new PopupWindow.OnDismissListener() {
                 @Override
