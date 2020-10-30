@@ -46,6 +46,8 @@ public class GroupRecordDetailActivity extends BaseMVPActivity<EmptyContract.Pre
     private TextView mTvPeriod;
     private LotteryResultView mLotteryResultView;
     private TextView mTvOpen;
+    private TextView mTvUserName;
+    private TextView mTvRebate;
     private TextView mTvNo;
     private Button mBtnCopy;
     private TextView mTvTime;
@@ -75,6 +77,8 @@ public class GroupRecordDetailActivity extends BaseMVPActivity<EmptyContract.Pre
         mTvPeriod = findViewById(R.id.tv_period);
         mLotteryResultView = findViewById(R.id.lottery_result_view);
         mTvOpen = findViewById(R.id.tv_open);
+        mTvUserName = findViewById(R.id.tv_value_user_name);
+        mTvRebate = findViewById(R.id.tv_value_rebate);
         mTvNo = findViewById(R.id.tv_value_no);
         mBtnCopy = findViewById(R.id.btn_copy);
         mTvTime = findViewById(R.id.tv_value_time);
@@ -100,8 +104,11 @@ public class GroupRecordDetailActivity extends BaseMVPActivity<EmptyContract.Pre
 
     private void setData(GroupBetData.ListBean bean) {
         mTvName.setText(bean.getTicketName());
+        mTvName.setText(bean.getTicketName());
         mTvPeriod.setText(bean.getIssueNo());
         mTvNo.setText(String.valueOf(bean.getOrderId()));
+        mTvUserName.setText(bean.getMemberAccount());
+        mTvRebate.setText(bean.getRebate());
         mTvTime.setText(bean.getBetTime());
         mTvPlay.setText(bean.getPlayName());
         mTvContent.setText(bean.getBetContent());
@@ -126,7 +133,12 @@ public class GroupRecordDetailActivity extends BaseMVPActivity<EmptyContract.Pre
 
         /*赔率*/
         String odds = bean.getOdds();
-        mTvRate.setText(odds);
+        if(TextUtils.isEmpty(odds)) {
+            odds = odds.replace("[", "");
+            odds = odds.replace("]", "");
+            mTvRate.setText(odds);
+        }
+
 
         //
 //        if (TextUtils.isEmpty(bean.getOpenResult())) {
