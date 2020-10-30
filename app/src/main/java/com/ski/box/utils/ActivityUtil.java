@@ -19,4 +19,10 @@ public class ActivityUtil {
         });
         return notDataView;
     }
+    // 返奖点百分比
+    public static String getRebatePercent(int i, int base) {
+        float f = (i - base)*100f / 2000;
+        String percent = String.format("%.2f", f) + "%";
+        return percent;
+    }
 }

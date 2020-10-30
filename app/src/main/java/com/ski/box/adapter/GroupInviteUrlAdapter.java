@@ -22,27 +22,29 @@ import java.util.List;
 import java.util.Map;
 
 public class GroupInviteUrlAdapter extends BaseQuickAdapter<InviteUrl, BaseViewHolder> {
-    private  Context mContext;
-    private Map<Integer,String> mMap = new HashMap<>();
+    private Context mContext;
+    private Map<Integer, String> mMap = new HashMap<>();
 
     public GroupInviteUrlAdapter(Context context) {
         super(R.layout.ski_item_group_invite_url);
         mContext = context;
-        addChildClickViewIds(R.id.iv_detail,R.id.iv_copy,R.id.iv_delete);
+        addChildClickViewIds(R.id.iv_detail, R.id.iv_copy, R.id.iv_delete);
     }
 
     @Override
     protected void convert(@NotNull BaseViewHolder holder, @Nullable InviteUrl bean) {
-      //  float f = (i - rebateScope.getBaseRebate())*100f / 2000;
-       // String percent = String.format("%.2f", f) + "%";
+        //  float f = (i - rebateScope.getBaseRebate())*100f / 2000;
+        // String percent = String.format("%.2f", f) + "%";
 
-        holder.setText(R.id.tv_rebate, String.valueOf(mMap.get(bean.getRebate())));
+        String kv = String.valueOf(mMap.get(bean.getRebate()));
+        bean.setKv(kv);
+        holder.setText(R.id.tv_rebate, kv);
         holder.setText(R.id.tv_time, bean.getCreateAt());
     }
 
     public void setReBateList(List<RebateKV> reBateList) {
-        for(RebateKV bean : reBateList) {
-            mMap.put(bean.getRebate(),bean.getRebate() + "-" + bean.getPercent());
+        for (RebateKV bean : reBateList) {
+            mMap.put(bean.getRebate(), bean.getRebate() + "-" + bean.getPercent());
         }
     }
 

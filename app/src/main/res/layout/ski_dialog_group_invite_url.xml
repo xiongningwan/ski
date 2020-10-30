@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="320dp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/ski_bg_group_dialog_bg"
+    android:paddingLeft="@dimen/ski_dp_16"
+    android:paddingTop="@dimen/ski_dp_16"
+    android:paddingRight="@dimen/ski_dp_16"
+    android:paddingBottom="@dimen/ski_dp_16"
+    android:layout_gravity="center">
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="推广详情"
+        android:textColor="@color/ski_color_333333"
+        android:textSize="17dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_label_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="会员类型"
+        android:textColor="@color/ski_color_999999"
+        android:textSize="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title"
+        android:layout_marginTop="16dp"/>
+
+    <TextView
+        android:id="@+id/tv_value_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/ski_color_333333"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_label_type"
+        tools:text="代理" />
+
+    <TextView
+        android:id="@+id/tv_label_user_no"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="注册人数"
+        android:textColor="@color/ski_color_999999"
+        android:textSize="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_label_type"
+        android:layout_marginTop="16dp"/>
+
+    <TextView
+        android:id="@+id/tv_value_uesr_no"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/ski_color_333333"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_label_user_no"
+        tools:text="3280 人" />
+
+    <TextView
+        android:id="@+id/tv_label_msg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="推广留言"
+        android:textColor="@color/ski_color_999999"
+        android:textSize="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_label_user_no"
+        android:layout_marginTop="16dp"/>
+
+    <TextView
+        android:id="@+id/tv_value_msg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/ski_color_333333"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_label_msg"
+        tools:text="1956奖金组，欢迎注册！" />
+
+    <TextView
+        android:id="@+id/tv_label_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="创建时间"
+        android:textColor="@color/ski_color_999999"
+        android:textSize="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_label_msg"
+        android:layout_marginTop="16dp"/>
+
+    <TextView
+        android:id="@+id/tv_value_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/ski_color_333333"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_label_time"
+        tools:text="2020-01-01 23:33:55" />
+
+    <TextView
+        android:id="@+id/tv_label_rebate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="奖金返点"
+        android:textColor="@color/ski_color_999999"
+        android:textSize="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_label_time"
+        android:layout_marginTop="16dp"/>
+
+    <TextView
+        android:id="@+id/tv_value_rebate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/ski_color_333333"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_label_rebate"
+        tools:text="1956 - 7.80%" />
+
+
+    <View
+        android:id="@+id/view_line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/ski_default_line"
+        app:layout_constraintTop_toBottomOf="@+id/tv_label_rebate"
+        android:layout_marginTop="16dp"/>
+
+    <TextView
+        android:id="@+id/tv_close"
+        android:layout_width="75dp"
+        android:layout_height="30dp"
+        android:gravity="center"
+        android:textColor="@color/ski_white"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view_line"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/ski_pub_bg_setting_trend"
+        android:text="关  闭" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -27,4 +27,8 @@ public interface IGroupModel {
                            CusConsumer e,
                            String inviteWord,
                             int memberRebate);
+
+    Disposable inviteDelete(Consumer s,
+                           CusConsumer e,
+                            String inviteCode);
 }

@@ -23,6 +23,15 @@ public class InviteUrl {
     private String expireAt;
     private int status;
     private String inviteUrl;
+    private String kv;
+
+    public String getKv() {
+        return kv;
+    }
+
+    public void setKv(String kv) {
+        this.kv = kv;
+    }
 
     public String getCode() {
         return code;

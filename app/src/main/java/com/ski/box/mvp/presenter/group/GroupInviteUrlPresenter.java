@@ -11,6 +11,7 @@ import com.ski.box.mvp.contract.group.GroupAddContract;
 import com.ski.box.mvp.contract.group.GroupInviteUrlContract;
 import com.ski.box.mvp.remote.GroupModel;
 import com.ski.box.mvp.remote.imodel.IGroupModel;
+import com.ski.box.utils.ActivityUtil;
 import com.yb.core.base.RxPresenter;
 
 import java.util.ArrayList;
@@ -34,11 +35,10 @@ public class GroupInviteUrlPresenter extends RxPresenter<GroupInviteUrlContract.
             @Override
             public void accept(RebateScope rebateScope) throws Exception {
                 List<RebateKV> list = new ArrayList<>();
-                for(int i = rebateScope.getMaxRebate(); i >= rebateScope.getBaseRebate(); i--) {
+                for (int i = rebateScope.getMaxRebate(); i >= rebateScope.getBaseRebate(); i--) {
                     RebateKV rebateKV = new RebateKV();
                     rebateKV.setRebate(i);
-                    float f = (i - rebateScope.getBaseRebate())*100f / 2000;
-                    String percent = String.format("%.2f", f) + "%";
+                    String percent = ActivityUtil.getRebatePercent(i, rebateScope.getBaseRebate());
                     rebateKV.setPercent(percent);
                     list.add(rebateKV);
                 }
@@ -67,7 +67,24 @@ public class GroupInviteUrlPresenter extends RxPresenter<GroupInviteUrlContract.
                 super.accept(throwable);
                 mView.onFailResult(throwable.getMessage());
             }
-        }, pageSize,  pageNum);
+        }, pageSize, pageNum);
+        addDisposable(disposable);
+    }
+
+    @Override
+    public void inviteDelete(String inviteCode) {
+        Disposable disposable = mGroupModel.inviteDelete(new Consumer<InviteData>() {
+            @Override
+            public void accept(InviteData o) throws Exception {
+                mView.onDeleteResult(o);
+            }
+        }, new CusConsumer() {
+            @Override
+            public void accept(Throwable throwable) throws Exception {
+                super.accept(throwable);
+                mView.onDeleteResult(throwable.getMessage());
+            }
+        }, inviteCode);
         addDisposable(disposable);
     }
 

@@ -53,4 +53,13 @@ public class GroupModel extends BaseModel implements IGroupModel {
                 .map(new HttpResultFunc<>());
         return toSubscribe(single, s, e);
     }
+
+    @Override
+    public Disposable inviteDelete(Consumer s, CusConsumer e, String inviteCode) {
+        Single<Object> single = RetrofitHelper
+                .getService(IGroupService.class)
+                .inviteDelete(inviteCode)
+                .map(new HttpResultFunc<>());
+        return toSubscribe(single, s, e);
+    }
 }

@@ -15,10 +15,14 @@ public interface GroupInviteUrlContract {
 
         void onSuccessResult(InviteData o);
         void onFailResult(String s);
+
+        void onDeleteResult(InviteData o);
+        void onDeleteResult(String s);
     }
 
     interface Presenter extends BaseContract.BasePresenter<View> {
         void getRebateScope();
         void getInviteUrlList(int pageSize, int pageNum);
+        void inviteDelete(String inviteCode);
     }
 }

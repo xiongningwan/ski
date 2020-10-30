@@ -422,6 +422,8 @@ public final class UrlConfig {
     public static final  String URL_GROUP_INVITE_URL ="promen/agent/inviteUrl";
     // 创建推广链接
     public static final  String URL_GROUP_INVITE_CREATE ="promen/agent/invite/create";
+    // 推广链接删除
+    public static final  String URL_GROUP_INVITE_DELETE ="promen/agent/invite/";
 
 
 }

@@ -28,13 +28,14 @@ import com.ski.box.mvp.contract.group.GroupInviteUrlContract;
 import com.ski.box.mvp.presenter.group.GroupInviteUrlPresenter;
 import com.ski.box.utils.ActivityUtil;
 import com.ski.box.view.view.HeaderView;
+import com.ski.box.view.view.dialog.CancelDialog;
+import com.ski.box.view.view.dialog.group.InviteUrlDialog;
 import com.yb.core.base.BaseMVPActivity;
+import com.yb.core.utils.AppUtil;
 import com.yb.core.utils.ToastUtil;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static com.ski.box.ConstantValue.EVENT_BIND_BANK_CARD_SUCCESS;
 
 
 public class GroupInviteUrlActivity extends BaseMVPActivity<GroupInviteUrlContract.Presenter> implements GroupInviteUrlContract.View, View.OnClickListener,
@@ -48,6 +49,8 @@ public class GroupInviteUrlActivity extends BaseMVPActivity<GroupInviteUrlContra
     private int mTotalPage = 1;
     private GroupInviteUrlAdapter mAdapter;
     private ArrayList<RebateKV> mRebateKVList = new ArrayList<>();
+    private InviteUrlDialog mInviteUrlDialog;
+    private CancelDialog mCancelDialog;
 
     @Override
     protected void onDestroy() {
@@ -93,8 +96,11 @@ public class GroupInviteUrlActivity extends BaseMVPActivity<GroupInviteUrlContra
                 InviteUrl bean = list.get(position);
                 int id = view.getId();
                 if (id == R.id.iv_detail) {
+                    showInviteUrlDialog(bean);
                 } else if (id == R.id.iv_copy) {
+                    copyInviteUrl(bean);
                 } else if (id == R.id.iv_delete) {
+                    showDeleteDialog(bean);
                 }
             }
         });
@@ -171,9 +177,49 @@ public class GroupInviteUrlActivity extends BaseMVPActivity<GroupInviteUrlContra
 
     }
 
+    @Override
+    public void onDeleteResult(InviteData o) {
+        ToastUtil.showSuccess("删除成功!");
+        mRefreshLayout.autoRefresh();
+    }
+
+    @Override
+    public void onDeleteResult(String s) {
+        mRefreshLayout.autoRefresh();
+    }
+
     @Subscribe(tags = {@Tag(ConstantValue.EVENT_GROUP_INVITE_URL_ADD_SUCCESS)})
     public void onAddSuccess(String s) {
         mRefreshLayout.autoRefresh();
+    }
+
+    private void showInviteUrlDialog(InviteUrl bean) {
+        if(mInviteUrlDialog == null) {
+            mInviteUrlDialog = new InviteUrlDialog(this);
+        }
+        mInviteUrlDialog.setData(bean);
+        mInviteUrlDialog.show();
+    }
+
+    private void copyInviteUrl(InviteUrl bean) {
+        String text = bean.getInviteUrl();
+        AppUtil.copy(text, this);
+        ToastUtil.showSuccess("复制成功!");
+    }
+
+    private void showDeleteDialog(InviteUrl bean) {
+        mCancelDialog = new CancelDialog(this, new CancelDialog.OnClickconfirmListener() {
+            @Override
+            public void confirm() {
+                mPresenter.inviteDelete(bean.getCode());
+            }
+
+            @Override
+            public void cancel() {
+
+            }
+        });
+        mCancelDialog.show();
     }
 
 }

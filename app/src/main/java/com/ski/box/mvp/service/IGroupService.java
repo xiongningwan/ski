@@ -18,6 +18,7 @@ import java.util.List;
 import io.reactivex.Single;
 import okhttp3.RequestBody;
 import retrofit2.http.Body;
+import retrofit2.http.DELETE;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
@@ -56,4 +57,9 @@ public interface IGroupService {
     Single<HttpResult<Object>> inviteCreate(
             @Field("inviteWord") String inviteWord,
             @Field("memberRebate") int memberRebate);
+
+    // 推广链接删除
+    @DELETE(UrlConfig.URL_GROUP_INVITE_DELETE)
+    Single<HttpResult<Object>> inviteDelete(
+            @Query("inviteCode") String inviteCode);
 }

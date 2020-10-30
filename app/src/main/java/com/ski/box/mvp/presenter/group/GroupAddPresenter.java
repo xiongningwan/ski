@@ -12,6 +12,7 @@ import com.ski.box.mvp.remote.GroupModel;
 import com.ski.box.mvp.remote.UserModel;
 import com.ski.box.mvp.remote.imodel.IGroupModel;
 import com.ski.box.mvp.remote.imodel.IUserModel;
+import com.ski.box.utils.ActivityUtil;
 import com.yb.core.base.RxPresenter;
 
 import java.util.ArrayList;
@@ -38,8 +39,7 @@ public class GroupAddPresenter extends RxPresenter<GroupAddContract.View> implem
                 for(int i = rebateScope.getMaxRebate(); i >= rebateScope.getBaseRebate(); i--) {
                     RebateKV rebateKV = new RebateKV();
                     rebateKV.setRebate(i);
-                    float f = (i - rebateScope.getBaseRebate())*100f / 2000;
-                    String percent = String.format("%.2f", f) + "%";
+                    String percent = ActivityUtil.getRebatePercent(i, rebateScope.getBaseRebate());
                     rebateKV.setPercent(percent);
                     list.add(rebateKV);
                 }
