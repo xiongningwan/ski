@@ -133,7 +133,7 @@ public class GroupRecordDetailActivity extends BaseMVPActivity<EmptyContract.Pre
 
         /*赔率*/
         String odds = bean.getOdds();
-        if(TextUtils.isEmpty(odds)) {
+        if(!TextUtils.isEmpty(odds)) {
             odds = odds.replace("[", "");
             odds = odds.replace("]", "");
             mTvRate.setText(odds);
@@ -141,22 +141,22 @@ public class GroupRecordDetailActivity extends BaseMVPActivity<EmptyContract.Pre
 
 
         //
-//        if (TextUtils.isEmpty(bean.getOpenResult())) {
-//            mTvOpen.setVisibility(View.VISIBLE);
-//            mLotteryResultView.setVisibility(View.GONE);
-//        } else {
-//            mTvOpen.setVisibility(View.GONE);
-//            mLotteryResultView.setVisibility(View.VISIBLE);
-//            List<LotteryNumBean> list = new ArrayList<>();
-//            String code = bean.getOpenResult();
-//            code = code.replace(",", " ");
-//            LotteryNumBean lotteryNumBean = new LotteryNumBean();
-//            lotteryNumBean.setCode(code);
-//            int serId = LotteryUtil.getSerIdByLotteryId(bean.getTicketId());
-//            lotteryNumBean.setItemType(serId);
-//            list.add(lotteryNumBean);
-//            mLotteryResultView.setResult(list, 2);
-//        }
+        if (TextUtils.isEmpty(bean.getOpenResult())) {
+            mTvOpen.setVisibility(View.VISIBLE);
+            mLotteryResultView.setVisibility(View.GONE);
+        } else {
+            mTvOpen.setVisibility(View.GONE);
+            mLotteryResultView.setVisibility(View.VISIBLE);
+            List<LotteryNumBean> list = new ArrayList<>();
+            String code = bean.getOpenResult();
+            code = code.replace(",", " ");
+            LotteryNumBean lotteryNumBean = new LotteryNumBean();
+            lotteryNumBean.setCode(code);
+            int serId = LotteryUtil.getSerIdByLotteryId(bean.getTicketId());
+            lotteryNumBean.setItemType(serId);
+            list.add(lotteryNumBean);
+            mLotteryResultView.setResult(list, 2);
+        }
     }
 
     @Override
@@ -179,14 +179,5 @@ public class GroupRecordDetailActivity extends BaseMVPActivity<EmptyContract.Pre
     }
 
 
-    private String endIsZero(String one) {
-        String c = one.substring(one.length() - 1);
-        if ("0".equals(c)) {
-            String substring = one.substring(0, one.length() - 1);
-            return substring;
-        } else {
-            return one;
-        }
-    }
 
 }

@@ -48,6 +48,12 @@
         </activity>
 
         <activity
+            android:name=".view.activity.group.GroupRecordMoneyActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateAlwaysHidden"
+            tools:ignore="LockedOrientationActivity"/>
+        <activity
             android:name=".view.activity.group.GroupRecordDetailActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait"

@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by tom on 2020/10/30.
  */
-public class GroupBetData {
+public class GroupBetData implements Parcelable {
     /**
      * total : 20
      * pageBetAmt : 5000
@@ -133,6 +133,15 @@ public class GroupBetData {
         private String rebate;
         private String odds;
         private String openResult;
+        private int ticketId;
+
+        public int getTicketId() {
+            return ticketId;
+        }
+
+        public void setTicketId(int ticketId) {
+            this.ticketId = ticketId;
+        }
 
         public String getMemberAccount() {
             return memberAccount;
@@ -238,6 +247,9 @@ public class GroupBetData {
             this.openResult = openResult;
         }
 
+        public ListBean() {
+        }
+
         @Override
         public int describeContents() {
             return 0;
@@ -258,9 +270,7 @@ public class GroupBetData {
             dest.writeString(this.rebate);
             dest.writeString(this.odds);
             dest.writeString(this.openResult);
-        }
-
-        public ListBean() {
+            dest.writeInt(this.ticketId);
         }
 
         protected ListBean(Parcel in) {
@@ -277,9 +287,10 @@ public class GroupBetData {
             this.rebate = in.readString();
             this.odds = in.readString();
             this.openResult = in.readString();
+            this.ticketId = in.readInt();
         }
 
-        public static final Parcelable.Creator<ListBean> CREATOR = new Parcelable.Creator<ListBean>() {
+        public static final Creator<ListBean> CREATOR = new Creator<ListBean>() {
             @Override
             public ListBean createFromParcel(Parcel source) {
                 return new ListBean(source);
@@ -291,4 +302,49 @@ public class GroupBetData {
             }
         };
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(this.total);
+        dest.writeInt(this.pageBetAmt);
+        dest.writeDouble(this.pageWinAmt);
+        dest.writeInt(this.totalPage);
+        dest.writeInt(this.totalBetAmt);
+        dest.writeInt(this.pageSize);
+        dest.writeInt(this.currentPage);
+        dest.writeDouble(this.totalWinAmt);
+        dest.writeTypedList(this.list);
+    }
+
+    public GroupBetData() {
+    }
+
+    protected GroupBetData(Parcel in) {
+        this.total = in.readInt();
+        this.pageBetAmt = in.readInt();
+        this.pageWinAmt = in.readDouble();
+        this.totalPage = in.readInt();
+        this.totalBetAmt = in.readInt();
+        this.pageSize = in.readInt();
+        this.currentPage = in.readInt();
+        this.totalWinAmt = in.readDouble();
+        this.list = in.createTypedArrayList(ListBean.CREATOR);
+    }
+
+    public static final Parcelable.Creator<GroupBetData> CREATOR = new Parcelable.Creator<GroupBetData>() {
+        @Override
+        public GroupBetData createFromParcel(Parcel source) {
+            return new GroupBetData(source);
+        }
+
+        @Override
+        public GroupBetData[] newArray(int size) {
+            return new GroupBetData[size];
+        }
+    };
 }

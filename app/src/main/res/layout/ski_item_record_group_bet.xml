@@ -77,12 +77,12 @@
         tools:text="冠军大小"
         android:layout_marginTop="10dp"/>
 
-<!--    <com.ski.box.view.view.LotteryRecordResultView-->
-<!--        android:id="@+id/lottery_record_result_view"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        app:layout_constraintTop_toTopOf="@+id/tv_play_name"-->
-<!--        app:layout_constraintEnd_toEndOf="@+id/tv_period" />-->
+    <com.ski.box.view.view.LotteryRecordResultView
+        android:id="@+id/lottery_record_result_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@+id/tv_play_name"
+        app:layout_constraintEnd_toEndOf="@+id/tv_period" />
 
 
     <TextView
@@ -93,7 +93,7 @@
         android:textColor="@color/ski_color_333333"
         android:textSize="14dp"
         app:layout_constraintStart_toStartOf="@+id/tv_lottery_name"
-        app:layout_constraintTop_toBottomOf="@+id/tv_play_name"
+        app:layout_constraintTop_toBottomOf="@+id/lottery_record_result_view"
         app:layout_constraintBottom_toBottomOf="parent"
         tools:text="投注：50元"
         android:layout_marginTop="10dp"

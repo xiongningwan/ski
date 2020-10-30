@@ -29,7 +29,11 @@ public class RecordGroupBetAdapter extends BaseQuickAdapter<GroupBetData.ListBea
         holder.setText(R.id.tv_period, bean.getIssueNo());
         holder.setText(R.id.tv_play_name, bean.getPlayName());
         holder.setText(R.id.tv_user_name, bean.getMemberAccount());
-//        LotteryRecordResultView lotteryResultView = holder.getView(R.id.lottery_record_result_view);
+        LotteryRecordResultView lotteryResultView = holder.getView(R.id.lottery_record_result_view);
+
+        String code = bean.getOpenResult();
+        code = code.replace(",", " ");
+        lotteryResultView.setResult(bean.getTicketId(), code);
         /*投注金额*/
         String s = DecimalSetUtils.setMoneySaveFour(bean.getBetAmt() + "");
         String betMoney = s + "元";
