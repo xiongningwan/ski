@@ -16,7 +16,7 @@ public interface GroupInviteUrlContract {
         void onSuccessResult(InviteData o);
         void onFailResult(String s);
 
-        void onDeleteResult(InviteData o);
+        void onDeleteResult();
         void onDeleteResult(String s);
     }
 

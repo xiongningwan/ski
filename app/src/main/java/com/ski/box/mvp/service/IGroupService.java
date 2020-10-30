@@ -24,6 +24,7 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 import static com.yb.core.ConstantValue.CONTENT_TYPE_JSON;
@@ -59,7 +60,7 @@ public interface IGroupService {
             @Field("memberRebate") int memberRebate);
 
     // 推广链接删除
-    @DELETE(UrlConfig.URL_GROUP_INVITE_DELETE)
+    @DELETE("promen/agent/invite/{inviteCode}")
     Single<HttpResult<Object>> inviteDelete(
-            @Query("inviteCode") String inviteCode);
+            @Path("inviteCode") String inviteCode);
 }

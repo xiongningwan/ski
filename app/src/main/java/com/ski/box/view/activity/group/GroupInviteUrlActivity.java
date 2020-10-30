@@ -29,6 +29,7 @@ import com.ski.box.mvp.presenter.group.GroupInviteUrlPresenter;
 import com.ski.box.utils.ActivityUtil;
 import com.ski.box.view.view.HeaderView;
 import com.ski.box.view.view.dialog.CancelDialog;
+import com.ski.box.view.view.dialog.group.DeleteDialog;
 import com.ski.box.view.view.dialog.group.InviteUrlDialog;
 import com.yb.core.base.BaseMVPActivity;
 import com.yb.core.utils.AppUtil;
@@ -50,7 +51,7 @@ public class GroupInviteUrlActivity extends BaseMVPActivity<GroupInviteUrlContra
     private GroupInviteUrlAdapter mAdapter;
     private ArrayList<RebateKV> mRebateKVList = new ArrayList<>();
     private InviteUrlDialog mInviteUrlDialog;
-    private CancelDialog mCancelDialog;
+    private DeleteDialog mDeleteDialog;
 
     @Override
     protected void onDestroy() {
@@ -178,7 +179,7 @@ public class GroupInviteUrlActivity extends BaseMVPActivity<GroupInviteUrlContra
     }
 
     @Override
-    public void onDeleteResult(InviteData o) {
+    public void onDeleteResult() {
         ToastUtil.showSuccess("删除成功!");
         mRefreshLayout.autoRefresh();
     }
@@ -208,18 +209,19 @@ public class GroupInviteUrlActivity extends BaseMVPActivity<GroupInviteUrlContra
     }
 
     private void showDeleteDialog(InviteUrl bean) {
-        mCancelDialog = new CancelDialog(this, new CancelDialog.OnClickconfirmListener() {
+        mDeleteDialog = new DeleteDialog(this, new View.OnClickListener() {
             @Override
-            public void confirm() {
-                mPresenter.inviteDelete(bean.getCode());
-            }
-
-            @Override
-            public void cancel() {
-
+            public void onClick(View view) {
+                if(mDeleteDialog != null) {
+                    mDeleteDialog.dismiss();
+                }
+                if(mPresenter != null) {
+                    mPresenter.inviteDelete(bean.getCode());
+                }
             }
         });
-        mCancelDialog.show();
+        mDeleteDialog.setContent("是否要删除该推广链接？");
+        mDeleteDialog.show();
     }
 
 }

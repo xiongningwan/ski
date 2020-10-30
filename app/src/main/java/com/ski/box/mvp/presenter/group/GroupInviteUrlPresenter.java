@@ -73,10 +73,10 @@ public class GroupInviteUrlPresenter extends RxPresenter<GroupInviteUrlContract.
 
     @Override
     public void inviteDelete(String inviteCode) {
-        Disposable disposable = mGroupModel.inviteDelete(new Consumer<InviteData>() {
+        Disposable disposable = mGroupModel.inviteDelete(new Consumer<Object>() {
             @Override
-            public void accept(InviteData o) throws Exception {
-                mView.onDeleteResult(o);
+            public void accept(Object o) throws Exception {
+                mView.onDeleteResult();
             }
         }, new CusConsumer() {
             @Override
