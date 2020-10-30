@@ -5,6 +5,7 @@ import com.ski.box.bean.Balance;
 import com.ski.box.bean.SelfProfileEntity;
 import com.ski.box.bean.group.GroupBetData;
 import com.ski.box.bean.group.GroupMemberData;
+import com.ski.box.bean.group.GroupMoneyData;
 import com.ski.box.bean.group.InviteData;
 import com.ski.box.bean.group.InviteUrl;
 import com.ski.box.bean.group.RebateScope;
@@ -79,6 +80,16 @@ public interface IGroupService {
             @Query("startDate") String startDate,
             @Query("endDate") String endDate,
             @Query("ticketId") String ticketId,
+            @Query("status") String status,
+            @Query("memberAccount") String memberAccount,
+            @Query("pageSize") int pageSize,
+            @Query("pageNum") int pageNum);
+
+    // 团队账变记录
+    @GET(UrlConfig.URL_GROUP_TEAM_TRANS_LIST)
+    Single<HttpResult<GroupMoneyData>> getTeamTransList(
+            @Query("startDate") String startDate,
+            @Query("endDate") String endDate,
             @Query("status") String status,
             @Query("memberAccount") String memberAccount,
             @Query("pageSize") int pageSize,

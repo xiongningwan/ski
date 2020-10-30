@@ -35,4 +35,6 @@ public interface IGroupModel {
     Disposable getTeamMemberList(Consumer s, CusConsumer e,String memberAccount, int pageSize, int pageNum);
 
     Disposable getTeamOrderList(Consumer s, CusConsumer e,String startDate, String endDate,String ticketId, String status, String memberAccount, int pageSize, int pageNum);
+
+    Disposable getTeamTransList(Consumer s, CusConsumer e,String startDate, String endDate, String status, String memberAccount, int pageSize, int pageNum);
 }

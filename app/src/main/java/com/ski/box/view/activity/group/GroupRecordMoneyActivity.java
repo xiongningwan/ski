@@ -21,17 +21,26 @@ import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 import com.ski.box.R;
+import com.ski.box.adapter.GroupRecordMoneyAdapter;
 import com.ski.box.adapter.RecordGroupBetAdapter;
+import com.ski.box.adapter.RecordMoneyAdapter;
 import com.ski.box.bean.ConditionBean;
+import com.ski.box.bean.FrontTradeTypesBean;
 import com.ski.box.bean.TopGameBean;
 import com.ski.box.bean.group.GroupBetData;
+import com.ski.box.bean.group.GroupMoneyData;
+import com.ski.box.bean.record.RecordMoney;
 import com.ski.box.mvp.contract.group.GroupRecordBetContract;
+import com.ski.box.mvp.contract.group.GroupRecordMoneyContract;
 import com.ski.box.mvp.presenter.group.GroupRecordBetPresenter;
+import com.ski.box.mvp.presenter.group.GroupRecordMoneyPresenter;
 import com.ski.box.utils.ActivityUtil;
 import com.ski.box.view.activity.RecordDetailActivity;
 import com.ski.box.view.view.ClearEditText;
 import com.ski.box.view.view.HeaderView;
 import com.ski.box.view.view.dialog.pop.record.AllLotteryPop;
+import com.ski.box.view.view.dialog.pop.record.MoneyTypePop;
+import com.ski.box.view.view.dialog.pop.record.RecordDate2Pop;
 import com.ski.box.view.view.dialog.pop.record.RecordDatePop;
 import com.ski.box.view.view.dialog.pop.record.RecordMorePop;
 import com.yb.core.base.BaseMVPActivity;
@@ -44,39 +53,35 @@ import com.zyyoona7.popup.YGravity;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GroupRecordMoneyActivity extends BaseMVPActivity<GroupRecordBetContract.Presenter> implements GroupRecordBetContract.View, View.OnClickListener, OnRefreshListener, OnLoadMoreListener,
-        RecordDatePop.DateChooseListener, AllLotteryPop.LotteryChooseListener, RecordMorePop.MoreChooseListener {
+public class GroupRecordMoneyActivity extends BaseMVPActivity<GroupRecordMoneyContract.Presenter> implements GroupRecordMoneyContract.View, View.OnClickListener,
+        OnRefreshListener, OnLoadMoreListener, RecordDate2Pop.DateChooseListener, MoneyTypePop.MoneyTypeChooseListener {
 
     private HeaderView mHeadView;
     private LinearLayout mLLDay;
     private TextView mTvDay;
     private ImageView mIvDay;
-    private LinearLayout mLLLottery;
-    private TextView mTvLottery;
-    private ImageView mIvLottery;
-    private LinearLayout mLLStatus;
-    private TextView mTvStatus;
-    private ImageView mIvStatus;
+    private LinearLayout mLLType;
+    private TextView mTvType;
+    private ImageView mIvType;
     private RefreshLayout mRefreshLayout;
     private RecyclerView mRvRecord;
-    private RecordGroupBetAdapter mRecordAdapter;
-    private RecordDatePop mDatePop;
-    private AllLotteryPop mLotteryPop;
-    private RecordMorePop mMorePop;
+    private GroupRecordMoneyAdapter mRecordAdapter;
+    private RecordDate2Pop mDatePop;
+    private MoneyTypePop mMoneyTypePop;
     private ClearEditText mEtAccount;
     private Button mBtnSure;
     private String startDate;
     private String endDate;
-    private String ticketId;
     private String status;
     private String memberAccount;
     private int mPageSize = 10;
     private int mPageNo = 1;
     private int mTotalPage = 1;
+    private List<FrontTradeTypesBean> mTypeList;
 
     @Override
-    protected GroupRecordBetContract.Presenter bindPresenter() {
-        return new GroupRecordBetPresenter(this);
+    protected GroupRecordMoneyContract.Presenter bindPresenter() {
+        return new GroupRecordMoneyPresenter(this);
     }
 
 
@@ -99,12 +104,9 @@ public class GroupRecordMoneyActivity extends BaseMVPActivity<GroupRecordBetCont
         mLLDay = findViewById(R.id.ll_day);
         mTvDay = findViewById(R.id.tv_day);
         mIvDay = findViewById(R.id.iv_day);
-        mLLLottery = findViewById(R.id.ll_lottery);
-        mTvLottery = findViewById(R.id.tv_lottery);
-        mIvLottery = findViewById(R.id.iv_lottery);
-        mLLStatus = findViewById(R.id.ll_status);
-        mTvStatus = findViewById(R.id.tv_status);
-        mIvStatus = findViewById(R.id.iv_status);
+        mLLType = findViewById(R.id.ll_type);
+        mTvType = findViewById(R.id.tv_type);
+        mIvType = findViewById(R.id.iv_type);
         mEtAccount = findViewById(R.id.et_account);
         mBtnSure = findViewById(R.id.btn_sure);
         mRefreshLayout = findViewById(R.id.refreshLayout);
@@ -113,16 +115,16 @@ public class GroupRecordMoneyActivity extends BaseMVPActivity<GroupRecordBetCont
         mHeadView.setHeader(getString(R.string.ski_group_record_bet), true);
 
         mLLDay.setOnClickListener(this);
-        mLLLottery.setOnClickListener(this);
-        mLLStatus.setOnClickListener(this);
+        mLLType.setOnClickListener(this);
         mBtnSure.setOnClickListener(this);
         mRefreshLayout.setOnRefreshListener(this);
         mRefreshLayout.setOnLoadMoreListener(this);
+        createType();
     }
 
     @Override
     protected void initData(Bundle savedInstanceState) {
-        mRecordAdapter = new RecordGroupBetAdapter(this);
+        mRecordAdapter = new GroupRecordMoneyAdapter(this);
         mRecordAdapter.setEmptyView(ActivityUtil.getEmptyView(this));
         mRvRecord.setLayoutManager(new LinearLayoutManager(this));
         mRvRecord.setAdapter(mRecordAdapter);
@@ -130,26 +132,13 @@ public class GroupRecordMoneyActivity extends BaseMVPActivity<GroupRecordBetCont
         startDate = TimeUtils.getBeginStringOfToday();
         endDate = TimeUtils.getEndStringOfToday();
         mTvDay.setText("今天");
-        mRecordAdapter.setOnItemClickListener(new OnItemClickListener() {
-            @Override
-            public void onItemClick(@NonNull BaseQuickAdapter<?, ?> adapter, @NonNull View view, int position) {
-                List<GroupBetData.ListBean> list = (List<GroupBetData.ListBean>) adapter.getData();
-                GroupBetData.ListBean bean = list.get(position);
-                gotoDetail(bean);
-            }
-        });
     }
 
-    private void gotoDetail(GroupBetData.ListBean bean) {
-        Intent intent = new Intent(this, GroupRecordDetailActivity.class);
-        intent.putExtra(RecordDetailActivity.KEY_RECORD_BEAN, bean);
-        startActivity(intent);
-    }
 
     @Override
     protected void processLogic() {
         super.processLogic();
-        mRefreshLayout.autoRefresh();
+        mPresenter.getFrontTradeTypes();
     }
 
 
@@ -158,11 +147,9 @@ public class GroupRecordMoneyActivity extends BaseMVPActivity<GroupRecordBetCont
         int id = view.getId();
         if (id == R.id.ll_day) {
             showDay();
-        } else if (id == R.id.ll_lottery) {
-            showLottery();
-        } else if (id == R.id.ll_status) {
-            showMore();
-        }  else if (id == R.id.btn_sure) {
+        }  else if (id == R.id.ll_type) {
+            showType();
+        }else if (id == R.id.btn_sure) {
             memberAccount = mEtAccount.getText().toString().trim();
             mRefreshLayout.autoRefresh();
         }
@@ -171,7 +158,7 @@ public class GroupRecordMoneyActivity extends BaseMVPActivity<GroupRecordBetCont
     @Override
     public void onRefresh(@NonNull RefreshLayout refreshLayout) {
         mPageNo = 1;
-        mPresenter.getTeamOrderList(startDate, endDate, ticketId, status, memberAccount, mPageSize, mPageNo);
+        mPresenter.getTeamTransList(startDate, endDate, status, memberAccount, mPageSize, mPageNo);
     }
 
     @Override
@@ -182,21 +169,18 @@ public class GroupRecordMoneyActivity extends BaseMVPActivity<GroupRecordBetCont
             return;
         }
         mPageNo++;
-        mPresenter.getTeamOrderList(startDate, endDate, ticketId, status, memberAccount, mPageSize, mPageNo);
+        mPresenter.getTeamTransList(startDate, endDate, status, memberAccount, mPageSize, mPageNo);
     }
 
     @Override
-    public void onSuccessResult(GroupBetData bean) {
+    public void onSuccessful(GroupMoneyData bean) {
         mRefreshLayout.finishRefresh();
         mRefreshLayout.finishLoadMore();
 
         mRecordAdapter.setUseEmpty(true);
         mTotalPage = bean.getTotalPage();
         int currentPage = bean.getCurrentPage();
-        if (currentPage == 0) {
-            /*返回为null*/
-            mRecordAdapter.setList(new ArrayList<>());
-        } else if (currentPage > 1) {
+        if (currentPage > 1) {
 //            加载更多
             mRecordAdapter.addData(bean.getList());
         } else {
@@ -208,6 +192,14 @@ public class GroupRecordMoneyActivity extends BaseMVPActivity<GroupRecordBetCont
     public void onFailResult(String s) {
         mRefreshLayout.finishRefresh();
         mRefreshLayout.finishLoadMore();
+    }
+
+    @Override
+    public void onMoneyTypeSuccess(List<FrontTradeTypesBean> beans) {
+        mTypeList = beans;
+        mMoneyTypePop.setMoneyType(mTypeList);
+        mRecordAdapter.setMoneyType(mTypeList);
+        mRefreshLayout.autoRefresh();
     }
 
 
@@ -222,9 +214,26 @@ public class GroupRecordMoneyActivity extends BaseMVPActivity<GroupRecordBetCont
         mRefreshLayout.autoRefresh();
     }
 
+    @Override
+    public void onMoneyChoose(ConditionBean bean) {
+        if (mMoneyTypePop != null) {
+            mMoneyTypePop.dismiss();
+        }
+        this.status = bean.getTradeType();
+        mTvType.setText(bean.getName());
+        mRefreshLayout.autoRefresh();
+    }
+
+
+    private void onArrowAnimation(ImageView ivArrowIcon, int angle) {
+        ivArrowIcon.setPivotX(ivArrowIcon.getWidth() / 2);
+        ivArrowIcon.setPivotY(ivArrowIcon.getHeight() / 2);
+        ivArrowIcon.setRotation(angle);
+    }
+
     private void showDay() {
         if (mDatePop == null) {
-            mDatePop = RecordDatePop.create(this);
+            mDatePop = RecordDate2Pop.create(this);
             mDatePop.setDateChooseListener(this);
             mDatePop.setOnDismissListener(new PopupWindow.OnDismissListener() {
                 @Override
@@ -237,66 +246,25 @@ public class GroupRecordMoneyActivity extends BaseMVPActivity<GroupRecordBetCont
         mDatePop.showAtAnchorView(mLLDay, YGravity.BELOW, XGravity.LEFT, 0, ScreenUtils.dip2px(5));
     }
 
-    private void showLottery() {
-        if (mLotteryPop == null) {
-            mLotteryPop = AllLotteryPop.create(this);
-            mLotteryPop.setDateChooseListener(this);
-            mLotteryPop.setOnDismissListener(new PopupWindow.OnDismissListener() {
+    private void createType() {
+        if (mMoneyTypePop == null) {
+            mMoneyTypePop = MoneyTypePop.create(this);
+            mMoneyTypePop.setMoneyTypeChooseListener(this);
+            mMoneyTypePop.setOnDismissListener(new PopupWindow.OnDismissListener() {
                 @Override
                 public void onDismiss() {
-                    onArrowAnimation(mIvLottery, 0);
+                    onArrowAnimation(mIvType, 0);
                 }
             });
         }
-        onArrowAnimation(mIvLottery, 180);
-        mLotteryPop.showAtAnchorView(mLLLottery, YGravity.BELOW, XGravity.LEFT, 0, ScreenUtils.dip2px(5));
     }
 
 
-    private void showMore() {
-        if (mMorePop == null) {
-            mMorePop = RecordMorePop.create(this, 0);
-            mMorePop.setMoreChooseListener(this);
-            mMorePop.setOnDismissListener(new PopupWindow.OnDismissListener() {
-                @Override
-                public void onDismiss() {
-                    onArrowAnimation(mIvStatus, 0);
-                }
-            });
-        }
-        onArrowAnimation(mIvStatus, 180);
-        mMorePop.showAtAnchorView(mLLStatus, YGravity.BELOW, XGravity.LEFT, 0, ScreenUtils.dip2px(5));
+    private void showType() {
+        onArrowAnimation(mIvType, 180);
+        mMoneyTypePop.showAtAnchorView(mLLType, YGravity.BELOW, XGravity.LEFT, 0, ScreenUtils.dip2px(5));
     }
 
-    @Override
-    public void onLotteryChoose(TopGameBean bean) {
-        if (mLotteryPop != null) {
-            mLotteryPop.dismiss();
-        }
-        if (0 == bean.getTicketId()) {
-            ticketId = "";
-        } else {
-            ticketId = String.valueOf(bean.getTicketId());
-        }
-        mTvLottery.setText(bean.getTicketName());
-        mRefreshLayout.autoRefresh();
-    }
-
-    @Override
-    public void onMoreChoose(String status) {
-        if (mMorePop != null) {
-            mMorePop.dismiss();
-        }
-        this.status = status;
-        mRefreshLayout.autoRefresh();
-    }
-
-
-    private void onArrowAnimation(ImageView ivArrowIcon, int angle) {
-        ivArrowIcon.setPivotX(ivArrowIcon.getWidth() / 2);
-        ivArrowIcon.setPivotY(ivArrowIcon.getHeight() / 2);
-        ivArrowIcon.setRotation(angle);
-    }
 
 
 }

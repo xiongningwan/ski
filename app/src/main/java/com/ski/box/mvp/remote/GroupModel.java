@@ -3,6 +3,7 @@ package com.ski.box.mvp.remote;
 
 import com.ski.box.bean.group.GroupBetData;
 import com.ski.box.bean.group.GroupMemberData;
+import com.ski.box.bean.group.GroupMoneyData;
 import com.ski.box.bean.group.InviteData;
 import com.ski.box.bean.group.InviteUrl;
 import com.ski.box.bean.group.RebateScope;
@@ -79,6 +80,15 @@ public class GroupModel extends BaseModel implements IGroupModel {
         Single<GroupBetData> single = RetrofitHelper
                 .getService(IGroupService.class)
                 .getTeamOrderList(startDate, endDate, ticketId, status, memberAccount, pageSize, pageNum)
+                .map(new HttpResultFunc<>());
+        return toSubscribe(single, s, e);
+    }
+
+    @Override
+    public Disposable getTeamTransList(Consumer s, CusConsumer e, String startDate, String endDate, String status, String memberAccount, int pageSize, int pageNum) {
+        Single<GroupMoneyData> single = RetrofitHelper
+                .getService(IGroupService.class)
+                .getTeamTransList(startDate, endDate, status, memberAccount, pageSize, pageNum)
                 .map(new HttpResultFunc<>());
         return toSubscribe(single, s, e);
     }

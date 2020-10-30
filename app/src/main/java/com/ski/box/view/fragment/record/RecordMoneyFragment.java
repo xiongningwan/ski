@@ -53,7 +53,7 @@ import java.util.List;
 
 import static com.ski.box.ConstantValue.EVENT_RECORD_CANCEL_SUCCESS;
 
-public class RecordMoneyFragment extends BaseMVPFragment<GroupRecordMoneyContract.Presenter> implements GroupRecordMoneyContract.View, View.OnClickListener, OnRefreshListener, OnLoadMoreListener,
+public class RecordMoneyFragment extends BaseMVPFragment<RecordMoneyContract.Presenter> implements RecordMoneyContract.View, View.OnClickListener, OnRefreshListener, OnLoadMoreListener,
         RecordDate2Pop.DateChooseListener, MoneyTypePop.MoneyTypeChooseListener {
 
     private LinearLayout mLLDay;
@@ -81,8 +81,8 @@ public class RecordMoneyFragment extends BaseMVPFragment<GroupRecordMoneyContrac
 
 
     @Override
-    protected GroupRecordMoneyContract.Presenter bindPresenter() {
-        return new GroupRecordMoneyPresenter(mContext);
+    protected RecordMoneyContract.Presenter bindPresenter() {
+        return new RecordMoneyPresenter(mContext);
     }
 
     @Override
