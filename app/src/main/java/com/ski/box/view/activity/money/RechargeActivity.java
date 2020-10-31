@@ -147,6 +147,7 @@ public class RechargeActivity extends BaseMVPActivity<RechargeContract.Presenter
     public void onDepositSuccessResult(DepositBack bean) {
         mBtnSure.setEnabled(true);
         mLoading.dismiss();
+        ToastUtil.showSuccess("cd");
     }
 
     @Override
