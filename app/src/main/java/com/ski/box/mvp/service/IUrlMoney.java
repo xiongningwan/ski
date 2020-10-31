@@ -8,4 +8,6 @@ public interface IUrlMoney {
     String PAY_TYPE = "promen/wallet/platform/channel";
     // 充值
     String PAY_DEPOSIT = "promen/wallet/deposit";
+    // 提现
+    String PAY_WITHDRAW = "promen/wallet/withdraw";
 }

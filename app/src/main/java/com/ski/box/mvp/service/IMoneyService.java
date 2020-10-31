@@ -26,6 +26,10 @@ public interface IMoneyService {
     @POST(IUrlMoney.PAY_DEPOSIT)
     @FormUrlEncoded
     Single<HttpResult<DepositBack>> deposit(@Field("channelCode") int channelCode, @Field("amt") String amt);
+    // 提现
+    @POST(IUrlMoney.PAY_WITHDRAW)
+    @FormUrlEncoded
+    Single<HttpResult<Object>> withdraw(@Field("memberCardNo") String memberCardNo, @Field("amt") String amt, @Field("fundPassword") String fundPassword);
 
 
 }

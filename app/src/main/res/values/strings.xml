@@ -67,4 +67,13 @@
     <string name="ski_money_recharge_q_1">为什么充值未到账？</string>
     <string name="ski_money_recharge_q_2">如何使用网银充值？</string>
     <string name="ski_money_recharge_dialog_tip">请注意：重复付款或金额错误将无法到帐！</string>
+    <string name="ski_money_withdraw_tip">每日限制提款20 次，您已提款 0 次，每日提现额度：1000000 元。每日提现服务时间为 09:30-02:00</string>
+    <string name="ski_money_withdraw_notice1">1.提现服务时间为 09:30-02:00。</string>
+    <string name="ski_money_withdraw_notice2">2.同姓名同卡号等同账号，每日提现总金额最高 1000000 元整，提领次数上限为 20 次。</string>
+    <string name="ski_money_withdraw_notice3">3.提现需进行充值金额满 25% 的投注，若未满足消费流水将 无法成功提现 。（例：充值100元需要投注25元才能进行提现）。</string>
+    <string name="ski_money_withdraw_notice4">4.银行卡 请务必正确填写开户银行和银行卡号码、持卡人姓名。</string>
+    <string name="ski_money_withdraw_notice5">5.银行卡 绑定后需生效菜可提现，第一张卡4小时生效，后续新增银行卡 12 小时生效。</string>
+    <string name="ski_money_withdraw_notice6">6.当您提现申请完成后，我们承诺，除非遇到非可控因素，我们将为您提供1分钟 快速到账的提款服务。</string>
+    <string name="ski_money_withdraw_q_1">为什么充值未到账？</string>
+    <string name="ski_money_withdraw_q_2">如何使用网银充值？</string>
 </resources>

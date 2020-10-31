@@ -71,46 +71,52 @@
         </LinearLayout>
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp">
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/icon_tanhao"
-            android:layout_marginStart="16dp"/>
-
         <TextView
             android:id="@+id/tv_tip"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/ski_money_recharge_tip"
+            android:text="@string/ski_money_withdraw_tip"
+            android:drawableLeft="@mipmap/icon_tanhao"
+            android:drawablePadding="5dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
             android:textSize="12dp"
-            android:layout_marginStart="5dp"
             android:textColor="@color/ski_color_tip_red" />
-    </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="150dp"
         android:background="@drawable/ski_bg_money_input_big"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp">
+
+<!--        <androidx.constraintlayout.widget.Guideline-->
+<!--            android:id="@+id/gl_1"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="horizontal"-->
+<!--            app:layout_constraintGuide_percent="0.33"/>-->
+
+<!--        <androidx.constraintlayout.widget.Guideline-->
+<!--            android:id="@+id/gl_2"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="horizontal"-->
+<!--            app:layout_constraintGuide_percent="0.66"/>-->
 
         <TextView
             android:id="@+id/tv_type"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:text="充值方式"
+            android:text="收款银行卡"
             android:gravity="center"
             android:textColor="@color/ski_color_333333"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginStart="16dp"
-            app:layout_constraintHeight_percent="0.5"/>
+            app:layout_constraintHeight_percent="0.33"/>
 
         <org.angmarch.views.NiceSpinner
             android:id="@+id/spinner_type"
@@ -129,23 +135,34 @@
             android:layout_height="1dp"
             android:background="@color/ski_color_dfe2f2"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.33"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/ski_color_dfe2f2"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.66"/>
 
         <TextView
-            android:id="@+id/tv_recharge_money"
+            android:id="@+id/tv_withdraw_money"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:gravity="center"
-            android:text="充值金额"
+            android:text="提现金额"
             app:layout_constraintVertical_weight="1"
             android:textColor="@color/ski_color_333333"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginStart="16dp"
-            app:layout_constraintHeight_percent="0.5"/>
+            app:layout_constraintVertical_bias="0.5"
+            app:layout_constraintHeight_percent="0.33"/>
 
         <com.ski.box.view.view.ClearEditText
-            android:id="@+id/et_money"
+            android:id="@+id/et_withdraw_money"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@color/ski_white"
@@ -155,12 +172,44 @@
             android:paddingRight="16dp"
             android:singleLine="true"
             android:textSize="15dp"
-            android:hint="充值区间：400 ~ 20000"
+            android:hint="提现区间：100 ~ 49999"
             android:layout_margin="2dp"
-            app:layout_constraintTop_toTopOf="@+id/tv_recharge_money"
-            app:layout_constraintBottom_toBottomOf="@+id/tv_recharge_money"
+            app:layout_constraintTop_toTopOf="@+id/tv_withdraw_money"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_withdraw_money"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/tv_recharge_money" />
+            app:layout_constraintStart_toEndOf="@+id/tv_withdraw_money" />
+
+
+        <TextView
+            android:id="@+id/tv_money_pwd"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:text="资金密码"
+            app:layout_constraintVertical_weight="1"
+            android:textColor="@color/ski_color_333333"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginStart="16dp"
+            app:layout_constraintHeight_percent="0.33"/>
+
+        <com.ski.box.view.view.ClearEditText
+            android:id="@+id/et_money_pwd"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/ski_white"
+            android:gravity="center_vertical"
+            android:inputType="textPassword"
+            android:paddingLeft="32dp"
+            android:paddingRight="16dp"
+            android:singleLine="true"
+            android:textSize="15dp"
+            android:hint="请输入资金密码"
+            android:layout_margin="2dp"
+            app:layout_constraintTop_toTopOf="@+id/tv_money_pwd"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_money_pwd"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tv_money_pwd" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
@@ -173,7 +222,7 @@
         android:layout_marginBottom="10dp"
         android:layout_marginEnd="32dp"
         android:background="@mipmap/icon_btn_bg_logout"
-        android:text="充  值"
+        android:text="提  现"
         android:textColor="@color/ski_white"
         android:textSize="16dp" />
 
@@ -181,7 +230,7 @@
         android:id="@+id/tv_label_notice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="充值使用须知"
+        android:text="提现注意事项"
         android:gravity="center"
         android:textColor="@color/ski_color_333333"
         android:layout_gravity="center_horizontal"
@@ -191,7 +240,7 @@
         android:id="@+id/tv_notice_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/ski_money_recharge_notice1"
+        android:text="@string/ski_money_withdraw_notice1"
         android:textColor="@color/ski_color_666666"
         android:textSize="12dp"
         android:layout_marginTop="16dp"
@@ -202,7 +251,7 @@
         android:id="@+id/tv_notice_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/ski_money_recharge_notice2"
+        android:text="@string/ski_money_withdraw_notice2"
         android:textSize="12dp"
         android:textColor="@color/ski_color_666666"
         android:layout_marginTop="10dp"
@@ -213,7 +262,37 @@
         android:id="@+id/tv_notice_3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/ski_money_recharge_notice3"
+        android:text="@string/ski_money_withdraw_notice3"
+        android:textSize="12dp"
+        android:textColor="@color/ski_color_666666"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"/>
+    <TextView
+        android:id="@+id/tv_notice_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ski_money_withdraw_notice4"
+        android:textSize="12dp"
+        android:textColor="@color/ski_color_666666"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"/>
+    <TextView
+        android:id="@+id/tv_notice_5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ski_money_withdraw_notice5"
+        android:textSize="12dp"
+        android:textColor="@color/ski_color_666666"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"/>
+    <TextView
+        android:id="@+id/tv_notice_6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ski_money_withdraw_notice6"
         android:textSize="12dp"
         android:textColor="@color/ski_color_666666"
         android:layout_marginTop="10dp"
@@ -224,7 +303,7 @@
         android:id="@+id/tv_wen_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/ski_money_recharge_q_1"
+        android:text="@string/ski_money_withdraw_q_1"
         android:drawableLeft="@mipmap/icon_wenhao"
         android:drawablePadding="5dp"
         android:textSize="12dp"
@@ -236,12 +315,13 @@
         android:id="@+id/tv_wen_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/ski_money_recharge_q_2"
+        android:text="@string/ski_money_withdraw_q_2"
         android:drawableLeft="@mipmap/icon_wenhao"
         android:drawablePadding="5dp"
         android:textSize="12dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="10dp"
+        android:layout_marginBottom="32dp"
         android:textColor="@color/ski_color_tip_red" />
     </LinearLayout>
 </ScrollView>

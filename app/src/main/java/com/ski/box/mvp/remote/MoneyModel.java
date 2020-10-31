@@ -37,4 +37,13 @@ public class MoneyModel extends BaseModel implements IMoneyModel {
         return toSubscribe(single, s, e);
     }
 
+    @Override
+    public Disposable withdraw(Consumer s, CusConsumer e, String memberCardNo, String amt, String fundPassword) {
+        Single<Object> single = RetrofitHelper
+                .getService(IMoneyService.class)
+                .withdraw(memberCardNo, amt, fundPassword)
+                .map(new HttpResultFunc<>());
+        return toSubscribe(single, s, e);
+    }
+
 }

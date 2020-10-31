@@ -5,6 +5,7 @@ import com.ski.box.exception.CusConsumer;
 
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
+import retrofit2.http.Field;
 
 public interface IMoneyModel {
     Disposable getPayType(Consumer s,
@@ -12,4 +13,6 @@ public interface IMoneyModel {
                           int currency);
 
     Disposable deposit(Consumer s, CusConsumer e, int channelCode, String amt);
+
+    Disposable withdraw(Consumer s, CusConsumer e, String memberCardNo, String amt, String fundPassword);
 }

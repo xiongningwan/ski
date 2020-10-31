@@ -23,6 +23,7 @@ import com.ski.box.view.activity.group.GroupManageActivity;
 import com.ski.box.view.activity.group.GroupRecordBetActivity;
 import com.ski.box.view.activity.group.GroupRecordMoneyActivity;
 import com.ski.box.view.activity.money.RechargeActivity;
+import com.ski.box.view.activity.money.WithdrawActivity;
 import com.ski.box.view.activity.my.BankCardActivity;
 import com.ski.box.view.activity.my.PersonalInfoActivity;
 import com.ski.box.view.fragment.record.RecordBetFragment;
@@ -201,6 +202,9 @@ public class PersonalTabFragment extends BaseMVPFragment<EmptyContract.Presenter
                 break;
             case 13: // 充值
                 startActivity(new Intent(requireActivity(), RechargeActivity.class));
+                break;
+            case 14: // 提现
+                startActivity(new Intent(requireActivity(), WithdrawActivity.class));
                 break;
         }
     }
