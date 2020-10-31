@@ -138,9 +138,6 @@ public class BankCardAddActivity extends BaseMVPActivity<BankCardAddContract.Pre
     }
 
 
-    /**
-     * 测试：加载数据列，监听选择
-     * */
     private void setSpinner(List<Bank> list){
         SpinnerTextFormatter textFormatter = new SpinnerTextFormatter<Bank>() {
             @Override
