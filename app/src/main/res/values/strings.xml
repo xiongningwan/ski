@@ -60,6 +60,7 @@
     <string name="ski_group_record_bet">团队投注记录</string>
     <string name="ski_money_recharge">充值</string>
     <string name="ski_money_withdraw">提现</string>
+    <string name="ski_money_progress">资金进度查询</string>
     <string name="ski_money_recharge_tip">温馨提示：为了您的资金能快速到账，请填入正确的入款姓名 勿随意更改支付金额，务必使用平台提示金额进行转账，避免 不必要的延迟到账及不到账，否则造成的损失平台概不负责</string>
     <string name="ski_money_recharge_notice1">1.充值成功后请及时查看资金进度查询，若有问题请及时联系 在线客服。</string>
     <string name="ski_money_recharge_notice2">2.充值服务时间为 24小时。</string>

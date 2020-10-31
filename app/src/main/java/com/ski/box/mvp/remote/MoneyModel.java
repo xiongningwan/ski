@@ -2,6 +2,7 @@ package com.ski.box.mvp.remote;
 
 
 import com.ski.box.bean.money.DepositBack;
+import com.ski.box.bean.money.MoneyProgressData;
 import com.ski.box.bean.money.PayType;
 import com.ski.box.exception.CusConsumer;
 import com.ski.box.mvp.remote.imodel.IMoneyModel;
@@ -16,7 +17,6 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 
 public class MoneyModel extends BaseModel implements IMoneyModel {
-
 
 
     @Override
@@ -42,6 +42,15 @@ public class MoneyModel extends BaseModel implements IMoneyModel {
         Single<Object> single = RetrofitHelper
                 .getService(IMoneyService.class)
                 .withdraw(memberCardNo, amt, fundPassword)
+                .map(new HttpResultFunc<>());
+        return toSubscribe(single, s, e);
+    }
+
+    @Override
+    public Disposable dwOrderList(Consumer s, CusConsumer e, String startDate, String endDate, String dwType, int pageSize, int pageNum) {
+        Single<MoneyProgressData> single = RetrofitHelper
+                .getService(IMoneyService.class)
+                .dwOrderList(startDate, endDate, dwType, pageSize, pageNum)
                 .map(new HttpResultFunc<>());
         return toSubscribe(single, s, e);
     }

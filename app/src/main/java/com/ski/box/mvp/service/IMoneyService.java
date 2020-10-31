@@ -2,6 +2,7 @@ package com.ski.box.mvp.service;
 
 
 import com.ski.box.bean.money.DepositBack;
+import com.ski.box.bean.money.MoneyProgressData;
 import com.ski.box.bean.money.PayType;
 import com.yb.core.net.HttpResult;
 
@@ -30,6 +31,13 @@ public interface IMoneyService {
     @POST(IUrlMoney.PAY_WITHDRAW)
     @FormUrlEncoded
     Single<HttpResult<Object>> withdraw(@Field("memberCardNo") String memberCardNo, @Field("amt") String amt, @Field("fundPassword") String fundPassword);
+    // 资金进度
+    @GET(IUrlMoney.PAY_DW_ORDER_LIST)
+    Single<HttpResult<MoneyProgressData>> dwOrderList(@Query("startDate") String startDate,
+                                                      @Query("endDate") String endDate,
+                                                      @Query("dwType") String dwType,
+                                                      @Query("pageSize") int pageSize,
+                                                      @Query("pageNum") int pageNum);
 
 
 }

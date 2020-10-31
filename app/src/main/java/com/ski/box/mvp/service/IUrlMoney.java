@@ -10,4 +10,6 @@ public interface IUrlMoney {
     String PAY_DEPOSIT = "promen/wallet/deposit";
     // 提现
     String PAY_WITHDRAW = "promen/wallet/withdraw";
+    // 资金进度
+    String PAY_DW_ORDER_LIST = "promen/wallet/dwOrderList";
 }

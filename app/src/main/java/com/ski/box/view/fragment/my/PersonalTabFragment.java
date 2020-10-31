@@ -22,6 +22,7 @@ import com.ski.box.view.activity.group.GroupInviteUrlActivity;
 import com.ski.box.view.activity.group.GroupManageActivity;
 import com.ski.box.view.activity.group.GroupRecordBetActivity;
 import com.ski.box.view.activity.group.GroupRecordMoneyActivity;
+import com.ski.box.view.activity.money.MoneyProgressActivity;
 import com.ski.box.view.activity.money.RechargeActivity;
 import com.ski.box.view.activity.money.WithdrawActivity;
 import com.ski.box.view.activity.my.BankCardActivity;
@@ -205,6 +206,9 @@ public class PersonalTabFragment extends BaseMVPFragment<EmptyContract.Presenter
                 break;
             case 14: // 提现
                 startActivity(new Intent(requireActivity(), WithdrawActivity.class));
+                break;
+            case 15: // 资金进度查询
+                startActivity(new Intent(requireActivity(), MoneyProgressActivity.class));
                 break;
         }
     }
