@@ -27,6 +27,7 @@ import com.ski.box.view.activity.money.RechargeActivity;
 import com.ski.box.view.activity.money.WithdrawActivity;
 import com.ski.box.view.activity.my.BankCardActivity;
 import com.ski.box.view.activity.my.PersonalInfoActivity;
+import com.ski.box.view.fragment.RechargeFragment;
 import com.ski.box.view.fragment.record.RecordBetFragment;
 import com.ski.box.view.fragment.record.RecordMoneyFragment;
 import com.yb.core.base.BaseMVPFragment;
@@ -201,9 +202,12 @@ public class PersonalTabFragment extends BaseMVPFragment<EmptyContract.Presenter
             case 36: // 团队账变记录
                 startActivity(new Intent(requireActivity(), GroupRecordMoneyActivity.class));
                 break;
-            case 13: // 充值
-                startActivity(new Intent(requireActivity(), RechargeActivity.class));
-                break;
+            case 13: {// 充值
+                Intent intent =  new Intent(requireActivity(), ContainerActivity.class);
+                intent.putExtra(ContainerActivity.KEY_CLASS, RechargeFragment.class.getSimpleName());
+                startActivity(intent);
+//                startActivity(new Intent(requireActivity(), RechargeActivity.class));
+                break;}
             case 14: // 提现
                 startActivity(new Intent(requireActivity(), WithdrawActivity.class));
                 break;

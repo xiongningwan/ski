@@ -66,7 +66,7 @@ public class MainActivity extends BaseMVPActivity<EmptyContract.Presenter> imple
         List<Fragment> fragmentList = new ArrayList<>();
         fragmentList.add(HallFragment.newInstance());
         fragmentList.add(ReportFragment.newInstance());
-        fragmentList.add(RechargeFragment.newInstance());
+        fragmentList.add(RechargeFragment.newInstance(0));
         fragmentList.add(PersonalFragment.newInstance());
         FragmentAdapter adapter = new FragmentAdapter(fragmentManager, fragmentList);
         mViewPager.setAdapter(adapter);
