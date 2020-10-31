@@ -6,7 +6,12 @@ import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.LinearInterpolator;
+import android.view.animation.RotateAnimation;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.gyf.immersionbar.ImmersionBar;
@@ -18,6 +23,7 @@ import com.ski.box.bean.money.PayType;
 import com.ski.box.bean.user.Bank;
 import com.ski.box.bean.user.BankCard;
 import com.ski.box.bean.user.User;
+import com.ski.box.bean.user.UserInfo;
 import com.ski.box.mvp.contract.BankCardContract;
 import com.ski.box.mvp.contract.money.RechargeContract;
 import com.ski.box.mvp.presenter.BankCardPresenter;
@@ -38,6 +44,8 @@ import java.util.List;
 public class RechargeActivity extends BaseMVPActivity<RechargeContract.Presenter> implements RechargeContract.View, View.OnClickListener {
     private HeaderView mHeadView;
     private Button mBtnSure;
+    private LinearLayout mllBalance;
+    private ImageView mIvBalance;
     private TextView mTvBalance;
     private TextView mTvNickName;
     private NiceSpinner mSpType;
@@ -45,6 +53,7 @@ public class RechargeActivity extends BaseMVPActivity<RechargeContract.Presenter
     private TextView mTvWen1;
     private TextView mTvWen2;
     private LoadingDialog mLoading;
+    RotateAnimation rotate;
 
     @Override
     protected void onDestroy() {
@@ -74,11 +83,14 @@ public class RechargeActivity extends BaseMVPActivity<RechargeContract.Presenter
         mTvWen1 = findViewById(R.id.tv_wen_1);
         mTvWen2 = findViewById(R.id.tv_wen_2);
         mBtnSure = findViewById(R.id.btn_sure);
+        mllBalance = findViewById(R.id.ll_balance);
+        mIvBalance = findViewById(R.id.iv_refresh_balance);
         mHeadView.setHeader(getString(R.string.ski_money_recharge), true);
 
         mBtnSure.setOnClickListener(this);
         mTvWen1.setOnClickListener(this);
         mTvWen2.setOnClickListener(this);
+        mllBalance.setOnClickListener(this);
         mLoading = new LoadingDialog(this);
     }
 
@@ -87,6 +99,7 @@ public class RechargeActivity extends BaseMVPActivity<RechargeContract.Presenter
         User user = DataCenter.getInstance().getUser();
         mTvBalance.setText("￥" + user.getBalance());
         mTvNickName.setText(user.getAlias());
+        createAnim();
     }
 
     @Override
@@ -100,11 +113,29 @@ public class RechargeActivity extends BaseMVPActivity<RechargeContract.Presenter
         int id = view.getId();
         if (id == R.id.btn_sure) {
             goToDeposit();
+        } else if (id == R.id.ll_balance) {
+            refreshBalance();
         } else if (id == R.id.tv_wen_1) {
             //goToDeposit();
         } else if (id == R.id.tv_wen_2) {
            // goToDeposit();
         }
+    }
+
+    private void refreshBalance() {
+        mllBalance.setEnabled(false);
+        mIvBalance.setAnimation(rotate);
+        mPresenter.getBalance();
+    }
+
+    private void createAnim() {
+        rotate = new RotateAnimation(0f, 360f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+        LinearInterpolator lin = new LinearInterpolator();
+        rotate.setInterpolator(lin);
+        rotate.setDuration(1000);//设置动画持续周期
+        rotate.setRepeatCount(-1);//设置重复次数
+        rotate.setFillAfter(true);//动画执行完后是否停留在执行完的状态
+        rotate.setStartOffset(10);//执行前的等待时间
     }
 
 
@@ -137,6 +168,20 @@ public class RechargeActivity extends BaseMVPActivity<RechargeContract.Presenter
         mBtnSure.setEnabled(false);
         mLoading.show();
         mPresenter.deposit(payType.getChannelCode(),inputMoney);
+    }
+
+    @Override
+    public void onUserInfoResult(UserInfo userInfo) {
+        DataCenter.getInstance().setUser(userInfo);
+        mTvBalance.setText("￥" + userInfo.getBalance());
+        mllBalance.setEnabled(true);
+        mIvBalance.clearAnimation();
+    }
+
+    @Override
+    public void onUserInfoFailResult(String s) {
+        mllBalance.setEnabled(true);
+        mIvBalance.clearAnimation();
     }
 
     @Override

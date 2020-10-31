@@ -25,6 +25,7 @@
         android:background="@color/ski_white">
 
         <LinearLayout
+            android:id="@+id/ll_balance"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -38,11 +39,12 @@
             android:textSize="24dp"
             android:textColor="#00BE6E" />
 
-        <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:src="@mipmap/icon_hall_c_recharge"
-            android:layout_marginStart="5dp"/>
+            <ImageView
+                android:id="@+id/iv_refresh_balance"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@mipmap/ski_icon_balance_refresh"
+                android:layout_marginStart="5dp"/>
         </LinearLayout>
 
         <LinearLayout

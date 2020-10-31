@@ -5,6 +5,7 @@ import android.content.Context;
 import com.ski.box.bean.money.DepositBack;
 import com.ski.box.bean.money.PayType;
 import com.ski.box.bean.user.Bank;
+import com.ski.box.bean.user.UserInfo;
 import com.ski.box.exception.CusConsumer;
 import com.ski.box.mvp.contract.BankCardAddContract;
 import com.ski.box.mvp.contract.money.RechargeContract;
@@ -12,6 +13,7 @@ import com.ski.box.mvp.remote.MoneyModel;
 import com.ski.box.mvp.remote.UserModel;
 import com.ski.box.mvp.remote.imodel.IMoneyModel;
 import com.ski.box.mvp.remote.imodel.IUserModel;
+import com.yb.core.base.BaseConsumer;
 import com.yb.core.base.RxPresenter;
 
 import java.util.List;
@@ -22,10 +24,29 @@ import io.reactivex.functions.Consumer;
 
 public class RechargePresenter extends RxPresenter<RechargeContract.View> implements RechargeContract.Presenter {
     private IMoneyModel mMoneyModel;
+    private IUserModel mUserModel;
 
     public RechargePresenter(Context context) {
         super(context);
         mMoneyModel = new MoneyModel();
+        mUserModel = new UserModel();
+    }
+
+    @Override
+    public void getBalance() {
+        Disposable disposable = mUserModel.getMemberDetails(new Consumer<UserInfo>() {
+            @Override
+            public void accept(UserInfo bean) throws Exception {
+                mView.onUserInfoResult(bean);
+            }
+        }, new BaseConsumer(false, false) {
+            @Override
+            public void accept(Throwable throwable) throws Exception {
+                super.accept(throwable);
+                mView.onUserInfoFailResult(throwable.getMessage());
+            }
+        });
+        addDisposable(disposable);
     }
 
 
