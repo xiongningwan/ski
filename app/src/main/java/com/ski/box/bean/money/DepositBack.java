@@ -1,9 +1,12 @@
 package com.ski.box.bean.money;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 /**
  * Created by tom on 2020/10/31.
  */
-public class DepositBack {
+public class DepositBack implements Parcelable {
     /**
      * orderId : 1322455432656064561
      * amt : 11111
@@ -87,4 +90,47 @@ public class DepositBack {
     public void setExpireAt(String expireAt) {
         this.expireAt = expireAt;
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.orderId);
+        dest.writeString(this.amt);
+        dest.writeString(this.bankName);
+        dest.writeString(this.platformCardNo);
+        dest.writeString(this.platformCardName);
+        dest.writeString(this.depositMsg);
+        dest.writeString(this.createAt);
+        dest.writeString(this.expireAt);
+    }
+
+    public DepositBack() {
+    }
+
+    protected DepositBack(Parcel in) {
+        this.orderId = in.readString();
+        this.amt = in.readString();
+        this.bankName = in.readString();
+        this.platformCardNo = in.readString();
+        this.platformCardName = in.readString();
+        this.depositMsg = in.readString();
+        this.createAt = in.readString();
+        this.expireAt = in.readString();
+    }
+
+    public static final Parcelable.Creator<DepositBack> CREATOR = new Parcelable.Creator<DepositBack>() {
+        @Override
+        public DepositBack createFromParcel(Parcel source) {
+            return new DepositBack(source);
+        }
+
+        @Override
+        public DepositBack[] newArray(int size) {
+            return new DepositBack[size];
+        }
+    };
 }

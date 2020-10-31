@@ -1,5 +1,6 @@
 package com.ski.box.view.activity.money;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Spannable;
 import android.text.SpannableString;
@@ -147,7 +148,9 @@ public class RechargeActivity extends BaseMVPActivity<RechargeContract.Presenter
     public void onDepositSuccessResult(DepositBack bean) {
         mBtnSure.setEnabled(true);
         mLoading.dismiss();
-        ToastUtil.showSuccess("cd");
+        Intent intent = new Intent(this, RechargeDetailActivity.class);
+        intent.putExtra(RechargeDetailActivity.KEY_DEPOSIT_BACK, bean);
+        startActivity(intent);
     }
 
     @Override
