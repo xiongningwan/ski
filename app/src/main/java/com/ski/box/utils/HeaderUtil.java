@@ -9,7 +9,7 @@ import java.util.Map;
  * Created by tom on 2020/10/23.
  */
 public class HeaderUtil {
-    public static Map<String,String> getHeader(String token,String authorization,String device) {
+    public static Map<String,String> getHeader(String token,String authorization,String device, String lang) {
         //        if(!TextUtils.isEmpty(mToken)) {
 //            builder.addHeader("token", mToken);
 //        }
@@ -26,6 +26,9 @@ public class HeaderUtil {
         }
         if(!TextUtils.isEmpty(device)) {
             map.put("device",device);
+        }
+        if(!TextUtils.isEmpty(lang)) {
+            map.put("lang",lang);
         }
         return map;
     }
