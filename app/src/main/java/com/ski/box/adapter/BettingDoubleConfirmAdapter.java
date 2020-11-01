@@ -18,6 +18,7 @@ import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.hwangjr.rxbus.RxBus;
 import com.ski.box.R;
 import com.ski.box.bean.MkBetParamEntity;
 import com.ski.box.bean.RedLimitBean;
@@ -30,6 +31,8 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.ski.box.ConstantValue.EVENT_CLEAN_XUAN_HAO_PAN;
 
 
 public class BettingDoubleConfirmAdapter extends RecyclerView.Adapter<BettingDoubleConfirmAdapter.DoubleConfirmViewHolder> {
@@ -138,6 +141,7 @@ public class BettingDoubleConfirmAdapter extends RecyclerView.Adapter<BettingDou
                 int size = mDatas.size();
                 if (size == 0) {
                     if (onCloseDialogListener != null) {
+                        RxBus.get().post(EVENT_CLEAN_XUAN_HAO_PAN,"clen");
                         onCloseDialogListener.closeDialog();
                     }
 

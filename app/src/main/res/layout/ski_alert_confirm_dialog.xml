@@ -43,19 +43,19 @@
 
         <TextView
             android:id="@+id/tv_left"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@mipmap/ski_tv_dialog_cancle"
+            android:layout_width="85dp"
+            android:layout_height="35dp"
+            android:background="@drawable/ski_pub_bg_gradient_normal_2"
             android:gravity="center"
             android:text="取消"
             android:textColor="#8590AE" />
 
         <TextView
             android:id="@+id/tv_right"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="85dp"
+            android:layout_height="35dp"
             android:layout_marginLeft="@dimen/ski_dp_16"
-            android:background="@mipmap/ski_tv_back_dialog_sure"
+            android:background="@drawable/ski_pub_bg_setting_trend"
             android:gravity="center"
             android:text="取消"
             android:textColor="@color/ski_white" />
