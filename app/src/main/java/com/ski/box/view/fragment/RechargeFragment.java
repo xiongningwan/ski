@@ -20,6 +20,7 @@ import com.ski.box.R;
 import com.ski.box.bean.DataCenter;
 import com.ski.box.bean.money.DepositBack;
 import com.ski.box.bean.money.PayType;
+import com.ski.box.bean.user.BankCard;
 import com.ski.box.bean.user.User;
 import com.ski.box.bean.user.UserInfo;
 import com.ski.box.mvp.contract.EmptyContract;
@@ -167,6 +168,10 @@ public class RechargeFragment extends BaseMVPFragment<RechargeContract.Presenter
             return;
         }
 
+        if(0 == mSpType.getSelectedIndex()) {
+            ToastUtil.showError("请选择渠道");
+            return;
+        }
         PayType payType = (PayType) mSpType.getSelectedItem();
         if (payType == null) {
             ToastUtil.showError("获取充值渠道失败");
@@ -226,8 +231,12 @@ public class RechargeFragment extends BaseMVPFragment<RechargeContract.Presenter
     }
 
     private void setSpinner(List<PayType> list) {
-        if(list != null && list.size() > 0) {
-            PayType payType = (PayType) list.get(0);
+        PayType payType2 = new PayType();
+        payType2.setChannelName("请选择");
+        list.add(payType2);
+
+        if(list != null && list.size() > 1) {
+            PayType payType = (PayType) list.get(1);
             if (payType != null) {
                 mEtMoney.setHint("充值区间："+ payType.getMinAmt()+ "~" + payType.getMaxAmt());
             }

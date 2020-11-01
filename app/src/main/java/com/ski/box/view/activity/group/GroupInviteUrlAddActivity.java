@@ -12,6 +12,7 @@ import com.hwangjr.rxbus.RxBus;
 import com.ski.box.ConstantValue;
 import com.ski.box.R;
 import com.ski.box.bean.group.RebateKV;
+import com.ski.box.bean.money.PayType;
 import com.ski.box.mvp.contract.group.GroupAddContract;
 import com.ski.box.mvp.contract.group.GroupInviteUrlAddContract;
 import com.ski.box.mvp.presenter.group.GroupAddPresenter;
@@ -84,6 +85,10 @@ public class GroupInviteUrlAddActivity extends BaseMVPActivity<GroupInviteUrlAdd
 
 
     private void doCreate() {
+        if(0 == mSpBackRate.getSelectedIndex()) {
+            ToastUtil.showError("请选择奖金返点");
+            return;
+        }
         RebateKV bean = (RebateKV)mSpBackRate.getSelectedItem();
         if(bean == null) {
             ToastUtil.showInfo("请先选择奖金返点");
@@ -122,6 +127,9 @@ public class GroupInviteUrlAddActivity extends BaseMVPActivity<GroupInviteUrlAdd
 
 
     private void setSpinner(List<RebateKV> list){
+        RebateKV rebateKV = new RebateKV();
+        rebateKV.setPercent("请选择-");
+        list.add(rebateKV);
         SpinnerTextFormatter textFormatter = new SpinnerTextFormatter<RebateKV>() {
             @Override
             public Spannable format(RebateKV bean) {

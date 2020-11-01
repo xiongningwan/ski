@@ -86,6 +86,10 @@ public class GroupAddActivity extends BaseMVPActivity<GroupAddContract.Presenter
 
 
     private void doCreate() {
+        if(0 == mSpBackRate.getSelectedIndex()) {
+            ToastUtil.showError("请选择奖金返点");
+            return;
+        }
         RebateKV bean = (RebateKV)mSpBackRate.getSelectedItem();
         if(bean == null) {
             ToastUtil.showInfo("请先选择奖金返点");
@@ -148,6 +152,9 @@ public class GroupAddActivity extends BaseMVPActivity<GroupAddContract.Presenter
 
 
     private void setSpinner(List<RebateKV> list){
+        RebateKV rebateKV = new RebateKV();
+        rebateKV.setPercent("请选择-");
+        list.add(rebateKV);
         SpinnerTextFormatter textFormatter = new SpinnerTextFormatter<RebateKV>() {
             @Override
             public Spannable format(RebateKV bean) {

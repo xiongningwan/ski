@@ -15,6 +15,7 @@ import com.gyf.immersionbar.ImmersionBar;
 import com.hwangjr.rxbus.RxBus;
 import com.ski.box.R;
 import com.ski.box.bean.user.Bank;
+import com.ski.box.bean.user.BankCard;
 import com.ski.box.mvp.contract.BankCardAddContract;
 import com.ski.box.mvp.contract.BankCardContract;
 import com.ski.box.mvp.presenter.BankCardAddPresenter;
@@ -94,6 +95,10 @@ public class BankCardAddActivity extends BaseMVPActivity<BankCardAddContract.Pre
 
 
     private void doBind() {
+        if(0 == mSpinnerBankName.getSelectedIndex()) {
+            ToastUtil.showError("请选择银行");
+            return;
+        }
         Bank bank = (Bank)mSpinnerBankName.getSelectedItem();
         if(bank == null) {
             ToastUtil.showInfo("请先选择银行");
@@ -139,6 +144,9 @@ public class BankCardAddActivity extends BaseMVPActivity<BankCardAddContract.Pre
 
 
     private void setSpinner(List<Bank> list){
+        Bank bank = new Bank();
+        bank.setBankName("请选择");
+        list.add(bank);
         SpinnerTextFormatter textFormatter = new SpinnerTextFormatter<Bank>() {
             @Override
             public Spannable format(Bank bank) {
