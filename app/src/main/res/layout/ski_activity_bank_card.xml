@@ -12,34 +12,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/refreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srlAccentColor="#00000000"
+        app:srlPrimaryColor="#00000000"
+        app:srlEnableLoadMore="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+    <com.scwang.smartrefresh.layout.header.ClassicsHeader style="@style/MatchWrap" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_bank_card"
+        android:id="@+id/recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/ski_color_efefef" />
-
-
-    <Button
-        android:id="@+id/btn_sure"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginBottom="10dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/ski_bg_bank_card_add_btn"
-        android:text="+添加银行卡"
-        android:textColor="@color/ski_color_444444"
-        android:textSize="16dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/ski_my_bank_card_tip"/>
+        android:background="@color/ski_color_f8f8f8" />
+
+    <com.scwang.smartrefresh.layout.footer.ClassicsFooter style="@style/MatchWrap" />
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
 </LinearLayout>

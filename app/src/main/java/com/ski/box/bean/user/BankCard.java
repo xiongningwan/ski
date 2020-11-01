@@ -1,9 +1,11 @@
 package com.ski.box.bean.user;
 
+import com.chad.library.adapter.base.entity.MultiItemEntity;
+
 /**
  * Created by tom on 2020/10/26.
  */
-public class BankCard {
+public class BankCard implements MultiItemEntity {
     /**
      * bankCode : 1001
      * bankName : 招商银行
@@ -19,6 +21,16 @@ public class BankCard {
     private String cardName;
     private String currency;
     private Object createAt;
+    private int itemType;
+
+    public void setItemType(int itemType) {
+        this.itemType = itemType;
+    }
+
+    @Override
+    public int getItemType() {
+        return itemType;
+    }
 
     public int getBankCode() {
         return bankCode;
