@@ -32,7 +32,7 @@ public class ValidateUtil {
     public static final String PASSWORD_PATTERN2 = "^((?![0-9]+$)(?![a-zA-Z]+$)(?![~!@#$^&|*-_+=.?,]+$))[0-9A-Za-z~!@#$^&|*-_+=.?,]{6,12}$";
     public static final String PASSWORD_PATTERN3 = "^[0-9]{6}$";
 
-
+    public static final String PASSWORD_PATTERN_new =  "^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,12}$";
     /**
      * 固号（座机）规则
      */
@@ -155,6 +155,18 @@ public class ValidateUtil {
             return Boolean.FALSE;
         }
         return Pattern.matches(PASSWORD_PATTERN, pwd);
+    }
+
+    /**
+     * 必须为6-16位包含英文与数字组合
+     * @param pwd
+     * @return
+     */
+    public static boolean validatePwd_new(String pwd) {
+        if (TextUtils.isEmpty(pwd)) {
+            return Boolean.FALSE;
+        }
+        return Pattern.matches(PASSWORD_PATTERN_new, pwd);
     }
 
     /**

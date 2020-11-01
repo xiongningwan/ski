@@ -3,6 +3,8 @@ package com.ski.box.view.activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -19,6 +21,7 @@ import com.ski.box.mvp.presenter.RegisterPresenter;
 import com.ski.box.mvp.service.IUserService;
 import com.ski.box.utils.SignUtil;
 import com.ski.box.utils.SoftHideKeyBoardUtil;
+import com.ski.box.utils.ValidateUtil;
 import com.yb.core.base.BaseMVPActivity;
 import com.yb.core.net.RetrofitHelper;
 import com.yb.core.utils.MD5Util;
@@ -67,8 +70,10 @@ public class RegisterActivity extends BaseMVPActivity<RegisterContract.Presenter
 
     @Override
     protected void initData(Bundle bundle) {
-
+        setEtListener();
     }
+
+
 
 
     @Override
@@ -90,6 +95,16 @@ public class RegisterActivity extends BaseMVPActivity<RegisterContract.Presenter
         }
         if (StringUtils.isEmpty(password)) {
             ToastUtil.showInfo("请输入密码");
+            return;
+        }
+        if (!ValidateUtil.validatePwd_new(member)) {
+            String err = "账号必须为6-16位包含英文与数字组合，区分大小写";
+            ToastUtil.showInfo(err);
+            return;
+        }
+        if (!ValidateUtil.validatePwd_new(password)) {
+            String err = "密码必须为6-16位包含英文与数字组合，区分大小写";
+            ToastUtil.showInfo(err);
             return;
         }
         mLoading.show();
@@ -116,5 +131,49 @@ public class RegisterActivity extends BaseMVPActivity<RegisterContract.Presenter
     @Override
     public void onRegisterFailResult(String str) {
         mLoading.dismiss();
+    }
+
+    private void setEtListener() {
+        etName.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                String member = editable.toString().trim();
+                if (!ValidateUtil.validatePwd_new(member)) {
+                    String err = "账号必须为6-16位包含英文与数字组合，区分大小写";
+                    etName.setError(err);
+                }
+            }
+        });
+
+        etPassword.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                String password = editable.toString();
+                if (!ValidateUtil.validatePwd_new(password)) {
+                    String err = "密码必须为6-16位包含英文与数字组合，区分大小写";
+                    etPassword.setError(err);
+                }
+            }
+        });
     }
 }

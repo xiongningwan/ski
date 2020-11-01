@@ -1,9 +1,11 @@
 package com.ski.box.view.activity.my;
 
 import android.os.Bundle;
+import android.text.Editable;
 import android.text.InputFilter;
 import android.text.InputType;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 
@@ -16,6 +18,7 @@ import com.ski.box.mvp.contract.UpdateFundPwdContract;
 import com.ski.box.mvp.contract.UpdateLoginPwdContract;
 import com.ski.box.mvp.presenter.UpdateFundPwdPresenter;
 import com.ski.box.mvp.presenter.UpdateLoginPwdPresenter;
+import com.ski.box.utils.ValidateUtil;
 import com.ski.box.view.view.ClearEditText;
 import com.ski.box.view.view.HeaderView;
 import com.yb.core.base.BaseMVPActivity;
@@ -72,12 +75,14 @@ public class UpdateFundPwdActivity extends BaseMVPActivity<UpdateFundPwdContract
 
     @Override
     protected void initData(Bundle bundle) {
-        mEtOld.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_VARIATION_PASSWORD);
-        mEtOld.setFilters(new InputFilter[]{new InputFilter.LengthFilter(6)});
-        mEtNew.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_VARIATION_PASSWORD);
-        mEtNew.setFilters(new InputFilter[]{new InputFilter.LengthFilter(6)});
-        mEtConfirm.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_VARIATION_PASSWORD);
-        mEtConfirm.setFilters(new InputFilter[]{new InputFilter.LengthFilter(6)});
+//        mEtOld.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_VARIATION_PASSWORD);
+//        mEtOld.setFilters(new InputFilter[]{new InputFilter.LengthFilter(6)});
+//        mEtNew.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_VARIATION_PASSWORD);
+//        mEtNew.setFilters(new InputFilter[]{new InputFilter.LengthFilter(6)});
+//        mEtConfirm.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_VARIATION_PASSWORD);
+//        mEtConfirm.setFilters(new InputFilter[]{new InputFilter.LengthFilter(6)});
+
+        setEtListener();
     }
 
     @Override
@@ -113,7 +118,11 @@ public class UpdateFundPwdActivity extends BaseMVPActivity<UpdateFundPwdContract
             ToastUtil.showWarning("密码长度必须为6到20个字符");
             return;
         }
-
+        if (!ValidateUtil.validatePwd_new(pwdNew)) {
+            String err = "密码必须为6-16位包含英文与数字组合，区分大小写";
+            ToastUtil.showInfo(err);
+            return;
+        }
         if(0 == mUser.getHavefundPwd()) {
         } else {
             pwdOld = MD5Util.md5Password(pwdOld);
@@ -134,5 +143,30 @@ public class UpdateFundPwdActivity extends BaseMVPActivity<UpdateFundPwdContract
     @Override
     public void onFailResult(String s) {
         ToastUtil.showError("修改失败!");
+    }
+
+
+
+    private void setEtListener() {
+        mEtNew.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                String password = editable.toString();
+                if (!ValidateUtil.validatePwd_new(password)) {
+                    String err = "密码必须为6-16位包含英文与数字组合，区分大小写";
+                    mEtNew.setError(err);
+                }
+            }
+        });
     }
 }
