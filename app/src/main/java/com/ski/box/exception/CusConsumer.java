@@ -14,6 +14,8 @@ public class CusConsumer extends BaseConsumer {
 
     private boolean isDoDefaultToast = true;//处理默认的toast
 
+    private String msg = "";
+
     public CusConsumer() {
     }
 
@@ -38,16 +40,19 @@ public class CusConsumer extends BaseConsumer {
             if (IErrorType.ERROR_TYPE_HTTP == errorResult.getType()) {
                 // http 异常
                 doHttpException(errorResult);
+                msg = errorResult.getMessage();
             }
         } else if (throwable instanceof ApiException) {
             ErrorResult errorResult = new Gson().fromJson(error, ErrorResult.class);
             if (IErrorType.ERROR_TYPE_API == errorResult.getType()) {
                 //api 异常
                 doApiException(errorResult);
+                msg = errorResult.getMessage();
             }
         } else {
             // 其他异常
             doOtherException(error);
+            msg = error;
         }
     }
 

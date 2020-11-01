@@ -137,7 +137,7 @@ public class UpdateFundPwdActivity extends BaseMVPActivity<UpdateFundPwdContract
 
     @Override
     public void onFailResult(String s) {
-        ToastUtil.showError("修改失败!");
+        ToastUtil.showError(s);
     }
 
 

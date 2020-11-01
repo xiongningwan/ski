@@ -97,6 +97,5 @@ public class UpdateNickNameActivity extends BaseMVPActivity<UpdateAliasContract.
 
     @Override
     public void onFailResult(String s) {
-        ToastUtil.showError("修改失败!");
     }
 }

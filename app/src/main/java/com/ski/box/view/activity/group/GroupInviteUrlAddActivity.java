@@ -116,7 +116,6 @@ public class GroupInviteUrlAddActivity extends BaseMVPActivity<GroupInviteUrlAdd
 
     @Override
     public void onAddFailResult(String s) {
-        ToastUtil.showSuccess("新增失败！");
     }
 
 

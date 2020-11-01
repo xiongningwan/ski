@@ -113,6 +113,5 @@ public class BindPhoneActivity extends BaseMVPActivity<BindPhoneContract.Present
 
     @Override
     public void onFailResult(String s) {
-        ToastUtil.showError("修改失败!");
     }
 }

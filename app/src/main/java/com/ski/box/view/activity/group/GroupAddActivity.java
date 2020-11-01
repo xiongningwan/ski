@@ -143,10 +143,8 @@ public class GroupAddActivity extends BaseMVPActivity<GroupAddContract.Presenter
 
     @Override
     public void onAddFailResult(String s) {
-        ToastUtil.showSuccess("创建失败！");
+
     }
-
-
 
 
     private void setSpinner(List<RebateKV> list){

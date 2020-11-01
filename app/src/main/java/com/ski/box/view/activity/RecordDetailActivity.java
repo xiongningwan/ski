@@ -226,7 +226,6 @@ public class RecordDetailActivity extends BaseMVPActivity<RecordBetContract.Pres
 
     @Override
     public void onCancelFail(String s) {
-        ToastUtil.showSuccess("撤单失败！");
     }
 
     /**

@@ -106,7 +106,7 @@ public class UpdateLoginPwdActivity extends BaseMVPActivity<UpdateLoginPwdContra
 
     @Override
     public void onFailResult(String s) {
-        ToastUtil.showError("修改失败!");
+        ToastUtil.showError(s);
     }
 
     private void setEtListener() {
