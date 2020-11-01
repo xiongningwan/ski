@@ -137,14 +137,14 @@ public class BetActivity extends BaseBetActivity {
     @Subscribe(tags = {@Tag(EVENT_BET_TOP_CHOSE_LOTTERY_DIALOG_START_OPEN)})
     public void choseLotteryDialogStartOpen(String s) {
         if (mPresenter != null) {
-            mHandler.postDelayed(new Runnable() {
+            mHandler.post(new Runnable() {
                 @Override
                 public void run() {
                     switchTopGameList();
                     closeVerticalDrawer("");
                     //关闭开奖弹框
                 }
-            }, 500);
+            });
         }
     }
 
