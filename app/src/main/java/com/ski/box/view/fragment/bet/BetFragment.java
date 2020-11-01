@@ -125,10 +125,10 @@ public class BetFragment extends BaseFragment {
 
     }
 
-    @Subscribe(tags = {@Tag(EVENT_UPDATE_RECENT_NO)})
-    public void updateUnSettleNum(RecordRecent bean) {
-        mTabCpBet.setTvUnpaidNum(bean.getList().size());
-    }
+//    @Subscribe(tags = {@Tag(EVENT_UPDATE_RECENT_NO)})
+//    public void updateUnSettleNum(RecordRecent bean) {
+//        mTabCpBet.setTvUnpaidNum(bean.getList().size());
+//    }
 
 
 }

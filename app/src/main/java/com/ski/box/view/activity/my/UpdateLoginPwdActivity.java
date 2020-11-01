@@ -88,11 +88,6 @@ public class UpdateLoginPwdActivity extends BaseMVPActivity<UpdateLoginPwdContra
             return;
         }
 
-        if (pwdNew.length() > 20 || pwdNew.length() < 6) {
-            ToastUtil.showWarning("密码长度必须为6到20个字符");
-            return;
-        }
-
         if (!ValidateUtil.validatePwd_new(pwdNew)) {
             String err = "密码必须为6-16位包含英文与数字组合，区分大小写";
             ToastUtil.showInfo(err);
@@ -132,6 +127,26 @@ public class UpdateLoginPwdActivity extends BaseMVPActivity<UpdateLoginPwdContra
                 if (!ValidateUtil.validatePwd_new(password)) {
                     String err = "密码必须为6-16位包含英文与数字组合，区分大小写";
                     mEtNew.setError(err);
+                }
+            }
+        });
+        mEtConfirm.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                String password = editable.toString();
+                if (!ValidateUtil.validatePwd_new(password)) {
+                    String err = "密码必须为6-16位包含英文与数字组合，区分大小写";
+                    mEtConfirm.setError(err);
                 }
             }
         });

@@ -77,8 +77,8 @@ public class UpdateNickNameActivity extends BaseMVPActivity<UpdateAliasContract.
             ToastUtil.showWarning("请输入修改内容");
             return;
         }
-        if (modifyContent.length() > 20) {
-            ToastUtil.showWarning("昵称字符长度不能超过20位");
+        if (modifyContent.length() < 2 || modifyContent.length() > 10) {
+            ToastUtil.showWarning("会员昵称长度2~10位，可以输入任意字符");
             return;
         }
 
