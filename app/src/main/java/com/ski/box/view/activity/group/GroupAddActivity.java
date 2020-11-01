@@ -153,12 +153,16 @@ public class GroupAddActivity extends BaseMVPActivity<GroupAddContract.Presenter
 
     private void setSpinner(List<RebateKV> list){
         RebateKV rebateKV = new RebateKV();
-        rebateKV.setPercent("请选择-");
-        list.add(rebateKV);
+        rebateKV.setPercent("请选择");
+        list.add(0,rebateKV);
         SpinnerTextFormatter textFormatter = new SpinnerTextFormatter<RebateKV>() {
             @Override
             public Spannable format(RebateKV bean) {
-                return new SpannableString(bean.getRebate() + "-" + bean.getPercent());
+                if(0 == bean.getRebate()) {
+                    return new SpannableString(bean.getPercent());
+                } else {
+                    return new SpannableString(bean.getRebate() + "-" + bean.getPercent());
+                }
             }
         };
 

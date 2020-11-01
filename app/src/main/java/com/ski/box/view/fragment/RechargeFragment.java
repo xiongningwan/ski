@@ -76,6 +76,7 @@ public class RechargeFragment extends BaseMVPFragment<RechargeContract.Presenter
         super.onDestroyView();
         RxBus.get().unregister(this);
     }
+
     @Override
     protected RechargeContract.Presenter bindPresenter() {
         return new RechargePresenter(requireActivity());
@@ -113,7 +114,7 @@ public class RechargeFragment extends BaseMVPFragment<RechargeContract.Presenter
         Bundle bundle = this.getArguments();
         if (bundle != null) {
             mHasHead = bundle.getInt(KEY_HAS_HEAD, 0);
-            if(1 == mHasHead) {
+            if (1 == mHasHead) {
                 mHeadView.setVisibility(View.GONE);
             }
         }
@@ -168,7 +169,7 @@ public class RechargeFragment extends BaseMVPFragment<RechargeContract.Presenter
             return;
         }
 
-        if(0 == mSpType.getSelectedIndex()) {
+        if (0 == mSpType.getSelectedIndex()) {
             ToastUtil.showError("请选择渠道");
             return;
         }
@@ -193,7 +194,7 @@ public class RechargeFragment extends BaseMVPFragment<RechargeContract.Presenter
         }
         mBtnSure.setEnabled(false);
         mLoading.show();
-        mPresenter.deposit(payType.getChannelCode(),inputMoney);
+        mPresenter.deposit(payType.getChannelCode(), inputMoney);
     }
 
     @Override
@@ -233,12 +234,12 @@ public class RechargeFragment extends BaseMVPFragment<RechargeContract.Presenter
     private void setSpinner(List<PayType> list) {
         PayType payType2 = new PayType();
         payType2.setChannelName("请选择");
-        list.add(payType2);
+        list.add(0, payType2);
 
-        if(list != null && list.size() > 1) {
+        if (list != null && list.size() > 1) {
             PayType payType = (PayType) list.get(1);
             if (payType != null) {
-                mEtMoney.setHint("充值区间："+ payType.getMinAmt()+ "~" + payType.getMaxAmt());
+                mEtMoney.setHint("充值区间：" + payType.getMinAmt() + "~" + payType.getMaxAmt());
             }
         }
         SpinnerTextFormatter textFormatter = new SpinnerTextFormatter<PayType>() {
@@ -255,7 +256,7 @@ public class RechargeFragment extends BaseMVPFragment<RechargeContract.Presenter
             public void onItemSelected(NiceSpinner parent, View view, int position, long id) {
                 PayType payType = (PayType) parent.getSelectedItem();
                 if (payType != null) {
-                    mEtMoney.setHint("充值区间："+ payType.getMinAmt()+ "~" + payType.getMaxAmt());
+                    mEtMoney.setHint("充值区间：" + payType.getMinAmt() + "~" + payType.getMaxAmt());
                 }
             }
         });

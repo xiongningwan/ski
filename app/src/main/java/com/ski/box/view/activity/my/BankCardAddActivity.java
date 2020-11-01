@@ -41,7 +41,7 @@ public class BankCardAddActivity extends BaseMVPActivity<BankCardAddContract.Pre
     private ClearEditText mEtOwnerName;
     private ClearEditText mEtBankNo;
     private ClearEditText mEtBankNoConfirm;
-//    private ClearEditText mEtFundPwd;
+    //    private ClearEditText mEtFundPwd;
     private Button mBtnSure;
 
     @Override
@@ -88,19 +88,19 @@ public class BankCardAddActivity extends BaseMVPActivity<BankCardAddContract.Pre
     @Override
     public void onClick(View view) {
         int id = view.getId();
-        if(id == R.id.btn_sure) {
+        if (id == R.id.btn_sure) {
             doBind();
         }
     }
 
 
     private void doBind() {
-        if(0 == mSpinnerBankName.getSelectedIndex()) {
+        if (0 == mSpinnerBankName.getSelectedIndex()) {
             ToastUtil.showError("请选择银行");
             return;
         }
-        Bank bank = (Bank)mSpinnerBankName.getSelectedItem();
-        if(bank == null) {
+        Bank bank = (Bank) mSpinnerBankName.getSelectedItem();
+        if (bank == null) {
             ToastUtil.showInfo("请先选择银行");
             return;
         }
@@ -109,11 +109,11 @@ public class BankCardAddActivity extends BaseMVPActivity<BankCardAddContract.Pre
         String bankNo = mEtBankNo.getText().toString().trim();
         String bankNoConfirm = mEtBankNoConfirm.getText().toString().trim();
 //        String funPwd = mEtFundPwd.getText().toString().trim();
-        if(TextUtils.isEmpty(point) || TextUtils.isEmpty(ownerName)|| TextUtils.isEmpty(bankNo) || TextUtils.isEmpty(bankNoConfirm) ) {
+        if (TextUtils.isEmpty(point) || TextUtils.isEmpty(ownerName) || TextUtils.isEmpty(bankNo) || TextUtils.isEmpty(bankNoConfirm)) {
             ToastUtil.showInfo("输入框不能为空");
             return;
         }
-        if(!bankNo.equals(bankNoConfirm)) {
+        if (!bankNo.equals(bankNoConfirm)) {
             ToastUtil.showInfo("两次输入银行卡号不一致");
             return;
         }
@@ -143,10 +143,11 @@ public class BankCardAddActivity extends BaseMVPActivity<BankCardAddContract.Pre
     }
 
 
-    private void setSpinner(List<Bank> list){
+    private void setSpinner(List<Bank> list) {
         Bank bank = new Bank();
         bank.setBankName("请选择");
-        list.add(bank);
+        list.add(0, bank);
+
         SpinnerTextFormatter textFormatter = new SpinnerTextFormatter<Bank>() {
             @Override
             public Spannable format(Bank bank) {
@@ -159,7 +160,7 @@ public class BankCardAddActivity extends BaseMVPActivity<BankCardAddContract.Pre
         mSpinnerBankName.setOnSpinnerItemSelectedListener(new OnSpinnerItemSelectedListener() {
             @Override
             public void onItemSelected(NiceSpinner parent, View view, int position, long id) {
-               // Bank bank = (Bank) parent.getSelectedItem();
+                // Bank bank = (Bank) parent.getSelectedItem();
             }
         });
         mSpinnerBankName.attachDataSource(list);

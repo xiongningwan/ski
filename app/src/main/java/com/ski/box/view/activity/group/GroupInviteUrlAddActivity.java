@@ -68,7 +68,7 @@ public class GroupInviteUrlAddActivity extends BaseMVPActivity<GroupInviteUrlAdd
     @Override
     protected void initData(Bundle bundle) {
         ArrayList<RebateKV> rebateKVList = getIntent().getParcelableArrayListExtra(KEY_REBATE_KV_LIST);
-        if(rebateKVList != null && rebateKVList.size() > 0) {
+        if (rebateKVList != null && rebateKVList.size() > 0) {
             setSpinner(rebateKVList);
         } else {
             mPresenter.getRebateScope();
@@ -78,30 +78,29 @@ public class GroupInviteUrlAddActivity extends BaseMVPActivity<GroupInviteUrlAdd
     @Override
     public void onClick(View view) {
         int id = view.getId();
-        if(id == R.id.btn_sure) {
+        if (id == R.id.btn_sure) {
             doCreate();
         }
     }
 
 
     private void doCreate() {
-        if(0 == mSpBackRate.getSelectedIndex()) {
+        if (0 == mSpBackRate.getSelectedIndex()) {
             ToastUtil.showError("请选择奖金返点");
             return;
         }
-        RebateKV bean = (RebateKV)mSpBackRate.getSelectedItem();
-        if(bean == null) {
+        RebateKV bean = (RebateKV) mSpBackRate.getSelectedItem();
+        if (bean == null) {
             ToastUtil.showInfo("请先选择奖金返点");
             return;
         }
         String inviteWord = mEtMsg.getText().toString().trim();
-        if(TextUtils.isEmpty(inviteWord)) {
+        if (TextUtils.isEmpty(inviteWord)) {
             ToastUtil.showInfo("输入框不能为空");
             return;
         }
         mPresenter.inviteCreate(inviteWord, bean.getRebate());
     }
-
 
 
     @Override
@@ -124,16 +123,18 @@ public class GroupInviteUrlAddActivity extends BaseMVPActivity<GroupInviteUrlAdd
     }
 
 
-
-
-    private void setSpinner(List<RebateKV> list){
+    private void setSpinner(List<RebateKV> list) {
         RebateKV rebateKV = new RebateKV();
-        rebateKV.setPercent("请选择-");
-        list.add(rebateKV);
+        rebateKV.setPercent("请选择");
+        list.add(0, rebateKV);
         SpinnerTextFormatter textFormatter = new SpinnerTextFormatter<RebateKV>() {
             @Override
             public Spannable format(RebateKV bean) {
-                return new SpannableString(bean.getRebate() + "-" + bean.getPercent());
+                if (0 == bean.getRebate()) {
+                    return new SpannableString(bean.getPercent());
+                } else {
+                    return new SpannableString(bean.getRebate() + "-" + bean.getPercent());
+                }
             }
         };
 
@@ -142,7 +143,7 @@ public class GroupInviteUrlAddActivity extends BaseMVPActivity<GroupInviteUrlAdd
         mSpBackRate.setOnSpinnerItemSelectedListener(new OnSpinnerItemSelectedListener() {
             @Override
             public void onItemSelected(NiceSpinner parent, View view, int position, long id) {
-               // Bank bank = (Bank) parent.getSelectedItem();
+                // Bank bank = (Bank) parent.getSelectedItem();
             }
         });
         mSpBackRate.attachDataSource(list);

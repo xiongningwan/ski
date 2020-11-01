@@ -106,7 +106,7 @@ public class WithdrawActivity extends BaseMVPActivity<WithdrawContract.Presenter
         mTvBalance.setText("￥" + user.getBalance());
         mTvNickName.setText(user.getAlias());
         createAnim();
-        if(0 == user.getHavefundPwd()) {
+        if (0 == user.getHavefundPwd()) {
             ToastUtil.showInfo("请先设置资金密码");
             startActivity(new Intent(this, UpdateFundPwdActivity.class));
             finish();
@@ -163,7 +163,7 @@ public class WithdrawActivity extends BaseMVPActivity<WithdrawContract.Presenter
             return;
         }
 
-        if(0 == mSpType.getSelectedIndex()) {
+        if (0 == mSpType.getSelectedIndex()) {
             ToastUtil.showError("请选择银行卡");
             return;
         }
@@ -214,7 +214,7 @@ public class WithdrawActivity extends BaseMVPActivity<WithdrawContract.Presenter
     private void setSpinner(List<BankCard> list) {
         BankCard bankCard = new BankCard();
         bankCard.setBankName("请选择银行卡");
-        list.add(bankCard);
+        list.add(0, bankCard);
         SpinnerTextFormatter textFormatter = new SpinnerTextFormatter<BankCard>() {
             @Override
             public Spannable format(BankCard bean) {
