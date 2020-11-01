@@ -315,7 +315,7 @@ public class RecordBetFragment extends BaseMVPFragment<RecordBetContract.Present
         }
         String lotteryId;
         if (0 == bean.getTicketId()) {
-            lotteryId = "";
+            lotteryId = null;
         } else {
             lotteryId = String.valueOf(bean.getTicketId());
         }
