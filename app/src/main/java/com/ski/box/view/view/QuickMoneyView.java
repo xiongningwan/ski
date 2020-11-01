@@ -266,14 +266,14 @@ public class QuickMoneyView extends ConstraintLayout implements View.OnClickList
             secondQuick.setVisibility(GONE);
             thirdQuick.setVisibility(GONE);
             forthQuick.setVisibility(GONE);
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) tvSetting.getLayoutParams();
-
-            layoutParams.rightMargin = (int) getResources().getDimension(R.dimen.ski_dp_10);
-            layoutParams.addRule(RelativeLayout.LEFT_OF, R.id.quick_amount_show);
-            layoutParams.addRule(RelativeLayout.RIGHT_OF, 0);
-            tvSetting.setLayoutParams(layoutParams);
-            Drawable drawable = getResources().getDrawable(R.drawable.ski_back_tv_kuaijie_right);
-            tvSetting.setBackground(drawable);
+//            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) tvSetting.getLayoutParams();
+//
+//            layoutParams.rightMargin = (int) getResources().getDimension(R.dimen.ski_dp_10);
+//            layoutParams.addRule(RelativeLayout.LEFT_OF, R.id.quick_amount_show);
+//            layoutParams.addRule(RelativeLayout.RIGHT_OF, 0);
+//            tvSetting.setLayoutParams(layoutParams);
+//            Drawable drawable = getResources().getDrawable(R.drawable.ski_back_tv_kuaijie_right);
+//            tvSetting.setBackground(drawable);
         } else {
 //            int visibility = llQuickMoney.getVisibility();
 //            if (visibility == View.GONE) {
