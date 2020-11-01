@@ -83,11 +83,15 @@
 
     <TextView
         android:id="@+id/tv_user_name"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
         android:textColor="@color/ski_color_333333"
         android:textSize="12dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:layout_marginEnd="5dp"
+        app:layout_constraintEnd_toStartOf="@+id/iv_record"
         app:layout_constraintStart_toEndOf="@+id/tv_nick_name_label"
         app:layout_constraintTop_toTopOf="@+id/tv_nick_name_label"
         tools:text="今晚打老虎" />
