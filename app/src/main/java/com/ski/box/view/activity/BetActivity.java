@@ -56,6 +56,8 @@ public class BetActivity extends BaseBetActivity {
         mHandler.removeCallbacks(mLoadTopLotteryRunnable);
         mHandler.removeCallbacks(mInitFragmentRunnable);
         mHandler.removeCallbacks(mUnSettleRunnable);
+        mHandler.removeCallbacks(mUnSettleRunnable);
+        mHandler.removeCallbacks(mReloadDataRunnable);
     }
 
 

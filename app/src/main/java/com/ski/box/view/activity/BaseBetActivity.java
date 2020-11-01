@@ -54,6 +54,7 @@ public abstract class BaseBetActivity extends BaseMVPActivity<BetContract.Presen
     protected LoadTopLotteryRunnable mLoadTopLotteryRunnable;
     protected InitFragmentRunnable mInitFragmentRunnable;
     protected UnSettleRunnable mUnSettleRunnable;
+    protected ReloadDataRunnable mReloadDataRunnable;
 
     @Override
     protected int getLayoutId() {
@@ -92,6 +93,7 @@ public abstract class BaseBetActivity extends BaseMVPActivity<BetContract.Presen
         mLoadTopLotteryRunnable = new LoadTopLotteryRunnable();
         mInitFragmentRunnable = new InitFragmentRunnable();
         mUnSettleRunnable = new UnSettleRunnable();
+        mReloadDataRunnable = new ReloadDataRunnable();
         mHandler.postDelayed(mLoadTopLotteryRunnable,1000);
         mHandler.post(mInitFragmentRunnable);
 //        initFragment();
@@ -182,12 +184,20 @@ public abstract class BaseBetActivity extends BaseMVPActivity<BetContract.Presen
                         mLotteryName = ticketName;
                         mViewTop.setLotteryName(ticketName);
 
-                        initData(null);
-                        processLogic();
+                        mHandler.postDelayed(mReloadDataRunnable,500);
                     }
                 }
             }
         });
+    }
+
+    private class ReloadDataRunnable implements Runnable {
+
+        @Override
+        public void run() {
+            initData(null);
+            processLogic();
+        }
     }
 
     /**
