@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.View;
 import android.view.WindowManager;
@@ -148,7 +149,7 @@ public class RegisterActivity extends BaseMVPActivity<RegisterContract.Presenter
             @Override
             public void afterTextChanged(Editable editable) {
                 String member = editable.toString().trim();
-                if (!ValidateUtil.validatePwd_new(member)) {
+                if (!ValidateUtil.validatePwd_new(member) && !TextUtils.isEmpty(member)) {
                     String err = "账号必须为6-16位包含英文与数字组合，区分大小写";
                     etName.setError(err);
                 }
@@ -169,7 +170,7 @@ public class RegisterActivity extends BaseMVPActivity<RegisterContract.Presenter
             @Override
             public void afterTextChanged(Editable editable) {
                 String password = editable.toString();
-                if (!ValidateUtil.validatePwd_new(password)) {
+                if (!ValidateUtil.validatePwd_new(password) && !TextUtils.isEmpty(password)) {
                     String err = "密码必须为6-16位包含英文与数字组合，区分大小写";
                     etPassword.setError(err);
                 }

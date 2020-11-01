@@ -124,7 +124,7 @@ public class UpdateLoginPwdActivity extends BaseMVPActivity<UpdateLoginPwdContra
             @Override
             public void afterTextChanged(Editable editable) {
                 String password = editable.toString();
-                if (!ValidateUtil.validatePwd_new(password)) {
+                if (!ValidateUtil.validatePwd_new(password) && !TextUtils.isEmpty(password)) {
                     String err = "密码必须为6-16位包含英文与数字组合，区分大小写";
                     mEtNew.setError(err);
                 }
@@ -144,7 +144,7 @@ public class UpdateLoginPwdActivity extends BaseMVPActivity<UpdateLoginPwdContra
             @Override
             public void afterTextChanged(Editable editable) {
                 String password = editable.toString();
-                if (!ValidateUtil.validatePwd_new(password)) {
+                if (!ValidateUtil.validatePwd_new(password) && !TextUtils.isEmpty(password)) {
                     String err = "密码必须为6-16位包含英文与数字组合，区分大小写";
                     mEtConfirm.setError(err);
                 }
