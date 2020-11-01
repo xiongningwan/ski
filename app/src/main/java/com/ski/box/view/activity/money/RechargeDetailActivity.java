@@ -108,7 +108,7 @@ public class RechargeDetailActivity extends BaseMVPActivity<RechargeDetailContra
             ToastUtil.showSuccess("银行_复制成功!");
         } else if (id == R.id.btn_copy_bank_no) {
             AppUtil.copy(mTvBankNo.getText().toString().trim(), this);
-            ToastUtil.showSuccess("帐号_复制成功!");
+            ToastUtil.showSuccess("账号_复制成功!");
         } else if (id == R.id.btn_copy_owner_name) {
             AppUtil.copy(mTvOwnerName.getText().toString().trim(), this);
             ToastUtil.showSuccess("账户_复制成功!");

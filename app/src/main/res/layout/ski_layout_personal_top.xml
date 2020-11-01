@@ -56,7 +56,7 @@
        app:layout_constraintStart_toStartOf="parent"
        app:layout_constraintEnd_toEndOf="parent"
        app:layout_constraintTop_toBottomOf="@+id/tv_user_name"
-       tools:text="登录帐号:  sadsad"
+       tools:text="登录账号:  sadsad"
        android:layout_marginTop="2dp"/>
 
    <ImageView

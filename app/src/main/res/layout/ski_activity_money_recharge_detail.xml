@@ -131,7 +131,7 @@
             android:id="@+id/tv_label_bank_no"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="帐号"
+            android:text="账号"
             android:textColor="@color/ski_color_999999"
             android:textSize="13dp"
             app:layout_constraintStart_toStartOf="parent"
