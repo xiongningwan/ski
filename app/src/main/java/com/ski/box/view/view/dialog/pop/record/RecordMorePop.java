@@ -134,7 +134,7 @@ public class RecordMorePop extends BasePopup<RecordMorePop> implements View.OnCl
                         holder.itemView.setSelected(true);
                     }*/
 
-                    mListener.onMoreChoose(bean.getStatus());
+                    mListener.onMoreChoose(bean);
 
                 }
             });
@@ -146,7 +146,7 @@ public class RecordMorePop extends BasePopup<RecordMorePop> implements View.OnCl
     }
 
     public interface MoreChooseListener {
-        void onMoreChoose(String status);
+        void onMoreChoose(ConditionBean bean);
     }
 
     @Override
@@ -243,7 +243,7 @@ public class RecordMorePop extends BasePopup<RecordMorePop> implements View.OnCl
     private List<ConditionBean> getBet() {
         //1：待开奖 2：未中奖 3：已中奖 4：个人撤单 5：系统撤单
         List<ConditionBean> list = new ArrayList<>();
-        list.add(new ConditionBean("全部注单", "", false));
+        list.add(new ConditionBean("全部状态", "", false));
         list.add(new ConditionBean("待开奖", "1", false));
         list.add(new ConditionBean("未中奖", "2", false));
         list.add(new ConditionBean("已中奖", "3", false));

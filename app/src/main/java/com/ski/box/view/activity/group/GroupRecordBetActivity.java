@@ -289,11 +289,12 @@ public class GroupRecordBetActivity extends BaseMVPActivity<GroupRecordBetContra
     }
 
     @Override
-    public void onMoreChoose(String status) {
+    public void onMoreChoose(ConditionBean bean) {
         if (mMorePop != null) {
             mMorePop.dismiss();
         }
-        this.status = status;
+        this.status = bean.getStatus();
+        mTvStatus.setText(bean.getName());
         mRefreshLayout.autoRefresh();
     }
 
@@ -303,6 +304,7 @@ public class GroupRecordBetActivity extends BaseMVPActivity<GroupRecordBetContra
         ivArrowIcon.setPivotY(ivArrowIcon.getHeight() / 2);
         ivArrowIcon.setRotation(angle);
     }
+
 
 
 }

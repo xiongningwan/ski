@@ -41,6 +41,7 @@ import com.ski.box.view.view.dialog.pop.record.RecordDatePop;
 import com.ski.box.view.view.dialog.pop.record.RecordMorePop;
 import com.yb.core.base.BaseMVPFragment;
 import com.yb.core.utils.ScreenUtils;
+import com.yb.core.utils.TimeUtils;
 import com.yb.core.utils.ToastUtil;
 import com.zyyoona7.popup.XGravity;
 import com.zyyoona7.popup.YGravity;
@@ -152,6 +153,11 @@ public class RecordBetFragment extends BaseMVPFragment<RecordBetContract.Present
                 gotoDetail(bean);
             }
         });
+
+        mRecordRequest.setStartDate(TimeUtils.getBeginStringOfToday());
+        mRecordRequest.setEndDate(TimeUtils.getEndStringOfToday());
+        mTvDay.setText("今天");
+        mTvStatus.setText("全部状态");
     }
 
     private void gotoDetail(RecordBet.ListBean bean) {
@@ -326,11 +332,12 @@ public class RecordBetFragment extends BaseMVPFragment<RecordBetContract.Present
     }
 
     @Override
-    public void onMoreChoose(String status) {
+    public void onMoreChoose(ConditionBean  status) {
         if (mMorePop != null) {
             mMorePop.dismiss();
         }
-        mRecordRequest.setStatus(status);
+        mRecordRequest.setStatus(status.getStatus());
+        mTvStatus.setText(status.getName());
         mRefreshLayout.autoRefresh();
     }
 
