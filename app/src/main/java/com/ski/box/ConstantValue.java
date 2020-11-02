@@ -32,6 +32,7 @@ public interface ConstantValue {
     String EVENT_TYPE_USER_NAME_NICK_NAME = "event_type_user_name_nick_name";
     String EVENT_TOKEN_DISABLE = "event_token_disable";
     String EVENT_FUND_PWD_UPDATE = "event_fund_pwd_update";
+    String EVENT_UPDATE_HEAD_SUCCESS = "event_update_head_success";
     String EVENT_BIND_PHONE_SUCCESS = "event_bind_phone_success";
     String EVENT_BIND_EMAIL_SUCCESS = "event_bind_email_success";
     String EVENT_BIND_BANK_CARD_SUCCESS = "event_bind_bank_card_success";

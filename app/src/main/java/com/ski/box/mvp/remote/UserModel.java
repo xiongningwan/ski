@@ -64,6 +64,15 @@ public class UserModel extends BaseModel implements IUserModel {
     }
 
     @Override
+    public Disposable memberUpdateProfile(Consumer s, CusConsumer e, String profile) {
+        Single<Object> single = RetrofitHelper
+                .getService(IUserService.class)
+                .memberUpdateProfile(profile)
+                .map(new HttpResultFunc<>());
+        return toSubscribe(single, s, e);
+    }
+
+    @Override
     public Disposable updateLoginPwd(Consumer s, CusConsumer e, String loginPwd, String loginPwdNew) {
         Single<Object> single = RetrofitHelper
                 .getService(IUserService.class)

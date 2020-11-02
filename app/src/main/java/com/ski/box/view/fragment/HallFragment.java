@@ -3,6 +3,7 @@ package com.ski.box.view.fragment;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -30,6 +31,7 @@ import com.ski.box.bean.user.UserInfo;
 import com.ski.box.mvp.contract.HallContract;
 import com.ski.box.mvp.presenter.HallPresenter;
 import com.ski.box.service.MQTTHelper;
+import com.ski.box.utils.ActivityUtil;
 import com.ski.box.utils.lottery.SettingManager;
 import com.ski.box.view.activity.BetActivity;
 import com.ski.box.view.view.AutoScrollTextView;
@@ -42,12 +44,16 @@ import com.youth.banner.indicator.CircleIndicator;
 import java.util.ArrayList;
 import java.util.List;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 import static com.ski.box.ConstantValue.EVENT_TYPE_BALANCE_UPDATE;
 import static com.ski.box.ConstantValue.EVENT_TYPE_USER_NAME_NICK_NAME;
+import static com.ski.box.ConstantValue.EVENT_UPDATE_HEAD_SUCCESS;
 
 public class HallFragment extends BaseMVPFragment<HallContract.Presenter> implements HallContract.View, View.OnClickListener {
 
     private Banner mBanner;
+    private CircleImageView mIvUserHead;
     private TextView mTvUserName;
     private TextView mTvAmount;
     private AutoScrollTextView mMarqueeText;
@@ -89,6 +95,7 @@ public class HallFragment extends BaseMVPFragment<HallContract.Presenter> implem
         ImmersionBar.with(this).statusBarColor(R.color.ski_color_FAFAFA).statusBarDarkFont(true).init();
         RxBus.get().register(this);
         mBanner = view.findViewById(R.id.banner);
+        mIvUserHead = view.findViewById(R.id.iv_user);
         mTvUserName = view.findViewById(R.id.tv_user_name);
         mTvAmount = view.findViewById(R.id.tv_amount_value);
         mMarqueeText = view.findViewById(R.id.marqueeText);
@@ -131,6 +138,7 @@ public class HallFragment extends BaseMVPFragment<HallContract.Presenter> implem
         SKISdkManger.startAlarmService(AppUtil.getContext());
 
         initAnnouncement();
+
     }
 
     //这个是一个懒加载
@@ -211,6 +219,13 @@ public class HallFragment extends BaseMVPFragment<HallContract.Presenter> implem
     public void onUserNameUpdate(String s) {
         User user = DataCenter.getInstance().getUser();
         mTvUserName.setText(user.getAlias());
+        mIvUserHead.setImageResource(ActivityUtil.getHeadByProfile(user.getProfile()));
+    }
+
+    @Subscribe(tags = {@Tag(EVENT_UPDATE_HEAD_SUCCESS)})
+    public void onUserHeadUpdate(String s) {
+        User user = DataCenter.getInstance().getUser();
+        mIvUserHead.setImageResource(ActivityUtil.getHeadByProfile(user.getProfile()));
     }
 
     private void setData(int serId) {

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/ski_dp_6">
+
+    <ImageView
+        android:id="@+id/iv_head"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        tools:src="@mipmap/icon_hall_user"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/ski_item_bg_update_head_selector"
+        android:padding="2dp"/>
+
+</FrameLayout>

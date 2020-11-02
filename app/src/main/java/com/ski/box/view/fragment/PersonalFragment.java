@@ -24,10 +24,12 @@ import com.ski.box.bean.user.MemberInfo;
 import com.ski.box.bean.user.User;
 import com.ski.box.mvp.contract.PersonalContract;
 import com.ski.box.mvp.presenter.PersonalPresenter;
+import com.ski.box.utils.ActivityUtil;
 import com.ski.box.view.activity.ContainerActivity;
 import com.ski.box.view.activity.LoginActivity;
 import com.ski.box.view.activity.money.WithdrawActivity;
 import com.ski.box.view.activity.my.PersonalInfoActivity;
+import com.ski.box.view.activity.my.UpdateHeadActivity;
 import com.ski.box.view.fragment.my.PersonalTabFragment;
 import com.yb.core.base.BaseMVPFragment;
 import com.yb.core.utils.SPUtils;
@@ -36,13 +38,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 import static com.ski.box.ConstantValue.EVENT_TYPE_BALANCE_UPDATE;
 import static com.ski.box.ConstantValue.EVENT_TYPE_USER_NAME_NICK_NAME;
+import static com.ski.box.ConstantValue.EVENT_UPDATE_HEAD_SUCCESS;
 
 public class PersonalFragment extends BaseMVPFragment<PersonalContract.Presenter> implements PersonalContract.View, View.OnClickListener {
 
     private TabLayout mTabLayout;
     private ViewPager mViewPager;
+    private CircleImageView mIvUserHead;
     private TextView mTvUserName;
     private TextView mTvUserAcc;
     private TextView mTvBalance;
@@ -83,6 +89,7 @@ public class PersonalFragment extends BaseMVPFragment<PersonalContract.Presenter
         RxBus.get().register(this);
         mTabLayout =  view.findViewById(R.id.tab_layout);
         mViewPager =  view.findViewById(R.id.tab_vp);
+        mIvUserHead =  view.findViewById(R.id.iv_user);
         mTvUserName =  view.findViewById(R.id.tv_user_name);
         mTvUserAcc =  view.findViewById(R.id.tv_user_acc);
         mIvEt =  view.findViewById(R.id.iv_et_nick_name);
@@ -93,6 +100,7 @@ public class PersonalFragment extends BaseMVPFragment<PersonalContract.Presenter
         mBtnWithdraw =  view.findViewById(R.id.btn_withdraw);
         mBtnLogout =  view.findViewById(R.id.btn_logout);
 
+        mIvUserHead.setOnClickListener(this);
         mIvEt.setOnClickListener(this);
         mTvUserName.setOnClickListener(this);
         mTvUserAcc.setOnClickListener(this);
@@ -135,6 +143,8 @@ public class PersonalFragment extends BaseMVPFragment<PersonalContract.Presenter
             startActivity(intent);
         } else if(id == R.id.btn_withdraw) {
             startActivity(new Intent(requireActivity(), WithdrawActivity.class));
+        } else if(id == R.id.iv_user) {
+            startActivity(new Intent(requireActivity(), UpdateHeadActivity.class));
         }
     }
 
@@ -225,6 +235,13 @@ public class PersonalFragment extends BaseMVPFragment<PersonalContract.Presenter
         User user = DataCenter.getInstance().getUser();
         mTvUserAcc.setText(user.getAccount());
         mTvUserName.setText(user.getAlias());
+        mIvUserHead.setImageResource(ActivityUtil.getHeadByProfile(user.getProfile()));
+    }
+
+    @Subscribe(tags = {@Tag(EVENT_UPDATE_HEAD_SUCCESS)})
+    public void onUserHeadUpdate(String s) {
+        User user = DataCenter.getInstance().getUser();
+        mIvUserHead.setImageResource(ActivityUtil.getHeadByProfile(user.getProfile()));
     }
 
     @Override

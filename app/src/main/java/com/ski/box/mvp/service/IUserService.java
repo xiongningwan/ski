@@ -59,6 +59,12 @@ public interface IUserService {
     @FormUrlEncoded
     Single<HttpResult<Object>> memberUpdateAlias(@Field("alias") String alias);
     /**
+     * 修改用户信息
+     */
+    @POST(UrlConfig.URL_MEM_UPDATE)
+    @FormUrlEncoded
+    Single<HttpResult<Object>> memberUpdateProfile(@Field("profile") String profile);
+    /**
      * 更新登录密码
      */
     @POST(UrlConfig.URL_MEM_UPDATE_LOGIN_PWD)

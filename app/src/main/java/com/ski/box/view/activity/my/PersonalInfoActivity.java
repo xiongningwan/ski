@@ -17,10 +17,9 @@ import com.ski.box.R;
 import com.ski.box.bean.DataCenter;
 import com.ski.box.bean.user.MemberInfo;
 import com.ski.box.bean.user.User;
-import com.ski.box.mvp.contract.PersonalInfoContract;
-import com.ski.box.mvp.presenter.PersonalInfoPresenter;
+import com.ski.box.mvp.contract.my.PersonalInfoContract;
+import com.ski.box.mvp.presenter.my.PersonalInfoPresenter;
 import com.ski.box.view.view.HeaderView;
-import com.yb.core.base.BaseActivity;
 import com.yb.core.base.BaseMVPActivity;
 import com.yb.core.utils.ToastUtil;
 

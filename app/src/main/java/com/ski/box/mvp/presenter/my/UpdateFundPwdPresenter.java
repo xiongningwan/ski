@@ -1,9 +1,9 @@
-package com.ski.box.mvp.presenter;
+package com.ski.box.mvp.presenter.my;
 
 import android.content.Context;
 
 import com.ski.box.exception.CusConsumer;
-import com.ski.box.mvp.contract.UpdateFundPwdContract;
+import com.ski.box.mvp.contract.my.UpdateFundPwdContract;
 import com.ski.box.mvp.remote.UserModel;
 import com.ski.box.mvp.remote.imodel.IUserModel;
 import com.yb.core.base.RxPresenter;

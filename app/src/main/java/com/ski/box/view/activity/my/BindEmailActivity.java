@@ -10,10 +10,8 @@ import com.gyf.immersionbar.ImmersionBar;
 import com.hwangjr.rxbus.RxBus;
 import com.ski.box.R;
 import com.ski.box.bean.DataCenter;
-import com.ski.box.mvp.contract.BindEmailContract;
-import com.ski.box.mvp.contract.BindPhoneContract;
-import com.ski.box.mvp.presenter.BindEmailPresenter;
-import com.ski.box.mvp.presenter.BindPhonePresenter;
+import com.ski.box.mvp.contract.my.BindEmailContract;
+import com.ski.box.mvp.presenter.my.BindEmailPresenter;
 import com.ski.box.utils.EasyCountDownTimer;
 import com.ski.box.utils.ValidateUtil;
 import com.ski.box.view.view.ClearEditText;
@@ -22,7 +20,6 @@ import com.yb.core.base.BaseMVPActivity;
 import com.yb.core.utils.ToastUtil;
 
 import static com.ski.box.ConstantValue.EVENT_BIND_EMAIL_SUCCESS;
-import static com.ski.box.ConstantValue.EVENT_BIND_PHONE_SUCCESS;
 
 
 public class BindEmailActivity extends BaseMVPActivity<BindEmailContract.Presenter> implements BindEmailContract.View, View.OnClickListener {

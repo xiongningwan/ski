@@ -1,15 +1,11 @@
-package com.ski.box.mvp.presenter;
+package com.ski.box.mvp.presenter.my;
 
 import android.content.Context;
 
-import com.ski.box.bean.DataCenter;
-import com.ski.box.bean.user.MemberInfo;
 import com.ski.box.exception.CusConsumer;
-import com.ski.box.mvp.contract.PersonalInfoContract;
-import com.ski.box.mvp.contract.UpdateAliasContract;
+import com.ski.box.mvp.contract.my.UpdateAliasContract;
 import com.ski.box.mvp.remote.UserModel;
 import com.ski.box.mvp.remote.imodel.IUserModel;
-import com.yb.core.base.BaseConsumer;
 import com.yb.core.base.RxPresenter;
 
 import io.reactivex.disposables.Disposable;

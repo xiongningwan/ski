@@ -4,14 +4,10 @@ import android.content.Context;
 
 import com.ski.box.bean.group.RebateKV;
 import com.ski.box.bean.group.RebateScope;
-import com.ski.box.bean.user.Bank;
 import com.ski.box.exception.CusConsumer;
-import com.ski.box.mvp.contract.BankCardAddContract;
 import com.ski.box.mvp.contract.group.GroupAddContract;
 import com.ski.box.mvp.remote.GroupModel;
-import com.ski.box.mvp.remote.UserModel;
 import com.ski.box.mvp.remote.imodel.IGroupModel;
-import com.ski.box.mvp.remote.imodel.IUserModel;
 import com.ski.box.utils.ActivityUtil;
 import com.yb.core.base.RxPresenter;
 

@@ -4,10 +4,8 @@ import android.content.Context;
 
 import com.ski.box.bean.money.DepositBack;
 import com.ski.box.bean.money.PayType;
-import com.ski.box.bean.user.Bank;
 import com.ski.box.bean.user.UserInfo;
 import com.ski.box.exception.CusConsumer;
-import com.ski.box.mvp.contract.BankCardAddContract;
 import com.ski.box.mvp.contract.money.RechargeContract;
 import com.ski.box.mvp.remote.MoneyModel;
 import com.ski.box.mvp.remote.UserModel;

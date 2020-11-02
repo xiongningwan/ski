@@ -1,10 +1,10 @@
-package com.ski.box.mvp.presenter;
+package com.ski.box.mvp.presenter.my;
 
 import android.content.Context;
 
 import com.ski.box.bean.PersonProfileEntity;
 import com.ski.box.bean.SelfProfileEntity;
-import com.ski.box.mvp.contract.GameSetContract;
+import com.ski.box.mvp.contract.my.GameSetContract;
 import com.ski.box.mvp.remote.UserModel;
 import com.ski.box.utils.lottery.LotteryNoUtil;
 import com.yb.core.base.RxPresenter;

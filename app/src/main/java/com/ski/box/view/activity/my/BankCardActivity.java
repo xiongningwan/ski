@@ -2,13 +2,8 @@ package com.ski.box.view.activity.my;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Spannable;
-import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
-import android.text.style.ForegroundColorSpan;
 import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -28,8 +23,8 @@ import com.ski.box.adapter.BankCardAdapter;
 import com.ski.box.bean.DataCenter;
 import com.ski.box.bean.user.BankCard;
 import com.ski.box.bean.user.User;
-import com.ski.box.mvp.contract.BankCardContract;
-import com.ski.box.mvp.presenter.BankCardPresenter;
+import com.ski.box.mvp.contract.my.BankCardContract;
+import com.ski.box.mvp.presenter.my.BankCardPresenter;
 import com.ski.box.view.view.HeaderView;
 import com.yb.core.base.BaseMVPActivity;
 import com.yb.core.utils.ToastUtil;

@@ -3,15 +3,11 @@ package com.ski.box.view.activity.my;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.Button;
 import android.widget.CompoundButton;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RadioButton;
 import android.widget.Switch;
 import android.widget.TextView;
 
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -19,31 +15,21 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.listener.OnItemChildClickListener;
 import com.chad.library.adapter.base.viewholder.BaseViewHolder;
 import com.gyf.immersionbar.ImmersionBar;
-import com.hwangjr.rxbus.RxBus;
 import com.ski.box.R;
-import com.ski.box.bean.DataCenter;
 import com.ski.box.bean.PersonProfileEntity;
 import com.ski.box.bean.SelfProfileEntity;
-import com.ski.box.bean.user.User;
-import com.ski.box.mvp.contract.GameSetContract;
-import com.ski.box.mvp.contract.UpdateAliasContract;
-import com.ski.box.mvp.presenter.GameSetPresenter;
-import com.ski.box.mvp.presenter.UpdateAliasPresenter;
+import com.ski.box.mvp.contract.my.GameSetContract;
+import com.ski.box.mvp.presenter.my.GameSetPresenter;
 import com.ski.box.utils.lottery.LotteryNoUtil;
 import com.ski.box.utils.lottery.SettingManager;
-import com.ski.box.view.view.ClearEditText;
 import com.ski.box.view.view.HeaderView;
 import com.ski.box.view.view.TestedGridItemDecoration;
 import com.yb.core.base.BaseMVPActivity;
-import com.yb.core.utils.SPUtils;
-import com.yb.core.utils.ToastUtil;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
-
-import static com.ski.box.ConstantValue.EVENT_TYPE_USER_NAME_NICK_NAME;
 
 
 public class GameSetActivity extends BaseMVPActivity<GameSetContract.Presenter> implements GameSetContract.View, View.OnClickListener {

@@ -1,34 +1,32 @@
-package com.ski.box.mvp.presenter;
+package com.ski.box.mvp.presenter.my;
 
 import android.content.Context;
 
-import com.ski.box.bean.user.BankCard;
 import com.ski.box.exception.CusConsumer;
-import com.ski.box.mvp.contract.BankCardContract;
+import com.ski.box.mvp.contract.my.BindPhoneContract;
 import com.ski.box.mvp.remote.UserModel;
 import com.ski.box.mvp.remote.imodel.IUserModel;
 import com.yb.core.base.RxPresenter;
-
-import java.util.List;
 
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 
 
-public class BankCardPresenter extends RxPresenter<BankCardContract.View> implements BankCardContract.Presenter {
+public class BindPhonePresenter extends RxPresenter<BindPhoneContract.View> implements BindPhoneContract.Presenter {
     private IUserModel mUserModel;
 
-    public BankCardPresenter(Context context) {
+    public BindPhonePresenter(Context context) {
         super(context);
         mUserModel = new UserModel();
     }
 
+
     @Override
-    public void getBankCardList() {
-        Disposable disposable = mUserModel.getBankCardList(new Consumer<List<BankCard>>() {
+    public void bindPhone(String phone) {
+        Disposable disposable = mUserModel.bindPhone(new Consumer<Object>() {
             @Override
-            public void accept(List<BankCard> list) throws Exception {
-                mView.onSuccessResult(list);
+            public void accept(Object o) throws Exception {
+                mView.onSuccessResult();
             }
         }, new CusConsumer() {
             @Override
@@ -36,7 +34,7 @@ public class BankCardPresenter extends RxPresenter<BankCardContract.View> implem
                 super.accept(throwable);
                 mView.onFailResult(throwable.getMessage());
             }
-        });
+        }, phone);
         addDisposable(disposable);
     }
 }

@@ -1,4 +1,4 @@
-package com.ski.box.mvp.contract;
+package com.ski.box.mvp.contract.my;
 
 
 import com.yb.core.base.BaseContract;

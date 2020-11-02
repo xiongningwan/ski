@@ -10,11 +10,8 @@ import com.gyf.immersionbar.ImmersionBar;
 import com.hwangjr.rxbus.RxBus;
 import com.ski.box.R;
 import com.ski.box.bean.DataCenter;
-import com.ski.box.bean.user.User;
-import com.ski.box.mvp.contract.BindPhoneContract;
-import com.ski.box.mvp.contract.UpdateAliasContract;
-import com.ski.box.mvp.presenter.BindPhonePresenter;
-import com.ski.box.mvp.presenter.UpdateAliasPresenter;
+import com.ski.box.mvp.contract.my.BindPhoneContract;
+import com.ski.box.mvp.presenter.my.BindPhonePresenter;
 import com.ski.box.utils.EasyCountDownTimer;
 import com.ski.box.view.view.ClearEditText;
 import com.ski.box.view.view.HeaderView;
@@ -22,7 +19,6 @@ import com.yb.core.base.BaseMVPActivity;
 import com.yb.core.utils.ToastUtil;
 
 import static com.ski.box.ConstantValue.EVENT_BIND_PHONE_SUCCESS;
-import static com.ski.box.ConstantValue.EVENT_TYPE_USER_NAME_NICK_NAME;
 
 
 public class BindPhoneActivity extends BaseMVPActivity<BindPhoneContract.Presenter> implements BindPhoneContract.View, View.OnClickListener {

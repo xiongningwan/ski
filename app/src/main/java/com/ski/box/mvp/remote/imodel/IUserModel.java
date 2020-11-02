@@ -34,6 +34,10 @@ public interface IUserModel {
                                  CusConsumer e,
                                  String alias);
 
+    Disposable memberUpdateProfile(Consumer s,
+                                 CusConsumer e,
+                                 String profile);
+
     Disposable updateLoginPwd(Consumer s,
                               CusConsumer e,
                               String loginPwd,

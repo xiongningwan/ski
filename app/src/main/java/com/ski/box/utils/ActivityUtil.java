@@ -2,6 +2,7 @@ package com.ski.box.utils;
 
 import android.content.Context;
 import android.os.Build;
+import android.text.TextUtils;
 import android.view.View;
 
 import com.ski.box.R;
@@ -39,5 +40,76 @@ public class ActivityUtil {
 //        String language = locale.getLanguage() + "-" + locale.getCountry();
         String language = locale.getLanguage();
         return language;
+    }
+
+    // 头像
+    public static int getHeadByProfile(String profile) {
+        int iconRes = R.mipmap.icon_hall_user;
+        if(TextUtils.isEmpty(profile)) {
+            return iconRes;
+        }
+        switch (profile){
+            case "1":
+                iconRes = R.mipmap.ski_icon_head_1;
+                break;
+            case "2":
+                iconRes = R.mipmap.ski_icon_head_2;
+                break;
+            case "3":
+                iconRes = R.mipmap.ski_icon_head_3;
+                break;
+            case "4":
+                iconRes = R.mipmap.ski_icon_head_4;
+                break;
+            case "5":
+                iconRes = R.mipmap.ski_icon_head_5;
+                break;
+            case "6":
+                iconRes = R.mipmap.ski_icon_head_6;
+                break;
+            case "7":
+                iconRes = R.mipmap.ski_icon_head_7;
+                break;
+            case "8":
+                iconRes = R.mipmap.ski_icon_head_8;
+                break;
+            case "9":
+                iconRes = R.mipmap.ski_icon_head_9;
+                break;
+            case "10":
+                iconRes = R.mipmap.ski_icon_head_10;
+                break;
+            case "11":
+                iconRes = R.mipmap.ski_icon_head_11;
+                break;
+            case "12":
+                iconRes = R.mipmap.ski_icon_head_12;
+                break;
+            case "13":
+                iconRes = R.mipmap.ski_icon_head_13;
+                break;
+            case "14":
+                iconRes = R.mipmap.ski_icon_head_14;
+                break;
+            case "15":
+                iconRes = R.mipmap.ski_icon_head_15;
+                break;
+            case "16":
+                iconRes = R.mipmap.ski_icon_head_16;
+                break;
+            case "17":
+                iconRes = R.mipmap.ski_icon_head_17;
+                break;
+            case "18":
+                iconRes = R.mipmap.ski_icon_head_18;
+                break;
+            case "19":
+                iconRes = R.mipmap.ski_icon_head_19;
+                break;
+            case "20":
+                iconRes = R.mipmap.ski_icon_head_20;
+                break;
+        }
+        return iconRes;
     }
 }

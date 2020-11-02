@@ -11,7 +11,7 @@
     tools:ignore="ResourceName">
 
 
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/iv_user"
         android:layout_width="42dp"
         android:layout_height="42dp"

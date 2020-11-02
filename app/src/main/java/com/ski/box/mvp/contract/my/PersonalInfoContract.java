@@ -1,4 +1,4 @@
-package com.ski.box.mvp.contract;
+package com.ski.box.mvp.contract.my;
 
 
 import com.ski.box.bean.user.MemberInfo;

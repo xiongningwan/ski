@@ -1,11 +1,10 @@
-package com.ski.box.mvp.presenter;
+package com.ski.box.mvp.presenter.my;
 
 import android.content.Context;
 
 import com.ski.box.bean.user.Bank;
 import com.ski.box.exception.CusConsumer;
-import com.ski.box.mvp.contract.BankCardAddContract;
-import com.ski.box.mvp.contract.BankCardContract;
+import com.ski.box.mvp.contract.my.BankCardAddContract;
 import com.ski.box.mvp.remote.UserModel;
 import com.ski.box.mvp.remote.imodel.IUserModel;
 import com.yb.core.base.RxPresenter;

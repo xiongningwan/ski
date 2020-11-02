@@ -1,10 +1,9 @@
-package com.ski.box.mvp.presenter;
+package com.ski.box.mvp.presenter.my;
 
 import android.content.Context;
 
 import com.ski.box.exception.CusConsumer;
-import com.ski.box.mvp.contract.BindPhoneContract;
-import com.ski.box.mvp.contract.UpdateAliasContract;
+import com.ski.box.mvp.contract.my.BindEmailContract;
 import com.ski.box.mvp.remote.UserModel;
 import com.ski.box.mvp.remote.imodel.IUserModel;
 import com.yb.core.base.RxPresenter;
@@ -13,18 +12,19 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 
 
-public class BindPhonePresenter extends RxPresenter<BindPhoneContract.View> implements BindPhoneContract.Presenter {
+public class BindEmailPresenter extends RxPresenter<BindEmailContract.View> implements BindEmailContract.Presenter {
     private IUserModel mUserModel;
 
-    public BindPhonePresenter(Context context) {
+    public BindEmailPresenter(Context context) {
         super(context);
         mUserModel = new UserModel();
     }
 
 
+
     @Override
-    public void bindPhone(String phone) {
-        Disposable disposable = mUserModel.bindPhone(new Consumer<Object>() {
+    public void bindEmail(String email) {
+        Disposable disposable = mUserModel.bindEmail(new Consumer<Object>() {
             @Override
             public void accept(Object o) throws Exception {
                 mView.onSuccessResult();
@@ -35,7 +35,7 @@ public class BindPhonePresenter extends RxPresenter<BindPhoneContract.View> impl
                 super.accept(throwable);
                 mView.onFailResult(throwable.getMessage());
             }
-        }, phone);
+        }, email);
         addDisposable(disposable);
     }
 }

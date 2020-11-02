@@ -1,15 +1,15 @@
-package com.ski.box.mvp.contract;
+package com.ski.box.mvp.contract.my;
 
 
 import com.yb.core.base.BaseContract;
 
-public interface BindPhoneContract {
+public interface UpdateFundPwdContract {
     interface View extends BaseContract.BaseView {
         void onSuccessResult();
         void onFailResult(String s);
     }
 
     interface Presenter extends BaseContract.BasePresenter<View> {
-        void bindPhone(String phone);
+        void updateFundPwd(String fundPwd, String fundPwdNew);
     }
 }

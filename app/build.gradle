@@ -130,4 +130,5 @@ dependencies {
 
     implementation 'com.just.agentweb:agentweb:4.0.3-beta'
     implementation 'com.github.arcadefire:nice-spinner:1.4.4'
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
 }

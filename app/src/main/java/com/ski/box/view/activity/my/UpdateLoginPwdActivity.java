@@ -8,22 +8,15 @@ import android.view.View;
 import android.widget.Button;
 
 import com.gyf.immersionbar.ImmersionBar;
-import com.hwangjr.rxbus.RxBus;
 import com.ski.box.R;
-import com.ski.box.bean.DataCenter;
-import com.ski.box.bean.user.User;
-import com.ski.box.mvp.contract.UpdateAliasContract;
-import com.ski.box.mvp.contract.UpdateLoginPwdContract;
-import com.ski.box.mvp.presenter.UpdateAliasPresenter;
-import com.ski.box.mvp.presenter.UpdateLoginPwdPresenter;
+import com.ski.box.mvp.contract.my.UpdateLoginPwdContract;
+import com.ski.box.mvp.presenter.my.UpdateLoginPwdPresenter;
 import com.ski.box.utils.ValidateUtil;
 import com.ski.box.view.view.ClearEditText;
 import com.ski.box.view.view.HeaderView;
 import com.yb.core.base.BaseMVPActivity;
 import com.yb.core.utils.MD5Util;
 import com.yb.core.utils.ToastUtil;
-
-import static com.ski.box.ConstantValue.EVENT_TYPE_USER_NAME_NICK_NAME;
 
 
 public class UpdateLoginPwdActivity extends BaseMVPActivity<UpdateLoginPwdContract.Presenter> implements UpdateLoginPwdContract.View, View.OnClickListener {
