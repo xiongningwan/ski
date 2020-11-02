@@ -1,6 +1,7 @@
 package com.ski.box.view.activity.money;
 
 import android.animation.ObjectAnimator;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Spannable;
@@ -57,7 +58,7 @@ public class WithdrawActivity extends BaseMVPActivity<WithdrawContract.Presenter
     private ClearEditText mEtMoneyPwd;
     private TextView mTvWen1;
     private TextView mTvWen2;
-    private LoadingDialog mLoading;
+    private ProgressDialog mLoading;
     RotateAnimation rotate;
 
     @Override
@@ -97,7 +98,7 @@ public class WithdrawActivity extends BaseMVPActivity<WithdrawContract.Presenter
         mTvWen1.setOnClickListener(this);
         mTvWen2.setOnClickListener(this);
         mllBalance.setOnClickListener(this);
-        mLoading = new LoadingDialog(this);
+        mLoading = new ProgressDialog(this);
     }
 
     @Override

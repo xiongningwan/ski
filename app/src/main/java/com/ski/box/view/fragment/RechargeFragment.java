@@ -1,5 +1,6 @@
 package com.ski.box.view.fragment;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Spannable;
@@ -16,6 +17,8 @@ import android.widget.TextView;
 
 import com.gyf.immersionbar.ImmersionBar;
 import com.hwangjr.rxbus.RxBus;
+import com.hwangjr.rxbus.annotation.Subscribe;
+import com.hwangjr.rxbus.annotation.Tag;
 import com.ski.box.R;
 import com.ski.box.bean.DataCenter;
 import com.ski.box.bean.money.DepositBack;
@@ -40,9 +43,13 @@ import org.angmarch.views.NiceSpinner;
 import org.angmarch.views.OnSpinnerItemSelectedListener;
 import org.angmarch.views.SpinnerTextFormatter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.http.PUT;
+
+import static com.ski.box.ConstantValue.EVENT_TYPE_BALANCE_UPDATE;
+import static com.ski.box.ConstantValue.EVENT_TYPE_USER_NAME_NICK_NAME;
 
 public class RechargeFragment extends BaseMVPFragment<RechargeContract.Presenter> implements RechargeContract.View, View.OnClickListener {
     public static final String KEY_HAS_HEAD = "key_has_head";
@@ -56,9 +63,10 @@ public class RechargeFragment extends BaseMVPFragment<RechargeContract.Presenter
     private ClearEditText mEtMoney;
     private TextView mTvWen1;
     private TextView mTvWen2;
-    private LoadingDialog mLoading;
+    private ProgressDialog mLoading;
     private RotateAnimation rotate;
     private int mHasHead;
+    private List<PayType> mTypeList = new ArrayList<>();
 
     public RechargeFragment() {
     }
@@ -106,7 +114,7 @@ public class RechargeFragment extends BaseMVPFragment<RechargeContract.Presenter
         mTvWen1.setOnClickListener(this);
         mTvWen2.setOnClickListener(this);
         mllBalance.setOnClickListener(this);
-        mLoading = new LoadingDialog(requireActivity());
+        mLoading = new ProgressDialog(requireActivity());
     }
 
     @Override
@@ -189,7 +197,7 @@ public class RechargeFragment extends BaseMVPFragment<RechargeContract.Presenter
             e.printStackTrace();
         }
         if (inputMoneyD < minD || inputMoneyD > maxD) {
-            ToastUtil.showError("该渠道充值范围为 minD~maxD");
+            ToastUtil.showError("该渠道充值范围为" + minD + "~" + maxD);
             return;
         }
         mBtnSure.setEnabled(false);
@@ -213,6 +221,8 @@ public class RechargeFragment extends BaseMVPFragment<RechargeContract.Presenter
 
     @Override
     public void onTypeResult(List<PayType> list) {
+        mTypeList.clear();
+        mTypeList.addAll(list);
         setSpinner(list);
     }
 
@@ -223,6 +233,12 @@ public class RechargeFragment extends BaseMVPFragment<RechargeContract.Presenter
         Intent intent = new Intent(requireActivity(), RechargeDetailActivity.class);
         intent.putExtra(RechargeDetailActivity.KEY_DEPOSIT_BACK, bean);
         startActivity(intent);
+
+        if (mSpType != null && mTypeList != null) {
+            setSpinner(mTypeList);
+        }
+        mEtMoney.setText("");
+        mEtMoney.setHint("请输入充值金额");
     }
 
     @Override
@@ -236,12 +252,6 @@ public class RechargeFragment extends BaseMVPFragment<RechargeContract.Presenter
         payType2.setChannelName("请选择");
         list.add(0, payType2);
 
-        if (list != null && list.size() > 1) {
-            PayType payType = (PayType) list.get(1);
-            if (payType != null) {
-                mEtMoney.setHint("充值区间：" + payType.getMinAmt() + "~" + payType.getMaxAmt());
-            }
-        }
         SpinnerTextFormatter textFormatter = new SpinnerTextFormatter<PayType>() {
             @Override
             public Spannable format(PayType bean) {
@@ -255,11 +265,28 @@ public class RechargeFragment extends BaseMVPFragment<RechargeContract.Presenter
             @Override
             public void onItemSelected(NiceSpinner parent, View view, int position, long id) {
                 PayType payType = (PayType) parent.getSelectedItem();
-                if (payType != null) {
-                    mEtMoney.setHint("充值区间：" + payType.getMinAmt() + "~" + payType.getMaxAmt());
+                if(0 == position) {
+                    mEtMoney.setHint("请输入充值金额");
+                } else {
+                    if (payType != null) {
+                        mEtMoney.setHint("充值区间：" + payType.getMinAmt() + "~" + payType.getMaxAmt());
+                    }
                 }
+
             }
         });
         mSpType.attachDataSource(list);
     }
+
+    @Subscribe(tags = {@Tag(EVENT_TYPE_BALANCE_UPDATE)})
+    public void onBalanceUpdate(String balanceStr) {
+        mTvBalance.setText(balanceStr);
+    }
+
+    @Subscribe(tags = {@Tag(EVENT_TYPE_USER_NAME_NICK_NAME)})
+    public void onUserNameUpdate(String s) {
+        User user = DataCenter.getInstance().getUser();
+        mTvNickName.setText(user.getAlias());
+    }
+
 }

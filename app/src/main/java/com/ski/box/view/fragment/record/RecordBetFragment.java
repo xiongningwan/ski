@@ -82,6 +82,11 @@ public class RecordBetFragment extends BaseMVPFragment<RecordBetContract.Present
     }
 
     @Override
+    protected RecordBetContract.Presenter bindPresenter() {
+        return new RecordBetPresenter(mContext);
+    }
+
+    @Override
     public void onDestroyView() {
         super.onDestroyView();
         RxBus.get().unregister(this);
@@ -167,10 +172,6 @@ public class RecordBetFragment extends BaseMVPFragment<RecordBetContract.Present
     }
 
 
-    @Override
-    protected RecordBetContract.Presenter bindPresenter() {
-        return new RecordBetPresenter(mContext);
-    }
 
 
     @Override

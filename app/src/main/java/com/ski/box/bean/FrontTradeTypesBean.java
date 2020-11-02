@@ -2,7 +2,7 @@ package com.ski.box.bean;
 
 
 /**
- * 资金记录的帐变类型
+ * 资金记录的账变类型
  */
 public class FrontTradeTypesBean extends MkBaseEntity {
     /**

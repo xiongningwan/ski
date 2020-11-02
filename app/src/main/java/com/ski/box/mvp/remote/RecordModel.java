@@ -43,7 +43,6 @@ public class RecordModel extends BaseModel implements IRecordModel {
                 .getBetRecordList(
                         request.getTicketId(),
                         request.getStatus(),
-                        request.getIsLow(),
                         request.getStartDate(),
                         request.getEndDate(),
                         String.valueOf(request.getPageNum()),

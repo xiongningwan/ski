@@ -45,14 +45,14 @@ public interface IRecordService {
             @FieldMap HashMap<String, String> hashMap);
 
     /**
-     * 资金记录->帐变类型
+     * 资金记录->账变类型
      */
     @POST(UrlConfig.URL_MONEY_RECORD_TRADE_TYPES)
     Single<HttpResult<List<FrontTradeTypesBean>>> getFrontTradeTypes();
 
     /**
      * 资金记录列表
-     * tradeType：//帐变类型 1资金转入，2资金转出，3投注，4投注返点，5派奖，6撤销派奖，7撤销返点，8撤单返款，9追号扣款，10当期追号返款，11撤销追号，12单期总利润超限扣款，13单期单挑利润超限扣款, 14单期总利润超限返款，16撤单返款
+     * tradeType：//账变类型 1资金转入，2资金转出，3投注，4投注返点，5派奖，6撤销派奖，7撤销返点，8撤单返款，9追号扣款，10当期追号返款，11撤销追号，12单期总利润超限扣款，13单期单挑利润超限扣款, 14单期总利润超限返款，16撤单返款
      */
     @GET(UrlConfig.URL_MONEY_RECORD)
     Single<HttpResult<RecordMoney>> getMoneyRecordList(
@@ -70,7 +70,6 @@ public interface IRecordService {
     Single<HttpResult<RecordBet>> getBetRecordList(
             @Query("ticketId") String ticketId,
             @Query("status") String status,
-            @Query("isLow") String isLow,
             @Query("startDate") String startDate,
             @Query("endDate") String endDate,
             @Query("pageNum") String pageNum,
