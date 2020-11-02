@@ -24,7 +24,9 @@ import com.ski.box.bean.user.MemberInfo;
 import com.ski.box.bean.user.User;
 import com.ski.box.mvp.contract.PersonalContract;
 import com.ski.box.mvp.presenter.PersonalPresenter;
+import com.ski.box.view.activity.ContainerActivity;
 import com.ski.box.view.activity.LoginActivity;
+import com.ski.box.view.activity.money.WithdrawActivity;
 import com.ski.box.view.activity.my.PersonalInfoActivity;
 import com.ski.box.view.fragment.my.PersonalTabFragment;
 import com.yb.core.base.BaseMVPFragment;
@@ -47,6 +49,8 @@ public class PersonalFragment extends BaseMVPFragment<PersonalContract.Presenter
     private TextView mTvLevel;
     private TextView mGroupValue;
     private Button mBtnLogout;
+    private Button mBtnRecharge;
+    private Button mBtnWithdraw;
     private ImageView mIvEt;
 
     public PersonalFragment() {
@@ -85,12 +89,16 @@ public class PersonalFragment extends BaseMVPFragment<PersonalContract.Presenter
         mTvBalance =  view.findViewById(R.id.tv_balance_value);
         mTvLevel =  view.findViewById(R.id.iv_level_value);
         mGroupValue =  view.findViewById(R.id.iv_group_value);
+        mBtnRecharge =  view.findViewById(R.id.btn_recharge);
+        mBtnWithdraw =  view.findViewById(R.id.btn_withdraw);
         mBtnLogout =  view.findViewById(R.id.btn_logout);
 
         mIvEt.setOnClickListener(this);
         mTvUserName.setOnClickListener(this);
         mTvUserAcc.setOnClickListener(this);
         mBtnLogout.setOnClickListener(this);
+        mBtnRecharge.setOnClickListener(this);
+        mBtnWithdraw.setOnClickListener(this);
     }
 
     @Override
@@ -121,6 +129,12 @@ public class PersonalFragment extends BaseMVPFragment<PersonalContract.Presenter
             mPresenter.logout();
         } else if(id == R.id.iv_et_nick_name || id == R.id.tv_user_name || id == R.id.tv_user_acc) {
             startActivity(new Intent(requireActivity(), PersonalInfoActivity.class));
+        } else if(id == R.id.btn_recharge ) {
+            Intent intent =  new Intent(requireActivity(), ContainerActivity.class);
+            intent.putExtra(ContainerActivity.KEY_CLASS, RechargeFragment.class.getSimpleName());
+            startActivity(intent);
+        } else if(id == R.id.btn_withdraw) {
+            startActivity(new Intent(requireActivity(), WithdrawActivity.class));
         }
     }
 

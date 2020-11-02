@@ -179,7 +179,7 @@
           android:layout_marginStart="5dp"/>
 
 
-      <TextView
+      <Button
           android:id="@+id/btn_recharge"
           android:layout_width="60dp"
           android:layout_height="30dp"
@@ -194,7 +194,7 @@
           android:layout_marginTop="10dp"
           android:background="@mipmap/ski_icon_personal_recharge_bg"/>
 
-      <TextView
+      <Button
           android:id="@+id/btn_withdraw"
           android:layout_width="60dp"
           android:layout_height="30dp"
