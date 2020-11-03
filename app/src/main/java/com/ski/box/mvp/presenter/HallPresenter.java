@@ -1,6 +1,7 @@
 package com.ski.box.mvp.presenter;
 
 import android.content.Context;
+import android.text.TextUtils;
 
 import androidx.fragment.app.FragmentManager;
 
@@ -11,7 +12,9 @@ import com.ski.box.bean.NoticeBean;
 import com.ski.box.bean.SelfProfileEntity;
 import com.ski.box.bean.SystemConfig;
 import com.ski.box.bean.lottery.LotteryBean;
+import com.ski.box.bean.lottery.LotteryConstant;
 import com.ski.box.bean.lottery.LotterySer;
+import com.ski.box.bean.lottery.LotteryUtil;
 import com.ski.box.bean.user.User;
 import com.ski.box.bean.user.UserInfo;
 import com.ski.box.mvp.contract.HallContract;
@@ -31,7 +34,9 @@ import com.yb.core.utils.SPUtils;
 import com.yb.core.utils.StringUtils;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import io.reactivex.Observable;
@@ -64,16 +69,55 @@ public class HallPresenter extends RxPresenter<HallContract.View> implements Hal
         Disposable disposable = mLotteryModel.getTickettypelist(new Consumer<List<LotterySer>>() {
             @Override
             public void accept(List<LotterySer> list) {
+                // 过滤没有启用的彩种
+                List<LotterySer> filterList = filterAllLottery(list);
+                if (filterList != null && filterList.size() > 0) {
+                    DataCenter.getInstance().saveRemoteLottery(filterList);
+                }
                 LotteryTimeUtil.setLotteryIds(getRemoteLotteryIds(list));
-                // 同步彩种数据
                 mView.onAllLotteryResult(list);
+                // 同步彩种数据
                 crateSyncTimeTask();
             }
+
+
         });
         addDisposable(disposable);
     }
 
-    private List<Integer>  getRemoteLotteryIds(List<LotterySer> lotterySers) {
+    private List<LotterySer> filterAllLottery(List<LotterySer> list) {
+        List<Integer> idList = new ArrayList<>();
+        Map<Integer, String> lotteryMap = new HashMap<>();
+        for (LotterySer ser : list) {
+            for (LotteryBean lotteryBean : ser.getList()) {
+                idList.add(lotteryBean.getTicketId());
+                lotteryMap.put(lotteryBean.getTicketId(), lotteryBean.getTicketName());
+            }
+        }
+        List<LotterySer> sers = DataCenter.getInstance().getDefaultLocalLottery();
+        for (LotterySer ser : sers) {
+            List<LotteryBean> lotteryBeans = ser.getList();
+            List<LotteryBean> noList = new ArrayList<>();
+            for (LotteryBean lotteryBean : lotteryBeans) {
+                if (!idList.contains(lotteryBean.getTicketId())) {
+                    noList.add(lotteryBean);
+                }
+                String ticketName = lotteryMap.get(lotteryBean.getTicketId());
+                if(!TextUtils.isEmpty(ticketName)) {
+                    lotteryBean.setTicketName(ticketName);
+                }
+//                //todo 手动隐藏福建快三
+//                if (LotteryConstant.LOTTERY_ID_K3_FJ==lotteryBean.getTicketId()) {
+//                    noList.add(lotteryBean);
+//                }
+            }
+            lotteryBeans.removeAll(noList);
+        }
+
+        return sers;
+    }
+
+    private List<Integer> getRemoteLotteryIds(List<LotterySer> lotterySers) {
         List<Integer> lotteryIds = new ArrayList<>();
         for (LotterySer bean : lotterySers) {
             for (LotteryBean ticket : bean.getList()) {
@@ -85,7 +129,7 @@ public class HallPresenter extends RxPresenter<HallContract.View> implements Hal
 
     @Override
     public void getSysConfig() {
-        if (mUserModel==null){
+        if (mUserModel == null) {
             mUserModel = new UserModel();
         }
         Disposable disposable = mUserModel.getMemberDetails(new Consumer<UserInfo>() {
@@ -131,6 +175,7 @@ public class HallPresenter extends RxPresenter<HallContract.View> implements Hal
 
 
     Disposable mServerTimeTaskDisp;
+
     /**
      * 创建获取服务器时间任务
      */
@@ -186,10 +231,10 @@ public class HallPresenter extends RxPresenter<HallContract.View> implements Hal
     }
 
 
-
     private long lastClickTime = 0L;
     // 两次点击间隔不能少于1000ms
     private static final int FAST_CLICK_DELAY_TIME = 1000;
+
     /**
      * 公告弹出框
      */
@@ -199,7 +244,7 @@ public class HallPresenter extends RxPresenter<HallContract.View> implements Hal
             return;
         }
         lastClickTime = System.currentTimeMillis();
-      //  createNotice(announcements, fragmentManager);
+        //  createNotice(announcements, fragmentManager);
     }
 
 }

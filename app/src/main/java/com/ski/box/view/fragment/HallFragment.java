@@ -79,6 +79,11 @@ public class HallFragment extends BaseMVPFragment<HallContract.Presenter> implem
     }
 
     @Override
+    protected HallContract.Presenter bindPresenter() {
+        return new HallPresenter(mContext);
+    }
+
+    @Override
     public void onDestroyView() {
         super.onDestroyView();
         MQTTHelper.getInstance().onDestroy();
@@ -159,13 +164,6 @@ public class HallFragment extends BaseMVPFragment<HallContract.Presenter> implem
         mPresenter.getSelfProfile();
      //   mPresenter.getBalance();
     }
-
-
-    @Override
-    protected HallContract.Presenter bindPresenter() {
-        return new HallPresenter(mContext);
-    }
-
 
     @Override
     public void onClick(View view) {

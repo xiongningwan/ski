@@ -103,36 +103,57 @@ public class BetPresenter extends RxPresenter<BetContract.View> implements BetCo
 
     @Override
     public void getGetHeadTicketInfo(String ids) {
+//        Disposable disposable2 = mLotteryModel.getGetHeadTicketInfo(new Consumer<List<TicketLotteryTimeBean>>() {
+//            @Override
+//            public void accept(List<TicketLotteryTimeBean> data) throws Exception {
+//                if (data != null && data.size() > 0) {
+//                    TicketLotteryTimeBean ticketLotteryTimeBean = data.get(0);
+//                    Disposable disposable = mLotteryModel.getServiceTime(new Consumer<retrofit2.Response<DateBean>>() {
+//                        @Override
+//                        public void accept(retrofit2.Response<DateBean> dateBeanResponse) throws Exception {
+//                            Headers headers = dateBeanResponse.headers();
+//                            String s = headers.get("date");
+//                            SimpleDateFormat format = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss z", Locale.US);
+//                            Date date = format.parse(s);
+//                            long serverTime = date.getTime();
+//                            DataCenter.getInstance().setServerTime(serverTime);
+//                            for (TicketLotteryTimeBean bean : data) {
+//                                long endTime = bean.getEndTime() /** 1000*/;
+////                                long startTime = DataCenter.getInstance().getServerTime();
+//                                long countDownTime = Math.abs(endTime - serverTime);
+//                                LotteryTimeUtil.addLotteryIds(bean.getTicketId());
+//                                DataCenter.getInstance().updateLotteryTime(bean.getTicketId(), bean.getPlanId(), countDownTime);
+//                                mView.onHeadTicketInfoResult(bean);
+//                            }
+//                        }
+//                    }, new BaseConsumer(false, false) {
+//                        @Override
+//                        public void accept(Throwable throwable) throws Exception {
+//                            super.accept(throwable);
+//                        }
+//                    });
+//                    addDisposable(disposable);
+//                }
+//            }
+//        }, new BaseConsumer(false, false) {
+//            @Override
+//            public void accept(Throwable throwable) throws Exception {
+//                super.accept(throwable);
+//            }
+//        }, ids);
+//        addDisposable(disposable2);
+
+
         Disposable disposable2 = mLotteryModel.getGetHeadTicketInfo(new Consumer<List<TicketLotteryTimeBean>>() {
             @Override
             public void accept(List<TicketLotteryTimeBean> data) throws Exception {
-                if (data != null && data.size() > 0) {
-                    TicketLotteryTimeBean bean = data.get(0);
-                    Disposable disposable = mLotteryModel.getServiceTime(new Consumer<retrofit2.Response<DateBean>>() {
-                        @Override
-                        public void accept(retrofit2.Response<DateBean> dateBeanResponse) throws Exception {
-                            Headers headers = dateBeanResponse.headers();
-                            String s = headers.get("date");
-                            SimpleDateFormat format = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss z", Locale.US);
-                            Date date = format.parse(s);
-                            long serverTime = date.getTime();
-                            DataCenter.getInstance().setServerTime(serverTime);
-                            for (TicketLotteryTimeBean bean : data) {
-                                long endTime = bean.getEndTime() /** 1000*/;
-//                                long startTime = DataCenter.getInstance().getServerTime();
-                                long countDownTime = Math.abs(endTime - serverTime);
-                                LotteryTimeUtil.addLotteryIds(bean.getTicketId());
-                                DataCenter.getInstance().updateLotteryTime(bean.getTicketId(), bean.getPlanId(), countDownTime);
-                                mView.onHeadTicketInfoResult(bean);
-                            }
-                        }
-                    }, new BaseConsumer(false, false) {
-                        @Override
-                        public void accept(Throwable throwable) throws Exception {
-                            super.accept(throwable);
-                        }
-                    });
-                    addDisposable(disposable);
+                long serverTime = DataCenter.getInstance().getServerTime();
+                for (TicketLotteryTimeBean bean : data) {
+                    long endTime = bean.getEndTime() /** 1000*/;
+                    long countDownTime = Math.abs(endTime - serverTime);
+                    LotteryTimeUtil.addLotteryIds(bean.getTicketId());
+                    DataCenter.getInstance().updateLotteryTime(bean.getTicketId(), bean.getPlanId(), countDownTime);
+                    mView.onHeadTicketInfoResult(bean);
                 }
             }
         }, new BaseConsumer(false, false) {

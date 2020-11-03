@@ -19,6 +19,7 @@ public interface ILotteryModel {
      * 获取头部倒计时 和最新期号
      */
     Disposable getGetHeadTicketInfo(Consumer s, Consumer e, String ticketId);
+    Disposable getTicketHeadInfo_responseData(Consumer s, Consumer e, String ticketId);
 
     /**
      * 获取后台服务器时间

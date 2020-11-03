@@ -50,6 +50,9 @@ public interface ILotteryService {
     Single<HttpResult<List<TicketLotteryTimeBean>>> getTicketHeadInfo(
             @Query("ticketIds") String ticketId);
 
+    @GET(UrlConfig.URL_CURRENT_SALE_ISSUE)
+    Single<Response<HttpResult<List<TicketLotteryTimeBean>>>> getTicketHeadInfo_responseData(@Query("ticketIds") String ticketId);
+
     /**
      * 获取后台时间 用于倒计时
      * get

@@ -2,6 +2,8 @@ package com.ski.box.mvp.remote;
 
 
 import com.google.gson.Gson;
+import com.ski.box.R;
+import com.ski.box.bean.DataCenter;
 import com.ski.box.bean.DateBean;
 import com.ski.box.bean.LotteryNumBean;
 import com.ski.box.bean.TicketLotteryTimeBean;
@@ -17,14 +19,18 @@ import com.yb.core.net.RetrofitHelper;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 
 import io.reactivex.Single;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 import io.reactivex.functions.Function;
+import okhttp3.Headers;
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
 import retrofit2.Response;
@@ -53,6 +59,30 @@ public class LotteryModel extends BaseModel implements ILotteryModel {
     public Disposable getGetHeadTicketInfo(Consumer s, Consumer e, String ticketId) {
         Single<List<TicketLotteryTimeBean>> map = RetrofitHelper.getService(ILotteryService.class)
                 .getTicketHeadInfo(ticketId).map(new HttpResultFunc<>(TYPE_LIST));
+        return toSubscribe(map, s, e);
+    }
+
+    @Override
+    public Disposable getTicketHeadInfo_responseData(Consumer s, Consumer e, String ticketId) {
+        Single<Response<HttpResult<List<TicketLotteryTimeBean>>>> responseDataSingle = RetrofitHelper.getService(ILotteryService.class).getTicketHeadInfo_responseData(ticketId);
+
+        Single<List<TicketLotteryTimeBean>> map =  responseDataSingle.map(new Function<Response<HttpResult<List<TicketLotteryTimeBean>>>, HttpResult<List<TicketLotteryTimeBean>>>() {
+            @Override
+            public HttpResult<List<TicketLotteryTimeBean>> apply(Response<HttpResult<List<TicketLotteryTimeBean>>> httpResultResponse) throws Exception {
+                Headers headers = httpResultResponse.headers();
+                String dateStr = headers.get("date");
+                SimpleDateFormat format = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss z", Locale.US);
+                Date date = format.parse(dateStr);
+                long serverTime = date.getTime();
+                DataCenter.getInstance().setServerTime(serverTime);
+
+                String bodyStr =  httpResultResponse.body().toString();
+                Gson gson = new Gson();
+                HttpResult httpResult = gson.fromJson(bodyStr, HttpResult.class);
+                httpResult.setExtra(serverTime);
+                return httpResult;
+            }
+        }).map(new HttpResultFunc<>(TYPE_LIST));
         return toSubscribe(map, s, e);
     }
 

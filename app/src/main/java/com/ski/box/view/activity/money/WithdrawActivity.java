@@ -219,7 +219,7 @@ public class WithdrawActivity extends BaseMVPActivity<WithdrawContract.Presenter
         SpinnerTextFormatter textFormatter = new SpinnerTextFormatter<BankCard>() {
             @Override
             public Spannable format(BankCard bean) {
-                return new SpannableString(bean.getBankName());
+                return new SpannableString(bean.getBankName() + " " + bean.getCardNo());
             }
         };
 

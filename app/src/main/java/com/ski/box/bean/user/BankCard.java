@@ -17,7 +17,7 @@ public class BankCard implements MultiItemEntity {
 
     private int bankCode;
     private String bankName;
-    private String cardNo;
+    private String cardNo = "";
     private String cardName;
     private String currency;
     private Object createAt;
