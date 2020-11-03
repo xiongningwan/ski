@@ -59,6 +59,7 @@
     <string name="ski_group_invite_url_add">新增推广链接</string>
     <string name="ski_group_manage">团队会员管理</string>
     <string name="ski_group_record_bet">团队投注记录</string>
+    <string name="ski_group_money_change">团队账变记录</string>
     <string name="ski_money_recharge">充值</string>
     <string name="ski_money_withdraw">提现</string>
     <string name="ski_money_progress">资金进度查询</string>

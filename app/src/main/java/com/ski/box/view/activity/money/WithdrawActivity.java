@@ -196,11 +196,15 @@ public class WithdrawActivity extends BaseMVPActivity<WithdrawContract.Presenter
 
     @Override
     public void onTypeResult(List<BankCard> list) {
+
         setSpinner(list);
     }
 
     @Override
     public void onSuccessResult() {
+        mEtMoneyPwd.setText("");
+        mEtWithdrawMoney.setText("");
+        ToastUtil.showInfo("提现成功!");
         mBtnSure.setEnabled(true);
         mLoading.dismiss();
     }

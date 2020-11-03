@@ -98,7 +98,7 @@ public class GroupRecordMoneyActivity extends BaseMVPActivity<GroupRecordMoneyCo
         mRefreshLayout = findViewById(R.id.refreshLayout);
         mRvRecord = findViewById(R.id.recycler_view);
 
-        mHeadView.setHeader(getString(R.string.ski_group_record_bet), true);
+        mHeadView.setHeader(getString(R.string.ski_group_money_change), true);
 
         mLLDay.setOnClickListener(this);
         mLLType.setOnClickListener(this);
