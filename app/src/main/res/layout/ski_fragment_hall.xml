@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,9 +9,13 @@
     android:background="@color/ski_color_FAFAFA">
 
     <RelativeLayout
+        android:id="@+id/rl_top"
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:layout_marginTop="@dimen/ski_status_bar_height">
+        android:layout_marginTop="@dimen/ski_status_bar_height"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
         <ImageView
             android:id="@+id/iv_logo"
@@ -41,7 +45,6 @@
     </RelativeLayout>
 
     <com.youth.banner.Banner
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/banner"
         android:layout_width="match_parent"
         android:layout_height="130dp"
@@ -53,22 +56,60 @@
         app:banner_indicator_marginBottom="5dp"
         app:banner_indicator_normal_color="@color/ski_color_cccccc"
         app:banner_indicator_selected_color="@color/ski_hall_bg"
-        tools:background="@color/ski_yellow_color"/>
+        tools:background="@color/ski_yellow_color"
+        app:layout_constraintTop_toBottomOf="@+id/rl_top"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 
-    <include layout="@layout/ski_layout_hall_c"/>
 
-    <include layout="@layout/ski_layout_hall_d"/>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/ski_bg_hall_content_rv"
+        tools:ignore="ResourceName"
+        app:layout_constraintTop_toBottomOf="@+id/banner"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/top_user">
+        <include
+            layout="@layout/ski_layout_hall_c"
+            android:visibility="visible"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+<!--    <include-->
+<!--        android:id="@+id/top_notice"-->
+<!--        layout="@layout/ski_layout_hall_d"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/top_user"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"/>-->
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_lottery"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:id="@+id/rv_lottery_guide"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:padding="16dp"
-        android:background="@drawable/ski_bg_hall_content_rv"/>
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
+        app:layout_constraintTop_toBottomOf="@+id/top_user"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
-</LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_lottery_list"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="2dp"
+        android:background="@drawable/ski_bg_hall_content_rv"
+        app:layout_constraintTop_toTopOf="@+id/rv_lottery_guide"
+        app:layout_constraintStart_toEndOf="@+id/rv_lottery_guide"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

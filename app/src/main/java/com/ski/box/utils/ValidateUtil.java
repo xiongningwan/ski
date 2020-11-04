@@ -32,7 +32,7 @@ public class ValidateUtil {
     public static final String PASSWORD_PATTERN2 = "^((?![0-9]+$)(?![a-zA-Z]+$)(?![~!@#$^&|*-_+=.?,]+$))[0-9A-Za-z~!@#$^&|*-_+=.?,]{6,12}$";
     public static final String PASSWORD_PATTERN3 = "^[0-9]{6}$";
 
-    public static final String PASSWORD_PATTERN_new =  "^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,12}$";
+    public static final String PASSWORD_PATTERN_new =  "^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$";
     /**
      * 固号（座机）规则
      */

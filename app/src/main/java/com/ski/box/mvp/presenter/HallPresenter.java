@@ -74,8 +74,8 @@ public class HallPresenter extends RxPresenter<HallContract.View> implements Hal
                 if (filterList != null && filterList.size() > 0) {
                     DataCenter.getInstance().saveRemoteLottery(filterList);
                 }
-                LotteryTimeUtil.setLotteryIds(getRemoteLotteryIds(list));
-                mView.onAllLotteryResult(list);
+                LotteryTimeUtil.setLotteryIds(getRemoteLotteryIds(filterList));
+                mView.onAllLotteryResult(filterList);
                 // 同步彩种数据
                 crateSyncTimeTask();
             }

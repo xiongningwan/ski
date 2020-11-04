@@ -69,7 +69,7 @@
            app:layout_constraintTop_toTopOf="parent"
            app:layout_constraintStart_toEndOf="@+id/view_vertical_line"
            android:text="最近登录的iP"
-           android:textSize="14dp"
+           android:textSize="12dp"
            android:textColor="@color/ski_color_333333"
            android:layout_marginTop="16dp"
            android:layout_marginStart="16dp"/>
@@ -81,7 +81,7 @@
            app:layout_constraintTop_toBottomOf="@+id/tv_label_ip"
            app:layout_constraintStart_toStartOf="@+id/tv_label_ip"
            android:text="最近登录地区"
-           android:textSize="14dp"
+           android:textSize="12dp"
            android:textColor="@color/ski_color_333333"
            android:layout_marginTop="10dp"/>
 
@@ -92,7 +92,7 @@
            app:layout_constraintTop_toBottomOf="@+id/tv_label_add"
            app:layout_constraintStart_toStartOf="@+id/tv_label_ip"
            android:text="最近登录时间"
-           android:textSize="14dp"
+           android:textSize="12dp"
            android:textColor="@color/ski_color_333333"
            android:layout_marginTop="10dp"/>
 

@@ -115,4 +115,8 @@ public class MainActivity extends BaseMVPActivity<EmptyContract.Presenter> imple
             finish();
         }
     }
+
+    public void gotoPage(int page) {
+        mTabView.switchTab(page);
+    }
 }
