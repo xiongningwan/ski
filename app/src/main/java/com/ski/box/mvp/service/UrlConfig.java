@@ -430,7 +430,7 @@ public final class UrlConfig {
     public static final  String URL_GROUP_TEAM_ORDER_LIST ="promen/team/orderList";
     // 团队账变记录
     public static final  String URL_GROUP_TEAM_TRANS_LIST ="promen/team/transList";
-    // 活动优惠
+    // 活动优惠列表
     public static final  String URL_ACTIVITY_LIST ="promen/activity/list";
 
 

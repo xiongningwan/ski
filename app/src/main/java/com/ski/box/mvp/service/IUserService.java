@@ -1,6 +1,7 @@
 package com.ski.box.mvp.service;
 
 
+import com.ski.box.bean.ActBean;
 import com.ski.box.bean.Balance;
 import com.ski.box.bean.SelfProfileEntity;
 import com.ski.box.bean.user.Bank;
@@ -109,6 +110,11 @@ public interface IUserService {
                                             @Field("cardName") String cardName,
                                             @Field("cardNo") String cardNo,
                                             @Field("cardNoSec") String cardNoSec);
+    /**
+     * 活动优惠列表
+     */
+    @GET(UrlConfig.URL_ACTIVITY_LIST)
+    Single<HttpResult<List<ActBean>>> getActList();
 
     /**
      * 用户信息--用户余额

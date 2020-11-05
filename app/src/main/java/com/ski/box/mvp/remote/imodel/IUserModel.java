@@ -71,6 +71,8 @@ public interface IUserModel {
                         String cardNo,
                         String cardNoSec);
 
+    Disposable getActList(Consumer s);
+
     Disposable getMemberDetails(Consumer s, Consumer e);
 
     Disposable getMemberInfo(Consumer s, Consumer e);

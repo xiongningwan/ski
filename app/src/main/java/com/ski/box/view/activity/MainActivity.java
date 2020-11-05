@@ -16,7 +16,7 @@ import com.ski.box.mvp.presenter.EmptyPresenter;
 import com.ski.box.view.fragment.HallFragment;
 import com.ski.box.view.fragment.PersonalFragment;
 import com.ski.box.view.fragment.RechargeFragment;
-import com.ski.box.view.fragment.ReportFragment;
+import com.ski.box.view.fragment.ActFragment;
 import com.ski.box.view.view.HallTabLayout;
 import com.ski.box.view.view.NoScrollViewPager;
 import com.yb.core.base.BaseMVPActivity;
@@ -65,7 +65,7 @@ public class MainActivity extends BaseMVPActivity<EmptyContract.Presenter> imple
         FragmentManager fragmentManager = getSupportFragmentManager();
         List<Fragment> fragmentList = new ArrayList<>();
         fragmentList.add(HallFragment.newInstance());
-        fragmentList.add(ReportFragment.newInstance());
+        fragmentList.add(ActFragment.newInstance());
         fragmentList.add(RechargeFragment.newInstance(0));
         fragmentList.add(PersonalFragment.newInstance());
         FragmentAdapter adapter = new FragmentAdapter(fragmentManager, fragmentList);
