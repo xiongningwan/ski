@@ -24,6 +24,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginStart="16dp"
+            android:textSize="14dp"
             android:textColor="@color/ski_color_333333"/>
 
         <Switch
@@ -58,6 +59,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginStart="16dp"
+            android:textSize="14dp"
             android:textColor="@color/ski_color_333333"/>
 
         <Switch
@@ -87,11 +89,12 @@
         android:id="@+id/tv_tip_range"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="玩法投注金额区间"
+        android:text="投注金额区间"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
+        android:textSize="14dp"
         android:textColor="@color/ski_color_333333"/>
     
     <androidx.recyclerview.widget.RecyclerView

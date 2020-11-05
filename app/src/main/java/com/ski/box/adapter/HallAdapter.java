@@ -2,6 +2,7 @@ package com.ski.box.adapter;
 
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
@@ -29,16 +30,25 @@ public class HallAdapter extends BaseQuickAdapter<LotteryBean, BaseViewHolder> {
 
     @Override
     protected void convert(@NotNull BaseViewHolder holder, LotteryBean bean) {
-        TextView tvLy = holder.getView(R.id.tv_ly);
-        ImageView ivHot = holder.getView(R.id.iv_hot);
-        tvLy.setText(bean.getTicketName());
+        LinearLayout llItem = holder.getView(R.id.ll_item);
+        ImageView ivIcon = holder.getView(R.id.iv_icon);
+        TextView tvName = holder.getView(R.id.tv_name);
+        tvName.setText(bean.getTicketName());
         int id = bean.getTicketId();
-        if (LotteryConstant.LOTTERY_ID_PK10_JSSC == id || LotteryConstant.LOTTERY_ID_PK10_XYFT == id || LotteryConstant.LOTTERY_ID_PK10_BJ == id ||
-                LotteryConstant.LOTTERY_ID_PK10_JSFT == id || LotteryConstant.LOTTERY_ID_PK10_HLFT == id || LotteryConstant.LOTTERY_ID_SSC_CQ == id ||
-                LotteryConstant.LOTTERY_ID_SSC_JS == id || LotteryConstant.LOTTERY_ID_SSC_XYFFC == id || LotteryConstant.LOTTERY_ID_SSC_TX == id) {
-            ivHot.setVisibility(View.VISIBLE);
+//        if (LotteryConstant.LOTTERY_ID_PK10_JSSC == id || LotteryConstant.LOTTERY_ID_PK10_XYFT == id || LotteryConstant.LOTTERY_ID_PK10_BJ == id ||
+//                LotteryConstant.LOTTERY_ID_PK10_JSFT == id || LotteryConstant.LOTTERY_ID_PK10_HLFT == id || LotteryConstant.LOTTERY_ID_SSC_CQ == id ||
+//                LotteryConstant.LOTTERY_ID_SSC_JS == id || LotteryConstant.LOTTERY_ID_SSC_XYFFC == id || LotteryConstant.LOTTERY_ID_SSC_TX == id) {
+//            ivHot.setVisibility(View.VISIBLE);
+//        } else {
+//            ivHot.setVisibility(View.GONE);
+//        }
+        int position = holder.getAdapterPosition();
+        if(0 == position) {
+            llItem.setBackgroundResource(R.drawable.ski_hall_rv_item_unclick_top_left);
+        } else if(1 == position) {
+            llItem.setBackgroundResource(R.drawable.ski_hall_rv_item_unclick_top_right);
         } else {
-            ivHot.setVisibility(View.GONE);
+            llItem.setBackgroundResource(R.drawable.ski_hall_rv_item_unclick);
         }
     }
 

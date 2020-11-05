@@ -76,7 +76,7 @@
                 <ImageView
                     android:id="@+id/iv_personal"
                     style="@style/tab_bottom_icon_style"
-                    android:src="@drawable/ski_tab_recharge_icon_selector" />
+                    android:src="@drawable/ski_tab_personal_icon_selector" />
 
                 <TextView
                     style="@style/tab_bottom_text_style"
