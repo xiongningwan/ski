@@ -9,6 +9,7 @@ import com.hwangjr.rxbus.RxBus;
 import com.ski.box.bean.DataCenter;
 import com.ski.box.bean.MemberDetailEntity;
 import com.ski.box.bean.NoticeBean;
+import com.ski.box.bean.NoticeData;
 import com.ski.box.bean.SelfProfileEntity;
 import com.ski.box.bean.SystemConfig;
 import com.ski.box.bean.lottery.LotteryBean;
@@ -17,6 +18,7 @@ import com.ski.box.bean.lottery.LotterySer;
 import com.ski.box.bean.lottery.LotteryUtil;
 import com.ski.box.bean.user.User;
 import com.ski.box.bean.user.UserInfo;
+import com.ski.box.exception.CusConsumer;
 import com.ski.box.mvp.contract.HallContract;
 import com.ski.box.mvp.remote.LotteryModel;
 import com.ski.box.mvp.remote.SysModel;
@@ -207,6 +209,31 @@ public class HallPresenter extends RxPresenter<HallContract.View> implements Hal
             }
 
         });
+        addDisposable(disposable);
+    }
+
+    @Override
+    public void getNoticeList(int pageNum, int pageSize) {
+        Disposable disposable = mSysModel.getNoticeList(new Consumer<NoticeData>() {
+            @Override
+            public void accept(NoticeData noticeData) {
+                List<NoticeData.ListBean> listBean = noticeData.getList();
+                List<String> list = new ArrayList<>();
+                for(NoticeData.ListBean bean : listBean) {
+                    list.add(bean.getNoticeTitle());
+                }
+                if(0 == list.size()) {
+                    list.add("彩票新彩种，欢迎投注体验，随时充值...");
+                }
+                mView.onNoticeListResult(list);
+            }
+
+        }, new CusConsumer(false, false) {
+            @Override
+            public void accept(Throwable throwable) throws Exception {
+                super.accept(throwable);
+            }
+        }, pageNum, pageSize);
         addDisposable(disposable);
     }
 

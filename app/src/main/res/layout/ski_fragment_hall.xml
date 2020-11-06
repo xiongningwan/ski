@@ -29,10 +29,10 @@
             android:id="@+id/iv_service"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toStartOf="@+id/iv_more"
+            android:layout_alignParentEnd="true"
             android:src="@mipmap/icon_hall_service"
             android:layout_centerVertical="true"
-            android:layout_marginEnd="10dp"/>
+            android:layout_marginEnd="16dp"/>
 
         <ImageView
             android:id="@+id/iv_more"
@@ -41,7 +41,8 @@
             android:src="@mipmap/icon_hall_more"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:layout_marginEnd="16dp"/>
+            android:layout_marginEnd="16dp"
+            android:visibility="gone"/>
     </RelativeLayout>
 
     <com.youth.banner.Banner

@@ -1,6 +1,7 @@
 package com.ski.box.mvp.service;
 
 
+import com.ski.box.bean.NoticeData;
 import com.ski.box.bean.SystemConfig;
 import com.yb.core.net.HttpResult;
 
@@ -26,4 +27,10 @@ public interface ISysService {
     @GET(UrlConfig.UPDATE_URL)
     Single<HttpResult<Object>> checkVersion(@Query("version") String version,
                                             @Query("mobType") String mobType);
+    /**
+     * 公告
+     */
+    @GET(UrlConfig.NOTICE_LIST)
+    Single<HttpResult<NoticeData>> getNoticeList(@Query("pageNum") int pageNum,
+                                                 @Query("pageSize") int pageSize);
 }

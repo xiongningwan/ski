@@ -3,7 +3,6 @@ package com.ski.box.view.fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -27,7 +26,6 @@ import com.ski.box.bean.BannerBean;
 import com.ski.box.bean.DataCenter;
 import com.ski.box.bean.user.User;
 import com.ski.box.bean.lottery.LotteryBean;
-import com.ski.box.bean.lottery.LotteryConstant;
 import com.ski.box.bean.lottery.LotterySer;
 import com.ski.box.mvp.contract.HallContract;
 import com.ski.box.mvp.presenter.HallPresenter;
@@ -37,6 +35,7 @@ import com.ski.box.view.activity.BetActivity;
 import com.ski.box.view.activity.ContainerActivity;
 import com.ski.box.view.activity.MainActivity;
 import com.ski.box.view.activity.money.WithdrawActivity;
+import com.ski.box.view.activity.my.NoticeActivity;
 import com.ski.box.view.fragment.record.RecordBetFragment;
 import com.ski.box.view.view.AutoScrollTextView;
 import com.ski.box.view.view.HallTabLayout;
@@ -66,7 +65,6 @@ public class HallFragment extends BaseMVPFragment<HallContract.Presenter> implem
     private HallAdapter mHallAdapter;
     private HallGuideAdapter mHallGuideAdapter;
     private List<LotterySer> mLotterySerList = new ArrayList<>();
-    protected List<String> mAnnouncements = new ArrayList<>();
 
     public HallFragment() {
     }
@@ -143,9 +141,6 @@ public class HallFragment extends BaseMVPFragment<HallContract.Presenter> implem
         });
 
         SKISdkManger.startAlarmService(AppUtil.getContext());
-
-        initAnnouncement();
-
     }
 
     //这个是一个懒加载
@@ -164,16 +159,15 @@ public class HallFragment extends BaseMVPFragment<HallContract.Presenter> implem
 //            mPresenter.getSelfProfile();
 //        }
         mPresenter.getSelfProfile();
+        mPresenter.getNoticeList(1,10);
         //   mPresenter.getBalance();
     }
 
     @Override
     public void onClick(View view) {
         int id = view.getId();
-        LinearLayout  llWithdraw = view.findViewById(R.id.ll_withdraw);
-
         if (id == R.id.marqueeText) {
-
+            startActivity(new Intent(requireActivity(), NoticeActivity.class));
         } else if (id == R.id.ll_record) {// 注单
             Intent intent =  new Intent(requireActivity(), ContainerActivity.class);
             intent.putExtra(ContainerActivity.KEY_CLASS, RecordBetFragment.class.getSimpleName());
@@ -196,8 +190,7 @@ public class HallFragment extends BaseMVPFragment<HallContract.Presenter> implem
 
     private void setBanner() {
         List<BannerBean> list = new ArrayList<>();
-        list.add(new BannerBean(1, "", "www.baidu.com", R.mipmap.img_banner_01));
-        list.add(new BannerBean(1, "", "www.baidu.com", R.mipmap.img_banner_02));
+        list.add(new BannerBean(1, "", "www.baidu.com", R.mipmap.img_banner_03));
         mBanner.addBannerLifecycleObserver(this)//添加生命周期观察者
                 .setAdapter(new ImageAdapter(list))
                 .setIndicator(new CircleIndicator(getActivity()));
@@ -209,6 +202,11 @@ public class HallFragment extends BaseMVPFragment<HallContract.Presenter> implem
         mLotterySerList.addAll(list);
         int serId = setLotteryGuid();
         setLotteryList(serId);
+    }
+
+    @Override
+    public void onNoticeListResult(List<String> list) {
+        mMarqueeText.setList(list);
     }
 
 
@@ -259,14 +257,4 @@ public class HallFragment extends BaseMVPFragment<HallContract.Presenter> implem
         mHallAdapter.setNewInstance(list);
     }
 
-
-    /**
-     * 公告
-     */
-    protected void initAnnouncement() {
-        for (int i = 0; i < 5; i++) {
-            mAnnouncements.add("SK国际彩票新彩种，欢迎投注体验，随时充值...");
-        }
-        mMarqueeText.setList(mAnnouncements);
-    }
 }

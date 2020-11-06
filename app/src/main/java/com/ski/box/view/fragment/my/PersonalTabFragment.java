@@ -26,6 +26,7 @@ import com.ski.box.view.activity.money.MoneyProgressActivity;
 import com.ski.box.view.activity.money.RechargeActivity;
 import com.ski.box.view.activity.money.WithdrawActivity;
 import com.ski.box.view.activity.my.BankCardActivity;
+import com.ski.box.view.activity.my.NoticeActivity;
 import com.ski.box.view.activity.my.PersonalInfoActivity;
 import com.ski.box.view.fragment.RechargeFragment;
 import com.ski.box.view.fragment.record.RecordBetFragment;
@@ -213,6 +214,9 @@ public class PersonalTabFragment extends BaseMVPFragment<EmptyContract.Presenter
                 break;
             case 15: // 资金进度查询
                 startActivity(new Intent(requireActivity(), MoneyProgressActivity.class));
+                break;
+            case 43: // 公告中心
+                startActivity(new Intent(requireActivity(), NoticeActivity.class));
                 break;
         }
     }

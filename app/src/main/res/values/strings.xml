@@ -80,4 +80,5 @@
     <string name="ski_money_withdraw_q_1">为什么充值未到账？</string>
     <string name="ski_money_withdraw_q_2">如何使用网银充值？</string>
     <string name="ski_warm_tip">温馨提示</string>
+    <string name="ski_sys_notice">公告中心</string>
 </resources>

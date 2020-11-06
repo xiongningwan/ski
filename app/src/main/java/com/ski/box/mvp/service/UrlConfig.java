@@ -330,6 +330,10 @@ public final class UrlConfig {
      * 更新
      */
     public static final  String UPDATE_URL = "boracay/api/mobTerminal/checkVersion";
+    /**
+     * 公告
+     */
+    public static final  String NOTICE_LIST = "promen/notice/list";
 
     //-----------------------玩法说明-start----------------
 

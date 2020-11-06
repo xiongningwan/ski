@@ -5,6 +5,7 @@ import androidx.fragment.app.FragmentManager;
 
 import com.ski.box.bean.MemberDetailEntity;
 import com.ski.box.bean.NoticeBean;
+import com.ski.box.bean.NoticeData;
 import com.ski.box.bean.lottery.LotterySer;
 import com.ski.box.bean.user.UserInfo;
 import com.yb.core.base.BaseContract;
@@ -14,7 +15,7 @@ import java.util.List;
 public interface HallContract {
     interface View extends BaseContract.BaseView {
         void onAllLotteryResult(List<LotterySer> list);
-
+        void onNoticeListResult(List<String> list);
     }
 
     interface Presenter extends BaseContract.BasePresenter<View> {
@@ -26,6 +27,8 @@ public interface HallContract {
         void crateSyncTimeTask();
 
         void getSelfProfile();
+
+        void getNoticeList(int pageNum, int pageSize);
 
         void getBalance();
 

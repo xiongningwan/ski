@@ -1,6 +1,7 @@
 package com.ski.box.mvp.remote;
 
 
+import com.ski.box.bean.NoticeData;
 import com.ski.box.bean.SystemConfig;
 import com.ski.box.mvp.remote.imodel.ISysModel;
 import com.ski.box.mvp.service.ISysService;
@@ -10,6 +11,7 @@ import com.yb.core.net.RetrofitHelper;
 import io.reactivex.Single;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
+import retrofit2.http.Query;
 
 public class SysModel extends BaseModel implements ISysModel {
 
@@ -31,4 +33,14 @@ public class SysModel extends BaseModel implements ISysModel {
                 .map(new HttpResultFunc<>());
         return toSubscribe(single, s, e);
     }
+
+    @Override
+    public Disposable getNoticeList(Consumer s, Consumer e, int pageNum, int pageSize) {
+        Single<NoticeData> single = RetrofitHelper
+                .getService(ISysService.class)
+                .getNoticeList(pageNum, pageSize)
+                .map(new HttpResultFunc<>());
+        return toSubscribe(single, s, e);
+    }
+
 }
