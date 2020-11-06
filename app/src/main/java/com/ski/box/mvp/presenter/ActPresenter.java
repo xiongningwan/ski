@@ -2,6 +2,7 @@ package com.ski.box.mvp.presenter;
 
 import android.content.Context;
 
+import com.ski.box.R;
 import com.ski.box.bean.ActBean;
 import com.ski.box.bean.DataCenter;
 import com.ski.box.bean.lottery.LotterySer;
@@ -30,6 +31,16 @@ public class ActPresenter extends RxPresenter<ActContract.View> implements ActCo
         Disposable disposable = mUserModel.getActList(new Consumer<List<ActBean>>() {
             @Override
             public void accept(List<ActBean> list) {
+                for (int i = 0; i < list.size(); i++) {
+                    ActBean actBean = list.get(i);
+                    if(0 == i) {
+//                        actBean.setLocalImg(R.mipmap.img_banner_03);
+                        actBean.setTargetUrl("https://www.google.com");
+                    } else if(1 == i) {
+//                        actBean.setLocalImg(R.mipmap.img_banner_04);
+                        actBean.setTargetUrl("https://www.google.com");
+                    }
+                }
                 mView.onActResult(list);
             }
         });
