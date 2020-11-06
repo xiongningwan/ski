@@ -8,6 +8,7 @@ import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.text.style.ForegroundColorSpan;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -27,7 +28,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 public class ActAdapter extends BaseQuickAdapter<ActBean, BaseViewHolder> {
-    private  Context mContext;
+    private Context mContext;
     private int color_0;
     private int color_1;
     private int color_2;
@@ -49,24 +50,30 @@ public class ActAdapter extends BaseQuickAdapter<ActBean, BaseViewHolder> {
         TextView tvStart = holder.getView(R.id.tv_time_start);
         TextView tvEnd = holder.getView(R.id.tv_time_end);
         TextView tvJoin = holder.getView(R.id.tv_btn_join);
+        ImageView ivIcon = holder.getView(R.id.iv_icon);
 
         tvTitle.setText(bean.getActivityName());
-        tvStart.setText("开始时间："+ bean.getStartDate());
-        tvEnd.setText("结束时间："+ bean.getEndDate());
+        tvStart.setText("开始时间：" + bean.getStartDate());
+        tvEnd.setText("结束时间：" + bean.getEndDate());
         int position = holder.getAdapterPosition();
-        if(position % 4 == 0) {
-            clItem.setBackgroundResource(R.drawable.ski_bg_item_act_0);
+        if (position % 2 == 0) {
+//            clItem.setBackgroundResource(R.drawable.ski_bg_item_act_0);
+            clItem.setBackgroundResource(R.mipmap.ski_act_bg_0);
             tvJoin.setTextColor(color_0);
-        } else if(position % 4 == 1) {
-            clItem.setBackgroundResource(R.drawable.ski_bg_item_act_1);
+            ivIcon.setImageResource(R.mipmap.ski_act_icon_0);
+        } else if (position % 2 == 1) {
+//            clItem.setBackgroundResource(R.drawable.ski_bg_item_act_1);
+            clItem.setBackgroundResource(R.mipmap.ski_act_bg_1);
             tvJoin.setTextColor(color_1);
-        }else if(position % 4 == 2) {
-            clItem.setBackgroundResource(R.drawable.ski_bg_item_act_2);
-            tvJoin.setTextColor(color_2);
-        }else if(position % 4 == 3) {
-            clItem.setBackgroundResource(R.drawable.ski_bg_item_act_3);
-            tvJoin.setTextColor(color_3);
+            ivIcon.setImageResource(R.mipmap.ski_act_icon_1);
         }
+//        else if (position % 4 == 2) {
+//            clItem.setBackgroundResource(R.drawable.ski_bg_item_act_2);
+//            tvJoin.setTextColor(color_2);
+//        } else if (position % 4 == 3) {
+//            clItem.setBackgroundResource(R.drawable.ski_bg_item_act_3);
+//            tvJoin.setTextColor(color_3);
+//        }
     }
 
 }

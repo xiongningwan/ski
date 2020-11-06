@@ -194,8 +194,7 @@
         android:layout_height="wrap_content"
         android:text="版本检查"
         app:layout_constraintTop_toTopOf="@+id/tv_line"
-        app:layout_constraintStart_toEndOf="@+id/tv_kefu"
-        app:layout_constraintEnd_toStartOf="@+id/tv_register"/>
+        app:layout_constraintEnd_toEndOf="@+id/btn_login_dev" />
 
     <TextView
         android:id="@+id/tv_register"
@@ -203,6 +202,7 @@
         android:layout_height="wrap_content"
         android:text="用户注册"
         app:layout_constraintTop_toTopOf="@+id/tv_line"
-        app:layout_constraintEnd_toEndOf="@+id/btn_login_dev"/>
+        app:layout_constraintEnd_toEndOf="@+id/btn_login_dev"
+        android:visibility="gone"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
