@@ -57,6 +57,7 @@ public class AgentWebViewActivity extends BaseActivity {
         if (TextUtils.isEmpty(mTitle)) {
             mHeadView.setVisibility(View.GONE);
         } else {
+            ImmersionBar.with(this).init();
             mHeadView.setHeader(mTitle, true);
         }
     }
