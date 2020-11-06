@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.RequestOptions;
+import com.ski.box.bean.ActBean;
 import com.ski.box.bean.BannerBean;
 import com.youth.banner.adapter.BannerAdapter;
 
@@ -17,9 +18,9 @@ import java.util.List;
 /**
  * Created by tom on 2020/8/6.
  */
-public class ImageAdapter extends BannerAdapter<BannerBean, ImageAdapter.BannerViewHolder> {
+public class ImageAdapter extends BannerAdapter<ActBean, ImageAdapter.BannerViewHolder> {
 
-    public ImageAdapter(List<BannerBean> list) {
+    public ImageAdapter(List<ActBean> list) {
         //设置数据，也可以调用banner提供的方法,或者自己在adapter中实现
         super(list);
     }
@@ -37,11 +38,10 @@ public class ImageAdapter extends BannerAdapter<BannerBean, ImageAdapter.BannerV
     }
 
     @Override
-    public void onBindView(BannerViewHolder holder, BannerBean bean, int position, int size) {
+    public void onBindView(BannerViewHolder holder, ActBean bean, int position, int size) {
        // holder.imageView.setImageResource(bean.getImageUrl());
-
         Glide.with(holder.itemView)
-                .load(bean.getResId())
+                .load(bean.getLocalImg())
 //                .apply(RequestOptions.bitmapTransform(new RoundedCorners(30)))
                 .into(holder.imageView);
     }

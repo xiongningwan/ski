@@ -22,6 +22,7 @@ import com.ski.box.SKISdkManger;
 import com.ski.box.adapter.HallAdapter;
 import com.ski.box.adapter.HallGuideAdapter;
 import com.ski.box.adapter.ImageAdapter;
+import com.ski.box.bean.ActBean;
 import com.ski.box.bean.BannerBean;
 import com.ski.box.bean.DataCenter;
 import com.ski.box.bean.user.User;
@@ -31,6 +32,7 @@ import com.ski.box.mvp.contract.HallContract;
 import com.ski.box.mvp.presenter.HallPresenter;
 import com.ski.box.service.MQTTHelper;
 import com.ski.box.utils.ActivityUtil;
+import com.ski.box.view.activity.AgentWebViewActivity;
 import com.ski.box.view.activity.BetActivity;
 import com.ski.box.view.activity.ContainerActivity;
 import com.ski.box.view.activity.MainActivity;
@@ -43,6 +45,7 @@ import com.yb.core.base.BaseMVPFragment;
 import com.yb.core.utils.AppUtil;
 import com.youth.banner.Banner;
 import com.youth.banner.indicator.CircleIndicator;
+import com.youth.banner.listener.OnBannerListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -146,7 +149,6 @@ public class HallFragment extends BaseMVPFragment<HallContract.Presenter> implem
     //这个是一个懒加载
     @Override
     protected void loadData() {
-        setBanner();
     }
 
     @Override
@@ -160,6 +162,7 @@ public class HallFragment extends BaseMVPFragment<HallContract.Presenter> implem
 //        }
         mPresenter.getSelfProfile();
         mPresenter.getNoticeList(1,10);
+        mPresenter.getActList();
         //   mPresenter.getBalance();
     }
 
@@ -188,13 +191,6 @@ public class HallFragment extends BaseMVPFragment<HallContract.Presenter> implem
 //        }
     }
 
-    private void setBanner() {
-        List<BannerBean> list = new ArrayList<>();
-        list.add(new BannerBean(1, "", "www.baidu.com", R.mipmap.img_banner_03));
-        mBanner.addBannerLifecycleObserver(this)//添加生命周期观察者
-                .setAdapter(new ImageAdapter(list))
-                .setIndicator(new CircleIndicator(getActivity()));
-    }
 
     @Override
     public void onAllLotteryResult(List<LotterySer> list) {
@@ -207,6 +203,20 @@ public class HallFragment extends BaseMVPFragment<HallContract.Presenter> implem
     @Override
     public void onNoticeListResult(List<String> list) {
         mMarqueeText.setList(list);
+    }
+
+    @Override
+    public void onActResult(List<ActBean> list) {
+        mBanner.addBannerLifecycleObserver(this)//添加生命周期观察者
+                .setAdapter(new ImageAdapter(list))
+                .setIndicator(new CircleIndicator(getActivity()))
+                .setOnBannerListener(new OnBannerListener() {
+                    @Override
+                    public void OnBannerClick(Object data, int position) {
+                        ActBean actBean = (ActBean)data;
+                        AgentWebViewActivity.startAgentWebView(requireActivity(), actBean.getActivityName(),actBean.getTargetUrl());
+                    }
+                });
     }
 
 

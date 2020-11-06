@@ -17,6 +17,33 @@ public class ActBean {
     private String activityDesc;
     private String startDate;
     private String endDate;
+    private String imgUrl;
+    private int localImg;
+    private String targetUrl;
+
+    public int getLocalImg() {
+        return localImg;
+    }
+
+    public void setLocalImg(int localImg) {
+        this.localImg = localImg;
+    }
+
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
+    }
+
+    public String getTargetUrl() {
+        return targetUrl;
+    }
+
+    public void setTargetUrl(String targetUrl) {
+        this.targetUrl = targetUrl;
+    }
 
     public String getActivityCode() {
         return activityCode;

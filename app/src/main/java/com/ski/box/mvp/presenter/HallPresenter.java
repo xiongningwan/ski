@@ -6,6 +6,8 @@ import android.text.TextUtils;
 import androidx.fragment.app.FragmentManager;
 
 import com.hwangjr.rxbus.RxBus;
+import com.ski.box.R;
+import com.ski.box.bean.ActBean;
 import com.ski.box.bean.DataCenter;
 import com.ski.box.bean.MemberDetailEntity;
 import com.ski.box.bean.NoticeBean;
@@ -105,7 +107,7 @@ public class HallPresenter extends RxPresenter<HallContract.View> implements Hal
                     noList.add(lotteryBean);
                 }
                 String ticketName = lotteryMap.get(lotteryBean.getTicketId());
-                if(!TextUtils.isEmpty(ticketName)) {
+                if (!TextUtils.isEmpty(ticketName)) {
                     lotteryBean.setTicketName(ticketName);
                 }
 //                //todo 手动隐藏福建快三
@@ -212,6 +214,7 @@ public class HallPresenter extends RxPresenter<HallContract.View> implements Hal
         addDisposable(disposable);
     }
 
+
     @Override
     public void getNoticeList(int pageNum, int pageSize) {
         Disposable disposable = mSysModel.getNoticeList(new Consumer<NoticeData>() {
@@ -219,10 +222,10 @@ public class HallPresenter extends RxPresenter<HallContract.View> implements Hal
             public void accept(NoticeData noticeData) {
                 List<NoticeData.ListBean> listBean = noticeData.getList();
                 List<String> list = new ArrayList<>();
-                for(NoticeData.ListBean bean : listBean) {
+                for (NoticeData.ListBean bean : listBean) {
                     list.add(bean.getNoticeTitle());
                 }
-                if(0 == list.size()) {
+                if (0 == list.size()) {
                     list.add("彩票新彩种，欢迎投注体验，随时充值...");
                 }
                 mView.onNoticeListResult(list);
@@ -252,6 +255,27 @@ public class HallPresenter extends RxPresenter<HallContract.View> implements Hal
             @Override
             public void accept(Throwable throwable) throws Exception {
                 super.accept(throwable);
+            }
+        });
+        addDisposable(disposable);
+    }
+
+    @Override
+    public void getActList() {
+        Disposable disposable = mUserModel.getActList(new Consumer<List<ActBean>>() {
+            @Override
+            public void accept(List<ActBean> list) {
+                for (int i = 0; i < list.size(); i++) {
+                    ActBean actBean = list.get(i);
+                    if(0 == i) {
+                        actBean.setLocalImg(R.mipmap.img_banner_03);
+                        actBean.setTargetUrl("https://www.google.com");
+                    } else if(1 == i) {
+                        actBean.setLocalImg(R.mipmap.img_banner_04);
+                        actBean.setTargetUrl("https://www.google.com");
+                    }
+                }
+                mView.onActResult(list);
             }
         });
         addDisposable(disposable);

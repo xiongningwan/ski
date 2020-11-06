@@ -1,5 +1,6 @@
 package com.ski.box.view.activity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.PixelFormat;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import android.widget.LinearLayout;
 import com.gyf.immersionbar.ImmersionBar;
 import com.just.agentweb.AgentWeb;
 import com.ski.box.R;
+import com.ski.box.view.view.HeaderView;
 import com.yb.core.base.BaseActivity;
 
 
@@ -18,13 +20,27 @@ import com.yb.core.base.BaseActivity;
  * Created by tom on 19-6-9.
  */
 public class AgentWebViewActivity extends BaseActivity {
-    LinearLayout llWeb;
-    View viewStatus;
-    View viewLine;
+    private static final String KEY_TITLE = "key_title";
+    private static final String KEY_URL = "key_url";
+    private LinearLayout llWeb;
+    private HeaderView mHeadView;
+    private View viewLine;
     private AgentWeb mAgentWeb;
     private String mUrl;
     private String mTitle;
 
+    public static void startAgentWebView(Context context, String url) {
+        Intent intent = new Intent(context, AgentWebViewActivity.class);
+        intent.putExtra(KEY_URL, url);
+        context.startActivity(intent);
+    }
+
+    public static void startAgentWebView(Context context, String title, String url) {
+        Intent intent = new Intent(context, AgentWebViewActivity.class);
+        intent.putExtra(KEY_TITLE, title);
+        intent.putExtra(KEY_URL, url);
+        context.startActivity(intent);
+    }
 
     @Override
     protected int getLayoutId() {
@@ -34,15 +50,20 @@ public class AgentWebViewActivity extends BaseActivity {
 
     @Override
     protected void initViews() {
+        mHeadView = findViewById(R.id.head_view);
         llWeb = findViewById(R.id.ll_web);
-        viewStatus = findViewById(R.id.view_status);
         viewLine = findViewById(R.id.view_line);
+        mTitle = getIntent().getStringExtra(KEY_TITLE);
+        if (TextUtils.isEmpty(mTitle)) {
+            mHeadView.setVisibility(View.GONE);
+        } else {
+            mHeadView.setHeader(mTitle, true);
+        }
     }
 
     @Override
     protected void initData(Bundle bundle) {
-//        mUrl = "https://uat-wap.bobcp.vip/?token=d0ae55b28fe3455083604c18edbd67961602925615496";
-        mUrl = "https://h5.tanovale.com/?token=bc7a31426e84443981557ea22c59ffd41602928119541#/home";
+        mUrl = getIntent().getStringExtra(KEY_URL);
         mAgentWeb = AgentWeb.with(this)
                 .setAgentWebParent((LinearLayout) llWeb, new LinearLayout.LayoutParams(-1, -1))
                 .useDefaultIndicator()
