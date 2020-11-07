@@ -107,11 +107,22 @@ public class GroupAddActivity extends BaseMVPActivity<GroupAddContract.Presenter
             return;
         }
 
-        if (!ValidateUtil.validatePwd_new(name)) {
-            String err = "账号必须为6-16位包含英文与数字组合，区分大小写";
+        if(name.length() < 6 || name.length() > 16) {
+            String err = "账号必须为6-16位";
             ToastUtil.showInfo(err);
             return;
         }
+        if(pwd.length() < 6 || pwd.length() > 16) {
+            String err = "密码必须为6-16位";
+            ToastUtil.showInfo(err);
+            return;
+        }
+
+//        if (!ValidateUtil.validatePwd_new(name)) {
+//            String err = "账号必须为6-16位包含英文与数字组合，区分大小写";
+//            ToastUtil.showInfo(err);
+//            return;
+//        }
 //        if (!ValidateUtil.validatePwd_new(pwd)) {
 //            String err = "密码必须为6-16位包含英文与数字组合，区分大小写";
 //            ToastUtil.showInfo(err);

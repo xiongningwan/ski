@@ -85,7 +85,8 @@
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
             android:textSize="12dp"
-            android:textColor="@color/ski_color_tip_red" />
+            android:textColor="@color/ski_color_tip_red"
+            android:visibility="gone"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

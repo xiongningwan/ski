@@ -98,6 +98,16 @@ public class RegisterActivity extends BaseMVPActivity<RegisterContract.Presenter
             ToastUtil.showInfo("请输入密码");
             return;
         }
+        if(member.length() < 6 || member.length() > 16) {
+            String err = "账号必须为6-16位";
+            ToastUtil.showInfo(err);
+            return;
+        }
+        if(password.length() < 6 || password.length() > 16) {
+            String err = "密码必须为6-16位";
+            ToastUtil.showInfo(err);
+            return;
+        }
 //        if (!ValidateUtil.validatePwd_new(member)) {
 //            String err = "账号必须为6-16位包含英文与数字组合，区分大小写";
 //            ToastUtil.showInfo(err);

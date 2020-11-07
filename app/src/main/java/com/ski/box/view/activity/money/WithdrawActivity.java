@@ -6,7 +6,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Spannable;
 import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
+import android.text.style.ForegroundColorSpan;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
@@ -31,6 +33,7 @@ import com.ski.box.mvp.contract.money.RechargeContract;
 import com.ski.box.mvp.contract.money.WithdrawContract;
 import com.ski.box.mvp.presenter.money.RechargePresenter;
 import com.ski.box.mvp.presenter.money.WithdrawPresenter;
+import com.ski.box.utils.ActivityUtil;
 import com.ski.box.view.activity.my.UpdateFundPwdActivity;
 import com.ski.box.view.view.ClearEditText;
 import com.ski.box.view.view.HeaderView;
@@ -53,6 +56,11 @@ public class WithdrawActivity extends BaseMVPActivity<WithdrawContract.Presenter
     private ImageView mIvBalance;
     private TextView mTvBalance;
     private TextView mTvNickName;
+    private TextView mTvNotice1;
+    private TextView mTvNotice2;
+    private TextView mTvNotice3;
+    private TextView mTvNotice5;
+    private TextView mTvNotice6;
     private NiceSpinner mSpType;
     private ClearEditText mEtWithdrawMoney;
     private ClearEditText mEtMoneyPwd;
@@ -92,6 +100,11 @@ public class WithdrawActivity extends BaseMVPActivity<WithdrawContract.Presenter
         mBtnSure = findViewById(R.id.btn_sure);
         mllBalance = findViewById(R.id.ll_balance);
         mIvBalance = findViewById(R.id.iv_refresh_balance);
+        mTvNotice1 = findViewById(R.id.tv_notice_1);
+        mTvNotice2 = findViewById(R.id.tv_notice_2);
+        mTvNotice3 = findViewById(R.id.tv_notice_3);
+        mTvNotice5 = findViewById(R.id.tv_notice_5);
+        mTvNotice6 = findViewById(R.id.tv_notice_6);
         mHeadView.setHeader(getString(R.string.ski_money_withdraw), true);
 
         mBtnSure.setOnClickListener(this);
@@ -112,6 +125,7 @@ public class WithdrawActivity extends BaseMVPActivity<WithdrawContract.Presenter
             startActivity(new Intent(this, UpdateFundPwdActivity.class));
             finish();
         }
+        setRedTip();
     }
 
     @Override
@@ -237,5 +251,19 @@ public class WithdrawActivity extends BaseMVPActivity<WithdrawContract.Presenter
         mSpType.attachDataSource(list);
     }
 
+
+    private void setRedTip() {
+        String tip1 = getString(R.string.ski_money_withdraw_notice1);
+        String tip2 = getString(R.string.ski_money_withdraw_notice2);
+        String tip3 = getString(R.string.ski_money_withdraw_notice3);
+        String tip5 = getString(R.string.ski_money_withdraw_notice5);
+        String tip6 = getString(R.string.ski_money_withdraw_notice6);
+
+        ActivityUtil.setTipKeywordRed(this, mTvNotice1, tip1, "09:30-02:30");
+        ActivityUtil.setTipKeywordRed(this, mTvNotice2, tip2, "1000000", "20");
+        ActivityUtil.setTipKeywordRed(this, mTvNotice3, tip3, "25%", "无法成功提现");
+        ActivityUtil.setTipKeywordRed(this, mTvNotice5, tip5, "4", "12");
+        ActivityUtil.setTipKeywordRed(this, mTvNotice6, tip6, "1分钟");
+    }
 
 }

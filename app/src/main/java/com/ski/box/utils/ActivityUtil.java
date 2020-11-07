@@ -2,8 +2,12 @@ package com.ski.box.utils;
 
 import android.content.Context;
 import android.os.Build;
+import android.text.Spannable;
+import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
+import android.text.style.ForegroundColorSpan;
 import android.view.View;
+import android.widget.TextView;
 
 import com.ski.box.R;
 
@@ -30,6 +34,7 @@ public class ActivityUtil {
         String percent = String.format("%.2f", f) + "%";
         return percent;
     }
+
     //lang=zh/en/vi ;zh 标识简体中文，en标识英文 vi越南语
     public static String getDeviceLanguage(Context context) {
         Locale locale = Locale.getDefault();
@@ -45,10 +50,10 @@ public class ActivityUtil {
     // 头像
     public static int getHeadByProfile(String profile) {
         int iconRes = R.mipmap.icon_hall_user;
-        if(TextUtils.isEmpty(profile)) {
+        if (TextUtils.isEmpty(profile)) {
             return iconRes;
         }
-        switch (profile){
+        switch (profile) {
             case "1":
                 iconRes = R.mipmap.ski_icon_head_1;
                 break;
@@ -111,5 +116,33 @@ public class ActivityUtil {
                 break;
         }
         return iconRes;
+    }
+
+    // 设置关键字红色
+    public static void setTipKeywordRed(Context context, TextView tv, String tip1, String keyword) {
+        if (!TextUtils.isEmpty(tip1) && tip1.contains(keyword)) {
+            int index = tip1.indexOf(keyword);
+            int length = keyword.length();
+
+            SpannableStringBuilder ssb = new SpannableStringBuilder(tip1);
+            ForegroundColorSpan red = new ForegroundColorSpan(context.getResources().getColor(R.color.ski_color_tip_red));
+            ssb.setSpan(red, index, index + length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            tv.setText(ssb);
+        }
+    }
+    public static void setTipKeywordRed(Context context, TextView tv, String tip1, String keyword, String keyword2) {
+        if (!TextUtils.isEmpty(tip1) && tip1.contains(keyword) && tip1.contains(keyword2)) {
+            int index = tip1.indexOf(keyword);
+            int length = keyword.length();
+            int index2 = tip1.indexOf(keyword2);
+            int length2 = keyword2.length();
+
+            SpannableStringBuilder ssb = new SpannableStringBuilder(tip1);
+            ForegroundColorSpan red = new ForegroundColorSpan(context.getResources().getColor(R.color.ski_color_tip_red));
+            ForegroundColorSpan red2 = new ForegroundColorSpan(context.getResources().getColor(R.color.ski_color_tip_red));
+            ssb.setSpan(red, index, index + length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            ssb.setSpan(red2, index2, index2 + length2, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            tv.setText(ssb);
+        }
     }
 }

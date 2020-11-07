@@ -1,11 +1,14 @@
 package com.ski.box.view.fragment;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Spannable;
 import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
+import android.text.style.ForegroundColorSpan;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
@@ -32,6 +35,7 @@ import com.ski.box.mvp.contract.money.RechargeContract;
 import com.ski.box.mvp.presenter.EmptyPresenter;
 import com.ski.box.mvp.presenter.HallPresenter;
 import com.ski.box.mvp.presenter.money.RechargePresenter;
+import com.ski.box.utils.ActivityUtil;
 import com.ski.box.view.activity.money.RechargeDetailActivity;
 import com.ski.box.view.view.ClearEditText;
 import com.ski.box.view.view.HeaderView;
@@ -63,6 +67,8 @@ public class RechargeFragment extends BaseMVPFragment<RechargeContract.Presenter
     private ClearEditText mEtMoney;
     private TextView mTvWen1;
     private TextView mTvWen2;
+    private TextView mTvNotice1;
+    private TextView mTvNotice2;
     private ProgressDialog mLoading;
     private RotateAnimation rotate;
     private int mHasHead;
@@ -108,6 +114,8 @@ public class RechargeFragment extends BaseMVPFragment<RechargeContract.Presenter
         mBtnSure = view.findViewById(R.id.btn_sure);
         mllBalance = view.findViewById(R.id.ll_balance);
         mIvBalance = view.findViewById(R.id.iv_refresh_balance);
+        mTvNotice1 = view.findViewById(R.id.tv_notice_1);
+        mTvNotice2 = view.findViewById(R.id.tv_notice_2);
         mHeadView.setHeader(getString(R.string.ski_tab_lottery_recharge), false);
 
         mBtnSure.setOnClickListener(this);
@@ -131,6 +139,7 @@ public class RechargeFragment extends BaseMVPFragment<RechargeContract.Presenter
         mTvBalance.setText("￥" + user.getBalance());
         mTvNickName.setText(user.getAlias());
         createAnim();
+        setRedTip();
     }
 
     //这个是一个懒加载
@@ -287,6 +296,15 @@ public class RechargeFragment extends BaseMVPFragment<RechargeContract.Presenter
     public void onUserNameUpdate(String s) {
         User user = DataCenter.getInstance().getUser();
         mTvNickName.setText(user.getAlias());
+    }
+
+
+    private void setRedTip() {
+        String tip1 = getString(R.string.ski_money_recharge_notice1);
+        String tip2 = getString(R.string.ski_money_recharge_notice2);
+
+        ActivityUtil.setTipKeywordRed(requireActivity(), mTvNotice1, tip1, "在线客服");
+        ActivityUtil.setTipKeywordRed(requireActivity(), mTvNotice2, tip2, "24小时");
     }
 
 }

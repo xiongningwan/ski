@@ -76,6 +76,12 @@ public class UpdateLoginPwdActivity extends BaseMVPActivity<UpdateLoginPwdContra
             return;
         }
 
+        if(pwdNew.length() < 6 || pwdNew.length() > 16) {
+            String err = "密码必须为6-16位";
+            ToastUtil.showInfo(err);
+            return;
+        }
+
 //        if (!pwdNew.equals(pwdConfirm)) {
 //            ToastUtil.showWarning("新密码两次输入不一致");
 //            return;

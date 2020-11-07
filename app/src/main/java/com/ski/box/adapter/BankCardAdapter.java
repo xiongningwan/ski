@@ -12,6 +12,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.viewholder.BaseViewHolder;
 import com.ski.box.R;
 import com.ski.box.bean.user.BankCard;
+import com.ski.box.utils.ActivityUtil;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -47,27 +48,11 @@ public class BankCardAdapter extends BaseMultiItemQuickAdapter<BankCard, BaseVie
     }
 
     private void setRedTip(Context context, TextView mTvTip2, TextView mTvTip4) {
-        String tip2 = context.getString(R.string.ski_my_bank_card_tip_2);
-        if (!TextUtils.isEmpty(tip2) && tip2.contains("5")) {
-            int index = tip2.indexOf("5");
-            int length = "5".length();
+            String tip1 = context.getString(R.string.ski_my_bank_card_tip_2);
+            String tip2 = context.getString(R.string.ski_my_bank_card_tip_4);
 
-            SpannableStringBuilder ssb = new SpannableStringBuilder(tip2);
-            ForegroundColorSpan red = new ForegroundColorSpan(context.getResources().getColor(R.color.ski_color_tip_red));
-            ssb.setSpan(red, index, index + length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-            mTvTip2.setText(ssb);
-        }
-
-        String tip4 = context.getString(R.string.ski_my_bank_card_tip_4);
-        if (!TextUtils.isEmpty(tip4) && tip4.contains("12")) {
-            int index = tip4.indexOf("12");
-            int length = "12".length();
-
-            SpannableStringBuilder ssb = new SpannableStringBuilder(tip4);
-            ForegroundColorSpan red = new ForegroundColorSpan(context.getResources().getColor(R.color.ski_color_tip_red));
-            ssb.setSpan(red, index, index + length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-            mTvTip4.setText(ssb);
-        }
+            ActivityUtil.setTipKeywordRed(context, mTvTip2, tip1, "5");
+            ActivityUtil.setTipKeywordRed(context, mTvTip4, tip2, "12");
     }
 
 }

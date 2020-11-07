@@ -109,11 +109,16 @@ public class UpdateFundPwdActivity extends BaseMVPActivity<UpdateFundPwdContract
             ToastUtil.showWarning("新密码两次输入不一致");
             return;
         }
-        if (!ValidateUtil.validatePwd_new(pwdNew)) {
-            String err = "密码必须为6-16位包含英文与数字组合，区分大小写";
+        if(pwdNew.length() < 6 || pwdNew.length() > 16) {
+            String err = "密码必须为6-16位";
             ToastUtil.showInfo(err);
             return;
         }
+//        if (!ValidateUtil.validatePwd_new(pwdNew)) {
+//            String err = "密码必须为6-16位包含英文与数字组合，区分大小写";
+//            ToastUtil.showInfo(err);
+//            return;
+//        }
         if(0 == mUser.getHavefundPwd()) {
         } else {
             pwdOld = MD5Util.md5Password(pwdOld);
