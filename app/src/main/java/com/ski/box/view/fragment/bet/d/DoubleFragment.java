@@ -214,6 +214,11 @@ public class DoubleFragment extends BaseMVPFragment<PlayContract.Presenter> impl
         mViewBottom.setBalance(balanceStr);
     }
 
+    @Subscribe(tags = {@Tag(EVENT_TYPE_BALANCE_UPDATE)})
+    public void onBetSuccess(String s) {
+        mPresenter.getBalance();
+    }
+
 //    @Subscribe(tags = {@Tag(EVENT_TYPE_BALANCE_SET)})
 //    public void setBalance(MemberDetailEntity bean) {
 //        mViewBottom.setBalance(bean);

@@ -67,6 +67,7 @@ import okhttp3.Headers;
 
 import static com.ski.box.ConstantValue.EVENT_CLEAN_XUAN_HAO_PAN;
 import static com.ski.box.ConstantValue.EVENT_GET_UNSETTLE_LIST;
+import static com.ski.box.ConstantValue.EVENT_TYPE_BET_SUCCESS;
 import static com.ski.box.ConstantValue.EVENT_UPDATE_RECENT_NO;
 import static com.ski.box.bean.lottery.LotteryConstant.LOTTERY_PLAY_MODE_DOUBLE;
 
@@ -371,6 +372,7 @@ public class BetPresenter extends RxPresenter<BetContract.View> implements BetCo
                 showSuccessLoading();
                 closeDialog(entity);
                 RxBus.get().post(EVENT_GET_UNSETTLE_LIST, "EVENT_NEW_OPEN_RESULT_UPDATE");
+                RxBus.get().post(EVENT_TYPE_BET_SUCCESS, "EVENT_TYPE_BET_SUCCESS");
 //                RxBus.get().post(EVENT_TYPE_BALANCE_UPDATE, "EVENT_TYPE_BALANCE_UPDATE");
                 // 清理选号和数据中心选中数据
                 clearBetNUMAndBetEntity();
