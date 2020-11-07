@@ -36,6 +36,7 @@ import java.util.List;
 import static com.ski.box.ConstantValue.EVENT_CLEAN_XUAN_HAO_PAN;
 import static com.ski.box.ConstantValue.EVENT_TYPE_BALANCE_UPDATE;
 import static com.ski.box.ConstantValue.EVENT_TYPE_BET_NO_CHECK_UPDATE;
+import static com.ski.box.ConstantValue.EVENT_TYPE_BET_SUCCESS;
 import static com.ski.box.bean.lottery.LotteryConstant.LOTTERY_PLAY_MODE_DOUBLE;
 
 
@@ -214,7 +215,7 @@ public class DoubleFragment extends BaseMVPFragment<PlayContract.Presenter> impl
         mViewBottom.setBalance(balanceStr);
     }
 
-    @Subscribe(tags = {@Tag(EVENT_TYPE_BALANCE_UPDATE)})
+    @Subscribe(tags = {@Tag(EVENT_TYPE_BET_SUCCESS)})
     public void onBetSuccess(String s) {
         mPresenter.getBalance();
     }
