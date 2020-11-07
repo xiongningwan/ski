@@ -71,7 +71,7 @@ public class RegisterActivity extends BaseMVPActivity<RegisterContract.Presenter
 
     @Override
     protected void initData(Bundle bundle) {
-        setEtListener();
+//        setEtListener();
     }
 
 
@@ -98,16 +98,16 @@ public class RegisterActivity extends BaseMVPActivity<RegisterContract.Presenter
             ToastUtil.showInfo("请输入密码");
             return;
         }
-        if (!ValidateUtil.validatePwd_new(member)) {
-            String err = "账号必须为6-16位包含英文与数字组合，区分大小写";
-            ToastUtil.showInfo(err);
-            return;
-        }
-        if (!ValidateUtil.validatePwd_new(password)) {
-            String err = "密码必须为6-16位包含英文与数字组合，区分大小写";
-            ToastUtil.showInfo(err);
-            return;
-        }
+//        if (!ValidateUtil.validatePwd_new(member)) {
+//            String err = "账号必须为6-16位包含英文与数字组合，区分大小写";
+//            ToastUtil.showInfo(err);
+//            return;
+//        }
+//        if (!ValidateUtil.validatePwd_new(password)) {
+//            String err = "密码必须为6-16位包含英文与数字组合，区分大小写";
+//            ToastUtil.showInfo(err);
+//            return;
+//        }
         mLoading.show();
         // md5
         password = MD5Util.md5Password(password);

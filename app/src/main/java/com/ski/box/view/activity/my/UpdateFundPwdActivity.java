@@ -78,7 +78,7 @@ public class UpdateFundPwdActivity extends BaseMVPActivity<UpdateFundPwdContract
 //        mEtConfirm.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_VARIATION_PASSWORD);
 //        mEtConfirm.setFilters(new InputFilter[]{new InputFilter.LengthFilter(6)});
 
-        setEtListener();
+//        setEtListener();
     }
 
     @Override

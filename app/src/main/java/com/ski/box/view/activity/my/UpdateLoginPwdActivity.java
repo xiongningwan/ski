@@ -56,7 +56,7 @@ public class UpdateLoginPwdActivity extends BaseMVPActivity<UpdateLoginPwdContra
 
     @Override
     protected void initData(Bundle bundle) {
-        setEtListener();
+//        setEtListener();
     }
 
     @Override
@@ -76,16 +76,16 @@ public class UpdateLoginPwdActivity extends BaseMVPActivity<UpdateLoginPwdContra
             return;
         }
 
-        if (!pwdNew.equals(pwdConfirm)) {
-            ToastUtil.showWarning("新密码两次输入不一致");
-            return;
-        }
-
-        if (!ValidateUtil.validatePwd_new(pwdNew)) {
-            String err = "密码必须为6-16位包含英文与数字组合，区分大小写";
-            ToastUtil.showInfo(err);
-            return;
-        }
+//        if (!pwdNew.equals(pwdConfirm)) {
+//            ToastUtil.showWarning("新密码两次输入不一致");
+//            return;
+//        }
+//
+//        if (!ValidateUtil.validatePwd_new(pwdNew)) {
+//            String err = "密码必须为6-16位包含英文与数字组合，区分大小写";
+//            ToastUtil.showInfo(err);
+//            return;
+//        }
         pwdOld = MD5Util.md5Password(pwdOld);
         pwdNew = MD5Util.md5Password(pwdNew);
         mPresenter.updateLoginPwd(pwdOld,pwdNew);
