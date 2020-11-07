@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.ski.box.R;
+import com.ski.box.bean.DataCenter;
 
 import java.util.Locale;
 
@@ -35,17 +36,7 @@ public class ActivityUtil {
         return percent;
     }
 
-    //lang=zh/en/vi ;zh 标识简体中文，en标识英文 vi越南语
-    public static String getDeviceLanguage(Context context) {
-        Locale locale = Locale.getDefault();
-        //>=24 is Android 7.0 or high
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            locale = context.getResources().getConfiguration().getLocales().get(0);
-        }
-//        String language = locale.getLanguage() + "-" + locale.getCountry();
-        String language = locale.getLanguage();
-        return language;
-    }
+
 
     // 头像
     public static int getHeadByProfile(String profile) {
@@ -145,4 +136,5 @@ public class ActivityUtil {
             tv.setText(ssb);
         }
     }
+
 }

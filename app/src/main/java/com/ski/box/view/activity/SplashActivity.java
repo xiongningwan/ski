@@ -14,6 +14,7 @@ import com.ski.box.mvp.contract.EmptyContract;
 import com.ski.box.mvp.presenter.EmptyPresenter;
 import com.ski.box.utils.ActivityUtil;
 import com.ski.box.utils.HeaderUtil;
+import com.ski.box.utils.LanguageUtil;
 import com.yb.core.base.BaseMVPActivity;
 import com.yb.core.net.RetrofitHelper;
 import com.yb.core.utils.SPUtils;
@@ -46,6 +47,7 @@ public class SplashActivity extends BaseMVPActivity<EmptyContract.Presenter> imp
 
     @Override
     protected void initData(Bundle bundle) {
+        LanguageUtil.initLanguage(this);
         boolean isInstall = SPUtils.getBoolean(this, KEY_IS_INSTALL, false);
         if(!isInstall) {
             SPUtils.putBoolean(this, KEY_IS_INSTALL, true);
@@ -57,7 +59,7 @@ public class SplashActivity extends BaseMVPActivity<EmptyContract.Presenter> imp
                 String authorization = SPUtils.getString(this, LoginActivity.KEY_AUTHORIZATION);
 
                 RetrofitHelper.getInstance().init(ConstantValue.BASE_HOST, BuildConfig.DEBUG,
-                        HeaderUtil.getHeader(token, authorization, ConstantValue.DEVICE, ActivityUtil.getDeviceLanguage(this)));
+                        HeaderUtil.getHeader(token, authorization, ConstantValue.DEVICE, LanguageUtil.getLanguage()));
                 startActivity(new Intent(this, MainActivity.class));
                 finish();
             } else {

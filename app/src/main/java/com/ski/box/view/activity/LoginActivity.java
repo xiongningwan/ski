@@ -22,6 +22,7 @@ import com.ski.box.mvp.contract.LoginContract;
 import com.ski.box.mvp.presenter.LoginPresenter;
 import com.ski.box.utils.ActivityUtil;
 import com.ski.box.utils.HeaderUtil;
+import com.ski.box.utils.LanguageUtil;
 import com.ski.box.utils.SoftHideKeyBoardUtil;
 import com.yb.core.base.BaseMVPActivity;
 import com.yb.core.net.RetrofitHelper;
@@ -82,7 +83,7 @@ public class LoginActivity extends BaseMVPActivity<LoginContract.Presenter> impl
     @Override
     protected void initData(Bundle bundle) {
         RetrofitHelper.getInstance().init(ConstantValue.BASE_HOST, BuildConfig.DEBUG,
-                HeaderUtil.getHeader("","", ConstantValue.DEVICE, ActivityUtil.getDeviceLanguage(this)));
+                HeaderUtil.getHeader("","", ConstantValue.DEVICE, LanguageUtil.getLanguage()));
         initSetFromSp();
     }
 
@@ -126,7 +127,7 @@ public class LoginActivity extends BaseMVPActivity<LoginContract.Presenter> impl
         saveSetSp_name_pwd(member, password);
         saveSetSp_token_authorization(loginInfo.getToken(), loginInfo.getAuthorization());
         RetrofitHelper.getInstance().init(ConstantValue.BASE_HOST, BuildConfig.DEBUG,
-                HeaderUtil.getHeader( loginInfo.getToken(), loginInfo.getAuthorization(),ConstantValue.DEVICE, ActivityUtil.getDeviceLanguage(this)));
+                HeaderUtil.getHeader( loginInfo.getToken(), loginInfo.getAuthorization(),ConstantValue.DEVICE, LanguageUtil.getLanguage()));
         SKISdkManger.initLotteryIds(BuildConfig.DEBUG);
         DataCenter.getInstance().getLottery().clear();
         DataCenter.getInstance().getRemotePlayMap().clear();
