@@ -63,7 +63,7 @@ public class LanguageUtil {
     public static String getText(String s_zh) {
         String str = mLMap.get(s_zh);
         if (TextUtils.isEmpty(str)) {
-            str = "";
+            str = s_zh;
         }
         return str;
     }

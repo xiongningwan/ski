@@ -25,6 +25,7 @@ import com.ski.box.bean.user.User;
 import com.ski.box.mvp.contract.PersonalContract;
 import com.ski.box.mvp.presenter.PersonalPresenter;
 import com.ski.box.utils.ActivityUtil;
+import com.ski.box.utils.LanguageUtil;
 import com.ski.box.view.activity.ContainerActivity;
 import com.ski.box.view.activity.LoginActivity;
 import com.ski.box.view.activity.money.WithdrawActivity;
@@ -217,10 +218,10 @@ public class PersonalFragment extends BaseMVPFragment<PersonalContract.Presenter
 
     private List<PTabBean> getTabData() {
         List<PTabBean> list = new ArrayList<>();
-        list.add(new PTabBean(1,R.mipmap.icon_personal_tab_my_acc, "我的账户"));
-        list.add(new PTabBean(2,R.mipmap.icon_personal_tab_baobiao, "报表中心"));
-        list.add(new PTabBean(3,R.mipmap.icon_personal_tab_tuandui, "团队中心"));
-        list.add(new PTabBean(4,R.mipmap.icon_personal_tab_setting, "系统中心"));
+        list.add(new PTabBean(1,R.mipmap.icon_personal_tab_my_acc, LanguageUtil.getText("我的账户")));
+        list.add(new PTabBean(2,R.mipmap.icon_personal_tab_baobiao, LanguageUtil.getText("报表中心")));
+        list.add(new PTabBean(3,R.mipmap.icon_personal_tab_tuandui, LanguageUtil.getText("团队中心")));
+        list.add(new PTabBean(4,R.mipmap.icon_personal_tab_setting, LanguageUtil.getText("系统中心")));
         return list;
     }
 
@@ -233,7 +234,7 @@ public class PersonalFragment extends BaseMVPFragment<PersonalContract.Presenter
     @Subscribe(tags = {@Tag(EVENT_TYPE_USER_NAME_NICK_NAME)})
     public void onUserNameUpdate(String s) {
         User user = DataCenter.getInstance().getUser();
-        mTvUserAcc.setText("登录账号: " + user.getAccount());
+        mTvUserAcc.setText(LanguageUtil.getText("登录账号: ") + user.getAccount());
         mTvUserName.setText(user.getAlias());
         mIvUserHead.setImageResource(ActivityUtil.getHeadByProfile(user.getProfile()));
     }

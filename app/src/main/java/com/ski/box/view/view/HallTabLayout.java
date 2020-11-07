@@ -7,10 +7,12 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import androidx.viewpager.widget.ViewPager;
 
 import com.ski.box.R;
+import com.ski.box.utils.LanguageUtil;
 
 
 public class HallTabLayout extends RelativeLayout implements View.OnClickListener {
@@ -60,6 +62,15 @@ public class HallTabLayout extends RelativeLayout implements View.OnClickListene
         mLLRecord.setOnClickListener(this);
         mLLRecharge.setOnClickListener(this);
         mLLPersonal.setOnClickListener(this);
+
+        TextView tv1 = findViewById(R.id.tv_1);
+        TextView tv2 = findViewById(R.id.tv_2);
+        TextView tv3 = findViewById(R.id.tv_3);
+        TextView tv4 = findViewById(R.id.tv_4);
+        tv1.setText(LanguageUtil.getText("首页大厅"));
+        tv2.setText(LanguageUtil.getText("活动优惠"));
+        tv3.setText(LanguageUtil.getText("充值中心"));
+        tv4.setText(LanguageUtil.getText("个人中心"));
     }
 
     public void bindViewPager(ViewPager viewPager){
