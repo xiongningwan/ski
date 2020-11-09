@@ -1,6 +1,7 @@
 package com.ski.box.mvp.remote;
 
 
+import com.ski.box.bean.WithdrawRange;
 import com.ski.box.bean.money.DepositBack;
 import com.ski.box.bean.money.MoneyProgressData;
 import com.ski.box.bean.money.PayType;
@@ -38,10 +39,19 @@ public class MoneyModel extends BaseModel implements IMoneyModel {
     }
 
     @Override
-    public Disposable withdraw(Consumer s, CusConsumer e, String memberCardNo, String amt, String fundPassword) {
+    public Disposable getWithdrawRange(Consumer s, CusConsumer e) {
+        Single<WithdrawRange> single = RetrofitHelper
+                .getService(IMoneyService.class)
+                .getWithdrawRange()
+                .map(new HttpResultFunc<>());
+        return toSubscribe(single, s, e);
+    }
+
+    @Override
+    public Disposable withdraw(Consumer s, CusConsumer e, long cardId, String amt, String fundPassword) {
         Single<Object> single = RetrofitHelper
                 .getService(IMoneyService.class)
-                .withdraw(memberCardNo, amt, fundPassword)
+                .withdraw(cardId, amt, fundPassword)
                 .map(new HttpResultFunc<>());
         return toSubscribe(single, s, e);
     }

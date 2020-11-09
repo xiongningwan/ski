@@ -22,6 +22,7 @@ import com.gyf.immersionbar.ImmersionBar;
 import com.hwangjr.rxbus.RxBus;
 import com.ski.box.R;
 import com.ski.box.bean.DataCenter;
+import com.ski.box.bean.WithdrawRange;
 import com.ski.box.bean.money.DepositBack;
 import com.ski.box.bean.money.PayType;
 import com.ski.box.bean.user.Bank;
@@ -67,6 +68,7 @@ public class WithdrawActivity extends BaseMVPActivity<WithdrawContract.Presenter
     private TextView mTvWen1;
     private TextView mTvWen2;
     private ProgressDialog mLoading;
+    private WithdrawRange mWithdrawRange;
     RotateAnimation rotate;
 
     @Override
@@ -132,6 +134,7 @@ public class WithdrawActivity extends BaseMVPActivity<WithdrawContract.Presenter
     protected void processLogic() {
         super.processLogic();
         mPresenter.getBankCardList();
+        mPresenter.getWithdrawRange();
     }
 
     @Override
@@ -188,10 +191,21 @@ public class WithdrawActivity extends BaseMVPActivity<WithdrawContract.Presenter
             ToastUtil.showError("获取收款银行卡失败");
             return;
         }
+
+        if (mWithdrawRange == null) {
+            ToastUtil.showError("获取提现范围失败");
+            return;
+        }
+        double inputMoney_D = Double.parseDouble(inputMoney);
+
+        if (inputMoney_D > mWithdrawRange.getMaxAmt().doubleValue() || inputMoney_D < mWithdrawRange.getMinAmt().doubleValue()) {
+            ToastUtil.showError("输入的提现金额为" + mWithdrawRange.getMinAmt().toPlainString() + "~" + mWithdrawRange.getMaxAmt().toPlainString());
+            return;
+        }
         mBtnSure.setEnabled(false);
         mLoading.show();
         pwd = MD5Util.md5Password(pwd);
-        mPresenter.withdraw(bankCard.getCardNo(), inputMoney, pwd);
+        mPresenter.withdraw(bankCard.getCardId(), inputMoney, pwd);
     }
 
     @Override
@@ -206,6 +220,12 @@ public class WithdrawActivity extends BaseMVPActivity<WithdrawContract.Presenter
     public void onUserInfoFailResult(String s) {
         mllBalance.setEnabled(true);
         mIvBalance.clearAnimation();
+    }
+
+    @Override
+    public void onRangeResult(WithdrawRange withdrawRange) {
+        mWithdrawRange = withdrawRange;
+        mEtWithdrawMoney.setHint("" + mWithdrawRange.getMinAmt().toPlainString() + "~" + mWithdrawRange.getMaxAmt().toPlainString());
     }
 
     @Override

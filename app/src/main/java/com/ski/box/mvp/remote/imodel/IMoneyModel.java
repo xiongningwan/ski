@@ -15,7 +15,9 @@ public interface IMoneyModel {
 
     Disposable deposit(Consumer s, CusConsumer e, int channelCode, String amt);
 
-    Disposable withdraw(Consumer s, CusConsumer e, String memberCardNo, String amt, String fundPassword);
+    Disposable getWithdrawRange(Consumer s, CusConsumer e);
+
+    Disposable withdraw(Consumer s, CusConsumer e, long cardId, String amt, String fundPassword);
 
     Disposable dwOrderList(Consumer s, CusConsumer e,
                            String startDate,

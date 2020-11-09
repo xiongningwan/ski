@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.hwangjr.rxbus.RxBus;
 import com.ski.box.bean.DataCenter;
+import com.ski.box.bean.WithdrawRange;
 import com.ski.box.bean.money.DepositBack;
 import com.ski.box.bean.money.PayType;
 import com.ski.box.bean.user.BankCard;
@@ -56,6 +57,23 @@ public class WithdrawPresenter extends RxPresenter<WithdrawContract.View> implem
     }
 
     @Override
+    public void getWithdrawRange() {
+        Disposable disposable = mMoneyModel.getWithdrawRange(new Consumer<WithdrawRange>() {
+            @Override
+            public void accept(WithdrawRange bean) throws Exception {
+                mView.onRangeResult(bean);
+            }
+        }, new CusConsumer(false, false) {
+            @Override
+            public void accept(Throwable throwable) throws Exception {
+                super.accept(throwable);
+                mView.onUserInfoFailResult(throwable.getMessage());
+            }
+        });
+        addDisposable(disposable);
+    }
+
+    @Override
     public void getBankCardList() {
         Disposable disposable = mUserModel.getBankCardList(new Consumer<List<BankCard>>() {
             @Override
@@ -73,7 +91,7 @@ public class WithdrawPresenter extends RxPresenter<WithdrawContract.View> implem
     }
 
     @Override
-    public void withdraw(String memberCardNo, String amt, String fundPassword) {
+    public void withdraw(long cardId, String amt, String fundPassword) {
         Disposable disposable = mMoneyModel.withdraw(new Consumer<Object>() {
             @Override
             public void accept(Object o) throws Exception {
@@ -85,7 +103,7 @@ public class WithdrawPresenter extends RxPresenter<WithdrawContract.View> implem
                 super.accept(throwable);
                 mView.onFailResult(throwable.getMessage());
             }
-        }, memberCardNo, amt, fundPassword);
+        }, cardId, amt, fundPassword);
         addDisposable(disposable);
     }
 }

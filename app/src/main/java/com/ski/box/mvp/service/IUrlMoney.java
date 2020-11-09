@@ -10,6 +10,8 @@ public interface IUrlMoney {
     String PAY_DEPOSIT = "promen/wallet/deposit";
     // 提现
     String PAY_WITHDRAW = "promen/wallet/withdraw";
+    // 提现范围
+    String PAY_WITHDRAW_RANGE = "promen/wallet/withdraw/range";
     // 资金进度
     String PAY_DW_ORDER_LIST = "promen/wallet/dwOrderList";
 }

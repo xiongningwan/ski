@@ -21,6 +21,16 @@ public class BankCard implements MultiItemEntity {
     private String cardName;
     private String currency;
     private Object createAt;
+    private long cardId;
+
+    public long getCardId() {
+        return cardId;
+    }
+
+    public void setCardId(long cardId) {
+        this.cardId = cardId;
+    }
+
     private int itemType;
 
     public void setItemType(int itemType) {
