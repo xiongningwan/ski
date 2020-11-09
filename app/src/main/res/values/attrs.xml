@@ -72,6 +72,14 @@
         <attr name="ski_el_parallax" format="float" />
         <attr name="android:orientation" />
     </declare-styleable>
+
+    <declare-styleable name="ski_CsuTextView">
+        <attr name="android:text" />
+    </declare-styleable>
+
+    <declare-styleable name="ski_CsuEditText">
+        <attr name="android:hint" />
+    </declare-styleable>
 </resources>
 
 

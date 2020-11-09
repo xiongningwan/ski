@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merge xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -32,7 +32,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/View_c_mid_line" />
 
-    <TextView
+    <com.ski.box.view.view.CusTextView
         android:id="@+id/tv_nick_name_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -43,7 +43,7 @@
         android:textColor="@color/ski_color_555555"
         android:textSize="12dp"/>
 
-    <TextView
+    <com.ski.box.view.view.CusTextView
         android:id="@+id/tv_user_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -58,8 +58,8 @@
         app:layout_constraintTop_toTopOf="@+id/tv_nick_name_label"
         tools:text="今晚打老虎" />
 
-    <TextView
-        android:id="@+id/tv_nick_name_value"
+    <com.ski.box.view.view.CusTextView
+        android:id="@+id/tv_label_amount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="余额:"
@@ -68,14 +68,14 @@
         app:layout_constraintBottom_toBottomOf="@+id/iv_user"
         app:layout_constraintStart_toStartOf="@+id/tv_nick_name_label" />
 
-    <TextView
+    <com.ski.box.view.view.CusTextView
         android:id="@+id/tv_amount_value"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/ski_color_E4393C"
         android:textSize="12dp"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_nick_name_value"
-        app:layout_constraintStart_toStartOf="@+id/tv_user_name"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_label_amount"
+        app:layout_constraintStart_toEndOf="@+id/tv_label_amount"
         tools:text="￥9999.99" />
 
 
@@ -85,8 +85,8 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginEnd="16dp"
-        app:layout_constraintEnd_toStartOf="@+id/ll_activity"
-        app:layout_constraintTop_toTopOf="@+id/tv_nick_name_value">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_label_amount">
 
         <ImageView
             android:id="@+id/iv_recharge"
@@ -95,7 +95,7 @@
             android:layout_marginEnd="8dp"
             android:src="@mipmap/icon_hall_c_recharge" />
 
-        <TextView
+        <com.ski.box.view.view.CusTextView
             android:id="@+id/tv_recharge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -112,7 +112,8 @@
         android:orientation="horizontal"
         android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toStartOf="@+id/ll_activity"
-        app:layout_constraintTop_toTopOf="@+id/tv_nick_name_label">
+        app:layout_constraintTop_toTopOf="@+id/tv_nick_name_label"
+        android:visibility="gone">
         <ImageView
             android:id="@+id/iv_record"
             android:layout_width="18dp"
@@ -120,7 +121,7 @@
             android:layout_marginEnd="8dp"
             android:src="@mipmap/icon_hall_c_record" />
 
-        <TextView
+        <com.ski.box.view.view.CusTextView
             android:id="@+id/tv_record"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -134,7 +135,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="@+id/ll_withdraw"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tv_nick_name_label">
 
         <ImageView
@@ -144,7 +146,7 @@
             android:layout_marginEnd="8dp"
             android:src="@mipmap/icon_hall_c_activity" />
 
-        <TextView
+        <com.ski.box.view.view.CusTextView
             android:id="@+id/tv_activity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -162,7 +164,8 @@
         android:orientation="horizontal"
         android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tv_nick_name_value">
+        app:layout_constraintTop_toTopOf="@+id/tv_label_amount"
+        android:visibility="gone">
 
         <ImageView
             android:id="@+id/iv_draww"
@@ -171,7 +174,7 @@
             android:layout_marginEnd="8dp"
             android:src="@mipmap/icon_hall_c_draww" />
 
-        <TextView
+        <com.ski.box.view.view.CusTextView
             android:id="@+id/tv_draww"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -182,7 +185,7 @@
     </LinearLayout>
 
 
-<!--    <TextView-->
+<!--    <com.ski.box.view.view.CusTextView-->
 <!--        android:id="@+id/tv_broadcast"-->
 <!--        android:layout_width="wrap_content"-->
 <!--        android:layout_height="30dp"-->
@@ -218,4 +221,4 @@
         app:layout_constraintBottom_toTopOf="@+id/marqueeText"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginBottom="5dp"/>
-</merge>
+</androidx.constraintlayout.widget.ConstraintLayout>

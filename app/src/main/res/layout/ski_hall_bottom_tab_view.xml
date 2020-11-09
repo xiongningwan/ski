@@ -33,7 +33,7 @@
                     android:src="@drawable/ski_tab_hall_icon_selector" />
 
 
-                <TextView
+                <com.ski.box.view.view.CusTextView
                     android:id="@+id/tv_1"
                     style="@style/tab_bottom_text_style"
                     android:text="@string/ski_tab_lottery_hall" />
@@ -49,7 +49,7 @@
                     style="@style/tab_bottom_icon_style"
                     android:src="@drawable/ski_tab_record_icon_selector" />
 
-                <TextView
+                <com.ski.box.view.view.CusTextView
                     android:id="@+id/tv_2"
                     style="@style/tab_bottom_text_style"
                     android:text="@string/ski_tab_lottery_record" />
@@ -65,7 +65,7 @@
                     style="@style/tab_bottom_icon_style"
                     android:src="@drawable/ski_tab_recharge_icon_selector" />
 
-                <TextView
+                <com.ski.box.view.view.CusTextView
                     android:id="@+id/tv_3"
                     style="@style/tab_bottom_text_style"
                     android:text="@string/ski_tab_lottery_recharge" />
@@ -81,7 +81,7 @@
                     style="@style/tab_bottom_icon_style"
                     android:src="@drawable/ski_tab_personal_icon_selector" />
 
-                <TextView
+                <com.ski.box.view.view.CusTextView
                     android:id="@+id/tv_4"
                     style="@style/tab_bottom_text_style"
                     android:text="@string/ski_tab_lottery_personal" />

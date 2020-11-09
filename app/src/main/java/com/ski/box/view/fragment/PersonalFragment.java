@@ -234,7 +234,7 @@ public class PersonalFragment extends BaseMVPFragment<PersonalContract.Presenter
     @Subscribe(tags = {@Tag(EVENT_TYPE_USER_NAME_NICK_NAME)})
     public void onUserNameUpdate(String s) {
         User user = DataCenter.getInstance().getUser();
-        mTvUserAcc.setText(LanguageUtil.getText("登录账号: ") + user.getAccount());
+        mTvUserAcc.setText(LanguageUtil.getText("登录账号:") + user.getAccount());
         mTvUserName.setText(user.getAlias());
         mIvUserHead.setImageResource(ActivityUtil.getHeadByProfile(user.getProfile()));
     }

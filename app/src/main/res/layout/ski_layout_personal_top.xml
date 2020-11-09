@@ -35,7 +35,7 @@
        app:layout_constraintTop_toBottomOf="@+id/view_s"
        android:layout_marginTop="32dp"/>
 
-   <TextView
+   <com.ski.box.view.view.CusTextView
        android:id="@+id/tv_user_name"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
@@ -47,7 +47,7 @@
        tools:text="今晚打老虎"
        android:layout_marginTop="5dp"/>
 
-   <TextView
+   <com.ski.box.view.view.CusTextView
        android:id="@+id/tv_user_acc"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
@@ -97,7 +97,7 @@
           android:layout_marginStart="32dp"
           android:layout_marginTop="16dp"/>
 
-      <TextView
+      <com.ski.box.view.view.CusTextView
           android:id="@+id/iv_level_label"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
@@ -108,7 +108,7 @@
           android:textColor="@color/ski_white"
           android:layout_marginStart="5dp"/>
 
-      <TextView
+      <com.ski.box.view.view.CusTextView
           android:id="@+id/iv_level_value"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
@@ -132,7 +132,7 @@
           android:layout_marginStart="32dp"
           android:layout_marginTop="16dp"/>
 
-      <TextView
+      <com.ski.box.view.view.CusTextView
           android:id="@+id/iv_group_label"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
@@ -143,7 +143,7 @@
           android:textColor="@color/ski_white"
           android:layout_marginStart="5dp"/>
 
-      <TextView
+      <com.ski.box.view.view.CusTextView
           android:id="@+id/iv_group_value"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
@@ -158,7 +158,7 @@
 
 
 
-      <TextView
+      <com.ski.box.view.view.CusTextView
           android:id="@+id/iv_balance_label"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
@@ -167,7 +167,7 @@
           app:layout_constraintTop_toTopOf="@+id/iv_level"
           android:textColor="@color/ski_white" />
 
-      <TextView
+      <com.ski.box.view.view.CusTextView
           android:id="@+id/tv_balance_value"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
@@ -179,7 +179,7 @@
           android:layout_marginStart="5dp"/>
 
 
-      <Button
+      <com.ski.box.view.view.CusButton
           android:id="@+id/btn_recharge"
           android:layout_width="60dp"
           android:layout_height="30dp"
@@ -194,7 +194,7 @@
           android:layout_marginTop="10dp"
           android:background="@mipmap/ski_icon_personal_recharge_bg"/>
 
-      <Button
+       <com.ski.box.view.view.CusButton
           android:id="@+id/btn_withdraw"
           android:layout_width="60dp"
           android:layout_height="30dp"

@@ -3,6 +3,7 @@ package com.ski.box.view.fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -32,6 +33,7 @@ import com.ski.box.mvp.contract.HallContract;
 import com.ski.box.mvp.presenter.HallPresenter;
 import com.ski.box.service.MQTTHelper;
 import com.ski.box.utils.ActivityUtil;
+import com.ski.box.utils.LanguageUtil;
 import com.ski.box.view.activity.AgentWebViewActivity;
 import com.ski.box.view.activity.BetActivity;
 import com.ski.box.view.activity.ContainerActivity;
@@ -40,6 +42,7 @@ import com.ski.box.view.activity.money.WithdrawActivity;
 import com.ski.box.view.activity.my.NoticeActivity;
 import com.ski.box.view.fragment.record.RecordBetFragment;
 import com.ski.box.view.view.AutoScrollTextView;
+import com.ski.box.view.view.CusTextView;
 import com.ski.box.view.view.HallTabLayout;
 import com.yb.core.base.BaseMVPFragment;
 import com.yb.core.utils.AppUtil;
@@ -61,6 +64,7 @@ public class HallFragment extends BaseMVPFragment<HallContract.Presenter> implem
     private Banner mBanner;
     private CircleImageView mIvUserHead;
     private TextView mTvUserName;
+    private ImageView mIvService;
     private TextView mTvAmount;
     private AutoScrollTextView mMarqueeText;
     private RecyclerView mRvLotteryGuid;
@@ -99,6 +103,7 @@ public class HallFragment extends BaseMVPFragment<HallContract.Presenter> implem
         ImmersionBar.with(this).statusBarColor(R.color.ski_color_FAFAFA).statusBarDarkFont(true).init();
         RxBus.get().register(this);
         mBanner = view.findViewById(R.id.banner);
+        mIvService = view.findViewById(R.id.iv_service);
         mIvUserHead = view.findViewById(R.id.iv_user);
         mTvUserName = view.findViewById(R.id.tv_user_name);
         mTvAmount = view.findViewById(R.id.tv_amount_value);
@@ -107,15 +112,17 @@ public class HallFragment extends BaseMVPFragment<HallContract.Presenter> implem
         mRvLotteryList = view.findViewById(R.id.rv_lottery_list);
 
         LinearLayout llRecord = view.findViewById(R.id.ll_record);
-        LinearLayout  llAct = view.findViewById(R.id.ll_activity);
+        LinearLayout llAct = view.findViewById(R.id.ll_activity);
         LinearLayout llRecharge = view.findViewById(R.id.ll_recharge);
-        LinearLayout  llWithdraw = view.findViewById(R.id.ll_withdraw);
+        LinearLayout llWithdraw = view.findViewById(R.id.ll_withdraw);
 
         mMarqueeText.setOnClickListener(this);
         llRecord.setOnClickListener(this);
         llAct.setOnClickListener(this);
         llRecharge.setOnClickListener(this);
         llWithdraw.setOnClickListener(this);
+        mIvService.setOnClickListener(this);
+
     }
 
     @Override
@@ -161,7 +168,7 @@ public class HallFragment extends BaseMVPFragment<HallContract.Presenter> implem
 //            mPresenter.getSelfProfile();
 //        }
         mPresenter.getSelfProfile();
-        mPresenter.getNoticeList(1,10);
+        mPresenter.getNoticeList(1, 10);
         mPresenter.getActList();
         //   mPresenter.getBalance();
     }
@@ -169,26 +176,21 @@ public class HallFragment extends BaseMVPFragment<HallContract.Presenter> implem
     @Override
     public void onClick(View view) {
         int id = view.getId();
-        if (id == R.id.marqueeText) {
+        if (id == R.id.iv_service) {
+            AgentWebViewActivity.startAgentWebView(requireActivity(), LanguageUtil.getText("客服中心"), "https://www.google.com");
+        } else if (id == R.id.marqueeText) {
             startActivity(new Intent(requireActivity(), NoticeActivity.class));
         } else if (id == R.id.ll_record) {// 注单
-            Intent intent =  new Intent(requireActivity(), ContainerActivity.class);
+            Intent intent = new Intent(requireActivity(), ContainerActivity.class);
             intent.putExtra(ContainerActivity.KEY_CLASS, RecordBetFragment.class.getSimpleName());
             startActivity(intent);
         } else if (id == R.id.ll_activity) { // 活动
-            ((MainActivity)requireActivity()).gotoPage(HallTabLayout.TAB_INDEX_RECORD);
-        }else if (id == R.id.ll_recharge ) { // 充值
-            ((MainActivity)requireActivity()).gotoPage(HallTabLayout.TAB_INDEX_RECHARGE);
-        }else if (id == R.id.ll_withdraw) { // 提现
+            ((MainActivity) requireActivity()).gotoPage(HallTabLayout.TAB_INDEX_RECORD);
+        } else if (id == R.id.ll_recharge) { // 充值
+            ((MainActivity) requireActivity()).gotoPage(HallTabLayout.TAB_INDEX_RECHARGE);
+        } else if (id == R.id.ll_withdraw) { // 提现
             startActivity(new Intent(requireActivity(), WithdrawActivity.class));
         }
-
-//        else if (id == R.id.tv_3d) {
-//            setData(LotteryConstant.SER_ID_3D);
-//        } else if (id == R.id.tv_zj) {
-//            // getLotteryList(LotteryConstant.SER_ID_3D);
-//            ToastUtil.showInfo("正在开发");
-//        }
     }
 
 
@@ -213,8 +215,8 @@ public class HallFragment extends BaseMVPFragment<HallContract.Presenter> implem
                 .setOnBannerListener(new OnBannerListener() {
                     @Override
                     public void OnBannerClick(Object data, int position) {
-                        ActBean actBean = (ActBean)data;
-                        AgentWebViewActivity.startAgentWebView(requireActivity(), actBean.getActivityName(),actBean.getTargetUrl());
+                        ActBean actBean = (ActBean) data;
+                        AgentWebViewActivity.startAgentWebView(requireActivity(), LanguageUtil.getText(actBean.getActivityName()), actBean.getTargetUrl());
                     }
                 });
     }
@@ -240,12 +242,12 @@ public class HallFragment extends BaseMVPFragment<HallContract.Presenter> implem
 
     private int setLotteryGuid() {
         LotterySer ser = null;
-        for(int i = 0; i < mLotterySerList.size();i++) {
-            if(0 == i)  {
+        for (int i = 0; i < mLotterySerList.size(); i++) {
+            if (0 == i) {
                 ser = mLotterySerList.get(i);
             }
         }
-        if(ser == null) {
+        if (ser == null) {
             ser = new LotterySer();
         }
         mHallGuideAdapter.setNewInstance(mLotterySerList);

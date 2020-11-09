@@ -1,6 +1,7 @@
 package com.ski.box.view.view;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.text.Editable;
@@ -10,7 +11,10 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
 
+import androidx.annotation.Nullable;
+
 import com.ski.box.R;
+import com.ski.box.utils.LanguageUtil;
 
 
 public class ClearEditText extends androidx.appcompat.widget.AppCompatEditText implements View.OnFocusChangeListener,
@@ -25,11 +29,13 @@ public class ClearEditText extends androidx.appcompat.widget.AppCompatEditText i
 
     public ClearEditText(Context context, AttributeSet attrs) {
         this(context, attrs, android.R.attr.editTextStyle);
+        initHint(context,attrs);
     }
 
     public ClearEditText(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         init();
+        initHint(context,attrs);
     }
 
     private void init() {
@@ -122,4 +128,14 @@ public class ClearEditText extends androidx.appcompat.widget.AppCompatEditText i
     }
 
 
+    private void initHint(Context context, @Nullable AttributeSet attrs) {
+        TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.ski_CsuEditText);
+        String text = ta.getString(R.styleable.ski_CsuEditText_android_hint);
+        ta.recycle();
+        setHint(LanguageUtil.getText(text));
+    }
+
+    public void setCHint(String text) {
+        setHint(LanguageUtil.getText(text));
+    }
 }

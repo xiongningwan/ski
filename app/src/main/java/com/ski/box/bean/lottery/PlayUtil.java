@@ -37,7 +37,6 @@ public class PlayUtil {
             // 双面
             LotteryPlayStart playStart = plays.get(i);
             setRemoteStart(playStart);
-
             for (int j = 0; j < playStart.getSubPlays().size(); j++) {
                 // 副标题 双面副
                 LotteryPlaySub playSub = playStart.getSubPlays().get(j);
@@ -160,7 +159,8 @@ public class PlayUtil {
     }
 
     private static void setRemoteStart(LotteryPlayStart playStart) {
-        RemoteLotteryPlay remoteStartPlay = mRemoteStartMap.get(playStart.getTitle());
+//        RemoteLotteryPlay remoteStartPlay = mRemoteStartMap.get(playStart.getTitle());
+        RemoteLotteryPlay remoteStartPlay = mRemoteStartMap.get(playStart.getCode());
         if (remoteStartPlay != null) {
             playStart.setId(remoteStartPlay.getId());
             playStart.setCode(remoteStartPlay.getCode());
@@ -182,7 +182,8 @@ public class PlayUtil {
         for (int i = 0; i < remotePlays.size(); i++) {
             // 双面
             RemoteLotteryPlay remote1 = remotePlays.get(i);
-            mRemoteStartMap.put(remote1.getName(), remote1);
+//            mRemoteStartMap.put(remote1.getName(), remote1);
+            mRemoteStartMap.put(remote1.getCode(), remote1);
             for (int j = 0; j < remote1.getList().size(); j++) {
                 // 总和龙虎和
                 RemoteLotteryPlay remote2 = remote1.getList().get(j);

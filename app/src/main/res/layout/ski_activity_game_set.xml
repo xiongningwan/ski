@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@color/ski_white">
-        <TextView
+        <com.ski.box.view.view.CusTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="投注确认提示"
@@ -51,7 +51,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@color/ski_white">
-        <TextView
+        <com.ski.box.view.view.CusTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="开奖倒计时音效"
@@ -85,7 +85,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/ski_white">
-    <TextView
+    <com.ski.box.view.view.CusTextView
         android:id="@+id/tv_tip_range"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -116,14 +116,14 @@
         android:orientation="horizontal"
         android:visibility="gone">
 
-        <TextView
+        <com.ski.box.view.view.CusTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:drawableLeft="@mipmap/ic_setting_lock"
             android:drawablePadding="@dimen/ski_dp_5"
             android:text="上调锁定到 " />
 
-        <TextView
+        <com.ski.box.view.view.CusTextView
             android:id="@+id/tv_double_bet_amount_range"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

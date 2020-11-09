@@ -74,12 +74,12 @@ public class HallPresenter extends RxPresenter<HallContract.View> implements Hal
             @Override
             public void accept(List<LotterySer> list) {
                 // 过滤没有启用的彩种
-                List<LotterySer> filterList = filterAllLottery(list);
-                if (filterList != null && filterList.size() > 0) {
-                    DataCenter.getInstance().saveRemoteLottery(filterList);
-                }
-                LotteryTimeUtil.setLotteryIds(getRemoteLotteryIds(filterList));
-                mView.onAllLotteryResult(filterList);
+               // List<LotterySer> filterList = filterAllLottery(list);
+//                if (filterList != null && filterList.size() > 0) {
+                    DataCenter.getInstance().saveRemoteLottery(list);
+//                }
+                LotteryTimeUtil.setLotteryIds(getRemoteLotteryIds(list));
+                mView.onAllLotteryResult(list);
                 // 同步彩种数据
                 crateSyncTimeTask();
             }
@@ -91,8 +91,10 @@ public class HallPresenter extends RxPresenter<HallContract.View> implements Hal
 
     private List<LotterySer> filterAllLottery(List<LotterySer> list) {
         List<Integer> idList = new ArrayList<>();
+        Map<Integer, String> serMap = new HashMap<>();
         Map<Integer, String> lotteryMap = new HashMap<>();
         for (LotterySer ser : list) {
+            serMap.put(ser.getId(), ser.getName());
             for (LotteryBean lotteryBean : ser.getList()) {
                 idList.add(lotteryBean.getTicketId());
                 lotteryMap.put(lotteryBean.getTicketId(), lotteryBean.getTicketName());
@@ -101,6 +103,10 @@ public class HallPresenter extends RxPresenter<HallContract.View> implements Hal
         List<LotterySer> sers = DataCenter.getInstance().getDefaultLocalLottery();
         for (LotterySer ser : sers) {
             List<LotteryBean> lotteryBeans = ser.getList();
+            String serName = serMap.get(ser.getId());
+            if (!TextUtils.isEmpty(serName)) {
+                ser.setName(serName);
+            }
             List<LotteryBean> noList = new ArrayList<>();
             for (LotteryBean lotteryBean : lotteryBeans) {
                 if (!idList.contains(lotteryBean.getTicketId())) {
@@ -267,10 +273,10 @@ public class HallPresenter extends RxPresenter<HallContract.View> implements Hal
             public void accept(List<ActBean> list) {
                 for (int i = 0; i < list.size(); i++) {
                     ActBean actBean = list.get(i);
-                    if(0 == i) {
+                    if (0 == i) {
                         actBean.setLocalImg(R.mipmap.img_banner_03);
                         actBean.setTargetUrl("https://www.google.com");
-                    } else if(1 == i) {
+                    } else if (1 == i) {
                         actBean.setLocalImg(R.mipmap.img_banner_04);
                         actBean.setTargetUrl("https://www.google.com");
                     }

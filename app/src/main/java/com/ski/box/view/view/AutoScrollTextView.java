@@ -20,7 +20,7 @@ import java.util.List;
 /**
  * Doms
  */
-public class AutoScrollTextView extends AppCompatTextView {
+public class AutoScrollTextView extends com.ski.box.view.view.CusTextView {
     /**
      * 文本长度
      */
@@ -200,7 +200,7 @@ public class AutoScrollTextView extends AppCompatTextView {
                 if (position >= datas.size()) {
                     position = 0;
                 }
-                setText(datas.get(position));
+                setCText(datas.get(position));
                 init(null);
             }
         }
@@ -213,7 +213,7 @@ public class AutoScrollTextView extends AppCompatTextView {
         this.datas.clear();
         this.datas.addAll(datas);
         if (datas.size() > 0) {
-            setText(datas.get(position));
+            setCText(datas.get(position));
         }
         new Handler().postDelayed(new Runnable() {
             @Override

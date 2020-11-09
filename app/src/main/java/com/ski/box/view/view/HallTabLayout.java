@@ -63,14 +63,14 @@ public class HallTabLayout extends RelativeLayout implements View.OnClickListene
         mLLRecharge.setOnClickListener(this);
         mLLPersonal.setOnClickListener(this);
 
-        TextView tv1 = findViewById(R.id.tv_1);
-        TextView tv2 = findViewById(R.id.tv_2);
-        TextView tv3 = findViewById(R.id.tv_3);
-        TextView tv4 = findViewById(R.id.tv_4);
-        tv1.setText(LanguageUtil.getText("首页大厅"));
-        tv2.setText(LanguageUtil.getText("活动优惠"));
-        tv3.setText(LanguageUtil.getText("充值中心"));
-        tv4.setText(LanguageUtil.getText("个人中心"));
+//        TextView tv1 = findViewById(R.id.tv_1);
+//        TextView tv2 = findViewById(R.id.tv_2);
+//        TextView tv3 = findViewById(R.id.tv_3);
+//        TextView tv4 = findViewById(R.id.tv_4);
+//        tv1.setText(LanguageUtil.getText("首页大厅"));
+//        tv2.setText(LanguageUtil.getText("活动优惠"));
+//        tv3.setText(LanguageUtil.getText("充值中心"));
+//        tv4.setText(LanguageUtil.getText("个人中心"));
     }
 
     public void bindViewPager(ViewPager viewPager){

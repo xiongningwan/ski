@@ -16,6 +16,8 @@ import com.ski.box.R;
 import com.ski.box.bean.PTabBean;
 import com.ski.box.mvp.contract.EmptyContract;
 import com.ski.box.mvp.presenter.EmptyPresenter;
+import com.ski.box.utils.LanguageUtil;
+import com.ski.box.view.activity.AgentWebViewActivity;
 import com.ski.box.view.activity.ContainerActivity;
 import com.ski.box.view.activity.group.GroupAddActivity;
 import com.ski.box.view.activity.group.GroupInviteUrlActivity;
@@ -130,7 +132,7 @@ public class PersonalTabFragment extends BaseMVPFragment<EmptyContract.Presenter
 
        @Override
        protected void convert(@NotNull BaseViewHolder holder, PTabBean bean) {
-            holder.setText(R.id.tv_name, bean.getName());
+            holder.setText(R.id.tv_name, LanguageUtil.getText(bean.getName()));
        }
    }
 
@@ -214,6 +216,9 @@ public class PersonalTabFragment extends BaseMVPFragment<EmptyContract.Presenter
                 break;
             case 15: // 资金进度查询
                 startActivity(new Intent(requireActivity(), MoneyProgressActivity.class));
+                break;
+            case 42: // 客服中心
+                AgentWebViewActivity.startAgentWebView(requireActivity(), LanguageUtil.getText("客服中心"), "https://www.google.com");
                 break;
             case 43: // 公告中心
                 startActivity(new Intent(requireActivity(), NoticeActivity.class));

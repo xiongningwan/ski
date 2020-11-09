@@ -29,7 +29,7 @@
         android:layout_height="1dp"
         android:background="@color/ski_color_efefef" />
 
-    <TextView
+    <com.ski.box.view.view.CusTextView
         android:id="@+id/tip_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
