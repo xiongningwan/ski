@@ -47,11 +47,12 @@
            android:layout_height="wrap_content"
            app:layout_constraintTop_toBottomOf="@+id/iv_level"
            app:layout_constraintStart_toStartOf="parent"
-           android:text="我的会员等级"
+           app:layout_constraintEnd_toEndOf="@+id/view_vertical_line"
+           android:text="会员等级"
            android:layout_marginStart="16dp"
            android:layout_marginTop="10dp"
            android:textColor="@color/ski_color_222222"
-           android:textSize="16dp"/>
+           android:textSize="15dp"/>
 
        <View
            android:id="@+id/view_vertical_line"
