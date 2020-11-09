@@ -203,6 +203,6 @@
         android:text="用户注册"
         app:layout_constraintTop_toTopOf="@+id/tv_line"
         app:layout_constraintEnd_toEndOf="@+id/btn_login_dev"
-        android:visibility="gone"/>
+        android:visibility="visible"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

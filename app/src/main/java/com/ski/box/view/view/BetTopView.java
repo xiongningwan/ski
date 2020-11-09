@@ -134,7 +134,6 @@ public class BetTopView extends FrameLayout implements OnClickListener {
             long time = DataCenter.getInstance().getLotteryTime(id);
             String planId = DataCenter.getInstance().getLotteryPlanId(id);
             DataCenter.getInstance().setPlanId(planId);
-            LogUtils.e("time:" + time);
             updateLayout(time);
             if (!mPlanId.equals(planId)) {
                 mPlanId = planId;

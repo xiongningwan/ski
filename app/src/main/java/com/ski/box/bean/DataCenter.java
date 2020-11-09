@@ -420,7 +420,7 @@ public class DataCenter {
         } else if(o instanceof UserInfo) {
             UserInfo bean = (UserInfo)o;
             mUser.setId(bean.getMemberId());
-            mUser.setAccount(bean.getMemberAccount());
+           // mUser.setAccount(bean.getMemberAccount());
 
             mUser.setTransferType(bean.getTransferType());
             mUser.setMerchantAccout(bean.getMerchantAccout());
