@@ -1,6 +1,7 @@
 package com.ski.box.view.activity.my;
 
 
+import android.app.LauncherActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -19,6 +20,7 @@ import com.ski.box.bean.user.MemberInfo;
 import com.ski.box.bean.user.User;
 import com.ski.box.mvp.contract.my.PersonalInfoContract;
 import com.ski.box.mvp.presenter.my.PersonalInfoPresenter;
+import com.ski.box.utils.LanguageUtil;
 import com.ski.box.view.view.HeaderView;
 import com.yb.core.base.BaseMVPActivity;
 import com.yb.core.utils.ToastUtil;
@@ -67,7 +69,7 @@ public class PersonalInfoActivity extends BaseMVPActivity<PersonalInfoContract.P
         ImmersionBar.with(this).init();
         RxBus.get().register(this);
         mHeadView = findViewById(R.id.head_view);
-        mHeadView.setHeader(getResources().getString(R.string.ski_personal_info), true);
+        mHeadView.setHeader(LanguageUtil.getText(getResources().getString(R.string.ski_personal_info)), true);
         mTvLv = findViewById(R.id.tv_level);
         mTvIp = findViewById(R.id.tv_value_ip);
         mTvAdd = findViewById(R.id.tv_value_add);
@@ -101,8 +103,9 @@ public class PersonalInfoActivity extends BaseMVPActivity<PersonalInfoContract.P
         mTvAdd.setText(user.getLoginLocation());
         mTvTime.setText(user.getLoginTime());
 
+        String unset = LanguageUtil.getText(getString(R.string.ski_my_unset));
         if(TextUtils.isEmpty(user.getAlias())) {
-            mTvTipNick.setText(getString(R.string.ski_my_unset));
+            mTvTipNick.setText(unset);
         } else {
             mTvTipNick.setText(user.getAlias());
         }
@@ -112,12 +115,12 @@ public class PersonalInfoActivity extends BaseMVPActivity<PersonalInfoContract.P
             mTvTipMoneyPwd.setVisibility(View.GONE);
         }
         if(TextUtils.isEmpty(user.getMobile())) {
-            mTvTipPhone.setText(getString(R.string.ski_my_unset));
+            mTvTipPhone.setText(unset);
         } else {
             mTvTipPhone.setText(user.getMobile());
         }
         if(TextUtils.isEmpty(user.getEmail())) {
-            mTvTipEmail.setText(getString(R.string.ski_my_unset));
+            mTvTipEmail.setText(unset);
         } else {
             mTvTipEmail.setText(user.getEmail());
         }

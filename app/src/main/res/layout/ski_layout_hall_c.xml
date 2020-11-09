@@ -92,14 +92,15 @@
             android:id="@+id/iv_recharge"
             android:layout_width="18dp"
             android:layout_height="18dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginEnd="4dp"
             android:src="@mipmap/icon_hall_c_recharge" />
 
         <com.ski.box.view.view.CusTextView
             android:id="@+id/tv_recharge"
-            android:layout_width="wrap_content"
+            android:layout_width="60dp"
             android:layout_height="wrap_content"
-            android:text="充值"
+            android:text="Nạp Tiền"
+            android:gravity="end"
             android:textColor="@color/ski_color_333333"
             android:textSize="12dp" />
     </LinearLayout>
@@ -143,15 +144,15 @@
             android:id="@+id/iv_activity"
             android:layout_width="18dp"
             android:layout_height="18dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginEnd="4dp"
             android:src="@mipmap/icon_hall_c_activity" />
 
         <com.ski.box.view.view.CusTextView
             android:id="@+id/tv_activity"
-            android:layout_width="wrap_content"
+            android:layout_width="60dp"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="活动"
+            android:gravity="end"
+            android:text="Hoạt động"
             android:textColor="@color/ski_color_333333"
             android:textSize="12dp" />
     </LinearLayout>

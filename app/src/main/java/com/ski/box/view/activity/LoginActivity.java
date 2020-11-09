@@ -103,11 +103,11 @@ public class LoginActivity extends BaseMVPActivity<LoginContract.Presenter> impl
         String member = etName.getText().toString();
         String password = etPassword.getText().toString();
         if (StringUtils.isEmpty(member)) {
-            ToastUtil.showInfo("请输入账号");
+            ToastUtil.showInfo(LanguageUtil.getText("请输入账号"));
             return;
         }
         if (StringUtils.isEmpty(password)) {
-            ToastUtil.showInfo("请输入密码");
+            ToastUtil.showInfo(LanguageUtil.getText("请输入密码"));
             return;
         }
         mLoading.show();

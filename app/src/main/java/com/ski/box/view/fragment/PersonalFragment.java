@@ -26,6 +26,7 @@ import com.ski.box.mvp.contract.PersonalContract;
 import com.ski.box.mvp.presenter.PersonalPresenter;
 import com.ski.box.utils.ActivityUtil;
 import com.ski.box.utils.LanguageUtil;
+import com.ski.box.view.activity.AgentWebViewActivity;
 import com.ski.box.view.activity.ContainerActivity;
 import com.ski.box.view.activity.LoginActivity;
 import com.ski.box.view.activity.money.WithdrawActivity;
@@ -50,6 +51,7 @@ public class PersonalFragment extends BaseMVPFragment<PersonalContract.Presenter
     private TabLayout mTabLayout;
     private ViewPager mViewPager;
     private CircleImageView mIvUserHead;
+    private ImageView mIvService;
     private TextView mTvUserName;
     private TextView mTvUserAcc;
     private TextView mTvBalance;
@@ -88,18 +90,19 @@ public class PersonalFragment extends BaseMVPFragment<PersonalContract.Presenter
     protected void initView(View view) {
         ImmersionBar.with(this).statusBarDarkFont(false).init();
         RxBus.get().register(this);
-        mTabLayout =  view.findViewById(R.id.tab_layout);
-        mViewPager =  view.findViewById(R.id.tab_vp);
-        mIvUserHead =  view.findViewById(R.id.iv_user);
-        mTvUserName =  view.findViewById(R.id.tv_user_name);
-        mTvUserAcc =  view.findViewById(R.id.tv_user_acc);
-        mIvEt =  view.findViewById(R.id.iv_et_nick_name);
-        mTvBalance =  view.findViewById(R.id.tv_balance_value);
-        mTvLevel =  view.findViewById(R.id.iv_level_value);
-        mGroupValue =  view.findViewById(R.id.iv_group_value);
-        mBtnRecharge =  view.findViewById(R.id.btn_recharge);
-        mBtnWithdraw =  view.findViewById(R.id.btn_withdraw);
-        mBtnLogout =  view.findViewById(R.id.btn_logout);
+        mTabLayout = view.findViewById(R.id.tab_layout);
+        mViewPager = view.findViewById(R.id.tab_vp);
+        mIvService = view.findViewById(R.id.iv_service);
+        mIvUserHead = view.findViewById(R.id.iv_user);
+        mTvUserName = view.findViewById(R.id.tv_user_name);
+        mTvUserAcc = view.findViewById(R.id.tv_user_acc);
+        mIvEt = view.findViewById(R.id.iv_et_nick_name);
+        mTvBalance = view.findViewById(R.id.tv_balance_value);
+        mTvLevel = view.findViewById(R.id.iv_level_value);
+        mGroupValue = view.findViewById(R.id.iv_group_value);
+        mBtnRecharge = view.findViewById(R.id.btn_recharge);
+        mBtnWithdraw = view.findViewById(R.id.btn_withdraw);
+        mBtnLogout = view.findViewById(R.id.btn_logout);
 
         mIvUserHead.setOnClickListener(this);
         mIvEt.setOnClickListener(this);
@@ -108,11 +111,12 @@ public class PersonalFragment extends BaseMVPFragment<PersonalContract.Presenter
         mBtnLogout.setOnClickListener(this);
         mBtnRecharge.setOnClickListener(this);
         mBtnWithdraw.setOnClickListener(this);
+        mIvService.setOnClickListener(this);
     }
 
     @Override
     protected void initData(Bundle savedInstanceState) {
-        List<PTabBean> list =  getTabData();
+        List<PTabBean> list = getTabData();
         createTab(list);
         initViewPater(list);
     }
@@ -134,18 +138,20 @@ public class PersonalFragment extends BaseMVPFragment<PersonalContract.Presenter
     @Override
     public void onClick(View view) {
         int id = view.getId();
-        if(id == R.id.btn_logout) {
+        if (id == R.id.btn_logout) {
             mPresenter.logout();
-        } else if(id == R.id.iv_et_nick_name || id == R.id.tv_user_name || id == R.id.tv_user_acc) {
+        } else if (id == R.id.iv_et_nick_name || id == R.id.tv_user_name || id == R.id.tv_user_acc) {
             startActivity(new Intent(requireActivity(), PersonalInfoActivity.class));
-        } else if(id == R.id.btn_recharge ) {
-            Intent intent =  new Intent(requireActivity(), ContainerActivity.class);
+        } else if (id == R.id.btn_recharge) {
+            Intent intent = new Intent(requireActivity(), ContainerActivity.class);
             intent.putExtra(ContainerActivity.KEY_CLASS, RechargeFragment.class.getSimpleName());
             startActivity(intent);
-        } else if(id == R.id.btn_withdraw) {
+        } else if (id == R.id.btn_withdraw) {
             startActivity(new Intent(requireActivity(), WithdrawActivity.class));
-        } else if(id == R.id.iv_user) {
+        } else if (id == R.id.iv_user) {
             startActivity(new Intent(requireActivity(), UpdateHeadActivity.class));
+        } else if (id == R.id.iv_service) {
+            AgentWebViewActivity.startAgentWebView(requireActivity(), LanguageUtil.getText("客服中心"), "https://www.google.com");
         }
     }
 
@@ -188,7 +194,7 @@ public class PersonalFragment extends BaseMVPFragment<PersonalContract.Presenter
     private void initViewPater(List<PTabBean> list) {
         FragmentManager fragmentManager = getChildFragmentManager();
         List<Fragment> fragmentList = new ArrayList<>();
-        for(int i = 0; i < list.size(); i++) {
+        for (int i = 0; i < list.size(); i++) {
             PTabBean pTabBean = list.get(i);
             fragmentList.add(PersonalTabFragment.newInstance(pTabBean.getId()));
         }
@@ -197,31 +203,31 @@ public class PersonalFragment extends BaseMVPFragment<PersonalContract.Presenter
         // 预加载数量
         mViewPager.setOffscreenPageLimit(3);
         // viewpager 设置滚动监听
-         mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-             @Override
-             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+        mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
-             }
+            }
 
-             @Override
-             public void onPageSelected(int position) {
-                 mTabLayout.setScrollPosition(position,0,true);
-             }
+            @Override
+            public void onPageSelected(int position) {
+                mTabLayout.setScrollPosition(position, 0, true);
+            }
 
-             @Override
-             public void onPageScrollStateChanged(int state) {
+            @Override
+            public void onPageScrollStateChanged(int state) {
 
-             }
-         });
+            }
+        });
     }
     //---------------------------tab-----------------
 
     private List<PTabBean> getTabData() {
         List<PTabBean> list = new ArrayList<>();
-        list.add(new PTabBean(1,R.mipmap.icon_personal_tab_my_acc, LanguageUtil.getText("我的账户")));
-        list.add(new PTabBean(2,R.mipmap.icon_personal_tab_baobiao, LanguageUtil.getText("报表中心")));
-        list.add(new PTabBean(3,R.mipmap.icon_personal_tab_tuandui, LanguageUtil.getText("团队中心")));
-        list.add(new PTabBean(4,R.mipmap.icon_personal_tab_setting, LanguageUtil.getText("系统中心")));
+        list.add(new PTabBean(1, R.mipmap.icon_personal_tab_my_acc, LanguageUtil.getText("我的账户")));
+        list.add(new PTabBean(2, R.mipmap.icon_personal_tab_baobiao, LanguageUtil.getText("报表中心")));
+        list.add(new PTabBean(3, R.mipmap.icon_personal_tab_tuandui, LanguageUtil.getText("团队中心")));
+        list.add(new PTabBean(4, R.mipmap.icon_personal_tab_setting, LanguageUtil.getText("系统中心")));
         return list;
     }
 
@@ -234,7 +240,7 @@ public class PersonalFragment extends BaseMVPFragment<PersonalContract.Presenter
     @Subscribe(tags = {@Tag(EVENT_TYPE_USER_NAME_NICK_NAME)})
     public void onUserNameUpdate(String s) {
         User user = DataCenter.getInstance().getUser();
-        mTvUserAcc.setText(LanguageUtil.getText("登录账号:") + user.getAccount());
+        mTvUserAcc.setText(LanguageUtil.getText("登录账号") + ": " + user.getAccount());
         mTvUserName.setText(user.getAlias());
         mIvUserHead.setImageResource(ActivityUtil.getHeadByProfile(user.getProfile()));
     }
@@ -247,7 +253,7 @@ public class PersonalFragment extends BaseMVPFragment<PersonalContract.Presenter
 
     @Override
     public void onMemberInfoResult(MemberInfo memberInfo) {
-        mTvLevel.setText("VIP"+ memberInfo.getVip());
+        mTvLevel.setText("VIP" + memberInfo.getVip());
         mGroupValue.setText(String.valueOf(memberInfo.getRebate()));
     }
 
@@ -258,20 +264,20 @@ public class PersonalFragment extends BaseMVPFragment<PersonalContract.Presenter
 
     @Override
     public void onLogoutResult(Object o) {
-        saveSetSp_token_authorization("","");
+        saveSetSp_token_authorization("", "");
         startActivity(new Intent(requireActivity(), LoginActivity.class));
         requireActivity().finish();
     }
 
     @Override
     public void onLogoutFailResult(String s) {
-        saveSetSp_token_authorization("","");
+        saveSetSp_token_authorization("", "");
         startActivity(new Intent(requireActivity(), LoginActivity.class));
         requireActivity().finish();
     }
 
     private void saveSetSp_token_authorization(String token, String authorization) {
         SPUtils.putString(requireActivity(), LoginActivity.KEY_TOKEN, token);
-        SPUtils.putString(requireActivity(),  LoginActivity.KEY_AUTHORIZATION, authorization);
+        SPUtils.putString(requireActivity(), LoginActivity.KEY_AUTHORIZATION, authorization);
     }
 }

@@ -12,6 +12,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.listener.OnItemClickListener;
 import com.chad.library.adapter.base.viewholder.BaseViewHolder;
 import com.hwangjr.rxbus.RxBus;
+import com.ski.box.BuildConfig;
 import com.ski.box.R;
 import com.ski.box.bean.PTabBean;
 import com.ski.box.mvp.contract.EmptyContract;
@@ -132,7 +133,12 @@ public class PersonalTabFragment extends BaseMVPFragment<EmptyContract.Presenter
 
        @Override
        protected void convert(@NotNull BaseViewHolder holder, PTabBean bean) {
-            holder.setText(R.id.tv_name, LanguageUtil.getText(bean.getName()));
+           if(45 == bean.getId()) {
+               holder.setText(R.id.tv_name, LanguageUtil.getText(bean.getName()) + ": " + BuildConfig.VERSION_NAME);
+           } else {
+               holder.setText(R.id.tv_name, LanguageUtil.getText(bean.getName()));
+           }
+
        }
    }
 
@@ -166,7 +172,7 @@ public class PersonalTabFragment extends BaseMVPFragment<EmptyContract.Presenter
                 list.add(new PTabBean(42,R.mipmap.icon_personal_tab_baobiao, "客服中心"));
                 list.add(new PTabBean(43,R.mipmap.icon_personal_tab_tuandui, "公告中心"));
                 list.add(new PTabBean(44,R.mipmap.icon_personal_tab_setting, "帮助中心"));
-                list.add(new PTabBean(45,R.mipmap.icon_personal_tab_setting, "当前版本号:v1.6.2"));
+                list.add(new PTabBean(45,R.mipmap.icon_personal_tab_setting, "当前版本号"));
                 break;
         }
         return list;

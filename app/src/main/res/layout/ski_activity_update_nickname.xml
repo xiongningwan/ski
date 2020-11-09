@@ -40,7 +40,7 @@
         android:text="会员昵称长度2~10位，可以输入任意字符"/>
 
 
-    <Button
+    <com.ski.box.view.view.CusButton
         android:id="@+id/btn_sure"
         android:layout_width="match_parent"
         android:layout_height="40dp"

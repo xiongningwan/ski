@@ -27,7 +27,7 @@
            android:layout_marginStart="32dp"
            android:layout_marginTop="32dp"/>
 
-       <TextView
+       <com.ski.box.view.view.CusTextView
            android:id="@+id/tv_level"
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
@@ -41,9 +41,9 @@
            android:textSize="18dp"/>
 
 
-       <TextView
+       <com.ski.box.view.view.CusTextView
            android:id="@+id/tv_label_level"
-           android:layout_width="wrap_content"
+           android:layout_width="90dp"
            android:layout_height="wrap_content"
            app:layout_constraintTop_toBottomOf="@+id/iv_level"
            app:layout_constraintStart_toStartOf="parent"
@@ -51,7 +51,7 @@
            android:layout_marginStart="16dp"
            android:layout_marginTop="10dp"
            android:textColor="@color/ski_color_222222"
-           android:textSize="17dp"/>
+           android:textSize="16dp"/>
 
        <View
            android:id="@+id/view_vertical_line"
@@ -62,7 +62,7 @@
            app:layout_constraintStart_toEndOf="@+id/tv_label_level"
            android:layout_marginStart="20dp"/>
 
-       <TextView
+       <com.ski.box.view.view.CusTextView
            android:id="@+id/tv_label_ip"
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
@@ -74,7 +74,7 @@
            android:layout_marginTop="16dp"
            android:layout_marginStart="16dp"/>
 
-       <TextView
+       <com.ski.box.view.view.CusTextView
            android:id="@+id/tv_label_add"
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
@@ -85,7 +85,7 @@
            android:textColor="@color/ski_color_333333"
            android:layout_marginTop="10dp"/>
 
-       <TextView
+       <com.ski.box.view.view.CusTextView
            android:id="@+id/tv_label_time"
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
@@ -96,36 +96,38 @@
            android:textColor="@color/ski_color_333333"
            android:layout_marginTop="10dp"/>
 
-       <TextView
+       <com.ski.box.view.view.CusTextView
            android:id="@+id/tv_value_ip"
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
            app:layout_constraintTop_toTopOf="@+id/tv_label_ip"
            app:layout_constraintStart_toEndOf="@+id/tv_label_ip"
            tools:text="172.31.14.172"
-           android:textSize="14dp"
+           android:textSize="12dp"
            android:textColor="@color/ski_color_333333"
            android:layout_marginStart="10dp"/>
 
-       <TextView
+       <com.ski.box.view.view.CusTextView
            android:id="@+id/tv_value_add"
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
            tools:text="中国 北京"
-           android:textSize="14dp"
+           android:textSize="12dp"
+           android:layout_marginStart="10dp"
            android:textColor="@color/ski_color_333333"
            app:layout_constraintTop_toTopOf="@+id/tv_label_add"
-           app:layout_constraintStart_toStartOf="@+id/tv_value_ip"/>
+           app:layout_constraintStart_toEndOf="@+id/tv_label_add"/>
 
-       <TextView
+       <com.ski.box.view.view.CusTextView
            android:id="@+id/tv_value_time"
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
            tools:text="2020-10-23 16:16:25"
-           android:textSize="14dp"
+           android:textSize="12dp"
+           android:layout_marginStart="10dp"
            android:textColor="@color/ski_color_333333"
            app:layout_constraintTop_toTopOf="@+id/tv_label_time"
-           app:layout_constraintStart_toStartOf="@+id/tv_value_ip"/>
+           app:layout_constraintStart_toEndOf="@+id/tv_label_time"/>
    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <View
@@ -148,7 +150,7 @@
             android:layout_height="50dp"
             android:paddingStart="16dp">
 
-            <TextView
+            <com.ski.box.view.view.CusTextView
                 android:id="@+id/tv_label_nick_name"
                 style="@style/item_content_text_style"
                 android:layout_width="wrap_content"
@@ -159,7 +161,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"/>
 
-            <TextView
+            <com.ski.box.view.view.CusTextView
                 android:id="@+id/tv_tip_nick"
                 style="@style/item_content_text_style"
                 android:layout_width="0dp"
@@ -199,7 +201,7 @@
             android:layout_height="50dp"
             android:paddingStart="16dp">
 
-            <TextView
+            <com.ski.box.view.view.CusTextView
                 style="@style/item_content_text_style"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -233,7 +235,7 @@
             android:layout_height="50dp"
             android:paddingStart="16dp">
 
-            <TextView
+            <com.ski.box.view.view.CusTextView
                 style="@style/item_content_text_style"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -243,7 +245,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"/>
 
-            <TextView
+            <com.ski.box.view.view.CusTextView
                 android:id="@+id/tv_tip_money_pwd"
                 style="@style/item_content_text_style"
                 android:text="@string/ski_my_unset"
@@ -277,7 +279,7 @@
             android:layout_marginStart="16dp"
             android:visibility="gone">
 
-            <TextView
+            <com.ski.box.view.view.CusTextView
                 style="@style/item_content_text_style"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -287,7 +289,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"/>
 
-            <TextView
+            <com.ski.box.view.view.CusTextView
                 android:id="@+id/tv_tip_safe_qua"
                 style="@style/item_content_text_style"
                 android:text="@string/ski_my_unset"
@@ -321,7 +323,7 @@
             android:layout_height="50dp"
             android:paddingStart="16dp">
 
-            <TextView
+            <com.ski.box.view.view.CusTextView
                 style="@style/item_content_text_style"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -331,7 +333,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"/>
 
-            <TextView
+            <com.ski.box.view.view.CusTextView
                 android:id="@+id/tv_tip_phone"
                 style="@style/item_content_text_style"
                 android:text="@string/ski_my_unset"
@@ -364,7 +366,7 @@
             android:layout_height="50dp"
             android:paddingStart="16dp">
 
-            <TextView
+            <com.ski.box.view.view.CusTextView
                 style="@style/item_content_text_style"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -374,7 +376,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"/>
 
-            <TextView
+            <com.ski.box.view.view.CusTextView
                 android:id="@+id/tv_tip_email"
                 style="@style/item_content_text_style"
                 android:text="@string/ski_my_unset"
@@ -407,7 +409,7 @@
             android:layout_height="50dp"
             android:paddingStart="16dp">
 
-            <TextView
+            <com.ski.box.view.view.CusTextView
                 style="@style/item_content_text_style"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

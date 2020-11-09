@@ -7,14 +7,15 @@
     tools:ignore="ResourceName">
 
 
-      <include
-          android:id="@+id/layout_top"
-          layout="@layout/ski_layout_personal_top"
-          app:layout_constraintStart_toStartOf="parent"
-          app:layout_constraintTop_toTopOf="parent"
-          app:layout_constraintEnd_toEndOf="parent"/>
+    <include
+        android:id="@+id/layout_top"
+        layout="@layout/ski_layout_personal_top"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-      <com.google.android.material.tabs.TabLayout
+    <com.google.android.material.tabs.TabLayout
           android:id="@+id/tab_layout"
           android:layout_width="match_parent"
           android:layout_height="80dp"

@@ -12,6 +12,7 @@ import com.ski.box.bean.DataCenter;
 import com.ski.box.bean.user.User;
 import com.ski.box.mvp.contract.my.UpdateAliasContract;
 import com.ski.box.mvp.presenter.my.UpdateAliasPresenter;
+import com.ski.box.utils.LanguageUtil;
 import com.ski.box.view.view.ClearEditText;
 import com.ski.box.view.view.HeaderView;
 import com.yb.core.base.BaseMVPActivity;
@@ -46,7 +47,7 @@ public class UpdateNickNameActivity extends BaseMVPActivity<UpdateAliasContract.
         mHeadView = findViewById(R.id.head_view);
         mEtNickname = findViewById(R.id.et_nickname);
         mBtnSure = findViewById(R.id.btn_sure);
-        mHeadView.setHeader(getString(R.string.ski_my_nick_name), true);
+        mHeadView.setHeader(LanguageUtil.getText(getString(R.string.ski_my_nick_name)), true);
 
         mBtnSure.setOnClickListener(this);
     }
@@ -70,11 +71,11 @@ public class UpdateNickNameActivity extends BaseMVPActivity<UpdateAliasContract.
     private void doUpdate() {
         String modifyContent = mEtNickname.getText().toString().trim();
         if (TextUtils.isEmpty(modifyContent)) {
-            ToastUtil.showWarning("请输入修改内容");
+            ToastUtil.showWarning(LanguageUtil.getText("请输入修改内容"));
             return;
         }
         if (modifyContent.length() < 2 || modifyContent.length() > 10) {
-            ToastUtil.showWarning("会员昵称长度2~10位，可以输入任意字符");
+            ToastUtil.showWarning(LanguageUtil.getText("会员昵称长度2~10位，可以输入任意字符"));
             return;
         }
 
@@ -85,7 +86,7 @@ public class UpdateNickNameActivity extends BaseMVPActivity<UpdateAliasContract.
     public void onSuccessResult() {
         String modifyContent = mEtNickname.getText().toString().trim();
         DataCenter.getInstance().getUser().setAlias(modifyContent);
-        ToastUtil.showSuccess("修改成功!");
+        ToastUtil.showSuccess(LanguageUtil.getText("修改成功!"));
         RxBus.get().post(EVENT_TYPE_USER_NAME_NICK_NAME, "");
         finish();
 

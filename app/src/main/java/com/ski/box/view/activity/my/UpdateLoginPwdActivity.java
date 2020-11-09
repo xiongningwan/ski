@@ -11,6 +11,7 @@ import com.gyf.immersionbar.ImmersionBar;
 import com.ski.box.R;
 import com.ski.box.mvp.contract.my.UpdateLoginPwdContract;
 import com.ski.box.mvp.presenter.my.UpdateLoginPwdPresenter;
+import com.ski.box.utils.LanguageUtil;
 import com.ski.box.utils.ValidateUtil;
 import com.ski.box.view.view.ClearEditText;
 import com.ski.box.view.view.HeaderView;
@@ -49,7 +50,7 @@ public class UpdateLoginPwdActivity extends BaseMVPActivity<UpdateLoginPwdContra
         mEtNew = findViewById(R.id.et_new);
         mEtConfirm = findViewById(R.id.et_new_confirm);
         mBtnSure = findViewById(R.id.btn_sure);
-        mHeadView.setHeader(getString(R.string.ski_my_login_pwd), true);
+        mHeadView.setHeader(LanguageUtil.getText(getString(R.string.ski_my_login_pwd)), true);
 
         mBtnSure.setOnClickListener(this);
     }
@@ -72,12 +73,12 @@ public class UpdateLoginPwdActivity extends BaseMVPActivity<UpdateLoginPwdContra
         String pwdNew = mEtNew.getText().toString().trim();
         String pwdConfirm = mEtConfirm.getText().toString().trim();
         if (TextUtils.isEmpty(pwdOld) ||  TextUtils.isEmpty(pwdNew)|| TextUtils.isEmpty(pwdConfirm)) {
-            ToastUtil.showWarning("输入框不能为空");
+            ToastUtil.showWarning(LanguageUtil.getText("输入框不能为空"));
             return;
         }
 
         if(pwdNew.length() < 6 || pwdNew.length() > 16) {
-            String err = "密码必须为6-16位";
+            String err = LanguageUtil.getText("密码必须为6-16位");
             ToastUtil.showInfo(err);
             return;
         }
@@ -99,7 +100,7 @@ public class UpdateLoginPwdActivity extends BaseMVPActivity<UpdateLoginPwdContra
 
     @Override
     public void onSuccessResult() {
-        ToastUtil.showSuccess("修改成功!");
+        ToastUtil.showSuccess(LanguageUtil.getText("修改成功!"));
         finish();
     }
 
@@ -108,46 +109,4 @@ public class UpdateLoginPwdActivity extends BaseMVPActivity<UpdateLoginPwdContra
         ToastUtil.showError(s);
     }
 
-    private void setEtListener() {
-        mEtNew.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-                String password = editable.toString();
-                if (!ValidateUtil.validatePwd_new(password) && !TextUtils.isEmpty(password)) {
-                    String err = "密码必须为6-16位包含英文与数字组合，区分大小写";
-                    mEtNew.setError(err);
-                }
-            }
-        });
-        mEtConfirm.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-                String password = editable.toString();
-                if (!ValidateUtil.validatePwd_new(password) && !TextUtils.isEmpty(password)) {
-                    String err = "密码必须为6-16位包含英文与数字组合，区分大小写";
-                    mEtConfirm.setError(err);
-                }
-            }
-        });
-    }
 }

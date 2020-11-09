@@ -14,6 +14,7 @@ import com.ski.box.bean.DataCenter;
 import com.ski.box.bean.user.User;
 import com.ski.box.mvp.contract.my.UpdateFundPwdContract;
 import com.ski.box.mvp.presenter.my.UpdateFundPwdPresenter;
+import com.ski.box.utils.LanguageUtil;
 import com.ski.box.utils.ValidateUtil;
 import com.ski.box.view.view.ClearEditText;
 import com.ski.box.view.view.HeaderView;
@@ -59,10 +60,10 @@ public class UpdateFundPwdActivity extends BaseMVPActivity<UpdateFundPwdContract
         String title = "";
          mUser = DataCenter.getInstance().getUser();
         if(0 == mUser.getHavefundPwd()) {
-            title = getString(R.string.ski_my_money_pwd_set);
+            title = LanguageUtil.getText(getString(R.string.ski_my_money_pwd_set));
             mEtOld.setVisibility(View.GONE);
         } else {
-            title = getString(R.string.ski_my_money_pwd_update);
+            title = LanguageUtil.getText(getString(R.string.ski_my_money_pwd_update));
         }
         mHeadView.setHeader(title, true);
 
@@ -95,22 +96,22 @@ public class UpdateFundPwdActivity extends BaseMVPActivity<UpdateFundPwdContract
         String pwdConfirm = mEtConfirm.getText().toString().trim();
         if(0 == mUser.getHavefundPwd()) {
             if (TextUtils.isEmpty(pwdNew)|| TextUtils.isEmpty(pwdConfirm)) {
-                ToastUtil.showWarning("输入框不能为空");
+                ToastUtil.showWarning(LanguageUtil.getText("输入框不能为空"));
                 return;
             }
         } else {
             if (TextUtils.isEmpty(pwdOld) ||  TextUtils.isEmpty(pwdNew)|| TextUtils.isEmpty(pwdConfirm)) {
-                ToastUtil.showWarning("输入框不能为空");
+                ToastUtil.showWarning(LanguageUtil.getText("输入框不能为空"));
                 return;
             }
         }
 
         if (!pwdNew.equals(pwdConfirm)) {
-            ToastUtil.showWarning("新密码两次输入不一致");
+            ToastUtil.showWarning(LanguageUtil.getText("新密码两次输入不一致"));
             return;
         }
         if(pwdNew.length() < 6 || pwdNew.length() > 16) {
-            String err = "密码必须为6-16位";
+            String err = LanguageUtil.getText("密码必须为6-16位");
             ToastUtil.showInfo(err);
             return;
         }
@@ -130,7 +131,7 @@ public class UpdateFundPwdActivity extends BaseMVPActivity<UpdateFundPwdContract
 
     @Override
     public void onSuccessResult() {
-        ToastUtil.showSuccess("修改成功!");
+        ToastUtil.showSuccess(LanguageUtil.getText("修改成功!"));
         mUser.setHavefundPwd(1);
         RxBus.get().post(EVENT_FUND_PWD_UPDATE,"");
         finish();
@@ -143,46 +144,46 @@ public class UpdateFundPwdActivity extends BaseMVPActivity<UpdateFundPwdContract
 
 
 
-    private void setEtListener() {
-        mEtNew.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-                String password = editable.toString();
-                if (!ValidateUtil.validatePwd_new(password) && !TextUtils.isEmpty(password)) {
-                    String err = "密码必须为6-16位包含英文与数字组合，区分大小写";
-                    mEtNew.setError(err);
-                }
-            }
-        });
-        mEtConfirm.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-                String password = editable.toString();
-                if (!ValidateUtil.validatePwd_new(password) && !TextUtils.isEmpty(password)) {
-                    String err = "密码必须为6-16位包含英文与数字组合，区分大小写";
-                    mEtConfirm.setError(err);
-                }
-            }
-        });
-    }
+//    private void setEtListener() {
+//        mEtNew.addTextChangedListener(new TextWatcher() {
+//            @Override
+//            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+//
+//            }
+//
+//            @Override
+//            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+//
+//            }
+//
+//            @Override
+//            public void afterTextChanged(Editable editable) {
+//                String password = editable.toString();
+//                if (!ValidateUtil.validatePwd_new(password) && !TextUtils.isEmpty(password)) {
+//                    String err = "密码必须为6-16位包含英文与数字组合，区分大小写";
+//                    mEtNew.setError(err);
+//                }
+//            }
+//        });
+//        mEtConfirm.addTextChangedListener(new TextWatcher() {
+//            @Override
+//            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+//
+//            }
+//
+//            @Override
+//            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+//
+//            }
+//
+//            @Override
+//            public void afterTextChanged(Editable editable) {
+//                String password = editable.toString();
+//                if (!ValidateUtil.validatePwd_new(password) && !TextUtils.isEmpty(password)) {
+//                    String err = "密码必须为6-16位包含英文与数字组合，区分大小写";
+//                    mEtConfirm.setError(err);
+//                }
+//            }
+//        });
+//    }
 }
