@@ -10,6 +10,7 @@ import com.chad.library.adapter.base.viewholder.BaseViewHolder;
 import com.ski.box.R;
 import com.ski.box.bean.lottery.LotteryBean;
 import com.ski.box.bean.lottery.LotteryConstant;
+import com.ski.box.bean.lottery.LotteryUtil;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -35,13 +36,7 @@ public class HallAdapter extends BaseQuickAdapter<LotteryBean, BaseViewHolder> {
         TextView tvName = holder.getView(R.id.tv_name);
         tvName.setText(bean.getTicketName());
         int id = bean.getTicketId();
-//        if (LotteryConstant.LOTTERY_ID_PK10_JSSC == id || LotteryConstant.LOTTERY_ID_PK10_XYFT == id || LotteryConstant.LOTTERY_ID_PK10_BJ == id ||
-//                LotteryConstant.LOTTERY_ID_PK10_JSFT == id || LotteryConstant.LOTTERY_ID_PK10_HLFT == id || LotteryConstant.LOTTERY_ID_SSC_CQ == id ||
-//                LotteryConstant.LOTTERY_ID_SSC_JS == id || LotteryConstant.LOTTERY_ID_SSC_XYFFC == id || LotteryConstant.LOTTERY_ID_SSC_TX == id) {
-//            ivHot.setVisibility(View.VISIBLE);
-//        } else {
-//            ivHot.setVisibility(View.GONE);
-//        }
+        ivIcon.setImageResource(LotteryUtil.getLotteryIcon(id));
         int position = holder.getAdapterPosition();
         if(0 == position) {
             llItem.setBackgroundResource(R.drawable.ski_hall_rv_item_unclick_top_left);

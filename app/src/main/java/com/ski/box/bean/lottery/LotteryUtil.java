@@ -1,28 +1,17 @@
 package com.ski.box.bean.lottery;
 
-import android.annotation.SuppressLint;
-import android.text.TextUtils;
-
 import com.ski.box.R;
-import com.ski.box.bean.DataCenter;
-import com.yb.core.utils.AppUtil;
-import com.yb.core.utils.SPUtils;
-import com.yb.core.utils.StringUtils;
 import com.yb.core.utils.TimeUtils;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Calendar;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.TreeMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static com.ski.box.bean.lottery.LotteryConstant.SER_ID_PK10;
 import static com.ski.box.bean.lottery.LotteryConstant.LOTTERY_ID_11X5_FJ;
 import static com.ski.box.bean.lottery.LotteryConstant.LOTTERY_ID_11X5_GD;
 import static com.ski.box.bean.lottery.LotteryConstant.LOTTERY_ID_11X5_GX;
@@ -71,13 +60,12 @@ import static com.ski.box.bean.lottery.LotteryConstant.SER_ID_3D;
 import static com.ski.box.bean.lottery.LotteryConstant.SER_ID_K3;
 import static com.ski.box.bean.lottery.LotteryConstant.SER_ID_KL8;
 import static com.ski.box.bean.lottery.LotteryConstant.SER_ID_LHC;
-import static com.ski.box.bean.lottery.LotteryConstant.SER_ID_LOW;
 import static com.ski.box.bean.lottery.LotteryConstant.SER_ID_PK10;
 import static com.ski.box.bean.lottery.LotteryConstant.SER_ID_PL35;
 import static com.ski.box.bean.lottery.LotteryConstant.SER_ID_SSC;
-import static java.util.regex.Pattern.compile;
 
 public class LotteryUtil {
+    private static Map<Integer, Integer> mLotteryIconMap = new HashMap<>();
     public static final List<String[]> shengXiaos = new ArrayList<>();
     public static final int nowIndex;
     public static final String[] shengXiao1 = new String[]{"鸡", "猴", "羊", "马", "蛇", "龙", "兔", "虎", "牛", "鼠", "猪", "狗"};
@@ -107,38 +95,6 @@ public class LotteryUtil {
         shengXiaos.add(shengXiao11);
         shengXiaos.add(shengXiao12);
         nowIndex = TimeUtils.getNowIndex();
-    }
-
-    public static String getSerNameBySerId(int serId) {
-        String  resName = "";
-        switch (serId) {
-            case SER_ID_PK10:
-                resName = LotteryConstant.SER_NAME_PK10;
-                break;
-            case SER_ID_SSC:
-                resName = LotteryConstant.SER_NAME_SSC;
-                break;
-            case SER_ID_LHC:
-                resName = LotteryConstant.SER_NAME_LHC;
-                break;
-            case SER_ID_11X5:
-                resName = LotteryConstant.SER_NAME_11X5;
-                break;
-            case SER_ID_K3:
-                resName = LotteryConstant.SER_NAME_K3;
-                break;
-            case SER_ID_3D:
-            case SER_ID_PL35:
-                resName = LotteryConstant.SER_NAME_3D;
-                break;
-            case SER_ID_KL8:
-                resName = LotteryConstant.SER_NAME_KL8;
-                break;
-           /* case SER_ID_PL35:
-                resName = LotteryConstant.SER_NAME_PL35;
-                break;*/
-        }
-        return resName;
     }
 
 
@@ -327,6 +283,7 @@ public class LotteryUtil {
     private static Map<String, String> doubleSideMutelIteMap = new HashMap<>();
     public static ArrayList analyzingCode = new ArrayList() {
     };
+
     /**
      * 双面盘互斥选项映射
      */
@@ -395,5 +352,56 @@ public class LotteryUtil {
         analyzingCode.add("绿波");
     }
 
+    static {
+        // ssc
+        mLotteryIconMap.put(1, R.mipmap.ski_icon_ssc_1);
+        mLotteryIconMap.put(3, R.mipmap.ski_icon_ssc_3);
+        mLotteryIconMap.put(8, R.mipmap.ski_icon_ssc_8);
+        mLotteryIconMap.put(9, R.mipmap.ski_icon_ssc_9);
+        mLotteryIconMap.put(45, R.mipmap.ski_icon_ssc_45);
+        mLotteryIconMap.put(55, R.mipmap.ski_icon_ssc_55);
+        mLotteryIconMap.put(56, R.mipmap.ski_icon_ssc_56);
+        mLotteryIconMap.put(57, R.mipmap.ski_icon_ssc_57);
+        // 11x5
+        mLotteryIconMap.put(4, R.mipmap.ski_icon_11x5_4);
+        mLotteryIconMap.put(5, R.mipmap.ski_icon_11x5_5);
+        mLotteryIconMap.put(11, R.mipmap.ski_icon_11x5_11);
+        mLotteryIconMap.put(46, R.mipmap.ski_icon_11x5_46);
+        mLotteryIconMap.put(58, R.mipmap.ski_icon_11x5_58);
+        // lhc
+        mLotteryIconMap.put(27, R.mipmap.ski_icon_lhc_27);
+        mLotteryIconMap.put(59, R.mipmap.ski_icon_lhc_59);
+        // 3d
+        mLotteryIconMap.put(6, R.mipmap.ski_icon_3d_6);
+        mLotteryIconMap.put(16, R.mipmap.ski_icon_3d_16);
+        mLotteryIconMap.put(17, R.mipmap.ski_icon_3d_17);
+        // kl8
+        mLotteryIconMap.put(26, R.mipmap.ski_icon_kl8_26);
+        mLotteryIconMap.put(47, R.mipmap.ski_icon_kl8_47);
+        // pk10
+        mLotteryIconMap.put(18, R.mipmap.ski_icon_pk10_18);
+        mLotteryIconMap.put(48, R.mipmap.ski_icon_pk10_48);
+        mLotteryIconMap.put(67, R.mipmap.ski_icon_pk10_67);
+        mLotteryIconMap.put(68, R.mipmap.ski_icon_pk10_68);
+        // k3
+        mLotteryIconMap.put(20, R.mipmap.ski_icon_k3_20);
+        mLotteryIconMap.put(41, R.mipmap.ski_icon_k3_41);
+        mLotteryIconMap.put(42, R.mipmap.ski_icon_k3_42);
+        mLotteryIconMap.put(43, R.mipmap.ski_icon_k3_43);
+        mLotteryIconMap.put(50, R.mipmap.ski_icon_k3_50);
+        mLotteryIconMap.put(89, R.mipmap.ski_icon_k3_89);
+        // pl35
+        mLotteryIconMap.put(40, R.mipmap.ski_icon_pl35_40);
+    }
 
+    public static int getLotteryIcon(int ticket) {
+        Integer value = mLotteryIconMap.get(ticket);
+        int res= 0;
+        if(value == null) {
+            res = R.mipmap.ski_home_icon_lottery_txffc;
+        } else {
+            res = value;
+        }
+        return res;
+    }
 }
