@@ -79,5 +79,21 @@
   "2.每个平台账号最多可以添加 5 张银行卡。": "2. Mỗi tài khoản nền tảng có thể thêm tối đa 5 thẻ ngân hàng.",
   "3.每个账号只能添加同一个持卡人姓名的银行卡。": "3. Mỗi tài khoản chỉ được thêm thẻ ngân hàng trùng tên chủ thẻ.",
   "4.添加银行卡信息后，需 12 小时后方可提现。": "4. Sau khi bổ sung thông tin thẻ ngân hàng, bạn phải mất 12 tiếng để rút tiền mặt.",
-  "5.必须绑定银行卡后方可提现。": "5. Thẻ ngân hàng phải được ràng buộc trước khi có thể rút tiền."
+  "5.必须绑定银行卡后方可提现。": "5. Thẻ ngân hàng phải được ràng buộc trước khi có thể rút tiền.",
+  "持  卡  人": "Chủ thẻ",
+  "添加银行卡": "Thêm Thẻ Ngân Hàng",
+  "请选择银行": "Vui lòng chọn một ngân hàng",
+  "两次输入银行卡号不一致": "Hai số thẻ ngân hàng đầu vào không nhất quán",
+  "绑定成功!": "Ràng buộc thành công!",
+  "请选择": "xin vui lòng chọn",
+  "开户银行": "ngân hàng",
+  "开户网点": "Cửa hàng",
+  "开户人姓名": "Tên",
+  "银行卡号": "số thẻ",
+  "确认银行卡号": "xác nhận",
+  "请填写开户网点": "Vui lòng điền vào điểm mở tài khoản",
+  "请输入姓名": "Vui lòng nhập tên của bạn",
+  "请输入银行卡号": "Vui lòng nhập số thẻ ngân hàng",
+  "请再次输入银行卡号": "Vui lòng nhập lại số thẻ ngân hàng",
+  "绑定银行卡": "Trói buộc"
 }

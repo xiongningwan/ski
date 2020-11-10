@@ -35,7 +35,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/tv_bank_name"
                 android:layout_marginTop="16dp"/>
 
-            <TextView
+            <com.ski.box.view.view.CusTextView
                 android:id="@+id/tv_label_bank_owner"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -44,7 +44,7 @@
                 android:textSize="16dp"
                 app:layout_constraintStart_toStartOf="@+id/tv_bank_name"
                 app:layout_constraintTop_toBottomOf="@+id/tv_bank_no"
-                android:layout_marginTop="10dp"/>
+                android:layout_marginTop="16dp"/>
 
             <TextView
                 android:id="@+id/tv_label_bank_time"
@@ -55,7 +55,8 @@
                 android:textSize="16dp"
                 app:layout_constraintStart_toStartOf="@+id/tv_bank_name"
                 app:layout_constraintTop_toBottomOf="@+id/tv_label_bank_owner"
-                android:layout_marginTop="10dp"/>
+                android:layout_marginTop="10dp"
+                android:visibility="gone"/>
 
 
             <TextView
@@ -65,9 +66,9 @@
                 tools:text="曹**"
                 android:textColor="@color/ski_white"
                 android:textSize="14dp"
-                app:layout_constraintStart_toEndOf="@+id/tv_label_bank_time"
+                app:layout_constraintStart_toEndOf="@+id/tv_label_bank_owner"
                 app:layout_constraintTop_toBottomOf="@+id/tv_bank_no"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="16dp"
                 android:layout_marginStart="32dp"/>
 
             <TextView
@@ -80,7 +81,8 @@
                 app:layout_constraintStart_toEndOf="@+id/tv_label_bank_time"
                 app:layout_constraintTop_toBottomOf="@+id/tv_label_bank_owner"
                 android:layout_marginTop="10dp"
-                android:layout_marginStart="32dp"/>
+                android:layout_marginStart="32dp"
+                android:visibility="gone"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
 

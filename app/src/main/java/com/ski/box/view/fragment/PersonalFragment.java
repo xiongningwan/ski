@@ -139,6 +139,9 @@ public class PersonalFragment extends BaseMVPFragment<PersonalContract.Presenter
     public void onClick(View view) {
         int id = view.getId();
         if (id == R.id.btn_logout) {
+            saveSetSp_token_authorization("", "");
+            startActivity(new Intent(requireActivity(), LoginActivity.class));
+            requireActivity().finish();
             mPresenter.logout();
         } else if (id == R.id.iv_et_nick_name || id == R.id.tv_user_name || id == R.id.tv_user_acc) {
             startActivity(new Intent(requireActivity(), PersonalInfoActivity.class));
@@ -264,16 +267,10 @@ public class PersonalFragment extends BaseMVPFragment<PersonalContract.Presenter
 
     @Override
     public void onLogoutResult(Object o) {
-        saveSetSp_token_authorization("", "");
-        startActivity(new Intent(requireActivity(), LoginActivity.class));
-        requireActivity().finish();
     }
 
     @Override
     public void onLogoutFailResult(String s) {
-        saveSetSp_token_authorization("", "");
-        startActivity(new Intent(requireActivity(), LoginActivity.class));
-        requireActivity().finish();
     }
 
     private void saveSetSp_token_authorization(String token, String authorization) {

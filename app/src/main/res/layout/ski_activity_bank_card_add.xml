@@ -29,7 +29,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
+        <com.ski.box.view.view.CusTextView
             android:id="@+id/tv_bank_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -74,7 +74,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginStart="16dp"/>
 
-        <TextView
+        <com.ski.box.view.view.CusTextView
             android:id="@+id/tv_point"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -128,7 +128,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginStart="16dp"/>
 
-        <TextView
+        <com.ski.box.view.view.CusTextView
             android:id="@+id/tv_owner_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -183,7 +183,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginStart="16dp"/>
 
-        <TextView
+        <com.ski.box.view.view.CusTextView
             android:id="@+id/tv_bank_no"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -238,7 +238,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginStart="16dp"/>
 
-        <TextView
+        <com.ski.box.view.view.CusTextView
             android:id="@+id/tv_bank_no_confirm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -331,7 +331,7 @@
         android:background="@color/ski_color_dfe2f2"
         android:visibility="gone"/>
 
-    <Button
+    <com.ski.box.view.view.CusButton
         android:id="@+id/btn_sure"
         android:layout_width="match_parent"
         android:layout_height="40dp"

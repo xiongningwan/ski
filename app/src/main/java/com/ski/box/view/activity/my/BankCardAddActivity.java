@@ -13,6 +13,7 @@ import com.ski.box.R;
 import com.ski.box.bean.user.Bank;
 import com.ski.box.mvp.contract.my.BankCardAddContract;
 import com.ski.box.mvp.presenter.my.BankCardAddPresenter;
+import com.ski.box.utils.LanguageUtil;
 import com.ski.box.view.view.ClearEditText;
 import com.ski.box.view.view.HeaderView;
 import com.yb.core.base.BaseMVPActivity;
@@ -63,7 +64,7 @@ public class BankCardAddActivity extends BaseMVPActivity<BankCardAddContract.Pre
         mEtBankNoConfirm = findViewById(R.id.et_bank_no_confirm);
 //        mEtFundPwd = findViewById(R.id.et_fund_pwd);
         mBtnSure = findViewById(R.id.btn_sure);
-        mHeadView.setHeader(getString(R.string.ski_my_bank_card_add), true);
+        mHeadView.setHeader(LanguageUtil.getText(getString(R.string.ski_my_bank_card_add)), true);
 
         mBtnSure.setOnClickListener(this);
     }
@@ -89,12 +90,12 @@ public class BankCardAddActivity extends BaseMVPActivity<BankCardAddContract.Pre
 
     private void doBind() {
         if (0 == mSpinnerBankName.getSelectedIndex()) {
-            ToastUtil.showError("请选择银行");
+            ToastUtil.showError(LanguageUtil.getText("请选择银行"));
             return;
         }
         Bank bank = (Bank) mSpinnerBankName.getSelectedItem();
         if (bank == null) {
-            ToastUtil.showInfo("请先选择银行");
+            ToastUtil.showError(LanguageUtil.getText("请选择银行"));
             return;
         }
         String point = mEtPoint.getText().toString().trim();
@@ -103,11 +104,11 @@ public class BankCardAddActivity extends BaseMVPActivity<BankCardAddContract.Pre
         String bankNoConfirm = mEtBankNoConfirm.getText().toString().trim();
 //        String funPwd = mEtFundPwd.getText().toString().trim();
         if (TextUtils.isEmpty(point) || TextUtils.isEmpty(ownerName) || TextUtils.isEmpty(bankNo) || TextUtils.isEmpty(bankNoConfirm)) {
-            ToastUtil.showInfo("输入框不能为空");
+            ToastUtil.showInfo(LanguageUtil.getText("输入框不能为空"));
             return;
         }
         if (!bankNo.equals(bankNoConfirm)) {
-            ToastUtil.showInfo("两次输入银行卡号不一致");
+            ToastUtil.showInfo(LanguageUtil.getText("两次输入银行卡号不一致"));
             return;
         }
         mPresenter.bindBank(String.valueOf(bank.getBankCode()), bank.getBankName(), point, ownerName, bankNo, bankNoConfirm);
@@ -126,7 +127,7 @@ public class BankCardAddActivity extends BaseMVPActivity<BankCardAddContract.Pre
     @Override
     public void onBindSuccessResult() {
         RxBus.get().post(EVENT_BIND_BANK_CARD_SUCCESS, "");
-        ToastUtil.showSuccess("绑定成功！");
+        ToastUtil.showSuccess(LanguageUtil.getText("绑定成功!"));
         finish();
     }
 
@@ -138,7 +139,7 @@ public class BankCardAddActivity extends BaseMVPActivity<BankCardAddContract.Pre
 
     private void setSpinner(List<Bank> list) {
         Bank bank = new Bank();
-        bank.setBankName("请选择");
+        bank.setBankName(LanguageUtil.getText("请选择"));
         list.add(0, bank);
 
         SpinnerTextFormatter textFormatter = new SpinnerTextFormatter<Bank>() {
