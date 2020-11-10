@@ -54,7 +54,7 @@ public class MoneyProgressAdapter extends BaseQuickAdapter<MoneyProgressData.Lis
         TextView tvStatus = holder.getView(R.id.tv_status);
         String statusStr = "";
         //状态，1：处理中（待审核），2：已完成（审核通过），3：失效（审核驳回）
-        if(1 == bean.getDwType()) {
+        if(1 == bean.getStatus()) {
             statusStr = "待审核";
         } else if(2 == bean.getDwType()) {
             statusStr = "审核通过";
