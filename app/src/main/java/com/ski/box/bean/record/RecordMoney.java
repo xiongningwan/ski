@@ -60,12 +60,21 @@ public class RecordMoney {
 
     public static class ListBean {
         private String createdAt;
+        private String tradeTime;
         private String id;
         private String ticketName;
         private int tradeType;
         private String balanceBefore;
         private String balanceAfter;
         private double amount;
+
+        public String getTradeTime() {
+            return tradeTime;
+        }
+
+        public void setTradeTime(String tradeTime) {
+            this.tradeTime = tradeTime;
+        }
 
         public String getCreatedAt() {
             return createdAt;

@@ -34,7 +34,7 @@ public class RecordMoneyAdapter extends BaseQuickAdapter<RecordMoney.ListBean, B
     @Override
     protected void convert(@NotNull BaseViewHolder holder, @Nullable RecordMoney.ListBean bean) {
         holder.setText(R.id.tv_no, "订单编号: " + bean.getId())
-                .setText(R.id.tv_time, bean.getCreatedAt())
+                .setText(R.id.tv_time, bean.getTradeTime())
                 .setText(R.id.tv_name, bean.getTicketName())
                 .setText(R.id.tv_type, mMapType.get(bean.getTradeType()))
                 .setText(R.id.tv_before, "账变前余额  " + bean.getBalanceBefore() + "元")
