@@ -13,6 +13,7 @@ import com.ski.box.bean.DataCenter;
 import com.ski.box.mvp.contract.my.BindEmailContract;
 import com.ski.box.mvp.presenter.my.BindEmailPresenter;
 import com.ski.box.utils.EasyCountDownTimer;
+import com.ski.box.utils.LanguageUtil;
 import com.ski.box.utils.ValidateUtil;
 import com.ski.box.view.view.ClearEditText;
 import com.ski.box.view.view.CusTextView;
@@ -53,7 +54,7 @@ public class BindEmailActivity extends BaseMVPActivity<BindEmailContract.Present
         mEtCode = findViewById(R.id.et_code);
         mTvSendCode = findViewById(R.id.tv_send_code);
         mBtnSure = findViewById(R.id.btn_sure);
-        mHeadView.setHeader(getString(R.string.ski_my_bind_email), true);
+        mHeadView.setHeader(LanguageUtil.getText(getString(R.string.ski_my_bind_email)), true);
 
         mTvSendCode.setOnClickListener(this);
         mBtnSure.setOnClickListener(this);
@@ -76,11 +77,11 @@ public class BindEmailActivity extends BaseMVPActivity<BindEmailContract.Present
     private void doSendCode() {
         String email = mEtPhone.getText().toString().trim();
         if (TextUtils.isEmpty(email)) {
-            ToastUtil.showWarning("请输入邮箱");
+            ToastUtil.showWarning(LanguageUtil.getText("请输入邮箱"));
             return;
         }
         if (!ValidateUtil.validateEamil(email)) {
-            ToastUtil.showWarning("邮箱格式不正确");
+            ToastUtil.showWarning(LanguageUtil.getText("邮箱格式不正确"));
             return;
         }
         EasyCountDownTimer timer = new EasyCountDownTimer(mTvSendCode,60000,1000);
@@ -92,11 +93,11 @@ public class BindEmailActivity extends BaseMVPActivity<BindEmailContract.Present
         String email = mEtPhone.getText().toString().trim();
         String code = mEtCode.getText().toString().trim();
         if (TextUtils.isEmpty(email)) {
-            ToastUtil.showWarning("请输入邮箱");
+            ToastUtil.showWarning(LanguageUtil.getText("请输入邮箱"));
             return;
         }
         if (TextUtils.isEmpty(code)) {
-            ToastUtil.showWarning("请输入验证码");
+            ToastUtil.showWarning(LanguageUtil.getText("请输入验证码"));
             return;
         }
 

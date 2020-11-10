@@ -64,5 +64,8 @@
   "版本": "phiên bản",
   "请输入手机号码": "Vui lòng nhập số điện thoại",
   "发送验证码": "Gửi mã xác minh",
-  "请输入验证码": "vui lòng nhập mã xác nhận"
+  "请输入验证码": "vui lòng nhập mã xác nhận",
+  "请输入邮箱": "vui lòng nhập email của bạn",
+  "邮箱格式不正确": "Định dạng e-mail không chính xác",
+  "请输入邮箱地址": "Vui lòng nhập địa chỉ email"
 }
