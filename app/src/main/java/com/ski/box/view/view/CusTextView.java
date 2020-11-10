@@ -3,6 +3,7 @@ package com.ski.box.view.view;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Color;
+import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.widget.TextView;
@@ -42,4 +43,7 @@ public class CusTextView extends androidx.appcompat.widget.AppCompatTextView {
         setText(LanguageUtil.getText(text));
     }
 
+    public void setCText(SpannableStringBuilder ssb) {
+        setText(LanguageUtil.getText(ssb.toString()));
+    }
 }

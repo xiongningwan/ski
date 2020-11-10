@@ -25,6 +25,7 @@ import com.ski.box.bean.user.BankCard;
 import com.ski.box.bean.user.User;
 import com.ski.box.mvp.contract.my.BankCardContract;
 import com.ski.box.mvp.presenter.my.BankCardPresenter;
+import com.ski.box.utils.LanguageUtil;
 import com.ski.box.view.view.HeaderView;
 import com.yb.core.base.BaseMVPActivity;
 import com.yb.core.utils.ToastUtil;
@@ -70,7 +71,7 @@ public class BankCardActivity extends BaseMVPActivity<BankCardContract.Presenter
 //        mBtnSure = mFooterView.findViewById(R.id.btn_sure);
 //        mTvTip2 = mFooterView.findViewById(R.id.tv_tip_2);
 //        mTvTip4 = mFooterView.findViewById(R.id.tv_tip_4);
-        mHeadView.setHeader(getString(R.string.ski_my_bank_card), true);
+        mHeadView.setHeader(LanguageUtil.getText(getString(R.string.ski_my_bank_card)), true);
       //  mRefreshLayout.setRefreshFooter(mFooterView);
 //        mBtnSure.setOnClickListener(this);
 
@@ -124,12 +125,12 @@ public class BankCardActivity extends BaseMVPActivity<BankCardContract.Presenter
     private void goToBind() {
         User user = DataCenter.getInstance().getUser();
         if (TextUtils.isEmpty(user.getMobile())) {
-            ToastUtil.showInfo("先设置手机号");
+            ToastUtil.showInfo(LanguageUtil.getText("先设置手机号"));
             startActivity(new Intent(this, BindPhoneActivity.class));
             return;
         }
         if (0 == user.getHavefundPwd()) {
-            ToastUtil.showInfo("先设置资金密码");
+            ToastUtil.showInfo(LanguageUtil.getText("先设置资金密码"));
             startActivity(new Intent(this, UpdateFundPwdActivity.class));
             return;
         }

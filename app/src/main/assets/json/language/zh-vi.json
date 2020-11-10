@@ -70,5 +70,14 @@
   "请输入邮箱地址": "Vui lòng nhập địa chỉ email",
   "投注确认提示": "Nhắc nhở xác nhận đặt cược ",
   "开奖倒计时音效": "Âm thanh đếm ngược mở thưởng",
-  "投注金额区间": "Giới hạn đặt cược "
+  "投注金额区间": "Giới hạn đặt cược ",
+  "先设置手机号": "Đặt số điện thoại trước",
+  "先设置资金密码": "Đặt mật khẩu quỹ đầu tiên",
+  "+添加银行卡": "Thêm Thẻ Ngân Hàng",
+  "温馨提示": "Lưu ý",
+  "1.银行卡添加成功后，平台任何区域都不会出现您完整的银行卡账号，开户名等信息。": "1. Sau khi thẻ ngân hàng được thêm thành công, số tài khoản thẻ ngân hàng hoàn chỉnh, tên tài khoản và các thông tin khác của bạn sẽ không xuất hiện trong bất kỳ khu vực nào của nền tảng.",
+  "2.每个平台账号最多可以添加 5 张银行卡。": "2. Mỗi tài khoản nền tảng có thể thêm tối đa 5 thẻ ngân hàng.",
+  "3.每个账号只能添加同一个持卡人姓名的银行卡。": "3. Mỗi tài khoản chỉ được thêm thẻ ngân hàng trùng tên chủ thẻ.",
+  "4.添加银行卡信息后，需 12 小时后方可提现。": "4. Sau khi bổ sung thông tin thẻ ngân hàng, bạn phải mất 12 tiếng để rút tiền mặt.",
+  "5.必须绑定银行卡后方可提现。": "5. Thẻ ngân hàng phải được ràng buộc trước khi có thể rút tiền."
 }

@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.ski.box.R;
 import com.ski.box.bean.DataCenter;
+import com.ski.box.view.view.CusTextView;
 
 import java.util.Locale;
 
@@ -110,7 +111,7 @@ public class ActivityUtil {
     }
 
     // 设置关键字红色
-    public static void setTipKeywordRed(Context context, TextView tv, String tip1, String keyword) {
+    public static void setTipKeywordRed(Context context, CusTextView tv, String tip1, String keyword) {
         if (!TextUtils.isEmpty(tip1) && tip1.contains(keyword)) {
             int index = tip1.indexOf(keyword);
             int length = keyword.length();

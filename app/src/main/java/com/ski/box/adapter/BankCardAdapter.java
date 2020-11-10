@@ -13,6 +13,8 @@ import com.chad.library.adapter.base.viewholder.BaseViewHolder;
 import com.ski.box.R;
 import com.ski.box.bean.user.BankCard;
 import com.ski.box.utils.ActivityUtil;
+import com.ski.box.utils.LanguageUtil;
+import com.ski.box.view.view.CusTextView;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -40,19 +42,19 @@ public class BankCardAdapter extends BaseMultiItemQuickAdapter<BankCard, BaseVie
                 owner.setText(bean.getCardName());
                 break;
             case 1:
-                TextView mTvTip2 = holder.getView(R.id.tv_tip_2);
-                TextView mTvTip4 = holder.getView(R.id.tv_tip_4);
+                CusTextView mTvTip2 = holder.getView(R.id.tv_tip_2);
+                CusTextView mTvTip4 = holder.getView(R.id.tv_tip_4);
                 setRedTip(getContext(), mTvTip2, mTvTip4);
                 break;
         }
     }
 
-    private void setRedTip(Context context, TextView mTvTip2, TextView mTvTip4) {
+    private void setRedTip(Context context, CusTextView mTvTip2, CusTextView mTvTip4) {
             String tip1 = context.getString(R.string.ski_my_bank_card_tip_2);
             String tip2 = context.getString(R.string.ski_my_bank_card_tip_4);
 
-            ActivityUtil.setTipKeywordRed(context, mTvTip2, tip1, "5");
-            ActivityUtil.setTipKeywordRed(context, mTvTip4, tip2, "12");
+            ActivityUtil.setTipKeywordRed(context, mTvTip2, LanguageUtil.getText(tip1), "5");
+            ActivityUtil.setTipKeywordRed(context, mTvTip4, LanguageUtil.getText(tip2), "12");
     }
 
 }

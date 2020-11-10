@@ -239,7 +239,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="32dp"/>
 
-    <TextView
+    <com.ski.box.view.view.CusTextView
         android:id="@+id/tv_notice_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -250,7 +250,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"/>
 
-    <TextView
+    <com.ski.box.view.view.CusTextView
         android:id="@+id/tv_notice_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -261,7 +261,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"/>
 
-    <TextView
+    <com.ski.box.view.view.CusTextView
         android:id="@+id/tv_notice_3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -271,7 +271,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"/>
-    <TextView
+    <com.ski.box.view.view.CusTextView
         android:id="@+id/tv_notice_4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -281,7 +281,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"/>
-    <TextView
+    <com.ski.box.view.view.CusTextView
         android:id="@+id/tv_notice_5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -291,7 +291,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"/>
-    <TextView
+    <com.ski.box.view.view.CusTextView
         android:id="@+id/tv_notice_6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -302,7 +302,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"/>
 
-    <TextView
+    <com.ski.box.view.view.CusTextView
         android:id="@+id/tv_wen_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -314,7 +314,7 @@
         android:textColor="@color/ski_color_tip_red"
         android:layout_marginTop="20dp"/>
 
-    <TextView
+    <com.ski.box.view.view.CusTextView
         android:id="@+id/tv_wen_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -38,6 +38,7 @@ import com.ski.box.mvp.presenter.money.RechargePresenter;
 import com.ski.box.utils.ActivityUtil;
 import com.ski.box.view.activity.money.RechargeDetailActivity;
 import com.ski.box.view.view.ClearEditText;
+import com.ski.box.view.view.CusTextView;
 import com.ski.box.view.view.HeaderView;
 import com.ski.box.view.view.dialog.LoadingDialog;
 import com.yb.core.base.BaseMVPFragment;
@@ -67,8 +68,8 @@ public class RechargeFragment extends BaseMVPFragment<RechargeContract.Presenter
     private ClearEditText mEtMoney;
     private TextView mTvWen1;
     private TextView mTvWen2;
-    private TextView mTvNotice1;
-    private TextView mTvNotice2;
+    private CusTextView mTvNotice1;
+    private CusTextView mTvNotice2;
     private ProgressDialog mLoading;
     private RotateAnimation rotate;
     private int mHasHead;
