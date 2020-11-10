@@ -71,7 +71,7 @@ public class MoneyProgressAdapter extends BaseQuickAdapter<MoneyProgressData.Lis
             tvMoney.setTextColor(mGreen);
         }
         TextView tvRemark = holder.getView(R.id.tv_remark);
-        tvRemark.setText(bean.getRemark());
+        tvRemark.setText("备注：" + bean.getRemark());
         if(TextUtils.isEmpty(bean.getRemark())) {
             tvRemark.setVisibility(View.GONE);
         } else {
