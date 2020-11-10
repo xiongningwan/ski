@@ -20,6 +20,7 @@ import com.ski.box.bean.PersonProfileEntity;
 import com.ski.box.bean.SelfProfileEntity;
 import com.ski.box.mvp.contract.my.GameSetContract;
 import com.ski.box.mvp.presenter.my.GameSetPresenter;
+import com.ski.box.utils.LanguageUtil;
 import com.ski.box.utils.lottery.LotteryNoUtil;
 import com.ski.box.utils.lottery.SettingManager;
 import com.ski.box.view.view.HeaderView;
@@ -65,7 +66,7 @@ public class GameSetActivity extends BaseMVPActivity<GameSetContract.Presenter> 
         mRvRange = findViewById(R.id.rv_range);
         llAmountRange = findViewById(R.id.ll_double_bet_amount_range);
         tvAmountRange = findViewById(R.id.tv_double_bet_amount_range);
-        mHeadView.setHeader(getString(R.string.ski_my_game_set), true);
+        mHeadView.setHeader(LanguageUtil.getText(getString(R.string.ski_my_game_set)), true);
     }
 
     @Override
