@@ -90,7 +90,7 @@ public interface IGroupService {
     Single<HttpResult<GroupMoneyData>> getTeamTransList(
             @Query("startDate") String startDate,
             @Query("endDate") String endDate,
-            @Query("status") String status,
+            @Query("transType") String transType,
             @Query("memberAccount") String memberAccount,
             @Query("pageSize") int pageSize,
             @Query("pageNum") int pageNum);

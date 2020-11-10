@@ -1,6 +1,8 @@
 package com.ski.box.adapter;
 
 import android.content.Context;
+import android.text.TextUtils;
+import android.view.View;
 import android.widget.TextView;
 
 import androidx.core.content.ContextCompat;
@@ -67,6 +69,13 @@ public class MoneyProgressAdapter extends BaseQuickAdapter<MoneyProgressData.Lis
             tvMoney.setTextColor(mRed);
         } else {
             tvMoney.setTextColor(mGreen);
+        }
+        TextView tvRemark = holder.getView(R.id.tv_remark);
+        tvRemark.setText(bean.getRemark());
+        if(TextUtils.isEmpty(bean.getRemark())) {
+            tvRemark.setVisibility(View.GONE);
+        } else {
+            tvRemark.setVisibility(View.VISIBLE);
         }
     }
 
