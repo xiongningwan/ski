@@ -196,6 +196,8 @@ public class BodyFragment extends BaseFragment {
      * 监听
      */
     private void initListener() {
+        mFreshColdHot.setVisibility(View.GONE);
+        mFreshMiss.setVisibility(View.GONE);
         mFreshColdHot.setOnClickListener(v -> {
             ToastUtil.showInfo("正在开发中");
             mContentAdapter.hotCold = !mContentAdapter.hotCold;
