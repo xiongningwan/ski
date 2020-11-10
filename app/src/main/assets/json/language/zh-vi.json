@@ -61,5 +61,8 @@
   "登录": "đăng nhập",
   "线路": "hàng",
   "客服": "Dịch vụ khách hàng",
-  "版本": "phiên bản"
+  "版本": "phiên bản",
+  "请输入手机号码": "Vui lòng nhập số điện thoại",
+  "发送验证码": "Gửi mã xác minh",
+  "请输入验证码": "vui lòng nhập mã xác nhận"
 }

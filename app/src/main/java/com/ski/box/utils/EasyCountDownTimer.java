@@ -3,16 +3,18 @@ package com.ski.box.utils;
 import android.os.CountDownTimer;
 import android.widget.TextView;
 
+import com.ski.box.view.view.CusTextView;
+
 /**
  * Created by alex on 18-3-27.
  */
 
 public class EasyCountDownTimer extends CountDownTimer {
 
-    private TextView mTextView;
+    private CusTextView mTextView;
 
 
-    public EasyCountDownTimer(TextView textView, long millisInFuture, long countDownInterval) {
+    public EasyCountDownTimer(CusTextView textView, long millisInFuture, long countDownInterval) {
         super(millisInFuture, countDownInterval);
         this.mTextView = textView;
     }
@@ -25,7 +27,7 @@ public class EasyCountDownTimer extends CountDownTimer {
 
     @Override
     public void onFinish() {
-        mTextView.setText("获取验证码");
+        mTextView.setCText("获取验证码");
         mTextView.setClickable(true);
 
     }

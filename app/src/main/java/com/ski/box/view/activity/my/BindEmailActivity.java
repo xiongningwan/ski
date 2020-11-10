@@ -15,6 +15,7 @@ import com.ski.box.mvp.presenter.my.BindEmailPresenter;
 import com.ski.box.utils.EasyCountDownTimer;
 import com.ski.box.utils.ValidateUtil;
 import com.ski.box.view.view.ClearEditText;
+import com.ski.box.view.view.CusTextView;
 import com.ski.box.view.view.HeaderView;
 import com.yb.core.base.BaseMVPActivity;
 import com.yb.core.utils.ToastUtil;
@@ -23,11 +24,11 @@ import static com.ski.box.ConstantValue.EVENT_BIND_EMAIL_SUCCESS;
 
 
 public class BindEmailActivity extends BaseMVPActivity<BindEmailContract.Presenter> implements BindEmailContract.View, View.OnClickListener {
-    HeaderView mHeadView;
-    ClearEditText mEtPhone;
-    ClearEditText mEtCode;
-    TextView mTvSendCode;
-    Button mBtnSure;
+    private HeaderView mHeadView;
+    private ClearEditText mEtPhone;
+    private ClearEditText mEtCode;
+    private CusTextView mTvSendCode;
+    private Button mBtnSure;
 
     @Override
     protected void onDestroy() {
