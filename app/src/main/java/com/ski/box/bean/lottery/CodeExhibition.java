@@ -18,6 +18,24 @@ public class CodeExhibition {
     private String tag;
     /*带位置的单式*/
     private String positionName = "";
+    private String remoteCode;
+    private String remoteSubCode;
+
+    public String getRemoteCode() {
+        return remoteCode;
+    }
+
+    public void setRemoteCode(String remoteCode) {
+        this.remoteCode = remoteCode;
+    }
+
+    public String getRemoteSubCode() {
+        return remoteSubCode;
+    }
+
+    public void setRemoteSubCode(String remoteSubCode) {
+        this.remoteSubCode = remoteSubCode;
+    }
 
     public String getPositionName() {
         return positionName;

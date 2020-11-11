@@ -16,8 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/ski_dp_40"
         android:layout_marginTop="@dimen/ski_dp_6"
-        android:orientation="horizontal"
-        >
+        android:orientation="horizontal">
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/all_ticketplay_describ"
@@ -57,7 +56,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/ski_dp_10">
 
-        <TextView
+        <com.ski.box.view.view.CusTextView
             android:id="@+id/ski_tv_double_playing_instrution"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

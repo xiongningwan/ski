@@ -35,29 +35,30 @@ public class LotteryNoUtil {
         int mode = 1;
         int lotteryId = DataCenter.getInstance().getCurLotteryId();
         long id_Prefix = 0;
-        if(lotteryId < 10) {
+        if (lotteryId < 10) {
 //            id_Prefix = mode * 100000000 + lotteryId * 1000000;
             id_Prefix = mode * 10000000 + lotteryId * 1000000;
-        } else if(lotteryId < 100) {
+        } else if (lotteryId < 100) {
             id_Prefix = mode * 100000000 + lotteryId * 1000000;
 
-        } else if(lotteryId < 1000) {
+        } else if (lotteryId < 1000) {
             id_Prefix = mode * 100000000 + lotteryId * 100000;
         } else {
             id_Prefix = mode * 100000000 + lotteryId * 10000;
         }
         return id_Prefix;
     }
+
     public static long getPlayIdPrefix(int lotteryId) {
         // 145010101
         int mode = 1;
         long id_Prefix = 0;
-        if(lotteryId < 10) {
+        if (lotteryId < 10) {
 //            id_Prefix = mode * 100000000 + lotteryId * 10000000;
             id_Prefix = mode * 10000000 + lotteryId * 1000000;
-        } else if(lotteryId < 100) {
+        } else if (lotteryId < 100) {
             id_Prefix = mode * 100000000 + lotteryId * 1000000;
-        } else if(lotteryId < 1000) {
+        } else if (lotteryId < 1000) {
             id_Prefix = mode * 100000000 + lotteryId * 100000;
         } else {
             id_Prefix = mode * 100000000 + lotteryId * 10000;
@@ -205,7 +206,6 @@ public class LotteryNoUtil {
     }
 
 
-
     /**
      * 设置特殊赔率
      *
@@ -279,18 +279,36 @@ public class LotteryNoUtil {
         List<MkBetParamEntity.BetParamEntity> bets = new ArrayList<>();
         entity.setBet(bets);
         //TODO：单选 多选
-        if ("双面".equals(play.getTitle()) || "选号".equals(play.getTitle()) || "前中后三".equals(play.getTitle()) || "冠亚和值".equals(play.getTitle())
-                || "特码".equals(play.getTitle()) || "正码".equals(play.getTitle()) || "正码特".equals(play.getTitle()) || "一肖总肖平特尾数".equals(play.getTitle())
-                || "总和".equals(play.getTitle()) || "一字组合".equals(play.getTitle()) || "二字组合".equals(play.getTitle()) || "三字组合".equals(play.getTitle())
-                || "一字定位".equals(play.getTitle()) || "二字和数".equals(play.getTitle()) || "三字和数".equals(play.getTitle()) || "跨度".equals(play.getTitle())
-                || "整合".equals(play.getTitle()) || "鱼虾蟹".equals(play.getTitle())) {
+//        if ("双面".equals(play.getTitle()) || "选号".equals(play.getTitle()) || "前中后三".equals(play.getTitle()) || "冠亚和值".equals(play.getTitle())
+//                || "特码".equals(play.getTitle()) || "正码".equals(play.getTitle()) || "正码特".equals(play.getTitle()) || "一肖总肖平特尾数".equals(play.getTitle())
+//                || "总和".equals(play.getTitle()) || "一字组合".equals(play.getTitle()) || "二字组合".equals(play.getTitle()) || "三字组合".equals(play.getTitle())
+//                || "一字定位".equals(play.getTitle()) || "二字和数".equals(play.getTitle()) || "三字和数".equals(play.getTitle()) || "跨度".equals(play.getTitle())
+//                || "整合".equals(play.getTitle()) || "鱼虾蟹".equals(play.getTitle())) {
+//            LotteryPlaySub playSub = play.getSubPlays().get(playPosition);
+//            if ("合肖".equals(playSub.getTitleSub())) {
+//                onComposeResult(bets, play, playPosition);
+//            } else {
+//                entity = getParams_DAN(play, playPosition);
+//            }
+//        } else if ("自选不中".equals(play.getTitle())) {
+//            onComposeResultLimit(entity, bets, play, playPosition, 11);
+//        } else {
+//            onComposeResult(bets, play, playPosition);
+//        }
+        String remoteCode = play.getRemoteCode();
+
+        if ("shuangmian".equals(remoteCode) || "danhao".equals(remoteCode) || "liangmian".equals(remoteCode) || "xuanhao".equals(remoteCode)
+                || "qianzhonghousan".equals(remoteCode) || "guanyahezhi".equals(remoteCode) || "tema".equals(remoteCode) || "zhengma".equals(remoteCode)
+                || "zhengmate".equals(remoteCode) || "yixiaozongxiaopingteweishu".equals(remoteCode) || "zonghe".equals(remoteCode) || "yizizuhe".equals(remoteCode)
+                || "liangzizuhe".equals(remoteCode) || "sanzizuhe".equals(remoteCode) || "yizidingwei".equals(remoteCode) || "liangziheshu".equals(remoteCode)
+                || "sanziheshu".equals(remoteCode) || "kuadu".equals(remoteCode) || "zhenghe".equals(remoteCode) || "yuxiaxietoubao".equals(remoteCode)) {
             LotteryPlaySub playSub = play.getSubPlays().get(playPosition);
-            if ("合肖".equals(playSub.getTitleSub())) {
+            if ("hexiao".equals(playSub.getRemoteCode())) {
                 onComposeResult(bets, play, playPosition);
             } else {
                 entity = getParams_DAN(play, playPosition);
             }
-        } else if ("自选不中".equals(play.getTitle())) {
+        } else if ("zixuanbuzhong".equals(remoteCode)) {
             onComposeResultLimit(entity, bets, play, playPosition, 11);
         } else {
             onComposeResult(bets, play, playPosition);
@@ -299,7 +317,7 @@ public class LotteryNoUtil {
     }
 
     private static void onComposeResult(List<MkBetParamEntity.BetParamEntity> bets, LotteryPlayStart play, int playPosition) {
-        CodeExhibition codes =  CalculationNumUtil.getAttachCodesString_d(play, playPosition);
+        CodeExhibition codes = CalculationNumUtil.getAttachCodesString_d(play, playPosition);
         MkBetParamEntity.BetParamEntity betParamEntity = new MkBetParamEntity.BetParamEntity();
         betParamEntity.setPlayId(String.valueOf(codes.getPlayItemId()));
         betParamEntity.setBetNum(codes.getBetTxt());
@@ -507,7 +525,6 @@ public class LotteryNoUtil {
         return title.equals("号码") || title.equals("特肖头尾数") || title.equals("合肖") || title.equals("正肖七色波")
                 || title.equals("点数") || title.equals("长短牌");
     }
-
 
 
 }

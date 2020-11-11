@@ -4,6 +4,7 @@ import android.text.TextUtils;
 
 import com.ski.box.bean.BallBean;
 import com.ski.box.bean.DataCenter;
+import com.ski.box.utils.LanguageUtil;
 import com.yb.core.utils.LogUtils;
 
 import java.util.ArrayList;
@@ -79,7 +80,7 @@ public class PlayUtil {
                             remotePlay = specialPlay(lotteryId, playStart, playSub, null, play, remotePlay);
                             play.setId(remotePlay.getId());
 
-                            if(!remotePlay.isDefaultName() && !TextUtils.isEmpty(remotePlay.getName())) {
+                            if (!remotePlay.isDefaultName() && !TextUtils.isEmpty(remotePlay.getName())) {
                                 play.setName(remotePlay.getName());
                             }
 
@@ -197,7 +198,8 @@ public class PlayUtil {
         if (remoteStartPlay != null) {
             playStart.setId(remoteStartPlay.getId());
             playStart.setCode(remoteStartPlay.getCode());
-        }else {
+            playStart.setTitle(remoteStartPlay.getName());
+        } else {
             // 添加隐藏
             hidePlayStarts.add(playStart);
         }
@@ -248,40 +250,40 @@ public class PlayUtil {
             if ("liangzidingwei".equals(playStart.getRemoteCode())) {//二字定位
                 if (remotePlay != null && TextUtils.isEmpty(playSub.getOdds())) {
                     playSub.setOdds(remotePlay.getOdds());
-                    remotePlay.setDefaultName(true);
+                    setRemotePlayNameToLocal(remotePlay);
                     remotePlay.setDefaultCode(true);
                 }
             } else if ("sanzidingwei".equals(playStart.getRemoteCode())) { // 三字定位
                 if (remotePlay != null && TextUtils.isEmpty(playSub.getOdds())) {
                     playSub.setOdds(remotePlay.getOdds());
-                    remotePlay.setDefaultName(true);
+                    setRemotePlayNameToLocal(remotePlay);
                     remotePlay.setDefaultCode(true);
                 }
             }
             if ("zusan".equals(playStart.getRemoteCode())) {//组三
                 if (remotePlay != null && TextUtils.isEmpty(playSub.getOdds())) {
                     playSub.setOdds(remotePlay.getOdds());
-                    remotePlay.setDefaultName(true);
+                    setRemotePlayNameToLocal(remotePlay);
                     remotePlay.setDefaultCode(true);
                 }
             } else if ("zuliu".equals(playStart.getRemoteCode())) {//组六
                 if (remotePlay != null && TextUtils.isEmpty(playSub.getOdds())) {
                     playSub.setOdds(remotePlay.getOdds());
-                    remotePlay.setDefaultName(true);
+                    setRemotePlayNameToLocal(remotePlay);
                     remotePlay.setDefaultCode(true);
                 }
             }
         } else if (LotteryConstant.SER_ID_11X5 == serId) {
             if ("zuxuan".equals(playStart.getCode())) {//组选
-                remotePlay.setDefaultName(true);
+                setRemotePlayNameToLocal(remotePlay);
                 remotePlay.setDefaultCode(true);
                 playSub.setOdds(remotePlay.getOdds());
             } else if ("renxuan".equals(playStart.getCode())) {//任选
-                remotePlay.setDefaultName(true);
+                setRemotePlayNameToLocal(remotePlay);
                 remotePlay.setDefaultCode(true);
                 playSub.setOdds(remotePlay.getOdds());
             } else if ("zhixuan".equals(playStart.getCode())) {//直选
-                remotePlay.setDefaultName(true);
+                setRemotePlayNameToLocal(remotePlay);
                 remotePlay.setDefaultCode(true);
                 playSub.setOdds(remotePlay.getOdds());
             }
@@ -347,20 +349,26 @@ public class PlayUtil {
                     playSub.setOdds(remotePlay.getOdds());
                 }
                 if (remotePlay != null) {
-                    remotePlay.setDefaultName(true);
+                    setRemotePlayNameToLocal(remotePlay);
                     remotePlay.setDefaultCode(true);
                 }
             } else if ("zixuanbuzhong".equals(playStart.getRemoteCode()) && "01".equals(play.getCode())) { //自选不中
                 playSub.setOdds("/");
                 saveZixbzOdd();
                 if (remotePlay != null) {
-                    remotePlay.setDefaultName(true);
+                    setRemotePlayNameToLocal(remotePlay);
                     remotePlay.setDefaultCode(true);
                 }
             }
         }
 
         return remotePlay;
+    }
+
+    private static void setRemotePlayNameToLocal(RemoteLotteryPlay remotePlay) {
+        if (!"zh".equals(LanguageUtil.getLanguage())) {
+            remotePlay.setDefaultName(true);
+        }
     }
 
 
@@ -416,7 +424,7 @@ public class PlayUtil {
     public static List<BallBean> getRoadOdds(Integer[] ids, int index) {
         int lotteryId = DataCenter.getInstance().getCurLotteryId();
         List<BallBean> list = new ArrayList<>();
-       // int mode = DataCenter.getInstance().getPlayMode();
+        // int mode = DataCenter.getInstance().getPlayMode();
         int mode = LOTTERY_PLAY_MODE_DOUBLE;
         List<LotteryPlayStart> plays = DataCenter.getInstance().getRemotePlay(lotteryId, mode);
         for (int i = 0; i < plays.size(); i++) {

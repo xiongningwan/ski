@@ -47,8 +47,8 @@ public class LanguageUtil {
             la = getDeviceLanguage(context);
         }
 //        mLanguage = la;
-        mLanguage = "vi";
-//        mLanguage = "zh";
+//        mLanguage = "vi";
+        mLanguage = "zh";
         String json = "";
         switch (mLanguage) {
             case "vi":

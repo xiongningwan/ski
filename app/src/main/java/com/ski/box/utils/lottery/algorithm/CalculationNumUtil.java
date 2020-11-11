@@ -64,109 +64,125 @@ public class CalculationNumUtil {
     private static CodeExhibition getDoubleAttachCodesString(LotteryPlayStart play, int playPosition) {
         CodeExhibition codes = getDoubleAppendString(play, playPosition);
         ITicketPlayHandler handler = null;
-        switch (play.getTitle()) {
-            case "组选":
-                if ("前二组选".equals(codes.getPlayName())) {
+        switch (play.getRemoteCode()) {
+//            case "组选":
+            case "zuxuan":
+//                if ("前二组选".equals(codes.getPlayName())) {
+                if ("qianerzuxuan".equals(codes.getRemoteSubCode())) {
                     handler = new ZXFS115PlayHandler(2, ITicketPlayHandler.OFFSETS_QIANER, " ");
-                } else if ("前三组选".equals(codes.getPlayName())) {
+//                } else if ("前三组选".equals(codes.getPlayName())) {
+                } else if ("qiansanzuxuan".equals(codes.getRemoteSubCode())) {
                     handler = new ZXFS115PlayHandler(3, ITicketPlayHandler.OFFSETS_QIANSAN, " ");
                 }
-            case "直选":
-                if ("前二直选".equals(codes.getPlayName())) {
+//            case "直选":
+            case "zhixuan":
+//                if ("前二直选".equals(codes.getPlayName())) {
+                if ("qianerzhixuan".equals(codes.getRemoteSubCode())) {
                     handler = new ZHXFS115PlayHandler(ITicketPlayHandler.OFFSETS_QIANER, ",", " ");
-                } else if ("前三直选".equals(codes.getPlayName())) {
+//                } else if ("前三直选".equals(codes.getPlayName())) {
+                } else if ("qiansanzhixuan".equals(codes.getRemoteSubCode())) {
                     handler = new ZHXFS115PlayHandler(ITicketPlayHandler.OFFSETS_QIANSAN, ",", " ");
                 }
                 break;
-            case "特码":
-                if ("合肖".equals(codes.getPlayName())) {
+//            case "特码":
+            case "tema":
+//                if ("合肖".equals(codes.getPlayName())) {
+                if ("hexiao".equals(codes.getRemoteSubCode())) {
                     codes.setBetTxt(codes.getBetTxt().replace(" ", ","));
                     codes.setShowTxt(codes.getShowTxt().replace(" ", ","));
                     handler = new LhcHeXiaoPlayHandler(SHENG_XIAO_CODE, ",");
                 }
                 break;
-            case "连肖连尾":
+//            case "连肖连尾":
+            case "lianxiaolianwei":
                 codes.setBetTxt(codes.getBetTxt().replace(" ", ","));
                 codes.setShowTxt(codes.getShowTxt().replace(" ", ","));
-                if ("二连肖".equals(codes.getPlayName())) {
+                if ("erlianxiao".equals(codes.getRemoteSubCode())) {
                     handler = new LhcLianXiaoPlayHandler(SHENG_XIAO_CODE, ",", 2);
-                } else if ("三连肖".equals(codes.getPlayName())) {
+                } else if ("sanlianxiao".equals(codes.getRemoteSubCode())) {
                     handler = new LhcLianXiaoPlayHandler(SHENG_XIAO_CODE, ",", 3);
-                } else if ("四连肖".equals(codes.getPlayName())) {
+                } else if ("silianxiao".equals(codes.getRemoteSubCode())) {
                     handler = new LhcLianXiaoPlayHandler(SHENG_XIAO_CODE, ",", 4);
-                } else if ("五连肖".equals(codes.getPlayName())) {
+                } else if ("wulianxiao".equals(codes.getRemoteSubCode())) {
                     handler = new LhcLianXiaoPlayHandler(SHENG_XIAO_CODE, ",", 5);
-                } else if ("二连尾".equals(codes.getPlayName())) {
+                } else if ("erlianwei".equals(codes.getRemoteSubCode())) {
                     handler = new LhcLianWeiPlayHandler(LIAN_WEI_CODE, ",", 2);
-                } else if ("三连尾".equals(codes.getPlayName())) {
+                } else if ("sanlianwei".equals(codes.getRemoteSubCode())) {
                     handler = new LhcLianWeiPlayHandler(LIAN_WEI_CODE, ",", 3);
-                } else if ("四连尾".equals(codes.getPlayName())) {
+                } else if ("silianwei".equals(codes.getRemoteSubCode())) {
                     handler = new LhcLianWeiPlayHandler(LIAN_WEI_CODE, ",", 4);
-                } else if ("五连尾".equals(codes.getPlayName())) {
+                } else if ("wulianwei".equals(codes.getRemoteSubCode())) {
                     handler = new LhcLianWeiPlayHandler(LIAN_WEI_CODE, ",", 5);
                 }
                 break;
-            case "连码":
+//            case "连码":
+            case "lianma":
                 codes.setBetTxt(codes.getBetTxt().replace(" ", ","));
                 codes.setShowTxt(codes.getShowTxt().replace(" ", ","));
-                if ("三中二".equals(codes.getPlayName())) {
+                if ("sanzhonger".equals(codes.getRemoteSubCode())) {
                     handler = new ZmPlayHandler(IAllPlayCode.三中二, ",");
-                } else if ("三全中".equals(codes.getPlayName())) {
+                } else if ("sanquanzhong".equals(codes.getRemoteSubCode())) {
                     handler = new ZmPlayHandler(IAllPlayCode.三全中, ",");
-                } else if ("二全中".equals(codes.getPlayName())) {
+                } else if ("erquanzhong".equals(codes.getRemoteSubCode())) {
                     handler = new ZmPlayHandler(IAllPlayCode.二全中, ",");
-                } else if ("四全中".equals(codes.getPlayName())) {
+                } else if ("siquanzhong".equals(codes.getRemoteSubCode())) {
                     handler = new ZmPlayHandler(IAllPlayCode.四全中, ",");
-                } else if ("二中特".equals(codes.getPlayName())) {
+                } else if ("erzhongte".equals(codes.getRemoteSubCode())) {
                     handler = new LhcErZhongTePlayHandler(",");
-                } else if ("特串".equals(codes.getPlayName())) {
+                } else if ("techuang".equals(codes.getRemoteSubCode())) {
                     handler = new LhcTeChuanPlayHandler(",");
                 }
                 break;
-            case "自选不中":
+//            case "自选不中":
+            case "zixuanbuzhong":
                 codes.setBetTxt(codes.getBetTxt().replace(" ", ","));
                 codes.setShowTxt(codes.getShowTxt().replace(" ", ","));
                 handler = new LhcZiXuanBuZhongPlayHandler(",");
                 break;
-            case "二字定位":
+//            case "二字定位":
+            case "liangzidingwei":
                 handler = new ZHXFSPlayHandler(ITicketPlayHandler.OFFSETS_HOUER, ",", " ");
                 break;
-            case "三字定位":
+//            case "三字定位":
+            case "sanzidingwei":
                 handler = new ZHXFSPlayHandler(ITicketPlayHandler.OFFSETS_HOUSAN, ",", " ");
                 break;
-            case "组三":
+//            case "组三":
+            case "zusan":
                 handler = new ZXZ3PlayDoubleHanlder(ITicketPlayHandler.OFFSETS_QIANER, ",", " ");
                 break;
-            case "组六":
+//            case "组六":
+            case "zuliu":
                 handler = new BDWPlayHandler(3, ITicketPlayHandler.OFFSETS_HOUSAN, ITicketPlayHandler.NUMS_SSC, " ");
                 break;
-            case "任选":
-                if ("任选一".equals(codes.getPlayName())) {
+//            case "任选":
+            case "renxuan":
+                if ("renxuanyi".equals(codes.getRemoteSubCode())) {
                     handler = new RXFS115PlayHandler(1, " ");
-                } else if ("任选二".equals(codes.getPlayName())) {
+                } else if ("renxuaner".equals(codes.getRemoteSubCode())) {
                     handler = new RXFS115PlayHandler(2, " ");
-                } else if ("任选三".equals(codes.getPlayName())) {
+                } else if ("renxuansan".equals(codes.getRemoteSubCode())) {
                     handler = new RXFS115PlayHandler(3, " ");
-                } else if ("任选四".equals(codes.getPlayName())) {
+                } else if ("renxuansi".equals(codes.getRemoteSubCode())) {
                     handler = new RXFS115PlayHandler(4, " ");
-                } else if ("任选五".equals(codes.getPlayName())) {
+                } else if ("renxuanwu".equals(codes.getRemoteSubCode())) {
                     handler = new RXFS115PlayHandler(5, " ");
-                } else if ("任选六中五".equals(codes.getPlayName())) {
+                } else if ("renxuanliuzhongwu".equals(codes.getRemoteSubCode())) {
                     handler = new RXFS115PlayHandler(6, " ");
-                } else if ("任选七中五".equals(codes.getPlayName())) {
+                } else if ("renxuanqizhongwu".equals(codes.getRemoteSubCode())) {
                     handler = new RXFS115PlayHandler(7, " ");
-                } else if ("任选八中五".equals(codes.getPlayName())) {
+                } else if ("renxuanbazhongwu".equals(codes.getRemoteSubCode())) {
                     handler = new RXFS115PlayHandler(8, " ");
                 }
                 break;
             default:
-                throw new IllegalStateException("Unexpected value: " + play.getTitle());
+                throw new IllegalStateException("Unexpected value: " + play.getRemoteCode());
         }
 
         try {
             if (handler != null && handler.validateBetNums(codes.getBetTxt())) {
                 codes.setBetNum(handler.calculateBetNum(codes.getBetTxt()));
-                if (play.getTitle().equals("组三") || play.getTitle().equals("二字定位") || play.getTitle().equals("三字定位")) {
+                if ("zusan".equals(play.getRemoteCode()) || "liangzidingwei".equals(play.getRemoteCode()) || "sanzidingwei".equals(play.getRemoteCode())) {
                     String str = codes.getBetTxt().replace(",", "|");
                     codes.setBetTxt(str);
                     codes.setShowTxt(str);
@@ -210,9 +226,9 @@ public class CalculationNumUtil {
                 if (!play.isSelected()) {
                     continue;
                 }
-                if (isDoubleVerified(playStart.getTitle())) {
+                if (isDoubleVerified(playStart.getRemoteCode())) {
                     String playName = playSub.getTitleSub();
-                    if ("组六_副".equals(playName)) playName = "组六";
+                    if ("zuliu".equals(playSub.getRemoteCode())) playName = playStart.getTitle();
                     codes.setPlayName(playName);
                 } else {//二字定位、三字定位、组三
                     codes.setPlayName(playStart.getTitle());
@@ -222,6 +238,8 @@ public class CalculationNumUtil {
                 codes.setOdds(getOdds(play.getOdds()));
                 codes.setPlayItemId(play.getId());
                 codes.setTag(play.getTag());
+                codes.setRemoteCode(playStart.getRemoteCode());
+                codes.setRemoteSubCode(playSub.getRemoteCode());
             }
         }
         if (codeBetTxt.length() > 0 && codeShowTxt.length() > 0) {
@@ -241,9 +259,11 @@ public class CalculationNumUtil {
         return odds;
     }
 
-    private static boolean isDoubleVerified(String title) {
-        return title.equals("连肖连尾") || title.equals("特码") || title.equals("连码") || title.equals("自选不中") || title.equals("组选")
-                || title.equals("任选") || title.equals("组六") || title.equals("直选");
+    private static boolean isDoubleVerified(String remoteCode) {
+//        return remoteCode.equals("连肖连尾") || remoteCode.equals("特码") || remoteCode.equals("连码") || remoteCode.equals("自选不中") || remoteCode.equals("组选")
+//                || remoteCode.equals("任选") || remoteCode.equals("组六") || remoteCode.equals("直选");
+        return remoteCode.equals("lianxiaolianwei") || remoteCode.equals("tema") || remoteCode.equals("lianma") || remoteCode.equals("zixuanbuzhong") || remoteCode.equals("zuxuan")
+                || remoteCode.equals("renxuan") || remoteCode.equals("zuliu") || remoteCode.equals("zhixuan");
     }
 
 
