@@ -28,7 +28,7 @@
         app:layout_constraintStart_toStartOf="parent"
         android:id="@+id/ll_select_num"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/ski_dp_45"
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
         android:background="@drawable/ski_bet_content_btn_item_selector"
@@ -39,9 +39,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="龙虎"
+            tools:text="龙虎"
             android:textColor="@color/ski_444444_white_text_color"
-            android:textSize="15dp" />
+            android:textSize="15dp"
+            android:layout_marginTop="5dp"/>
 
         <TextView
             android:id="@+id/tvValue"
@@ -50,7 +51,9 @@
             android:layout_below="@+id/tvName"
             android:textColor="@color/ski_999999_white_text_color"
             android:textSize="11dp"
-            android:text=""/>
+            tools:text="2"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="5dp"/>
     </LinearLayout>
 
     <TextView

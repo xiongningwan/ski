@@ -14,6 +14,7 @@ public class RemoteLotteryPlay implements MultiItemEntity, Parcelable {
     private String odds;
     private List<RemoteLotteryPlay> list;
     private boolean isDefaultCode; // 默认替换， true 不替换
+    private boolean isDefaultName; // 默认替换， true 不替换
 
     private boolean isSelected;
 
@@ -158,6 +159,14 @@ public class RemoteLotteryPlay implements MultiItemEntity, Parcelable {
         isDefaultCode = defaultCode;
     }
 
+    public boolean isDefaultName() {
+        return isDefaultName;
+    }
+
+    public void setDefaultName(boolean defaultName) {
+        isDefaultName = defaultName;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -171,6 +180,7 @@ public class RemoteLotteryPlay implements MultiItemEntity, Parcelable {
         dest.writeString(this.odds);
         dest.writeTypedList(this.list);
         dest.writeByte(this.isDefaultCode ? (byte) 1 : (byte) 0);
+        dest.writeByte(this.isDefaultName ? (byte) 1 : (byte) 0);
         dest.writeByte(this.isSelected ? (byte) 1 : (byte) 0);
         dest.writeString(this.tag);
         dest.writeInt(this.mode);
@@ -193,6 +203,7 @@ public class RemoteLotteryPlay implements MultiItemEntity, Parcelable {
         this.odds = in.readString();
         this.list = in.createTypedArrayList(RemoteLotteryPlay.CREATOR);
         this.isDefaultCode = in.readByte() != 0;
+        this.isDefaultName = in.readByte() != 0;
         this.isSelected = in.readByte() != 0;
         this.tag = in.readString();
         this.mode = in.readInt();
