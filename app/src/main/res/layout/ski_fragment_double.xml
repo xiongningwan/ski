@@ -30,7 +30,7 @@
         <com.ski.box.view.view.verticaltablyout.VerticalTab2Layout
             android:id="@+id/left_menu_tablelayout"
             android:layout_width="90dp"
-            android:layout_height="match_parent"
+            android:layout_height="0dp"
             android:visibility="visible"
             app:ski_indicator_color_vertical="#FFFFFF"
             app:ski_indicator_corners="0dp"
@@ -42,7 +42,8 @@
             app:ski_tab_trip_scroll="false"
             android:background="#FAFAFA"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/sl_bottom" />
 
 <!--    </androidx.cardview.widget.CardView>-->
 
