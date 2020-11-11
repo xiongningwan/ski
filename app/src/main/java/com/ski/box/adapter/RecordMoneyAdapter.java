@@ -10,6 +10,7 @@ import com.chad.library.adapter.base.viewholder.BaseViewHolder;
 import com.ski.box.R;
 import com.ski.box.bean.FrontTradeTypesBean;
 import com.ski.box.bean.record.RecordMoney;
+import com.ski.box.utils.ActivityUtil;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -40,7 +41,7 @@ public class RecordMoneyAdapter extends BaseQuickAdapter<RecordMoney.ListBean, B
                 .setText(R.id.tv_before, "账变前余额  " + bean.getBalanceBefore() + "元")
                 .setText(R.id.tv_after, "账变后余额  " + bean.getBalanceAfter() + "元");
         TextView tvMoney = holder.getView(R.id.tv_money);
-        tvMoney.setText(bean.getAmount() + "元");
+        tvMoney.setText(ActivityUtil.formatBonus(bean.getAmount()) + "元");
         if(bean.getAmount() > 0) {
             tvMoney.setTextColor(mRed);
         } else {
