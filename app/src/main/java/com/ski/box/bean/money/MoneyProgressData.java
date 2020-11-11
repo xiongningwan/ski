@@ -1,5 +1,6 @@
 package com.ski.box.bean.money;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 /**
@@ -75,7 +76,7 @@ public class MoneyProgressData {
         private String orderId;
         private String createAt;
         private int dwType;
-        private double amt;
+        private BigDecimal amt;
         private int status;
         private String remark;
         private String detail;
@@ -105,11 +106,11 @@ public class MoneyProgressData {
             this.dwType = dwType;
         }
 
-        public double getAmt() {
+        public BigDecimal getAmt() {
             return amt;
         }
 
-        public void setAmt(double amt) {
+        public void setAmt(BigDecimal amt) {
             this.amt = amt;
         }
 

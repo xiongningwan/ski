@@ -13,6 +13,7 @@ import com.ski.box.R;
 import com.ski.box.bean.FrontTradeTypesBean;
 import com.ski.box.bean.group.GroupMoneyData;
 import com.ski.box.bean.money.MoneyProgressData;
+import com.ski.box.utils.ActivityUtil;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -26,12 +27,14 @@ public class MoneyProgressAdapter extends BaseQuickAdapter<MoneyProgressData.Lis
     private HashMap<Integer, String> mMapType = new HashMap<>();
     private  int mGreen;
     private  int mRed;
+    private  int mGray;
 
     public MoneyProgressAdapter(Context context) {
         super(R.layout.ski_item_money_progress);
         mContext = context;
         mGreen = ContextCompat.getColor(context,R.color.ski_acc_lose);
         mRed = ContextCompat.getColor(context,R.color.ski_acc_win);
+        mGray = ContextCompat.getColor(context,R.color.ski_color_333333);
     }
 
     @Override
@@ -56,20 +59,23 @@ public class MoneyProgressAdapter extends BaseQuickAdapter<MoneyProgressData.Lis
         //状态，1：处理中（待审核），2：已完成（审核通过），3：失效（审核驳回）
         if(1 == bean.getStatus()) {
             statusStr = "待审核";
-        } else if(2 == bean.getDwType()) {
+            tvStatus.setTextColor(mGray);
+        } else if(2 == bean.getStatus()) {
             statusStr = "审核通过";
-        } else if(3 == bean.getDwType()) {
+            tvStatus.setTextColor(mGreen);
+        } else if(3 == bean.getStatus()) {
             statusStr = "审核驳回";
+            tvStatus.setTextColor(mRed);
         }
         tvStatus.setText(statusStr);
 
         TextView tvMoney = holder.getView(R.id.tv_money);
-        tvMoney.setText(bean.getAmt() + "元");
-        if(bean.getAmt() > 0) {
-            tvMoney.setTextColor(mRed);
-        } else {
-            tvMoney.setTextColor(mGreen);
-        }
+        tvMoney.setText(ActivityUtil.formatBonus(bean.getAmt().doubleValue()) + "元");
+//        if(bean.getAmt() > 0) {
+//            tvMoney.setTextColor(mRed);
+//        } else {
+//            tvMoney.setTextColor(mGreen);
+//        }
         TextView tvRemark = holder.getView(R.id.tv_remark);
         tvRemark.setText("备注：" + bean.getRemark());
         if(TextUtils.isEmpty(bean.getRemark())) {

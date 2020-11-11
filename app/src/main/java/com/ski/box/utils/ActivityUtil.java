@@ -13,12 +13,16 @@ import com.ski.box.R;
 import com.ski.box.bean.DataCenter;
 import com.ski.box.view.view.CusTextView;
 
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 import java.util.Locale;
 
 /**
  * Created by tom on 2020/10/29.
  */
 public class ActivityUtil {
+    private static DecimalFormat mDecimalFormat;
+
     //空布局
     public static View getEmptyView(Context context) {
         View notDataView = View.inflate(context, R.layout.ski_recycler_empty_view, null);
@@ -136,6 +140,15 @@ public class ActivityUtil {
             ssb.setSpan(red2, index2, index2 + length2, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
             tv.setText(ssb);
         }
+    }
+
+    public static String formatBonus(double b) {
+        if (mDecimalFormat == null) {
+            mDecimalFormat = new DecimalFormat("#0.####");
+            mDecimalFormat.setRoundingMode(RoundingMode.UP);
+        }
+        String bonu = mDecimalFormat.format(b);
+        return bonu;
     }
 
 }
