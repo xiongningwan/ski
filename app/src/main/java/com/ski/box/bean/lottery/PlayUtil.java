@@ -30,18 +30,19 @@ public class PlayUtil {
         List<LotteryPlayStart> plays = DataCenter.getInstance().getLotteryPlay(lotteryId, mode);
         int serId = LotteryUtil.getSerIdByLotteryId(lotteryId);
         setPlayMap(serId, remotePlays);
-//        if (plays.size() != remotePlays.size()) {
-//            return;
-//        }
+        // 后台隐藏玩法
+        List<LotteryPlayStart> hidePlayStarts = new ArrayList<>();
+
         for (int i = 0; i < plays.size(); i++) {
             // 双面
             LotteryPlayStart playStart = plays.get(i);
-            setRemoteStart(playStart);
+            setRemoteStart(playStart, hidePlayStarts);
             for (int j = 0; j < playStart.getSubPlays().size(); j++) {
                 // 副标题 双面副
                 LotteryPlaySub playSub = playStart.getSubPlays().get(j);
                 List<LotteryPlayEnd> playEnds = playSub.getLotteryPlayEnds();
                 setRemoteSub(playSub);
+
                 for (int k = 0; k < playEnds.size(); k++) {
                     // 总和龙虎和
                     LotteryPlayEnd playEnd = playEnds.get(k);
@@ -92,11 +93,38 @@ public class PlayUtil {
             }
         }
 
+        // 删除后台隐藏玩法
+        hidePlays(plays, hidePlayStarts);
+
         boolean isLoadFail = false;
         if (0 == remotePlays.size()) {
             isLoadFail = true;
         }
         DataCenter.getInstance().saveRemotePlay(lotteryId, mode, plays, isLoadFail);
+    }
+
+    private static void hidePlays(List<LotteryPlayStart> plays, List<LotteryPlayStart> hidePlayStarts) {
+//        List<LotteryPlayStart> hidePlayStarts = new ArrayList<>();
+//        for (int i = 0; i < plays.size(); i++) {
+//            // 双面
+//            LotteryPlayStart playStart = plays.get(i);
+//            for (int j = 0; j < playStart.getSubPlays().size(); j++) {
+//                // 副标题 双面副
+//                List<LotteryPlaySub> playSubs = playStart.getSubPlays();
+//                LotteryPlaySub playSub = playSubs.get(j);
+//                for(int k = 0; k < hidePlaySubs.size(); k++) {
+//                    LotteryPlaySub playSub1 = hidePlaySubs.get(k);
+//                    if(playSub.getPlayId() == playSub1.getPlayId()) {
+//                        playSubs.remove(playSub);
+//                    }
+//                }
+//                if(0 == playSubs.size()) {
+//                    hidePlayStarts.add(playStart);
+//                }
+//            }
+//        }
+
+        plays.removeAll(hidePlayStarts);
     }
 
     private static RemoteLotteryPlay beforeDoSpecialRemotePlay(int serId, LotteryPlayStart playStart, LotteryPlaySub playSub, LotteryPlay play, RemoteLotteryPlay remotePlay) {
@@ -163,12 +191,15 @@ public class PlayUtil {
         return remotePlay;
     }
 
-    private static void setRemoteStart(LotteryPlayStart playStart) {
+    private static void setRemoteStart(LotteryPlayStart playStart, List<LotteryPlayStart> hidePlayStarts) {
 //        RemoteLotteryPlay remoteStartPlay = mRemoteStartMap.get(playStart.getTitle());
         RemoteLotteryPlay remoteStartPlay = mRemoteStartMap.get(playStart.getRemoteCode());
         if (remoteStartPlay != null) {
             playStart.setId(remoteStartPlay.getId());
             playStart.setCode(remoteStartPlay.getCode());
+        }else {
+            // 添加隐藏
+            hidePlayStarts.add(playStart);
         }
     }
 
