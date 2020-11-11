@@ -90,12 +90,12 @@ public class BodyFragment extends BaseFragment {
 
 
     /*一级栏目需要设置赔率的玩法*/
-    public ArrayList<String> firstCategoryOdds = new ArrayList<String>() {{
-        add("自选不中");
-        add("三字定位");
-        add("组三");
-        add("组六");
-    }};
+//    public ArrayList<String> firstCategoryOdds = new ArrayList<String>() {{
+//        add("自选不中");
+//        add("三字定位");
+//        add("组三");
+//        add("组六");
+//    }};
     public BodyFragment() {
     }
 
@@ -467,5 +467,24 @@ public class BodyFragment extends BaseFragment {
         if (null != mOdds && View.VISIBLE == mOdds.getVisibility()) {
             mOdds.setText(Html.fromHtml("赔率：<font color='#ff6464'>" + odds + "</font> "));
         }
+    }
+
+    /*滚动到头部*/
+    public void scrollToTopOrBottom(boolean isTop) {
+        int position = isTop ? 0 : mContentAdapter.getItemCount() - 1;
+        if (null != mRvContent) {
+            mRvContent.scrollToPosition(position);
+            mRvContent.performClick();
+        }
+        if (null != mContentAdapter) {
+            clearNumberPlate("event_clean_lottery_code");
+        }
+        /*一级栏目设置赔率*/
+//        if (mLotteryPlay != null) {
+//            if (firstCategoryOdds.contains(mLotteryPlay.getRemoteCode())) {
+//                setCurrentOdds(mLotteryPlay.getSubPlays().get(0));
+//            }
+//        }
+
     }
 }

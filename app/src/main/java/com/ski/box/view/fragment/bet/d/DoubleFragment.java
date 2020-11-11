@@ -153,6 +153,10 @@ public class DoubleFragment extends BaseMVPFragment<PlayContract.Presenter> impl
                 mPosition = position;
                 mTabLayout.setTabSelected(false, position);
                 mCurBodyFragment = ((BodyFragment) fragmentList.get(position));
+                mCurBodyFragment.scrollToTopOrBottom(true);
+
+                /*清空选中的数据*/
+                DataCenter.getInstance().cleanBetData();
             }
         });
         mTabLayout.setupWithViewPager(mViewPager, new VerticalTab2Layout.OnTabSelectedListener() {
