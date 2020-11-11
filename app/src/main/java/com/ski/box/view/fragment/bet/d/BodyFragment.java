@@ -2,6 +2,8 @@ package com.ski.box.view.fragment.bet.d;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.text.Html;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
@@ -18,6 +20,8 @@ import com.google.android.material.tabs.TabLayout;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.hwangjr.rxbus.RxBus;
+import com.hwangjr.rxbus.annotation.Subscribe;
+import com.hwangjr.rxbus.annotation.Tag;
 import com.ski.box.R;
 import com.ski.box.adapter.lottery.d.ContentAdapter;
 import com.ski.box.bean.BetStatus;
@@ -26,6 +30,7 @@ import com.ski.box.bean.ShuoMingDoubleBean;
 import com.ski.box.bean.lottery.LotteryPlayEnd;
 import com.ski.box.bean.lottery.LotteryPlayStart;
 import com.ski.box.bean.lottery.LotteryPlaySub;
+import com.ski.box.utils.lottery.LotteryNoUtil;
 import com.ski.box.view.view.RecyclerViewAtViewPager2;
 import com.ski.box.view.view.ShuoMingDoubleView;
 import com.ski.box.view.view.dialog.ShuoMingSheetDialog;
@@ -44,6 +49,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import static com.ski.box.ConstantValue.EVENT_BET_ODDS_CHANGE;
 import static com.ski.box.ConstantValue.EVENT_TYPE_BET_NO_CHECK_UPDATE;
 import static com.ski.box.bean.lottery.LotteryConstant.SER_ID_PL35;
 import static com.ski.box.bean.lottery.LotteryConstant.SER_ID_SSC;
@@ -294,6 +300,7 @@ public class BodyFragment extends BaseFragment {
                 mPosition2 = tab.getPosition();
                 refreshLayout(tab.getPosition());
                 LotteryPlaySub playSub = lotteryPlaySubs.get(tab.getPosition());
+                setCurrentOdds(playSub);
             }
 
             @Override
@@ -396,6 +403,69 @@ public class BodyFragment extends BaseFragment {
                 mCheckAllPopup.dismiss();
                 mTabLayout_2.getTabAt(getItemPosition(lotteryPlaySub)).select();
             });
+        }
+    }
+
+
+
+    /**
+     * 设置Tab当前赔率
+     */
+    private void setCurrentOdds(LotteryPlaySub lotteryPlaySub) {
+        if (null != lotteryPlaySub) {
+            String odds = lotteryPlaySub.getOdds();
+            if (TextUtils.isEmpty(odds)) {
+                return;
+            }
+            if (odds.contains("/")) {
+                if (null != mOdds && null != mOddsTwo) {
+                    mOdds.setVisibility(View.VISIBLE);
+                    mOddsTwo.setVisibility(View.GONE);
+                    mOdds.setText(Html.fromHtml("赔率：<font color='#ff6464'>" + "/" + "</font> "));
+                }
+            }
+
+            String[] oodArr = LotteryNoUtil.setSpecialOdd(lotteryPlaySub.getPlayId(), odds);
+            if (1 == oodArr.length) {
+                if (null != mOdds && null != mOddsTwo) {
+                    mOdds.setVisibility(View.VISIBLE);
+                    mOddsTwo.setVisibility(View.GONE);
+                    mOdds.setText(Html.fromHtml("赔率：<font color='#ff6464'>" + oodArr[0] + "</font> "));
+                }
+            } else if (2 == oodArr.length && ("三中二".equals(lotteryPlaySub.getTitleSub()) || "二中特".equals(lotteryPlaySub.getTitleSub()))) {
+                if (null != mOdds && null != mOddsTwo) {
+                    mOdds.setVisibility(View.GONE);
+                    mOddsTwo.setVisibility(View.VISIBLE);
+                    String[] oddLabel = new String[2];
+                    if ("三中二".equals(lotteryPlaySub.getTitleSub())) {
+                        // lhc 三中二
+                        oddLabel[0] = "中二 ";
+                        oddLabel[1] = "中三 ";
+                    } else if ("二中特".equals(lotteryPlaySub.getTitleSub())) {
+                        // lhc 三中二
+                        oddLabel[0] = "中二 ";
+                        oddLabel[1] = "中特 ";
+                    }
+                    mOddsTwo.setText(Html.fromHtml("赔率：" + oddLabel[0] + "<font color='#ff6464'>" + oodArr[0] + "</font> "
+                            + oddLabel[1] + "<font color='#ff6464'>" + oodArr[1] + "</font> "));
+                }
+            } else if (3 == oodArr.length) {
+
+            }
+
+        }
+    }
+
+
+    /**
+     * 自选不中可变赔率
+     *
+     * @param odds
+     */
+    @Subscribe(tags = {@Tag(EVENT_BET_ODDS_CHANGE)})
+    public void setChangeOdds(String odds) {
+        if (null != mOdds && View.VISIBLE == mOdds.getVisibility()) {
+            mOdds.setText(Html.fromHtml("赔率：<font color='#ff6464'>" + odds + "</font> "));
         }
     }
 }
