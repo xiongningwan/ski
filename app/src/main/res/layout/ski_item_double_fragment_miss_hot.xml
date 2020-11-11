@@ -65,6 +65,7 @@
             android:layout_marginRight="@dimen/ski_dp_20"
             android:drawableRight="@mipmap/ski_wenhao"
             android:drawablePadding="5dp"
+            android:textSize="13dp"
             android:textColor="@color/ski_color_666666"
             android:text="玩法说明" />
 
@@ -91,6 +92,7 @@
                 android:button="@null"
                 android:drawableLeft="@drawable/ski_switch_hotcold_miss_selector"
                 android:gravity="center"
+                android:textSize="13dp"
                 android:drawablePadding="5dp"
                 android:text="冷热" />
 
@@ -107,6 +109,7 @@
                 android:gravity="center|right"
                 android:drawablePadding="5dp"
                 android:text="遗漏"
+                android:textSize="13dp"
                 android:visibility="visible" />
 
             <TextView
@@ -118,7 +121,8 @@
                 android:layout_weight="1"
                 android:layout_marginLeft="@dimen/ski_dp_8"
                 android:gravity="end"
-                android:visibility="gone"
+                android:textSize="13dp"
+                android:visibility="visible"
                 tools:text="赔率：836.4496" />
         </LinearLayout>
 
@@ -127,10 +131,9 @@
             android:textColor="@color/ski_color_666666"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/ll_cold_hot_omit"
             android:layout_alignParentRight="true"
-            android:layout_marginTop="@dimen/ski_dp_6"
             android:visibility="gone"
+            android:textSize="13dp"
             tools:text="赔率：中特 1.08   中二 2.26"
             tools:visibility="visible"/>
     </RelativeLayout>
