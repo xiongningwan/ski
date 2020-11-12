@@ -32,10 +32,10 @@ public class LotteryPlayCreator_d {
 //        List<LotteryPlayStart> list = createPlay_pk10();
 //        List<LotteryPlayStart> list = createPlay_ssc();
 //        List<LotteryPlayStart> list = createPlay_lhc();
-        List<LotteryPlayStart> list = createPlay_11x5();
+//        List<LotteryPlayStart> list = createPlay_11x5();
 //        List<LotteryPlayStart> list = createPlay_k3();
 //        List<LotteryPlayStart> list = createPlay_kl8();
-//        List<LotteryPlayStart> list = createPlay_3d();
+        List<LotteryPlayStart> list = createPlay_3d();
 //        List<LotteryPlayStart> list = getStandard(LotteryConstant.SER_ID_SSC, gson);
         String json = gson.toJson(list);
         System.out.println(json);
@@ -3027,7 +3027,7 @@ public class LotteryPlayCreator_d {
         List<LotteryPlaySub> playSubs8 = new ArrayList<>();
         playStart8.setSubPlays(playSubs8);
 
-        LotteryPlaySub playSub8_1 = new LotteryPlaySub("百十");
+        LotteryPlaySub playSub8_1 = new LotteryPlaySub("百十","","baishi",S_Odds);
         List<LotteryPlayEnd> playEndList8_1 = new ArrayList<>();
         playSub8_1.setLotteryPlayEnds(playEndList8_1);
 
@@ -3072,7 +3072,7 @@ public class LotteryPlayCreator_d {
         lotteryPlayList8_12.add(new LotteryPlay(2022, "百十和数尾数", "9", "9", "", "baishiheshuweishu_baishiheshuweishujiu", "9"));
 
 
-        LotteryPlaySub playSub8_2 = new LotteryPlaySub("百个");
+        LotteryPlaySub playSub8_2 = new LotteryPlaySub("百个","","baige",S_Odds);
         List<LotteryPlayEnd> playEndList8_2 = new ArrayList<>();
         playSub8_2.setLotteryPlayEnds(playEndList8_2);
 
@@ -3117,7 +3117,7 @@ public class LotteryPlayCreator_d {
         lotteryPlayList8_22.add(new LotteryPlay(2042, "百个和数尾数", "9", "9", "", "baigeheshuweishu_baigeheshuweishujiu", "9"));
 
 
-        LotteryPlaySub playSub8_3 = new LotteryPlaySub("十个");
+        LotteryPlaySub playSub8_3 = new LotteryPlaySub("十个","","shige",S_Odds);
         List<LotteryPlayEnd> playEndList8_3 = new ArrayList<>();
         playSub8_3.setLotteryPlayEnds(playEndList8_3);
 
