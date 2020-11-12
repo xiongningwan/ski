@@ -83,7 +83,7 @@ public class PlayUtil {
                             if (!remotePlay.isDefaultName() && !TextUtils.isEmpty(remotePlay.getName())) {
                                 play.setName(remotePlay.getName());
                             }
-
+                            setFanyi(lotteryId, playStart, playSub, play);
                             if (!remotePlay.isDefaultCode() && !TextUtils.isEmpty(remotePlay.getCode())) {
                                 play.setCode(remotePlay.getCode());
                             }
@@ -206,9 +206,10 @@ public class PlayUtil {
     }
 
     private static void setRemoteSub(LotteryPlaySub playSub) {
-        RemoteLotteryPlay remoteStartPlay = mRemoteSubPlayMap.get(playSub.getRemoteCode());
-        if (remoteStartPlay != null) {
-            playSub.setCode(remoteStartPlay.getCode());
+        RemoteLotteryPlay remotePlaySub = mRemoteSubPlayMap.get(playSub.getRemoteCode());
+        if (remotePlaySub != null) {
+            playSub.setCode(remotePlaySub.getCode());
+            playSub.setTitleSub(remotePlaySub.getName());
         }
     }
 
@@ -250,26 +251,30 @@ public class PlayUtil {
             if ("liangzidingwei".equals(playStart.getRemoteCode())) {//二字定位
                 if (remotePlay != null && TextUtils.isEmpty(playSub.getOdds())) {
                     playSub.setOdds(remotePlay.getOdds());
-                    setRemotePlayNameToLocal(remotePlay);
+//                    setRemotePlayNameToLocal(remotePlay);
+                    remotePlay.setDefaultName(true);
                     remotePlay.setDefaultCode(true);
                 }
             } else if ("sanzidingwei".equals(playStart.getRemoteCode())) { // 三字定位
                 if (remotePlay != null && TextUtils.isEmpty(playSub.getOdds())) {
                     playSub.setOdds(remotePlay.getOdds());
-                    setRemotePlayNameToLocal(remotePlay);
+//                    setRemotePlayNameToLocal(remotePlay);
+                    remotePlay.setDefaultName(true);
                     remotePlay.setDefaultCode(true);
                 }
             }
             if ("zusan".equals(playStart.getRemoteCode())) {//组三
                 if (remotePlay != null && TextUtils.isEmpty(playSub.getOdds())) {
                     playSub.setOdds(remotePlay.getOdds());
-                    setRemotePlayNameToLocal(remotePlay);
+//                    setRemotePlayNameToLocal(remotePlay);
+                    remotePlay.setDefaultName(true);
                     remotePlay.setDefaultCode(true);
                 }
             } else if ("zuliu".equals(playStart.getRemoteCode())) {//组六
                 if (remotePlay != null && TextUtils.isEmpty(playSub.getOdds())) {
                     playSub.setOdds(remotePlay.getOdds());
-                    setRemotePlayNameToLocal(remotePlay);
+//                    setRemotePlayNameToLocal(remotePlay);
+                    remotePlay.setDefaultName(true);
                     remotePlay.setDefaultCode(true);
                 }
             }
@@ -292,6 +297,7 @@ public class PlayUtil {
                 if ("hexiao".equals(playSub.getRemoteCode())) { //合肖
                     remotePlay.setDefaultCode(true);
                     playSub.setOdds(remotePlay.getOdds());
+                    remotePlay.setDefaultName(true);
                 }
             } else if ("lianxiaolianwei".equals(playStart.getRemoteCode())) { //连肖连尾
                 String key2 = "";
@@ -318,6 +324,7 @@ public class PlayUtil {
                     remotePlay.setId(remotePlay2.getId());
                 }
                 remotePlay.setDefaultCode(true);
+                remotePlay.setDefaultName(true);
             } else if ("lianma".equals(playStart.getRemoteCode())) { //连码
                 if ("sanzhonger".equals(playSub.getRemoteCode())) {//三中二
                     String key = "lianmasanzhongerzhengmasanzhongersanzhonger"; // id;
@@ -349,14 +356,14 @@ public class PlayUtil {
                     playSub.setOdds(remotePlay.getOdds());
                 }
                 if (remotePlay != null) {
-                    setRemotePlayNameToLocal(remotePlay);
+                    remotePlay.setDefaultName(true);
                     remotePlay.setDefaultCode(true);
                 }
             } else if ("zixuanbuzhong".equals(playStart.getRemoteCode()) && "01".equals(play.getCode())) { //自选不中
                 playSub.setOdds("/");
                 saveZixbzOdd();
                 if (remotePlay != null) {
-                    setRemotePlayNameToLocal(remotePlay);
+                    remotePlay.setDefaultName(true);
                     remotePlay.setDefaultCode(true);
                 }
             }
@@ -411,6 +418,26 @@ public class PlayUtil {
         }
 
         DataCenter.getInstance().setZixuanbuzhongOdd_List(list);
+    }
+
+
+    private static void setFanyi(int lotteryId, LotteryPlayStart
+            playStart, LotteryPlaySub playSub, LotteryPlay play) {
+        int serId = LotteryUtil.getSerIdByLotteryId(lotteryId);
+        if (LotteryConstant.SER_ID_LHC == serId) {
+            if ("tema".equals(playStart.getRemoteCode())) { //特码
+                if ("hexiao".equals(playSub.getRemoteCode())) { //合肖
+                    if (!TextUtils.isEmpty(play.getName())) {
+                        play.setName(LanguageUtil.getText(play.getName()));
+                    }
+                }
+            } else if ("lianxiaolianwei".equals(playStart.getRemoteCode())) { //连肖连尾
+                //连肖
+                if (!TextUtils.isEmpty(play.getName())) {
+                    play.setName(LanguageUtil.getText(play.getName()));
+                }
+            }
+        }
     }
 
 

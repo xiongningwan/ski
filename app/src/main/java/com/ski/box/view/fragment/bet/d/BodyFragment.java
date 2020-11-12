@@ -30,6 +30,7 @@ import com.ski.box.bean.ShuoMingDoubleBean;
 import com.ski.box.bean.lottery.LotteryPlayEnd;
 import com.ski.box.bean.lottery.LotteryPlayStart;
 import com.ski.box.bean.lottery.LotteryPlaySub;
+import com.ski.box.utils.LanguageUtil;
 import com.ski.box.utils.lottery.LotteryNoUtil;
 import com.ski.box.view.view.RecyclerViewAtViewPager2;
 import com.ski.box.view.view.ShuoMingDoubleView;
@@ -317,7 +318,8 @@ public class BodyFragment extends BaseFragment {
             LotteryPlaySub play = lotteryPlaySubs.get(i);
             TabLayout.Tab tab = mTabLayout_2.newTab().setCustomView(R.layout.ski_item_tab_double_second_play);
             TextView textView = Objects.requireNonNull(tab.getCustomView()).findViewById(R.id.tv_item_tab_double);
-            textView.setText(play.getTitleSub());
+//            textView.setText(LanguageUtil.getText(play.getTitleSub()));
+            textView.setText(LanguageUtil.getText(play.getTitleSub()));
             if (0 == i) {
                 mTabLayout_2.addTab(tab, true);
             } else {
@@ -396,7 +398,8 @@ public class BodyFragment extends BaseFragment {
 
         @Override
         protected void convert(@NotNull BaseViewHolder baseViewHolder, @Nullable LotteryPlaySub lotteryPlaySub) {
-            baseViewHolder.setText(R.id.item_double_side_play_name, lotteryPlaySub.getTitleSub());
+//            baseViewHolder.setText(R.id.item_double_side_play_name, LanguageUtil.getText(lotteryPlaySub.getTitleSub()));
+            baseViewHolder.setText(R.id.item_double_side_play_name, LanguageUtil.getText(lotteryPlaySub.getTitleSub()));
 //            baseViewHolder.setBackgroundResource(R.id.item_double_side_play_name, lotteryPlaySub.isSelected() ? R.drawable.ski_pub_bg_road_title_check : R.mipmap.ski_tab_normal);
 //            baseViewHolder.setTextColorRes(R.id.item_double_side_play_name, lotteryPlaySub.isSelected() ? R.color.ski_color_ffffff : R.color.ski_color_7c88a8);
             baseViewHolder.itemView.setOnClickListener(v -> {

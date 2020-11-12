@@ -33,9 +33,9 @@ public class LotteryPlayCreator_d {
 //        List<LotteryPlayStart> list = createPlay_ssc();
 //        List<LotteryPlayStart> list = createPlay_lhc();
 //        List<LotteryPlayStart> list = createPlay_11x5();
-//        List<LotteryPlayStart> list = createPlay_k3();
+        List<LotteryPlayStart> list = createPlay_k3();
 //        List<LotteryPlayStart> list = createPlay_kl8();
-        List<LotteryPlayStart> list = createPlay_3d();
+//        List<LotteryPlayStart> list = createPlay_3d();
 //        List<LotteryPlayStart> list = getStandard(LotteryConstant.SER_ID_SSC, gson);
         String json = gson.toJson(list);
         System.out.println(json);
