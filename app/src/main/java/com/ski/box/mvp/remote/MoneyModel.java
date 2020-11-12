@@ -16,6 +16,7 @@ import java.util.List;
 import io.reactivex.Single;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
+import retrofit2.http.Field;
 
 public class MoneyModel extends BaseModel implements IMoneyModel {
 
@@ -30,10 +31,10 @@ public class MoneyModel extends BaseModel implements IMoneyModel {
     }
 
     @Override
-    public Disposable deposit(Consumer s, CusConsumer e, int channelCode, String amt) {
+    public Disposable deposit(Consumer s, CusConsumer e, int channelCode, String cardName, String amt) {
         Single<DepositBack> single = RetrofitHelper
                 .getService(IMoneyService.class)
-                .deposit(channelCode, amt)
+                .deposit(channelCode, cardName, amt)
                 .map(new HttpResultFunc<>());
         return toSubscribe(single, s, e);
     }

@@ -209,12 +209,23 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="20dp"/>
 
+
+        <ImageView
+            android:id="@+id/iv_qr_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            tools:src="@mipmap/app_icon"
+            app:layout_constraintTop_toBottomOf="@+id/tv_tip"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
         <View
             android:id="@+id/view_line"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@color/ski_default_line"
-            app:layout_constraintTop_toBottomOf="@+id/tv_tip"
+            app:layout_constraintTop_toBottomOf="@+id/iv_qr_code"
             android:layout_marginTop="16dp"/>
 
         <androidx.constraintlayout.widget.Guideline
@@ -252,4 +263,5 @@
             android:background="@drawable/ski_pub_bg_setting_trend"
             android:text="完成付款" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </LinearLayout>

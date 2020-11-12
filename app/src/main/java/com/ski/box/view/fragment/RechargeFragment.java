@@ -65,6 +65,7 @@ public class RechargeFragment extends BaseMVPFragment<RechargeContract.Presenter
     private TextView mTvBalance;
     private TextView mTvNickName;
     private NiceSpinner mSpType;
+    private ClearEditText mEtCardName;
     private ClearEditText mEtMoney;
     private TextView mTvWen1;
     private TextView mTvWen2;
@@ -109,6 +110,7 @@ public class RechargeFragment extends BaseMVPFragment<RechargeContract.Presenter
         mTvBalance = view.findViewById(R.id.tv_balance_value);
         mTvNickName = view.findViewById(R.id.tv_nick_name);
         mSpType = view.findViewById(R.id.spinner_type);
+        mEtCardName = view.findViewById(R.id.et_card_name);
         mEtMoney = view.findViewById(R.id.et_money);
         mTvWen1 = view.findViewById(R.id.tv_wen_1);
         mTvWen2 = view.findViewById(R.id.tv_wen_2);
@@ -182,8 +184,13 @@ public class RechargeFragment extends BaseMVPFragment<RechargeContract.Presenter
 
     private void goToDeposit() {
         String inputMoney = mEtMoney.getText().toString().trim();
+        String cardName = mEtCardName.getText().toString().trim();
         if (TextUtils.isEmpty(inputMoney)) {
             ToastUtil.showError("请输入金额");
+            return;
+        }
+        if (TextUtils.isEmpty(cardName)) {
+            ToastUtil.showError("请输入充值人姓名");
             return;
         }
 
@@ -212,7 +219,7 @@ public class RechargeFragment extends BaseMVPFragment<RechargeContract.Presenter
         }
         mBtnSure.setEnabled(false);
         mLoading.show();
-        mPresenter.deposit(payType.getChannelCode(), inputMoney);
+        mPresenter.deposit(payType.getChannelCode(), cardName, inputMoney);
     }
 
     @Override
@@ -248,6 +255,7 @@ public class RechargeFragment extends BaseMVPFragment<RechargeContract.Presenter
             setSpinner(mTypeList);
         }
         mEtMoney.setText("");
+        mEtCardName.setText("");
         mEtMoney.setHint("请输入充值金额");
     }
 
@@ -275,7 +283,7 @@ public class RechargeFragment extends BaseMVPFragment<RechargeContract.Presenter
             @Override
             public void onItemSelected(NiceSpinner parent, View view, int position, long id) {
                 PayType payType = (PayType) parent.getSelectedItem();
-                if(0 == position) {
+                if (0 == position) {
                     mEtMoney.setHint("请输入充值金额");
                 } else {
                     if (payType != null) {

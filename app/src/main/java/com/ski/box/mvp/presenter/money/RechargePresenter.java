@@ -67,7 +67,7 @@ public class RechargePresenter extends RxPresenter<RechargeContract.View> implem
     }
 
     @Override
-    public void deposit(int channelCode, String amt) {
+    public void deposit(int channelCode, String cardName, String amt) {
         Disposable disposable = mMoneyModel.deposit(new Consumer<DepositBack>() {
             @Override
             public void accept(DepositBack depositBack) throws Exception {
@@ -79,7 +79,7 @@ public class RechargePresenter extends RxPresenter<RechargeContract.View> implem
                 super.accept(throwable);
                 mView.onDepositFailResult(throwable.getMessage());
             }
-        }, channelCode, amt);
+        }, channelCode, cardName, amt);
         addDisposable(disposable);
     }
 }

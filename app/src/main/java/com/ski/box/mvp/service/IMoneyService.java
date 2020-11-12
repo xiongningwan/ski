@@ -27,7 +27,7 @@ public interface IMoneyService {
     // 充值
     @POST(IUrlMoney.PAY_DEPOSIT)
     @FormUrlEncoded
-    Single<HttpResult<DepositBack>> deposit(@Field("channelCode") int channelCode, @Field("amt") String amt);
+    Single<HttpResult<DepositBack>> deposit(@Field("channelCode") int channelCode, @Field("cardName") String cardName,@Field("amt") String amt);
 
     @GET(IUrlMoney.PAY_WITHDRAW_RANGE)
     Single<HttpResult<WithdrawRange>> getWithdrawRange();

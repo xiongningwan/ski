@@ -163,7 +163,7 @@ public class RechargeActivity extends BaseMVPActivity<RechargeContract.Presenter
         }
         mBtnSure.setEnabled(false);
         mLoading.show();
-        mPresenter.deposit(payType.getChannelCode(),inputMoney);
+      // mPresenter.deposit(payType.getChannelCode(),inputMoney);
     }
 
     @Override

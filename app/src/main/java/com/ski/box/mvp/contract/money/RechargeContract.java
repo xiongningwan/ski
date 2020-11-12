@@ -21,6 +21,6 @@ public interface RechargeContract {
     interface Presenter extends BaseContract.BasePresenter<View> {
         void getBalance();
         void getPayType(int currency);
-        void deposit(int channelCode, String amt);
+        void deposit(int channelCode, String cardName, String amt);
     }
 }

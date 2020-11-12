@@ -13,7 +13,7 @@ public interface IMoneyModel {
                           CusConsumer e,
                           int currency);
 
-    Disposable deposit(Consumer s, CusConsumer e, int channelCode, String amt);
+    Disposable deposit(Consumer s, CusConsumer e, int channelCode, String cardName,String amt);
 
     Disposable getWithdrawRange(Consumer s, CusConsumer e);
 

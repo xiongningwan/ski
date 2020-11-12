@@ -1,8 +1,12 @@
 package com.ski.box.view.activity.money;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.gyf.immersionbar.ImmersionBar;
@@ -16,7 +20,9 @@ import com.ski.box.mvp.presenter.money.RechargePresenter;
 import com.ski.box.view.view.HeaderView;
 import com.yb.core.base.BaseMVPActivity;
 import com.yb.core.utils.AppUtil;
+import com.yb.core.utils.ScreenUtils;
 import com.yb.core.utils.ToastUtil;
+import com.yzq.zxinglibrary.encode.CodeCreator;
 
 
 public class RechargeDetailActivity extends BaseMVPActivity<RechargeDetailContract.Presenter> implements RechargeDetailContract.View, View.OnClickListener {
@@ -34,6 +40,7 @@ public class RechargeDetailActivity extends BaseMVPActivity<RechargeDetailContra
     private Button mBtnCopyOwnerName;
     private Button mBtnCancel;
     private Button mBtnSure;
+    private ImageView mIvQrCode;
 
     @Override
     protected void onDestroy() {
@@ -68,6 +75,7 @@ public class RechargeDetailActivity extends BaseMVPActivity<RechargeDetailContra
         mBtnCopyOwnerName = findViewById(R.id.btn_copy_owner_name);
         mBtnCancel = findViewById(R.id.btn_cancel);
         mBtnSure = findViewById(R.id.btn_sure);
+        mIvQrCode = findViewById(R.id.iv_qr_code);
         mHeadView.setHeader(getString(R.string.ski_money_recharge), true);
 
         mBtnCopyNo.setOnClickListener(this);
@@ -87,6 +95,20 @@ public class RechargeDetailActivity extends BaseMVPActivity<RechargeDetailContra
         mTvBank.setText(bean.getBankName());
         mTvBankNo.setText(bean.getPlatformCardNo());
         mTvOwnerName.setText(bean.getPlatformCardName());
+
+        //生成二维码
+        createQr(bean);
+    }
+
+    private void createQr(DepositBack bean) {
+        if(!TextUtils.isEmpty(bean.getQuickCode())) {
+            int w = ScreenUtils.dip2px(150);
+            Bitmap logo = BitmapFactory.decodeResource(getResources(), R.mipmap.app_icon);
+            Bitmap bitmap = CodeCreator.createQRCode(bean.getQuickCode(), w, w, logo);
+            mIvQrCode.setImageBitmap(bitmap);
+        } else {
+            mIvQrCode.setVisibility(View.GONE);
+        }
     }
 
     @Override

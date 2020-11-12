@@ -24,8 +24,17 @@ public class DepositBack implements Parcelable {
     private String platformCardNo;
     private String platformCardName;
     private String depositMsg;
+    private String quickCode;
     private String createAt;
     private String expireAt;
+
+    public String getQuickCode() {
+        return quickCode;
+    }
+
+    public void setQuickCode(String quickCode) {
+        this.quickCode = quickCode;
+    }
 
     public String getOrderId() {
         return orderId;
@@ -104,6 +113,7 @@ public class DepositBack implements Parcelable {
         dest.writeString(this.platformCardNo);
         dest.writeString(this.platformCardName);
         dest.writeString(this.depositMsg);
+        dest.writeString(this.quickCode);
         dest.writeString(this.createAt);
         dest.writeString(this.expireAt);
     }
@@ -118,11 +128,12 @@ public class DepositBack implements Parcelable {
         this.platformCardNo = in.readString();
         this.platformCardName = in.readString();
         this.depositMsg = in.readString();
+        this.quickCode = in.readString();
         this.createAt = in.readString();
         this.expireAt = in.readString();
     }
 
-    public static final Parcelable.Creator<DepositBack> CREATOR = new Parcelable.Creator<DepositBack>() {
+    public static final Creator<DepositBack> CREATOR = new Creator<DepositBack>() {
         @Override
         public DepositBack createFromParcel(Parcel source) {
             return new DepositBack(source);
