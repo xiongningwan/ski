@@ -56,12 +56,15 @@
         app:layout_constraintBottom_toBottomOf="@+id/tv_bet"
         android:visibility="gone"/>
 
-    <TextView
+    <com.ski.box.view.view.CusTextView
         android:id="@+id/tv_bet"
-        android:layout_width="90dp"
+        android:layout_width="wrap_content"
         android:layout_height="45dp"
         android:text="立即投注"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
         android:gravity="center"
+        android:textSize="14dp"
         android:textColor="@color/ski_white"
         android:background="@color/ski_color_694E85"
         app:layout_constraintBottom_toBottomOf="parent"
