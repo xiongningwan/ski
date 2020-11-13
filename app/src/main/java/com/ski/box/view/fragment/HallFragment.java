@@ -108,6 +108,10 @@ public class HallFragment extends BaseMVPFragment<HallContract.Presenter> implem
         mMarqueeText = view.findViewById(R.id.marqueeText);
         mRvLotteryGuid = view.findViewById(R.id.rv_lottery_guide);
         mRvLotteryList = view.findViewById(R.id.rv_lottery_list);
+        TextView tvLabelNickName = view.findViewById(R.id.tv_nick_name_label);
+        TextView tvLabelAmount = view.findViewById(R.id.tv_label_amount);
+        tvLabelNickName.setText(LanguageUtil.getText("昵称") + ": ");
+        tvLabelAmount.setText(LanguageUtil.getText("余额") + ": ");
 
         LinearLayout llRecord = view.findViewById(R.id.ll_record);
         LinearLayout llAct = view.findViewById(R.id.ll_activity);
