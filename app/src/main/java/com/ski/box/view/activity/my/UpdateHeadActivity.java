@@ -29,6 +29,7 @@ import com.ski.box.utils.EasyCountDownTimer;
 import com.ski.box.view.view.ClearEditText;
 import com.ski.box.view.view.HeaderView;
 import com.yb.core.base.BaseMVPActivity;
+import com.yb.core.utils.LanguageUtil;
 import com.yb.core.utils.ToastUtil;
 
 import java.util.ArrayList;
@@ -69,7 +70,7 @@ public class UpdateHeadActivity extends BaseMVPActivity<UpdateHeadContract.Prese
         mIvHead = findViewById(R.id.iv_head);
         mRv = findViewById(R.id.rv);
         mBtnSure = findViewById(R.id.btn_sure);
-        mHeadView.setHeader(getString(R.string.ski_my_update_head), true);
+        mHeadView.setHeader(LanguageUtil.getText(getString(R.string.ski_my_update_head)), true);
 
         mBtnSure.setOnClickListener(this);
     }
