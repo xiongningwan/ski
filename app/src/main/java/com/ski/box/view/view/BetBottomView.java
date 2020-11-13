@@ -20,6 +20,7 @@ import com.ski.box.bean.MemberDetailEntity;
 import com.ski.box.bean.lottery.LotteryConstant;
 import com.ski.box.utils.DecimalSetUtils;
 import com.ski.box.view.view.dialog.CustomBottomDialog;
+import com.yb.core.utils.LanguageUtil;
 import com.yb.core.utils.ScreenUtils;
 
 import static com.ski.box.ConstantValue.EVENT_TYPE_BET_RiGHT_NOW_CLICK;
@@ -100,20 +101,20 @@ public class BetBottomView extends ConstraintLayout implements View.OnClickListe
         }
         SpannableStringBuilder spanBuilder;
         if (LotteryConstant.LOTTERY_PLAY_DAN == betStatus.getStatus()) {
-            String content = "共 " + betStatus.getZhuShu() + " 注, " + betStatus.getTotalAmount() + " 元 ";
-            String s1 =  "共 ";
-            String s2 =  " 注, ";
-            String s3 =  " 元 ";
+            String s1 =  LanguageUtil.getText("共");
+            String s2 =  LanguageUtil.getText("注单");
+            String s3 =  LanguageUtil.getText("元");
+            String content = s1 + " " + betStatus.getZhuShu() + s2 +" , " + betStatus.getTotalAmount() + " " + s3;
             spanBuilder = new SpannableStringBuilder(content);
             ForegroundColorSpan colorSpan1 = new ForegroundColorSpan(getResources().getColor(R.color.ski_color_ff9307));
             ForegroundColorSpan colorSpan2 = new ForegroundColorSpan(getResources().getColor(R.color.ski_color_ff9307));
             spanBuilder.setSpan(colorSpan1, content.indexOf(s1) + s1.length(), content.indexOf(s2), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
             spanBuilder.setSpan(colorSpan2, content.indexOf(s2) + s2.length(), content.indexOf(s3), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         } else {
-            String s1 =  "共 1 注, ";
-            String s2 =  " 组, ";
-            String s3 =  " 元 ";
-            String content = s1 + betStatus.getZhuShu() + s2 + betStatus.getTotalAmount() + s3;
+            String s1 =  LanguageUtil.getText("共")+ " 1 "+ LanguageUtil.getText("注单");
+            String s2 =  LanguageUtil.getText("组");
+            String s3 =  LanguageUtil.getText("元");
+            String content = s1  + " " + betStatus.getZhuShu() + " " + s2 + " " + betStatus.getTotalAmount() + " " + s3;
             spanBuilder = new SpannableStringBuilder(content);
             ForegroundColorSpan colorSpan1 = new ForegroundColorSpan(getResources().getColor(R.color.ski_color_ff9307));
             ForegroundColorSpan colorSpan2 = new ForegroundColorSpan(getResources().getColor(R.color.ski_color_ff9307));
@@ -138,7 +139,7 @@ public class BetBottomView extends ConstraintLayout implements View.OnClickListe
     public void setBalance(String balanceStr) {
         String balance = DecimalSetUtils.setMoneySaveThree(balanceStr);
 //        String yue = "余额";
-        String yue = "总金额:";
+        String yue = LanguageUtil.getText("总金额") + ": ";
 //        String zhegnshu = "";
 //        String xiaoshu = "";
 //        String[] split = balance.split("\\.");
@@ -157,7 +158,7 @@ public class BetBottomView extends ConstraintLayout implements View.OnClickListe
 //        // 颜色
 //        ForegroundColorSpan span = new ForegroundColorSpan(Color.rgb(254,58,54));
 //        builder.setSpan(span, 2, 4, Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
-        mTvBalance.setText(yue + balance + "元");
+        mTvBalance.setText(yue + balance + LanguageUtil.getText("元"));
     }
 
     public long getAmount() {

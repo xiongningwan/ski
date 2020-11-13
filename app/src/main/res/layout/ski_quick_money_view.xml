@@ -8,10 +8,11 @@
 
     <com.ski.box.view.view.CusTextView
         android:id="@+id/quick_setting_amount"
-        android:layout_width="@dimen/ski_dp_57"
+        android:layout_width="wrap_content"
         android:layout_height="@dimen/ski_dp_31"
         android:drawableRight="@mipmap/ski_kuaijie"
         android:gravity="center"
+        android:drawablePadding="5dp"
         android:paddingRight="@dimen/ski_dp_8"
         android:text="快捷"
         android:textColor="@color/ski_press_cb_text_color"

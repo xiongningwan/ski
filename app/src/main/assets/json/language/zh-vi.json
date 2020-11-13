@@ -325,5 +325,6 @@
   "*至少选中1个彩种，才能保存": "*Chọn ít nhất 1 xổ số mới có thể lưu lại",
   "有修改的内容未保存，确定离开吗？": "Có nội dung sửa chưa lưu, xác nhận muốn thoát ?",
   "离开": "Thoát",
-  "已恢复默认值设置": "Cài đặt mặc định đã được khôi phục"
+  "已恢复默认值设置": "Cài đặt mặc định đã được khôi phục",
+  "总金额": "tổng cộng"
 }
