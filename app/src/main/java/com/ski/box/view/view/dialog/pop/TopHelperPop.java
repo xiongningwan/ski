@@ -12,6 +12,7 @@ import com.ski.box.view.activity.ContainerActivity;
 import com.ski.box.view.activity.my.GameSetActivity;
 import com.ski.box.view.fragment.record.RecordBetFragment;
 import com.ski.box.view.fragment.record.RecordMoneyFragment;
+import com.yb.core.utils.ScreenUtils;
 import com.zyyoona7.popup.BasePopup;
 
 
@@ -35,7 +36,8 @@ public class TopHelperPop extends BasePopup<TopHelperPop> implements View.OnClic
 
     @Override
     protected void initAttributes() {
-        setContentView(R.layout.ski_bet_helper_menu, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        int h = ScreenUtils.dip2px(163);
+        setContentView(R.layout.ski_bet_helper_menu, ViewGroup.LayoutParams.WRAP_CONTENT, h);
         setFocusAndOutsideEnable(true);
         setBackgroundDimEnable(false);
     }
