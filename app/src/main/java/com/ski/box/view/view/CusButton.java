@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.ski.box.R;
+import com.ski.box.utils.ActivityUtil;
 import com.yb.core.utils.LanguageUtil;
 
 /**
@@ -32,6 +33,9 @@ public class CusButton extends androidx.appcompat.widget.AppCompatButton {
         TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.ski_CsuTextView);
         String text = ta.getString(R.styleable.ski_CsuTextView_android_text);
         ta.recycle();
+        if("vi".equals(LanguageUtil.getLanguage())) {
+            setTypeface(ActivityUtil.getFontTNR());
+        }
         setText(LanguageUtil.getText(text));
     }
 

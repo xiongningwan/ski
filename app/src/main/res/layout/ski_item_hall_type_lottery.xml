@@ -17,7 +17,7 @@
         android:src="@mipmap/ski_home_icon_lottery_txffc"
         android:layout_marginTop="16dp"/>
 
-    <TextView
+    <com.ski.box.view.view.CusTextView
         android:id="@+id/tv_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

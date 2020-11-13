@@ -1,6 +1,8 @@
 package com.ski.box.utils;
 
 import android.content.Context;
+import android.content.res.AssetManager;
+import android.graphics.Typeface;
 import android.os.Build;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
@@ -12,6 +14,7 @@ import android.widget.TextView;
 import com.ski.box.R;
 import com.ski.box.bean.DataCenter;
 import com.ski.box.view.view.CusTextView;
+import com.yb.core.utils.AppUtil;
 
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
@@ -22,6 +25,7 @@ import java.util.Locale;
  */
 public class ActivityUtil {
     private static DecimalFormat mDecimalFormat;
+    private static Typeface mFontTNR;
 
     //空布局
     public static View getEmptyView(Context context) {
@@ -149,6 +153,14 @@ public class ActivityUtil {
         }
         String bonu = mDecimalFormat.format(b);
         return bonu;
+    }
+
+    public static Typeface getFontTNR() {
+        if(mFontTNR == null) {
+            AssetManager mgr = AppUtil.getContext().getAssets();
+            mFontTNR = Typeface.createFromAsset(mgr, "fonts/Times-New-Roman.ttf");
+        }
+       return mFontTNR;
     }
 
 }

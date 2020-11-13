@@ -42,6 +42,7 @@ import com.ski.box.view.view.CusTextView;
 import com.ski.box.view.view.HeaderView;
 import com.ski.box.view.view.dialog.LoadingDialog;
 import com.yb.core.base.BaseMVPFragment;
+import com.yb.core.utils.LanguageUtil;
 import com.yb.core.utils.ToastUtil;
 
 import org.angmarch.views.NiceSpinner;
@@ -119,7 +120,7 @@ public class RechargeFragment extends BaseMVPFragment<RechargeContract.Presenter
         mIvBalance = view.findViewById(R.id.iv_refresh_balance);
         mTvNotice1 = view.findViewById(R.id.tv_notice_1);
         mTvNotice2 = view.findViewById(R.id.tv_notice_2);
-        mHeadView.setHeader(getString(R.string.ski_tab_lottery_recharge), false);
+        mHeadView.setHeader(LanguageUtil.getText(getString(R.string.ski_tab_lottery_recharge)), false);
 
         mBtnSure.setOnClickListener(this);
         mTvWen1.setOnClickListener(this);
@@ -190,7 +191,7 @@ public class RechargeFragment extends BaseMVPFragment<RechargeContract.Presenter
             return;
         }
         if (TextUtils.isEmpty(cardName)) {
-            ToastUtil.showError("请输入充值人姓名");
+            ToastUtil.showError("请输入真实姓名");
             return;
         }
 
@@ -214,7 +215,7 @@ public class RechargeFragment extends BaseMVPFragment<RechargeContract.Presenter
             e.printStackTrace();
         }
         if (inputMoneyD < minD || inputMoneyD > maxD) {
-            ToastUtil.showError("该渠道充值范围为" + minD + "~" + maxD);
+            ToastUtil.showError(LanguageUtil.getText("该渠道充值范围为") + minD + "~" + maxD);
             return;
         }
         mBtnSure.setEnabled(false);
@@ -225,7 +226,7 @@ public class RechargeFragment extends BaseMVPFragment<RechargeContract.Presenter
     @Override
     public void onUserInfoResult(UserInfo userInfo) {
         DataCenter.getInstance().setUser(userInfo);
-        mTvBalance.setText("￥" + userInfo.getBalance());
+        mTvBalance.setText(userInfo.getBalance());
         mllBalance.setEnabled(true);
         mIvBalance.clearAnimation();
     }
@@ -267,9 +268,8 @@ public class RechargeFragment extends BaseMVPFragment<RechargeContract.Presenter
 
     private void setSpinner(List<PayType> list) {
         PayType payType2 = new PayType();
-        payType2.setChannelName("请选择");
+        payType2.setChannelName(LanguageUtil.getText("请选择"));
         list.add(0, payType2);
-
         SpinnerTextFormatter textFormatter = new SpinnerTextFormatter<PayType>() {
             @Override
             public Spannable format(PayType bean) {
@@ -284,10 +284,10 @@ public class RechargeFragment extends BaseMVPFragment<RechargeContract.Presenter
             public void onItemSelected(NiceSpinner parent, View view, int position, long id) {
                 PayType payType = (PayType) parent.getSelectedItem();
                 if (0 == position) {
-                    mEtMoney.setHint("请输入充值金额");
+                    mEtMoney.setHint(LanguageUtil.getText("请输入充值金额"));
                 } else {
                     if (payType != null) {
-                        mEtMoney.setHint("充值区间：" + payType.getMinAmt() + "~" + payType.getMaxAmt());
+                        mEtMoney.setHint( LanguageUtil.getText("充值区间")+ "：" + payType.getMinAmt() + "~" + payType.getMaxAmt());
                     }
                 }
 
@@ -312,8 +312,8 @@ public class RechargeFragment extends BaseMVPFragment<RechargeContract.Presenter
         String tip1 = getString(R.string.ski_money_recharge_notice1);
         String tip2 = getString(R.string.ski_money_recharge_notice2);
 
-        ActivityUtil.setTipKeywordRed(requireActivity(), mTvNotice1, tip1, "在线客服");
-        ActivityUtil.setTipKeywordRed(requireActivity(), mTvNotice2, tip2, "24小时");
+        ActivityUtil.setTipKeywordRed(requireActivity(), mTvNotice1, LanguageUtil.getText(tip1), LanguageUtil.getText("在线客服"));
+        ActivityUtil.setTipKeywordRed(requireActivity(), mTvNotice2, LanguageUtil.getText(tip2),  LanguageUtil.getText("24小时"));
     }
 
 }

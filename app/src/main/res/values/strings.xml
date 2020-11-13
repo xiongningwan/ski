@@ -77,8 +77,8 @@
     <string name="ski_money_withdraw_notice4">4.银行卡请务必正确填写开户银行和银行卡号码、持卡人姓名。</string>
     <string name="ski_money_withdraw_notice5">5.银行卡绑定后需生效后方可提现，第一张卡4小时生效，后续新增银行卡 12 小时生效。</string>
     <string name="ski_money_withdraw_notice6">6.当您提现申请完成后，我们承诺，除非遇到非可控因素，我们将为您提供1分钟 快速到账的提款服务。</string>
-    <string name="ski_money_withdraw_q_1">为什么充值未到账？</string>
-    <string name="ski_money_withdraw_q_2">如何使用网银充值？</string>
+    <string name="ski_money_withdraw_q_1">为什么提现未到账？</string>
+    <string name="ski_money_withdraw_q_2">如何提现？</string>
     <string name="ski_warm_tip">温馨提示</string>
     <string name="ski_sys_notice">公告中心</string>
 </resources>

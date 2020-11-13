@@ -7,7 +7,7 @@
     tools:ignore="ResourceName"
     android:layout_marginTop="8dp">
 
-    <TextView
+    <com.ski.box.view.view.CusTextView
         android:id="@+id/tv_ser"
         android:layout_width="88dp"
         android:layout_height="34dp"

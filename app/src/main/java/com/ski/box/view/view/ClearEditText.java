@@ -13,6 +13,7 @@ import android.view.View;
 import androidx.annotation.Nullable;
 
 import com.ski.box.R;
+import com.ski.box.utils.ActivityUtil;
 import com.yb.core.utils.LanguageUtil;
 
 
@@ -38,6 +39,9 @@ public class ClearEditText extends androidx.appcompat.widget.AppCompatEditText i
     }
 
     private void init() {
+        if("vi".equals(LanguageUtil.getLanguage())) {
+            setTypeface(ActivityUtil.getFontTNR());
+        }
         // 获取EditText的DrawableRight,假如没有设置我们就使用默认的图片,获取图片的顺序是左上右下（0,1,2,3,）
         mClearDrawable = getCompoundDrawables()[2];
         if (mClearDrawable == null) {
