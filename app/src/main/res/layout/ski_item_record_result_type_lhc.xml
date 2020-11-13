@@ -119,13 +119,14 @@
         app:layout_constraintStart_toEndOf="@+id/fl_num_6"
         app:layout_constraintTop_toTopOf="@+id/fl_num_1"
         android:gravity="center">
+
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_num_jia"
             style="@style/record_result_lottery_style_lhc_num"
-            android:layout_width="14dp"
-            tools:text="+"
+            android:layout_width="match_parent"
+            android:text="+"
             android:textColor="@color/ski_color_333333"
-            android:text="+"/>
+            tools:text="+" />
 
         <!--        <TextView-->
         <!--            android:id="@+id/tv_sx_7"-->

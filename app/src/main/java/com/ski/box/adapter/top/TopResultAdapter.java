@@ -35,6 +35,7 @@ import com.ski.box.utils.MyCustomTarage;
 import com.ski.box.utils.SystemUtil;
 import com.ski.box.utils.lottery.ConfigurationUiUtils;
 import com.yb.core.utils.AppUtil;
+import com.yb.core.utils.LanguageUtil;
 import com.yb.core.utils.LogUtils;
 import com.yb.core.utils.ScreenUtils;
 
@@ -179,6 +180,10 @@ public class TopResultAdapter extends BaseMultiItemQuickAdapter<LotteryNumBean, 
                             Integer bg = ConfigurationUiUtils.getLHCBg(numInt);
                             arr[i].setBackgroundResource(bg);
                             arr[i].setText(arr_code[i]);
+                            if(2 == mode) {
+                                String sx = LotteryUtil.getLHCSX(numInt);
+                                arrSx[i].setText(LanguageUtil.getText(sx));
+                            }
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
@@ -283,7 +288,7 @@ public class TopResultAdapter extends BaseMultiItemQuickAdapter<LotteryNumBean, 
                 outAnimator.start();
 
                 String sx = LotteryUtil.getLHCSX(numInt);
-                tv.setText(sx);
+                tv.setText(LanguageUtil.getText(sx));
             }
         });
     }

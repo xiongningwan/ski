@@ -8,6 +8,8 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.appcompat.widget.AppCompatTextView;
+
 import com.chad.library.adapter.base.BaseMultiItemQuickAdapter;
 import com.chad.library.adapter.base.viewholder.BaseViewHolder;
 import com.ski.box.R;
@@ -122,7 +124,9 @@ public class RecordResultAdapter extends BaseMultiItemQuickAdapter<RecordResultB
                 }
             }break;
             case LotteryConstant.SER_ID_LHC:
+                AppCompatTextView tvJia = holder.getView(R.id.tv_num_jia);
                 if (7 == arr_code.length) {
+                    tvJia.setVisibility(View.VISIBLE);
                     FrameLayout fl1 = holder.getView(R.id.fl_num_1);
                     FrameLayout fl2 = holder.getView(R.id.fl_num_2);
                     FrameLayout fl3 = holder.getView(R.id.fl_num_3);
@@ -159,6 +163,8 @@ public class RecordResultAdapter extends BaseMultiItemQuickAdapter<RecordResultB
                             e.printStackTrace();
                         }
                     }
+                } else {
+                    tvJia.setVisibility(View.GONE);
                 }
 
                 break;
