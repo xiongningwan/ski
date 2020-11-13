@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="163dp"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:background="@mipmap/ski_back_tv_top_xiala">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_1"
+        android:layout_width="@dimen/ski_dp_130"
+        android:layout_height="@dimen/ski_dp_48"
+        android:gravity="center"
+        android:layout_marginTop="10dp">
+
+<!--        <ImageView-->
+<!--            android:id="@+id/iv_img"-->
+<!--            android:layout_width="@dimen/ski_dp_10"-->
+<!--            android:layout_height="@dimen/ski_dp_12"-->
+<!--            android:layout_margin="@dimen/ski_dp_6"-->
+<!--            android:layout_marginStart="16dp"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent" />-->
+
+        <com.ski.box.view.view.CusTextView
+            android:layout_width="@dimen/ski_dp_0"
+            android:layout_height="0dp"
+            android:textColor="#535d76"
+            android:textSize="14dp"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="投注记录" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/ski_dp_1"
+        android:background="@color/ski_default_line" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_2"
+        android:layout_width="@dimen/ski_dp_130"
+        android:layout_height="@dimen/ski_dp_48"
+        android:layout_marginBottom="@dimen/ski_dp_2"
+        android:gravity="center">
+
+        <com.ski.box.view.view.CusTextView
+            android:layout_width="@dimen/ski_dp_0"
+            android:layout_height="0dp"
+            android:textColor="#535d76"
+            android:textSize="14dp"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="账变记录" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/ski_dp_1"
+        android:background="@color/ski_default_line" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_3"
+        android:layout_width="@dimen/ski_dp_130"
+        android:layout_height="@dimen/ski_dp_48"
+        android:layout_marginBottom="@dimen/ski_dp_2"
+        android:gravity="center">
+
+        <com.ski.box.view.view.CusTextView
+            android:layout_width="@dimen/ski_dp_0"
+            android:layout_height="0dp"
+            android:textColor="#535d76"
+            android:textSize="14dp"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="游戏设置" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/ski_dp_1"
+        android:background="@color/ski_default_line" />
+
+</LinearLayout>

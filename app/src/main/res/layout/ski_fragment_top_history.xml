@@ -15,7 +15,7 @@
         android:layout_height="280dp"/>
 
 
-    <TextView
+    <com.ski.box.view.view.CusTextView
         android:id="@+id/tv_close"
         android:layout_width="match_parent"
         android:layout_height="30dp"

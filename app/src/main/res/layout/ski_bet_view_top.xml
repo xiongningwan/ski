@@ -54,6 +54,7 @@
 
 
             <FrameLayout
+                android:id="@+id/fl_helper"
                 android:layout_width="40dp"
                 android:layout_height="match_parent"
                 android:layout_alignParentEnd="true">

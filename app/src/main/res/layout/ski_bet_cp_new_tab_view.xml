@@ -6,7 +6,7 @@
     android:gravity="center"
     android:orientation="horizontal">
 
-        <TextView
+        <com.ski.box.view.view.CusTextView
             android:id="@+id/tv_bet_d"
             android:layout_weight="1"
             android:layout_width="0dp"
@@ -17,7 +17,7 @@
             android:textColor="@color/ski_bet_tab_text_color" />
 
 
-        <TextView
+        <com.ski.box.view.view.CusTextView
             android:id="@+id/tv_bet_s"
             android:layout_weight="1"
             android:layout_width="0dp"
@@ -29,7 +29,7 @@
 
 
 
-        <TextView
+        <com.ski.box.view.view.CusTextView
             android:id="@+id/tv_road"
             android:layout_weight="1"
             android:layout_width="0dp"
@@ -47,7 +47,7 @@
             android:layout_weight="1"
             android:layout_width="0dp"
             android:background="@drawable/ski_bet_tab_bg_selector">
-                <TextView
+                <com.ski.box.view.view.CusTextView
                     android:id="@+id/tv_dragon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

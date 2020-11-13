@@ -28,8 +28,11 @@ import com.ski.box.bean.TicketLotteryTimeBean;
 import com.ski.box.service.AlarmService;
 import com.ski.box.utils.lottery.LotteryNoUtil;
 import com.ski.box.utils.lottery.SettingManager;
+import com.ski.box.view.view.dialog.pop.TopHelperPop;
 import com.yb.core.utils.AppUtil;
 import com.yb.core.utils.LogUtils;
+import com.zyyoona7.popup.XGravity;
+import com.zyyoona7.popup.YGravity;
 
 import java.io.IOException;
 import java.util.List;
@@ -51,6 +54,7 @@ public class BetTopView extends FrameLayout implements OnClickListener {
     private ImageView mIvDrop;
     private ImageView mIvTitleDrop;
     private FrameLayout mFlClose;
+    private FrameLayout mFlHelper;
     private LinearLayout mLLName;
 
     private Context mContext;
@@ -60,6 +64,7 @@ public class BetTopView extends FrameLayout implements OnClickListener {
     private String mPlanId = "";
     private LotteryResultView mLotteryResultView;
     private View mLotteryResultCoverView;
+    private TopHelperPop mTopHelperPop;
 
 
     public BetTopView(Context context) {
@@ -102,11 +107,13 @@ public class BetTopView extends FrameLayout implements OnClickListener {
         mLotteryResultCoverView = v.findViewById(R.id.lottery_result_view_cover);
         mIvDrop = v.findViewById(R.id.iv_arrow_down_result);
         mFlClose = v.findViewById(R.id.fl_close);
+        mFlHelper = v.findViewById(R.id.fl_helper);
 
         mLotteryResultCoverView.setOnClickListener(this);
         mIvDrop.setOnClickListener(this);
         mFlClose.setOnClickListener(this);
         mLLName.setOnClickListener(this);
+        mFlHelper.setOnClickListener(this);
         initData();
     }
 
@@ -249,6 +256,8 @@ public class BetTopView extends FrameLayout implements OnClickListener {
             RxBus.get().post(EVENT_BET_ACTIVITY_FINISH, "关闭投注页面");
         }  else if (v.getId() == R.id.ll_name) {
             RxBus.get().post(EVENT_BET_TOP_CHOSE_LOTTERY_DIALOG_START_OPEN, "顶部选择彩种弹窗打开");
+        }  else if (v.getId() == R.id.fl_helper) {
+            showHelper();
         }
 
     }
@@ -259,5 +268,12 @@ public class BetTopView extends FrameLayout implements OnClickListener {
 
     public ImageView getIvTitleDrop() {
         return mIvTitleDrop;
+    }
+
+    private void showHelper() {
+        if (mTopHelperPop == null) {
+            mTopHelperPop = TopHelperPop.create(mContext);
+        }
+        mTopHelperPop.showAtAnchorView(mFlHelper, YGravity.BELOW, XGravity.CENTER, -100, -10);
     }
 }
