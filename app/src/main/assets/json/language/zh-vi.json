@@ -315,5 +315,15 @@
   "收起": "Cất đi",
   "投注": "đặt cược",
   "路子图": "Bản đồ đư",
-  "长龙": "Long long"
+  "长龙": "Long long",
+  "输入金额": "Vui lòng nhập",
+  "编辑快捷金额": "Chỉnh sửa số tiền",
+  "*相同金额的只会显示前一个": "*Số tiền tương tự sẽ chỉ hiển thị số trước",
+  "恢复默认": "Khôi phục lại các thiết lập mặc định",
+  "保存设置": "Lưu các thiết lập",
+  "请输入": "vui lòng nhập",
+  "*至少选中1个彩种，才能保存": "*Chọn ít nhất 1 xổ số mới có thể lưu lại",
+  "有修改的内容未保存，确定离开吗？": "Có nội dung sửa chưa lưu, xác nhận muốn thoát ?",
+  "离开": "Thoát",
+  "已恢复默认值设置": "Cài đặt mặc định đã được khôi phục"
 }

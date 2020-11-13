@@ -19,7 +19,7 @@
             android:padding="@dimen/ski_dp_20"
             android:src="@mipmap/ski_keyboard_xiala" />
 
-        <TextView
+        <com.ski.box.view.view.CusTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
@@ -42,7 +42,7 @@
         android:layout_marginLeft="@dimen/ski_dp_14"
         android:layout_marginRight="@dimen/ski_dp_14" />
 
-    <TextView
+    <com.ski.box.view.view.CusTextView
         android:layout_marginBottom="@dimen/ski_dp_15"
         android:id="@+id/marked_words"
         android:layout_width="wrap_content"
@@ -69,7 +69,7 @@
         android:layout_marginRight="@dimen/ski_dp_18"
         android:orientation="horizontal">
 
-        <TextView
+        <com.ski.box.view.view.CusTextView
             android:id="@+id/restore_default"
             android:layout_width="0dp"
             android:layout_weight="1"
@@ -78,14 +78,14 @@
             android:gravity="center"
             android:text="恢复默认"
             android:textColor="#8590ad"
-            android:textSize="@dimen/ski_dp_15" />
+            android:textSize="@dimen/ski_dp_13" />
 
         <View
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"/>
 
-        <TextView
+        <com.ski.box.view.view.CusTextView
             android:id="@+id/save_quick_amount"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -93,8 +93,8 @@
             android:layout_alignParentRight="true"
             android:background="@drawable/ski_bg_btn_default"
             android:gravity="center"
-            android:text="保存"
+            android:text="保存设置"
             android:textColor="@color/ski_white"
-            android:textSize="@dimen/ski_dp_15" />
+            android:textSize="@dimen/ski_dp_13" />
     </LinearLayout>
 </LinearLayout>

@@ -6,12 +6,11 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <TextView
+    <com.ski.box.view.view.CusTextView
         android:id="@+id/quick_setting_amount"
         android:layout_width="@dimen/ski_dp_57"
         android:layout_height="@dimen/ski_dp_31"
         android:drawableRight="@mipmap/ski_kuaijie"
-        android:drawablePadding="-10dp"
         android:gravity="center"
         android:paddingRight="@dimen/ski_dp_8"
         android:text="快捷"
@@ -25,8 +24,8 @@
 
     <TextView
         android:id="@+id/first_quick_amount"
-        android:layout_width="28dp"
-        android:layout_height="28dp"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
         android:background="@mipmap/icon_chouma"
         android:gravity="center"
         android:lines="1"
@@ -40,8 +39,8 @@
 
     <TextView
         android:id="@+id/second_quick_amount"
-        android:layout_width="28dp"
-        android:layout_height="28dp"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
         android:background="@mipmap/icon_chouma"
         android:gravity="center"
         android:lines="1"
@@ -55,8 +54,8 @@
 
     <TextView
         android:id="@+id/third_quick_amount"
-        android:layout_width="28dp"
-        android:layout_height="28dp"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
         android:background="@mipmap/icon_chouma"
         android:gravity="center"
         android:lines="1"
@@ -70,8 +69,8 @@
 
     <TextView
         android:id="@+id/forth_quick_amount"
-        android:layout_width="28dp"
-        android:layout_height="28dp"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
         android:background="@mipmap/icon_chouma"
         android:gravity="center"
         android:lines="1"
@@ -87,7 +86,7 @@
     <RelativeLayout
         android:id="@+id/ll_quick_amount_show"
         android:layout_width="@dimen/ski_dp_60"
-        android:layout_height="@dimen/ski_dp_31"
+        android:layout_height="32dp"
         android:layout_marginRight="16dp"
         android:background="@mipmap/ski_jine"
         app:layout_constraintTop_toTopOf="parent"

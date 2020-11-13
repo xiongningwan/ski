@@ -32,6 +32,7 @@ import com.ski.box.utils.KeyBoardUtils;
 import com.ski.box.view.view.dialog.CustomBottomDialog;
 import com.ski.box.view.view.keyboard.KeyBoardBean;
 import com.ski.box.view.view.keyboard.NumsKeyBoardView;
+import com.yb.core.utils.LanguageUtil;
 import com.yb.core.utils.SPUtils;
 import com.yb.core.utils.ToastUtil;
 
@@ -112,6 +113,8 @@ public class QuickMoneyView extends ConstraintLayout implements View.OnClickList
         forthQuick = rootView.findViewById(R.id.forth_quick_amount);
         etDoubleAmount = rootView.findViewById(R.id.quick_amount_show);
         numKeyBoard = rootView.findViewById(R.id.numkeyboard);
+
+        etDoubleAmount.setHint(LanguageUtil.getText("输入金额"));
 
         tvSetting.setOnClickListener(this);
         tvUnit.setOnClickListener(this);

@@ -29,6 +29,7 @@ import com.ski.box.view.view.dialog.CustomBottomDialog;
 import com.ski.box.view.view.dialog.LotteryDialog;
 import com.ski.box.view.view.keyboard.KeyBoardBean;
 import com.ski.box.view.view.keyboard.NumsKeyBoardView;
+import com.yb.core.utils.LanguageUtil;
 import com.yb.core.utils.SPUtils;
 import com.yb.core.utils.ToastUtil;
 
@@ -97,7 +98,7 @@ public class QuickMoneySettingView extends LinearLayout {
             mDatas.add(new QuickSetMoneyBean("500", false));
             adapter.notifyDataSetChanged();
           //  new LotteryDialog().showCenterRemind(getContext(),"已恢复默认值");
-            ToastUtil.showInfo("已恢复默认值");
+            ToastUtil.showInfo("已恢复默认值设置");
         });
         mSaveQuickAmount.setOnClickListener(new OnClickListener() {
             @Override
@@ -217,7 +218,7 @@ public class QuickMoneySettingView extends LinearLayout {
         }
         if (showDialog) {
             AlertConfigurationBean bean = new AlertConfigurationBean();
-            bean.setContent("有修改的内容未保存," + "\n" + "确认离开吗?");
+            bean.setContent("有修改的内容未保存，确定离开吗？");
             bean.setLeftButtonText("取消");
             bean.setRightButtonText("离开");
             new LotteryDialog().showAlertDialog(getContext(), bean, new LotteryDialog.OnSelectAlertDialogCallBack() {
@@ -257,6 +258,7 @@ public class QuickMoneySettingView extends LinearLayout {
         public void onBindViewHolder(@NonNull MoneyViewHolder holder, int position) {
             QuickSetMoneyBean data = mDatas.get(position);
             String money = data.getMoney();
+            holder.editText.setHint(LanguageUtil.getText("请输入"));
             holder.editText.setText(money);
             boolean red = data.isRed();
             if (red) {
