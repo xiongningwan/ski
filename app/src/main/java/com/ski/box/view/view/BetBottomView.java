@@ -104,12 +104,13 @@ public class BetBottomView extends ConstraintLayout implements View.OnClickListe
             String s1 =  LanguageUtil.getText("共");
             String s2 =  LanguageUtil.getText("注单");
             String s3 =  LanguageUtil.getText("元");
-            String content = s1 + " " + betStatus.getZhuShu() + s2 +" , " + betStatus.getTotalAmount() + " " + s3;
+            String s4 =  LanguageUtil.getText(" , ");
+            String content = s1 + " " + betStatus.getZhuShu() + " " + s2 + s4 + betStatus.getTotalAmount() + " " + s3;
             spanBuilder = new SpannableStringBuilder(content);
             ForegroundColorSpan colorSpan1 = new ForegroundColorSpan(getResources().getColor(R.color.ski_color_ff9307));
             ForegroundColorSpan colorSpan2 = new ForegroundColorSpan(getResources().getColor(R.color.ski_color_ff9307));
             spanBuilder.setSpan(colorSpan1, content.indexOf(s1) + s1.length(), content.indexOf(s2), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-            spanBuilder.setSpan(colorSpan2, content.indexOf(s2) + s2.length(), content.indexOf(s3), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            spanBuilder.setSpan(colorSpan2, content.indexOf(s4) + s4.length(), content.indexOf(s3), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         } else {
             String s1 =  LanguageUtil.getText("共")+ " 1 "+ LanguageUtil.getText("注单");
             String s2 =  LanguageUtil.getText("组");
