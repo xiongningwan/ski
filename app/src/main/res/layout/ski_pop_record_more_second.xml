@@ -5,16 +5,16 @@
     android:background="@color/ski_white"
     android:orientation="vertical">
 
-    <com.ski.box.view.view.CusTextView
-        android:id="@+id/tv_type_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:gravity="center"
-        android:text="注单状态"
-        android:textColor="@color/ski_color_666666"
-        android:textSize="@dimen/ski_dp_14" />
+<!--    <com.ski.box.view.view.CusTextView-->
+<!--        android:id="@+id/tv_type_label"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="10dp"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:gravity="center"-->
+<!--        android:text="注单状态"-->
+<!--        android:textColor="@color/ski_color_666666"-->
+<!--        android:textSize="@dimen/ski_dp_14" />-->
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_type_child"

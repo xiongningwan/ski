@@ -56,7 +56,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>
 
-        <TextView
+        <com.ski.box.view.view.CusTextView
             android:id="@+id/tv_open"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -79,7 +79,7 @@
         android:layout_height="50dp"
         android:layout_marginTop="10dp"
         android:background="@color/ski_white">
-        <TextView
+        <com.ski.box.view.view.CusTextView
             android:id="@+id/tv_label_no"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -101,7 +101,7 @@
             android:layout_marginStart="16dp"
             android:textColor="@color/ski_color_333333"/>
 
-        <Button
+        <com.ski.box.view.view.CusButton
             android:id="@+id/btn_copy"
             android:layout_width="55dp"
             android:layout_height="24dp"
@@ -125,7 +125,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <TextView
+        <com.ski.box.view.view.CusTextView
             android:id="@+id/tv_label_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -154,7 +154,7 @@
         android:layout_height="50dp"
         android:layout_marginTop="1dp"
         android:background="@color/ski_white">
-        <TextView
+        <com.ski.box.view.view.CusTextView
             android:id="@+id/tv_label_play"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -182,7 +182,7 @@
         android:layout_height="50dp"
         android:layout_marginTop="1dp"
         android:background="@color/ski_white">
-        <TextView
+        <com.ski.box.view.view.CusTextView
             android:id="@+id/tv_label_content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -210,7 +210,7 @@
         android:layout_height="50dp"
         android:layout_marginTop="1dp"
         android:background="@color/ski_white">
-        <TextView
+        <com.ski.box.view.view.CusTextView
             android:id="@+id/tv_label_bet_money"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -238,7 +238,7 @@
         android:layout_height="50dp"
         android:layout_marginTop="1dp"
         android:background="@color/ski_white">
-        <TextView
+        <com.ski.box.view.view.CusTextView
             android:id="@+id/tv_label_rate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -266,7 +266,7 @@
         android:layout_height="50dp"
         android:layout_marginTop="1dp"
         android:background="@color/ski_white">
-        <TextView
+        <com.ski.box.view.view.CusTextView
             android:id="@+id/tv_label_bet_win"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -294,7 +294,7 @@
         android:layout_height="50dp"
         android:layout_marginTop="1dp"
         android:background="@color/ski_white">
-        <TextView
+        <com.ski.box.view.view.CusTextView
             android:id="@+id/tv_label_status"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -307,9 +307,11 @@
 
         <TextView
             android:id="@+id/tv_value_status"
-            android:layout_width="60dp"
-            android:layout_height="24dp"
+            android:layout_width="wrap_content"
+            android:layout_height="26dp"
             tools:text="待开奖"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
             android:gravity="center"
             android:background="@drawable/ski_bg_record_detail_status_5"
             app:layout_constraintStart_toEndOf="@+id/tv_label_status"
@@ -320,7 +322,7 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <Button
+    <com.ski.box.view.view.CusButton
         android:id="@+id/btn_cancel"
         android:layout_width="match_parent"
         android:layout_height="40dp"

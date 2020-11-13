@@ -1,8 +1,5 @@
 package com.ski.box.view.fragment.record;
 
-import android.content.ClipData;
-import android.content.ClipboardManager;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -34,6 +31,7 @@ import com.ski.box.bean.record.RecordBetRequest;
 import com.ski.box.mvp.contract.RecordBetContract;
 import com.ski.box.mvp.presenter.RecordBetPresenter;
 import com.ski.box.utils.ActivityUtil;
+import com.yb.core.utils.LanguageUtil;
 import com.ski.box.view.activity.RecordDetailActivity;
 import com.ski.box.view.view.dialog.CancelDialog;
 import com.ski.box.view.view.dialog.pop.record.AllLotteryPop;
@@ -156,8 +154,8 @@ public class RecordBetFragment extends BaseMVPFragment<RecordBetContract.Present
 
         mRecordRequest.setStartDate(TimeUtils.getBeginStringOfToday());
         mRecordRequest.setEndDate(TimeUtils.getEndStringOfToday());
-        mTvDay.setText("今天");
-        mTvStatus.setText("全部状态");
+        mTvDay.setText(LanguageUtil.getText("今天"));
+        mTvStatus.setText(LanguageUtil.getText("全部状态"));
     }
 
     private void gotoDetail(RecordBet.ListBean bean) {

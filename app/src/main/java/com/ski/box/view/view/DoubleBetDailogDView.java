@@ -30,6 +30,7 @@ import com.ski.box.utils.lottery.SettingManager;
 import com.ski.box.view.view.dialog.LotteryDialog;
 import com.ski.box.view.view.keyboard.KeyBoardBean;
 import com.ski.box.view.view.keyboard.NumsKeyBoardView;
+import com.yb.core.utils.LanguageUtil;
 import com.yb.core.utils.ScreenUtils;
 import com.yb.core.utils.ToastUtil;
 
@@ -69,8 +70,6 @@ public class DoubleBetDailogDView extends LinearLayout {
     private List<MkBetParamEntity.BetParamEntity> mDatas;
 
 
-
-
     public interface BettingConfirmListener {
         void onClosed();//隐藏
 
@@ -93,45 +92,46 @@ public class DoubleBetDailogDView extends LinearLayout {
     }
 
 
-
     private void init(@Nullable AttributeSet attrs, int defStyleAttr) {
         View.inflate(getContext(), R.layout.ski_bet_double_d_dailog, this);
         /*初始化*/
-          mBettingDataRecyclerView=findViewById(R.id.rv_comfirm_list);
-          betConfirm=findViewById(R.id.bet_confirm);
-         bettingInfo=findViewById(R.id.betting_info);
-         checkboxDanDhiKuang=findViewById(R.id.checkbox_danshi_close_kuang);
-         rlBottom =findViewById(R.id.rl_bottom);
-         rlhead =findViewById(R.id.rl_head);
-         numKeyboard=findViewById(R.id.num_keyboard);
-        ImageView windowClosed=findViewById(R.id.iv_window_closed);
-        TextView windowClear=findViewById(R.id.tv_window_clear);
-         /*设置 关闭弹框 清空弹框 点击投注 监听*/
+        mBettingDataRecyclerView = findViewById(R.id.rv_comfirm_list);
+        betConfirm = findViewById(R.id.bet_confirm);
+        bettingInfo = findViewById(R.id.betting_info);
+        checkboxDanDhiKuang = findViewById(R.id.checkbox_danshi_close_kuang);
+        rlBottom = findViewById(R.id.rl_bottom);
+        rlhead = findViewById(R.id.rl_head);
+        numKeyboard = findViewById(R.id.num_keyboard);
+        ImageView windowClosed = findViewById(R.id.iv_window_closed);
+        TextView windowClear = findViewById(R.id.tv_window_clear);
+        /*设置 关闭弹框 清空弹框 点击投注 监听*/
         windowClosed.setOnClickListener(this::onClick);
         windowClear.setOnClickListener(this::onClick);
         betConfirm.setOnClickListener(this::onClick);
 
-       /*配置recycleview*/
+        checkboxDanDhiKuang.setText(LanguageUtil.getText(checkboxDanDhiKuang.getText().toString()));
+
+        /*配置recycleview*/
         mBettingDataAdapter = new BettingDoubleConfirmAdapter(getContext());
         mBettingDataRecyclerView.setAdapter(mBettingDataAdapter);
         mBettingDataRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
         //添加自定义分割线
         DividerItemDecoration divider = new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL);
         divider.setDrawable(Objects.requireNonNull(getContext().getResources().getDrawable(R.drawable.ski_shape_all_lottery_line)));
-         mBettingDataRecyclerView.addItemDecoration(divider);
-          mBettingDataRecyclerView.setItemAnimator(new DefaultItemAnimator());
-          stringBuffer = new StringBuffer();
+        mBettingDataRecyclerView.addItemDecoration(divider);
+        mBettingDataRecyclerView.setItemAnimator(new DefaultItemAnimator());
+        stringBuffer = new StringBuffer();
         /*加载监听*/
         initListener();
         mBettingDataAdapter.setOnEditTextViewClickListener(position -> {
             BettingDoubleConfirmAdapter.DoubleConfirmViewHolder viewHolder = (BettingDoubleConfirmAdapter.DoubleConfirmViewHolder) mBettingDataRecyclerView.findViewHolderForAdapterPosition(position);
-           if (viewHolder!=null) {
-               mEditText = viewHolder.mEditText;
-               stringBuffer.delete(0, stringBuffer.length());
-               String string = mEditText.getText().toString();
-               stringBuffer.append(string);
-               numKeyboard.expand();
-           }
+            if (viewHolder != null) {
+                mEditText = viewHolder.mEditText;
+                stringBuffer.delete(0, stringBuffer.length());
+                String string = mEditText.getText().toString();
+                stringBuffer.append(string);
+                numKeyboard.expand();
+            }
 
         });
         /*监听键盘操作*/
@@ -154,7 +154,7 @@ public class DoubleBetDailogDView extends LinearLayout {
                 if (length <= 6) {
                     if (length == 0) {
                         if ("0".equals(num)) {
-                          //  new LotteryDialog().showCenterRemind(getContext(),"请输入有效数字");
+                            //  new LotteryDialog().showCenterRemind(getContext(),"请输入有效数字");
                             ToastUtil.showInfo("请输入有效数字");
                             return;
                         }
@@ -174,7 +174,7 @@ public class DoubleBetDailogDView extends LinearLayout {
     }
 
     public int getBottomHeight() {
-        return ScreenUtils.dip2px( 120);
+        return ScreenUtils.dip2px(120);
     }
 
     public int geItemHeight() {
@@ -213,9 +213,9 @@ public class DoubleBetDailogDView extends LinearLayout {
         }
     }
 
-    public void setData( MkBetParamEntity betParamEntity,BettingConfirmListener bettingConfirmListener) {
+    public void setData(MkBetParamEntity betParamEntity, BettingConfirmListener bettingConfirmListener) {
         this.bettingConfirmListener = bettingConfirmListener;
-         mDatas = betParamEntity.getBet();
+        mDatas = betParamEntity.getBet();
         /*刷新数据*/
         mBettingDataAdapter.refreshDatas(mDatas);
         /*计算余额*/
@@ -230,7 +230,7 @@ public class DoubleBetDailogDView extends LinearLayout {
                 ArrayList<Long> cleanPlayId = new ArrayList<>();
                 cleanPlayId.add(Long.valueOf(betParamEntity.getPlayId()));
                 /*Rxbus  通知页面 刷新数据*/
-                  RxBus.get().post(EVENT_CLEAN_XUAN_HAO_PAN_SECTION,cleanPlayId);
+                RxBus.get().post(EVENT_CLEAN_XUAN_HAO_PAN_SECTION, cleanPlayId);
 
                 /*计算余额*/
                 calculateBalance();
@@ -271,7 +271,7 @@ public class DoubleBetDailogDView extends LinearLayout {
                 SettingManager.setBetConfirmDialog(!isChecked);
             }
         });
-         /*当最后一个的时候关闭弹框*/
+        /*当最后一个的时候关闭弹框*/
         mBettingDataAdapter.setOnCloseDialogListener(new BettingDoubleConfirmAdapter.OnCloseDialogListener() {
             @Override
             public void closeDialog() {
@@ -295,14 +295,14 @@ public class DoubleBetDailogDView extends LinearLayout {
             int betCount = betParamEntity.getBetCount();
             long betAmount_d = betParamEntity.getBetAmount_d();
 
-            totalBalan += betCount*betAmount_d;
+            totalBalan += betCount * betAmount_d;
         }
 
-        String str=new BigDecimal(String.valueOf(totalBalan)).toString();
+        String str = new BigDecimal(String.valueOf(totalBalan)).toString();
 
         String danshu = mDatas.size() + "";
         String balances = str + "";
-        String info = danshu + "单," + balances + "元";
+        String info = danshu + LanguageUtil.getText("注单") + "," + balances + LanguageUtil.getText("元");
         int i = info.indexOf(danshu);
         int i1 = info.lastIndexOf(balances);
 
@@ -335,7 +335,7 @@ public class DoubleBetDailogDView extends LinearLayout {
                     mDatas.clear();
                     mBettingDataAdapter.notifyDataSetChanged();
                     /*Rx bus  通知页面清空数据 刷新页面*/
-                    RxBus.get().post(EVENT_CLEAN_XUAN_HAO_PAN,"clen");
+                    RxBus.get().post(EVENT_CLEAN_XUAN_HAO_PAN, "clen");
                     bettingConfirmListener.onClosed();
                 }
 
@@ -362,8 +362,8 @@ public class DoubleBetDailogDView extends LinearLayout {
                 }
                 mLastClickTime = nowTime;
                 showPeroidChangeDailog(planId);
-            }else if (bettingConfirmListener != null) {
-              /*避免弹出限红后 键盘卡住*/
+            } else if (bettingConfirmListener != null) {
+                /*避免弹出限红后 键盘卡住*/
                 boolean expanded = numKeyboard.isExpanded();
                 if (expanded) {
                     numKeyboard.collapse();
@@ -373,14 +373,20 @@ public class DoubleBetDailogDView extends LinearLayout {
             }
         }
     }
+
     private void showPeroidChangeDailog(String planId) {
         String ticketName = DataCenter.getInstance().getCurLotteryName();
-
-        String s =  ticketName + ",期数变化\n" + "当前已进入" + planId + "期";
+        String s1 = LanguageUtil.getText("，期数变化")
+                + "\n"
+                + LanguageUtil.getText("当前已进入");
+        String s2 = LanguageUtil.getText("期");
+        String s3 = "放弃投注";
+        String s4 = "继续投注";
+        String s = ticketName + s1 + planId + s2;
         AlertConfigurationBean bean = new AlertConfigurationBean();
         bean.setContent(s);
-        bean.setLeftButtonText("放弃投注");
-        bean.setRightButtonText("继续投注");
+        bean.setLeftButtonText(s3);
+        bean.setRightButtonText(s4);
         new LotteryDialog().showAlertDialog(getContext(), bean, new LotteryDialog.OnSelectAlertDialogCallBack() {
             @Override
             public void rightButton() {

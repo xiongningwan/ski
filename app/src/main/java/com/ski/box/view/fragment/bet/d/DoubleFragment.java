@@ -17,11 +17,11 @@ import com.ski.box.R;
 import com.ski.box.adapter.FragmentPager2Adapter;
 import com.ski.box.bean.BetStatus;
 import com.ski.box.bean.DataCenter;
-import com.ski.box.bean.MemberDetailEntity;
 import com.ski.box.bean.lottery.LotteryPlayStart;
 import com.ski.box.bean.lottery.RemoteLotteryPlay;
 import com.ski.box.mvp.contract.PlayContract;
 import com.ski.box.mvp.presenter.PlayPresenter;
+import com.yb.core.utils.LanguageUtil;
 import com.ski.box.view.view.BetBottomView;
 import com.ski.box.view.view.dialog.LoadingDialog;
 import com.ski.box.view.view.verticaltablyout.TabAdapter;
@@ -120,7 +120,7 @@ public class DoubleFragment extends BaseMVPFragment<PlayContract.Presenter> impl
     @Override
     protected void processLogic() {
         super.processLogic();
-        mLoadingDialog.setLoading("加载中...");
+        mLoadingDialog.setLoading(LanguageUtil.getText("加载中..."));
         mLoadingDialog.show();
         mPresenter.getPlays(mLotteryId, mMode);
         mPresenter.getBalance();

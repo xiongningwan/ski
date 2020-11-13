@@ -9,12 +9,11 @@ import android.text.TextWatcher;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.EditText;
 
 import androidx.annotation.Nullable;
 
 import com.ski.box.R;
-import com.ski.box.utils.LanguageUtil;
+import com.yb.core.utils.LanguageUtil;
 
 
 public class ClearEditText extends androidx.appcompat.widget.AppCompatEditText implements View.OnFocusChangeListener,

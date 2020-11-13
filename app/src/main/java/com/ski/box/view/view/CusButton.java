@@ -8,7 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.ski.box.R;
-import com.ski.box.utils.LanguageUtil;
+import com.yb.core.utils.LanguageUtil;
 
 /**
  * Created by tom on 2020/11/9.

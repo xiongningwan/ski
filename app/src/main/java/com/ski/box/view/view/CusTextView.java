@@ -2,17 +2,14 @@ package com.ski.box.view.view;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.graphics.Color;
 import android.text.SpannableStringBuilder;
-import android.text.TextUtils;
 import android.util.AttributeSet;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.ski.box.R;
-import com.ski.box.utils.LanguageUtil;
+import com.yb.core.utils.LanguageUtil;
 
 /**
  * Created by tom on 2020/11/9.

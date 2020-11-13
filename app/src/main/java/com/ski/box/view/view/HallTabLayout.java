@@ -7,12 +7,10 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import androidx.viewpager.widget.ViewPager;
 
 import com.ski.box.R;
-import com.ski.box.utils.LanguageUtil;
 
 
 public class HallTabLayout extends RelativeLayout implements View.OnClickListener {

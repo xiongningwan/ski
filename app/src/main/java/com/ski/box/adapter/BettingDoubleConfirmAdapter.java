@@ -25,6 +25,7 @@ import com.ski.box.bean.RedLimitBean;
 import com.ski.box.utils.KeyBoardUtils;
 import com.ski.box.utils.lottery.LotteryNoUtil;
 import com.ski.box.view.view.dialog.LotteryDialog;
+import com.yb.core.utils.LanguageUtil;
 import com.yb.core.utils.ScreenUtils;
 
 import org.jetbrains.annotations.NotNull;
@@ -74,7 +75,7 @@ public class BettingDoubleConfirmAdapter extends RecyclerView.Adapter<BettingDou
             String s = String.valueOf(doubleConfirmBean.getBetAmount_d());
             viewHolder.mEditText.setText(s);
             viewHolder.mEditText.setSelection(s.length());
-            viewHolder.tvPlayName.setText(playName);
+            viewHolder.tvPlayName.setText(LanguageUtil.getText(playName));
             viewHolder.tvPlayItemName.setText(playItemName);
 
             if (redLimit) {
@@ -173,7 +174,7 @@ public class BettingDoubleConfirmAdapter extends RecyclerView.Adapter<BettingDou
 
     private void setWinMoney(@NonNull DoubleConfirmViewHolder viewHolder, MkBetParamEntity.BetParamEntity betParamEntity) {
         String win = LotteryNoUtil.calculateWinMoney_d(betParamEntity);
-        viewHolder.itemGain.setText("可赢" + win + "元");
+        viewHolder.itemGain.setText(LanguageUtil.getText("可赢") + win );
     }
 
 

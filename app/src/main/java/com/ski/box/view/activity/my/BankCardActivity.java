@@ -25,7 +25,7 @@ import com.ski.box.bean.user.BankCard;
 import com.ski.box.bean.user.User;
 import com.ski.box.mvp.contract.my.BankCardContract;
 import com.ski.box.mvp.presenter.my.BankCardPresenter;
-import com.ski.box.utils.LanguageUtil;
+import com.yb.core.utils.LanguageUtil;
 import com.ski.box.view.view.HeaderView;
 import com.yb.core.base.BaseMVPActivity;
 import com.yb.core.utils.ToastUtil;

@@ -25,7 +25,7 @@ import com.ski.box.bean.user.User;
 import com.ski.box.mvp.contract.PersonalContract;
 import com.ski.box.mvp.presenter.PersonalPresenter;
 import com.ski.box.utils.ActivityUtil;
-import com.ski.box.utils.LanguageUtil;
+import com.yb.core.utils.LanguageUtil;
 import com.ski.box.view.activity.AgentWebViewActivity;
 import com.ski.box.view.activity.ContainerActivity;
 import com.ski.box.view.activity.LoginActivity;

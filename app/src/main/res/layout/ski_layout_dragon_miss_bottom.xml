@@ -16,7 +16,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
+    <com.ski.box.view.view.CusTextView
         android:textColor="@color/ski_bet_tab_text_color"
         android:id="@+id/tv_lottery_current"
         android:layout_width="0dp"
@@ -31,7 +31,7 @@
         app:layout_constraintEnd_toStartOf="@+id/tv_ser"/>
 
 
-    <TextView
+    <com.ski.box.view.view.CusTextView
         android:textColor="@color/ski_bet_tab_text_color"
         android:id="@+id/tv_ser"
         android:layout_width="0dp"
@@ -39,7 +39,7 @@
         app:layout_constraintHorizontal_weight="1"
         android:background="@drawable/ski_bet_tab_bg_selector"
         android:gravity="center"
-        android:text="时时彩"
+        android:text="当前彩系"
         android:textSize="@dimen/ski_dp_14"
         app:layout_constraintStart_toEndOf="@+id/tv_lottery_current"
         app:layout_constraintTop_toTopOf="@+id/tv_lottery_current"
@@ -47,7 +47,7 @@
 
 
 
-    <TextView
+    <com.ski.box.view.view.CusTextView
         android:textColor="@color/ski_bet_tab_text_color"
         android:id="@+id/tv_all"
         android:layout_width="0dp"

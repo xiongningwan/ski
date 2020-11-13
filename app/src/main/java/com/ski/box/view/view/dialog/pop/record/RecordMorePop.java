@@ -11,6 +11,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.viewholder.BaseViewHolder;
 import com.ski.box.R;
 import com.ski.box.bean.ConditionBean;
+import com.yb.core.utils.LanguageUtil;
 import com.zyyoona7.popup.BasePopup;
 
 import org.jetbrains.annotations.NotNull;
@@ -243,12 +244,12 @@ public class RecordMorePop extends BasePopup<RecordMorePop> implements View.OnCl
     private List<ConditionBean> getBet() {
         //1：待开奖 2：未中奖 3：已中奖 4：个人撤单 5：系统撤单
         List<ConditionBean> list = new ArrayList<>();
-        list.add(new ConditionBean("全部状态", "", false));
-        list.add(new ConditionBean("待开奖", "1", false));
-        list.add(new ConditionBean("未中奖", "2", false));
-        list.add(new ConditionBean("已中奖", "3", false));
-        list.add(new ConditionBean("个人撤单", "4", false));
-        list.add(new ConditionBean("系统撤单", "5", false));
+        list.add(new ConditionBean(LanguageUtil.getText("全部状态"), "", false));
+        list.add(new ConditionBean(LanguageUtil.getText("待开奖"), "1", false));
+        list.add(new ConditionBean(LanguageUtil.getText("未中奖"), "2", false));
+        list.add(new ConditionBean(LanguageUtil.getText("已中奖"), "3", false));
+        list.add(new ConditionBean(LanguageUtil.getText("个人撤单"), "4", false));
+        list.add(new ConditionBean(LanguageUtil.getText("系统撤单"), "5", false));
         return list;
     }
 

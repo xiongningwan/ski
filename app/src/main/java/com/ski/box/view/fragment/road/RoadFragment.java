@@ -21,7 +21,7 @@ import com.ski.box.bean.road.RoadFactory;
 import com.ski.box.bean.road.RoadTitle;
 import com.ski.box.mvp.contract.RoadContract;
 import com.ski.box.mvp.presenter.RoadPresenter;
-import com.ski.box.utils.LanguageUtil;
+import com.yb.core.utils.LanguageUtil;
 import com.ski.box.view.view.verticaltablyout.TabAdapter;
 import com.ski.box.view.view.verticaltablyout.TabView;
 import com.ski.box.view.view.verticaltablyout.VerticalTabLayout;

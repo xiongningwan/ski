@@ -1,9 +1,7 @@
 package com.ski.box.view.activity.my;
 
 import android.os.Bundle;
-import android.text.Editable;
 import android.text.TextUtils;
-import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 
@@ -14,8 +12,7 @@ import com.ski.box.bean.DataCenter;
 import com.ski.box.bean.user.User;
 import com.ski.box.mvp.contract.my.UpdateFundPwdContract;
 import com.ski.box.mvp.presenter.my.UpdateFundPwdPresenter;
-import com.ski.box.utils.LanguageUtil;
-import com.ski.box.utils.ValidateUtil;
+import com.yb.core.utils.LanguageUtil;
 import com.ski.box.view.view.ClearEditText;
 import com.ski.box.view.view.HeaderView;
 import com.yb.core.base.BaseMVPActivity;

@@ -51,6 +51,7 @@ import com.ski.box.view.view.dialog.LoadingDialog;
 import com.ski.box.view.view.dialog.LotteryDialog;
 import com.yb.core.base.BaseConsumer;
 import com.yb.core.base.RxPresenter;
+import com.yb.core.utils.LanguageUtil;
 import com.yb.core.utils.LogUtils;
 import com.yb.core.utils.StringUtils;
 import com.yb.core.utils.ToastUtil;
@@ -412,7 +413,7 @@ public class BetPresenter extends RxPresenter<BetContract.View> implements BetCo
 
     private void showSuccessLoading() {
         if (mLoadingDialog != null) {
-            mLoadingDialog.setLoadingSuccess("提交成功");
+            mLoadingDialog.setLoadingSuccess(LanguageUtil.getText("提交成功"));
             new Handler().postDelayed(() -> {
                 dismissLoading();
             }, 500);
@@ -508,8 +509,8 @@ public class BetPresenter extends RxPresenter<BetContract.View> implements BetCo
 
             } else if (10020 == errorBean.getCode()) {
                 AlertConfigurationBean bean = new AlertConfigurationBean();
-                bean.setContent("【温馨提示】" + "\n" + "您的余额不足,请前往充值");
-                bean.setRightButtonText("确定");
+                bean.setContent(LanguageUtil.getText("您的余额不足，请前往充值"));
+                bean.setRightButtonText(LanguageUtil.getText("确定"));
                 new LotteryDialog().showAlertDialog(mContext, bean, new LotteryDialog.OnSelectAlertDialogCallBack() {
                     @Override
                     public void rightButton() {

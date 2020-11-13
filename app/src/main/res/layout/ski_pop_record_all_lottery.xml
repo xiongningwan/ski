@@ -17,7 +17,7 @@
         android:paddingBottom="@dimen/ski_dp_16"
         android:scrollbars="vertical" />
 
-    <TextView
+    <com.ski.box.view.view.CusTextView
         android:id="@+id/btn_all"
         android:layout_width="match_parent"
         android:layout_height="40dp"
@@ -25,10 +25,10 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        android:textSize="@dimen/ski_dp_20"
         android:background="@drawable/ski_pub_bg_setting_trend"
         android:gravity="center"
         android:text="全部彩种"
-        android:textColor="@color/ski_white" />
+        android:textColor="@color/ski_white"
+        android:textSize="@dimen/ski_dp_20" />
 
 </RelativeLayout>

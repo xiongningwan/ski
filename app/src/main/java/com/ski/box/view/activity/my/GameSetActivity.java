@@ -20,7 +20,7 @@ import com.ski.box.bean.PersonProfileEntity;
 import com.ski.box.bean.SelfProfileEntity;
 import com.ski.box.mvp.contract.my.GameSetContract;
 import com.ski.box.mvp.presenter.my.GameSetPresenter;
-import com.ski.box.utils.LanguageUtil;
+import com.yb.core.utils.LanguageUtil;
 import com.ski.box.utils.lottery.LotteryNoUtil;
 import com.ski.box.utils.lottery.SettingManager;
 import com.ski.box.view.view.HeaderView;

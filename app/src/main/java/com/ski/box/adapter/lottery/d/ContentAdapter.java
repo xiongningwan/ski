@@ -20,7 +20,7 @@ import com.ski.box.bean.lottery.LotteryPlayEnd;
 import com.ski.box.bean.lottery.LotteryPlayStart;
 import com.ski.box.bean.lottery.LotteryUtil;
 import com.ski.box.utils.AnimationUtil;
-import com.ski.box.utils.LanguageUtil;
+import com.yb.core.utils.LanguageUtil;
 import com.ski.box.utils.lottery.LotteryNoUtil;
 import com.yb.core.utils.StringUtils;
 import com.zyyoona7.popup.EasyPopup;

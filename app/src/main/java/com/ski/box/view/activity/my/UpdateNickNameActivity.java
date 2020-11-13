@@ -12,7 +12,7 @@ import com.ski.box.bean.DataCenter;
 import com.ski.box.bean.user.User;
 import com.ski.box.mvp.contract.my.UpdateAliasContract;
 import com.ski.box.mvp.presenter.my.UpdateAliasPresenter;
-import com.ski.box.utils.LanguageUtil;
+import com.yb.core.utils.LanguageUtil;
 import com.ski.box.view.view.ClearEditText;
 import com.ski.box.view.view.HeaderView;
 import com.yb.core.base.BaseMVPActivity;

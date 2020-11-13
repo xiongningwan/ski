@@ -4,7 +4,7 @@ import android.text.TextUtils;
 
 import com.ski.box.bean.BallBean;
 import com.ski.box.bean.DataCenter;
-import com.ski.box.utils.LanguageUtil;
+import com.yb.core.utils.LanguageUtil;
 import com.yb.core.utils.LogUtils;
 
 import java.util.ArrayList;

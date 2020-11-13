@@ -1,30 +1,19 @@
 package com.ski.box.adapter;
 
 import android.content.Context;
-import android.content.Intent;
-import android.text.Spannable;
-import android.text.SpannableStringBuilder;
-import android.text.TextUtils;
-import android.text.style.ForegroundColorSpan;
 import android.view.View;
 import android.widget.TextView;
-
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.core.content.ContextCompat;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.viewholder.BaseViewHolder;
 import com.ski.box.R;
 import com.ski.box.bean.record.RecordBet;
 import com.ski.box.utils.DecimalSetUtils;
-import com.ski.box.view.activity.RecordDetailActivity;
+import com.yb.core.utils.LanguageUtil;
 import com.ski.box.view.view.LotteryRecordResultView;
-import com.ski.box.view.view.LotteryResultView;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-
-import java.util.List;
 
 public class RecordBetAdapter2 extends BaseQuickAdapter<RecordBet.ListBean , BaseViewHolder> {
     private  Context mContext;
@@ -46,8 +35,8 @@ public class RecordBetAdapter2 extends BaseQuickAdapter<RecordBet.ListBean , Bas
         lotteryResultView.setResult(bean.getTicketId(), code);
         /*投注金额*/
         String s = DecimalSetUtils.setMoneySaveFour(bean.getBetMoney() + "");
-        String betMoney = s + "元";
-        String info = "投注: " + betMoney;
+        String betMoney = s + LanguageUtil.getText("元");
+        String info = LanguageUtil.getText("投注: ") + betMoney;
 //        SpannableStringBuilder stringBuilder = new SpannableStringBuilder(info);
 //        ForegroundColorSpan blue = new ForegroundColorSpan(getContext().getResources().getColor(R.color.ski_color_037bff_blue));
 //        stringBuilder.setSpan(blue, info.indexOf(betMoney), info.indexOf(betMoney) + betMoney.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
@@ -66,12 +55,12 @@ public class RecordBetAdapter2 extends BaseQuickAdapter<RecordBet.ListBean , Bas
         if (betStatus == 1) {
             tvStatus.setVisibility(View.VISIBLE);
             tvWin.setVisibility(View.GONE);
-            tvStatus.setText(bean.getBetStatusDes());
+            tvStatus.setText(LanguageUtil.getText(bean.getBetStatusDes()));
         } else if (betStatus == 5) {
             tvStatus.setVisibility(View.GONE);
             tvWin.setVisibility(View.VISIBLE);
             String winAmount = DecimalSetUtils.setMoneySaveFour(bean.getWinAmount() + "");
-            String winMoney = "中奖: " + winAmount + "元";
+            String winMoney = LanguageUtil.getText("中奖") + ": " + winAmount + LanguageUtil.getText("元");
 //            SpannableStringBuilder ssb = new SpannableStringBuilder(winMoney);
 //            ForegroundColorSpan red = new ForegroundColorSpan(getContext().getResources().getColor(R.color.ski_red));
 //            ssb.setSpan(red, 2, winMoney.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);

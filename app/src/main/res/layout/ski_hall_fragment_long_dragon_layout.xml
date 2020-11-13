@@ -23,7 +23,7 @@
             android:layout_marginBottom="@dimen/ski_dp_20"
             android:src="@mipmap/ski_weijiezhudan" />
 
-        <TextView
+        <com.ski.box.view.view.CusTextView
             android:id="@+id/tv_long_dragon_empty"
             style="@style/MyTextViewStyleNormal"
             android:layout_centerInParent="true"

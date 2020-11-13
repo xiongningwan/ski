@@ -11,6 +11,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.viewholder.BaseViewHolder;
 import com.ski.box.R;
 import com.ski.box.bean.ConditionBean;
+import com.yb.core.utils.LanguageUtil;
 import com.yb.core.utils.TimeUtils;
 import com.zyyoona7.popup.BasePopup;
 
@@ -55,11 +56,11 @@ public class RecordDatePop extends BasePopup<RecordDatePop> implements View.OnCl
 
     private void initBetData() {
         List<ConditionBean> list = new ArrayList<>();
-        list.add(new ConditionBean("今天", TimeUtils.getBeginStringOfToday(), TimeUtils.getEndStringOfToday(), "0", true));
-        list.add(new ConditionBean("昨天", TimeUtils.getBeginStringOfYesterday(1), TimeUtils.getEndStringOfYesterday(1), "0", false));
-        list.add(new ConditionBean("近三日", TimeUtils.getLatelyStringOfN(3), TimeUtils.getEndStringOfToday(), "0", false));
-        list.add(new ConditionBean("近七日", TimeUtils.getLatelyStringOfN(7), TimeUtils.getEndStringOfToday(), "0", false));
-        list.add(new ConditionBean("近15日", TimeUtils.getLatelyStringOfN(15), TimeUtils.getEndStringOfToday(), "1", false));
+        list.add(new ConditionBean(LanguageUtil.getText("今天"), TimeUtils.getBeginStringOfToday(), TimeUtils.getEndStringOfToday(), "0", true));
+        list.add(new ConditionBean(LanguageUtil.getText("昨天"), TimeUtils.getBeginStringOfYesterday(1), TimeUtils.getEndStringOfYesterday(1), "0", false));
+        list.add(new ConditionBean(LanguageUtil.getText("近三日"), TimeUtils.getLatelyStringOfN(3), TimeUtils.getEndStringOfToday(), "0", false));
+        list.add(new ConditionBean(LanguageUtil.getText("近七日"), TimeUtils.getLatelyStringOfN(7), TimeUtils.getEndStringOfToday(), "0", false));
+        list.add(new ConditionBean(LanguageUtil.getText("近15日"), TimeUtils.getLatelyStringOfN(15), TimeUtils.getEndStringOfToday(), "1", false));
 
         mDateAdapter.setNewInstance(list);
     }

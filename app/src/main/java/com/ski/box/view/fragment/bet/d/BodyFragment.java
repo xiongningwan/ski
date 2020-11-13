@@ -30,7 +30,7 @@ import com.ski.box.bean.ShuoMingDoubleBean;
 import com.ski.box.bean.lottery.LotteryPlayEnd;
 import com.ski.box.bean.lottery.LotteryPlayStart;
 import com.ski.box.bean.lottery.LotteryPlaySub;
-import com.ski.box.utils.LanguageUtil;
+import com.yb.core.utils.LanguageUtil;
 import com.ski.box.utils.lottery.LotteryNoUtil;
 import com.ski.box.view.view.RecyclerViewAtViewPager2;
 import com.ski.box.view.view.ShuoMingDoubleView;
@@ -424,7 +424,7 @@ public class BodyFragment extends BaseFragment {
                 if (null != mOdds && null != mOddsTwo) {
                     mOdds.setVisibility(View.VISIBLE);
                     mOddsTwo.setVisibility(View.GONE);
-                    mOdds.setText(Html.fromHtml("赔率：<font color='#ff6464'>" + "/" + "</font> "));
+                    mOdds.setText(Html.fromHtml(LanguageUtil.getText("赔率：") + "<font color='#ff6464'>" + "/" + "</font> "));
                 }
             }
 
@@ -433,23 +433,23 @@ public class BodyFragment extends BaseFragment {
                 if (null != mOdds && null != mOddsTwo) {
                     mOdds.setVisibility(View.VISIBLE);
                     mOddsTwo.setVisibility(View.GONE);
-                    mOdds.setText(Html.fromHtml("赔率：<font color='#ff6464'>" + oodArr[0] + "</font> "));
+                    mOdds.setText(Html.fromHtml(LanguageUtil.getText("赔率：") + "<font color='#ff6464'>" + oodArr[0] + "</font> "));
                 }
-            } else if (2 == oodArr.length && ("三中二".equals(lotteryPlaySub.getTitleSub()) || "二中特".equals(lotteryPlaySub.getTitleSub()))) {
+            } else if (2 == oodArr.length && ("sanzhonger".equals(lotteryPlaySub.getRemoteCode()) || "erzhongte".equals(lotteryPlaySub.getRemoteCode()))) {
                 if (null != mOdds && null != mOddsTwo) {
                     mOdds.setVisibility(View.GONE);
                     mOddsTwo.setVisibility(View.VISIBLE);
                     String[] oddLabel = new String[2];
-                    if ("三中二".equals(lotteryPlaySub.getTitleSub())) {
+                    if ("sanzhonger".equals(lotteryPlaySub.getRemoteCode())) {
                         // lhc 三中二
-                        oddLabel[0] = "中二 ";
-                        oddLabel[1] = "中三 ";
-                    } else if ("二中特".equals(lotteryPlaySub.getTitleSub())) {
+                        oddLabel[0] = LanguageUtil.getText("中二 ");
+                        oddLabel[1] = LanguageUtil.getText("中三 ");
+                    } else if ("erzhongte".equals(lotteryPlaySub.getRemoteCode())) {
                         // lhc 三中二
-                        oddLabel[0] = "中二 ";
-                        oddLabel[1] = "中特 ";
+                        oddLabel[0] = LanguageUtil.getText("中二 ");
+                        oddLabel[1] = LanguageUtil.getText("中特 ");
                     }
-                    mOddsTwo.setText(Html.fromHtml("赔率：" + oddLabel[0] + "<font color='#ff6464'>" + oodArr[0] + "</font> "
+                    mOddsTwo.setText(Html.fromHtml( oddLabel[0] + "<font color='#ff6464'>" + oodArr[0] + "</font> "
                             + oddLabel[1] + "<font color='#ff6464'>" + oodArr[1] + "</font> "));
                 }
             } else if (3 == oodArr.length) {

@@ -95,14 +95,13 @@
         app:layout_constraintStart_toEndOf="@+id/gl_1"
         app:layout_constraintEnd_toStartOf="@+id/gl_2"
         android:gravity="center">
-    <TextView
+    <com.ski.box.view.view.CusTextView
         android:id="@+id/tv_lottery"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="14dp"
         android:textColor="@color/ski_color_333333"
-        android:text="全部彩种"
-       />
+        android:text="全部彩种" />
 
     <ImageView
         android:id="@+id/iv_lottery"

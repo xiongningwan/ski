@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
 import com.gyf.immersionbar.ImmersionBar;
 import com.hwangjr.rxbus.RxBus;
@@ -13,7 +12,7 @@ import com.ski.box.bean.DataCenter;
 import com.ski.box.mvp.contract.my.BindEmailContract;
 import com.ski.box.mvp.presenter.my.BindEmailPresenter;
 import com.ski.box.utils.EasyCountDownTimer;
-import com.ski.box.utils.LanguageUtil;
+import com.yb.core.utils.LanguageUtil;
 import com.ski.box.utils.ValidateUtil;
 import com.ski.box.view.view.ClearEditText;
 import com.ski.box.view.view.CusTextView;

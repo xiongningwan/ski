@@ -1,7 +1,6 @@
 package com.ski.box.view.activity.my;
 
 
-import android.app.LauncherActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -20,7 +19,7 @@ import com.ski.box.bean.user.MemberInfo;
 import com.ski.box.bean.user.User;
 import com.ski.box.mvp.contract.my.PersonalInfoContract;
 import com.ski.box.mvp.presenter.my.PersonalInfoPresenter;
-import com.ski.box.utils.LanguageUtil;
+import com.yb.core.utils.LanguageUtil;
 import com.ski.box.view.view.HeaderView;
 import com.yb.core.base.BaseMVPActivity;
 import com.yb.core.utils.ToastUtil;

@@ -29,6 +29,7 @@ import com.ski.box.utils.lottery.SettingManager;
 import com.ski.box.view.view.dialog.LotteryDialog;
 import com.ski.box.view.view.keyboard.KeyBoardBean;
 import com.ski.box.view.view.keyboard.NumsKeyBoardView;
+import com.yb.core.utils.LanguageUtil;
 
 import java.util.List;
 
@@ -84,7 +85,7 @@ public class BettingConfirmViewFuShi extends LinearLayout {
         mCheckBoxCloseKuang = (CheckBox) findViewById(R.id.checkBox_close_kuang);
         mBetConfirm = findViewById(R.id.bet_confirm);
         numKeyBoard = findViewById(R.id.num_keyboard);
-
+        mCheckBoxCloseKuang.setText(LanguageUtil.getText(mCheckBoxCloseKuang.getText().toString()));
         mEditText.setInputType(InputType.TYPE_NULL);
 
         mEditText.addTextChangedListener(new TextWatcher() {
@@ -226,7 +227,7 @@ public class BettingConfirmViewFuShi extends LinearLayout {
         long betAmount_d = betParamEntity.getBetAmount_d();
 
         String quantitys = quantity + "";
-        String s = "共 " + quantitys + " 组";
+        String s = LanguageUtil.getText("共") + quantitys + LanguageUtil.getText("组");
         int i = s.indexOf(quantitys + "");
 
         SpannableStringBuilder stringBuilder = new SpannableStringBuilder(s);
@@ -250,14 +251,15 @@ public class BettingConfirmViewFuShi extends LinearLayout {
         long totalMoney = betAmount_d * betCount;
         /*可赢金额*/
         String win = LotteryNoUtil.calculateWinMoney_d(betParamEntity);
-        mTvWinAmount.setText("可赢金额:" + win);
+        mTvWinAmount.setText(LanguageUtil.getText("可赢") + win);
 
         String danshu = "1";
         String quantitys = betCount + "";
         String totalMoney_s = String.valueOf(totalMoney);
 
 
-        String string = danshu + "单" + quantitys + "组" + totalMoney_s + "元";
+        String string = danshu + LanguageUtil.getText("注单") + quantitys + LanguageUtil.getText("组")
+                + totalMoney_s + LanguageUtil.getText("元");
         int danshu_index = string.indexOf(danshu);
         int zushu_index = string.indexOf(quantitys);
         int money_inedx = string.lastIndexOf(totalMoney + "");

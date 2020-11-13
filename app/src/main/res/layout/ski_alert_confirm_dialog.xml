@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:ignore="ResourceName">
 
-    <TextView
+    <com.ski.box.view.view.CusTextView
         android:id="@+id/tv_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -24,7 +24,7 @@
         android:layout_height="match_parent"
         android:layout_above="@+id/ll_bottom"
         android:layout_below="@+id/tv_title">
-        <TextView
+        <com.ski.box.view.view.CusTextView
             android:gravity="center"
             android:id="@+id/tv_content"
             android:layout_width="match_parent"
@@ -41,7 +41,7 @@
         android:layout_alignParentBottom="true"
         android:gravity="center_horizontal">
 
-        <TextView
+        <com.ski.box.view.view.CusTextView
             android:id="@+id/tv_left"
             android:layout_width="85dp"
             android:layout_height="35dp"
@@ -50,7 +50,7 @@
             android:text="取消"
             android:textColor="#8590AE" />
 
-        <TextView
+        <com.ski.box.view.view.CusTextView
             android:id="@+id/tv_right"
             android:layout_width="85dp"
             android:layout_height="35dp"

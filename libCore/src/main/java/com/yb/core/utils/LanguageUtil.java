@@ -1,19 +1,14 @@
-package com.ski.box.utils;
+package com.yb.core.utils;
 
 import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
-import android.util.ArrayMap;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.ski.box.bean.lottery.LotteryPlayStart;
-import com.yb.core.utils.AssetsReader;
-import com.yb.core.utils.SPUtils;
 
 import java.io.File;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 

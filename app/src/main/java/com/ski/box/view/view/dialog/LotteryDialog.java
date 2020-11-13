@@ -29,6 +29,7 @@ import com.ski.box.bean.AlertConfigurationBean;
 import com.ski.box.bean.RedLimitBean;
 import com.ski.box.utils.lottery.SettingManager;
 import com.xujiaji.happybubble.BubbleDialog;
+import com.yb.core.utils.LanguageUtil;
 import com.yb.core.utils.ScreenUtils;
 
 import java.util.List;
@@ -75,31 +76,32 @@ public class LotteryDialog {
         TextView tv_content = (TextView) leavelDailog.findViewById(R.id.tv_content);
         TextView tv_left = (TextView) leavelDailog.findViewById(R.id.tv_left);
         tv_right = (TextView) leavelDailog.findViewById(R.id.tv_right);
+
         if (TextUtils.isEmpty(title)) {
             tv_title.setVisibility(View.GONE);
         } else {
             tv_title.setVisibility(View.VISIBLE);
-            tv_title.setText(title);
+            tv_title.setText(LanguageUtil.getText(title));
         }
 
         if (TextUtils.isEmpty(leftButtonText)) {
             tv_left.setVisibility(View.GONE);
         } else {
             tv_left.setVisibility(View.VISIBLE);
-            tv_left.setText(leftButtonText);
+            tv_left.setText(LanguageUtil.getText(leftButtonText));
         }
         if (TextUtils.isEmpty(rightButtonText)) {
             tv_right.setVisibility(View.GONE);
         } else {
             tv_right.setVisibility(View.VISIBLE);
-            tv_right.setText(rightButtonText);
+            tv_right.setText(LanguageUtil.getText(rightButtonText));
         }
         if (!TextUtils.isEmpty(content) || spannableString != null) {
             tv_content.setVisibility(View.VISIBLE);
             if (spannableString != null) {
                 tv_content.setText(spannableString);
             } else {
-                tv_content.setText(content);
+                tv_content.setText(LanguageUtil.getText(content));
             }
         } else {
             tv_content.setVisibility(View.GONE);
@@ -142,11 +144,13 @@ public class LotteryDialog {
 
         }
         int size = limitBeans.size();
+        String str1 = LanguageUtil.getText("不符合区间金额，单期可投注金额区间为");
+        String str2 = LanguageUtil.getText("右上角菜单—设置 修改金额区间");
         if (size == 1) {
-            stringBuffer.append("不符合区间金额，单期可投注金额区间为" + rang + "<a href=\"\">右上角菜单—设置</a>" + "修改金额区间");
+            stringBuffer.append( str1 + rang + str2);
 
         } else {
-            stringBuffer.append("...不符合区间金额，单期可投注金额区间为" + rang + "<a href=\"\">右上角菜单—设置</a>" + "修改金额区间");
+            stringBuffer.append("..." + str1 + rang + str2);
 
         }
 

@@ -11,6 +11,7 @@ import com.ski.box.R;
 import com.ski.box.bean.DataCenter;
 import com.ski.box.bean.LongDragonPushInfoEntity;
 import com.ski.box.bean.lottery.LotteryConstant;
+import com.yb.core.utils.LanguageUtil;
 import com.ski.box.utils.lottery.LotteryNoUtil;
 import com.ski.box.view.view.CountdownLongDragonTextView;
 import com.yb.core.utils.AppUtil;
@@ -54,8 +55,8 @@ public class DragonAdapter extends BaseMultiItemQuickAdapter<LongDragonPushInfoE
         holder.setText(R.id.tv_play_d_dragon, String.format("%s-%s", playName, value));
         TextView view1 = holder.getView(R.id.tv_play_d_dragon);
         TextView view2 = holder.getView(R.id.tv_period_d_dragon);
-        holder.setText(R.id.tv_key1, "连出");
-        holder.setText(R.id.tv_key2, "期");
+        holder.setText(R.id.tv_key1, LanguageUtil.getText("连出"));
+        holder.setText(R.id.tv_key2, LanguageUtil.getText("期"));
         view2.setTypeface(tf);
         view2.setText(String.valueOf(bean.getTimes()));
         view1.setTypeface(pingFangType);

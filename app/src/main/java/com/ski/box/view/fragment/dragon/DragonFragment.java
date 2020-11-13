@@ -1,11 +1,8 @@
 package com.ski.box.view.fragment.dragon;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -13,7 +10,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.gson.Gson;
 import com.hwangjr.rxbus.RxBus;
 import com.hwangjr.rxbus.annotation.Subscribe;
 import com.hwangjr.rxbus.annotation.Tag;
@@ -31,19 +27,16 @@ import com.ski.box.bean.SelfProfileEntity;
 import com.ski.box.bean.TicketLotteryTimeBean;
 import com.ski.box.bean.lottery.LotteryBean;
 import com.ski.box.bean.lottery.LotteryConstant;
-import com.ski.box.bean.lottery.LotteryPlayStart;
 import com.ski.box.bean.lottery.LotterySer;
 import com.ski.box.bean.lottery.LotteryUtil;
 import com.ski.box.bean.lottery.PlayUtil;
 import com.ski.box.bean.lottery.RemoteLotteryPlay;
 import com.ski.box.mvp.contract.DragonContract;
-import com.ski.box.mvp.contract.EmptyContract;
 import com.ski.box.mvp.presenter.DragonPresenter;
-import com.ski.box.mvp.presenter.EmptyPresenter;
+import com.yb.core.utils.LanguageUtil;
 import com.ski.box.view.view.SpaceItemDecoration;
 import com.ski.box.view.view.dialog.LotteryDialog;
 import com.yb.core.base.BaseMVPFragment;
-import com.yb.core.utils.SPUtils;
 import com.yb.core.utils.ScreenUtils;
 
 import java.util.ArrayList;
@@ -123,17 +116,17 @@ public class DragonFragment extends BaseMVPFragment<DragonContract.Presenter> im
         if (mRVDragon.getItemDecorationCount() == 0) {
             mRVDragon.addItemDecoration(new SpaceItemDecoration(distance));
         }
-        mDragonAdapter.setOnItemClickListener((adapter, view1, position) -> {
-            mInfoEntity = mDragonAdapter.getData().get(position);
-            int mode = LotteryConstant.LOTTERY_PLAY_MODE_DOUBLE;
-            int ticketId = mInfoEntity.getTicketId().intValue();
-            List<LotteryPlayStart> plays = DataCenter.getInstance().getRemotePlay(ticketId, mode);
-            if (0 == plays.size()) {
-                mPresenter.getPlays(ticketId, mode);
-            } else {
-                 setBetDragon();
-            }
-        });
+//        mDragonAdapter.setOnItemClickListener((adapter, view1, position) -> {
+//            mInfoEntity = mDragonAdapter.getData().get(position);
+//            int mode = LotteryConstant.LOTTERY_PLAY_MODE_DOUBLE;
+//            int ticketId = mInfoEntity.getTicketId().intValue();
+//            List<LotteryPlayStart> plays = DataCenter.getInstance().getRemotePlay(ticketId, mode);
+//            if (0 == plays.size()) {
+//                mPresenter.getPlays(ticketId, mode);
+//            } else {
+//                 setBetDragon();
+//            }
+//        });
         mRVDragon.setAdapter(mDragonAdapter);
     }
 
@@ -153,7 +146,7 @@ public class DragonFragment extends BaseMVPFragment<DragonContract.Presenter> im
             }
             mLastClickTime = nowTime;
             if (mRefreshLayout.getState().isFinishing) {
-                new LotteryDialog().showCenterRemind(getContext(), "加载中,请稍等");
+                new LotteryDialog().showCenterRemind(getContext(), LanguageUtil.getText("加载中..."));
                 return;
             }
             setCurrentLottery();
@@ -164,7 +157,7 @@ public class DragonFragment extends BaseMVPFragment<DragonContract.Presenter> im
             }
             mLastClickTime = nowTime;
             if (mRefreshLayout.getState().isFinishing) {
-                new LotteryDialog().showCenterRemind(getContext(), "加载中,请稍等");
+                new LotteryDialog().showCenterRemind(getContext(), LanguageUtil.getText("加载中..."));
                 return;
             }
             setCurrentSer();
@@ -175,7 +168,7 @@ public class DragonFragment extends BaseMVPFragment<DragonContract.Presenter> im
             }
             mLastClickTime = nowTime;
             if (mRefreshLayout.getState().isFinishing) {
-                new LotteryDialog().showCenterRemind(getContext(), "加载中,请稍等");
+                new LotteryDialog().showCenterRemind(getContext(), LanguageUtil.getText("加载中..."));
                 return;
             }
            setAll();

@@ -13,7 +13,7 @@
         android:layout_above="@+id/tv_empty_view"
         android:src="@mipmap/ski_ic_no_data" />
 
-    <TextView
+    <com.ski.box.view.view.CusTextView
         android:id="@+id/tv_empty_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -22,6 +22,6 @@
         android:layout_marginTop="@dimen/ski_dp_45"
         android:textColor="@color/ski_color_666666"
         android:textSize="16dp"
-        android:text="暂无数据~" />
+        android:text="暂无数据" />
 
 </RelativeLayout>

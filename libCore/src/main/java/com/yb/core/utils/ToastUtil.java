@@ -28,11 +28,11 @@ public class ToastUtil {
         if (isRepeatText(text)) {
             if (now - mLastErrorTime > 5000) {
                 mLastErrorTime = now;
-                Toasty.error(AppUtil.getContext(), text, Toast.LENGTH_SHORT, true).show();
+                Toasty.error(AppUtil.getContext(), LanguageUtil.getText(text), Toast.LENGTH_SHORT, true).show();
             }
         } else {
             mLastErrorTime = now;
-            Toasty.error(AppUtil.getContext(), text, Toast.LENGTH_SHORT, true).show();
+            Toasty.error(AppUtil.getContext(), LanguageUtil.getText(text), Toast.LENGTH_SHORT, true).show();
         }
     }
 
@@ -43,19 +43,19 @@ public class ToastUtil {
     }
 
     public static void showSuccess(String text) {
-        Toasty.success(AppUtil.getContext(), text, Toast.LENGTH_SHORT, true).show();
+        Toasty.success(AppUtil.getContext(), LanguageUtil.getText(text), Toast.LENGTH_SHORT, true).show();
     }
 
     public static void showNormal(String text) {
-        Toasty.normal(AppUtil.getContext(), text, Toast.LENGTH_SHORT).show();
+        Toasty.normal(AppUtil.getContext(), LanguageUtil.getText(text), Toast.LENGTH_SHORT).show();
     }
 
     public static void showInfo(String text) {
-        Toasty.info(AppUtil.getContext(), text, Toast.LENGTH_SHORT, true).show();
+        Toasty.info(AppUtil.getContext(), LanguageUtil.getText(text), Toast.LENGTH_SHORT, true).show();
     }
 
     public static void showWarning(String text) {
-        Toasty.warning(AppUtil.getContext(), text, Toast.LENGTH_SHORT, true).show();
+        Toasty.warning(AppUtil.getContext(), LanguageUtil.getText(text), Toast.LENGTH_SHORT, true).show();
     }
 
     public static void initToasty() {

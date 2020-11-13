@@ -28,7 +28,7 @@
                     android:id="@+id/tv_close"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent" />
-                <TextView
+                <com.ski.box.view.view.CusTextView
                     android:layout_centerVertical="true"
                     android:layout_centerHorizontal="true"
                     android:textSize="20dp"
@@ -95,7 +95,7 @@
                 android:orientation="horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
-                <TextView
+                <com.ski.box.view.view.CusTextView
                     android:textSize="14dp"
                     android:textColor="#535d76"
                     android:layout_width="wrap_content"
@@ -178,7 +178,7 @@
                android:layout_marginRight="@dimen/ski_dp_10"
                android:text="以后关闭投注确认弹窗" />
        </RelativeLayout>
-       <TextView
+       <com.ski.box.view.view.CusTextView
            android:layout_marginTop="@dimen/ski_dp_12"
            android:layout_below="@+id/rl_keying"
            android:layout_centerHorizontal="true"

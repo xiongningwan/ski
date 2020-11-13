@@ -6,7 +6,7 @@
     android:gravity="center"
     android:orientation="vertical">
 
-        <TextView
+        <com.ski.box.view.view.CusTextView
             android:id="@+id/txt_tips"
             android:layout_width="match_parent"
             android:layout_height="@dimen/ski_dp_80"
@@ -31,7 +31,7 @@
             android:layout_height="30dp"
             android:orientation="horizontal">
 
-            <TextView
+            <com.ski.box.view.view.CusTextView
                 android:id="@+id/tvCancle"
                 android:layout_width="@dimen/ski_dp_76"
                 android:layout_height="30dp"
@@ -43,7 +43,7 @@
 
 
 
-            <TextView
+            <com.ski.box.view.view.CusTextView
                 android:background="@drawable/ski_pub_bg_setting_trend"
                 android:layout_marginLeft="@dimen/ski_dp_20"
                 android:id="@+id/tvCheDan"

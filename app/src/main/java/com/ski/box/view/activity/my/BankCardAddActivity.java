@@ -13,7 +13,7 @@ import com.ski.box.R;
 import com.ski.box.bean.user.Bank;
 import com.ski.box.mvp.contract.my.BankCardAddContract;
 import com.ski.box.mvp.presenter.my.BankCardAddPresenter;
-import com.ski.box.utils.LanguageUtil;
+import com.yb.core.utils.LanguageUtil;
 import com.ski.box.view.view.ClearEditText;
 import com.ski.box.view.view.HeaderView;
 import com.yb.core.base.BaseMVPActivity;

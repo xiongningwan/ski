@@ -1,9 +1,7 @@
 package com.ski.box.view.activity;
 
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
-import android.os.LocaleList;
 import android.text.TextUtils;
 import android.widget.ImageView;
 
@@ -12,14 +10,11 @@ import com.ski.box.ConstantValue;
 import com.ski.box.R;
 import com.ski.box.mvp.contract.EmptyContract;
 import com.ski.box.mvp.presenter.EmptyPresenter;
-import com.ski.box.utils.ActivityUtil;
 import com.ski.box.utils.HeaderUtil;
-import com.ski.box.utils.LanguageUtil;
+import com.yb.core.utils.LanguageUtil;
 import com.yb.core.base.BaseMVPActivity;
 import com.yb.core.net.RetrofitHelper;
 import com.yb.core.utils.SPUtils;
-
-import java.util.Locale;
 
 public class SplashActivity extends BaseMVPActivity<EmptyContract.Presenter> implements EmptyContract.View {
     private final static String KEY_IS_INSTALL = "key_splash_is_install";
