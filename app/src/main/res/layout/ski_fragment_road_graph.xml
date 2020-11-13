@@ -173,7 +173,8 @@
         android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_info">
+        app:layout_constraintTop_toBottomOf="@+id/txt_info"
+        android:visibility="gone">
 
         <LinearLayout
             android:id="@+id/layout_bet1"
@@ -268,7 +269,8 @@
         android:textColor="@color/ski_trend_game_item_normal"
         android:textSize="@dimen/ski_dp_12"
         app:layout_constraintEnd_toEndOf="@+id/recycler_road_big"
-        app:layout_constraintTop_toBottomOf="@+id/recycler_road_bug" />
+        app:layout_constraintTop_toBottomOf="@+id/recycler_road_bug"
+        android:visibility="gone"/>
 
     <TextView
         android:id="@+id/txt_refresh"

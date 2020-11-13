@@ -31,6 +31,7 @@ import com.ski.box.bean.road.RoadBean;
 import com.ski.box.bean.road.RoadFactory;
 import com.ski.box.bean.road.RoadSub;
 import com.ski.box.bean.road.RoadTitle;
+import com.ski.box.utils.LanguageUtil;
 import com.ski.box.view.view.dialog.zd.ZDialog;
 import com.yb.core.base.BaseFragment;
 import com.yb.core.utils.AppUtil;
@@ -367,8 +368,8 @@ public class RoadBodyFragment extends BaseFragment {
 
         @Override
         protected void convert(@NotNull BaseViewHolder baseViewHolder, @Nullable RoadSub roadSub) {
-            baseViewHolder.setText(R.id.item_double_side_play_name, roadSub.getSubTitle());
-          //  baseViewHolder.setBackgroundResource(R.id.item_double_side_play_name, roadSub.isSelected() ? R.drawable.ski_bg_ffffff_6dp_uncheck : R.drawable.ski_bg_road_uncheck);
+            baseViewHolder.setText(R.id.item_double_side_play_name, LanguageUtil.getText(roadSub.getSubTitle()));
+            //  baseViewHolder.setBackgroundResource(R.id.item_double_side_play_name, roadSub.isSelected() ? R.drawable.ski_bg_ffffff_6dp_uncheck : R.drawable.ski_bg_road_uncheck);
 //            baseViewHolder.setTextColorRes(R.id.item_double_side_play_name, roadSub.isSelected() ? R.color.ski_color_678CF0 : R.color.ski_color_ffffff);
             baseViewHolder.itemView.setOnClickListener(v -> {
                 mCheckAllPopup.dismiss();
@@ -446,7 +447,6 @@ public class RoadBodyFragment extends BaseFragment {
     }
 
 
-
     /*二级栏目Tab*/
     private void createTab2(List<RoadSub> roadSubs) {
         mTabLayout_2.removeAllTabs();
@@ -483,7 +483,7 @@ public class RoadBodyFragment extends BaseFragment {
 //            TabLayout.Tab tab = mTabLayout_2.newTab().setCustomView(R.layout.ski_item_tab_double_second_play2);
             TabLayout.Tab tab = mTabLayout_2.newTab().setCustomView(R.layout.ski_item_tab_double_second_play);
             TextView textView = Objects.requireNonNull(tab.getCustomView()).findViewById(R.id.tv_item_tab_double);
-            textView.setText(roadSub.getSubTitle());
+            textView.setText(LanguageUtil.getText(roadSub.getSubTitle()));
             if (roadSub.isSelected()) {
                 mTabLayout_2.addTab(tab, true);
                 mPosition = i;
@@ -505,7 +505,7 @@ public class RoadBodyFragment extends BaseFragment {
     }
 
     /*更新数据*/
-    public void updateData(int leftPosition,RoadTitle roadTitle) {
+    public void updateData(int leftPosition, RoadTitle roadTitle) {
         mLeftPosition = leftPosition;
         mRoadTitle = roadTitle;
         mAdapters1.clear();
@@ -571,16 +571,17 @@ public class RoadBodyFragment extends BaseFragment {
     /*设置问路文字*/
     private void setRoadName(String name) {
 
-        Spanned positiveSp, negativeSp;
-        positiveSp = Html.fromHtml("<font color=\"#999999\">下期</font><font color=\"#e3253a\">" + positiveKey + "</font>");
-        negativeSp = Html.fromHtml("<font color=\"#999999\">下期</font><font color=\"#367af6\">" + negativeKey + "</font>");
-        mPositiveBigEye.setText(positiveSp);
-        mPositiveSmall.setText(positiveSp);
-        mPositiveBug.setText(positiveSp);
-        mNegativeBigEye.setText(negativeSp);
-        mNegativeSmall.setText(negativeSp);
-        mNegativeBug.setText(negativeSp);
-        setOdds();
+//        Spanned positiveSp, negativeSp;
+//        positiveSp = Html.fromHtml("<font color=\"#999999\">下期</font><font color=\"#e3253a\">" + positiveKey + "</font>");
+//        negativeSp = Html.fromHtml("<font color=\"#999999\">下期</font><font color=\"#367af6\">" + negativeKey + "</font>");
+        String next = LanguageUtil.getText("下期");
+        mPositiveBigEye.setText(next);
+        mPositiveSmall.setText(next);
+        mPositiveBug.setText(next);
+        mNegativeBigEye.setText(next);
+        mNegativeSmall.setText(next);
+        mNegativeBug.setText(next);
+//        setOdds();
     }
 
     /*设置问路按钮背景*/
@@ -859,8 +860,6 @@ public class RoadBodyFragment extends BaseFragment {
     }
 
 
-
-
     /*Adapter*/
     class Rv1Adapter extends BaseQuickAdapter<RoadBean, BaseViewHolder> {
 
@@ -871,7 +870,7 @@ public class RoadBodyFragment extends BaseFragment {
         @Override
         protected void convert(@NotNull BaseViewHolder holder, @Nullable RoadBean bean) {
             TextView name = holder.itemView.findViewById(R.id.tv_name);
-            holder.setText(R.id.tv_name, bean.getName());
+            holder.setText(R.id.tv_name, LanguageUtil.getText(bean.getName()));
             int bp = bean.getBp();
             if (RoadBean.Con.BANKER == bp) {
                 holder.setTextColor(R.id.tv_name, ContextCompat.getColor(mContext, R.color.ski_red));

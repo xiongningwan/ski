@@ -21,6 +21,7 @@ import com.ski.box.bean.road.RoadFactory;
 import com.ski.box.bean.road.RoadTitle;
 import com.ski.box.mvp.contract.RoadContract;
 import com.ski.box.mvp.presenter.RoadPresenter;
+import com.ski.box.utils.LanguageUtil;
 import com.ski.box.view.view.verticaltablyout.TabAdapter;
 import com.ski.box.view.view.verticaltablyout.TabView;
 import com.ski.box.view.view.verticaltablyout.VerticalTabLayout;
@@ -203,7 +204,7 @@ public class RoadFragment extends BaseMVPFragment<RoadContract.Presenter> implem
             @Override
             public TabView.TabTitle getTitle(int position) {
                 return new TabView.TabTitle.Builder()
-                        .setContent(roadTitles.get(position).getTitle())
+                        .setContent(LanguageUtil.getText(roadTitles.get(position).getTitle()))
                         .setTextSize(13)
                         .setTitleTextBold(true)
 //                        .setTextColor(mContext.getResources().getColor(R.color.ski_color_678CF0), mContext.getResources().getColor(R.color.ski_double_play_side_uncheck))
