@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import com.ski.box.R;
 import com.ski.box.bean.group.InviteUrl;
 import com.ski.box.view.view.dialog.BaseDialog;
+import com.yb.core.utils.LanguageUtil;
 
 
 public class InviteUrlDialog extends BaseDialog {
@@ -48,8 +49,8 @@ public class InviteUrlDialog extends BaseDialog {
         mTvTime = findViewById(R.id.tv_value_time);
         mTvRebate = findViewById(R.id.tv_value_rebate);
 
-        mTvType.setText("代理");
-        mTvNo.setText(bean.getCount() + " 人");
+        mTvType.setText(LanguageUtil.getText("代理"));
+        mTvNo.setText(bean.getCount());
         mTvMsg.setText(bean.getWord());
         mTvTime.setText(bean.getCreateAt());
         if(TextUtils.isEmpty(bean.getKv())) {

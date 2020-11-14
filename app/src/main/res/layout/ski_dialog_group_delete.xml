@@ -6,7 +6,7 @@
     android:background="@drawable/ski_bg_group_dialog_bg"
     android:orientation="vertical">
 
-    <TextView
+    <com.ski.box.view.view.CusTextView
         android:id="@+id/txt_tips"
         android:layout_width="match_parent"
         android:layout_height="@dimen/ski_dp_80"
@@ -29,7 +29,7 @@
             android:layout_centerInParent="true"
             android:orientation="horizontal">
 
-            <TextView
+            <com.ski.box.view.view.CusTextView
                 android:id="@+id/tv_sure"
                 android:layout_width="@dimen/ski_dp_76"
                 android:layout_height="30dp"
@@ -39,7 +39,7 @@
                 android:textColor="@color/ski_white"
                 android:textSize="14dp" />
 
-            <TextView
+            <com.ski.box.view.view.CusTextView
                 android:id="@+id/tv_cancel"
                 android:layout_width="@dimen/ski_dp_76"
                 android:layout_height="match_parent"

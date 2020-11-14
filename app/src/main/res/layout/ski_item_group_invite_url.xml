@@ -15,7 +15,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <TextView
+    <com.ski.box.view.view.CusTextView
         android:id="@+id/tv_rebate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -27,7 +27,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         tools:text="1960 - 8.00%" />
 
-    <TextView
+    <com.ski.box.view.view.CusTextView
         android:id="@+id/tv_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

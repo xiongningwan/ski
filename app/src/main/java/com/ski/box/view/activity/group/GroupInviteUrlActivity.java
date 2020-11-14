@@ -33,6 +33,7 @@ import com.ski.box.view.view.dialog.group.DeleteDialog;
 import com.ski.box.view.view.dialog.group.InviteUrlDialog;
 import com.yb.core.base.BaseMVPActivity;
 import com.yb.core.utils.AppUtil;
+import com.yb.core.utils.LanguageUtil;
 import com.yb.core.utils.ToastUtil;
 
 import java.util.ArrayList;
@@ -77,7 +78,7 @@ public class GroupInviteUrlActivity extends BaseMVPActivity<GroupInviteUrlContra
         mRefreshLayout = findViewById(R.id.refreshLayout);
         mRv = findViewById(R.id.recycler_view);
         mBtnSure = findViewById(R.id.btn_sure);
-        mHeadView.setHeader(getString(R.string.ski_group_invite_url), true);
+        mHeadView.setHeader(LanguageUtil.getText(getString(R.string.ski_group_invite_url)), true);
 
         mBtnSure.setOnClickListener(this);
         mRefreshLayout.setOnRefreshListener(this);
@@ -179,7 +180,7 @@ public class GroupInviteUrlActivity extends BaseMVPActivity<GroupInviteUrlContra
 
     @Override
     public void onDeleteResult() {
-        ToastUtil.showSuccess("删除成功!");
+        ToastUtil.showSuccess("删除成功");
         mRefreshLayout.autoRefresh();
     }
 
@@ -204,7 +205,7 @@ public class GroupInviteUrlActivity extends BaseMVPActivity<GroupInviteUrlContra
     private void copyInviteUrl(InviteUrl bean) {
         String text = bean.getInviteUrl();
         AppUtil.copy(text, this);
-        ToastUtil.showSuccess("复制成功!");
+        ToastUtil.showSuccess("复制成功");
     }
 
     private void showDeleteDialog(InviteUrl bean) {
@@ -219,7 +220,7 @@ public class GroupInviteUrlActivity extends BaseMVPActivity<GroupInviteUrlContra
                 }
             }
         });
-        mDeleteDialog.setContent("是否要删除该推广链接？");
+        mDeleteDialog.setContent(LanguageUtil.getText("是否要删除该推广链接？"));
         mDeleteDialog.show();
     }
 
