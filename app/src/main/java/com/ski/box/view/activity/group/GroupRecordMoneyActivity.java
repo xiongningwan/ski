@@ -31,6 +31,7 @@ import com.ski.box.view.view.dialog.pop.record.MoneyTypePop;
 import com.ski.box.view.view.dialog.pop.record.RecordDate2Pop;
 import com.ski.box.view.view.dialog.pop.record.RecordDatePop;
 import com.yb.core.base.BaseMVPActivity;
+import com.yb.core.utils.LanguageUtil;
 import com.yb.core.utils.ScreenUtils;
 import com.yb.core.utils.TimeUtils;
 import com.yb.core.utils.ToastUtil;
@@ -98,7 +99,7 @@ public class GroupRecordMoneyActivity extends BaseMVPActivity<GroupRecordMoneyCo
         mRefreshLayout = findViewById(R.id.refreshLayout);
         mRvRecord = findViewById(R.id.recycler_view);
 
-        mHeadView.setHeader(getString(R.string.ski_group_money_change), true);
+        mHeadView.setHeader(LanguageUtil.getText(getString(R.string.ski_group_money_change)), true);
 
         mLLDay.setOnClickListener(this);
         mLLType.setOnClickListener(this);
@@ -117,7 +118,7 @@ public class GroupRecordMoneyActivity extends BaseMVPActivity<GroupRecordMoneyCo
 
         startDate = TimeUtils.getBeginStringOfToday();
         endDate = TimeUtils.getEndStringOfToday();
-        mTvDay.setText("今天");
+        mTvDay.setText(LanguageUtil.getText("今天"));
     }
 
 

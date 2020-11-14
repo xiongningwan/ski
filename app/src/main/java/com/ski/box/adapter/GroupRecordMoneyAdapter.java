@@ -12,6 +12,7 @@ import com.ski.box.bean.FrontTradeTypesBean;
 import com.ski.box.bean.group.GroupMoneyData;
 import com.ski.box.bean.record.RecordMoney;
 import com.ski.box.utils.ActivityUtil;
+import com.yb.core.utils.LanguageUtil;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -23,28 +24,28 @@ import java.util.List;
 public class GroupRecordMoneyAdapter extends BaseQuickAdapter<GroupMoneyData.ListBean, BaseViewHolder> {
     private Context mContext;
     private HashMap<Integer, String> mMapType = new HashMap<>();
-    private  int mGreen;
-    private  int mRed;
+    private int mGreen;
+    private int mRed;
 
     public GroupRecordMoneyAdapter(Context context) {
         super(R.layout.ski_item_money_group_record);
         mContext = context;
-        mGreen = ContextCompat.getColor(context,R.color.ski_acc_lose);
-        mRed = ContextCompat.getColor(context,R.color.ski_acc_win);
+        mGreen = ContextCompat.getColor(context, R.color.ski_acc_lose);
+        mRed = ContextCompat.getColor(context, R.color.ski_acc_win);
     }
 
     @Override
     protected void convert(@NotNull BaseViewHolder holder, @Nullable GroupMoneyData.ListBean bean) {
-        holder.setText(R.id.tv_no, "金流编号: " + bean.getTransId())
+        holder.setText(R.id.tv_no, LanguageUtil.getText("金流编号") + ": " + bean.getTransId())
                 .setText(R.id.tv_time, bean.getTransTime())
                 .setText(R.id.tv_user_name, bean.getMemberAccount())
                 .setText(R.id.tv_name, bean.getTicketName())
                 .setText(R.id.tv_type, mMapType.get(bean.getTransType()))
-                .setText(R.id.tv_before, "账变前余额  " + bean.getBeforeAmt() + "元")
-                .setText(R.id.tv_after, "账变后余额  " + bean.getAfterAmt() + "元");
+                .setText(R.id.tv_before, LanguageUtil.getText("账变前余额") + "  " + ActivityUtil.formatBonus(bean.getBeforeAmt().doubleValue()))
+                .setText(R.id.tv_after, LanguageUtil.getText("账变后余额") + "  " + ActivityUtil.formatBonus(bean.getAfterAmt().doubleValue()) );
         TextView tvMoney = holder.getView(R.id.tv_money);
-        tvMoney.setText(ActivityUtil.formatBonus(bean.getTransAmt()) + "元");
-        if(bean.getTransAmt() > 0) {
+        tvMoney.setText(ActivityUtil.formatBonus(bean.getTransAmt()));
+        if (bean.getTransAmt() > 0) {
             tvMoney.setTextColor(mRed);
         } else {
             tvMoney.setTextColor(mGreen);

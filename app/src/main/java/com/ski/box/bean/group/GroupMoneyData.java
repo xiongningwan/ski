@@ -1,5 +1,6 @@
 package com.ski.box.bean.group;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 /**
@@ -78,9 +79,9 @@ public class GroupMoneyData {
         private int transType;
         private String ticketName;
         private long orderId;
-        private String beforeAmt;
+        private BigDecimal beforeAmt;
         private double transAmt;
-        private String afterAmt;
+        private BigDecimal afterAmt;
         private String transTime;
 
         public String getMemberAccount() {
@@ -123,11 +124,11 @@ public class GroupMoneyData {
             this.orderId = orderId;
         }
 
-        public String getBeforeAmt() {
+        public BigDecimal getBeforeAmt() {
             return beforeAmt;
         }
 
-        public void setBeforeAmt(String beforeAmt) {
+        public void setBeforeAmt(BigDecimal beforeAmt) {
             this.beforeAmt = beforeAmt;
         }
 
@@ -139,11 +140,11 @@ public class GroupMoneyData {
             this.transAmt = transAmt;
         }
 
-        public String getAfterAmt() {
+        public BigDecimal getAfterAmt() {
             return afterAmt;
         }
 
-        public void setAfterAmt(String afterAmt) {
+        public void setAfterAmt(BigDecimal afterAmt) {
             this.afterAmt = afterAmt;
         }
 
