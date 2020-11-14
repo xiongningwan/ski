@@ -8,6 +8,8 @@ import com.ski.box.R;
 import com.ski.box.bean.group.GroupMember;
 import com.ski.box.bean.group.InviteUrl;
 import com.ski.box.bean.group.RebateKV;
+import com.ski.box.utils.ActivityUtil;
+import com.yb.core.utils.LanguageUtil;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -30,11 +32,11 @@ public class GroupManageAdapter extends BaseQuickAdapter<GroupMember, BaseViewHo
 
         holder
                 .setText(R.id.tv_name, bean.getMemberAccount())
-                .setText(R.id.tv_balance, "余额  " + bean.getMemberAmt() + "元")
-                .setText(R.id.tv_rabate, "奖金组 "+ bean.getMemberRebate())
-                .setText(R.id.tv_group_balance, "团队余额  "+ bean.getTeamAmt()+ "元")
-                .setText(R.id.tv_no, "下级人数 "+ bean.getTeamCount() + "人")
-                .setText(R.id.tv_time,  "最后登录 " + bean.getLoginTime());
+                .setText(R.id.tv_balance, LanguageUtil.getText("余额") + "  " + ActivityUtil.formatBonus(bean.getMemberAmt().doubleValue()))
+                .setText(R.id.tv_rabate, LanguageUtil.getText("奖金组") + " " + bean.getMemberRebate())
+                .setText(R.id.tv_group_balance, LanguageUtil.getText("团队余额") + "  " + ActivityUtil.formatBonus(bean.getTeamAmt().doubleValue()))
+                .setText(R.id.tv_no, LanguageUtil.getText("下级人数") + " " + bean.getTeamCount())
+                .setText(R.id.tv_time, LanguageUtil.getText("最后登录") + " " + bean.getLoginTime());
     }
 
     public void setReBateList(List<RebateKV> reBateList) {

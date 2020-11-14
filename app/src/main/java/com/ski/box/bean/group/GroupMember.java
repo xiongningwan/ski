@@ -1,5 +1,7 @@
 package com.ski.box.bean.group;
 
+import java.math.BigDecimal;
+
 /**
  * Created by tom on 2020/10/30.
  */
@@ -16,11 +18,11 @@ public class GroupMember {
 
     private String memberAccount;
     private int memberRebate;
-    private String memberAmt;
+    private BigDecimal memberAmt;
     private String regTime;
     private String loginTime;
     private int teamCount;
-    private String teamAmt;
+    private BigDecimal teamAmt;
 
     public String getMemberAccount() {
         return memberAccount;
@@ -38,11 +40,11 @@ public class GroupMember {
         this.memberRebate = memberRebate;
     }
 
-    public String getMemberAmt() {
+    public BigDecimal getMemberAmt() {
         return memberAmt;
     }
 
-    public void setMemberAmt(String memberAmt) {
+    public void setMemberAmt(BigDecimal memberAmt) {
         this.memberAmt = memberAmt;
     }
 
@@ -70,11 +72,11 @@ public class GroupMember {
         this.teamCount = teamCount;
     }
 
-    public String getTeamAmt() {
+    public BigDecimal getTeamAmt() {
         return teamAmt;
     }
 
-    public void setTeamAmt(String teamAmt) {
+    public void setTeamAmt(BigDecimal teamAmt) {
         this.teamAmt = teamAmt;
     }
 }

@@ -15,7 +15,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <TextView
+    <com.ski.box.view.view.CusTextView
         android:id="@+id/tv_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -27,7 +27,7 @@
         app:layout_constraintTop_toBottomOf="@+id/view_space"
         tools:text="first001" />
 
-    <TextView
+    <com.ski.box.view.view.CusTextView
         android:id="@+id/tv_balance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -45,7 +45,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_name"
         android:layout_marginTop="10dp"/>
 
-    <TextView
+    <com.ski.box.view.view.CusTextView
         android:id="@+id/tv_rabate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -57,7 +57,7 @@
         android:layout_marginTop="10dp"
         tools:text="奖金组 1960" />
 
-    <TextView
+    <com.ski.box.view.view.CusTextView
         android:id="@+id/tv_group_balance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -68,7 +68,7 @@
         tools:text="团队余额  2,500,000.00 元" />
 
 
-    <TextView
+    <com.ski.box.view.view.CusTextView
         android:id="@+id/tv_no"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -82,7 +82,7 @@
         android:layout_marginBottom="10dp"
         tools:text="下级人数 100,000人" />
 
-    <TextView
+    <com.ski.box.view.view.CusTextView
         android:id="@+id/tv_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

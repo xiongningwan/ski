@@ -29,6 +29,7 @@ import com.ski.box.utils.ActivityUtil;
 import com.ski.box.view.view.ClearEditText;
 import com.ski.box.view.view.HeaderView;
 import com.yb.core.base.BaseMVPActivity;
+import com.yb.core.utils.LanguageUtil;
 import com.yb.core.utils.MD5Util;
 import com.yb.core.utils.ToastUtil;
 
@@ -74,7 +75,7 @@ public class GroupManageActivity extends BaseMVPActivity<GroupManageContract.Pre
         mBtnSure = findViewById(R.id.btn_sure);
         mRefreshLayout = findViewById(R.id.refreshLayout);
         mRv = findViewById(R.id.recycler_view);
-        mHeadView.setHeader(getString(R.string.ski_group_manage), true);
+        mHeadView.setHeader(LanguageUtil.getText(getString(R.string.ski_group_manage)), true);
 
         mBtnSure.setOnClickListener(this);
         mRefreshLayout.setOnRefreshListener(this);
