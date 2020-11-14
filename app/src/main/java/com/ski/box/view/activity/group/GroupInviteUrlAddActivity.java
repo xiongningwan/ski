@@ -20,6 +20,7 @@ import com.ski.box.mvp.presenter.group.GroupInviteUrlAddPresenter;
 import com.ski.box.view.view.ClearEditText;
 import com.ski.box.view.view.HeaderView;
 import com.yb.core.base.BaseMVPActivity;
+import com.yb.core.utils.LanguageUtil;
 import com.yb.core.utils.MD5Util;
 import com.yb.core.utils.ToastUtil;
 
@@ -60,7 +61,7 @@ public class GroupInviteUrlAddActivity extends BaseMVPActivity<GroupInviteUrlAdd
         mEtMsg = findViewById(R.id.et_msg);
         mSpBackRate = findViewById(R.id.spinner_back_rate);
         mBtnSure = findViewById(R.id.btn_sure);
-        mHeadView.setHeader(getString(R.string.ski_group_invite_url_add), true);
+        mHeadView.setHeader(LanguageUtil.getText(getString(R.string.ski_group_invite_url_add)), true);
 
         mBtnSure.setOnClickListener(this);
     }
@@ -91,7 +92,7 @@ public class GroupInviteUrlAddActivity extends BaseMVPActivity<GroupInviteUrlAdd
         }
         RebateKV bean = (RebateKV) mSpBackRate.getSelectedItem();
         if (bean == null) {
-            ToastUtil.showInfo("请先选择奖金返点");
+            ToastUtil.showInfo("请选择奖金返点");
             return;
         }
         String inviteWord = mEtMsg.getText().toString().trim();
@@ -114,7 +115,7 @@ public class GroupInviteUrlAddActivity extends BaseMVPActivity<GroupInviteUrlAdd
 
     @Override
     public void onAddSuccessResult() {
-        ToastUtil.showSuccess("新增成功！");
+        ToastUtil.showSuccess("创建邀请链接成功");
         RxBus.get().post(ConstantValue.EVENT_GROUP_INVITE_URL_ADD_SUCCESS, "");
     }
 
@@ -125,7 +126,7 @@ public class GroupInviteUrlAddActivity extends BaseMVPActivity<GroupInviteUrlAdd
 
     private void setSpinner(List<RebateKV> list) {
         RebateKV rebateKV = new RebateKV();
-        rebateKV.setPercent("请选择");
+        rebateKV.setPercent(LanguageUtil.getText("请选择"));
         list.add(0, rebateKV);
         SpinnerTextFormatter textFormatter = new SpinnerTextFormatter<RebateKV>() {
             @Override
