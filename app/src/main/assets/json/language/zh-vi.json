@@ -391,5 +391,16 @@
   "审核驳回": "Đánh giá bị từ chối",
   "备注": "Dự bị",
   "全部账变": "Toàn bộ mã giao dịch",
-  "订单编号": "Mã giao dịch "
+  "订单编号": "Mã giao dịch ",
+  "会员类型": "Chọn hội viên ",
+  "代理": "Đại lý ",
+  "返点设置": "Cài đặt hoàn trả",
+  "请输入用户名": "Vui lòng nhập tên tài khoản",
+  "请再次输入密码": "Nhập lại mật khẩu",
+  "彩票场馆": "Thiên đường xổ số",
+  "创建": "Thiết lập",
+  "请选择奖金返点": "Vui lòng chọn chiết khấu tiền thưởng",
+  "两次输入的密码不一致": "Mật khẩu mới không khớp",
+  "账号必须为6-16位": "Số tài khoản phải là 6-16",
+  "创建成功": "Đã tạo thành công"
 }
