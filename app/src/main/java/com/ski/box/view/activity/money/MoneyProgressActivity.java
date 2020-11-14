@@ -35,6 +35,7 @@ import com.ski.box.view.view.dialog.pop.record.MoneyProgressTypePop;
 import com.ski.box.view.view.dialog.pop.record.MoneyTypePop;
 import com.ski.box.view.view.dialog.pop.record.RecordDatePop;
 import com.yb.core.base.BaseMVPActivity;
+import com.yb.core.utils.LanguageUtil;
 import com.yb.core.utils.ScreenUtils;
 import com.yb.core.utils.TimeUtils;
 import com.yb.core.utils.ToastUtil;
@@ -97,7 +98,7 @@ public class MoneyProgressActivity extends BaseMVPActivity<MoneyProgressContract
         mRefreshLayout = findViewById(R.id.refreshLayout);
         mRvRecord = findViewById(R.id.recycler_view);
 
-        mHeadView.setHeader(getString(R.string.ski_money_progress), true);
+        mHeadView.setHeader(LanguageUtil.getText(getString(R.string.ski_money_progress)), true);
 
         mLLDay.setOnClickListener(this);
         mLLType.setOnClickListener(this);
@@ -115,8 +116,8 @@ public class MoneyProgressActivity extends BaseMVPActivity<MoneyProgressContract
 
         startDate = TimeUtils.getBeginStringOfToday();
         endDate = TimeUtils.getEndStringOfToday();
-        mTvDay.setText("今天");
-        mTvType.setText("全部类型");
+        mTvDay.setText(LanguageUtil.getText("今天"));
+        mTvType.setText(LanguageUtil.getText("全部类型"));
     }
 
 

@@ -12,6 +12,7 @@ import com.chad.library.adapter.base.viewholder.BaseViewHolder;
 import com.ski.box.R;
 import com.ski.box.bean.ConditionBean;
 import com.ski.box.bean.FrontTradeTypesBean;
+import com.yb.core.utils.LanguageUtil;
 import com.zyyoona7.popup.BasePopup;
 
 import org.jetbrains.annotations.NotNull;
@@ -82,10 +83,10 @@ public class MoneyProgressTypePop extends BasePopup<MoneyProgressTypePop> implem
 //        list.add(new ConditionBean("奖金超限扣款", MoneyAdapter.TYPE_CONTENT, "7", false));
 
         // 订单类型，1：充值，2：代充，3：提现
-        list.add(new ConditionBean("全部类型", MoneyAdapter.TYPE_CONTENT, "", true));
-        list.add(new ConditionBean("充值", MoneyAdapter.TYPE_CONTENT, "1", true));
-        list.add(new ConditionBean("代充", MoneyAdapter.TYPE_CONTENT, "2", true));
-        list.add(new ConditionBean("提现", MoneyAdapter.TYPE_CONTENT, "3", true));
+        list.add(new ConditionBean(LanguageUtil.getText("全部类型"), MoneyAdapter.TYPE_CONTENT, "", true));
+        list.add(new ConditionBean(LanguageUtil.getText("充值"), MoneyAdapter.TYPE_CONTENT, "1", true));
+        list.add(new ConditionBean(LanguageUtil.getText("代充"), MoneyAdapter.TYPE_CONTENT, "2", true));
+        list.add(new ConditionBean(LanguageUtil.getText("提现"), MoneyAdapter.TYPE_CONTENT, "3", true));
 
         mConList.clear();
         mConList.addAll(list);

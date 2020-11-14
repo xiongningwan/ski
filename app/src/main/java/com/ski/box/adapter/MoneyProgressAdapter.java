@@ -14,6 +14,7 @@ import com.ski.box.bean.FrontTradeTypesBean;
 import com.ski.box.bean.group.GroupMoneyData;
 import com.ski.box.bean.money.MoneyProgressData;
 import com.ski.box.utils.ActivityUtil;
+import com.yb.core.utils.LanguageUtil;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -39,18 +40,18 @@ public class MoneyProgressAdapter extends BaseQuickAdapter<MoneyProgressData.Lis
 
     @Override
     protected void convert(@NotNull BaseViewHolder holder, @Nullable MoneyProgressData.ListBean bean) {
-        holder.setText(R.id.tv_no, "金流编号: " + bean.getOrderId())
+        holder.setText(R.id.tv_no, LanguageUtil.getText("金流编号") +": " + bean.getOrderId())
                 .setText(R.id.tv_detail, bean.getDetail())
                 .setText(R.id.tv_time, bean.getUpdateAt());
         TextView tvType = holder.getView(R.id.tv_type);
         String str = "";
         // 订单类型，1：充值，2：代充，3：提现
         if(1 == bean.getDwType()) {
-            str = "充值";
+            str = LanguageUtil.getText("充值");
         } else if(2 == bean.getDwType()) {
-            str = "代充";
+            str = LanguageUtil.getText("代充");
         } else if(3 == bean.getDwType()) {
-            str = "提现";
+            str = LanguageUtil.getText("提现");
         }
         tvType.setText(str);
 
@@ -58,26 +59,26 @@ public class MoneyProgressAdapter extends BaseQuickAdapter<MoneyProgressData.Lis
         String statusStr = "";
         //状态，1：处理中（待审核），2：已完成（审核通过），3：失效（审核驳回）
         if(1 == bean.getStatus()) {
-            statusStr = "待审核";
+            statusStr = LanguageUtil.getText("待审核");
             tvStatus.setTextColor(mGray);
         } else if(2 == bean.getStatus()) {
-            statusStr = "审核通过";
+            statusStr = LanguageUtil.getText("审核通过");
             tvStatus.setTextColor(mGreen);
         } else if(3 == bean.getStatus()) {
-            statusStr = "审核驳回";
+            statusStr = LanguageUtil.getText("审核驳回");
             tvStatus.setTextColor(mRed);
         }
         tvStatus.setText(statusStr);
 
         TextView tvMoney = holder.getView(R.id.tv_money);
-        tvMoney.setText(ActivityUtil.formatBonus(bean.getAmt().doubleValue()) + "元");
+        tvMoney.setText(ActivityUtil.formatBonus(bean.getAmt().doubleValue()));
 //        if(bean.getAmt() > 0) {
 //            tvMoney.setTextColor(mRed);
 //        } else {
 //            tvMoney.setTextColor(mGreen);
 //        }
         TextView tvRemark = holder.getView(R.id.tv_remark);
-        tvRemark.setText("备注：" + bean.getRemark());
+        tvRemark.setText(LanguageUtil.getText("备注") + "："+ bean.getRemark());
         if(TextUtils.isEmpty(bean.getRemark())) {
             tvRemark.setVisibility(View.GONE);
         } else {
