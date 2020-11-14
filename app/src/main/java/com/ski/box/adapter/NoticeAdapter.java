@@ -23,17 +23,17 @@ public class NoticeAdapter extends BaseQuickAdapter<NoticeData.ListBean, BaseVie
     protected void convert(@NotNull BaseViewHolder holder, NoticeData.ListBean bean) {
         // time.setText(bean.getCreateAt());
         TextView tvTitle = holder.getView(R.id.tv_title);
-//        TextView tvContent = holder.getView(R.id.tv_content);
+        TextView tvContent = holder.getView(R.id.tv_content);
         TextView tvTime = holder.getView(R.id.tv_time);
         tvTitle.setText(bean.getNoticeTitle());
         tvTime.setText(bean.getUpdateAt());
-//        String content = bean.getNoticeContent();
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-//            content = Html.fromHtml(content,Html.FROM_HTML_MODE_LEGACY).toString();
-//        } else {
-//            content = Html.fromHtml(content).toString();
-//        }
-//        tvContent.setText(content);
+        String content = bean.getNoticeContent();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            content = Html.fromHtml(content,Html.FROM_HTML_MODE_LEGACY).toString();
+        } else {
+            content = Html.fromHtml(content).toString();
+        }
+        tvContent.setText(content);
     }
 
 

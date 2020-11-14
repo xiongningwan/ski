@@ -13,6 +13,7 @@ import com.ski.box.mvp.contract.EmptyContract;
 import com.ski.box.mvp.presenter.EmptyPresenter;
 import com.ski.box.view.view.HeaderView;
 import com.yb.core.base.BaseMVPActivity;
+import com.yb.core.utils.LanguageUtil;
 
 public class NoticeDetailActivity extends BaseMVPActivity<EmptyContract.Presenter> implements EmptyContract.View, View.OnClickListener {
     public static final String KEY_RECORD_BEAN = "key_notice_bean";
@@ -38,7 +39,7 @@ public class NoticeDetailActivity extends BaseMVPActivity<EmptyContract.Presente
         tvTitle = findViewById(R.id.tv_title);
         tvContent = findViewById(R.id.tv_content);
         tvTime = findViewById(R.id.tv_time);
-        String title = "公告详情";
+        String title = LanguageUtil.getText("公告详情");
         mHeadView.setHeader(title, true);
     }
 

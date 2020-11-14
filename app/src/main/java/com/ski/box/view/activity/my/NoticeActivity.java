@@ -25,6 +25,7 @@ import com.ski.box.mvp.presenter.my.NoticePresenter;
 import com.ski.box.view.activity.RecordDetailActivity;
 import com.ski.box.view.view.HeaderView;
 import com.yb.core.base.BaseMVPActivity;
+import com.yb.core.utils.LanguageUtil;
 import com.yb.core.utils.ToastUtil;
 
 import java.util.List;
@@ -62,7 +63,7 @@ public class NoticeActivity extends BaseMVPActivity<NoticeContract.Presenter> im
         mHeadView = findViewById(R.id.head_view);
         mRefreshLayout =findViewById(R.id.refreshLayout);
         mRvRecord = findViewById(R.id.recycler_view);
-        mHeadView.setHeader(getString(R.string.ski_sys_notice), true);
+        mHeadView.setHeader(LanguageUtil.getText(getString(R.string.ski_sys_notice)), true);
 
         mRefreshLayout.setOnRefreshListener(this);
         mRefreshLayout.setOnLoadMoreListener(this);
