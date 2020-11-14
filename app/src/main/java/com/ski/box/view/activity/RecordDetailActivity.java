@@ -191,7 +191,7 @@ public class RecordDetailActivity extends BaseMVPActivity<RecordBetContract.Pres
         ClipData mClipData = ClipData.newPlainText("Label", text);
         // 将ClipData内容放到系统剪贴板里。
         cm.setPrimaryClip(mClipData);
-        ToastUtil.showInfo("复制成功！");
+        ToastUtil.showInfo("复制成功");
     }
 
 

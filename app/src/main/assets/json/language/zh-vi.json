@@ -310,7 +310,7 @@
   "奖       金": "Tặng kem",
   "赔率": "Tỷ lệ cược",
   "状       态": "Trạng thái ",
-  "复制成功！": "Sao chép thành công",
+  "复制成功": "Sao chép thành công",
   "快捷": "Nhanh",
   "收起": "Cất đi",
   "投注": "đặt cược",
@@ -353,5 +353,6 @@
   "24小时": "24/24",
   "3.如网银充值因作业系统与浏览器版本问题，建议您使用支付宝或者微信充值。": "3.Nếu trong quá trình nạp tiền phát sinh vấn đề , vui lòng sử dụng",
   "为什么充值未到账？": "Tại sao nạp tiền vẫn chưa lên điểm ",
-  "如何使用网银充值？": "Làm thể nào để sử dụng hình thức chuyển khoản "
+  "如何使用网银充值？": "Làm thể nào để sử dụng hình thức chuyển khoản ",
+  "请注意：重复付款或金额错误将无法到账！": "Xin lưu ý : lên đơn 2 lần hoặc sai số tiền sẽ không thể lên điểm ！"
 }

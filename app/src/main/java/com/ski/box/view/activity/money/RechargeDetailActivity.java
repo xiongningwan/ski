@@ -20,6 +20,7 @@ import com.ski.box.mvp.presenter.money.RechargePresenter;
 import com.ski.box.view.view.HeaderView;
 import com.yb.core.base.BaseMVPActivity;
 import com.yb.core.utils.AppUtil;
+import com.yb.core.utils.LanguageUtil;
 import com.yb.core.utils.ScreenUtils;
 import com.yb.core.utils.ToastUtil;
 import com.yzq.zxinglibrary.encode.CodeCreator;
@@ -76,7 +77,7 @@ public class RechargeDetailActivity extends BaseMVPActivity<RechargeDetailContra
         mBtnCancel = findViewById(R.id.btn_cancel);
         mBtnSure = findViewById(R.id.btn_sure);
         mIvQrCode = findViewById(R.id.iv_qr_code);
-        mHeadView.setHeader(getString(R.string.ski_money_recharge), true);
+        mHeadView.setHeader(LanguageUtil.getText(getString(R.string.ski_money_recharge)), true);
 
         mBtnCopyNo.setOnClickListener(this);
         mBtnCopyMoney.setOnClickListener(this);
@@ -121,19 +122,19 @@ public class RechargeDetailActivity extends BaseMVPActivity<RechargeDetailContra
         int id = view.getId();
         if (id == R.id.btn_copy_no) {
             AppUtil.copy(mTvNo.getText().toString().trim(), this);
-            ToastUtil.showSuccess("订单号_复制成功!");
+            ToastUtil.showSuccess("复制成功");
         } else if (id == R.id.btn_copy_money) {
             AppUtil.copy(mTvMoney.getText().toString().trim(), this);
-            ToastUtil.showSuccess("充值金额_复制成功!");
+            ToastUtil.showSuccess("复制成功");
         } else if (id == R.id.btn_copy_bank) {
             AppUtil.copy(mTvBank.getText().toString().trim(), this);
-            ToastUtil.showSuccess("银行_复制成功!");
+            ToastUtil.showSuccess("复制成功");
         } else if (id == R.id.btn_copy_bank_no) {
             AppUtil.copy(mTvBankNo.getText().toString().trim(), this);
-            ToastUtil.showSuccess("账号_复制成功!");
+            ToastUtil.showSuccess("复制成功");
         } else if (id == R.id.btn_copy_owner_name) {
             AppUtil.copy(mTvOwnerName.getText().toString().trim(), this);
-            ToastUtil.showSuccess("账户_复制成功!");
+            ToastUtil.showSuccess("复制成功");
         } else if (id == R.id.btn_cancel) {
             finish();
         } else if (id == R.id.btn_sure) {
