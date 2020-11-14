@@ -42,6 +42,7 @@ import com.ski.box.view.view.dialog.pop.record.RecordDate2Pop;
 import com.ski.box.view.view.dialog.pop.record.RecordDatePop;
 import com.ski.box.view.view.dialog.pop.record.RecordMorePop;
 import com.yb.core.base.BaseMVPFragment;
+import com.yb.core.utils.LanguageUtil;
 import com.yb.core.utils.ScreenUtils;
 import com.yb.core.utils.TimeUtils;
 import com.yb.core.utils.ToastUtil;
@@ -134,8 +135,8 @@ public class RecordMoneyFragment extends BaseMVPFragment<RecordMoneyContract.Pre
 
         mRecordRequest.setStartTime(TimeUtils.getBeginStringOfToday());
         mRecordRequest.setEndTime(TimeUtils.getEndStringOfToday());
-        mTvDay.setText("今天");
-        mTvType.setText("全部账变");
+        mTvDay.setText(LanguageUtil.getText("今天"));
+        mTvType.setText(LanguageUtil.getText("全部账变"));
     }
 
     private void gotoDetail(RecordBet.ListBean bean) {

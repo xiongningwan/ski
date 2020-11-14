@@ -11,6 +11,7 @@ import com.ski.box.R;
 import com.ski.box.bean.FrontTradeTypesBean;
 import com.ski.box.bean.record.RecordMoney;
 import com.ski.box.utils.ActivityUtil;
+import com.yb.core.utils.LanguageUtil;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -34,14 +35,14 @@ public class RecordMoneyAdapter extends BaseQuickAdapter<RecordMoney.ListBean, B
 
     @Override
     protected void convert(@NotNull BaseViewHolder holder, @Nullable RecordMoney.ListBean bean) {
-        holder.setText(R.id.tv_no, "订单编号: " + bean.getId())
+        holder.setText(R.id.tv_no, LanguageUtil.getText("订单编号") + ": " + bean.getId())
                 .setText(R.id.tv_time, bean.getTradeTime())
                 .setText(R.id.tv_name, bean.getTicketName())
                 .setText(R.id.tv_type, mMapType.get(bean.getTradeType()))
-                .setText(R.id.tv_before, "账变前余额  " + bean.getBalanceBefore() + "元")
-                .setText(R.id.tv_after, "账变后余额  " + bean.getBalanceAfter() + "元");
+                .setText(R.id.tv_before, LanguageUtil.getText("账变前余额") + "  " + bean.getBalanceBefore())
+                .setText(R.id.tv_after, LanguageUtil.getText("账变后余额") + "  " + bean.getBalanceAfter());
         TextView tvMoney = holder.getView(R.id.tv_money);
-        tvMoney.setText(ActivityUtil.formatBonus(bean.getAmount()) + "元");
+        tvMoney.setText(ActivityUtil.formatBonus(bean.getAmount()));
         if(bean.getAmount() > 0) {
             tvMoney.setTextColor(mRed);
         } else {

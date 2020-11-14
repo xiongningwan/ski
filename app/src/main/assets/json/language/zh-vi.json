@@ -253,6 +253,7 @@
   "今天": "Hôm qua",
   "全部状态": "Toàn bộ trạng thái",
   "昨天": "Hôm qua",
+  "前天": "Hôm trước",
   "近三日": "3 ngày gần nhất",
   "近七日": "7 ngày gần nhất",
   "近15日": "15 ngày gần nhất",
@@ -388,5 +389,7 @@
   "待审核": "Đang chờ xử lý",
   "审核通过": "kỳ thi đã qua",
   "审核驳回": "Đánh giá bị từ chối",
-  "备注": "Dự bị"
+  "备注": "Dự bị",
+  "全部账变": "Toàn bộ mã giao dịch",
+  "订单编号": "Mã giao dịch "
 }

@@ -12,6 +12,7 @@ import com.chad.library.adapter.base.viewholder.BaseViewHolder;
 import com.ski.box.R;
 import com.ski.box.bean.ConditionBean;
 import com.ski.box.bean.FrontTradeTypesBean;
+import com.yb.core.utils.LanguageUtil;
 import com.zyyoona7.popup.BasePopup;
 
 import org.jetbrains.annotations.NotNull;
@@ -94,7 +95,7 @@ public class MoneyTypePop extends BasePopup<MoneyTypePop> implements View.OnClic
     }
 
     public void setMoneyType(List<FrontTradeTypesBean> typesBeans) {
-        mList.add(new ConditionBean("全部账变", MoneyAdapter.TYPE_CONTENT, "", true));
+        mList.add(new ConditionBean(LanguageUtil.getText("全部账变"), MoneyAdapter.TYPE_CONTENT, "", true));
         for(FrontTradeTypesBean bean : typesBeans) {
             mList.add(new ConditionBean(bean.getName(), MoneyAdapter.TYPE_CONTENT, String.valueOf(bean.getTradeType()), false));
         }

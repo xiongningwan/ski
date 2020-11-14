@@ -14,6 +14,7 @@ import com.ski.box.view.fragment.record.RecordMoneyFragment;
 import com.ski.box.view.view.HeaderView;
 import com.yb.core.base.BaseActivity;
 import com.yb.core.utils.FragmentUtils;
+import com.yb.core.utils.LanguageUtil;
 
 public class ContainerActivity extends BaseActivity implements View.OnClickListener {
     public static String KEY_CLASS = "key_class";
@@ -40,13 +41,13 @@ public class ContainerActivity extends BaseActivity implements View.OnClickListe
         String key = intent.getStringExtra(KEY_CLASS);
         Fragment fragment = new Fragment();
         if (RecordBetFragment.class.getSimpleName().equals(key)) {
-            mHeadView.setHeader(getString(R.string.ski_record_bet), true);
+            mHeadView.setHeader(LanguageUtil.getText(getString(R.string.ski_record_bet)), true);
             fragment = RecordBetFragment.newInstance();
         } else if (RecordMoneyFragment.class.getSimpleName().equals(key)) {
-            mHeadView.setHeader(getString(R.string.ski_record_money), true);
+            mHeadView.setHeader(LanguageUtil.getText(getString(R.string.ski_record_money)), true);
             fragment = RecordMoneyFragment.newInstance();
         }  else if (RechargeFragment.class.getSimpleName().equals(key)) {
-            mHeadView.setHeader(getString(R.string.ski_money_recharge), true);
+            mHeadView.setHeader(LanguageUtil.getText(getString(R.string.ski_money_recharge)), true);
             fragment = RechargeFragment.newInstance(1);
         }
         FragmentUtils.add(getSupportFragmentManager(), fragment, R.id.f_container, false);

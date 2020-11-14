@@ -11,6 +11,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.viewholder.BaseViewHolder;
 import com.ski.box.R;
 import com.ski.box.bean.ConditionBean;
+import com.yb.core.utils.LanguageUtil;
 import com.yb.core.utils.TimeUtils;
 import com.zyyoona7.popup.BasePopup;
 
@@ -18,8 +19,10 @@ import org.jetbrains.annotations.NotNull;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class RecordDate2Pop extends BasePopup<RecordDate2Pop> implements View.OnClickListener {
     private RecyclerView mRvDate;
@@ -56,9 +59,9 @@ public class RecordDate2Pop extends BasePopup<RecordDate2Pop> implements View.On
 
     private void initData() {
         List<ConditionBean> list = new ArrayList<>();
-        list.add(new ConditionBean("今天", TimeUtils.getBeginStringOfToday(), TimeUtils.getEndStringOfToday(), true));
-        list.add(new ConditionBean("昨天", TimeUtils.getBeginStringOfYesterday(1), TimeUtils.getEndStringOfYesterday(1), false));
-        list.add(new ConditionBean("前天", TimeUtils.getBeginStringOfYesterday(2), TimeUtils.getEndStringOfYesterday(2), false));
+        list.add(new ConditionBean(LanguageUtil.getText("今天"), TimeUtils.getBeginStringOfToday(), TimeUtils.getEndStringOfToday(), true));
+        list.add(new ConditionBean(LanguageUtil.getText("昨天"), TimeUtils.getBeginStringOfYesterday(1), TimeUtils.getEndStringOfYesterday(1), false));
+        list.add(new ConditionBean(LanguageUtil.getText("前天"), TimeUtils.getBeginStringOfYesterday(2), TimeUtils.getEndStringOfYesterday(2), false));
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         SimpleDateFormat sdf2 = new SimpleDateFormat("M月d日");
@@ -71,6 +74,17 @@ public class RecordDate2Pop extends BasePopup<RecordDate2Pop> implements View.On
             String day5 = sdf2.format(date2);
             String day6 = sdf2.format(date3);
             String day7 = sdf2.format(date4);
+            // Ngày11tháng10
+            if("vi".equals(LanguageUtil.getLanguage())) {
+                Locale locale = new Locale("vi");
+                SimpleDateFormat sdf3 = new SimpleDateFormat("MMM-dd", locale);
+//                SimpleDateFormat sdf3 = new SimpleDateFormat("MMMMM-dd", locale);
+
+                 day4 =  sdf3.format(date1);
+                 day5 = sdf3.format(date2);
+                 day6 = sdf3.format(date3);
+                 day7 = sdf3.format(date4);
+            }
             list.add(new ConditionBean(day4, TimeUtils.getBeginStringOfYesterday(3), TimeUtils.getEndStringOfYesterday(3), false));
             list.add(new ConditionBean(day5, TimeUtils.getBeginStringOfYesterday(4), TimeUtils.getEndStringOfYesterday(4), false));
             list.add(new ConditionBean(day6, TimeUtils.getBeginStringOfYesterday(5), TimeUtils.getEndStringOfYesterday(5), false));
