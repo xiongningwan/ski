@@ -41,6 +41,7 @@ import com.ski.box.view.view.CusTextView;
 import com.ski.box.view.view.HeaderView;
 import com.ski.box.view.view.dialog.LoadingDialog;
 import com.yb.core.base.BaseMVPActivity;
+import com.yb.core.utils.LanguageUtil;
 import com.yb.core.utils.MD5Util;
 import com.yb.core.utils.ToastUtil;
 
@@ -108,7 +109,7 @@ public class WithdrawActivity extends BaseMVPActivity<WithdrawContract.Presenter
         mTvNotice3 = findViewById(R.id.tv_notice_3);
         mTvNotice5 = findViewById(R.id.tv_notice_5);
         mTvNotice6 = findViewById(R.id.tv_notice_6);
-        mHeadView.setHeader(getString(R.string.ski_money_withdraw), true);
+        mHeadView.setHeader(LanguageUtil.getText(getString(R.string.ski_money_withdraw)), true);
 
         mBtnSure.setOnClickListener(this);
         mTvWen1.setOnClickListener(this);
@@ -183,24 +184,25 @@ public class WithdrawActivity extends BaseMVPActivity<WithdrawContract.Presenter
         }
 
         if (0 == mSpType.getSelectedIndex()) {
-            ToastUtil.showError("请选择银行卡");
+            ToastUtil.showError("请选择");
             return;
         }
 
         BankCard bankCard = (BankCard) mSpType.getSelectedItem();
         if (bankCard == null) {
-            ToastUtil.showError("获取收款银行卡失败");
+            ToastUtil.showError("获取提现方式失败");
             return;
         }
 
         if (mWithdrawRange == null) {
-            ToastUtil.showError("获取提现范围失败");
+            ToastUtil.showError("获取提现区间失败");
             return;
         }
         double inputMoney_D = Double.parseDouble(inputMoney);
 
         if (inputMoney_D > mWithdrawRange.getMaxAmt().doubleValue() || inputMoney_D < mWithdrawRange.getMinAmt().doubleValue()) {
-            ToastUtil.showError("输入的提现金额为" + mWithdrawRange.getMinAmt().toPlainString() + "~" + mWithdrawRange.getMaxAmt().toPlainString());
+            String str = LanguageUtil.getText("输入的提现金额为");
+            ToastUtil.showError( str + mWithdrawRange.getMinAmt().toPlainString() + "~" + mWithdrawRange.getMaxAmt().toPlainString());
             return;
         }
         mBtnSure.setEnabled(false);
@@ -212,7 +214,7 @@ public class WithdrawActivity extends BaseMVPActivity<WithdrawContract.Presenter
     @Override
     public void onUserInfoResult(UserInfo userInfo) {
         DataCenter.getInstance().setUser(userInfo);
-        mTvBalance.setText("￥" + userInfo.getBalance());
+        mTvBalance.setText(userInfo.getBalance());
         mllBalance.setEnabled(true);
         mIvBalance.clearAnimation();
     }
@@ -239,7 +241,7 @@ public class WithdrawActivity extends BaseMVPActivity<WithdrawContract.Presenter
     public void onSuccessResult() {
         mEtMoneyPwd.setText("");
         mEtWithdrawMoney.setText("");
-        ToastUtil.showInfo("提现成功!");
+        ToastUtil.showInfo("提现成功");
         mBtnSure.setEnabled(true);
         mLoading.dismiss();
     }
@@ -253,7 +255,7 @@ public class WithdrawActivity extends BaseMVPActivity<WithdrawContract.Presenter
 
     private void setSpinner(List<BankCard> list) {
         BankCard bankCard = new BankCard();
-        bankCard.setBankName("请选择银行卡");
+        bankCard.setBankName(LanguageUtil.getText("请选择"));
         list.add(0, bankCard);
         SpinnerTextFormatter textFormatter = new SpinnerTextFormatter<BankCard>() {
             @Override
@@ -276,15 +278,16 @@ public class WithdrawActivity extends BaseMVPActivity<WithdrawContract.Presenter
     private void setRedTip() {
         String tip1 = getString(R.string.ski_money_withdraw_notice1);
         String tip2 = getString(R.string.ski_money_withdraw_notice2);
-        String tip3 = getString(R.string.ski_money_withdraw_notice3);
+//        String tip3 = getString(R.string.ski_money_withdraw_notice3);
+        String tip3 = LanguageUtil.getText("3.提现需进行充值金额满") + "25%" + LanguageUtil.getText("的投注，若未满足消费流水将") + LanguageUtil.getText("无法成功提现");
         String tip5 = getString(R.string.ski_money_withdraw_notice5);
         String tip6 = getString(R.string.ski_money_withdraw_notice6);
 
-        ActivityUtil.setTipKeywordRed(this, mTvNotice1, tip1, "09:30-02:30");
-        ActivityUtil.setTipKeywordRed(this, mTvNotice2, tip2, "1000000", "20");
-        ActivityUtil.setTipKeywordRed(this, mTvNotice3, tip3, "25%", "无法成功提现");
-        ActivityUtil.setTipKeywordRed(this, mTvNotice5, tip5, "4", "12");
-        ActivityUtil.setTipKeywordRed(this, mTvNotice6, tip6, "1分钟");
+        ActivityUtil.setTipKeywordRed(this, mTvNotice1, LanguageUtil.getText(tip1), LanguageUtil.getText("09:30-02:30"));
+        ActivityUtil.setTipKeywordRed(this, mTvNotice2, LanguageUtil.getText(tip2), LanguageUtil.getText("1000000"), LanguageUtil.getText("20"));
+        ActivityUtil.setTipKeywordRed(this, mTvNotice3, tip3, "25%", LanguageUtil.getText("无法成功提现"));
+        ActivityUtil.setTipKeywordRed(this, mTvNotice5, LanguageUtil.getText(tip5), LanguageUtil.getText("4"), LanguageUtil.getText("12"));
+        ActivityUtil.setTipKeywordRed(this, mTvNotice6, LanguageUtil.getText(tip6), LanguageUtil.getText("1分钟"));
     }
 
 }
