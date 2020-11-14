@@ -41,6 +41,7 @@ import com.ski.box.view.view.dialog.pop.record.AllLotteryPop;
 import com.ski.box.view.view.dialog.pop.record.RecordDatePop;
 import com.ski.box.view.view.dialog.pop.record.RecordMorePop;
 import com.yb.core.base.BaseMVPActivity;
+import com.yb.core.utils.LanguageUtil;
 import com.yb.core.utils.ScreenUtils;
 import com.yb.core.utils.TimeUtils;
 import com.yb.core.utils.ToastUtil;
@@ -116,7 +117,7 @@ public class GroupRecordBetActivity extends BaseMVPActivity<GroupRecordBetContra
         mRefreshLayout = findViewById(R.id.refreshLayout);
         mRvRecord = findViewById(R.id.recycler_view);
 
-        mHeadView.setHeader(getString(R.string.ski_group_record_bet), true);
+        mHeadView.setHeader(LanguageUtil.getText(getString(R.string.ski_group_record_bet)), true);
 
         mLLDay.setOnClickListener(this);
         mLLLottery.setOnClickListener(this);
@@ -135,7 +136,8 @@ public class GroupRecordBetActivity extends BaseMVPActivity<GroupRecordBetContra
 
         startDate = TimeUtils.getBeginStringOfToday();
         endDate = TimeUtils.getEndStringOfToday();
-        mTvDay.setText("今天");
+        mTvDay.setText(LanguageUtil.getText("今天"));
+        mTvStatus.setText(LanguageUtil.getText("全部状态"));
         mRecordAdapter.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(@NonNull BaseQuickAdapter<?, ?> adapter, @NonNull View view, int position) {

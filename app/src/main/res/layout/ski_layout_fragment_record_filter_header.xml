@@ -30,7 +30,7 @@
         app:layout_constraintGuide_percent="0.99" />
 
 
-<!--    <TextView-->
+<!--    <com.ski.box.view.view.CusTextView-->
 <!--        android:id="@+id/tv_record"-->
 <!--        android:layout_width="wrap_content"-->
 <!--        android:layout_height="wrap_content"-->
@@ -70,7 +70,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/gl_1"
         android:gravity="center">
-        <TextView
+        <com.ski.box.view.view.CusTextView
             android:id="@+id/tv_day"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -95,6 +95,7 @@
         app:layout_constraintStart_toEndOf="@+id/gl_1"
         app:layout_constraintEnd_toStartOf="@+id/gl_2"
         android:gravity="center">
+
     <com.ski.box.view.view.CusTextView
         android:id="@+id/tv_lottery"
         android:layout_width="wrap_content"
@@ -119,14 +120,13 @@
         app:layout_constraintStart_toEndOf="@+id/gl_2"
         app:layout_constraintEnd_toEndOf="parent"
         android:gravity="center">
-    <TextView
+    <com.ski.box.view.view.CusTextView
         android:id="@+id/tv_status"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="14dp"
         android:textColor="@color/ski_color_333333"
-        android:text="全部状态"
-       />
+        android:text="全部状态" />
 
     <ImageView
         android:id="@+id/iv_status"

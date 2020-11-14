@@ -43,7 +43,7 @@
             android:background="@drawable/ski_pub_bg_setting_trend"
             android:text="查询"
             android:textColor="@color/ski_white"
-            android:textSize="16dp"
+            android:textSize="14dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>

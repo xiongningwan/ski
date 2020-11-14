@@ -30,6 +30,7 @@ import com.ski.box.view.view.HeaderView;
 import com.ski.box.view.view.LotteryResultView;
 import com.ski.box.view.view.dialog.CancelDialog;
 import com.yb.core.base.BaseMVPActivity;
+import com.yb.core.utils.LanguageUtil;
 import com.yb.core.utils.ToastUtil;
 
 import java.lang.reflect.Type;
@@ -89,7 +90,7 @@ public class GroupRecordDetailActivity extends BaseMVPActivity<EmptyContract.Pre
         mTvBetWin = findViewById(R.id.tv_value_bet_win);
         mTvStatus = findViewById(R.id.tv_value_status);
         mBtnCancel = findViewById(R.id.btn_cancel);
-        String title = "注单详情";
+        String title = LanguageUtil.getText("注单详情");
         mHeadView.setHeader(title, true);
 
         mBtnCopy.setOnClickListener(this);
@@ -175,7 +176,7 @@ public class GroupRecordDetailActivity extends BaseMVPActivity<EmptyContract.Pre
         ClipData mClipData = ClipData.newPlainText("Label", text);
         // 将ClipData内容放到系统剪贴板里。
         cm.setPrimaryClip(mClipData);
-        ToastUtil.showInfo("复制成功！");
+        ToastUtil.showInfo("复制成功");
     }
 
 

@@ -16,7 +16,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <TextView
+    <com.ski.box.view.view.CusTextView
         android:id="@+id/tv_lottery_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -29,7 +29,7 @@
         tools:text="sk极速飞艇"
         android:layout_marginTop="10dp"/>
 
-    <TextView
+    <com.ski.box.view.view.CusTextView
         android:id="@+id/tv_period"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -52,7 +52,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="10dp"/>
 
-    <TextView
+    <com.ski.box.view.view.CusTextView
         android:id="@+id/tv_user_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -65,7 +65,7 @@
         android:layout_marginTop="10dp"/>
 
 
-    <TextView
+    <com.ski.box.view.view.CusTextView
         android:id="@+id/tv_play_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -85,7 +85,7 @@
         app:layout_constraintEnd_toEndOf="@+id/tv_period" />
 
 
-    <TextView
+    <com.ski.box.view.view.CusTextView
         android:id="@+id/tv_bet_money"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -99,7 +99,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"/>
 
-    <TextView
+    <com.ski.box.view.view.CusTextView
         android:id="@+id/tv_win"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -111,7 +111,7 @@
         tools:text="已中奖 99.85 元"
         android:visibility="gone"/>
 
-    <TextView
+    <com.ski.box.view.view.CusTextView
         android:id="@+id/tv_status"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
