@@ -32,6 +32,7 @@ import com.ski.box.bean.lottery.LotteryUtil;
 import com.ski.box.view.view.dialog.ShuoMingSheetDialog;
 import com.yb.core.utils.AppUtil;
 import com.yb.core.utils.AssetsReader;
+import com.yb.core.utils.LanguageUtil;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -197,7 +198,12 @@ public class ShuoMingDoubleView extends LinearLayout {
         }
         if (null == mShuoMingData || mShuoMingData.size() < 1) {
             Gson gson = new Gson();
-            String json = AssetsReader.getJson(getContext(), "json" + File.separator + "def_play_des.json");
+            String json = "";
+                    if(LanguageUtil.VI.equals(LanguageUtil.getLanguage())) {
+                        json = AssetsReader.getJson(getContext(), "json" + File.separator + "language"+ File.separator + "def_play_des_vi.json");
+                    } else {
+                        json = AssetsReader.getJson(getContext(), "json" + File.separator + "def_play_des.json");
+                    }
             mShuoMingData = gson.fromJson(json, new TypeToken<List<ShuoMingDoubleBean>>() {
             }.getType());
         }

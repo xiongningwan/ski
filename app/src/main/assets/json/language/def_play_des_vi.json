@@ -1,0 +1,218 @@
+[
+  {
+    "seriesId": 1,
+    "description": [
+      {
+        "title": "1 tổng hoà , rồng hổ hoà：",
+        "text": "\n                tổng hoà tài xỉu : tổng các số mở thưởng từ 0-22 là xỉu , 23-45 là tài , kết quả mở thường trùng với kết quả đặt là trúng thưởng .<br />\n                tổng hoà chẵn lẻ : các số đặt cược chẵn hoặc lẻ có kết quả trùng với kết quả mở thưởng ,2 số ví dụ 23,31 là lẻ , 20,30 là chẵn.<br />\n                Rồng : Kết quả bóng thứ nhất hàng【Chục ngàn】lớn hơn kết quả bóng thứ 5 hàng【Đơn vị】thì xem như trúng thưởng, 0 là xỉu 9 là tài. Ví dụ kết quả bóng thứ nhất là 9 , bóng thứ 5 là 2 , tức “rồng “ thắng .<br />\n                Hổ : Kết quả bóng thứ nhất hàng【Chục ngàn】lớn hơn kết quả bóng thứ 5 hàng【Đơn vị】thì xem như trúng thưởng, 0 là xỉu 9 là tài. Ví dụ kết quả bóng thứ nhất là 7 , bóng thứ 5 là 9 , tức “hổ” thắng <br />\n                Hoà :Kết quả bóng thứ nhất hàng【Chục ngàn】giống kết quả bóng thứ 5 hàng【Đơn vị】thì xem như trúng thưởng, . Ví dụ kết quả bóng thứ nhất là 1 , bóng thứ 5 là 1 , tức “hoà” thắng.\n            "
+      },
+      {
+        "title": "2.bóng thứ nhất - bóng thứ 5：",
+        "text": "\n                Tài xỉu : các số 5、6、7、8、9 gọi là “tài “ ,0、1、2、3、4 gọi là “xỉu “ , nếu kết quả mở thưởng là “tài” hoặc “xỉu” theo số đã chọn sẽ trúng thưởng .<br />\n                Chẵn lẻ : các số 1,3,5,7,9  gọi là “ lẻ” , các số 0、2、4、6、8 gọi là “ chẵn “,nếu kết quả mở thưởng là “chẵn” hoặc “lẻ” theo số đã chọn sẽ trúng thưởng .<br />\n                Hợp tố :các số 1、2、3、5、7 là “ tố “, 0、4、6、8、9 gọi là “ hợp “,nếu kết quả mở thưởng là “hợp” hoặc “tố” theo số đã chọn sẽ trúng thưởng .\n            "
+      },
+      {
+        "title": "3.chọn số bóng thứ nhất - bóng thứ 5：",
+        "text": "\n                chọn số bóng thứ nhất - bóng thứ 5 : tại vị trí hàng chục ngàn , ngàn , trăm , chục , từ 0-9 chọn 1 số để đặt cược ,nếu số chọn cùng với số đã đặt cược , bạn đã trúng thưởng . ví dụ : bóng số 1 chọn số 8 , kết quả mở thưởng là số 8 , đã trúng thưởng , các số khác đều không tính trúng thưởng.\n            "
+      },
+      {
+        "title": "4.tiền tam , trung tam, hậu tam：",
+        "text": "\n                tiền tam : là đặt cược con số tương ứng với vị trí【Chục ngàn/Ngàn/Trăm】  <br />\n                trung tam :là đặt cược con số tương ứng với vị trí【Ngàn/Trăm/Chục】 <br />\n                hậu tam :đặt cược con số tương ứng với vị trí【Trăm/Chục/Đơn vị】  <br />\n                báo :nếu 3 số mở thưởng tại vị trí đặt cược tạo thành 3 số trùng lặp nhau 111,222,333.... bạn đã trúng thưởng . <br />\n               sảnh : Nếu 3 con số mở thưởng tại vị trí đặt cược tạo thành 1 sảnh thì xem như bạn đã trúng thưởng.ví dụ 123,901,321,456 ...tạo thành 1 hàng, được coi là đã trúng thưởng,  <br />\n                cặp : nếu 3 con số mở thưởng tại ví trí đặt cươc có 2 số trùng lặp nhau thành một cặp (không báo gồm báo ),ví dụ 001,112,696 bạn đã trúng thưởng.nếu kết quả là cặp , chọn báo sẽ không trúng thưởng.  <br />\n                bán sảnh :  Nếu 3 con số mở thưởng tại vị trí đặt cược có 2 con số liền nhau thì xem như bạn đã trúng thưởng(không bao gồm sảnh và cặp ). ví dụ mở thưởng có 125,540,390,706 bạn đã trúng. nếu kết quả là sảnh , cặp , bán cặp sẽ không trúng thưởng . <br />\n                tạp lục : không bao gồm cách mơr thưởng của báo , sảnh , cặp , nửa sảnh .Nếu 3 con số mở thưởng tại vị trí đặt cược không liền nhau thì kết quả được xem là tạp lục, như vậy bạn đã trúng thưởng.ví dụ 157,nếu kết quả là báo , cặp ,sảnh , bán sảnhthì tạp lục sẽ không trúng .\n            "
+      }
+    ]
+  },
+  {
+    "seriesId": 2,
+    "description": [
+      {
+        "title": "1.tổng số：",
+        "text": "\n                Tổng tài xỉu :tổng tất cả các số mở thưởng lớn hơn 30 , gọi là “tổng tài “, nhỏ hơn 30 gọi là “tổng xỉu” , 30 gọi là hoà .<br />\n                Tổng chẵn lẻ :tất cả các sổ mở thưởng cộng lại là số lẻ , như 23,31 được gọi là “tổng lẻ “, các số tổng lại là 42, 30 ... được gọi là “tổng chẵn “ <br />\n                Tổng đuôi tài xỉu : tổng tất cả các số mở thưởng cộng lại , số đuôi lướn hơn 5 gọi là “tổng đuôi tài” ,số đuôi nhỏ hơn hoặc bằng 4 gọi là “ tổng đuôi xỉu “ .<br />\n                Rồng : ví dụ bóng thứ nhất và bóng thứ 5 mở thưởng , bóng thứ nhất ra 10 , bóng thứ 5 ra 7 , bóng thứ nhất lớn hơn bóng thứ 5 là “rồng “.<br />\n                Hổ : ví dụ óng thứ nhất và bóng thứ 5 mở thưởng , bóng thứ nhất ra 3 , bóng thứ 5 ra 7 , bóng thứ nhất nhỏ hơn bóng thứ 5 là “hổ “.\n            "
+      },
+      {
+        "title": "2.Bóng thứ nhất - bóng thứ 5 tài xỉu chẵn lẻ：",
+        "text": "\n                Bóng 1-5 Tài xỉu : số bóng lớn hơn hoặc bằng 6 gọi là “tài “ , số bóng nhỏ hơn hoặc bằng 5 gọi là” xỉu “ quay ra số 11 tính hoà , khônhg hoàn trả vốn cược<br />\n                Bóng 1-5 Chẵn lẻ : số ra là chẵn như 2,8 thì gọi là chẵn , số 5,9 gọi là “ lẻ “ , quay ra 11 tính hoà , không hoàn trả vốn cược.\n            "
+      },
+      {
+        "title": "3.chọn số bóng thứ nhất - bóng thứ 5：",
+        "text": "\n                chọn số : tại vị trí bóng thứ nhất , bóng thứ 2, bóng thứ 3 , bóng thứ 4 , bóng thứ năm, chọn từ 1-11 đặt cược, nếu trùng khớp với kết quả mở thưởng , tức đã trúng cược.<br />\n                chọn số: ví dụ tại bóng thứ nhất , nếu bạn chọn số 10 trùng với kết quả mở thưởng là bóng thứ nhất số 10 , bạn đã trúng thưởng.\n            "
+      },
+      {
+        "title": "4.từ số 1-11 chọn các số kết hợp ngẫu nhiên để đặt cược：",
+        "text": " \n                Tuỳ chọn 1 : chọn 1 con số để đặt cược , nếu trùng với 1 số có trong kết quả mở thưởng , sẽ trúng thưởng.<br />\n                Tuỳ chọn 2 :chọn 2 con số để đặt cược ( không giới hạn thứ tự con số ) , nếu trùng với 2 số có trong kết quả mở thưởng , sẽ trúng thưởng.<br />\n                Tuỳ chọn 3 :chọn 3 con số để đặt cược ( không giới hạn thứ tự con số ) , nếu trùng với 3 số có trong kết quả mở thưởng , sẽ trúng thưởng.<br />\n                Tuỳ chọn 4 :chọn 4 con số để đặt cược ( không giới hạn thứ tự con số ) , nếu trùng với 4 số có trong kết quả mở thưởng , sẽ trúng thưởng.<br />\n               Tuỳ chọn 5 :chọn 5 con số để đặt cược , nếu trùng với toàn bộ 5 số có trong kết quả mở thưởng , sẽ trúng thưởng.<br />\n                Tuỳ chọn 6 :chọn 6 con số để đặt cược , nếu trùng với toàn bộ 5 số có trong kết quả mở thưởng , sẽ trúng thưởng.<br />\n                Tuỳ chọn 7 :chọn 7 con số để đặt cược , nếu trùng với toàn bộ 5 số có trong kết quả mở thưởng , sẽ trúng thưởng.<br />\n                Tuỳ chọn 8 :chọn 8 con số để đặt cược , nếu trùng với toàn bộ 5 số có trong kết quả mở thưởng , sẽ trúng thưởng.\n            "
+      },
+      {
+        "title": "5.Chọn tổ hợp : các số 1-11 , chọn số tạo thành tổ hợp đặt cược：",
+        "text": "\n                Nhóm tiền nhị : đặt 5 con số , nếu kết quả trúng thưởng có trùng với 2 số hàng 1 , hàng 2 (không giới hạn sảnh ), sẽ trúng thưởng . \n Ví dụ: Đặt cược tiền nhị (hàng 1/ hàng 2) chọn nhóm phức hợp là 03 11 gồm 1 đơn cược. Kết quả mở thưởng là : 11 03 * * * trùng với con số đặt cược của tiền nhị là 03 11 nên trúng thưởng.<br />\n                Nhóm tiền tam : đặt 5 con số , nếu kết quả trúng thưởng có trùng với 3 số hàng 1 , hàng 2,hàng 3 (không giới hạn đôi cặp ), sẽ trúng thưởng . \n  Ví dụ: Đặt cược tiền tam（Hàng 1）,（Hàng 2）,（Hàng 3）chọn nhóm phức hợp là : 01 02 03 gồm 1 đơn cược, kết quả mở thưởng là : 03 01 02 * * trùng với con số đặt cược tiền tam là 01 02 03, nhưng không giới hạn trình tự con số mở thưởng, như vậy thì bạn đã trúng thưởng.  \n        "
+      },
+      {
+        "title": "6.chọn số 1-11 , chọn tổ hợp hàng số để đặt cược.",
+        "text": "\n                Chọn hàng tiền nhị : căn cứ thứ tự 2 số để đặt cược , bao gồm sảnh ra 5 số trúng thưởng , 2 số thứ tự phía trước cược trùng với thứ tự mở thưởng, đã trúng thưởng .<br />\n                Chọn hàng tiền tam : căn cứ thứ tự 3 số để đặt cược , bao gồm sảnh ra 5 số trúng thưởng , 3 số thứ tự phía trước cược trùng với thứ tự mở thưởng, đã trúng thưởng .n            "
+      }
+    ]
+  },
+  {
+    "seriesId": 3,
+    "description": [
+      {
+        "title": "1.Số đặc biệt -Hai mặt",
+        "text" : "\n                Số đăjt biệt trong mark six là số cuối cùng .<br />\n                Số đặc biệt tài xỉu<br />\n                Số ĐB xỉu : là các số mở thưởng nhỏ hơn hoặc bằng 24 (0-24)<br />\n                Số ĐB tài : là các số mở thưởng nhỏ hơn hoặc bằng 48 (25~48)<br />\n                Số ĐB là 49 , tức hoà ,  hoàn vốn cược.<br />\n                <br />\n                Số đặc biệt chẵn lẻ<br />\n                Số ĐB chẵn : là các số mở thưởng là số chẵn , ví dụ 18,20,28,40 <br />\n                Số ĐB chẵn : là các số mở thưởng là số lẻ , ví dụ :01，11，35，47<br />\n                Số ĐB là 49 , tức hoà ,  hoàn vốn cược.<br />\n                <br />\n                Số đặc biệt hợp tài xỉu<br />\n                Số ĐB hợp tài : các số hàng chục và hàng đơn vị hợp thành các số  , nếu từ 7-12 là “hợp tài” , ví dụ :07、34、48。<br />\n                Số ĐB hợp xỉu : các số hàng chục và hàng đơn vị hợp thành các số, hợp số 1-6 là xỉu , ví dụ  01、24、33。<br />\n                Số ĐB là 49 , tức hoà , hoàn vốn cược。<br\n\n\n/>\n                <br />\n                Số đặc biệt hợp chẵn lẻ<br />\n                Số ĐB hợp chẵn :kết quả số đặc biệt số hàng đơn vị thêm hàng chục thành số chẵn, ví dụ 02、11、33、44。<br />\n                Số ĐB hợp lẻ :kết quả số đặc biệt số hàng đơn vị thêm hàng chục thành số lẻ , ví dụ 01、14、36、47。<br />\n                Số ĐB là 49 , tức hoà ,  hoàn vốn cược。<br />\n                <br />\n                Số đặc biệt : ĐB thiên giáp , ĐB địa giáp<br />\n                Kết quả mở thưởng ĐB có các con giáp trong 12 con giáp có :Sửu , Thìn, Ngọ , Thân ,Hợi , được gọi là thiên giáp。<br />\n                Kết quả mở thưởng ĐB có các con giáp trong 12 con giáp có : Tí , Dần ,Thị ,Mùi ,Dậu , Tuất , được gọi là Điạ giáp。<br />\n                Số ĐB là 49 , tức hoà , hoàn vốn cược。<br />\n                <br />\n                Số đặc biệt:  ĐB tiền giáp ,ĐB hậu giáp<br />\n                Kết quả mở thưởng ĐB có các con giáp trong 12 con giáp có : Tí, Sửu , Dần ,Mão , Thìn, Tị được gọi là Tiền giáp。<br />\n                Kết quả mở thưởng ĐB có các con giáp trong 12 con giáp có : Ngọ, Mùi , Thân ,Dậu , Tuất , Hợi được gọi là Hậu giáp。<br />\n                Số ĐB là 49 , tức hoà ,  hoàn vốn cược。<br />\n                Số đặc biệt: : ĐB gia giáp, ĐB dã giáp<br />\n                Kết quả mở thưởng ĐB có các con giáp trong 12 con giáp có: Sửu, Ngọ , Mùi , Dậu , Tuất, Hợi được coi là nhà nuôi。<br />\n                Kết quả mở thưởng ĐB có các con giáp trong 12 con giáp có: Tí , Dần , Thìn ,Tị, Mão , Thân được coi là hoang dã。<br />\n                Mở thưởng là 49 , tức hoà。<br />\n                <br />\n                Số đặc biệt đuôi tài xỉu<br />\n                Số ĐB đuôi tài : đuôi 5 - đuôi 9 , ví dụ 05、18、19。<br />\n                Số ĐB đuôi xỉu : đuôi 0 - đuôi 4 , ví dụ 01、32、44。<br />\n                nếu mở thưởng 49 , tức là hoà。<br />\n                <br />\n                Số bán đặc biệt<br />\n                Trong các số ĐB tài xỉu , chẵn lẻ chọn ra 1 tổ hợp để đặt cược , nếu kết quả mở thưởng trùng với tổ hợp đã cược , tức đã trúng thưởng , nếu là mmở thưởng là 49 , các số đã chọn đều không trúng.<br />\n                ĐB tài lẻ :25、27、29、31、33、35、37、39、41、43、45、47。<br />\n                ĐB tài chẵn : 26、28、30、32、34、36、38、40、42、44、46、48。<br />\n                ĐB xỉu lẻ :01、03、05、07、09、11、13、15、17、19、21、23。<br />\n                ĐB xỉu chẵn : 02、04、06、08、10、12、14、16、18、20、22、24。<br />\n                nếu kết quả mở là 49 , tức là hoà。\n            "},
+      {
+        "title": "2.Số đặc biệt - chọn số",
+        "text" : "Từ 01-49 chọn lấy một số để đặt cược m nếu trùng mới kết quả mở thưởng , tức trúng thưởng。"
+      },
+      {
+        "title": "3.Số ĐB - bóng màu , bán bóng",
+        "text" : "\n            Trong xổ số Mark six , có 49 số bóng được chia thành 3 màu : đỏ , xanh , lục , chọn số bóng màu để đặt cược , các màu mô tả như sau : <br />\n            Bóng đỏ : 01 ,02 ,07 ,08 ,12 ,13 ,18 ,19 ,23 ,24 ,29 ,30 ,34 ,35 ,40 ,45 ,46 <br />\n            Bóng xanh : 03 ,04 ,09 ,10 ,14 ,15 ,20 ,25 ,26 ,31 ,36 ,37 ,41 ,42 ,47 ,48 <br />\n            Bóng lục : 05 ,06 ,11 ,16 ,17 ,21 ,22 ,27 ,28 ,32 ,33 ,38 ,39 ,43 ,44 ,49 <br />\n            Bán bóng (nửa bóng) :Để các màu bóng đặc biệt tài xỉu chẵn lẻ thành tổ hơpj , để tổ hợp chia thành : đỏ lẻ, đỏ chẵn , đỏ tài , đỏ xỉu , xanh lẻ , xanh chẵn , xanh tài , xanh xỉu , lục lẻ , lục chẵn , lục tài , lục xỉu , thành tổ hợp để đặt cược , nếu trùng với các số trong kết quả mở thưởng , tức đã trúng . Nếu kết quả là 49 , tức đã hoà , trả lại vốn cược , các trườing hợp khác coi là không trúng .<br />\n            Nửa nửa bóng : Để các màu bóng đặc biệt tài lẻ, tài chẵn , xỉu lẻ , xỉu chẵn hợp thành tổ hợp , phân chia theo các màu như sau : đỏ tài lẻ , đỏ tài chẵn , đỏ xỉu lẻ , đỏ xỉu chẵn , xanh tài lẻ , xanh tài chẵn , xanh xỉu lẻ , xanh xỉu chẵn , lục tài lẻ , lục tài chẵn , lục xỉu lẻ , lục xỉu chẵn , hợp thành rtổ hợp để đặt cược, nếu trùng với các số trong kết quả mở thưởng , tức đã trúng . Nếu kết quả là 49 , tức đã hoà , trả lại vốn cược , các trường hợp khác coi là không trúng . \n            " },
+      {
+        "title": "4.Số đặc biệt - đầu đuôi giáp",
+        "text" : "\n                Số ĐB con giáp <br />\n                Các con giáp được xếp theo thứ tự : Tí , Sửu ,Dần ,Mão ,Thìn ,Tị , Ngọ , Mùi , Thân , Dậu, Tuất,Hợi. <br />\n                Nếu năm nay là năm Tí , tính từ Tí trở đi , thuận theo 49 số chia 12 con giáp như sau : <br />\n                Tí：01,13,25,37,49 <br />\n                Sửu：12,24,36,48 <br />\n                Dần：11,23,35,47 <br />\n                Mão：10,22,34,46 <br />\n                Thìn：09,21,33,45 <br />\n                Tị：08,20,32,44 <br />\n                Ngọ：07,19,31,43 <br />\n                Ngọ：06,18,30,42 <br />\n                Thân：05,17,29,41 <br />\n                Dậu：04,16,28,40 <br />\n                Tuất：03,15,27,39 <br />\n                Hợi：02,14,26,38 <br />\n                Nếu kết quả mở thưởng trùng với số ứng với các con giáp , tức trúng thưởng. <br />\n                <br />\n                Số ĐB đầu : là số đặc biệt trong hàng chục ( hai chữ số , bắt đầu là 0) <br />\n                Đầu \"0\"：01、02、03、04、05、06、07、08、09 <br />\n                Đầu \"1\"：10、11、12、13、14、15、16、17、18、19 <br />\n                Đầu \"2\"：20、21、22、23、24、25、26、27、28、29 <br />\n                Đầu \"3\"：30、31、32、33、34、35、36、37、38、39 <br />\n                Đầu \"4\"：40、41、42、43、44、45、46、47、48、49 <br />\n                Ví dụ : Mở thưởng có kết quả số đặc biệt là 21 , tức đầu 2 , các trường hợp khác không trúng 。 <br />\n                <br />\n                Số ĐB đầu : là số đặc biệt trong hàng đơn vị ( bắt đầu là 0)。 <br />\n                Đuôi\"0\"：10、20、30、40 <br />\n                Đuôi\"1\"：01、11、21、31、41 <br />\n                Đuôi\"2\"：02、12、22、32、42 <br />\n                Đuôi\"3\"：03、13、23、33、43 <br />\n                Đuôi\"4\"：04、14、24、34、44 <br />\n                Đuôi\"5\"：05、15、25、35、45 <br />\n                Đuôi\"6\"：06、16、26、36、46 <br />\n                Đuôi\"7\"：07、17、27、37、47 <br />\n                Đuôi\"8\"：08、18、28、38、48 <br />\n                Đuôi\"9\"：09、19、29、39、49 <br />\n                Ví dụ : kết qủa mở thưởng là số 21 , tức đuôi 1trúng thưởng , các trường hợp khác không trúng .\n            "},
+      {
+        "title": "5.Số đặc biệt - hợp giáp",
+        "text" : "Trong số 12 con giáp chọn 2 con giáp để đặt cược , nếu kết quả trùng trong phạm vi số các con giáp đã đặt, tức trúng thưởng . số 49 là hoà , hoàn lại vốn cược."
+      },
+      {
+        "title": "6.Số đặc biệt- ngũ hành",
+        "text" : "\n                Đặt cược một ngũ hành , nếu khai các số trong ngũ hành đã chọn ,tức trúng thưởng .<br />\n                Kim：06,07,20,21,28,29,36,37 <br />\n                Mộc：02,03,10,11,18,19,32,33,40,41,48,49 <br />\n                Thuỷ：08,09,16,17,24,25,38,39,46,47 <br />\n                Hoả：04,05,12,13,26,27,34,35,42,43 <br />\n                Thổ：01,14,15,22,23,30,31,44,45\n            "},
+      {
+        "title": "7.Bóng - chọn số",
+        "text" : "\n                Bóng trong Mark six được chia làm tiền 6 số , tuân theo quy tắc thứ tự bóng 1, bóng 2 , bóng 3 ... bóng 6 ( bóng thứ nhất mở thưởng được coi là bóng 1)。<br />\n                Từ 1-49 chọn lấy một số để đặt cược , nếu đặt cược cược trùng với kết quả mở thưởng , tức đã trúng thưởng。\n            "},
+      {
+        "title": "8.Bóng 1-6",
+        "text" : "\n                Tài xỉu : chọn số tại các vị trí bóng , lớn hơn hoặc bằng 25 là tài , nhỏ hơn hoặc bằng 24 là xỉu , nếu kết quả là 49 , tức hoà , hoàn lại vốn cược. <br />\n                Chẵn lẻ : chọn số tại các vị trí bóng , nếu kết quả ra số lẻ là “lẻ “, ra số chẵn  là “chẵn”, nếu kết quả là 49 , tức hoà , hoàn lại vốn cược. <br />\n                Hợp tài xỉu : tại vị trí các bóng mở thưởng chữ số hàng đơn vị và hàng chục cộng lại tạo thành kết quả trúng thưởng , nếu lớn hơn hoặc bằng 7 là tài , nhỏ hơn hoặc bằng 6 là xỉu , nếu kết quả là 49 , là hoà, hoàn lại tiền cược. <br />\n                Hợp chẵn lẻ : tại vị trí các bóng mở thưởng chữ số hàng đơn vị và hàng chục cộng lại tạo thành kết quả trúng thưởng , nếu ra số lẻ , tức là lẻ , ra số chẵn , tức là chẵn . nếu kết quả là 49 , là hoà, hoàn lại tiền cược. <br />\n                Đuôi tài xỉu : Trong các bóng đã cho chọn số đuôi tài xỉu , nếu đuôi 0-4 là đuôi xỉu , 5-9 là đuôi tài Ví dụ : 01,32,44 là đuôi tài , 05,18,19 là đuôi xỉu . Nếu kết quả là 49 , tức hoà, hoàn lại vốn cược. <br />\n                Bóng màu : tại các vị trí bóng chọn lấy màu bóng để đặt cược , nếu kết quả mở thưởng trùng với đặt cược , tức trúng thưởng, các trường hợp khác không trúng .\n            "},
+      {
+        "title": "9.Chính giáp bóng 7 màu",
+        "text" : "\n                Chính giáp : Trong 12 con giáp chọn 1 con giáp nất kì , nếu kết quả mở thưởng trùng với con giáp đã đặt cược , tức trúng thưởng. <br />\n                Bóng 7 màu :kết quả ra 7 màu bóng ,màu bóng nào nhiều nhất , tức trúng thưởng . 6 màu bóng được chọn tỉ lệ 1 màu , số đặc biệt tỉ lệ 1,5 màu.nếu là dưới 3 màu , tức hoà . <br />\n                1： 6 bóng ra 3 xanh , 3 lục, nhưng bóng đặc biệt là 1,5 đỏ . <br />\n                2： 6 bóng ra 3 xanh , 3 đỏ nhưng đặc biệt là 1,5 lục. <br />\n                3： 6 bóng ra 3 lục , 3 đỏ ,nhưng đặc biệt là 1,5 xanh. <br />\n                Nếu ra kết quả là hoà , tất cả đặt đỏ , xanh , lục 7 màu bóng đều hoàn lại vốn cược , hội viên cũng có thể cược hoà .\n            "},
+      {
+        "title": "10.Bóng đặc biệt",
+        "text" : "\n                Bóng đặc biệt được phân làm : bóng ĐB 1 ，bóng ĐB 2，bóng ĐB 3，bóng ĐB 4, bóng ĐB 5, bóng ĐB 6. <br />\n                Bóng trong mark six được chia làm 6 bóng , sắp xếp theo thứ tự từ 1 đến 6, từ bóng 1, bóng 2 , bóng 3.... bóng 6 ( bóng đầu tiên được coi là bóng 1), trên một vài vị trí nếu đặt cược trùng vớ kết quả mửo thưởng sẽ trúng thưởng.<br />\n                Ví dụ : bóng 1 mở thưởng là 49 , tại bóng 1 bạn đặt cược 49 , tức đã thắng cược , các số khác không trúng thưởng . \n            "},
+      {
+        "title": "11.Liền giáp liền đuôi",
+        "text" : "\n            Liền giáp : 1 con giáp tương ứng vớ 1 con số , không nhất thiết phải trùng con giáp hoặc nhiều hơn 1 số , chỉ được chọn 1 lần m, mỗi con giáp đều có tỷ lệ cược riêng , đặt cược theo tổng tỷ lệ cược tổ hợp, không đặt theo tổ hợp sẽ có tỷ lệ cược thấp nhất, ( xin lưu ý 49 không được tính thắng thua) .\n            Hai liên giáp : trong các con giáp chọn tổ hợp 2 con , trong kì mở thưởng có 7 con giáp đối chiếu có 2 con giáp đã chọn( không hạn chế thứ tự ) trùng khớp , được coi là trúng thưởng . Ví dụ : đặt cược Tị , Ngọ , kết quả mở thưởng bao gồm : Ngọ , Sửu , Mùi ,Dậu ,Tuất , Hợi , Tí , không trúng nhưng nếu đặt cược Tị , Ngọ kết quả mở thưởng là : Tị , Ngọ ,Mùi ,Dậu ,Tuất , Hợi , tức đã trúng thưởng . <br />\n            Liên 3 giáp  : trong các con giáp chọn tổ hợp 3 con , trong kì mở thưởng có 7 con giáp đối chiếu có 3 con giáp đã chọn( không hạn chế thứ tự )trùng khớp , được coi là trúng thưởng .Ví dụ : đặt cược Tị , Ngọ ,Sửu , kết quả mở thưởng là Ngọ , Sửu , Mùi ,Dậu ,Tuất , Hợi , Tí , không trúng nhưng nếu đặt Tị , Ngọ ,Sửu ,kết quả mở thưởng là Tị , Ngọ ,Mùi ,Dậu ,Tuất , Hợi , đã trúng thưởng. <br />\n            Liên 4 giáp : trong các con giáp chọn tổ hợp 4 con , trong kì mở thưởng có 7 con giáp đối chiếu có 4 con giáp đã chọn( không hạn chế thứ tự )trùng khớp , được coi là trúng thưởng.Ví dụ : đặt cược Tị , Ngọ ,Sửu ,Mùi kết quả mở thưởng là Ngọ , Sửu , Mùi ,Dậu ,Tuất , Hợi , Tí , không trúng nhưng nếu đặt Tị , Ngọ ,Sửu,Mùi ,kết quả mở thưởng là Tị , Ngọ ,Mùi ,Dậu ,Tuất , Hợi , đã trúng thưởng. <br />\n            Liên 5 giáp : trong các con giáp chọn tổ hợp 5 con , trong kì mở thưởng có 7 con giáp đối chiếu có 5 con giáp đã chọn( không hạn chế thứ tự )trùng khớp , được coi là trúng thưởng.Ví dụ : đặt cược Tị , Ngọ ,Sửu ,Mùi, Dậu kết quả mở thưởng là Ngọ , Sửu , Mùi ,Dậu ,Tuất , Hợi , Tí , không trúng nhưng nếu đặt Tị , Ngọ ,Sửu,Mùi ,Dậu ,kết quả mở thưởng là Tị , Ngọ ,Mùi ,Dậu ,Tuất , Hợi , đã trúng thưởng. <br />\n            Liền đuôi : 1 số đuôi tương ứng với 1 con số , không quan trọng số đuôi bao nhiêu , hoặc nhiều hơn 1 số , chỉ được chọn một lần m, mỗi số đuôi đều có tỷ lệ cược riêng, đặt cược theo tổng tỷ lệ cược, nếu không đặt theo tổ hợp , tỷ lệ cược rất thấp (xin lưu ý số 49 không được tính thắng thua )  <br />\n            Liền 2 đuôi : chọn 2 số đuôi tạo thành tổ hợp để đặt cược , kết quả mở thưởng có 7 số , số hàng đơn vị bao gồm 2 số đuôi đã đặt ( không giới hạn thứ tự ) tức trúng cược .Ví dụ : đặt cược đuôi 1, đuôi 2 , kết quả mở thưởng bao gồm 2、3、4、5、6、7、8, không trúng nhưng đặt cược đuôi 1, đuôi 2 , kết quả là 1、2、3、4、5、 6、7, tức đã trúng thưởng. <br />\n            Liền 3 đuôi : chọn 3 số đuôi tạo thành tổ hợp để đặt cược , kết quả mở thưởng có 7 số , số hàng đơn vị bao gồm 3 số đuôi đã đặt ( không giới hạn thứ tự ) tức trúng cược .Ví dụ : đặt cược đuôi 1, đuôi 2 ,đuôi 3 ,kết quả mở thưởng bao gồm 2、3、4、5、6、7、8, không trúng nhưng đặt cược đuôi 1, đuôi 2 ,đuôi 3, kết quả là 1、2、3、4、5、 6、7, tức đã trúng thưởng.  <br />\n            Liền 4 đuôi : chọn 4 số đuôi tạo thành tổ hợp để đặt cược , kết quả mở thưởng có 7 số , số hàng đơn vị bao gồm 4 số đuôi đã đặt ( không giới hạn thứ tự ) tức trúng cược .Ví dụ : đặt cược đuôi 1, đuôi 2 ,đuôi 3 ,đuôi 4 ,kết quả mở thưởng bao gồm 2、3、4、5、6、7、8, không trúng nhưng đặt cược đuôi 1, đuôi 2 ,đuôi 3,đuôi 4, kết quả là 1、2、3、4、5、 6、7, tức đã trúng thưởng.  <br />\n            Liền 5 đuôi : chọn 5 số đuôi tạo thành tổ hợp để đặt cược , kết quả mở thưởng có 7 số , số hàng đơn vị bao gồm 5 số đuôi đã đặt ( không giới hạn thứ tự ) tức trúng cược . Ví dụ : đặt cược đuôi 1, đuôi 2 ,đuôi 3 ,đuôi 4 , đuôi 5 kết quả mở thưởng bao gồm 2、3、4、5、6、7、8, không trúng nhưng đặt cược đuôi 1, đuôi 2 ,đuôi 3,đuôi 4 , đuôi 5, kết quả là 1、2、3、4、5、 6、7, tức đã trúng thưởng.\n" },
+      {
+        "title": "12.Số liền",
+        "text" : "\n                Trúng 4 : chọn 4 số để đặt cược , nếu kết quả đều có 4 số đã đặt cược tức trúng thưởng , trường hợp khác không trúng.<br />\n                Trúng 3 : chọn 3 số để đặt cược , nếu kết quả đều có 3 số đã đặt cược tức trúng thưởng,trường hợp khác không trúng.<br />\n                3 trúng 2 : chọn 3 số để đặt cược, nhưng trong kết quả mở thưởng có 2 số đã chọn để đặt cược , được gọi là 3 trúng 2 , nếu chọn cả 3 số đều trúng cả 3 được gọi là trúng 3 trong 3 trúng 2 .các trường hợp khác không trúng. Ví dụ : đặt cược 06、07、08, kết quả mở thưởng là 2 số 06, 07 không có 08 , được gọi là 3 trúng 2 , được tính theo thưởng 3 trúng 2 , nếu kết quả mở thưởng có 06,07,08 cả 3 số , được tính theo thưởng trúng 3, các trường hợp khác không trúng thưởng.<br />\n                Trúng 2 : chọn 2 số để đặt cược , nếu kết quả mở thưởng trùng với 2 số đã đặt, tức đã thắng cược , các trường hợp khác không trúng.<br />\n                2 trúng đặc biệt : chọn 2 số để đặt cược , nếu 2 số đã đặt đều mở thưởng đều là bóng tức là trúng 2 trong 2 trúng 2 , nếu chỉ có 1 số bóng trúng , 1 số là số đặc biệt , được gọi là 2 trúng đặc biệt , các trường hợp khác đều không tính.<br />\n                Xiên đặc biệt : chọn 2 số để đặt cược ,trong đó có mở thưởng là bóng , 1 số mở thưởng là số đặc biệt , tức trúng thưởng ,các trường hợp khác không trúng (không bao gồm trường hợp 2 số đều là bóng).\n            " },
+      {
+        "title": "13.Nhất giáp , tổng giáp ,đặc biệt đuôi số",
+        "text" : "\n                Nhất giáp đặc biệt <br />\n                7 bóng bao gồm tất cả các con giáp hoặc nhiều hơn 1 số , nhưng chỉ được chọn 1 lần , không kể cac con giáp khác nhau nhiều hơn 1 số cũng chỉ được tính 1 lần<br />\n                Tí：01,13,25,37,49 <br />\n                Sửu：12,24,36,48 <br />\n                Dần：11,23,35,47 <br />\n                Mão：10,22,34,46 <br />\n                Thìn：09,21,33,45 <br />\n                Tị：08,20,32,44 <br />\n                Ngọ：07,19,31,43 <br />\n                Mùi：06,18,30,42 <br />\n                Thân：05,17,29,41 <br />\n                Dậu：04,16,28,40 <br />\n                Tuất：03,15,27,39 <br />\n                Hợi：02,14,26,38 <br />\n                chỉ cần trong kì mở (tất cả các bóng sau đó có mở bóng đặc biệt , chỉ cần trong phạm vi 12 con giáp được coi là trúng thưởng . ( xin lưu ý : 49 không được tính , không tính hoà ). <br />\n                <br />\n                Gíap đuôi đặc biệt <br />\n                mở thưởng 7 bóng gồm các số đuôi hoặc nhiều hơn một số , nhưng chỉ được chọn một lần , khônh trùng với số đuôi hoặc nhiều hơn một số chỉ được tính một lần . <br />\n                Đuôi \"0\"：10、20、30、40 <br />\n                Đuôi \"1\"：01、11、21、31、41 <br />\n                Đuôi \"2\"：02、12、22、32、42 <br />\n                Đuôi \"3\"：03、13、23、33、43 <br />\n                Đuôi \"4\"：04、14、24、34、44 <br />\n                Đuôi \"5\"：05、15、25、35、45 <br />\n                Đuôi \"6\"：06、16、26、36、46 <br />\n                Đuôi \"7\"：07、17、27、37、47 <br />\n                Đuôi \"8\"：08、18、28、38、48 <br />\n                Đuôi \"9\"：09、19、29、39、49 <br />\n                ví dụ trong các bóng mở thưởng có các số 11,31,42,44 ,35, 32 , số đặc biệt là 21  vậy chọn đuôi 1, đuôi 2, đuôi 4, đuôi 5 là trúng thưởng . <br />\n                <br />\n                Tổng gíap <br />\n                trong tất cả các số ( bao gồm bóng chính và đặc biệt ) có rất nhiều con giáp không giống nhau trong 12 con giáp , gọi là tổng giáp . đặt cược các số nếu có trong kết quả mở thưởng sẽ trúng thưởng, kết quả sẽ gồm lẻ , tổng giáp lẻ , chẵn , tổng giáp chẵn . ví dụ chọn số 19,12,24,40,39 , đặc biệt 49 , tổng có 6 con giáp , nếu chọn tổng giáp là 6, hoặc tổng giáp là chẵn , thì sẽ trúng thưởng (xin lưu ý : 49 không được tính , không tính hoà ) .\n            "},
+      {
+        "title": "14.Tổng số",
+        "text" : "\n               Tổng lẻ : 7 bóng mở thưởng tổng số kết quả là số lẻ , ví dụ tổng số 133,197。 <br />\n                Tổng chẵn : 7 bóng mở thưởng tổng số kết quả là số chẵn , ví dụ 120,188。 <br />\n                Tổng tài : 7 bóng mở thưởng tổng kết quả lớn hơn 176 gọi là “ tổng tài “。 <br />\n                Tổng xỉu : 7 bóng mở thưởng tổng kết quả nhỏ hơn 176 gọi là “ tổng xỉu “。 <br />\n                Nếu kết quả là 175 , được coi là tổng hoà , không hoàn lại vốn cược .\n            "},
+      {
+        "title": "15.Chọn không trúng",
+        "text" : "\n                từ 1-49 chọn lấy 5-11 số đặt cược , nếu mở thưởng có số chính và đặc biệt đều không có trong các số đã cược , bạn đã trúng thưởng. <br />\n                ví dụ : bạn chọn 5 số 01,02,03,04,05 , kết quả mở thưởng là : số chính 19,24,34,40,29 , đặc biệt 49 , bạn đã trúng thưởng .\n            " }
+    ]
+  },
+  {
+    "seriesId": 4,
+    "description": [
+      {
+        "title": "1.Hai mặt",
+        "text": "\n                Trăm / chục / đơn vị tài xỉu : 0-4 là “ xỉu “ , 5-9 là “tài”。 <br />\n                Trăm / chục / đơn vị  chẵn lẻ : 1、3、5、7、9 là “ lẻ “ ,0、2、4、6、8 là “chẵn”。 <br />\n                Trăm / chục / đơn vị hợp tố : 1、2、3、5、7 là “ tố “, 0、4、6、8、9 là “ hợp “。 <br />\n                Ngàn / trăm / chục  số chẵn lẻ : 1、3、5、7、9、11、13、15、17 là “ lẻ “ , 0、2、4、6、8、10、12、14、16、18 là “ chẵn “ <br />\n                Ngàn / trăm / chục vị số đuôi tài xỉu : 0-4 là “ xỉu”, 5-9 là “ tài “  <br />\n                Ngàn / trăm / chục đuôi hợp tố : 1、2、3、5、7 là “ tố ”,0、4、6、8、9 là “ hợp “。 <br />\n                Ngàn tài xỉu : 0~13 là “ xỉu “ ,14~27 là “ tài “。 <br />\n               Ngàn chẵn lẻ :1、3、5、7、9、11、13、15、17、19、21、23、25、27 là “ lẻ”,0、2、4、6、8、10、12、14、16、18、20、22、24、26 là “chẵn “  <br />\n                Ngàn đuôi tài xỉu : 0~4 là “ xỉu “,5~9 là “ tài “  <br />\n               Ngàn đuôi hợp tố : 1、2、3、5、7 là “tố” ,0、4、6、8、9 là “ hợp “. \n            "},
+      {
+        "title": "2.Chọn 1 số",
+        "text": "Từ 0~9 chọn ra 1 con số để đặt cược, mỗi một đơn cược được tạo thành bởi 1 con số, kết quả mở thưởng các vị trí【Chục ngàn】【Ngàn】【Trăm】【Chục】【Đơn vị】trùng khớp với con số đặt cược thì xem như trúng thưởng. Con số đã chọn để đặt cược bất luận xuất hiện bao nhiêu lần thì tiền thưởng cũng chỉ được tính 1 lần."
+      },
+      {
+        "title": "3.Chọn 2 số",
+        "text": "Từ 0~9 chọn ra 2 con số để đặt cược, mỗi một đơn cược được tạo thành bởi 1 con số,kết quả mở thưởng các con số đặt cược xuất hiện 2 lần tại vị trí đã đặt thì xem như trúng thưởng."
+      },
+      {
+        "title": "4.Chọn 3 số",
+        "text": "Từ 0~9 chọn ra 3 con số để đặt cược,kết quả mở thưởng các con số đặt cược xuất hiện trùng các số đã đặt thì xem như trúng thưởng."
+      },
+      {
+        "title": "5.Chọn 1 số cố định",
+        "text": "Chọn 1 số cố định : trong vị trí Chục ngàn , trong các số 1-9 ,chọn 1 số , nếu kết quả mở thưởng trùng với với trí đã chọn số cược , tức đã trúng thưởng.ví dụ : bóng thứ nhất , chọn số 8 , kết quả mở thưởng là 8 , tức đã trúng , những số còn lại không trúng . "
+      },
+      {
+        "title": "6.Chọn 2 số cố định",
+        "text": "Chọn 2 số cố định : trong vị trí Ngàn chọn 2 vị trí, trong các số 1-9 ,chọn 1 số , nếu kết quả mở thưởng trùng với với trí đã chọn số cược , tức đã trúng thưởng."
+      },
+      {
+        "title": "7.Chọn 3 số cố định",
+        "text": "Chọn 2 số cố định : trong vị trí Ngàn chọn 3 vị trí, trong các số 1-9 ,chọn 1 số , nếu kết quả mở thưởng trùng với với trí đã chọn số cược , tức đã trúng thưởng."
+      },
+      {
+        "title": "8.Chọn 2 chữ số",
+        "text": "\n                Hàng ngàn : chọn đặt vị trí hàng trăm , hàng chục , nếu kết quả bằng tổng 2 vị trí , tức thắng cược .<br />\n                Hàng trăm : chọn đặt vị trí hàng trăm , hàng đơn vị , nếu kết quả bằng tổng 2 vị trí , tức thắng cược .<br />\n                Hàng chục :  chọn đặt vị trí hàng chục , hàng đơn vị , nếu kết quả bằng tổng 2 vị trí , tức thắng cược .<br />\n                Hàng ngàn/ hàng trăm / hàng chục : kết quả mở thưởng dựa vào tổng đuôi. Hội viên chọn từ 1-9 số ngẫu nhiên 1 số ,ví dụ kết quả mở thưởng là 3,4,5 .<br />\n                Hàng ngàn đuôi : tổng hàng ngàn là 7 , tức đuôi 7.<br />\n                Hàng trăm đuôi : tổng hàng trăm là 8 , tức đuôi 8.<br />\n                Hàng chục đuôi : tổng số hàng trục là 9 , tức đuôi 9.<br />\n                Hàng Trăm ngàn /chục ngàn /ngàn các số chẵn lẻ :1、3、5、7、9、11、13、15、17 là “lẻ “,0、2、4、6、8、10、12、14、16、18 là “chẵn “.<br />\n                Hàng Trăm ngàn /chục ngàn /ngàn các số đuôi tài xỉu : 0-4 là “xỉu” , 5-9 là “ xỉu “ .<br />\n                Hàng Trăm ngàn /chục ngàn /ngàn các số đuôi hợp tố : 1、2、3、5、7 là “tố” , 0、4、6、8、9 là “hợp”. \n            "},
+      {
+        "title": "9.Chọn 3 chữ số",
+        "text": "\n                Chữ số hàng ngàn : tổng các số đã đặt cược trùng với tổng các số mở thưởng, tức trúng thưởng Hàng ngàn tổng đuôi : tổng các số đã đặt cược có đuôi trùng với tổng số kết quả mở thưởng , tức đã thắng cược .<br />\n                Ví dụ : kết quả mở thưởng là 3,4,5 , tổng các số hàng ngàn là 12 , đuôi 2 , nếu đặt số 2 , tức đã trúng thưởng .\n            "},
+      {
+        "title": "10.Chọn tổ hợp tam",
+        "text": "Tuừ 0-9 chọn con số, con số được nhập nhất thiết phải gồm có 1 số đôi và 1 số đơn để tạo thành 1 tổ hợp. Nếu kết quả mở thưởng trùng khớp với vị trí và con số đặt cược, nhưng không giới hạn trình tự con số mở thưởng, như vậy thì bạn đã trúng thưởng. Ngoài ra những tình huống khác đều không trúng thưởng. ví dụ : chọn số 1 số chính , số phụ là số 2 , kết quả mở thưởng là 112, 121,211 , được coi là trúng thưởng."},
+      {
+        "title": "11.Chọn tổ hợp lục",
+        "text": "Từ 0-9 chọn lấy 3 số tạo thành một tổ hợp, không giới hạn trình tự con số , nếu kết quả trùng với con số đã đặt cược , tức trúng thưởng .Ví dụ : chọn 3,4,5 , mở thưởng số 345，354，435，534，453，543，tức đã trúng thưởng."
+      },
+      {
+        "title": "12.Nhịp",
+        "text": "\n                Đặt 3 số mở thưởng có khoảng cách nhất định , nếu kết quả trùng với số đã đặt thì trúng thưởng , các số còn lại không trúng. <br />\n                Ví dụ : Số mở thưởng kết quả là 3.4,8 , trúng thưởng nhịp là 5 ,( vì số lướn nhất là 8 trừ số nhỏ nhất còn lại 5) . \n            "
+      }
+    ]
+  },
+  {
+    "seriesId": 5,
+    "description": [
+      {
+        "title": "1.Tổng số - tất cả kết quả mở thưởng từ 20 số cộng lại",
+        "text" : "\n                Tổng tài xỉu : kết quả tổng số là lớn hơn 810 là “tài “, nhỏ hơn 810 là “ xỉu “。<br />\n                Tổng chẵn lẻ : tổng kết quả là số chẵn , gọi là “chẵn” , tổng kết quả là số lẻ gọi là “lẻ “。<br />\n                Tổng kết quả là 810 , gọi là “ hoà “ , không hoàn lại vốn cược。\n            "
+      },
+      {
+        "title": "2.Tổng số vượt",
+        "text" : "\n                Tổng số lớn hơn 810 gọi là “ tổng tài “, tổng số nhỏ hơn 810 gọi là “ xỉu “ . <br />\n                Tổng số là chẵn , gọi là chẵn , tổng số là lẻ “ gọi là “lẻ “ .<br />\n                Vượt qua tài xỉu chẵn lẻ , tạo thành “ tài lẻ “ , “ xỉu lẻ “, “tài chẵn “ , “ xỉu chẵn “ 4 kết quả .<br />\n                Tổng số là 810 ,kết quả là hoà , không hồi lại vốn cược . \n            "},
+      {
+        "title": "3.Tiền hậu đa",
+        "text" : "\n                Khai thưởng các số từ 1-40 gọi là “tiền” số , 41-80 gọi là “hậu “ số。<br />\n                Trong 20 số mở thưởng , thuộc các số (1-40) , được gọi là “ tiền đa”。<br />\n                Trong 20 số mở thưởng , thuộc các số (41-80) , được gọi là “ hậu đa”。<br />\n                Trong 20 số mở thưởng , thuộc tiền (1-40) và thuộc hậu (41-80)các số giống nhau ( 10 số khác nhau ) , được coi là hoà , không hoàn lại vốn cược .<br />\n                Ví dụ : mở thưởng gồm 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20. là “ tiền” đa。<br />\n                Ví dụ : mở thưởng gồm 41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60 là “hậu” đa。\n            " },
+      {
+        "title": "4.Chẵn lẻ đa",
+        "text" : "\n                Mở thưởng các số có 1，3，5，7，…，75，77，79 là “ số lẻ”, 2，4，6，8，……，76，78，80 là “ số chẵn “ <br />\n                Trong 20 số mở thưởng , các số lẻ nhiều hơn số chẵn (vượt qua 10 số) , gọi là “lẻ đa” , đặt “lẻ đa” sẽ trúng trưởng , số chẵn nhiều hơn số lẻ ( vượt 10 số ) , gọi là “chẵn đa” đặt “chẵn đa” sẽ trúng thưởng. nếy chẵn và lẻ bằng nhau ( đều là 10 ) tức hoà , không hoàn lại vốn cược.<br />\n                Ví dụ : 1，3，5，7，9，11，13，15，17，19，21，22，24，26，28，30，32，34，46，68，mở ra số lẻ là 11 số , chẵn là 9 số , tức “lẻ đa”  <br />\n                Ví dụ: 2，4，6，8，10，12，14，16，44，48，66，68，25，27，31，35，37，39，41，55 mở ra số lẻ là 8 số , chẵn 12 số , tức “chẵn đa”\n            " },
+      {
+        "title": "5.Ngũ hành",
+        "text" : "\n               Mở thưởng 20 số , được phân làm 5 đoạn : kim , mộc ,thuỷ , hoả , thổ Mệnh kim : （210～695）, Mệnh mộc 696-763）,  Mệnh Thuỷ （764-856), ,Mệnh Hoả （857-924）,Mệnh Thổ （925-1410）.<br />\n                Ví dụ mở thưởng gồm có 01、04、05、10、11、13、20、27、30、32、33、36、40、47、54、59、61、64、67、79, tổng số là 693, tức Mệnh Kim . <br />\n                các số phân từ 210-695 , đặt mệnh kim , tức trúng thưởng . \n            "},
+      {
+        "title": "6.Bóng",
+        "text" : "Trong 20 số sẽ mở thưởng chọn lấy 1 số , nếu trùng với kết quả mở thưởng sẽ trúng thưởng"
+      }
+    ]
+  },
+  {
+    "seriesId": 6,
+    "description": [
+      {
+        "title": "1.Hai mặt",
+        "text": "1.Tổng quán , á quân : số quán quân + số á quân = tổng quán á quân ( từ 3-19)<br> Quán á quân chẵn lẻ: tổng quán á quân là số lẻ , đặt cược “lẻ” sẽ trúng , nếu kết quả là chẵn , đặt cược “chẵn” sẽ trúng , các trường hợp khác không tính .<br> Quán á quân tài xỉu : tổng quán á quân  lớn hơn 11 , đặt cược “tài” sẽ trúng , kết quả nhỏ hơn 11 , đặt cược “ xỉu” sẽ trúng thưởng , trường hợp khác không tính .<br> 2.Quán quân - Hạng 10 tài xỉu rồng hổ <br> Tài xỉu :trong một vài vị trí mở thưởng , con số lớn hơn hoặc bằng 6 , đặt “tài” sẽ trúng , nhỏ hơn hoặc bằng 5 , đặt “xỉu” sẽ trúng thưởng.<br> Chẵn lẻ : rong một vài vị trí mở thưởng nếu mở các số là số lẻ , đặt “lẻ” sẽ trúng , nếu là ”chẵn”, đặt chẵn sẽ trúng thưởng.<br> Quán quân rồng/hổ : “Hạng 1” số lớn hơn “Hạng 10” ,được gọi là “rồng” , ngược lại là “hổ” , các trường hợp khác không trúng .<br> Á quân rồng/ hổ : “Hạng 2” số lớn hơn “Hạng 9” ,được gọi là “rồng” , ngược lại là “hổ”, các trường hợp khác không trúng .<br> Hạng 3 rồng /hổ : “Hạng 3” số lớn hơn “Hạng 8” ,được gọi là “rồng” , ngược lại là “hổ”, các trường hợp khác không trúng .<br> Hạng 4 rồng /hổ : “Hạng 4” số lớn hơn “Hạng 7” ,được gọi là “rồng” , ngược lại là “hổ”, các trường hợp khác không trúng .<br> Hạng 5 rồng /hổ : “Hạng 5” số lớn hơn “Hạng 6” ,được gọi là “rồng” , ngược lại là “hổ”, các trường hợp khác không trúng ."},
+      {
+        "title": "2.Chọn số",
+        "text": "Tại quán quân - Hạng 10 chọn lấy số bất kì để đặt cược <br> Nếu số trên các vị trí trùng với số đã đặt cược , tức trúng thưởng, các trường hợp khác không trúng."
+      },
+      {
+        "title": "3.Quán á quân",
+        "text": "Từ 3-19 chọn 1 số để đặt cược , nếu kết quả đặt cược trùng với hạng quán quân á quân , tức trúng thưởng."
+      }
+    ]
+  },
+  {
+    "seriesId": 7,
+    "description": [
+      {
+        "title": "1.Tam quân tài xỉu",
+        "text" : "\n                Tam quân : 3 số mở thưởng có 1 số trùng với kết quả mở thưởng , tức trúng thưởng . Ví dụ : bạn chọn tam quân (1)  hoặc tam quân (3) , kết quả mở thưởng có 1,1,3 tức bạn đã trúng thưởng .<br />\n               Tài xỉu : 3 số mở thưởng có tổng kết quả từ 11-17 , gọi là “tài “ , từ 4-10 gọi là xỉu , nếu 3 số không trùng tức không trúng thưởng . \n            "},
+      {
+        "title": "2.cược 3 , cược toàn bộ",
+        "text" : "\n                Cược 3: chọn 1 xúc xắc , chọn 1 số , kết quả 3 số mở thưởng cùng một số  và trùng khớp với số đặt cược, tính là trúng thưởng .<br />\n                cược toàn bộ : chọn toàn bộ , kết quả 3 số mở thưởng trùng một số , 1-6 đều được coi là trúng thưởng. \n            "
+      },
+      {
+        "title": "3.Điểm số",
+        "text" : "điểm số : điểm số trên xúc xắc từ 3-18 bạn đã trúng. "
+      },
+      {
+        "title": "4.Bài ngắn , bài dài",
+        "text" : "\n                bài dài : tuỳ chọn 1 tổ hợp , khi kết quả mở thưởng bất kì trùng với tổ hợp đã đặt cược , tức đã trúng thưởng ví dụ : kết quả mở thưởng 1,2,3 nếu đặt cược bài dài 12, bài dài 23 , bài dài 13, đã trúng thưởng .<br />\n                bài ngắn :khi kết quả mở thưởng 2 số bất kì trùng với tổ hợp đã đặt cược tức trúng thưởng ví dụ nếu kết quả mở thưởng là 1,1,3 , đặt cược bài ngắn 1,1 đã trúng thưởng .\n            "
+      },
+      {
+        "title": "5.Tôm cua cá",
+        "text" : "Tôm cua cá :trong 3 số mở thưởng có bao gồm các số đã chọn ,tức đã trúng thưởng ."
+      }
+    ]
+  }
+]

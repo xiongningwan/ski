@@ -239,7 +239,12 @@ public class BodyFragment extends BaseFragment {
         }
         List<ShuoMingDoubleBean> list = new ArrayList<>();
         Gson gson = new Gson();
-        String json = AssetsReader.getJson(mContext, "json" + File.separator + "def_play_des.json");
+        String json = "";
+        if(LanguageUtil.VI.equals(LanguageUtil.getLanguage())) {
+            json = AssetsReader.getJson(getContext(), "json" + File.separator + "language"+ File.separator + "def_play_des_vi.json");
+        } else {
+            json = AssetsReader.getJson(getContext(), "json" + File.separator + "def_play_des.json");
+        }
         list = gson.fromJson(json, new TypeToken<List<ShuoMingDoubleBean>>() {
         }.getType());
         for (ShuoMingDoubleBean bean : list) {

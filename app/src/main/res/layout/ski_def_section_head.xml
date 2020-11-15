@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <TextView
+    <com.ski.box.view.view.CusTextView
         android:id="@+id/header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
