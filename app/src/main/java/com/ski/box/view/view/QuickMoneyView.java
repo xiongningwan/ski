@@ -28,6 +28,7 @@ import com.ski.box.bean.DataCenter;
 import com.ski.box.bean.MkBetParamEntity;
 import com.ski.box.bean.QuickSetMoneyBean;
 import com.ski.box.bean.lottery.LotteryConstant;
+import com.ski.box.utils.ActivityUtil;
 import com.ski.box.utils.KeyBoardUtils;
 import com.ski.box.view.view.dialog.CustomBottomDialog;
 import com.ski.box.view.view.keyboard.KeyBoardBean;
@@ -115,6 +116,9 @@ public class QuickMoneyView extends ConstraintLayout implements View.OnClickList
         numKeyBoard = rootView.findViewById(R.id.numkeyboard);
 
         etDoubleAmount.setHint(LanguageUtil.getText("输入金额"));
+        if(LanguageUtil.VI.equals(LanguageUtil.getLanguage())) {
+            etDoubleAmount.setTypeface(ActivityUtil.getFontTNR());
+        }
 
         tvSetting.setOnClickListener(this);
         tvUnit.setOnClickListener(this);

@@ -1,14 +1,11 @@
 package com.ski.box.view.fragment;
 
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Spannable;
 import android.text.SpannableString;
-import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
-import android.text.style.ForegroundColorSpan;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
@@ -18,7 +15,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.gyf.immersionbar.ImmersionBar;
 import com.hwangjr.rxbus.RxBus;
 import com.hwangjr.rxbus.annotation.Subscribe;
 import com.hwangjr.rxbus.annotation.Tag;
@@ -26,33 +22,25 @@ import com.ski.box.R;
 import com.ski.box.bean.DataCenter;
 import com.ski.box.bean.money.DepositBack;
 import com.ski.box.bean.money.PayType;
-import com.ski.box.bean.user.BankCard;
 import com.ski.box.bean.user.User;
 import com.ski.box.bean.user.UserInfo;
-import com.ski.box.mvp.contract.EmptyContract;
-import com.ski.box.mvp.contract.HallContract;
 import com.ski.box.mvp.contract.money.RechargeContract;
-import com.ski.box.mvp.presenter.EmptyPresenter;
-import com.ski.box.mvp.presenter.HallPresenter;
 import com.ski.box.mvp.presenter.money.RechargePresenter;
 import com.ski.box.utils.ActivityUtil;
 import com.ski.box.view.activity.money.RechargeDetailActivity;
 import com.ski.box.view.view.ClearEditText;
 import com.ski.box.view.view.CusTextView;
 import com.ski.box.view.view.HeaderView;
-import com.ski.box.view.view.dialog.LoadingDialog;
+import com.ski.box.view.view.spinner.NiceSpinner;
+import com.ski.box.view.view.spinner.OnSpinnerItemSelectedListener;
+import com.ski.box.view.view.spinner.SpinnerTextFormatter;
 import com.yb.core.base.BaseMVPFragment;
 import com.yb.core.utils.LanguageUtil;
 import com.yb.core.utils.ToastUtil;
 
-import org.angmarch.views.NiceSpinner;
-import org.angmarch.views.OnSpinnerItemSelectedListener;
-import org.angmarch.views.SpinnerTextFormatter;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import retrofit2.http.PUT;
 
 import static com.ski.box.ConstantValue.EVENT_TYPE_BALANCE_UPDATE;
 import static com.ski.box.ConstantValue.EVENT_TYPE_USER_NAME_NICK_NAME;

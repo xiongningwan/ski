@@ -13,15 +13,15 @@ import com.ski.box.R;
 import com.ski.box.bean.user.Bank;
 import com.ski.box.mvp.contract.my.BankCardAddContract;
 import com.ski.box.mvp.presenter.my.BankCardAddPresenter;
+import com.ski.box.view.view.spinner.NiceSpinner;
+import com.ski.box.view.view.spinner.OnSpinnerItemSelectedListener;
+import com.ski.box.view.view.spinner.SpinnerTextFormatter;
 import com.yb.core.utils.LanguageUtil;
 import com.ski.box.view.view.ClearEditText;
 import com.ski.box.view.view.HeaderView;
 import com.yb.core.base.BaseMVPActivity;
 import com.yb.core.utils.ToastUtil;
 
-import org.angmarch.views.NiceSpinner;
-import org.angmarch.views.OnSpinnerItemSelectedListener;
-import org.angmarch.views.SpinnerTextFormatter;
 
 import java.util.List;
 

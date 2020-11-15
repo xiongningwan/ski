@@ -14,7 +14,7 @@
         android:id="@+id/ll_play_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
-        <TextView
+        <com.ski.box.view.view.CusTextView
             android:ellipsize="end"
             android:lines="1"
             android:id="@+id/tv_play_name"
@@ -24,7 +24,7 @@
             android:textColor="#7c88a8"
             android:textSize="12sp" />
 
-        <TextView
+        <com.ski.box.view.view.CusTextView
             android:ellipsize="end"
             android:lines="1"
             android:id="@+id/tv_play_item_name"
@@ -49,7 +49,7 @@
         android:paddingLeft="@dimen/ski_dp_10"
         android:singleLine="true" />
 
-    <TextView
+    <com.ski.box.view.view.CusTextView
         android:lines="1"
         android:layout_marginLeft="@dimen/ski_dp_10"
         android:layout_centerVertical="true"
@@ -72,7 +72,7 @@
         android:layout_alignParentRight="true"
         android:src="@mipmap/ski_clear_away" />
 
-    <TextView
+    <com.ski.box.view.view.CusTextView
         android:visibility="gone"
         android:letterSpacing="-0.02"
         android:gravity="center"

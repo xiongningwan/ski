@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     android:layout_gravity="center"
     android:gravity="center">
-    <TextView
+    <com.ski.box.view.view.CusTextView
         android:id="@+id/tv_item_tab_double"
         android:layout_width="@dimen/ski_dp_72"
         android:layout_height="@dimen/ski_dp_23"

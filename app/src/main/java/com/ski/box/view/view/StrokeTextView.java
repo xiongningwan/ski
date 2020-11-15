@@ -18,7 +18,7 @@ import com.ski.box.R;
 import java.util.Arrays;
 
 
-public class StrokeTextView extends AppCompatTextView {
+public class StrokeTextView extends CusTextView {
     private static final int HORIZENTAL = 0;
     private static final int VERTICAL = 1;
 

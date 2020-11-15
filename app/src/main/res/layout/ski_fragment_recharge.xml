@@ -115,7 +115,7 @@
                 android:textSize="15dp"
                 app:layout_constraintHeight_percent="0.33"/>
 
-            <org.angmarch.views.NiceSpinner
+            <com.ski.box.view.view.spinner.NiceSpinner
                 android:id="@+id/spinner_type"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"

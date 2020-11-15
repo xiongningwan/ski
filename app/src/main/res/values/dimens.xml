@@ -9,6 +9,9 @@
     <dimen name="ski_arrow_size_h">10dp</dimen>
     <dimen name="ski_text_title_size">17dp</dimen>
 
+    <dimen name="three_grid_unit">24dp</dimen>
+    <dimen name="one_and_a_half_grid_unit">12dp</dimen>
+
 
     <dimen name="ski_dp_0">0dp</dimen>
     <dimen name="ski_dp_0_1">0.1dp</dimen>

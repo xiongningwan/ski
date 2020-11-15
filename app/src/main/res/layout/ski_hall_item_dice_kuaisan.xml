@@ -19,7 +19,7 @@
         android:paddingRight="@dimen/ski_dp_3"
         android:paddingBottom="@dimen/ski_dp_5">
 
-        <TextView
+        <com.ski.box.view.view.CusTextView
             android:id="@+id/tv_num"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -31,7 +31,7 @@
             android:textColor="@color/ski_444444_white_text_color"
             tools:text="1" />
 
-        <TextView
+        <com.ski.box.view.view.CusTextView
             android:id="@+id/tvOne"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -42,7 +42,7 @@
             app:layout_constraintTop_toTopOf="@+id/tvTwo"
             tools:text="大" />
 
-        <TextView
+        <com.ski.box.view.view.CusTextView
             android:id="@+id/tvTwo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -55,7 +55,7 @@
             android:textColor="@color/ski_444444_white_text_color"
             tools:text="小" />
 
-        <TextView
+        <com.ski.box.view.view.CusTextView
             android:id="@+id/tvThree"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -66,7 +66,7 @@
             app:layout_constraintTop_toTopOf="@+id/tvTwo"
             tools:text="单" />
 
-        <TextView
+        <com.ski.box.view.view.CusTextView
             android:id="@+id/tv_play_odds"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -79,7 +79,7 @@
             tools:text="1" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <TextView
+    <com.ski.box.view.view.CusTextView
         android:id="@+id/tv_cold_hot_missing"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -98,7 +98,7 @@
             android:layout_marginRight="@dimen/ski_dp_16"
             android:text="以后关闭投注确认弹窗" />
 
-        <TextView
+        <com.ski.box.view.view.CusTextView
             android:textSize="14dp"
             android:gravity="center"
             android:layout_height="@dimen/ski_dp_20"

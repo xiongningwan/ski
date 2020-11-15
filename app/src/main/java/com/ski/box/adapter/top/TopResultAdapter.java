@@ -55,7 +55,7 @@ public class TopResultAdapter extends BaseMultiItemQuickAdapter<LotteryNumBean, 
     private final Context mContext;
     String systemModel;
     Random mRandom;
-    Typeface mTf_DinABold;
+//    Typeface mTf_DinABold;
     private int mode;
 
     public TopResultAdapter(Context context) {
@@ -74,7 +74,7 @@ public class TopResultAdapter extends BaseMultiItemQuickAdapter<LotteryNumBean, 
         //从asset 读取字体
         AssetManager mgr = context.getAssets();
         //根据路径得到Typeface
-        mTf_DinABold = Typeface.createFromAsset(mgr, "fonts/DIN_Alternate_Bold.ttf");
+      //  mTf_DinABold = Typeface.createFromAsset(mgr, "fonts/DIN_Alternate_Bold.ttf");
     }
 
     public void setMode(int i) {

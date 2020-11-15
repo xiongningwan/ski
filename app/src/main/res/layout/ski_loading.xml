@@ -30,7 +30,7 @@
     </FrameLayout>
 
 
-    <TextView
+    <com.ski.box.view.view.CusTextView
         android:id="@+id/id_tv_loadingmsg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

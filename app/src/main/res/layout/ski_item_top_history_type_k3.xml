@@ -9,7 +9,7 @@
     android:paddingStart="16dp"
     android:paddingEnd="16dp">
 
-    <TextView
+    <com.ski.box.view.view.CusTextView
         android:id="@+id/tv_current_period"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"

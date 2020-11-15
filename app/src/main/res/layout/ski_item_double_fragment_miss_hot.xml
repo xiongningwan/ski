@@ -40,7 +40,7 @@
             android:layout_weight="0.40"
             android:paddingLeft="@dimen/ski_dp_10">
 
-            <TextView
+            <com.ski.box.view.view.CusTextView
                 android:layout_width="wrap_content"
                 android:layout_height="4dp"
                 android:layout_gravity="center"
@@ -82,7 +82,7 @@
                 android:layout_height="@dimen/ski_dp_6"
                 android:layout_weight="1" />
 
-            <TextView
+            <com.ski.box.view.view.CusTextView
                 android:id="@+id/tvAllFreshColdHot"
                 android:textColor="@color/ski_color_666666"
                 android:layout_width="wrap_content"
@@ -95,7 +95,7 @@
                 android:drawablePadding="5dp"
                 android:text="冷热" />
 
-            <TextView
+            <com.ski.box.view.view.CusTextView
                 android:id="@+id/tvAllFreshOmission"
                 android:textColor="@color/ski_color_666666"
                 android:layout_width="wrap_content"
@@ -111,7 +111,7 @@
                 android:textSize="13dp"
                 android:visibility="visible" />
 
-            <TextView
+            <com.ski.box.view.view.CusTextView
                 android:id="@+id/tv_odds"
                 android:textColor="@color/ski_color_666666"
                 android:layout_width="wrap_content"
@@ -125,7 +125,7 @@
                 tools:text="赔率：836.4496" />
         </LinearLayout>
 
-        <TextView
+        <com.ski.box.view.view.CusTextView
             android:id="@+id/tv_special_odds"
             android:textColor="@color/ski_color_666666"
             android:layout_width="wrap_content"

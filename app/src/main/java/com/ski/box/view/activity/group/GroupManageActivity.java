@@ -33,9 +33,6 @@ import com.yb.core.utils.LanguageUtil;
 import com.yb.core.utils.MD5Util;
 import com.yb.core.utils.ToastUtil;
 
-import org.angmarch.views.NiceSpinner;
-import org.angmarch.views.OnSpinnerItemSelectedListener;
-import org.angmarch.views.SpinnerTextFormatter;
 
 import java.util.List;
 

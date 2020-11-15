@@ -18,9 +18,10 @@
     <com.ski.box.view.view.CusTextView
         android:id="@+id/tv_close"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="35dp"
         android:text="收起"
         android:gravity="center"
+        android:textSize="14dp"
         android:background="@color/ski_color_A86A91"
         android:textColor="@color/ski_white"/>
 </LinearLayout>

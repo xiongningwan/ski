@@ -26,6 +26,7 @@ import com.ski.box.utils.SystemUtil;
 import com.ski.box.utils.lottery.ConfigurationUiUtils;
 import com.ski.box.utils.lottery.LotteryNoUtil;
 import com.yb.core.utils.AppUtil;
+import com.yb.core.utils.LanguageUtil;
 import com.yb.core.utils.LogUtils;
 import com.yb.core.utils.ScreenUtils;
 
@@ -164,7 +165,7 @@ public class TopHistoryAdapter extends BaseMultiItemQuickAdapter<LotteryNumBean,
                             int numInt = Integer.parseInt(arr_code[i]);
                            // startAnimal_lhc(arrFl[i], i + 1, numInt, arrSx[i]);
                             String sx = LotteryUtil.getLHCSX(numInt);
-                            arrSx[i].setText(sx);
+                            arrSx[i].setText(LanguageUtil.getText(sx));
 
                             Integer bg = ConfigurationUiUtils.getLHCBg(numInt);
                             arr[i].setBackgroundResource(bg);
