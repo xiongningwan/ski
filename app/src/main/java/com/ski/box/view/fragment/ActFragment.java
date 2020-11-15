@@ -18,6 +18,7 @@ import com.ski.box.mvp.presenter.ActPresenter;
 import com.ski.box.view.activity.AgentWebViewActivity;
 import com.ski.box.view.view.HeaderView;
 import com.yb.core.base.BaseMVPFragment;
+import com.yb.core.utils.LanguageUtil;
 
 import java.util.List;
 
@@ -56,7 +57,7 @@ public class ActFragment extends BaseMVPFragment<ActContract.Presenter> implemen
         RxBus.get().register(this);
        mHeadView =  view.findViewById(R.id.head_view);
        mRv =  view.findViewById(R.id.rv);
-        mHeadView.setHeader("优惠活动", false);
+        mHeadView.setHeader(LanguageUtil.getText("优惠活动"), false);
     }
 
     @Override
