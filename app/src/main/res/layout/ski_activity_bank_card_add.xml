@@ -18,7 +18,7 @@
         android:layout_height="50dp"
         android:background="@color/ski_white">
 
-        <TextView
+        <com.ski.box.view.view.CusTextView
             android:id="@+id/tv_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -63,7 +63,7 @@
         android:layout_height="50dp"
         android:background="@color/ski_white">
 
-        <TextView
+        <com.ski.box.view.view.CusTextView
             android:id="@+id/tv_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -117,7 +117,7 @@
         android:layout_height="50dp"
         android:background="@color/ski_white">
 
-        <TextView
+        <com.ski.box.view.view.CusTextView
             android:id="@+id/tv_3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -172,7 +172,7 @@
         android:layout_height="50dp"
         android:background="@color/ski_white">
 
-        <TextView
+        <com.ski.box.view.view.CusTextView
             android:id="@+id/tv_4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -227,7 +227,7 @@
         android:layout_height="50dp"
         android:background="@color/ski_white">
 
-        <TextView
+        <com.ski.box.view.view.CusTextView
             android:id="@+id/tv_5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -282,7 +282,7 @@
         android:layout_height="50dp"
         android:visibility="gone">
 
-        <TextView
+        <com.ski.box.view.view.CusTextView
             android:id="@+id/tv_6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -293,7 +293,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginStart="16dp"/>
 
-        <TextView
+        <com.ski.box.view.view.CusTextView
             android:id="@+id/tv_fund_pwd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

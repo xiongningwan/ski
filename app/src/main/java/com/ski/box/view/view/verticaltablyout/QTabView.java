@@ -16,7 +16,10 @@ import androidx.annotation.Px;
 import androidx.annotation.RequiresApi;
 import androidx.core.content.ContextCompat;
 
+import com.ski.box.utils.ActivityUtil;
+import com.ski.box.view.view.CusTextView;
 import com.ski.box.view.view.badgeview.Badge;
+import com.yb.core.utils.LanguageUtil;
 import com.yb.core.utils.ScreenUtils;
 
 
@@ -59,6 +62,9 @@ public class QTabView extends TabView {
         setMinimumHeight(ScreenUtils.dp2px(mContext, 25));
         if (mTitle == null) {
             mTitle = new TextView(mContext);
+            if(LanguageUtil.VI.equals(LanguageUtil.getLanguage())) {
+                mTitle.setTypeface(ActivityUtil.getFontTNR());
+            }
             setLayoutParams();
             this.addView(mTitle);
         }
@@ -292,7 +298,7 @@ public class QTabView extends TabView {
         setSelected(checked);
         refreshDrawableState();
         mTitle.setTextColor(checked ? mTabTitle.getColorSelected() : mTabTitle.getColorNormal());
-        mTitle.setTypeface(checked && mTabTitle.getTitleTextBold() ? Typeface.DEFAULT_BOLD : Typeface.DEFAULT);
+       // mTitle.setTypeface(checked && mTabTitle.getTitleTextBold() ? Typeface.DEFAULT_BOLD : Typeface.DEFAULT);
         mTitle.setShadowLayer(checked && mTabTitle.getShadowColorSelected() != 0 ? 3 : 0, 0, 3, mTabTitle.getShadowColorSelected());
         setBackground(checked ? -1 : mBackgroundResId);
         initIconView();
