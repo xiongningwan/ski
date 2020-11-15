@@ -19,6 +19,8 @@ public class LanguageUtil {
     public static final String KEY_SP_LANGUAGE = "sp_language";
     private static String mLanguage;
     private static Map<String, String> mLMap = new HashMap<>();
+    public static final String ZH = "zh";
+    public static final String VI = "vi";
 
     //lang=zh/en/vi ;zh 标识简体中文，en标识英文 vi越南语
     public static String getDeviceLanguage(Context context) {
@@ -37,16 +39,13 @@ public class LanguageUtil {
     }
 
     public static void initLanguage(Context context) {
-        String la = SPUtils.getString(context, KEY_SP_LANGUAGE);
-        if (TextUtils.isEmpty(la)) {
-            la = getDeviceLanguage(context);
+        mLanguage = SPUtils.getString(context, KEY_SP_LANGUAGE);
+        if (TextUtils.isEmpty(mLanguage)) {
+            mLanguage = getDeviceLanguage(context);
         }
-//        mLanguage = la;
-        mLanguage = "vi";
-//        mLanguage = "zh";
         String json = "";
         switch (mLanguage) {
-            case "vi":
+            case VI:
                 json = AssetsReader.getJson(context, "json" + File.separator + "language" + File.separator + "zh-vi.json");
                 break;
         }
@@ -56,11 +55,22 @@ public class LanguageUtil {
         }
     }
 
+    public static void languageSwitch(Context context, String lang) {
+        SPUtils.putString(context, KEY_SP_LANGUAGE, lang);
+        mLanguage = lang;
+        initLanguage(context);
+    }
+
     public static String getText(String s_zh) {
-        String str = mLMap.get(s_zh);
-        if (TextUtils.isEmpty(str)) {
-            str = s_zh;
+        String Str;
+        if(!ZH.equals(s_zh)) {
+            Str = mLMap.get(s_zh);
+            if (TextUtils.isEmpty(Str)) {
+                Str = s_zh;
+            }
+        } else {
+            Str = s_zh;
         }
-        return str;
+        return Str;
     }
 }

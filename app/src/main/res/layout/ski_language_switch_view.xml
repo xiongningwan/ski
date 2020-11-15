@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:ignore="ResourceName"
+    android:orientation="vertical"
+    android:background="@color/ski_white">
+
+    <com.ski.box.view.view.CusTextView
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:textSize="16dp"
+        android:gravity="center"
+        android:text="语言切换"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/ski_color_333333"/>
+
+    <com.ski.box.view.view.CusTextView
+        android:id="@+id/tv_zh"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:textSize="14dp"
+        android:gravity="center"
+        android:background="@drawable/ski_chose_lottery_list_item_selector"
+        android:textColor="@color/ski_color_333333"
+        android:layout_marginTop="10dp"
+        android:text="中文" />
+
+    <com.ski.box.view.view.CusTextView
+        android:id="@+id/tv_vi"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:textSize="14dp"
+        android:gravity="center"
+        android:background="@drawable/ski_chose_lottery_list_item_selector"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:textColor="@color/ski_color_333333"
+        android:text="越南文"/>
+</LinearLayout>

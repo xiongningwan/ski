@@ -21,6 +21,7 @@ import com.ski.box.bean.user.LoginInfo;
 import com.ski.box.mvp.contract.LoginContract;
 import com.ski.box.mvp.presenter.LoginPresenter;
 import com.ski.box.utils.HeaderUtil;
+import com.ski.box.view.view.dialog.LanguageSwitchDialog;
 import com.yb.core.utils.LanguageUtil;
 import com.ski.box.utils.SoftHideKeyBoardUtil;
 import com.yb.core.base.BaseMVPActivity;
@@ -43,6 +44,7 @@ public class LoginActivity extends BaseMVPActivity<LoginContract.Presenter> impl
     private EditText etPassword;
     private Button btDevLogin;
     private TextView tvRegister;
+    private TextView tvLanguageSwitch;
     private TextView tvEnvironment;
     private TextView tvMerchant;
     private ProgressDialog mLoading;
@@ -67,6 +69,7 @@ public class LoginActivity extends BaseMVPActivity<LoginContract.Presenter> impl
         etPassword = findViewById(R.id.et_password);
         btDevLogin = findViewById(R.id.btn_login_dev);
         tvRegister = findViewById(R.id.tv_register);
+        tvLanguageSwitch = findViewById(R.id.tv_language_switch);
         btDevLogin.setOnClickListener(this);
         mLoading = new ProgressDialog(this);
         mLoading.setCancelable(true);
@@ -75,6 +78,7 @@ public class LoginActivity extends BaseMVPActivity<LoginContract.Presenter> impl
         tvEnvironment.setOnClickListener(this);
         tvMerchant.setOnClickListener(this);
         tvRegister.setOnClickListener(this);
+        tvLanguageSwitch.setOnClickListener(this);
         SoftHideKeyBoardUtil.assistActivity(this);
     }
 
@@ -82,7 +86,7 @@ public class LoginActivity extends BaseMVPActivity<LoginContract.Presenter> impl
     @Override
     protected void initData(Bundle bundle) {
         RetrofitHelper.getInstance().init(ConstantValue.BASE_HOST, BuildConfig.DEBUG,
-                HeaderUtil.getHeader("","", ConstantValue.DEVICE, LanguageUtil.getLanguage()));
+                HeaderUtil.getHeader("", "", ConstantValue.DEVICE, LanguageUtil.getLanguage()));
         initSetFromSp();
     }
 
@@ -95,7 +99,21 @@ public class LoginActivity extends BaseMVPActivity<LoginContract.Presenter> impl
         } else if (id == R.id.tv_register) {
             Intent intent = new Intent(this, RegisterActivity.class);
             startActivityForResult(intent, REQUEST_CODE_LOGIN_REGISTER);
+        } else if (id == R.id.tv_language_switch) {
+            LanguageSwitchDialog lsDialog = new LanguageSwitchDialog(this);
+            lsDialog.setOnClickListener(new LanguageSwitchDialog.OnLanguageSwitchListener() {
+                @Override
+                public void languageSwitch() {
+                    resetView();
+                }
+            });
+            lsDialog.show();
         }
+    }
+
+    private void resetView() {
+        startActivity(new Intent(this, LoginActivity.class));
+        finish();
     }
 
     private void doLogin() {
@@ -126,7 +144,7 @@ public class LoginActivity extends BaseMVPActivity<LoginContract.Presenter> impl
         saveSetSp_name_pwd(member, password);
         saveSetSp_token_authorization(loginInfo.getToken(), loginInfo.getAuthorization());
         RetrofitHelper.getInstance().init(ConstantValue.BASE_HOST, BuildConfig.DEBUG,
-                HeaderUtil.getHeader( loginInfo.getToken(), loginInfo.getAuthorization(),ConstantValue.DEVICE, LanguageUtil.getLanguage()));
+                HeaderUtil.getHeader(loginInfo.getToken(), loginInfo.getAuthorization(), ConstantValue.DEVICE, LanguageUtil.getLanguage()));
         SKISdkManger.initLotteryIds(BuildConfig.DEBUG);
         DataCenter.getInstance().getLottery().clear();
         DataCenter.getInstance().getRemotePlayMap().clear();
@@ -167,6 +185,7 @@ public class LoginActivity extends BaseMVPActivity<LoginContract.Presenter> impl
         SPUtils.putString(this, KEY_NAME, name);
         SPUtils.putString(this, KEY_PWD, pwd);
     }
+
     private void saveSetSp_token_authorization(String token, String authorization) {
         SPUtils.putString(this, KEY_TOKEN, token);
         SPUtils.putString(this, KEY_AUTHORIZATION, authorization);

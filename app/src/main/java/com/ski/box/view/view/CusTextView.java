@@ -34,10 +34,10 @@ public class CusTextView extends androidx.appcompat.widget.AppCompatTextView {
         TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.ski_CsuTextView);
         String text = ta.getString(R.styleable.ski_CsuTextView_android_text);
         ta.recycle();
-        if("vi".equals(LanguageUtil.getLanguage())) {
+        if(LanguageUtil.VI.equals(LanguageUtil.getLanguage())) {
             setTypeface(ActivityUtil.getFontTNR());
+            setText(LanguageUtil.getText(text));
         }
-        setText(LanguageUtil.getText(text));
     }
 
     public void setCText(String text) {
@@ -45,6 +45,10 @@ public class CusTextView extends androidx.appcompat.widget.AppCompatTextView {
     }
 
     public void setCText(SpannableStringBuilder ssb) {
-        setText(LanguageUtil.getText(ssb.toString()));
+        if(LanguageUtil.VI.equals(LanguageUtil.getLanguage())) {
+            setText(LanguageUtil.getText(ssb.toString()));
+        } else {
+            setText(ssb);
+        }
     }
 }
