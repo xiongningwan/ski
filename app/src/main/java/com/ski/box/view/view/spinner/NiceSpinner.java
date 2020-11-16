@@ -377,7 +377,7 @@ public class NiceSpinner extends CusTextView {
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         if (isEnabled() && event.getAction() == MotionEvent.ACTION_UP) {
-            if (!popupWindow.isShowing() && adapter.getCount() > 0) {
+            if (!popupWindow.isShowing()&& adapter != null && adapter.getCount() > 0) {
                 showDropDown();
             } else {
                 dismissDropDown();

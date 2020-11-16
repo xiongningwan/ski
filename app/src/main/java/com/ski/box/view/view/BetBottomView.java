@@ -18,6 +18,7 @@ import com.ski.box.R;
 import com.ski.box.bean.BetStatus;
 import com.ski.box.bean.MemberDetailEntity;
 import com.ski.box.bean.lottery.LotteryConstant;
+import com.ski.box.utils.ActivityUtil;
 import com.ski.box.utils.DecimalSetUtils;
 import com.ski.box.view.view.dialog.CustomBottomDialog;
 import com.yb.core.utils.LanguageUtil;
@@ -168,7 +169,7 @@ public class BetBottomView extends ConstraintLayout implements View.OnClickListe
             if (etDoubleAmount.getText().toString().isEmpty()) {
                 return 0;
             } else {
-                return Integer.parseInt(etDoubleAmount.getText().toString());
+                return ActivityUtil.doBetMoneyWithK(etDoubleAmount.getText().toString());
             }
         } catch (NumberFormatException e) {
             return 0;

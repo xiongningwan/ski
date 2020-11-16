@@ -78,6 +78,11 @@ public class BindPhoneActivity extends BaseMVPActivity<BindPhoneContract.Present
             ToastUtil.showWarning(LanguageUtil.getText("请输入手机号码"));
             return;
         }
+
+        if (phone.length() < 9 || phone.length() > 11) {
+            ToastUtil.showWarning(LanguageUtil.getText("手机号码长度为9～11位"));
+            return;
+        }
         mPresenter.sendCode(phone);
         EasyCountDownTimer timer = new EasyCountDownTimer(mTvSendCode, 60000, 1000);
         timer.start();
@@ -90,12 +95,22 @@ public class BindPhoneActivity extends BaseMVPActivity<BindPhoneContract.Present
             ToastUtil.showWarning(LanguageUtil.getText("请输入手机号码"));
             return;
         }
+        if (phone.length() < 9 || phone.length() > 11) {
+            ToastUtil.showWarning(LanguageUtil.getText("手机号码长度为9～11位"));
+            return;
+        }
+
         if (TextUtils.isEmpty(code)) {
             ToastUtil.showWarning(LanguageUtil.getText("请输入验证码"));
             return;
         }
 
         mPresenter.bindPhone(phone);
+    }
+
+    @Override
+    public void onCodeSendSuccessResult(String s) {
+        ToastUtil.showSuccess(s);
     }
 
     @Override

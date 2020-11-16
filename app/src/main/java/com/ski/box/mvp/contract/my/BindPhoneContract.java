@@ -5,6 +5,7 @@ import com.yb.core.base.BaseContract;
 
 public interface BindPhoneContract {
     interface View extends BaseContract.BaseView {
+        void onCodeSendSuccessResult(String s);
         void onSuccessResult();
         void onFailResult(String s);
     }

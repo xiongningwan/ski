@@ -36,6 +36,8 @@ public class MoneyProgressAdapter extends BaseQuickAdapter<MoneyProgressData.Lis
         mGreen = ContextCompat.getColor(context,R.color.ski_acc_lose);
         mRed = ContextCompat.getColor(context,R.color.ski_acc_win);
         mGray = ContextCompat.getColor(context,R.color.ski_color_333333);
+
+        addChildClickViewIds(R.id.btn_copy_no);
     }
 
     @Override

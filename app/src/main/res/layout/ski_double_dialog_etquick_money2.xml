@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:paddingBottom="@dimen/ski_dp_10"
+    android:background="@drawable/ski_back_bet_confim_fushi"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/ski_dp_58">
+
+        <ImageView
+            android:id="@+id/close_pop_setquickamount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:padding="@dimen/ski_dp_20"
+            android:src="@mipmap/ski_keyboard_xiala" />
+
+        <com.ski.box.view.view.CusTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:text="编辑快捷金额"
+            android:textColor="#666666"
+            android:textSize="17dp" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#dfe2f2" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycle_setting_quick_money"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/ski_dp_14"
+        android:layout_marginRight="@dimen/ski_dp_14"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"/>
+
+    <com.ski.box.view.view.CusTextView
+        android:layout_marginBottom="@dimen/ski_dp_15"
+        android:id="@+id/marked_words"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ll_amount"
+        android:layout_marginLeft="@dimen/ski_dp_12"
+        android:text="*相同金额的只会显示前一个"
+        android:textColor="#ff9307"
+        android:textSize="12dp"
+        android:layout_marginTop="5dp"
+        android:visibility="visible" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/ski_dp_45"
+        android:layout_below="@+id/marked_words"
+        android:layout_marginLeft="@dimen/ski_dp_18"
+        android:layout_marginTop="@dimen/ski_dp_5"
+        android:layout_marginRight="@dimen/ski_dp_18"
+        android:orientation="horizontal">
+
+        <com.ski.box.view.view.CusTextView
+            android:id="@+id/restore_default"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:background="@drawable/ski_bg_btn_default_unclick"
+            android:gravity="center"
+            android:text="恢复默认"
+            android:textColor="#8590ad"
+            android:textSize="@dimen/ski_dp_13" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+
+        <com.ski.box.view.view.CusTextView
+            android:id="@+id/save_quick_amount"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/ski_bg_btn_default"
+            android:gravity="center"
+            android:text="保存设置"
+            android:textColor="@color/ski_white"
+            android:textSize="@dimen/ski_dp_13" />
+    </LinearLayout>
+</LinearLayout>

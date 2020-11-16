@@ -12,6 +12,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.chad.library.adapter.base.listener.OnItemChildClickListener;
 import com.gyf.immersionbar.ImmersionBar;
 import com.hwangjr.rxbus.RxBus;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
@@ -35,12 +37,15 @@ import com.ski.box.view.view.dialog.pop.record.MoneyProgressTypePop;
 import com.ski.box.view.view.dialog.pop.record.MoneyTypePop;
 import com.ski.box.view.view.dialog.pop.record.RecordDatePop;
 import com.yb.core.base.BaseMVPActivity;
+import com.yb.core.utils.AppUtil;
 import com.yb.core.utils.LanguageUtil;
 import com.yb.core.utils.ScreenUtils;
 import com.yb.core.utils.TimeUtils;
 import com.yb.core.utils.ToastUtil;
 import com.zyyoona7.popup.XGravity;
 import com.zyyoona7.popup.YGravity;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
@@ -118,6 +123,17 @@ public class MoneyProgressActivity extends BaseMVPActivity<MoneyProgressContract
         endDate = TimeUtils.getEndStringOfToday();
         mTvDay.setText(LanguageUtil.getText("今天"));
         mTvType.setText(LanguageUtil.getText("全部类型"));
+
+        mRecordAdapter.setOnItemChildClickListener(new OnItemChildClickListener() {
+            @Override
+            public void onItemChildClick(@NonNull @NotNull BaseQuickAdapter adapter, @NonNull @NotNull View view, int position) {
+                List<MoneyProgressData.ListBean> list = adapter.getData();
+                MoneyProgressData.ListBean bean =  list.get(position);
+                String text = bean.getOrderId();
+                AppUtil.copy(text, MoneyProgressActivity.this);
+                ToastUtil.showSuccess("复制成功");
+            }
+        });
     }
 
 

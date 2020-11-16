@@ -3,6 +3,7 @@ package com.ski.box.view.fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -35,6 +36,7 @@ import com.ski.box.view.activity.my.UpdateHeadActivity;
 import com.ski.box.view.fragment.my.PersonalTabFragment;
 import com.yb.core.base.BaseMVPFragment;
 import com.yb.core.utils.SPUtils;
+import com.yb.core.utils.ScreenUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -222,6 +224,36 @@ public class PersonalFragment extends BaseMVPFragment<PersonalContract.Presenter
 
             }
         });
+
+        int h1 = ScreenUtils.dp2px(225);
+        int h2 = ScreenUtils.dp2px(90);
+        int h3 = ScreenUtils.dp2px(225);
+        int h4 = ScreenUtils.dp2px(225);
+        int[] heights = {h1, h2, h3, h4};
+        mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                if (position == heights.length - 1) {
+                    return;
+                }
+                //计算ViewPager现在应该的高度,heights[]表示页面高度的数组。
+                int height = (int) (heights[position] * (1 - positionOffset) + heights[position + 1] * positionOffset);
+
+                //为ViewPager设置高度
+                ViewGroup.LayoutParams params = mViewPager.getLayoutParams();
+                params.height = height;
+                mViewPager.setLayoutParams(params);
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+            }
+        });
+
     }
     //---------------------------tab-----------------
 

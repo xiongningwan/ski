@@ -68,7 +68,8 @@
         android:paddingRight="16dp"
         android:singleLine="true"
         android:textSize="15dp"
-        android:hint="请输入验证码" />
+        android:hint="请输入验证码"
+        android:visibility="gone"/>
 
     <com.ski.box.view.view.CusButton
         android:id="@+id/btn_sure"

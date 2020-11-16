@@ -27,6 +27,7 @@ import com.ski.box.bean.BetStatus;
 import com.ski.box.bean.DataCenter;
 import com.ski.box.bean.MkBetParamEntity;
 import com.ski.box.bean.QuickSetMoneyBean;
+import com.ski.box.bean.QuickSetMoneyBean2;
 import com.ski.box.bean.lottery.LotteryConstant;
 import com.ski.box.utils.ActivityUtil;
 import com.ski.box.utils.KeyBoardUtils;
@@ -35,6 +36,7 @@ import com.ski.box.view.view.keyboard.KeyBoardBean;
 import com.ski.box.view.view.keyboard.NumsKeyBoardView;
 import com.yb.core.utils.LanguageUtil;
 import com.yb.core.utils.SPUtils;
+import com.yb.core.utils.ScreenUtils;
 import com.yb.core.utils.ToastUtil;
 
 import org.json.JSONArray;
@@ -63,6 +65,7 @@ public class QuickMoneyView extends ConstraintLayout implements View.OnClickList
     private TextView secondQuick;
     private TextView thirdQuick;
     private TextView forthQuick;
+    private TextView fiveQuick;
     private EditText etDoubleAmount;
     private NumsKeyBoardView numKeyBoard;
     private Context mContext;
@@ -112,6 +115,7 @@ public class QuickMoneyView extends ConstraintLayout implements View.OnClickList
         secondQuick = rootView.findViewById(R.id.second_quick_amount);
         thirdQuick = rootView.findViewById(R.id.third_quick_amount);
         forthQuick = rootView.findViewById(R.id.forth_quick_amount);
+        fiveQuick = rootView.findViewById(R.id.five_quick_amount);
         etDoubleAmount = rootView.findViewById(R.id.quick_amount_show);
         numKeyBoard = rootView.findViewById(R.id.numkeyboard);
 
@@ -126,6 +130,7 @@ public class QuickMoneyView extends ConstraintLayout implements View.OnClickList
         secondQuick.setOnClickListener(this);
         thirdQuick.setOnClickListener(this);
         forthQuick.setOnClickListener(this);
+        fiveQuick.setOnClickListener(this);
 
         KeyBoardUtils.dismissSystemkeyBoard((Activity) getContext(), etDoubleAmount);
         setKeyBoardListener();
@@ -152,7 +157,7 @@ public class QuickMoneyView extends ConstraintLayout implements View.OnClickList
         int id = v.getId();
         if (id == R.id.quick_setting_amount) {
             showQuickAmountSet(); //弹出快捷金额设置框
-        } else if (id == R.id.first_quick_amount || id == R.id.second_quick_amount || id == R.id.third_quick_amount || id == R.id.forth_quick_amount) {
+        } else if (id == R.id.first_quick_amount || id == R.id.second_quick_amount || id == R.id.third_quick_amount || id == R.id.forth_quick_amount || id == R.id.five_quick_amount) {
             // 快捷金额 double
             setQuickDouble((TextView) v);
         }
@@ -165,9 +170,9 @@ public class QuickMoneyView extends ConstraintLayout implements View.OnClickList
         if (tDialog != null) {
             tDialog.dismiss();
         }
-        QuickMoneySettingView doubleQuickMoneySettingView = new QuickMoneySettingView(getContext());
+        QuickMoneySettingView2 doubleQuickMoneySettingView2 = new QuickMoneySettingView2(getContext());
         tDialog = new CustomBottomDialog(getContext(), R.style.no_background, 0);
-        tDialog.setContentView(doubleQuickMoneySettingView);
+        tDialog.setContentView(doubleQuickMoneySettingView2);
         tDialog.show();
         tDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
             @Override
@@ -175,8 +180,7 @@ public class QuickMoneyView extends ConstraintLayout implements View.OnClickList
                 initQuickDouble4Value();
             }
         });
-
-        doubleQuickMoneySettingView.configurationData(tDialog);
+        doubleQuickMoneySettingView2.setTDialog(tDialog);
     }
 
     private void initQuickDouble() {
@@ -210,15 +214,17 @@ public class QuickMoneyView extends ConstraintLayout implements View.OnClickList
         textViews.add(secondQuick);
         textViews.add(thirdQuick);
         textViews.add(forthQuick);
+        textViews.add(fiveQuick);
 
 
-        List<QuickSetMoneyBean> mDatas = new ArrayList<>();
+        List<QuickSetMoneyBean2> mDatas = new ArrayList<>();
         String defaultMoney = SPUtils.getString(getContext(), SP_DOUBLE_QUICK_MONEY_DEFAULT_LIST, "");
         if (defaultMoney.isEmpty()) {
-            mDatas.add(new QuickSetMoneyBean("10", false));
-            mDatas.add(new QuickSetMoneyBean("50", false));
-            mDatas.add(new QuickSetMoneyBean("100", false));
-            mDatas.add(new QuickSetMoneyBean("500", false));
+            mDatas.add(new QuickSetMoneyBean2("10", false));
+            mDatas.add(new QuickSetMoneyBean2("50", false));
+            mDatas.add(new QuickSetMoneyBean2("100", false));
+            mDatas.add(new QuickSetMoneyBean2("500", false));
+            mDatas.add(new QuickSetMoneyBean2("1k", false));
             String s = new Gson().toJson(mDatas);
             SPUtils.putString(getContext(), SP_DOUBLE_QUICK_MONEY_DEFAULT_LIST, s);
         } else {
@@ -227,8 +233,8 @@ public class QuickMoneyView extends ConstraintLayout implements View.OnClickList
                 for (int x = 0; x < jsonArray.length(); x++) {
                     JSONObject jsonObject = jsonArray.getJSONObject(x);
                     String money = jsonObject.getString("money");
-                    boolean red = jsonObject.getBoolean("red");
-                    mDatas.add(new QuickSetMoneyBean(money, red));
+                    boolean isSelected = jsonObject.getBoolean("isSelected");
+                    mDatas.add(new QuickSetMoneyBean2(money, isSelected));
                 }
 
             } catch (JSONException e) {
@@ -236,69 +242,33 @@ public class QuickMoneyView extends ConstraintLayout implements View.OnClickList
             }
 
         }
-        int quickNums = 4;
-
-        for (int x = 0; x < mDatas.size(); x++) {
-            QuickSetMoneyBean quickSetMoneyBean = mDatas.get(x);
-            TextView textView = textViews.get(x);
-            String money = quickSetMoneyBean.getMoney();
-            if (money != null && !money.isEmpty()) {
-                textView.setVisibility(VISIBLE);
-                textView.setText(money);
-            } else {
-                quickNums--;
-                textView.setVisibility(GONE);
-            }
-        }
 
         for (int x = 0; x < textViews.size(); x++) {
             TextView textView = textViews.get(x);
-            int visibility = textView.getVisibility();
-            /*如果显示*/
-            String s = textView.getText().toString();
-            if (View.VISIBLE == visibility) {
-                for (int y = x + 1; y < textViews.size(); y++) {
-                    TextView nexView = textViews.get(y);
-                    String s1 = nexView.getText().toString();
-                    if (s.equals(s1)) {
-                        nexView.setVisibility(GONE);
-                    }
-                }
-            }
+            textView.setVisibility(GONE);
         }
 
-        if (quickNums == 0) {
-            /*全部隐藏*/
-            firstQuick.setVisibility(GONE);
-            secondQuick.setVisibility(GONE);
-            thirdQuick.setVisibility(GONE);
-            forthQuick.setVisibility(GONE);
-//            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) tvSetting.getLayoutParams();
-//
-//            layoutParams.rightMargin = (int) getResources().getDimension(R.dimen.ski_dp_10);
-//            layoutParams.addRule(RelativeLayout.LEFT_OF, R.id.quick_amount_show);
-//            layoutParams.addRule(RelativeLayout.RIGHT_OF, 0);
-//            tvSetting.setLayoutParams(layoutParams);
-//            Drawable drawable = getResources().getDrawable(R.drawable.ski_back_tv_kuaijie_right);
-//            tvSetting.setBackground(drawable);
-        } else {
-//            int visibility = llQuickMoney.getVisibility();
-//            if (visibility == View.GONE) {
-//                llQuickMoney.setVisibility(VISIBLE);
-//                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-//                layoutParams.addRule(RelativeLayout.RIGHT_OF, R.id.skiDoubleReset);
-//                tvSetting.setLayoutParams(layoutParams);
-//            }
+        for (int x = 0; x < mDatas.size(); x++) {
+            QuickSetMoneyBean2 quickSetMoneyBean = mDatas.get(x);
+            TextView textView = textViews.get(x);
+            String money = quickSetMoneyBean.getMoney();
+            if (!TextUtils.isEmpty(money)) {
+                textView.setVisibility(VISIBLE);
+                textView.setText(money);
+            }
         }
     }
 
     // 给快捷金额赋值
     private void setQuickDouble(TextView v) {
+        String money = v.getText().toString();
+        if(money.contains("k")) {
+            money = money.replace("k","000");
+        }
         stringBuffer.delete(0, stringBuffer.length());
-        stringBuffer.append(v.getText());
-        etDoubleAmount.setText(v.getText());
+        stringBuffer.append(money);
+        etDoubleAmount.setText(money);
         // showBubbleReminder(id);
-        String money = etDoubleAmount.getText().toString();
         setEditQuick_double(money);
     }
 

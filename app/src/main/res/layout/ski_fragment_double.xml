@@ -43,7 +43,7 @@
             android:background="#FAFAFA"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/sl_bottom" />
+            app:layout_constraintBottom_toTopOf="@+id/sl_bottom2" />
 
 <!--    </androidx.cardview.widget.CardView>-->
 
@@ -90,7 +90,6 @@
         app:ski_hl_shadowLimit="@dimen/ski_dp_3">
 
         <com.ski.box.view.view.BetBottomView
-            android:id="@+id/view_bet_bottom2"
             style="@style/MatchWrap"
             android:clickable="false" />
     </com.ski.box.view.view.ShadowLayout>

@@ -19,6 +19,8 @@ import com.yb.core.utils.AppUtil;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.util.Locale;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Created by tom on 2020/10/29.
@@ -162,6 +164,28 @@ public class ActivityUtil {
             mFontTNR = Typeface.createFromAsset(mgr, "fonts/element-icons.535877f5.woff");
         }
        return mFontTNR;
+    }
+
+    public static int doBetMoneyWithK(String money) {
+        if(TextUtils.isEmpty(money)) {
+            money = "0";
+        }
+        if(money.contains("k")) {
+            money = money.replace("k","000");
+        }
+        int moneyInt = 0;
+        try {
+             moneyInt = Integer.parseInt(money);
+        } catch (Exception e){
+            e.printStackTrace();
+            String regEx="[^0-9]";
+            Pattern p = Pattern.compile(regEx);
+            Matcher m = p.matcher(money);
+            money = m.replaceAll("").trim();
+            DataCenter.getInstance().setQuiickMoney(Integer.parseInt(money));
+        }
+
+        return moneyInt;
     }
 
 }

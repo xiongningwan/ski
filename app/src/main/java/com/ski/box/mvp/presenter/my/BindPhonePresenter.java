@@ -30,13 +30,13 @@ public class BindPhonePresenter extends RxPresenter<BindPhoneContract.View> impl
         Disposable disposable = mSysModel.sendCode(new Consumer<Object>() {
             @Override
             public void accept(Object o) throws Exception {
-                mView.onSuccessResult();
+                mView.onCodeSendSuccessResult("短信发送成功");
             }
         }, new CusConsumer() {
             @Override
             public void accept(Throwable throwable) throws Exception {
                 super.accept(throwable);
-                mView.onFailResult(throwable.getMessage());
+              //  mView.onFailResult(throwable.getMessage());
             }
         }, mobile);
         addDisposable(disposable);

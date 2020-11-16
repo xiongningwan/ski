@@ -334,6 +334,7 @@ public final class UrlConfig {
      * 公告
      */
     public static final  String NOTICE_LIST = "promen/notice/list";
+
     public static final  String SYS_SEND_CODE = "promen/member/mobile/sendCode";
 
     //-----------------------玩法说明-start----------------

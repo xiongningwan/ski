@@ -26,7 +26,7 @@ public class ToastUtil {
         mLastErrorText = text;
         long now = System.currentTimeMillis();
         if (isRepeatText(text)) {
-            if (now - mLastErrorTime > 5000) {
+            if (now - mLastErrorTime > 3500) {
                 mLastErrorTime = now;
                 Toasty.error(AppUtil.getContext(), LanguageUtil.getText(text), Toast.LENGTH_SHORT, true).show();
             }

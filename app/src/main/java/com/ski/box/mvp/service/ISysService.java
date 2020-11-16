@@ -39,5 +39,5 @@ public interface ISysService {
 
     @POST(UrlConfig.SYS_SEND_CODE)
     @FormUrlEncoded
-    Single<HttpResult<NoticeData>> sendCode(@Field("mobile") String mobile);
+    Single<HttpResult<Object>> sendCode(@Field("mobile") String mobile);
 }
