@@ -43,4 +43,13 @@ public class SysModel extends BaseModel implements ISysModel {
         return toSubscribe(single, s, e);
     }
 
+    @Override
+    public Disposable sendCode(Consumer s, Consumer e, String mobile) {
+        Single<NoticeData> single = RetrofitHelper
+                .getService(ISysService.class)
+                .sendCode(mobile)
+                .map(new HttpResultFunc<>());
+        return toSubscribe(single, s, e);
+    }
+
 }

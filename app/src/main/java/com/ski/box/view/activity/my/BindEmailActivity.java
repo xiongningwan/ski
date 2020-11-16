@@ -90,15 +90,15 @@ public class BindEmailActivity extends BaseMVPActivity<BindEmailContract.Present
 
     private void doUpdate() {
         String email = mEtPhone.getText().toString().trim();
-        String code = mEtCode.getText().toString().trim();
+//        String code = mEtCode.getText().toString().trim();
         if (TextUtils.isEmpty(email)) {
             ToastUtil.showWarning(LanguageUtil.getText("请输入邮箱"));
             return;
         }
-        if (TextUtils.isEmpty(code)) {
-            ToastUtil.showWarning(LanguageUtil.getText("请输入验证码"));
-            return;
-        }
+//        if (TextUtils.isEmpty(code)) {
+//            ToastUtil.showWarning(LanguageUtil.getText("请输入验证码"));
+//            return;
+//        }
 
         mPresenter.bindEmail(email);
     }

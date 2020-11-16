@@ -123,14 +123,15 @@
         app:layout_constraintBottom_toBottomOf="@+id/et_name"
         android:layout_marginStart="16dp"/>
 
+
     <ImageView
         android:id="@+id/iv_login_icon_pwd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@mipmap/icon_login_pwd"
         app:layout_constraintStart_toStartOf="@+id/et_password"
-        app:layout_constraintTop_toTopOf="@+id/et_password"
-        app:layout_constraintBottom_toBottomOf="@+id/et_password"
+        app:layout_constraintTop_toTopOf="@+id/view_ll"
+        app:layout_constraintBottom_toBottomOf="@+id/view_ll"
         android:layout_marginStart="16dp"/>
 
         <View
@@ -144,6 +145,7 @@
 
 
     <View
+        android:id="@+id/view_ll"
         android:layout_width="1dp"
         android:layout_height="28dp"
         android:background="@color/ski_color_B27496"
@@ -204,9 +206,9 @@
         android:layout_height="wrap_content"
         android:text="注册"
         android:textSize="12dp"
-        app:layout_constraintTop_toTopOf="@+id/tv_line"
+        app:layout_constraintTop_toBottomOf="@+id/tv_language_switch"
         app:layout_constraintEnd_toEndOf="@+id/btn_login_dev"
-        android:visibility="gone"/>
+        android:visibility="visible"/>
 
         <com.ski.box.view.view.CusTextView
             android:id="@+id/tv_language_switch"

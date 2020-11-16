@@ -78,6 +78,7 @@ public class BindPhoneActivity extends BaseMVPActivity<BindPhoneContract.Present
             ToastUtil.showWarning(LanguageUtil.getText("请输入手机号码"));
             return;
         }
+        mPresenter.sendCode(phone);
         EasyCountDownTimer timer = new EasyCountDownTimer(mTvSendCode, 60000, 1000);
         timer.start();
     }

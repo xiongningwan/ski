@@ -117,7 +117,7 @@ public class QuickMoneyView extends ConstraintLayout implements View.OnClickList
 
         etDoubleAmount.setHint(LanguageUtil.getText("输入金额"));
         if(LanguageUtil.VI.equals(LanguageUtil.getLanguage())) {
-            etDoubleAmount.setTypeface(ActivityUtil.getFontTNR());
+          //  etDoubleAmount.setTypeface(ActivityUtil.getFontTNR());
         }
 
         tvSetting.setOnClickListener(this);
@@ -185,7 +185,7 @@ public class QuickMoneyView extends ConstraintLayout implements View.OnClickList
         if (TextUtils.isEmpty(money)) {
             money = "0";
             tvUnit.setVisibility(GONE);
-            etDoubleAmount.setHint("输入金额");
+            etDoubleAmount.setHint(LanguageUtil.getText("输入金额"));
         } else {
             etDoubleAmount.setHint("");
             etDoubleAmount.setText(money);
@@ -321,7 +321,7 @@ public class QuickMoneyView extends ConstraintLayout implements View.OnClickList
         /*更新 投注单数提醒*/
         if (TextUtils.isEmpty(money)) {
             money = "0";
-            etDoubleAmount.setHint("输入金额");
+            etDoubleAmount.setHint(LanguageUtil.getText("输入金额"));
             SPUtils.putString(mContext, SP_DOUBLE_QUICK_MONEY_DEFAULT_SELECTED, "");
         } else {
             etDoubleAmount.setHint("");

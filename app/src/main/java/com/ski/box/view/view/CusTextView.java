@@ -35,7 +35,7 @@ public class CusTextView extends androidx.appcompat.widget.AppCompatTextView {
         String text = ta.getString(R.styleable.ski_CsuTextView_android_text);
         ta.recycle();
         if(LanguageUtil.VI.equals(LanguageUtil.getLanguage())) {
-            setTypeface(ActivityUtil.getFontTNR());
+         //   setTypeface(ActivityUtil.getFontTNR());
             setText(LanguageUtil.getText(text));
         }
     }

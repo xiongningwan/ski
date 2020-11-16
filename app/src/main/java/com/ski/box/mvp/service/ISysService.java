@@ -6,7 +6,10 @@ import com.ski.box.bean.SystemConfig;
 import com.yb.core.net.HttpResult;
 
 import io.reactivex.Single;
+import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
 import retrofit2.http.Query;
 
 
@@ -33,4 +36,8 @@ public interface ISysService {
     @GET(UrlConfig.NOTICE_LIST)
     Single<HttpResult<NoticeData>> getNoticeList(@Query("pageNum") int pageNum,
                                                  @Query("pageSize") int pageSize);
+
+    @POST(UrlConfig.SYS_SEND_CODE)
+    @FormUrlEncoded
+    Single<HttpResult<NoticeData>> sendCode(@Field("mobile") String mobile);
 }

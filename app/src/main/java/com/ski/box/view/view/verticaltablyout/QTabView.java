@@ -63,7 +63,7 @@ public class QTabView extends TabView {
         if (mTitle == null) {
             mTitle = new TextView(mContext);
             if(LanguageUtil.VI.equals(LanguageUtil.getLanguage())) {
-                mTitle.setTypeface(ActivityUtil.getFontTNR());
+               // mTitle.setTypeface(ActivityUtil.getFontTNR());
             }
             setLayoutParams();
             this.addView(mTitle);

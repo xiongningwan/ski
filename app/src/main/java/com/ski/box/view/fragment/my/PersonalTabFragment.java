@@ -79,7 +79,12 @@ public class PersonalTabFragment extends BaseMVPFragment<EmptyContract.Presenter
             mId = bundle.getInt(KEY_P_TAB_ID, 0);
         }
 
-        mRv.setLayoutManager(new LinearLayoutManager(requireActivity()));
+        mRv.setLayoutManager(new LinearLayoutManager(requireActivity()){
+            @Override
+            public boolean canScrollVertically() {
+                return false;
+            }
+        });
         mTabListAdapter = new TabListAdapter();
         mRv.setAdapter(mTabListAdapter);
     }

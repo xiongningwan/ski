@@ -46,7 +46,8 @@ public interface ConstantValue {
     int PAGE_SIZE = 10;
     int PAGE_NO = 1;
 
-    String BASE_HOST = "https://web.k5615.com/sk/";
+//    String BASE_HOST = "https://web.k5615.com/sk/";
+    String BASE_HOST = "https://www.68xoso.com/sk/";
     String DEVICE = "3";
 
     int SUBMIT_MODE_BET = 0; //投注
