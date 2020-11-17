@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.gyf.immersionbar.ImmersionBar;
 import com.hwangjr.rxbus.RxBus;
 import com.hwangjr.rxbus.annotation.Subscribe;
 import com.hwangjr.rxbus.annotation.Tag;
@@ -27,6 +28,9 @@ import com.ski.box.bean.user.UserInfo;
 import com.ski.box.mvp.contract.money.RechargeContract;
 import com.ski.box.mvp.presenter.money.RechargePresenter;
 import com.ski.box.utils.ActivityUtil;
+import com.ski.box.utils.KeyboardChangeListener;
+import com.ski.box.utils.SoftHideKeyBoardUtil;
+import com.ski.box.utils.SoftHideKeyBoardUtil2;
 import com.ski.box.view.activity.money.RechargeDetailActivity;
 import com.ski.box.view.view.ClearEditText;
 import com.ski.box.view.view.CusTextView;
@@ -39,13 +43,12 @@ import com.yb.core.utils.LanguageUtil;
 import com.yb.core.utils.ToastUtil;
 
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static com.ski.box.ConstantValue.EVENT_TYPE_BALANCE_UPDATE;
 import static com.ski.box.ConstantValue.EVENT_TYPE_USER_NAME_NICK_NAME;
 
-public class RechargeFragment extends BaseMVPFragment<RechargeContract.Presenter> implements RechargeContract.View, View.OnClickListener {
+public class RechargeFragment extends BaseMVPFragment<RechargeContract.Presenter> implements RechargeContract.View, View.OnClickListener{
     public static final String KEY_HAS_HEAD = "key_has_head";
     private HeaderView mHeadView;
     private Button mBtnSure;
@@ -63,7 +66,8 @@ public class RechargeFragment extends BaseMVPFragment<RechargeContract.Presenter
     private ProgressDialog mLoading;
     private RotateAnimation rotate;
     private int mHasHead;
-    private List<PayType> mTypeList = new ArrayList<>();
+    private View mRootView;
+    private KeyboardChangeListener mKeyboardChangeListener;
 
     public RechargeFragment() {
     }
@@ -108,6 +112,7 @@ public class RechargeFragment extends BaseMVPFragment<RechargeContract.Presenter
         mIvBalance = view.findViewById(R.id.iv_refresh_balance);
         mTvNotice1 = view.findViewById(R.id.tv_notice_1);
         mTvNotice2 = view.findViewById(R.id.tv_notice_2);
+        mRootView = view.findViewById(R.id.recharge_root);
         mHeadView.setHeader(LanguageUtil.getText(getString(R.string.ski_tab_lottery_recharge)), false);
 
         mBtnSure.setOnClickListener(this);
@@ -124,11 +129,15 @@ public class RechargeFragment extends BaseMVPFragment<RechargeContract.Presenter
             mHasHead = bundle.getInt(KEY_HAS_HEAD, 0);
             if (1 == mHasHead) {
                 mHeadView.setVisibility(View.GONE);
+//                SoftHideKeyBoardUtil.assistActivity(requireActivity());
+            } else {
+                ImmersionBar.with(this).statusBarColor(R.color.ski_color_FAFAFA).statusBarDarkFont(true).init();
+                SoftHideKeyBoardUtil2.assistActivity(requireActivity());
             }
         }
 
         User user = DataCenter.getInstance().getUser();
-        mTvBalance.setText("￥" + user.getBalance());
+        mTvBalance.setText(user.getBalance());
         mTvNickName.setText(user.getAlias());
         createAnim();
         setRedTip();
@@ -184,7 +193,7 @@ public class RechargeFragment extends BaseMVPFragment<RechargeContract.Presenter
         }
 
         if (0 == mSpType.getSelectedIndex()) {
-            ToastUtil.showError("请选择渠道");
+            ToastUtil.showError("请选择");
             return;
         }
         PayType payType = (PayType) mSpType.getSelectedItem();
@@ -227,8 +236,6 @@ public class RechargeFragment extends BaseMVPFragment<RechargeContract.Presenter
 
     @Override
     public void onTypeResult(List<PayType> list) {
-        mTypeList.clear();
-        mTypeList.addAll(list);
         setSpinner(list);
     }
 
@@ -240,9 +247,7 @@ public class RechargeFragment extends BaseMVPFragment<RechargeContract.Presenter
         intent.putExtra(RechargeDetailActivity.KEY_DEPOSIT_BACK, bean);
         startActivity(intent);
 
-        if (mSpType != null && mTypeList != null) {
-            setSpinner(mTypeList);
-        }
+        mSpType.setSelectedIndex(0);
         mEtMoney.setText("");
         mEtCardName.setText("");
         mEtMoney.setHint("请输入充值金额");

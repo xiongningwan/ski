@@ -230,6 +230,7 @@ public class WithdrawActivity extends BaseMVPActivity<WithdrawContract.Presenter
     public void onSuccessResult() {
         mEtMoneyPwd.setText("");
         mEtWithdrawMoney.setText("");
+        mSpType.setSelectedIndex(0);
         ToastUtil.showInfo("提现成功");
         mBtnSure.setEnabled(true);
         mLoading.dismiss();

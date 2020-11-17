@@ -68,6 +68,12 @@ public class GroupInviteUrlAddActivity extends BaseMVPActivity<GroupInviteUrlAdd
 
     @Override
     protected void initData(Bundle bundle) {
+
+    }
+
+    @Override
+    protected void processLogic() {
+        super.processLogic();
         ArrayList<RebateKV> rebateKVList = getIntent().getParcelableArrayListExtra(KEY_REBATE_KV_LIST);
         if (rebateKVList != null && rebateKVList.size() > 0) {
             setSpinner(rebateKVList);
@@ -116,6 +122,8 @@ public class GroupInviteUrlAddActivity extends BaseMVPActivity<GroupInviteUrlAdd
     @Override
     public void onAddSuccessResult() {
         ToastUtil.showSuccess("创建邀请链接成功");
+        mEtMsg.setText("");
+        mSpBackRate.setSelectedIndex(0);
         RxBus.get().post(ConstantValue.EVENT_GROUP_INVITE_URL_ADD_SUCCESS, "");
     }
 

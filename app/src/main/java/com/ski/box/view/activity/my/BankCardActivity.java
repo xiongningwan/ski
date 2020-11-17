@@ -124,11 +124,11 @@ public class BankCardActivity extends BaseMVPActivity<BankCardContract.Presenter
 
     private void goToBind() {
         User user = DataCenter.getInstance().getUser();
-        if (TextUtils.isEmpty(user.getMobile())) {
-            ToastUtil.showInfo(LanguageUtil.getText("先设置手机号"));
-            startActivity(new Intent(this, BindPhoneActivity.class));
-            return;
-        }
+//        if (TextUtils.isEmpty(user.getMobile())) {
+//            ToastUtil.showInfo(LanguageUtil.getText("先设置手机号"));
+//            startActivity(new Intent(this, BindPhoneActivity.class));
+//            return;
+//        }
         if (0 == user.getHavefundPwd()) {
             ToastUtil.showInfo(LanguageUtil.getText("先设置资金密码"));
             startActivity(new Intent(this, UpdateFundPwdActivity.class));

@@ -2,10 +2,12 @@ package com.ski.box.view.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import com.gyf.immersionbar.ImmersionBar;
 import com.hwangjr.rxbus.RxBus;
 import com.hwangjr.rxbus.annotation.Subscribe;
 import com.hwangjr.rxbus.annotation.Tag;
@@ -13,6 +15,7 @@ import com.ski.box.R;
 import com.ski.box.adapter.FragmentAdapter;
 import com.ski.box.mvp.contract.EmptyContract;
 import com.ski.box.mvp.presenter.EmptyPresenter;
+import com.ski.box.utils.SoftHideKeyBoardUtil;
 import com.ski.box.view.fragment.HallFragment;
 import com.ski.box.view.fragment.PersonalFragment;
 import com.ski.box.view.fragment.RechargeFragment;
@@ -27,6 +30,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static com.ski.box.ConstantValue.EVENT_TOKEN_DISABLE;
+import static com.ski.box.ConstantValue.EVENT_TYPE_USER_NAME_NICK_NAME;
 
 
 public class MainActivity extends BaseMVPActivity<EmptyContract.Presenter> implements EmptyContract.View {
@@ -118,5 +122,14 @@ public class MainActivity extends BaseMVPActivity<EmptyContract.Presenter> imple
 
     public void gotoPage(int page) {
         mTabView.switchTab(page);
+    }
+
+    @Subscribe(tags = {@Tag("KeyBoard_show_dismiss")})
+    public void onKeyboardUpdate(String s) {
+        if("show".equals(s)) {
+            mTabView.setVisibility(View.GONE);
+        } else {
+            mTabView.setVisibility(View.VISIBLE);
+        }
     }
 }

@@ -36,7 +36,7 @@ public class GroupRecordMoneyAdapter extends BaseQuickAdapter<GroupMoneyData.Lis
 
     @Override
     protected void convert(@NotNull BaseViewHolder holder, @Nullable GroupMoneyData.ListBean bean) {
-        holder.setText(R.id.tv_no, LanguageUtil.getText("金流编号") + ": " + bean.getTransId())
+        holder.setText(R.id.tv_no, LanguageUtil.getText("订单编号") + ": " + bean.getTransId())
                 .setText(R.id.tv_time, bean.getTransTime())
                 .setText(R.id.tv_user_name, bean.getMemberAccount())
                 .setText(R.id.tv_name, bean.getTicketName())

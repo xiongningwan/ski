@@ -10,7 +10,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:id="@+id/recharge_root">
 
         <com.ski.box.view.view.HeaderView
             android:id="@+id/head_view"
@@ -100,7 +101,8 @@
             android:layout_height="150dp"
             android:background="@drawable/ski_bg_money_input_big"
             android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp">
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="0dp">
 
             <com.ski.box.view.view.CusTextView
                 android:id="@+id/tv_type"

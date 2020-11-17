@@ -31,7 +31,7 @@ public class ContainerActivity extends BaseActivity implements View.OnClickListe
 
     @Override
     protected void initViews() {
-        ImmersionBar.with(this).init();
+        ImmersionBar.with(this).keyboardEnable(true).init();
         mHeadView = findViewById(R.id.head_view);
     }
 

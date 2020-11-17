@@ -226,7 +226,7 @@ public class HallFragment extends BaseMVPFragment<HallContract.Presenter> implem
 
     @Subscribe(tags = {@Tag(EVENT_TYPE_BALANCE_UPDATE)})
     public void onBalanceUpdate(String balanceStr) {
-        mTvAmount.setText("￥" + balanceStr);
+        mTvAmount.setText(balanceStr);
     }
 
     @Subscribe(tags = {@Tag(EVENT_TYPE_USER_NAME_NICK_NAME)})

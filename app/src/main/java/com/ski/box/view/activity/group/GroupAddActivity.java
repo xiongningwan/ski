@@ -154,6 +154,7 @@ public class GroupAddActivity extends BaseMVPActivity<GroupAddContract.Presenter
         mEtName.setText("");
         mEtPwd.setText("");
         mEtPwdConfirm.setText("");
+        mSpBackRate.setSelectedIndex(0);
         ToastUtil.showSuccess("创建成功");
     }
 

@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.listener.OnItemClickListener;
+import com.gyf.immersionbar.ImmersionBar;
 import com.hwangjr.rxbus.RxBus;
 import com.ski.box.R;
 import com.ski.box.adapter.ActAdapter;
@@ -54,6 +55,7 @@ public class ActFragment extends BaseMVPFragment<ActContract.Presenter> implemen
 
     @Override
     protected void initView(View view) {
+        ImmersionBar.with(this).statusBarDarkFont(false).init();
         RxBus.get().register(this);
        mHeadView =  view.findViewById(R.id.head_view);
        mRv =  view.findViewById(R.id.rv);

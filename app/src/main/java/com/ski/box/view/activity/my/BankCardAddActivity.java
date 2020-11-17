@@ -111,6 +111,8 @@ public class BankCardAddActivity extends BaseMVPActivity<BankCardAddContract.Pre
             ToastUtil.showInfo(LanguageUtil.getText("两次输入银行卡号不一致"));
             return;
         }
+        mBtnSure.setEnabled(false);
+        mBtnSure.setClickable(false);
         mPresenter.bindBank(String.valueOf(bank.getBankCode()), bank.getBankName(), point, ownerName, bankNo, bankNoConfirm);
     }
 
@@ -126,6 +128,8 @@ public class BankCardAddActivity extends BaseMVPActivity<BankCardAddContract.Pre
 
     @Override
     public void onBindSuccessResult() {
+        mBtnSure.setEnabled(true);
+        mBtnSure.setClickable(true);
         RxBus.get().post(EVENT_BIND_BANK_CARD_SUCCESS, "");
         ToastUtil.showSuccess(LanguageUtil.getText("绑定成功!"));
         finish();
@@ -133,7 +137,8 @@ public class BankCardAddActivity extends BaseMVPActivity<BankCardAddContract.Pre
 
     @Override
     public void onBindFailResult(String s) {
-
+        mBtnSure.setEnabled(true);
+        mBtnSure.setClickable(true);
     }
 
 
