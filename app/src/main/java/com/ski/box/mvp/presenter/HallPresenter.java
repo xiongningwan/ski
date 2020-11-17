@@ -154,8 +154,8 @@ public class HallPresenter extends RxPresenter<HallContract.View> implements Hal
                                 String mqttUrl = config.getMqtt_url();
                                 User user = DataCenter.getInstance().getUser();
                                 String topic = "BORACAY_UNICAST_MEMBER_TOPIC|" + user.getMerchantAccout() + "|" + bean.getMemberAccount();
-//                                String token = DataCenter.getInstance().getToken();
-                                MQTTHelper.getInstance().init(AppUtil.getContext(), mqttUrl, user.getId(), topic);
+                                String token = DataCenter.getInstance().getToken();
+                                MQTTHelper.getInstance().init(AppUtil.getContext(), mqttUrl, token, topic);
                                 SPUtils.putString(AppUtil.getContext(), "mqtt_topic_balance", topic);
                                 SPUtils.putString(AppUtil.getContext(), "mqtt_mqttUrl", mqttUrl);
                             }

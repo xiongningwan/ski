@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import com.ski.box.BuildConfig;
 import com.ski.box.ConstantValue;
 import com.ski.box.R;
+import com.ski.box.bean.DataCenter;
 import com.ski.box.mvp.contract.EmptyContract;
 import com.ski.box.mvp.presenter.EmptyPresenter;
 import com.ski.box.utils.HeaderUtil;
@@ -52,7 +53,7 @@ public class SplashActivity extends BaseMVPActivity<EmptyContract.Presenter> imp
             if (!TextUtils.isEmpty(SPUtils.getString(this, LoginActivity.KEY_TOKEN)) && !TextUtils.isEmpty(SPUtils.getString(this, LoginActivity.KEY_AUTHORIZATION))) {
                 String token = SPUtils.getString(this, LoginActivity.KEY_TOKEN);
                 String authorization = SPUtils.getString(this, LoginActivity.KEY_AUTHORIZATION);
-
+                DataCenter.getInstance().setToken(token);
                 RetrofitHelper.getInstance().init(ConstantValue.BASE_HOST, BuildConfig.DEBUG,
                         HeaderUtil.getHeader(token, authorization, ConstantValue.DEVICE, LanguageUtil.getLanguage()));
                 startActivity(new Intent(this, MainActivity.class));
