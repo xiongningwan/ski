@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:gravity="center"
     android:orientation="horizontal"
-    tools:background="@color/ski_color_333333"
+    tools:background="@color/ski_color_A86A91"
     android:paddingStart="16dp"
     android:paddingEnd="16dp">
 
@@ -20,7 +20,8 @@
         android:gravity="start|center_vertical"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:background="@color/ski_color_333333"/>
 
     <com.ski.box.view.view.CusTextView
         android:id="@+id/tv_num_1"
@@ -30,14 +31,15 @@
         app:layout_constraintBottom_toTopOf="@+id/view_gl"
         app:layout_constraintEnd_toStartOf="@+id/tv_num_2"
         android:layout_marginBottom="0dp"
+        tools:background="@color/ski_color_333333"
         android:layout_marginStart="10dp"/>
 
     <com.ski.box.view.view.CusTextView
         android:id="@+id/tv_num_2"
         style="@style/Top_result_lottery_style_kl8"
         android:text="0"
-        app:layout_constraintStart_toEndOf="@+id/tv_num_1"
         app:layout_constraintTop_toTopOf="@+id/tv_num_1"
+        app:layout_constraintStart_toEndOf="@+id/tv_num_1"
         app:layout_constraintEnd_toStartOf="@+id/tv_num_3"/>
 
     <com.ski.box.view.view.CusTextView
