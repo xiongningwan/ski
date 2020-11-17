@@ -8,6 +8,7 @@ import android.text.style.ForegroundColorSpan;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -30,7 +31,7 @@ import static com.ski.box.ConstantValue.EVENT_TYPE_BET_RiGHT_NOW_CLICK;
 /**
  * 底部
  */
-public class BetBottomView extends ConstraintLayout implements View.OnClickListener {
+public class BetBottomView extends LinearLayout implements View.OnClickListener {
     private long mLastClickTime;
     private long mTimeInterval = 300L;
 
@@ -62,7 +63,8 @@ public class BetBottomView extends ConstraintLayout implements View.OnClickListe
     private void initView(Context context) {
         mContext = context;
         View rootView = View.inflate(context, R.layout.ski_bet_view_bottom, this);
-        mQmView = rootView.findViewById(R.id.qm_view);
+//        mQmView = rootView.findViewById(R.id.qm_view);
+        mQmView =  new  QuickMoneyView(context, rootView);
         mTvBetChose = rootView.findViewById(R.id.tv_bet_chose);
         mTvBalance = rootView.findViewById(R.id.tv_total_balance);
         mTvBet = rootView.findViewById(R.id.tv_bet);

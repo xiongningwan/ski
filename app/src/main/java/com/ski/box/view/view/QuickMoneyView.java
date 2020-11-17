@@ -14,6 +14,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -56,7 +57,7 @@ import static com.ski.box.ConstantValue.SP_DOUBLE_QUICK_MONEY_DEFAULT_SELECTED;
 /**
  * Created by tom on 2020/8/20.
  */
-public class QuickMoneyView extends ConstraintLayout implements View.OnClickListener {
+public class QuickMoneyView implements View.OnClickListener {
     private long mLastClickTime;
     private long mTimeInterval = 300L;
     private TextView tvSetting;
@@ -86,29 +87,14 @@ public class QuickMoneyView extends ConstraintLayout implements View.OnClickList
         }
     };
 
-    public QuickMoneyView(Context context) {
-        super(context);
-        initView(context);
+    public QuickMoneyView(Context context, View rootView) {
+        initView(context, rootView);
     }
 
-    public QuickMoneyView(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        initView(context);
-    }
 
-    public QuickMoneyView(Context context, AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-        initView(context);
-    }
-
-    public QuickMoneyView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
-        initView(context);
-    }
-
-    private void initView(Context context) {
+    private void initView(Context context, View rootView) {
         mContext = context;
-        View rootView = View.inflate(context, R.layout.ski_quick_money_view, this);
+//        View rootView = View.inflate(context, R.layout.ski_quick_money_view, this);
         tvSetting = rootView.findViewById(R.id.quick_setting_amount);
         tvUnit = rootView.findViewById(R.id.tv_unit);
         firstQuick = rootView.findViewById(R.id.first_quick_amount);
@@ -132,7 +118,7 @@ public class QuickMoneyView extends ConstraintLayout implements View.OnClickList
         forthQuick.setOnClickListener(this);
         fiveQuick.setOnClickListener(this);
 
-        KeyBoardUtils.dismissSystemkeyBoard((Activity) getContext(), etDoubleAmount);
+        KeyBoardUtils.dismissSystemkeyBoard((Activity) context, etDoubleAmount);
         setKeyBoardListener();
         setDoubleEtListener();
         initData();
@@ -170,8 +156,8 @@ public class QuickMoneyView extends ConstraintLayout implements View.OnClickList
         if (tDialog != null) {
             tDialog.dismiss();
         }
-        QuickMoneySettingView2 doubleQuickMoneySettingView2 = new QuickMoneySettingView2(getContext());
-        tDialog = new CustomBottomDialog(getContext(), R.style.no_background, 0);
+        QuickMoneySettingView2 doubleQuickMoneySettingView2 = new QuickMoneySettingView2(mContext);
+        tDialog = new CustomBottomDialog(mContext, R.style.no_background, 0);
         tDialog.setContentView(doubleQuickMoneySettingView2);
         tDialog.show();
         tDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
@@ -188,13 +174,13 @@ public class QuickMoneyView extends ConstraintLayout implements View.OnClickList
         String money = SPUtils.getString(mContext, SP_DOUBLE_QUICK_MONEY_DEFAULT_SELECTED, "");
         if (TextUtils.isEmpty(money)) {
             money = "0";
-            tvUnit.setVisibility(GONE);
+            tvUnit.setVisibility(View.GONE);
             etDoubleAmount.setHint(LanguageUtil.getText("输入金额"));
         } else {
             etDoubleAmount.setHint("");
             etDoubleAmount.setText(money);
             stringBuffer.append(money);
-            tvUnit.setVisibility(VISIBLE);
+            tvUnit.setVisibility(View.VISIBLE);
           //  etDoubleAmount.setTextColor(mContext.getResources().getColor(R.color.ski_play_select_color));
 
         }
@@ -218,7 +204,7 @@ public class QuickMoneyView extends ConstraintLayout implements View.OnClickList
 
 
         List<QuickSetMoneyBean2> mDatas = new ArrayList<>();
-        String defaultMoney = SPUtils.getString(getContext(), SP_DOUBLE_QUICK_MONEY_DEFAULT_LIST, "");
+        String defaultMoney = SPUtils.getString(mContext, SP_DOUBLE_QUICK_MONEY_DEFAULT_LIST, "");
         if (defaultMoney.isEmpty()) {
             mDatas.add(new QuickSetMoneyBean2("10", false));
             mDatas.add(new QuickSetMoneyBean2("50", false));
@@ -226,7 +212,7 @@ public class QuickMoneyView extends ConstraintLayout implements View.OnClickList
             mDatas.add(new QuickSetMoneyBean2("500", false));
             mDatas.add(new QuickSetMoneyBean2("1k", false));
             String s = new Gson().toJson(mDatas);
-            SPUtils.putString(getContext(), SP_DOUBLE_QUICK_MONEY_DEFAULT_LIST, s);
+            SPUtils.putString(mContext, SP_DOUBLE_QUICK_MONEY_DEFAULT_LIST, s);
         } else {
             try {
                 JSONArray jsonArray = new JSONArray(defaultMoney);
@@ -245,7 +231,7 @@ public class QuickMoneyView extends ConstraintLayout implements View.OnClickList
 
         for (int x = 0; x < textViews.size(); x++) {
             TextView textView = textViews.get(x);
-            textView.setVisibility(GONE);
+            textView.setVisibility(View.GONE);
         }
 
         for (int x = 0; x < mDatas.size(); x++) {
@@ -253,7 +239,7 @@ public class QuickMoneyView extends ConstraintLayout implements View.OnClickList
             TextView textView = textViews.get(x);
             String money = quickSetMoneyBean.getMoney();
             if (!TextUtils.isEmpty(money)) {
-                textView.setVisibility(VISIBLE);
+                textView.setVisibility(View.VISIBLE);
                 textView.setText(money);
             }
         }
@@ -425,7 +411,7 @@ public class QuickMoneyView extends ConstraintLayout implements View.OnClickList
     
     String mTempStr;
     private void setDoubleEtListener() {
-        etDoubleAmount.setOnTouchListener(new OnTouchListener() {
+        etDoubleAmount.setOnTouchListener(new View.OnTouchListener() {
             @SuppressLint("ClickableViewAccessibility")
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -459,7 +445,7 @@ public class QuickMoneyView extends ConstraintLayout implements View.OnClickList
 
                 mTempStr = money;
                 boolean matches = money.matches("\\d+");
-                tvUnit.setVisibility(matches ? VISIBLE : GONE);
+                tvUnit.setVisibility(matches ? View.VISIBLE : View.GONE);
                 etDoubleAmount.setTextColor(matches ? mContext.getResources().getColor(R.color.ski_color_B27496) : mContext.getResources().getColor(R.color.ski_color_c3c9d2));
                 setEditQuick_double(money);
                 RxBus.get().post(EVENT_BET_BOTTOM_QUICK_DOUBLE_ET_CHANGE, "et");
