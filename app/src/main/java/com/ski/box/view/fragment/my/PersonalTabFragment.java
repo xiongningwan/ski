@@ -17,6 +17,8 @@ import com.ski.box.R;
 import com.ski.box.bean.PTabBean;
 import com.ski.box.mvp.contract.EmptyContract;
 import com.ski.box.mvp.presenter.EmptyPresenter;
+import com.ski.box.view.activity.MainActivity;
+import com.ski.box.view.view.HallTabLayout;
 import com.yb.core.utils.LanguageUtil;
 import com.ski.box.view.activity.AgentWebViewActivity;
 import com.ski.box.view.activity.ContainerActivity;
@@ -227,6 +229,9 @@ public class PersonalTabFragment extends BaseMVPFragment<EmptyContract.Presenter
             case 15: // 资金进度查询
                 startActivity(new Intent(requireActivity(), MoneyProgressActivity.class));
                 break;
+            case 41: {// 活动优惠
+                ((MainActivity) requireActivity()).gotoPage(HallTabLayout.TAB_INDEX_RECORD);
+                break;}
             case 42: // 客服中心
                 AgentWebViewActivity.startAgentWebView(requireActivity(), LanguageUtil.getText("客服中心"), "https://www.google.com");
                 break;

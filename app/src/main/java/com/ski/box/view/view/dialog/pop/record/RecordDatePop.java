@@ -60,7 +60,8 @@ public class RecordDatePop extends BasePopup<RecordDatePop> implements View.OnCl
         list.add(new ConditionBean(LanguageUtil.getText("昨天"), TimeUtils.getBeginStringOfYesterday(1), TimeUtils.getEndStringOfYesterday(1), "0", false));
         list.add(new ConditionBean(LanguageUtil.getText("近三日"), TimeUtils.getLatelyStringOfN(3), TimeUtils.getEndStringOfToday(), "0", false));
         list.add(new ConditionBean(LanguageUtil.getText("近七日"), TimeUtils.getLatelyStringOfN(7), TimeUtils.getEndStringOfToday(), "0", false));
-        list.add(new ConditionBean(LanguageUtil.getText("近15日"), TimeUtils.getLatelyStringOfN(15), TimeUtils.getEndStringOfToday(), "1", false));
+        list.add(new ConditionBean(LanguageUtil.getText("近15日"), TimeUtils.getLatelyStringOfN(15), TimeUtils.getEndStringOfToday(), "0", false));
+        list.add(new ConditionBean(LanguageUtil.getText("近30日"), TimeUtils.getLatelyStringOfN(30), TimeUtils.getEndStringOfToday(), "0", false));
 
         mDateAdapter.setNewInstance(list);
     }

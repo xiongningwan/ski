@@ -16,6 +16,7 @@ import com.ski.box.bean.DataCenter;
 import com.ski.box.bean.TopGameBean;
 import com.ski.box.bean.lottery.LotteryBean;
 import com.ski.box.bean.lottery.LotterySer;
+import com.yb.core.utils.LanguageUtil;
 import com.zyyoona7.popup.BasePopup;
 
 import java.util.ArrayList;
@@ -127,7 +128,7 @@ public class AllLotteryPop extends BasePopup<AllLotteryPop> implements View.OnCl
         if (mListener != null) {
             TopGameBean bean = new TopGameBean();
             bean.setTicketId(0);
-            bean.setTicketName("全部彩种");
+            bean.setTicketName(LanguageUtil.getText("全部彩种"));
             mListener.onLotteryChoose(bean);
             clearStatus();
         }

@@ -120,8 +120,8 @@
 
 
     <style name="Top_result_lottery_style_pk10">
-        <item name="android:layout_width">@dimen/ski_dp_24</item>
-        <item name="android:layout_height">@dimen/ski_dp_24</item>
+        <item name="android:layout_width">@dimen/ski_dp_22</item>
+        <item name="android:layout_height">@dimen/ski_dp_22</item>
         <item name="android:textColor">@color/ski_white</item>
         <item name="ski_strokeColor">@color/ski_color_333333</item>
         <item name="ski_strokeWidth">@dimen/ski_stroke_w</item>

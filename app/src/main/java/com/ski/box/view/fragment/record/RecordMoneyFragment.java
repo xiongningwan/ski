@@ -182,7 +182,7 @@ public class RecordMoneyFragment extends BaseMVPFragment<RecordMoneyContract.Pre
             return;
         }
         mRecordRequest.setPageNum(pageNum + 1);
-        mPresenter.getMoneyRecordData(mRecordRequest);
+        mPresenter.getMoreMoneyRecordData(mRecordRequest);
     }
 
     @Override
@@ -192,16 +192,27 @@ public class RecordMoneyFragment extends BaseMVPFragment<RecordMoneyContract.Pre
 
         RecordMoney recordMoney = (RecordMoney) o;
         mTotalPage = recordMoney.getPages();
-        boolean isHasPreviousPage = recordMoney.isHasPreviousPage();
-        if (!isHasPreviousPage) {
-            mRecordAdapter.setList(recordMoney.getList());
-        }  else {
-            mRecordAdapter.addData(recordMoney.getList());
-        }
+        mRecordAdapter.setList(recordMoney.getList());
     }
 
     @Override
     public void onError(Throwable o) {
+        mRefreshLayout.finishRefresh();
+        mRefreshLayout.finishLoadMore();
+    }
+
+    @Override
+    public void onMoreSuccessful(Object o) {
+        mRefreshLayout.finishRefresh();
+        mRefreshLayout.finishLoadMore();
+
+        RecordMoney recordMoney = (RecordMoney) o;
+        mTotalPage = recordMoney.getPages();
+        mRecordAdapter.addData(recordMoney.getList());
+    }
+
+    @Override
+    public void onMoreError(Throwable o) {
         mRefreshLayout.finishRefresh();
         mRefreshLayout.finishLoadMore();
     }

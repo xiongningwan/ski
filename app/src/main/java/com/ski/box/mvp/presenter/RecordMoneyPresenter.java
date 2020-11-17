@@ -70,4 +70,23 @@ public class RecordMoneyPresenter extends RxPresenter<RecordMoneyContract.View> 
         addDisposable(disposable);
     }
 
+    @Override
+    public void getMoreMoneyRecordData(RecordMoneyRequest mkMoneyRecordRequest) {
+        Disposable disposable = mRecordModel.getMoneyRecordData(mkMoneyRecordRequest, new Consumer<RecordMoney>() {
+            @Override
+            public void accept(RecordMoney frontTradeTypesBeans) throws Exception {
+                String s = new Gson().toJson(frontTradeTypesBeans);
+                mView.onMoreSuccessful(frontTradeTypesBeans);
+
+            }
+        }, new CusConsumer() {
+            @Override
+            public void accept(Throwable throwable) throws Exception {
+                super.accept(throwable);
+                mView.onMoreError(throwable);
+            }
+        });
+        addDisposable(disposable);
+    }
+
 }

@@ -16,6 +16,8 @@ public interface RecordMoneyContract {
     interface View extends BaseContract.BaseView {
         void onSuccessful(Object o);
         void onError(Throwable o);
+        void onMoreSuccessful(Object o);
+        void onMoreError(Throwable o);
         void onMoneyTypeSuccess(List<FrontTradeTypesBean> beans);
     }
 
@@ -23,6 +25,7 @@ public interface RecordMoneyContract {
        /*获取资金记录筛选样式*/
         void getFrontTradeTypes();
         void getMoneyRecordData(RecordMoneyRequest mkMoneyRecordRequest);
+        void getMoreMoneyRecordData(RecordMoneyRequest mkMoneyRecordRequest);
     }
 
 }
