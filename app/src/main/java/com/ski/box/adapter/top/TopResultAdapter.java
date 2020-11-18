@@ -189,14 +189,18 @@ public class TopResultAdapter extends BaseMultiItemQuickAdapter<LotteryNumBean, 
                     TextView[] arrSx = {tvSx1, tvSx2, tvSx3, tvSx4, tvSx5, tvSx6, tvSx7};
                     for (int i = 0; i < arr.length; i++) {
                         try {
-                            int numInt = Integer.parseInt(arr_code[i]);
-                            startAnimal_lhc(arrFl[i], i + 1, numInt, arrSx[i]);
-                            Integer bg = ConfigurationUiUtils.getLHCBg(numInt);
-                            arr[i].setBackgroundResource(bg);
-                            arr[i].setText(arr_code[i]);
                             if (2 == mode) {
+                                int numInt = Integer.parseInt(arr_code[i]);
+                                Integer bg = ConfigurationUiUtils.getLHCBg(numInt);
+                                arr[i].setBackgroundResource(bg);
+                                arr[i].setText(arr_code[i]);
+                                arrSx[i].setVisibility(View.VISIBLE);
+
                                 String sx = LotteryUtil.getLHCSX(numInt);
+                                arrSx[i].setVisibility(View.VISIBLE);
                                 arrSx[i].setText(LanguageUtil.getText(sx));
+                            } else {
+                                startAnimal_lhc(arrFl[i], i + 1, arr_code[i], arrSx[i], arr[i]);
                             }
                         } catch (Exception e) {
                             e.printStackTrace();
@@ -290,23 +294,34 @@ public class TopResultAdapter extends BaseMultiItemQuickAdapter<LotteryNumBean, 
     }
 
 
-    private void startAnimal_lhc(View view, int index, int numInt, TextView tv) {
+    private void startAnimal_lhc(View view, int index, String code, TextView tvSx, TextView tvValue) {
         if ("vivo Y67A".equalsIgnoreCase(systemModel)) {
             return;
         }
         if (2 == mode) {
             return;
         }
+        tvSx.setVisibility(View.GONE);
 
         int distance = mViewHeight + 10;
         float[] floats = {distance, -distance};
         ObjectAnimator outAnimator = ObjectAnimator.ofFloat(view, "translationY", floats);
         outAnimator.setRepeatCount(10);
         outAnimator.setInterpolator(new LinearInterpolator());
-        outAnimator.setStartDelay(mRandom.nextInt(index) * 20);
-        outAnimator.setDuration(200);
+        outAnimator.setStartDelay(mRandom.nextInt(index) * 10);
+        outAnimator.setDuration(150);
         outAnimator.start();
         outAnimator.addListener(new AnimatorListenerAdapter() {
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {
+                super.onAnimationRepeat(animation);
+                int r = 1 + mRandom.nextInt(49);
+                Integer bg = ConfigurationUiUtils.getLHCBg(r);
+                tvValue.setBackgroundResource(bg);
+                tvValue.setText(String.valueOf(r));
+            }
+
             @Override
             public void onAnimationEnd(Animator animation, boolean isReverse) {
                 ObjectAnimator animators = (ObjectAnimator) animation;
@@ -314,8 +329,14 @@ public class TopResultAdapter extends BaseMultiItemQuickAdapter<LotteryNumBean, 
                 ObjectAnimator outAnimator = ObjectAnimator.ofFloat(view, "translationY", distance, 0);
                 outAnimator.start();
 
+                int numInt = Integer.parseInt(code);
+                Integer bg = ConfigurationUiUtils.getLHCBg(numInt);
+                tvValue.setBackgroundResource(bg);
+                tvValue.setText(code);
+
                 String sx = LotteryUtil.getLHCSX(numInt);
-                tv.setText(LanguageUtil.getText(sx));
+                tvSx.setVisibility(View.VISIBLE);
+                tvSx.setText(LanguageUtil.getText(sx));
             }
         });
     }
