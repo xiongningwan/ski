@@ -28,11 +28,9 @@ import com.ski.box.view.activity.group.GroupManageActivity;
 import com.ski.box.view.activity.group.GroupRecordBetActivity;
 import com.ski.box.view.activity.group.GroupRecordMoneyActivity;
 import com.ski.box.view.activity.money.MoneyProgressActivity;
-import com.ski.box.view.activity.money.WithdrawActivity;
 import com.ski.box.view.activity.my.BankCardActivity;
 import com.ski.box.view.activity.my.NoticeActivity;
 import com.ski.box.view.activity.my.PersonalInfoActivity;
-import com.ski.box.view.fragment.RechargeFragment;
 import com.ski.box.view.fragment.record.RecordBetFragment;
 import com.ski.box.view.fragment.record.RecordMoneyFragment;
 import com.yb.core.base.BaseMVPFragment;
@@ -218,19 +216,21 @@ public class PersonalTabFragment extends BaseMVPFragment<EmptyContract.Presenter
                 startActivity(new Intent(requireActivity(), GroupRecordMoneyActivity.class));
                 break;
             case 13: {// 充值
-                Intent intent =  new Intent(requireActivity(), ContainerActivity.class);
-                intent.putExtra(ContainerActivity.KEY_CLASS, RechargeFragment.class.getSimpleName());
-                startActivity(intent);
-//                startActivity(new Intent(requireActivity(), RechargeActivity.class));
+//                Intent intent =  new Intent(requireActivity(), ContainerActivity.class);
+//                intent.putExtra(ContainerActivity.KEY_CLASS, RechargeFragment.class.getSimpleName());
+//                startActivity(intent);
+//                ((MainActivity) requireActivity()).gotoPage(HallTabLayout.TAB_INDEX_RECORD);
+                ((MainActivity) requireActivity()).gotoPage(HallTabLayout.TAB_INDEX_1);
                 break;}
             case 14: // 提现
-                startActivity(new Intent(requireActivity(), WithdrawActivity.class));
+                ((MainActivity) requireActivity()).gotoPage(HallTabLayout.TAB_INDEX_2);
+//                startActivity(new Intent(requireActivity(), WithdrawFragment.class));
                 break;
             case 15: // 资金进度查询
                 startActivity(new Intent(requireActivity(), MoneyProgressActivity.class));
                 break;
             case 41: {// 活动优惠
-                ((MainActivity) requireActivity()).gotoPage(HallTabLayout.TAB_INDEX_RECORD);
+                ((MainActivity) requireActivity()).gotoPage(HallTabLayout.TAB_INDEX_1);
                 break;}
             case 42: // 客服中心
                 AgentWebViewActivity.startAgentWebView(requireActivity(), LanguageUtil.getText("客服中心"), "https://www.google.com");

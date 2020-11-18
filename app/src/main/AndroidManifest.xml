@@ -71,12 +71,12 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateAlwaysHidden"
             tools:ignore="LockedOrientationActivity"/>
-        <activity
-            android:name=".view.activity.money.WithdrawActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustResize|stateAlwaysHidden"
-            tools:ignore="LockedOrientationActivity"/>
+<!--        <activity-->
+<!--            android:name=".view.activity.money.WithdrawActivity"-->
+<!--            android:configChanges="orientation|keyboardHidden|screenSize"-->
+<!--            android:screenOrientation="portrait"-->
+<!--            android:windowSoftInputMode="adjustResize|stateAlwaysHidden"-->
+<!--            tools:ignore="LockedOrientationActivity"/>-->
         <activity
             android:name=".view.activity.money.RechargeDetailActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"

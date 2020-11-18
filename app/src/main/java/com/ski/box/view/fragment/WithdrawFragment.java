@@ -1,4 +1,4 @@
-package com.ski.box.view.activity.money;
+package com.ski.box.view.fragment;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -17,6 +17,8 @@ import android.widget.TextView;
 
 import com.gyf.immersionbar.ImmersionBar;
 import com.hwangjr.rxbus.RxBus;
+import com.hwangjr.rxbus.annotation.Subscribe;
+import com.hwangjr.rxbus.annotation.Tag;
 import com.ski.box.R;
 import com.ski.box.bean.DataCenter;
 import com.ski.box.bean.WithdrawRange;
@@ -26,6 +28,7 @@ import com.ski.box.bean.user.UserInfo;
 import com.ski.box.mvp.contract.money.WithdrawContract;
 import com.ski.box.mvp.presenter.money.WithdrawPresenter;
 import com.ski.box.utils.ActivityUtil;
+import com.ski.box.utils.SoftHideKeyBoardUtil2;
 import com.ski.box.view.activity.my.UpdateFundPwdActivity;
 import com.ski.box.view.view.ClearEditText;
 import com.ski.box.view.view.CusTextView;
@@ -34,14 +37,19 @@ import com.ski.box.view.view.spinner.NiceSpinner;
 import com.ski.box.view.view.spinner.OnSpinnerItemSelectedListener;
 import com.ski.box.view.view.spinner.SpinnerTextFormatter;
 import com.yb.core.base.BaseMVPActivity;
+import com.yb.core.base.BaseMVPFragment;
 import com.yb.core.utils.LanguageUtil;
 import com.yb.core.utils.MD5Util;
 import com.yb.core.utils.ToastUtil;
 
 import java.util.List;
 
+import static com.ski.box.ConstantValue.EVENT_TYPE_BALANCE_UPDATE;
+import static com.ski.box.ConstantValue.EVENT_TYPE_USER_NAME_NICK_NAME;
 
-public class WithdrawActivity extends BaseMVPActivity<WithdrawContract.Presenter> implements WithdrawContract.View, View.OnClickListener {
+
+public class WithdrawFragment extends BaseMVPFragment<WithdrawContract.Presenter> implements WithdrawContract.View, View.OnClickListener {
+    public static final String KEY_HAS_HEAD = "key_has_head";
     private HeaderView mHeadView;
     private Button mBtnSure;
     private LinearLayout mllBalance;
@@ -60,17 +68,29 @@ public class WithdrawActivity extends BaseMVPActivity<WithdrawContract.Presenter
     private TextView mTvWen2;
     private ProgressDialog mLoading;
     private WithdrawRange mWithdrawRange;
-    RotateAnimation rotate;
+    private RotateAnimation rotate;
+    private int mHasHead;
+
+    public WithdrawFragment() {
+    }
+
+    public static WithdrawFragment newInstance(int i) {
+        WithdrawFragment fragment = new WithdrawFragment();
+        Bundle args = new Bundle();
+        args.putInt(KEY_HAS_HEAD, i);
+        fragment.setArguments(args);
+        return fragment;
+    }
 
     @Override
-    protected void onDestroy() {
-        super.onDestroy();
+    public void onDestroyView() {
+        super.onDestroyView();
         RxBus.get().unregister(this);
     }
 
     @Override
     protected WithdrawContract.Presenter bindPresenter() {
-        return new WithdrawPresenter(this);
+        return new WithdrawPresenter(requireActivity());
     }
 
     @Override
@@ -79,45 +99,52 @@ public class WithdrawActivity extends BaseMVPActivity<WithdrawContract.Presenter
     }
 
     @Override
-    protected void initViews() {
+    protected void initView(View view) {
         ImmersionBar.with(this).init();
         RxBus.get().register(this);
-        mHeadView = findViewById(R.id.head_view);
-        mTvBalance = findViewById(R.id.tv_balance_value);
-        mTvNickName = findViewById(R.id.tv_nick_name);
-        mSpType = findViewById(R.id.spinner_type);
-        mEtWithdrawMoney = findViewById(R.id.et_withdraw_money);
-        mEtMoneyPwd = findViewById(R.id.et_money_pwd);
-        mTvWen1 = findViewById(R.id.tv_wen_1);
-        mTvWen2 = findViewById(R.id.tv_wen_2);
-        mBtnSure = findViewById(R.id.btn_sure);
-        mllBalance = findViewById(R.id.ll_balance);
-        mIvBalance = findViewById(R.id.iv_refresh_balance);
-        mTvNotice1 = findViewById(R.id.tv_notice_1);
-        mTvNotice2 = findViewById(R.id.tv_notice_2);
-        mTvNotice3 = findViewById(R.id.tv_notice_3);
-        mTvNotice5 = findViewById(R.id.tv_notice_5);
-        mTvNotice6 = findViewById(R.id.tv_notice_6);
-        mHeadView.setHeader(LanguageUtil.getText(getString(R.string.ski_money_withdraw)), true);
+        mHeadView = view.findViewById(R.id.head_view);
+        mTvBalance = view.findViewById(R.id.tv_balance_value);
+        mTvNickName = view.findViewById(R.id.tv_nick_name);
+        mSpType = view.findViewById(R.id.spinner_type);
+        mEtWithdrawMoney = view.findViewById(R.id.et_withdraw_money);
+        mEtMoneyPwd = view.findViewById(R.id.et_money_pwd);
+        mTvWen1 = view.findViewById(R.id.tv_wen_1);
+        mTvWen2 = view.findViewById(R.id.tv_wen_2);
+        mBtnSure = view.findViewById(R.id.btn_sure);
+        mllBalance = view.findViewById(R.id.ll_balance);
+        mIvBalance = view.findViewById(R.id.iv_refresh_balance);
+        mTvNotice1 = view.findViewById(R.id.tv_notice_1);
+        mTvNotice2 = view.findViewById(R.id.tv_notice_2);
+        mTvNotice3 = view.findViewById(R.id.tv_notice_3);
+        mTvNotice5 = view.findViewById(R.id.tv_notice_5);
+        mTvNotice6 = view.findViewById(R.id.tv_notice_6);
+        mHeadView.setHeader(LanguageUtil.getText(getString(R.string.ski_money_withdraw)), false);
 
         mBtnSure.setOnClickListener(this);
         mTvWen1.setOnClickListener(this);
         mTvWen2.setOnClickListener(this);
         mllBalance.setOnClickListener(this);
-        mLoading = new ProgressDialog(this);
+        mLoading = new ProgressDialog(requireActivity());
     }
 
+
     @Override
-    protected void initData(Bundle bundle) {
+    protected void initData(Bundle savedInstanceState) {
+        Bundle bundle = this.getArguments();
+        if (bundle != null) {
+            mHasHead = bundle.getInt(KEY_HAS_HEAD, 0);
+            if (1 == mHasHead) {
+                mHeadView.setVisibility(View.GONE);
+//                SoftHideKeyBoardUtil.assistActivity(requireActivity());
+            } else {
+                ImmersionBar.with(this).statusBarColor(R.color.ski_color_FAFAFA).statusBarDarkFont(true).init();
+                SoftHideKeyBoardUtil2.assistActivity(requireActivity());
+            }
+        }
         User user = DataCenter.getInstance().getUser();
-        mTvBalance.setText("￥" + user.getBalance());
+        mTvBalance.setText(user.getBalance());
         mTvNickName.setText(user.getAlias());
         createAnim();
-        if (0 == user.getHavefundPwd()) {
-            ToastUtil.showInfo("请先设置资金密码");
-            startActivity(new Intent(this, UpdateFundPwdActivity.class));
-            finish();
-        }
         setRedTip();
     }
 
@@ -126,6 +153,11 @@ public class WithdrawActivity extends BaseMVPActivity<WithdrawContract.Presenter
         super.processLogic();
         mPresenter.getBankCardList();
         mPresenter.getWithdrawRange();
+    }
+
+    @Override
+    protected void loadData() {
+
     }
 
     @Override
@@ -160,6 +192,12 @@ public class WithdrawActivity extends BaseMVPActivity<WithdrawContract.Presenter
 
 
     private void goToDeposit() {
+        if (0 == DataCenter.getInstance().getUser().getHavefundPwd()) {
+            ToastUtil.showInfo("请先设置资金密码");
+            startActivity(new Intent(requireActivity(), UpdateFundPwdActivity.class));
+            return;
+        }
+
         String inputMoney = mEtWithdrawMoney.getText().toString().trim();
         if (TextUtils.isEmpty(inputMoney)) {
             ToastUtil.showError("请输入金额");
@@ -242,6 +280,17 @@ public class WithdrawActivity extends BaseMVPActivity<WithdrawContract.Presenter
         mLoading.dismiss();
     }
 
+    @Subscribe(tags = {@Tag(EVENT_TYPE_BALANCE_UPDATE)})
+    public void onBalanceUpdate(String balanceStr) {
+        mTvBalance.setText(balanceStr);
+    }
+
+    @Subscribe(tags = {@Tag(EVENT_TYPE_USER_NAME_NICK_NAME)})
+    public void onUserNameUpdate(String s) {
+        User user = DataCenter.getInstance().getUser();
+        mTvNickName.setText(user.getAlias());
+    }
+
 
     private void setSpinner(List<BankCard> list) {
         BankCard bankCard = new BankCard();
@@ -273,11 +322,11 @@ public class WithdrawActivity extends BaseMVPActivity<WithdrawContract.Presenter
         String tip5 = getString(R.string.ski_money_withdraw_notice5);
         String tip6 = getString(R.string.ski_money_withdraw_notice6);
 
-        ActivityUtil.setTipKeywordRed(this, mTvNotice1, LanguageUtil.getText(tip1), LanguageUtil.getText("09:30-02:30"));
-        ActivityUtil.setTipKeywordRed(this, mTvNotice2, LanguageUtil.getText(tip2), LanguageUtil.getText("1000000"), LanguageUtil.getText("20"));
-        ActivityUtil.setTipKeywordRed(this, mTvNotice3, tip3, "25%", LanguageUtil.getText("无法成功提现"));
-        ActivityUtil.setTipKeywordRed(this, mTvNotice5, LanguageUtil.getText(tip5), LanguageUtil.getText("4"), LanguageUtil.getText("12"));
-        ActivityUtil.setTipKeywordRed(this, mTvNotice6, LanguageUtil.getText(tip6), LanguageUtil.getText("1分钟"));
+        ActivityUtil.setTipKeywordRed(requireActivity(), mTvNotice1, LanguageUtil.getText(tip1), LanguageUtil.getText("09:30-02:30"));
+        ActivityUtil.setTipKeywordRed(requireActivity(), mTvNotice2, LanguageUtil.getText(tip2), LanguageUtil.getText("1000000"), LanguageUtil.getText("20"));
+        ActivityUtil.setTipKeywordRed(requireActivity(), mTvNotice3, tip3, "25%", LanguageUtil.getText("无法成功提现"));
+        ActivityUtil.setTipKeywordRed(requireActivity(), mTvNotice5, LanguageUtil.getText(tip5), LanguageUtil.getText("4"), LanguageUtil.getText("12"));
+        ActivityUtil.setTipKeywordRed(requireActivity(), mTvNotice6, LanguageUtil.getText(tip6), LanguageUtil.getText("1分钟"));
     }
 
 }

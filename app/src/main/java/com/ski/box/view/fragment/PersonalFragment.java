@@ -26,11 +26,11 @@ import com.ski.box.bean.user.User;
 import com.ski.box.mvp.contract.PersonalContract;
 import com.ski.box.mvp.presenter.PersonalPresenter;
 import com.ski.box.utils.ActivityUtil;
+import com.ski.box.view.activity.MainActivity;
+import com.ski.box.view.view.HallTabLayout;
 import com.yb.core.utils.LanguageUtil;
 import com.ski.box.view.activity.AgentWebViewActivity;
-import com.ski.box.view.activity.ContainerActivity;
 import com.ski.box.view.activity.LoginActivity;
-import com.ski.box.view.activity.money.WithdrawActivity;
 import com.ski.box.view.activity.my.PersonalInfoActivity;
 import com.ski.box.view.activity.my.UpdateHeadActivity;
 import com.ski.box.view.fragment.my.PersonalTabFragment;
@@ -148,11 +148,10 @@ public class PersonalFragment extends BaseMVPFragment<PersonalContract.Presenter
         } else if (id == R.id.iv_et_nick_name || id == R.id.tv_user_name || id == R.id.tv_user_acc) {
             startActivity(new Intent(requireActivity(), PersonalInfoActivity.class));
         } else if (id == R.id.btn_recharge) {
-            Intent intent = new Intent(requireActivity(), ContainerActivity.class);
-            intent.putExtra(ContainerActivity.KEY_CLASS, RechargeFragment.class.getSimpleName());
-            startActivity(intent);
+            ((MainActivity) requireActivity()).gotoPage(HallTabLayout.TAB_INDEX_1);
         } else if (id == R.id.btn_withdraw) {
-            startActivity(new Intent(requireActivity(), WithdrawActivity.class));
+          //  startActivity(new Intent(requireActivity(), WithdrawActivity.class));
+            ((MainActivity) requireActivity()).gotoPage(HallTabLayout.TAB_INDEX_2);
         } else if (id == R.id.iv_user) {
             startActivity(new Intent(requireActivity(), UpdateHeadActivity.class));
         } else if (id == R.id.iv_service) {

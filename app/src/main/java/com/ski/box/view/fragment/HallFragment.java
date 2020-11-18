@@ -37,7 +37,6 @@ import com.ski.box.view.activity.AgentWebViewActivity;
 import com.ski.box.view.activity.BetActivity;
 import com.ski.box.view.activity.ContainerActivity;
 import com.ski.box.view.activity.MainActivity;
-import com.ski.box.view.activity.money.WithdrawActivity;
 import com.ski.box.view.activity.my.NoticeActivity;
 import com.ski.box.view.fragment.record.RecordBetFragment;
 import com.ski.box.view.view.AutoScrollTextView;
@@ -187,11 +186,11 @@ public class HallFragment extends BaseMVPFragment<HallContract.Presenter> implem
             intent.putExtra(ContainerActivity.KEY_CLASS, RecordBetFragment.class.getSimpleName());
             startActivity(intent);
         } else if (id == R.id.ll_activity) { // 活动
-            ((MainActivity) requireActivity()).gotoPage(HallTabLayout.TAB_INDEX_RECORD);
+            ((MainActivity) requireActivity()).gotoPage(HallTabLayout.TAB_INDEX_1);
         } else if (id == R.id.ll_recharge) { // 充值
-            ((MainActivity) requireActivity()).gotoPage(HallTabLayout.TAB_INDEX_RECHARGE);
+            ((MainActivity) requireActivity()).gotoPage(HallTabLayout.TAB_INDEX_1);
         } else if (id == R.id.ll_withdraw) { // 提现
-            startActivity(new Intent(requireActivity(), WithdrawActivity.class));
+            ((MainActivity) requireActivity()).gotoPage(HallTabLayout.TAB_INDEX_2);
         }
     }
 
@@ -217,8 +216,8 @@ public class HallFragment extends BaseMVPFragment<HallContract.Presenter> implem
                 .setOnBannerListener(new OnBannerListener() {
                     @Override
                     public void OnBannerClick(Object data, int position) {
-                        ActBean actBean = (ActBean) data;
-                        AgentWebViewActivity.startAgentWebView(requireActivity(), LanguageUtil.getText(actBean.getActivityName()), actBean.getTargetUrl());
+                     //   ActBean actBean = (ActBean) data;
+                    //    AgentWebViewActivity.startAgentWebView(requireActivity(), LanguageUtil.getText(actBean.getActivityName()), actBean.getTargetUrl());
                     }
                 });
     }

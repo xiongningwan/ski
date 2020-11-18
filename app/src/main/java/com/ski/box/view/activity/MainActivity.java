@@ -7,24 +7,20 @@ import android.view.View;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
-import com.gyf.immersionbar.ImmersionBar;
 import com.hwangjr.rxbus.RxBus;
 import com.hwangjr.rxbus.annotation.Subscribe;
 import com.hwangjr.rxbus.annotation.Tag;
-import com.scwang.smartrefresh.layout.header.ClassicsHeader;
 import com.ski.box.R;
 import com.ski.box.adapter.FragmentAdapter;
 import com.ski.box.mvp.contract.EmptyContract;
 import com.ski.box.mvp.presenter.EmptyPresenter;
-import com.ski.box.utils.SoftHideKeyBoardUtil;
 import com.ski.box.view.fragment.HallFragment;
 import com.ski.box.view.fragment.PersonalFragment;
 import com.ski.box.view.fragment.RechargeFragment;
-import com.ski.box.view.fragment.ActFragment;
+import com.ski.box.view.fragment.WithdrawFragment;
 import com.ski.box.view.view.HallTabLayout;
 import com.ski.box.view.view.NoScrollViewPager;
 import com.yb.core.base.BaseMVPActivity;
-import com.yb.core.utils.LanguageUtil;
 import com.yb.core.utils.SPUtils;
 import com.yb.core.utils.ToastUtil;
 
@@ -32,7 +28,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static com.ski.box.ConstantValue.EVENT_TOKEN_DISABLE;
-import static com.ski.box.ConstantValue.EVENT_TYPE_USER_NAME_NICK_NAME;
 
 
 public class MainActivity extends BaseMVPActivity<EmptyContract.Presenter> implements EmptyContract.View {
@@ -72,7 +67,7 @@ public class MainActivity extends BaseMVPActivity<EmptyContract.Presenter> imple
         List<Fragment> fragmentList = new ArrayList<>();
         fragmentList.add(HallFragment.newInstance());
         fragmentList.add(RechargeFragment.newInstance(0));
-        fragmentList.add(ActFragment.newInstance());
+        fragmentList.add(WithdrawFragment.newInstance(0));
         fragmentList.add(PersonalFragment.newInstance());
         FragmentAdapter adapter = new FragmentAdapter(fragmentManager, fragmentList);
         mViewPager.setAdapter(adapter);
@@ -81,7 +76,7 @@ public class MainActivity extends BaseMVPActivity<EmptyContract.Presenter> imple
         // viewpager 设置滚动监听
        // mViewPager.addOnPageChangeListener(this);
         mTabView.bindViewPager(mViewPager);
-        mTabView.switchTab(HallTabLayout.TAB_INDEX_HALL);
+        mTabView.switchTab(HallTabLayout.TAB_INDEX_0);
     }
 
     @Override

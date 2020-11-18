@@ -33,8 +33,9 @@
         android:layout_height="wrap_content"
         android:textColor="@color/ski_color_333333"
         android:textSize="14dp"
-        app:layout_constraintStart_toStartOf="@+id/tv_time"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tv_name"
+        android:layout_marginEnd="16dp"
         tools:text="余额  1,000,000.00 元" />
 
     <View
@@ -63,8 +64,9 @@
         android:layout_height="wrap_content"
         android:textColor="@color/ski_color_333333"
         android:textSize="14dp"
-        app:layout_constraintStart_toStartOf="@+id/tv_time"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tv_rabate"
+        android:layout_marginEnd="16dp"
         tools:text="团队余额  2,500,000.00 元" />
 
 
@@ -77,9 +79,7 @@
         android:textSize="14dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_rabate"
-        app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
         tools:text="下级人数 100,000人" />
 
     <com.ski.box.view.view.CusTextView
@@ -88,9 +88,11 @@
         android:layout_height="wrap_content"
         android:textColor="@color/ski_color_333333"
         android:textSize="14dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tv_no"
-        android:layout_marginEnd="16dp"
+        app:layout_constraintStart_toStartOf="@+id/tv_no"
+        app:layout_constraintTop_toBottomOf="@+id/tv_no"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
         tools:text="最后登录 2020-01-01 23:33:55" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -24,11 +24,11 @@
 <!--            android:background="@color/ski_tab_bg"-->
             <!--首页大厅-->
             <LinearLayout
-                android:id="@+id/lottery_hall_ll"
+                android:id="@+id/lottery_0"
                 style="@style/tab_bottom_ll_style">
 
                 <ImageView
-                    android:id="@+id/iv_hall"
+                    android:id="@+id/iv_0"
                     style="@style/tab_bottom_icon_style"
                     android:src="@drawable/ski_tab_hall_icon_selector" />
 
@@ -41,11 +41,11 @@
 
             <!--我的报表-->
             <LinearLayout
-                android:id="@+id/lottery_record_ll"
+                android:id="@+id/lottery_1"
                 style="@style/tab_bottom_ll_style">
 
                 <ImageView
-                    android:id="@+id/iv_record"
+                    android:id="@+id/iv_1"
                     style="@style/tab_bottom_icon_style"
                     android:src="@drawable/ski_tab_recharge_icon_selector"
                      />
@@ -58,27 +58,27 @@
 
             <!--充值中心-->
             <LinearLayout
-                android:id="@+id/lottery_recharge_ll"
+                android:id="@+id/lottery_2"
                 style="@style/tab_bottom_ll_style">
 
                 <ImageView
-                    android:id="@+id/iv_recharge"
+                    android:id="@+id/iv_2"
                     style="@style/tab_bottom_icon_style"
                     android:src="@drawable/ski_tab_record_icon_selector"/>
 
                 <com.ski.box.view.view.CusTextView
                     android:id="@+id/tv_3"
                     style="@style/tab_bottom_text_style"
-                    android:text="@string/ski_tab_lottery_record"/>
+                    android:text="@string/ski_money_withdraw"/>
             </LinearLayout>
 
             <!--个人中心-->
             <LinearLayout
-                android:id="@+id/lottery_personal_ll"
+                android:id="@+id/lottery_3"
                 style="@style/tab_bottom_ll_style">
 
                 <ImageView
-                    android:id="@+id/iv_personal"
+                    android:id="@+id/iv_3"
                     style="@style/tab_bottom_icon_style"
                     android:src="@drawable/ski_tab_personal_icon_selector" />
 

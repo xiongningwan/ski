@@ -242,10 +242,10 @@
     </style>
 
     <!--离开弹框背景-->
-      <style name="alert_dialog_back_cor10" parent="Theme.AppCompat.Dialog">
-          <!-- 这里设置背景为透明，为了隐藏边框 -->
+    <style name="alert_dialog_back_cor10" parent="Theme.AppCompat.Dialog">
+     <!-- 这里设置背景为透明，为了隐藏边框 -->
     <item name="android:windowBackground">@drawable/ski_hall_bg_white_10dp_select</item>
-        </style>
+     </style>
 
     <style name="progress_dialog" parent="@android:style/Theme.Dialog">
         <item name="android:windowFrame">@null</item>

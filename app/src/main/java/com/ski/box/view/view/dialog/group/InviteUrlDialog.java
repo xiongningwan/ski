@@ -50,7 +50,7 @@ public class InviteUrlDialog extends BaseDialog {
         mTvRebate = findViewById(R.id.tv_value_rebate);
 
         mTvType.setText(LanguageUtil.getText("代理"));
-        mTvNo.setText(bean.getCount());
+        mTvNo.setText(String.valueOf(bean.getCount()));
         mTvMsg.setText(bean.getWord());
         mTvTime.setText(bean.getCreateAt());
         if(TextUtils.isEmpty(bean.getKv())) {
