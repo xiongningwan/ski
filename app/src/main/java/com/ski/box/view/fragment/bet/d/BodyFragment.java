@@ -268,16 +268,10 @@ public class BodyFragment extends BaseFragment {
             return;
         }
         mLastClickTime = nowTime;
-        ShuoMingDoubleView mPlayDescripView = new ShuoMingDoubleView(getContext());
         ShuoMingSheetDialog bottomFramentDailog = new ShuoMingSheetDialog(requireContext());
-        int i = ScreenUtils.dip2px(740);
-        bottomFramentDailog.setPeekHeight(i);
-        bottomFramentDailog.setMaxHeight(i);
-        bottomFramentDailog.setContentView(mPlayDescripView);
         bottomFramentDailog.setCanceledOnTouchOutside(true);
+        bottomFramentDailog.refreshShuoMingData(datas, curTicketName, mLotteryPlay.getTitle());
         bottomFramentDailog.show();
-        mPlayDescripView.refreshShuoMingData(datas, curTicketName, mLotteryPlay.getTitle());
-        mPlayDescripView.setBottomFramentDailog(bottomFramentDailog);
     }
 
 

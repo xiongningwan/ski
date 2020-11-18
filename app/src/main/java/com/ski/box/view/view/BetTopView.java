@@ -7,9 +7,7 @@ import android.content.IntentFilter;
 import android.content.res.AssetFileDescriptor;
 import android.content.res.AssetManager;
 import android.media.MediaPlayer;
-import android.os.Handler;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.FrameLayout;
@@ -30,7 +28,6 @@ import com.ski.box.utils.lottery.LotteryNoUtil;
 import com.ski.box.utils.lottery.SettingManager;
 import com.ski.box.view.view.dialog.pop.TopHelperPop;
 import com.yb.core.utils.AppUtil;
-import com.yb.core.utils.LogUtils;
 import com.zyyoona7.popup.XGravity;
 import com.zyyoona7.popup.YGravity;
 
@@ -65,6 +62,7 @@ public class BetTopView extends FrameLayout implements OnClickListener {
     private LotteryResultView mLotteryResultView;
     private View mLotteryResultCoverView;
     private TopHelperPop mTopHelperPop;
+    private int mMode = 2;
 
 
     public BetTopView(Context context) {
@@ -242,9 +240,10 @@ public class BetTopView extends FrameLayout implements OnClickListener {
 
     public void setOpenResult(List<LotteryNumBean> list) {
         if (list != null && list.size() > 0) {
-            String issue =  LotteryNoUtil.getShortIssue(list.get(0).getIssue());
+            String issue = LotteryNoUtil.getShortIssue(list.get(0).getIssue());
             mTvCurrentPeriod.setText(issue);
-            mLotteryResultView.setResult(list);
+            mLotteryResultView.setResult(list, mMode);
+            mMode = 1;
         }
     }
 
@@ -254,9 +253,9 @@ public class BetTopView extends FrameLayout implements OnClickListener {
             RxBus.get().post(EVENT_TYPE_CHANGE_OPEN_RESULT_HISTORY, "打开关闭投注历史页");
         } else if (v.getId() == R.id.fl_close) {
             RxBus.get().post(EVENT_BET_ACTIVITY_FINISH, "关闭投注页面");
-        }  else if (v.getId() == R.id.ll_name) {
+        } else if (v.getId() == R.id.ll_name) {
             RxBus.get().post(EVENT_BET_TOP_CHOSE_LOTTERY_DIALOG_START_OPEN, "顶部选择彩种弹窗打开");
-        }  else if (v.getId() == R.id.fl_helper) {
+        } else if (v.getId() == R.id.fl_helper) {
             showHelper();
         }
 

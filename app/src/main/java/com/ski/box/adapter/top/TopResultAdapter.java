@@ -53,9 +53,9 @@ import java.util.Random;
 public class TopResultAdapter extends BaseMultiItemQuickAdapter<LotteryNumBean, BaseViewHolder> {
     private final int mViewHeight;
     private final Context mContext;
-    String systemModel;
-    Random mRandom;
-//    Typeface mTf_DinABold;
+    private String systemModel;
+    private Random mRandom;
+    private Typeface mTf_DinABold;
     private int mode;
 
     public TopResultAdapter(Context context) {
@@ -74,7 +74,7 @@ public class TopResultAdapter extends BaseMultiItemQuickAdapter<LotteryNumBean, 
         //从asset 读取字体
         AssetManager mgr = context.getAssets();
         //根据路径得到Typeface
-      //  mTf_DinABold = Typeface.createFromAsset(mgr, "fonts/DIN_Alternate_Bold.ttf");
+        mTf_DinABold = Typeface.createFromAsset(mgr, "fonts/DIN_Alternate_Bold.ttf");
     }
 
     public void setMode(int i) {
@@ -106,10 +106,13 @@ public class TopResultAdapter extends BaseMultiItemQuickAdapter<LotteryNumBean, 
 
                     TextView[] arr = {tvNum1, tvNum2, tvNum3, tvNum4, tvNum5, tvNum6, tvNum7, tvNum8, tvNum9, tvNum10};
                     for (int i = 0; i < arr.length; i++) {
-                        startAnimal(arr[i], i + 1);
-                        Integer bg = ConfigurationUiUtils.pk10bgMap.get(arr_code[i]);
-                        arr[i].setBackgroundResource(bg);
-                        arr[i].setText(arr_code[i]);
+                        if (mode != 2) {
+                            startAnimal(type, arr[i], i, arr_code[i], 120, 30, 10);
+                        } else {
+                            Integer bg = ConfigurationUiUtils.pk10bgMap.get(arr_code[i]);
+                            arr[i].setBackgroundResource(bg);
+                            arr[i].setText(arr_code[i]);
+                        }
                     }
                 }
                 break;
@@ -125,8 +128,15 @@ public class TopResultAdapter extends BaseMultiItemQuickAdapter<LotteryNumBean, 
 
                     TextView[] arr = {tvNum1, tvNum2, tvNum3, tvNum4, tvNum5};
                     for (int i = 0; i < arr.length; i++) {
-                        startAnimal(arr[i], i + 1);
-                        arr[i].setText(arr_code[i]);
+                        if (mTf_DinABold != arr[i].getTypeface()) {
+                            arr[i].setTypeface(mTf_DinABold);
+                        }
+                        if (mode != 2) {
+//                            int r = mRandom.nextInt(arr_code.length);
+                            startAnimal(type, arr[i], i, arr_code[i], 120, 15, 10);
+                        } else {
+                            arr[i].setText(arr_code[i]);
+                        }
                     }
                 }
                 break;
@@ -141,8 +151,12 @@ public class TopResultAdapter extends BaseMultiItemQuickAdapter<LotteryNumBean, 
                     tvNum5.setVisibility(View.INVISIBLE);
                     TextView[] arr = {tvNum2, tvNum3, tvNum4};
                     for (int i = 0; i < arr.length; i++) {
-                        startAnimal(arr[i], i + 1);
-                        arr[i].setText(arr_code[i]);
+                        if (mode != 2) {
+                            int r = mRandom.nextInt(arr_code.length);
+                            startAnimal(type, arr[i], i, arr_code[i], 120, 15, 10);
+                        } else {
+                            arr[i].setText(arr_code[i]);
+                        }
                     }
                 }
                 break;
@@ -180,7 +194,7 @@ public class TopResultAdapter extends BaseMultiItemQuickAdapter<LotteryNumBean, 
                             Integer bg = ConfigurationUiUtils.getLHCBg(numInt);
                             arr[i].setBackgroundResource(bg);
                             arr[i].setText(arr_code[i]);
-                            if(2 == mode) {
+                            if (2 == mode) {
                                 String sx = LotteryUtil.getLHCSX(numInt);
                                 arrSx[i].setText(LanguageUtil.getText(sx));
                             }
@@ -228,46 +242,59 @@ public class TopResultAdapter extends BaseMultiItemQuickAdapter<LotteryNumBean, 
 
                     TextView[] arr = {tvNum1, tvNum2, tvNum3, tvNum4, tvNum5, tvNum6, tvNum7, tvNum8, tvNum9, tvNum10, tvNum11, tvNum12, tvNum13, tvNum14, tvNum15, tvNum16, tvNum17, tvNum18, tvNum19, tvNum20};
                     for (int i = 0; i < arr.length; i++) {
-                        startAnimal(arr[i], i + 1);
-                        arr[i].setText(arr_code[i]);
+                        if (mode != 2) {
+                            startAnimal(type, arr[i], i, arr_code[i], 150, 20, 20);
+                        } else {
+                            arr[i].setText(arr_code[i]);
+                        }
                     }
                 }
                 break;
         }
     }
 
-    private void startAnimal(View view, int index) {
+    private void startAnimal(int serId, View view, int index, String code, int duration, int delayP, int repeatCount) {
         if ("vivo Y67A".equalsIgnoreCase(systemModel)) {
             return;
         }
-        if(2 == mode) {
+        if (2 == mode) {
             return;
         }
 
         int distance = mViewHeight + 10;
         float[] floats = {distance, -distance};
         ObjectAnimator outAnimator = ObjectAnimator.ofFloat(view, "translationY", floats);
-        outAnimator.setRepeatCount(10);
+        outAnimator.setRepeatCount(repeatCount);
         outAnimator.setInterpolator(new LinearInterpolator());
-        outAnimator.setStartDelay(mRandom.nextInt(index) * 20);
-        outAnimator.setDuration(200);
+//        outAnimator.setStartDelay(mRandom.nextInt(index) * 20);
+        outAnimator.setStartDelay(index * delayP);
+        outAnimator.setDuration(duration);
         outAnimator.start();
         outAnimator.addListener(new AnimatorListenerAdapter() {
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {
+                super.onAnimationRepeat(animation);
+                setAutoRandomValue(serId, view);
+            }
+
             @Override
             public void onAnimationEnd(Animator animation, boolean isReverse) {
                 ObjectAnimator animators = (ObjectAnimator) animation;
                 View view = (View) animators.getTarget();
                 ObjectAnimator outAnimator = ObjectAnimator.ofFloat(view, "translationY", distance, 0);
                 outAnimator.start();
+                setFinishValue(serId, view, code);
             }
         });
     }
+
 
     private void startAnimal_lhc(View view, int index, int numInt, TextView tv) {
         if ("vivo Y67A".equalsIgnoreCase(systemModel)) {
             return;
         }
-        if(2 == mode) {
+        if (2 == mode) {
             return;
         }
 
@@ -295,7 +322,7 @@ public class TopResultAdapter extends BaseMultiItemQuickAdapter<LotteryNumBean, 
 
 
     private void startIVAni(ImageView iv, String code) {
-        if(2 == mode) {
+        if (2 == mode) {
             Integer k3IconResId = ConfigurationUiUtils.kuaiSanMap.get(code);
             iv.setImageResource(k3IconResId);
             return;
@@ -318,5 +345,81 @@ public class TopResultAdapter extends BaseMultiItemQuickAdapter<LotteryNumBean, 
         Glide.with(AppUtil.getContext()).load(R.mipmap.ski_touzi_ani).into(myCustomTarage).onDestroy();
     }
 
+    private void setAutoRandomValue(int serId, View view) {
+        switch (serId) {
+            case LotteryConstant.SER_ID_PK10: {
+                // 1- 10
+                int r = 1 + mRandom.nextInt(10);
+                if (view instanceof TextView) {
+                    TextView tv = (TextView) view;
+                    Integer bg = ConfigurationUiUtils.pk10bgMap.get(String.valueOf(r));
+                    tv.setBackgroundResource(bg);
+                    tv.setText(String.valueOf(r));
+                }
+                break;
+            }
+            case LotteryConstant.SER_ID_3D:
+            case LotteryConstant.SER_ID_PL35:
+            case LotteryConstant.SER_ID_SSC: {
+                // 0- 9
+                int r = mRandom.nextInt(10);
+                if (view instanceof TextView) {
+                    TextView tv = (TextView) view;
+                    tv.setText(String.valueOf(r));
+                }
+                break;
+            }
+            case LotteryConstant.SER_ID_11X5: {
+                // 01- 11
+                int r = 1 + mRandom.nextInt(11);
+                if (view instanceof TextView) {
+                    TextView tv = (TextView) view;
+                    if (r < 10) {
+                        tv.setText("0" + r);
+                    } else {
+                        tv.setText(String.valueOf(r));
+                    }
+                }
+                break;
+            }
+            case LotteryConstant.SER_ID_KL8: {
+                // 01- 80
+                int r = 1 + mRandom.nextInt(80);
+                if (view instanceof TextView) {
+                    TextView tv = (TextView) view;
+                    if (r < 10) {
+                        tv.setText("0" + r);
+                    } else {
+                        tv.setText(String.valueOf(r));
+                    }
+                }
+                break;
+            }
+        }
+    }
 
+    private void setFinishValue(int serId, View view, String code) {
+        switch (serId) {
+            case LotteryConstant.SER_ID_PK10:
+                if (view instanceof TextView) {
+                    TextView tv = (TextView) view;
+                    Integer bg = ConfigurationUiUtils.pk10bgMap.get(code);
+                    tv.setBackgroundResource(bg);
+                    tv.setText(code);
+                }
+                break;
+            case LotteryConstant.SER_ID_KL8:
+            case LotteryConstant.SER_ID_11X5:
+            case LotteryConstant.SER_ID_PL35:
+            case LotteryConstant.SER_ID_SSC: {
+                // 0 - 9
+                if (view instanceof TextView) {
+                    TextView tv = (TextView) view;
+                    tv.setText(code);
+                }
+                break;
+            }
+        }
+
+    }
 }

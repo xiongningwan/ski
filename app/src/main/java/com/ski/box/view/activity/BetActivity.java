@@ -39,6 +39,7 @@ public class BetActivity extends BaseBetActivity {
     private UpdateResultRunnable mUpdateResultRunnable;
     private List<LotteryNumBean> mLotteryNumList;
     private TopHistoryFragment mHistoryDialog;
+    private int mLotteryStatus;
 
     public static void startBetActivity(Context context, int lotteryId, String lotterName) {
         Intent intent = new Intent(context, BetActivity.class);
@@ -87,7 +88,8 @@ public class BetActivity extends BaseBetActivity {
         mPlanId = dataBean.getPlanId();
         mViewTop.setPlanData(dataBean);
         DataCenter.getInstance().setPlanId(dataBean.getPlanId());
-        mPresenter.setSaleStatus(dataBean.getSale());
+        mLotteryStatus =  dataBean.getSale();
+        mPresenter.setSaleStatus(mLotteryStatus);
     }
 
     @Override
@@ -192,7 +194,7 @@ public class BetActivity extends BaseBetActivity {
     // 推送最新的开奖结果
     @Subscribe(tags = {@Tag(EVENT_OPEN_RESULT_UPDATE)})
     public void onMQTTReceive(LotteryNumBean bean) {
-        if (mLotteryId == bean.getTicketId()) {
+        if (mLotteryId == bean.getTicketId() && mLotteryStatus != 1) {
             // 开奖结果更新 获取100期历史结果'
             mPresenter.getLastOpenResult(mLotteryId, 100);
         }

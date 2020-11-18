@@ -12,96 +12,38 @@ import androidx.annotation.NonNull;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.ski.box.R;
+import com.ski.box.bean.ShuoMingDoubleBean;
+import com.ski.box.view.view.ShuoMingDoubleView;
+import com.yb.core.utils.ScreenUtils;
 
-public class ShuoMingSheetDialog extends BottomSheetDialog {
+import org.jetbrains.annotations.NotNull;
 
+import java.util.List;
+
+public class ShuoMingSheetDialog extends StrongBottomSheetDialog {
+
+    private final Context mContext;
     private int mPeekHeight;
     private int mMaxHeight;
     private boolean mCreated;
     private Window mWindow;
     private BottomSheetBehavior mBottomSheetBehavior;
-
-    public ShuoMingSheetDialog(@NonNull Context context) {
-        super(context, R.style.no_background);
-        mWindow = getWindow();
+    ShuoMingDoubleView mPlayDescripView;
+    public ShuoMingSheetDialog(@NonNull @NotNull Context context) {
+        super(context);
+        mContext = context;
+        createView(context);
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        mCreated = true;
-        setPeekHeight();
-        setMaxHeight();
-        setBottomSheetCallback();
+    private void createView(Context context) {
+        int height =  ScreenUtils.getScreenHeight(context);
+         mPlayDescripView = new ShuoMingDoubleView(getContext());
+        setContentView(mPlayDescripView);
+        mPlayDescripView.setBottomFramentDailog(this);
     }
 
-    public void setPeekHeight(int peekHeight) {
-        mPeekHeight = peekHeight;
-        if (mCreated) {
-            setPeekHeight();
-        }
+    public void refreshShuoMingData(List<ShuoMingDoubleBean.DescriptionBean> datas, String curTicketName, String curPlayName) {
+        mPlayDescripView.refreshShuoMingData(datas, curTicketName, curPlayName);
     }
-
-    public void setMaxHeight(int height) {
-        mMaxHeight = height;
-
-        if (mCreated) {
-            setMaxHeight();
-        }
-    }
-
-
-    private void setPeekHeight() {
-        if (mPeekHeight <= 0) {
-            return;
-        }
-
-        if (getBottomSheetBehavior() != null) {
-            mBottomSheetBehavior.setPeekHeight(mPeekHeight);
-        }
-    }
-
-    private void setMaxHeight() {
-        if (mMaxHeight <= 0) {
-            return;
-        }
-        mWindow.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, mMaxHeight);
-        mWindow.setGravity(Gravity.BOTTOM);
-    }
-
-    private BottomSheetBehavior getBottomSheetBehavior() {
-        if (mBottomSheetBehavior != null) {
-            return mBottomSheetBehavior;
-        }
-        View view = mWindow.findViewById(R.id.design_bottom_sheet);
-        if (view == null) {
-            return null;
-        }
-        mBottomSheetBehavior = BottomSheetBehavior.from(view);
-        return mBottomSheetBehavior;
-    }
-
-    private void setBottomSheetCallback() {
-        if (getBottomSheetBehavior() != null) {
-            mBottomSheetBehavior.setBottomSheetCallback(mBottomSheetCallback);
-        }
-    }
-
-    private final BottomSheetBehavior.BottomSheetCallback mBottomSheetCallback
-            = new BottomSheetBehavior.BottomSheetCallback() {
-        @Override
-        public void onStateChanged(@NonNull View bottomSheet,
-                                   @BottomSheetBehavior.State int newState) {
-            if (newState == BottomSheetBehavior.STATE_HIDDEN) {
-                dismiss();
-                BottomSheetBehavior.from(bottomSheet).setState(
-                        BottomSheetBehavior.STATE_COLLAPSED);
-            }
-        }
-
-        @Override
-        public void onSlide(@NonNull View bottomSheet, float slideOffset) {
-        }
-    };
 
 }
