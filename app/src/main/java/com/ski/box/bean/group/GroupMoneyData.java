@@ -75,10 +75,10 @@ public class GroupMoneyData {
          */
 
         private String memberAccount;
-        private long transId;
+        private String transId;
         private int transType;
         private String ticketName;
-        private long orderId;
+        private String orderId;
         private BigDecimal beforeAmt;
         private double transAmt;
         private BigDecimal afterAmt;
@@ -92,11 +92,11 @@ public class GroupMoneyData {
             this.memberAccount = memberAccount;
         }
 
-        public long getTransId() {
+        public String getTransId() {
             return transId;
         }
 
-        public void setTransId(long transId) {
+        public void setTransId(String transId) {
             this.transId = transId;
         }
 
@@ -116,11 +116,11 @@ public class GroupMoneyData {
             this.ticketName = ticketName;
         }
 
-        public long getOrderId() {
+        public String getOrderId() {
             return orderId;
         }
 
-        public void setOrderId(long orderId) {
+        public void setOrderId(String orderId) {
             this.orderId = orderId;
         }
 

@@ -13,6 +13,7 @@ import com.chad.library.adapter.base.listener.OnItemClickListener;
 import com.chad.library.adapter.base.viewholder.BaseViewHolder;
 import com.hwangjr.rxbus.RxBus;
 import com.ski.box.BuildConfig;
+import com.ski.box.ConstantValue;
 import com.ski.box.R;
 import com.ski.box.bean.PTabBean;
 import com.ski.box.mvp.contract.EmptyContract;
@@ -233,7 +234,7 @@ public class PersonalTabFragment extends BaseMVPFragment<EmptyContract.Presenter
                 ((MainActivity) requireActivity()).gotoPage(HallTabLayout.TAB_INDEX_1);
                 break;}
             case 42: // 客服中心
-                AgentWebViewActivity.startAgentWebView(requireActivity(), LanguageUtil.getText("客服中心"), "https://www.google.com");
+                AgentWebViewActivity.startAgentWebView(requireActivity(), LanguageUtil.getText("客服中心"), ConstantValue.SERVICE_URL);
                 break;
             case 43: // 公告中心
                 startActivity(new Intent(requireActivity(), NoticeActivity.class));

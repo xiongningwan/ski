@@ -17,6 +17,7 @@ import com.gyf.immersionbar.ImmersionBar;
 import com.hwangjr.rxbus.RxBus;
 import com.hwangjr.rxbus.annotation.Subscribe;
 import com.hwangjr.rxbus.annotation.Tag;
+import com.ski.box.ConstantValue;
 import com.ski.box.R;
 import com.ski.box.adapter.FragmentAdapter;
 import com.ski.box.bean.DataCenter;
@@ -155,7 +156,7 @@ public class PersonalFragment extends BaseMVPFragment<PersonalContract.Presenter
         } else if (id == R.id.iv_user) {
             startActivity(new Intent(requireActivity(), UpdateHeadActivity.class));
         } else if (id == R.id.iv_service) {
-            AgentWebViewActivity.startAgentWebView(requireActivity(), LanguageUtil.getText("客服中心"), "https://www.google.com");
+            AgentWebViewActivity.startAgentWebView(requireActivity(), LanguageUtil.getText("客服中心"), ConstantValue.SERVICE_URL);
         }
     }
 

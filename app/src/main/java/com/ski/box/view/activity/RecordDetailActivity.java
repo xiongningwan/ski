@@ -222,7 +222,7 @@ public class RecordDetailActivity extends BaseMVPActivity<RecordBetContract.Pres
 
     @Override
     public void onCancelSuccess() {
-        ToastUtil.showSuccess("撤单成功！");
+        ToastUtil.showSuccess("撤单成功");
         RxBus.get().post(EVENT_RECORD_CANCEL_SUCCESS,"");
     }
 

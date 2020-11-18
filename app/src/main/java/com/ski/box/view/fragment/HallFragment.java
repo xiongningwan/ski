@@ -18,6 +18,7 @@ import com.gyf.immersionbar.ImmersionBar;
 import com.hwangjr.rxbus.RxBus;
 import com.hwangjr.rxbus.annotation.Subscribe;
 import com.hwangjr.rxbus.annotation.Tag;
+import com.ski.box.ConstantValue;
 import com.ski.box.R;
 import com.ski.box.SKISdkManger;
 import com.ski.box.adapter.HallAdapter;
@@ -178,7 +179,7 @@ public class HallFragment extends BaseMVPFragment<HallContract.Presenter> implem
     public void onClick(View view) {
         int id = view.getId();
         if (id == R.id.iv_service) {
-            AgentWebViewActivity.startAgentWebView(requireActivity(), LanguageUtil.getText("客服中心"), "https://www.google.com");
+            AgentWebViewActivity.startAgentWebView(requireActivity(), LanguageUtil.getText("客服中心"), ConstantValue.SERVICE_URL);
         } else if (id == R.id.marqueeText) {
             startActivity(new Intent(requireActivity(), NoticeActivity.class));
         } else if (id == R.id.ll_record) {// 注单

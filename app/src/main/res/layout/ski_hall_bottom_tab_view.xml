@@ -64,7 +64,7 @@
                 <ImageView
                     android:id="@+id/iv_2"
                     style="@style/tab_bottom_icon_style"
-                    android:src="@drawable/ski_tab_record_icon_selector"/>
+                    android:src="@drawable/ski_tab_2_icon_selector"/>
 
                 <com.ski.box.view.view.CusTextView
                     android:id="@+id/tv_3"

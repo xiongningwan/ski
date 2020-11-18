@@ -44,6 +44,7 @@ public class LoginActivity extends BaseMVPActivity<LoginContract.Presenter> impl
     private EditText etPassword;
     private Button btDevLogin;
     private TextView tvRegister;
+    private TextView tvkefu;
     private TextView tvLanguageSwitch;
     private TextView tvEnvironment;
     private TextView tvMerchant;
@@ -69,6 +70,7 @@ public class LoginActivity extends BaseMVPActivity<LoginContract.Presenter> impl
         etPassword = findViewById(R.id.et_password);
         btDevLogin = findViewById(R.id.btn_login_dev);
         tvRegister = findViewById(R.id.tv_register);
+        tvkefu = findViewById(R.id.tv_kefu);
         tvLanguageSwitch = findViewById(R.id.tv_language_switch);
         btDevLogin.setOnClickListener(this);
         mLoading = new ProgressDialog(this);
@@ -79,6 +81,7 @@ public class LoginActivity extends BaseMVPActivity<LoginContract.Presenter> impl
         tvMerchant.setOnClickListener(this);
         tvRegister.setOnClickListener(this);
         tvLanguageSwitch.setOnClickListener(this);
+        tvkefu.setOnClickListener(this);
         SoftHideKeyBoardUtil.assistActivity(this);
     }
 
@@ -108,6 +111,8 @@ public class LoginActivity extends BaseMVPActivity<LoginContract.Presenter> impl
                 }
             });
             lsDialog.show();
+        }  else if (id == R.id.tv_kefu) {
+            AgentWebViewActivity.startAgentWebView(this, LanguageUtil.getText("客服中心"), ConstantValue.SERVICE_URL);
         }
     }
 

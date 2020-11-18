@@ -83,6 +83,14 @@ public class WithdrawFragment extends BaseMVPFragment<WithdrawContract.Presenter
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        if(mPresenter != null) {
+            mPresenter.getBankCardList();
+        }
+    }
+
+    @Override
     public void onDestroyView() {
         super.onDestroyView();
         RxBus.get().unregister(this);
