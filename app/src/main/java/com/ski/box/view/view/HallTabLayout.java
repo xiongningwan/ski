@@ -15,8 +15,8 @@ import com.ski.box.R;
 
 public class HallTabLayout extends RelativeLayout implements View.OnClickListener {
     public static final int TAB_INDEX_HALL = 0;
-    public static final int TAB_INDEX_RECORD = 1;
-    public static final int TAB_INDEX_RECHARGE = 2;
+    public static final int TAB_INDEX_RECHARGE = 1;
+    public static final int TAB_INDEX_RECORD = 2;
     public static final int TAB_INDEX_PERSONAL = 3;
 
     private LinearLayout mLLHall;

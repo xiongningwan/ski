@@ -92,7 +92,7 @@ public class BetFragment extends BaseFragment {
         List<Fragment> fragmentList = new ArrayList<>();
         fragmentList.add(DoubleFragment.newInstance());
         fragmentList.add(RoadFragment.newInstance());
-        fragmentList.add(DragonFragment.newInstance());
+//        fragmentList.add(DragonFragment.newInstance());
         fragmentList.add(RecordBetFragment.newInstance());
         fragmentAdapter = new FragmentAdapter(getChildFragmentManager(), fragmentList);
         mViewPager.setAdapter(fragmentAdapter);

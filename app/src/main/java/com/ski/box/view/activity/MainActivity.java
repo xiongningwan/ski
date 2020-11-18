@@ -71,8 +71,8 @@ public class MainActivity extends BaseMVPActivity<EmptyContract.Presenter> imple
         FragmentManager fragmentManager = getSupportFragmentManager();
         List<Fragment> fragmentList = new ArrayList<>();
         fragmentList.add(HallFragment.newInstance());
-        fragmentList.add(ActFragment.newInstance());
         fragmentList.add(RechargeFragment.newInstance(0));
+        fragmentList.add(ActFragment.newInstance());
         fragmentList.add(PersonalFragment.newInstance());
         FragmentAdapter adapter = new FragmentAdapter(fragmentManager, fragmentList);
         mViewPager.setAdapter(adapter);

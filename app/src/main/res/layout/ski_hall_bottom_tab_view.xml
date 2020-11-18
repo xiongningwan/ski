@@ -47,12 +47,13 @@
                 <ImageView
                     android:id="@+id/iv_record"
                     style="@style/tab_bottom_icon_style"
-                    android:src="@drawable/ski_tab_record_icon_selector" />
+                    android:src="@drawable/ski_tab_recharge_icon_selector"
+                     />
 
                 <com.ski.box.view.view.CusTextView
                     android:id="@+id/tv_2"
                     style="@style/tab_bottom_text_style"
-                    android:text="@string/ski_tab_lottery_record" />
+                    android:text="@string/ski_tab_lottery_recharge"/>
             </LinearLayout>
 
             <!--充值中心-->
@@ -63,12 +64,12 @@
                 <ImageView
                     android:id="@+id/iv_recharge"
                     style="@style/tab_bottom_icon_style"
-                    android:src="@drawable/ski_tab_recharge_icon_selector" />
+                    android:src="@drawable/ski_tab_record_icon_selector"/>
 
                 <com.ski.box.view.view.CusTextView
                     android:id="@+id/tv_3"
                     style="@style/tab_bottom_text_style"
-                    android:text="@string/ski_tab_lottery_recharge" />
+                    android:text="@string/ski_tab_lottery_record"/>
             </LinearLayout>
 
             <!--个人中心-->

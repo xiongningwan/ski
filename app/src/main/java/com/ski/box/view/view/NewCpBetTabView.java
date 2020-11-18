@@ -19,7 +19,7 @@ import com.yb.core.utils.ScreenUtils;
 public class NewCpBetTabView extends RelativeLayout implements View.OnClickListener {
     private TextView item_1;
     private TextView item_2;
-    private TextView item_3;
+//    private TextView item_3;
     private RelativeLayout item_4;
     private int mScreenWidth;
     private int mCurrentIndex;
@@ -51,20 +51,20 @@ public class NewCpBetTabView extends RelativeLayout implements View.OnClickListe
 
         item_1 = v.findViewById(R.id.tv_bet_d);
         item_2 = v.findViewById(R.id.tv_bet_s);
-        item_3 = v.findViewById(R.id.tv_road);
+//        item_3 = v.findViewById(R.id.tv_road);
         item_4 = v.findViewById(R.id.rl_4);
         tvNum = v.findViewById(R.id.tv_unpaid_num);
         item_1.setOnClickListener(this);
         item_2.setOnClickListener(this);
-        item_3.setOnClickListener(this);
+//        item_3.setOnClickListener(this);
         item_4.setOnClickListener(this);
         mScreenWidth = ScreenUtils.getScreenWidth(context);
 
 
         mPosition_double = 0;
         mPosition_standard = 1;
-        mPosition_road = 2;
-        mPosition_dragon = 3;
+//        mPosition_road = 2;
+        mPosition_dragon = 2;
     }
 
     public void scrollPosition(int position) {
@@ -102,25 +102,25 @@ public class NewCpBetTabView extends RelativeLayout implements View.OnClickListe
             case 0:
                 item_1.setSelected(true);
                 item_2.setSelected(false);
-                item_3.setSelected(false);
+//                item_3.setSelected(false);
                 item_4.setSelected(false);
                 break;
             case 1:
                 item_1.setSelected(false);
                 item_2.setSelected(true);
-                item_3.setSelected(false);
+//                item_3.setSelected(false);
                 item_4.setSelected(false);
                 break;
             case 2:
                 item_1.setSelected(false);
                 item_2.setSelected(false);
-                item_3.setSelected(true);
+//                item_3.setSelected(true);
                 item_4.setSelected(false);
                 break;
             case 3:
                 item_1.setSelected(false);
                 item_2.setSelected(false);
-                item_3.setSelected(false);
+//                item_3.setSelected(false);
                 item_4.setSelected(true);
                 break;
         }
