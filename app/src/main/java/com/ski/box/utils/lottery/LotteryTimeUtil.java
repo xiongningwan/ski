@@ -50,7 +50,6 @@ public class LotteryTimeUtil {
     private static long resetTime(int id) {
         switch (id) {
             // 1分钟1期
-            case LotteryConstant.LOTTERY_ID_PK10_JSSC:
             case LotteryConstant.LOTTERY_ID_PK10_JSFT:
             case LotteryConstant.LOTTERY_ID_SSC_TX:
             case LotteryConstant.LOTTERY_ID_SSC_JS:
@@ -60,19 +59,22 @@ public class LotteryTimeUtil {
             case LotteryConstant.LOTTERY_ID_KL8_JS:
             case LotteryConstant.LOTTERY_ID_K3_JISU:
                 return 59000;
-            // 1.5分钟1期
-            case LotteryConstant.LOTTERY_ID_LHC_JS:
-                return 89000;
-            // 5分钟1期
-            case LotteryConstant.LOTTERY_ID_3D_XY:
-            case LotteryConstant.LOTTERY_ID_PK10_HLFT:
+            // 3分钟1期
             case LotteryConstant.LOTTERY_ID_SSC_XY5FC:
-            case LotteryConstant.LOTTERY_ID_SSC_HN5FC:
             case LotteryConstant.LOTTERY_ID_11X5_XY:
+            case LotteryConstant.LOTTERY_ID_3D_XY:
+            case LotteryConstant.LOTTERY_ID_PK10_JSSC:
+            case LotteryConstant.LOTTERY_ID_K3_XY:
+                return 179000;
+//            // 1.5分钟1期
+//            case LotteryConstant.LOTTERY_ID_LHC_JS:
+//                return 89000;
+            // 5分钟1期
+            case LotteryConstant.LOTTERY_ID_PK10_HLFT:
+            case LotteryConstant.LOTTERY_ID_SSC_HN5FC:
             case LotteryConstant.LOTTERY_ID_LHC_5F:
             case LotteryConstant.LOTTERY_ID_PK10_XYFT:
             case LotteryConstant.LOTTERY_ID_PK10_METFT:
-            case LotteryConstant.LOTTERY_ID_K3_XY:
             case LotteryConstant.LOTTERY_ID_SSC_AZXY5:
             case LotteryConstant.LOTTERY_ID_PK10_AZ:
                 return 299000;
@@ -211,7 +213,7 @@ public class LotteryTimeUtil {
 //        addDisposable(disposable2);
 
 
-        Disposable disposable2 = mLotteryModel.getGetHeadTicketInfo(new Consumer<List<TicketLotteryTimeBean>>() {
+        Disposable disposable2 = mLotteryModel.getTicketHeadInfo_responseData(new Consumer<List<TicketLotteryTimeBean>>() {
             @Override
             public void accept(List<TicketLotteryTimeBean> data) throws Exception {
                 long serverTime = DataCenter.getInstance().getServerTime();

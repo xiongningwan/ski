@@ -49,6 +49,7 @@ import com.ski.box.utils.lottery.LimitRedUtil;
 import com.ski.box.utils.lottery.LotteryNoUtil;
 import com.ski.box.view.view.dialog.LotteryDialog;
 import com.yb.core.utils.AppUtil;
+import com.yb.core.utils.LanguageUtil;
 import com.yb.core.utils.StringUtils;
 import com.zyyoona7.popup.EasyPopup;
 
@@ -243,7 +244,7 @@ public class LongDragonBetView extends LinearLayout implements View.OnClickListe
 
         tvAvailableBalance.setVisibility(mType == 1 ? VISIBLE : GONE);
         User user = DataCenter.getInstance().getUser();
-        tvAvailableBalance.setText("可用余额：" + user.getBalance());
+        tvAvailableBalance.setText( LanguageUtil.getText("余额") + "：" + user.getBalance());
 
         etInputMoneyFast.addTextChangedListener(new TextWatcher() {
 
@@ -294,11 +295,7 @@ public class LongDragonBetView extends LinearLayout implements View.OnClickListe
                     int visibility = view01.getVisibility();
                     if (visibility != View.VISIBLE) {
                         view01.setVisibility(VISIBLE);
-
-
-
                     }
-
                 }
 
                 new Handler().postDelayed(new Runnable() {
@@ -338,8 +335,6 @@ public class LongDragonBetView extends LinearLayout implements View.OnClickListe
                      }
                 }
 
-
-
             }
         });
     }
@@ -347,7 +342,7 @@ public class LongDragonBetView extends LinearLayout implements View.OnClickListe
     public void confirmBet() {
         boolean isCanBet = isCanBet();
         if (!isCanBet) {
-            mTipDialog.showLightReminder(getContext(), clBetLayout, "至少选中1注");
+            mTipDialog.showLightReminder(getContext(), clBetLayout, LanguageUtil.getText("至少选中1注"));
             return;
         }
         DataCenter.getInstance().setBallBeanList(bigSmallBeans);
@@ -619,7 +614,7 @@ public class LongDragonBetView extends LinearLayout implements View.OnClickListe
                 if (!TextUtils.isEmpty(oldPlanId) && !oldPlanId.equalsIgnoreCase(DataCenter.getInstance().getLotteryPlanId(ticketId)) ) {
                     boolean isCanBet = isCanBet();
                     if (!isCanBet) {
-                        mTipDialog.showLightReminder(view.getContext(), clBetLayout, "至少选中1注");
+                        mTipDialog.showLightReminder(view.getContext(), clBetLayout, LanguageUtil.getText("至少选中1注"));
                         return;
                     }
                     showPeroidChangeDailog(planId);
@@ -630,10 +625,10 @@ public class LongDragonBetView extends LinearLayout implements View.OnClickListe
                 e.printStackTrace();
                 boolean isCanBet = isCanBet();
                 if (!isCanBet) {
-                    mTipDialog.showLightReminder(view.getContext(), clBetLayout, "至少选中1注");
+                    mTipDialog.showLightReminder(view.getContext(), clBetLayout, LanguageUtil.getText("至少选中1注"));
                     return;
                 }
-                mTipDialog.showLightReminder(view.getContext(), clBetLayout, "请输入金额");
+                mTipDialog.showLightReminder(view.getContext(), clBetLayout, LanguageUtil.getText("请输入金额"));
             }
 
         } else if (id == R.id.iv_delete) {
@@ -662,11 +657,11 @@ public class LongDragonBetView extends LinearLayout implements View.OnClickListe
     private class FastDialogAdapter extends BaseQuickAdapter<BallBean, BaseViewHolder> {
 
 
-        private Typeface pingFangType;
+       // private Typeface pingFangType;
 
         public FastDialogAdapter() {
             super(R.layout.ski_item_fast_dailog);
-            pingFangType = Typeface.createFromAsset(AppUtil.getContext().getAssets(), "fonts/pingfangscregular.ttf");
+           // pingFangType = Typeface.createFromAsset(AppUtil.getContext().getAssets(), "fonts/pingfangscregular.ttf");
         }
 
         @Override
@@ -674,8 +669,8 @@ public class LongDragonBetView extends LinearLayout implements View.OnClickListe
             LinearLayout mLayout = holder.getView(R.id.ll_fast_tou_zhu);
             TextView checkBox = holder.getView(R.id.cb_first_touzhu_dragon);
             TextView tvOdds = holder.getView(R.id.tv_odds);
-            checkBox.setTypeface(pingFangType);
-            tvOdds.setTypeface(pingFangType);
+          //  checkBox.setTypeface(pingFangType);
+          //  tvOdds.setTypeface(pingFangType);
             String peiLv = smallBean.getPlayItemOdds();
             String name = smallBean.getPlayItemName();
             boolean check = smallBean.isCheck();
@@ -780,7 +775,6 @@ public class LongDragonBetView extends LinearLayout implements View.OnClickListe
         } catch (Exception e) {
 
         }
-
     }
 
     public boolean canParseInt(String str) {
@@ -816,8 +810,15 @@ public class LongDragonBetView extends LinearLayout implements View.OnClickListe
     }
 
     public void showPeroidChangeDailog(String planId) {
-        String s1 = tvTicketNameFast.getText().toString();
-        String s = "icon" + "  " + s1 + ",期数变化\n" + "当前已进入" + planId + "期";
+        String ticketName = tvTicketNameFast.getText().toString();
+//        String s = "icon" + "  " + s1 + ",期数变化\n" + "当前已进入" + planId + "期";
+        String s1 = LanguageUtil.getText("，期数变化")
+                + "\n"
+                + LanguageUtil.getText("当前已进入");
+        String s2 = LanguageUtil.getText("期");
+        String s3 = "放弃投注";
+        String s4 = "继续投注";
+        String s = ticketName + s1 + planId + s2;
         SpannableString spannableString = new SpannableString(s);
         Drawable drawable = getContext().getResources().getDrawable(R.mipmap.ski_dialog_tishi_icon);
         drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
@@ -825,8 +826,8 @@ public class LongDragonBetView extends LinearLayout implements View.OnClickListe
         spannableString.setSpan(myImageSpan, 0, "icon".length(), SpannableString.SPAN_INCLUSIVE_EXCLUSIVE);
         AlertConfigurationBean bean = new AlertConfigurationBean();
         bean.setSpannableString(spannableString);
-        bean.setLeftButtonText("放弃投注");
-        bean.setRightButtonText("继续投注");
+        bean.setLeftButtonText(LanguageUtil.getText(s3));
+        bean.setRightButtonText(LanguageUtil.getText(s4));
         new LotteryDialog().showAlertDialog(getContext(), bean, new LotteryDialog.OnSelectAlertDialogCallBack() {
             @Override
             public void rightButton() {

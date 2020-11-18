@@ -4,8 +4,8 @@
   "优惠活动": "Ưu Đãi",
   "充值中心": "nạp tiền",
   "个人中心": "Cá Nhân",
-  "昵称": "Biệt Danh:",
-  "余额": "Số Dư:",
+  "昵称": "Biệt Danh",
+  "余额": "Số Dư",
   "活动": "Hoạt động",
   "充值": "Nạp Tiền ",
   "提现": "Rút Tiền",
@@ -611,5 +611,14 @@
   "语言": "Ngôn ngữ",
   "手机号码长度为9～11位": "Độ dài của số điện thoại di động là 9-11 chữ số",
   "短信发送成功": "Gửi thành công",
-  "最多添加5个": "Thêm nhiều nhất 5 thẻ"
+  "最多添加5个": "Thêm nhiều nhất 5 thẻ",
+  "账号为6-16位且同时包含英文与数字，区分大小写": "Số tài khoản có 6-16 chữ số và có cả tiếng Anh và số, đồng thời phân biệt chữ hoa chữ thường",
+  "下拉可以刷新": "Kéo xuống để làm mới",
+  "正在刷新...": "Làm mới",
+  "正在加载...": "Đang tải...",
+  "释放立即刷新": "Làm mới ngay sau khi phát hành",
+  "刷新完成": "Làm mới hoàn tất",
+  "刷新失败": "Làm mới không thành công",
+  "释放进入二楼": "Phát hành lên tầng hai",
+  "上次更新 M-d HH:mm": "Cập nhật lần cuối M-d HH: mm"
 }

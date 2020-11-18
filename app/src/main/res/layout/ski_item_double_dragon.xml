@@ -24,7 +24,7 @@
 
     <com.ski.box.view.view.CusTextView
         android:id="@+id/tv_play_d_dragon"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/ski_dp_2"
         android:ellipsize="end"
@@ -34,6 +34,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/tv_name_d_dragon"
         app:layout_constraintTop_toBottomOf="@+id/tv_name_d_dragon"
+        app:layout_constraintEnd_toStartOf="@+id/ll_period_d_dragon"
         tools:text="第一球-大" />
 
 
@@ -102,5 +103,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:visibility="invisible"/>
+        android:visibility="visible"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

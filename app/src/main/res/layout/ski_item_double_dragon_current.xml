@@ -6,12 +6,12 @@
     android:layout_height="@dimen/ski_dp_53"
     android:id="@+id/rootview"
     android:background="@drawable/ski_bg_ffffff_6dp_uncheck"
-    android:paddingLeft="@dimen/ski_dp_13">
+    android:paddingStart="@dimen/ski_dp_13">
 
 
     <TextView
         android:id="@+id/tv_play_d_dragon"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:ellipsize="end"
         android:lines="1"
@@ -19,7 +19,9 @@
         android:textSize="@dimen/ski_dp_16"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/tv_name_d_dragon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/ll_period_d_dragon"
+        android:layout_marginEnd="10dp"
         tools:text="第一球-大" />
 
 
@@ -71,5 +73,5 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:visibility="invisible"/>
+        android:visibility="visible"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -27,6 +27,7 @@ import com.ski.box.bean.SelfProfileEntity;
 import com.ski.box.bean.TicketLotteryTimeBean;
 import com.ski.box.bean.lottery.LotteryBean;
 import com.ski.box.bean.lottery.LotteryConstant;
+import com.ski.box.bean.lottery.LotteryPlayStart;
 import com.ski.box.bean.lottery.LotterySer;
 import com.ski.box.bean.lottery.LotteryUtil;
 import com.ski.box.bean.lottery.PlayUtil;
@@ -116,17 +117,17 @@ public class DragonFragment extends BaseMVPFragment<DragonContract.Presenter> im
         if (mRVDragon.getItemDecorationCount() == 0) {
             mRVDragon.addItemDecoration(new SpaceItemDecoration(distance));
         }
-//        mDragonAdapter.setOnItemClickListener((adapter, view1, position) -> {
-//            mInfoEntity = mDragonAdapter.getData().get(position);
-//            int mode = LotteryConstant.LOTTERY_PLAY_MODE_DOUBLE;
-//            int ticketId = mInfoEntity.getTicketId().intValue();
-//            List<LotteryPlayStart> plays = DataCenter.getInstance().getRemotePlay(ticketId, mode);
-//            if (0 == plays.size()) {
-//                mPresenter.getPlays(ticketId, mode);
-//            } else {
-//                 setBetDragon();
-//            }
-//        });
+        mDragonAdapter.setOnItemClickListener((adapter, view1, position) -> {
+            mInfoEntity = mDragonAdapter.getData().get(position);
+            int mode = LotteryConstant.LOTTERY_PLAY_MODE_DOUBLE;
+            int ticketId = mInfoEntity.getTicketId().intValue();
+            List<LotteryPlayStart> plays = DataCenter.getInstance().getRemotePlay(ticketId, mode);
+            if (0 == plays.size()) {
+                mPresenter.getPlays(ticketId, mode);
+            } else {
+                 setBetDragon();
+            }
+        });
         mRVDragon.setAdapter(mDragonAdapter);
     }
 

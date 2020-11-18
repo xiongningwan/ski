@@ -33,6 +33,7 @@ import io.reactivex.functions.Function;
 import okhttp3.Headers;
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
 import retrofit2.Response;
 
 
@@ -76,11 +77,8 @@ public class LotteryModel extends BaseModel implements ILotteryModel {
                 long serverTime = date.getTime();
                 DataCenter.getInstance().setServerTime(serverTime);
 
-                String bodyStr =  httpResultResponse.body().toString();
-                Gson gson = new Gson();
-                HttpResult httpResult = gson.fromJson(bodyStr, HttpResult.class);
-                httpResult.setExtra(serverTime);
-                return httpResult;
+                HttpResult<List<TicketLotteryTimeBean>> body = httpResultResponse.body();
+                return body;
             }
         }).map(new HttpResultFunc<>(TYPE_LIST));
         return toSubscribe(map, s, e);

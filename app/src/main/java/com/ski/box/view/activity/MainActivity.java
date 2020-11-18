@@ -11,6 +11,7 @@ import com.gyf.immersionbar.ImmersionBar;
 import com.hwangjr.rxbus.RxBus;
 import com.hwangjr.rxbus.annotation.Subscribe;
 import com.hwangjr.rxbus.annotation.Tag;
+import com.scwang.smartrefresh.layout.header.ClassicsHeader;
 import com.ski.box.R;
 import com.ski.box.adapter.FragmentAdapter;
 import com.ski.box.mvp.contract.EmptyContract;
@@ -23,6 +24,7 @@ import com.ski.box.view.fragment.ActFragment;
 import com.ski.box.view.view.HallTabLayout;
 import com.ski.box.view.view.NoScrollViewPager;
 import com.yb.core.base.BaseMVPActivity;
+import com.yb.core.utils.LanguageUtil;
 import com.yb.core.utils.SPUtils;
 import com.yb.core.utils.ToastUtil;
 
