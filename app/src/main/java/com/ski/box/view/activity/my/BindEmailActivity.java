@@ -25,7 +25,7 @@ import static com.ski.box.ConstantValue.EVENT_BIND_EMAIL_SUCCESS;
 
 public class BindEmailActivity extends BaseMVPActivity<BindEmailContract.Presenter> implements BindEmailContract.View, View.OnClickListener {
     private HeaderView mHeadView;
-    private ClearEditText mEtPhone;
+    private ClearEditText mEtEmail;
     private ClearEditText mEtCode;
     private CusTextView mTvSendCode;
     private Button mBtnSure;
@@ -49,7 +49,7 @@ public class BindEmailActivity extends BaseMVPActivity<BindEmailContract.Present
     protected void initViews() {
         ImmersionBar.with(this).init();
         mHeadView = findViewById(R.id.head_view);
-        mEtPhone = findViewById(R.id.et_phone);
+        mEtEmail = findViewById(R.id.et_phone);
         mEtCode = findViewById(R.id.et_code);
         mTvSendCode = findViewById(R.id.tv_send_code);
         mBtnSure = findViewById(R.id.btn_sure);
@@ -74,7 +74,7 @@ public class BindEmailActivity extends BaseMVPActivity<BindEmailContract.Present
     }
 
     private void doSendCode() {
-        String email = mEtPhone.getText().toString().trim();
+        String email = mEtEmail.getText().toString().trim();
         if (TextUtils.isEmpty(email)) {
             ToastUtil.showWarning(LanguageUtil.getText("请输入邮箱"));
             return;
@@ -89,7 +89,7 @@ public class BindEmailActivity extends BaseMVPActivity<BindEmailContract.Present
     }
 
     private void doUpdate() {
-        String email = mEtPhone.getText().toString().trim();
+        String email = mEtEmail.getText().toString().trim();
 //        String code = mEtCode.getText().toString().trim();
         if (TextUtils.isEmpty(email)) {
             ToastUtil.showWarning(LanguageUtil.getText("请输入邮箱"));
@@ -105,8 +105,8 @@ public class BindEmailActivity extends BaseMVPActivity<BindEmailContract.Present
 
     @Override
     public void onSuccessResult() {
-        String phone = mEtPhone.getText().toString().trim();
-        DataCenter.getInstance().getUser().setMobile(phone);
+        String email = mEtEmail.getText().toString().trim();
+        DataCenter.getInstance().getUser().setEmail(email);
         ToastUtil.showSuccess("修改成功!");
         RxBus.get().post(EVENT_BIND_EMAIL_SUCCESS, "");
         finish();

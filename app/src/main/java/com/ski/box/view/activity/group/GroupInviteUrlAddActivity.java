@@ -106,6 +106,8 @@ public class GroupInviteUrlAddActivity extends BaseMVPActivity<GroupInviteUrlAdd
             ToastUtil.showInfo("输入框不能为空");
             return;
         }
+        mBtnSure.setEnabled(false);
+        mBtnSure.setClickable(false);
         mPresenter.inviteCreate(inviteWord, bean.getRebate());
     }
 
@@ -121,6 +123,8 @@ public class GroupInviteUrlAddActivity extends BaseMVPActivity<GroupInviteUrlAdd
 
     @Override
     public void onAddSuccessResult() {
+        mBtnSure.setEnabled(true);
+        mBtnSure.setClickable(true);
         ToastUtil.showSuccess("创建邀请链接成功");
         mEtMsg.setText("");
         mSpBackRate.setSelectedIndex(0);
@@ -129,6 +133,8 @@ public class GroupInviteUrlAddActivity extends BaseMVPActivity<GroupInviteUrlAdd
 
     @Override
     public void onAddFailResult(String s) {
+        mBtnSure.setEnabled(true);
+        mBtnSure.setClickable(true);
     }
 
 

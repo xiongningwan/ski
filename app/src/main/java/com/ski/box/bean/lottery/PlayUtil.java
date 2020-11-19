@@ -280,15 +280,18 @@ public class PlayUtil {
             }
         } else if (LotteryConstant.SER_ID_11X5 == serId) {
             if ("zuxuan".equals(playStart.getCode())) {//组选
-                setRemotePlayNameToLocal(remotePlay);
+//                setRemotePlayNameToLocal(remotePlay);
+                remotePlay.setDefaultName(true);
                 remotePlay.setDefaultCode(true);
                 playSub.setOdds(remotePlay.getOdds());
             } else if ("renxuan".equals(playStart.getCode())) {//任选
-                setRemotePlayNameToLocal(remotePlay);
+//                setRemotePlayNameToLocal(remotePlay);
+                remotePlay.setDefaultName(true);
                 remotePlay.setDefaultCode(true);
                 playSub.setOdds(remotePlay.getOdds());
             } else if ("zhixuan".equals(playStart.getCode())) {//直选
-                setRemotePlayNameToLocal(remotePlay);
+//                setRemotePlayNameToLocal(remotePlay);
+                remotePlay.setDefaultName(true);
                 remotePlay.setDefaultCode(true);
                 playSub.setOdds(remotePlay.getOdds());
             }

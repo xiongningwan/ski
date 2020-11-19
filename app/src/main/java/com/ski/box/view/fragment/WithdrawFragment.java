@@ -219,7 +219,7 @@ public class WithdrawFragment extends BaseMVPFragment<WithdrawContract.Presenter
         }
 
         if (0 == mSpType.getSelectedIndex()) {
-            ToastUtil.showError("请选择");
+            ToastUtil.showError("请选择银行卡");
             return;
         }
 

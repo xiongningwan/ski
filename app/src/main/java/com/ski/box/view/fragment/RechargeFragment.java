@@ -193,7 +193,7 @@ public class RechargeFragment extends BaseMVPFragment<RechargeContract.Presenter
         }
 
         if (0 == mSpType.getSelectedIndex()) {
-            ToastUtil.showError("请选择");
+            ToastUtil.showError("选择充值方式");
             return;
         }
         PayType payType = (PayType) mSpType.getSelectedItem();

@@ -156,7 +156,7 @@ public class PersonalInfoActivity extends BaseMVPActivity<PersonalInfoContract.P
     @Subscribe(tags = {@Tag(EVENT_BIND_EMAIL_SUCCESS)})
     public void onBindEmailSuccess(String s) {
         User user = DataCenter.getInstance().getUser();
-        mTvTipEmail.setText(user.getMobile());
+        mTvTipEmail.setText(user.getEmail());
     }
 
 
