@@ -42,7 +42,7 @@ public class MoneyProgressAdapter extends BaseQuickAdapter<MoneyProgressData.Lis
 
     @Override
     protected void convert(@NotNull BaseViewHolder holder, @Nullable MoneyProgressData.ListBean bean) {
-        holder.setText(R.id.tv_no, LanguageUtil.getText("金流编号") +": " + bean.getOrderId())
+        holder.setText(R.id.tv_no, LanguageUtil.getText("订单编号") +": " + bean.getOrderId())
                 .setText(R.id.tv_detail, bean.getDetail())
                 .setText(R.id.tv_time, bean.getUpdateAt());
         TextView tvType = holder.getView(R.id.tv_type);
@@ -61,13 +61,13 @@ public class MoneyProgressAdapter extends BaseQuickAdapter<MoneyProgressData.Lis
         String statusStr = "";
         //状态，1：处理中（待审核），2：已完成（审核通过），3：失效（审核驳回）
         if(1 == bean.getStatus()) {
-            statusStr = LanguageUtil.getText("待审核");
+            statusStr = LanguageUtil.getText("处理中");
             tvStatus.setTextColor(mGray);
         } else if(2 == bean.getStatus()) {
-            statusStr = LanguageUtil.getText("审核通过");
+            statusStr = LanguageUtil.getText("通过");
             tvStatus.setTextColor(mGreen);
         } else if(3 == bean.getStatus()) {
-            statusStr = LanguageUtil.getText("审核驳回");
+            statusStr = LanguageUtil.getText("未通过");
             tvStatus.setTextColor(mRed);
         }
         tvStatus.setText(statusStr);
