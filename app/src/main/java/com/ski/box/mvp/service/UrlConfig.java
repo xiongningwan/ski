@@ -56,7 +56,7 @@ public final class UrlConfig {
     public static final String URL_MEM_BANK_BIND = "promen/card/bind";
 
 
-    //----------------------boracay-start-------------------
+    //----------------------botanic-start-------------------
 
     /**
      * 每日盈亏列表
@@ -87,12 +87,12 @@ public final class UrlConfig {
      * 遗漏彩系,彩种,玩法保存接口
      * POST
      */
-    public static final String URL_OMIT_SAVE = "boracay/member/front/omit/save";
+    public static final String URL_OMIT_SAVE = "botanic/member/front/omit/save";
     /**
      * 遗漏删除玩法接口
      * POST
      */
-    public static final String URL_OMIT_DELETE = "boracay/member/front/omit/delete";
+    public static final String URL_OMIT_DELETE = "botanic/member/front/omit/delete";
     /**
      * 读取用户设置
      */
@@ -105,14 +105,14 @@ public final class UrlConfig {
     /**
      * 双面盘，长龙提醒自定义彩种保存
      */
-    public static final String URL_USER_WRITE_DOUBLE = "boracay/member/front/omit/save/2";
+    public static final String URL_USER_WRITE_DOUBLE = "botanic/member/front/omit/save/2";
 
     /**
      * 获取钱包模式：1，无钱包，2，有钱包
      */
-    public static final String URL_MERCHANT_TYPE = "boracay/api/nofreemember/getMerchantTransferType";
+    public static final String URL_MERCHANT_TYPE = "botanic/api/nofreemember/getMerchantTransferType";
 
-    //----------------------boracay-end---------------------
+    //----------------------botanic-end---------------------
 
     //----------------------wallet-start--------------------
 
@@ -329,7 +329,7 @@ public final class UrlConfig {
     /**
      * 更新
      */
-    public static final  String UPDATE_URL = "boracay/api/mobTerminal/checkVersion";
+    public static final  String UPDATE_URL = "botanic/api/mobTerminal/checkVersion";
     /**
      * 公告
      */
@@ -394,7 +394,7 @@ public final class UrlConfig {
      * 公告列表
      * GET
      */
-    public static final String URL_NOTICE_LIST = "boracay/bulletin/merchant/list";
+    public static final String URL_NOTICE_LIST = "botanic/bulletin/merchant/list";
     /**
      * 标注盘最小限制金额
      */
@@ -415,7 +415,7 @@ public final class UrlConfig {
      * 单期盈利上限接口
      */
 
-    public static final  String URL_WIN_MONEY_UP="boracay/member/front/profit/list";
+    public static final  String URL_WIN_MONEY_UP="botanic/member/front/profit/list";
 
     // 用户详细信息
     public static final  String URL_USER_MEMBER_INFO ="promen/member/memberInfo";
