@@ -22,7 +22,7 @@ public interface LotteryConstant {
     int SER_ID_3D = 4;
     String SER_NAME_3D = "3D";
 
-    int SER_ID_PL35 = -1;
+    int SER_ID_PL35 = 8;
     String SER_NAME_PL35 = "PL35";
 
     int SER_ID_KL8 = 5;

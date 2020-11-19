@@ -15,6 +15,7 @@ import static com.ski.box.bean.lottery.LotteryConstant.SER_ID_K3;
 import static com.ski.box.bean.lottery.LotteryConstant.SER_ID_KL8;
 import static com.ski.box.bean.lottery.LotteryConstant.SER_ID_LHC;
 import static com.ski.box.bean.lottery.LotteryConstant.SER_ID_PK10;
+import static com.ski.box.bean.lottery.LotteryConstant.SER_ID_PL35;
 import static com.ski.box.bean.lottery.LotteryConstant.SER_ID_SSC;
 
 /**
@@ -52,6 +53,9 @@ public class HallGuideAdapter extends BaseQuickAdapter<LotterySer, BaseViewHolde
                 break;
             case SER_ID_3D:
                 res = R.mipmap.bg_hall_d_3d;
+                break;
+            case SER_ID_PL35:
+                res = R.mipmap.bg_hall_d_p3p5;
                 break;
         }
         tvSer.setBackgroundResource(res);
