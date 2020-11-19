@@ -22,7 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:textColor="@color/ski_333333_white_text_color"
+        android:textColor="@color/ski_333333_999999_text_color"
         android:textSize="12dp"
         tools:text="腾讯分分彩"
         android:layout_marginTop="10dp"

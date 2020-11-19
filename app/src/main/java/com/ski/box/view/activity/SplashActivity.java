@@ -44,24 +44,26 @@ public class SplashActivity extends BaseMVPActivity<EmptyContract.Presenter> imp
     @Override
     protected void initData(Bundle bundle) {
         LanguageUtil.initLanguage(this);
-        boolean isInstall = SPUtils.getBoolean(this, KEY_IS_INSTALL, false);
-        if(!isInstall) {
-            SPUtils.putBoolean(this, KEY_IS_INSTALL, true);
-            startActivity(new Intent(this, GuideActivity.class));
+//        boolean isInstall = SPUtils.getBoolean(this, KEY_IS_INSTALL, false);
+//        if(!isInstall) {
+//            SPUtils.putBoolean(this, KEY_IS_INSTALL, true);
+//            startActivity(new Intent(this, GuideActivity.class));
+//            finish();
+//        } else {
+//
+//        }
+
+        if (!TextUtils.isEmpty(SPUtils.getString(this, LoginActivity.KEY_TOKEN)) && !TextUtils.isEmpty(SPUtils.getString(this, LoginActivity.KEY_AUTHORIZATION))) {
+            String token = SPUtils.getString(this, LoginActivity.KEY_TOKEN);
+            String authorization = SPUtils.getString(this, LoginActivity.KEY_AUTHORIZATION);
+            DataCenter.getInstance().setToken(token);
+            RetrofitHelper.getInstance().init(ConstantValue.BASE_HOST, BuildConfig.DEBUG,
+                    HeaderUtil.getHeader(token, authorization, ConstantValue.DEVICE, LanguageUtil.getLanguage()));
+            startActivity(new Intent(this, MainActivity.class));
             finish();
         } else {
-            if (!TextUtils.isEmpty(SPUtils.getString(this, LoginActivity.KEY_TOKEN)) && !TextUtils.isEmpty(SPUtils.getString(this, LoginActivity.KEY_AUTHORIZATION))) {
-                String token = SPUtils.getString(this, LoginActivity.KEY_TOKEN);
-                String authorization = SPUtils.getString(this, LoginActivity.KEY_AUTHORIZATION);
-                DataCenter.getInstance().setToken(token);
-                RetrofitHelper.getInstance().init(ConstantValue.BASE_HOST, BuildConfig.DEBUG,
-                        HeaderUtil.getHeader(token, authorization, ConstantValue.DEVICE, LanguageUtil.getLanguage()));
-                startActivity(new Intent(this, MainActivity.class));
-                finish();
-            } else {
-                startActivity(new Intent(this, LoginActivity.class));
-                finish();
-            }
+            startActivity(new Intent(this, LoginActivity.class));
+            finish();
         }
     }
 
