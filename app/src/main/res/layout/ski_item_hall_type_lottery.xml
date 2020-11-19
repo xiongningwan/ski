@@ -7,7 +7,6 @@
     android:background="@drawable/ski_hall_rv_item_selector"
     android:orientation="vertical"
     tools:ignore="ResourceName"
-    android:gravity="center"
     android:id="@+id/ll_item">
 
     <ImageView
@@ -15,16 +14,19 @@
         android:layout_width="52dp"
         android:layout_height="52dp"
         android:src="@mipmap/ski_home_icon_lottery_txffc"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="16dp"
+        android:layout_gravity="center_horizontal"/>
 
     <com.ski.box.view.view.CusTextView
         android:id="@+id/tv_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:textColor="@color/ski_333333_999999_text_color"
+        android:textColor="@color/ski_333333_666666_text_color"
         android:textSize="12dp"
         tools:text="腾讯分分彩"
+        android:paddingStart="2dp"
+        android:paddingEnd="2dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="16dp"/>
 
