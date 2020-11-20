@@ -326,11 +326,11 @@ public class WithdrawFragment extends BaseMVPFragment<WithdrawContract.Presenter
         String tip1 = getString(R.string.ski_money_withdraw_notice1);
         String tip2 = getString(R.string.ski_money_withdraw_notice2);
 //        String tip3 = getString(R.string.ski_money_withdraw_notice3);
-        String tip3 = LanguageUtil.getText("3.提现需进行充值金额满") + "25%" + LanguageUtil.getText("的投注，若未满足消费流水将") + LanguageUtil.getText("无法成功提现");
+        String tip3 = LanguageUtil.getText("3.提现需进行充值金额满") + "25%" + LanguageUtil.getText("的投注，若未满足消费流水将") + " " + LanguageUtil.getText("无法成功提现");
         String tip5 = getString(R.string.ski_money_withdraw_notice5);
         String tip6 = getString(R.string.ski_money_withdraw_notice6);
 
-        ActivityUtil.setTipKeywordRed(requireActivity(), mTvNotice1, LanguageUtil.getText(tip1), LanguageUtil.getText("09:30-02:30"));
+        ActivityUtil.setTipKeywordRed(requireActivity(), mTvNotice1, LanguageUtil.getText(tip1), LanguageUtil.getText("24小时"));
         ActivityUtil.setTipKeywordRed(requireActivity(), mTvNotice2, LanguageUtil.getText(tip2), LanguageUtil.getText("1000000"), LanguageUtil.getText("20"));
         ActivityUtil.setTipKeywordRed(requireActivity(), mTvNotice3, tip3, "25%", LanguageUtil.getText("无法成功提现"));
         ActivityUtil.setTipKeywordRed(requireActivity(), mTvNotice5, LanguageUtil.getText(tip5), LanguageUtil.getText("4"), LanguageUtil.getText("12"));

@@ -84,8 +84,6 @@ public class BindPhoneActivity extends BaseMVPActivity<BindPhoneContract.Present
             return;
         }
         mPresenter.sendCode(phone);
-        EasyCountDownTimer timer = new EasyCountDownTimer(mTvSendCode, 60000, 1000);
-        timer.start();
     }
 
     private void doUpdate() {
@@ -111,6 +109,8 @@ public class BindPhoneActivity extends BaseMVPActivity<BindPhoneContract.Present
     @Override
     public void onCodeSendSuccessResult(String s) {
         ToastUtil.showSuccess(s);
+        EasyCountDownTimer timer = new EasyCountDownTimer(mTvSendCode, 60000, 1000);
+        timer.start();
     }
 
     @Override

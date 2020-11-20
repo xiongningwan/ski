@@ -109,7 +109,7 @@ public class GroupAddActivity extends BaseMVPActivity<GroupAddContract.Presenter
         }
 
         if(name.length() < 6 || name.length() > 16) {
-            String err = "账号为6-16位且同时包含英文与数字，区分大小写";
+            String err = "账号为6-16位且同时包含英文与数字";
             ToastUtil.showInfo(err);
             return;
         }
@@ -120,7 +120,7 @@ public class GroupAddActivity extends BaseMVPActivity<GroupAddContract.Presenter
         }
 
         if (!ValidateUtil.validatePwd_new(name)) {
-            String err = LanguageUtil.getText("账号为6-16位且同时包含英文与数字，区分大小写");
+            String err = LanguageUtil.getText("账号为6-16位且同时包含英文与数字");
             ToastUtil.showInfo(err);
             return;
         }

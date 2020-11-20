@@ -1,4 +1,4 @@
-<merge xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -51,7 +51,7 @@
 
     </LinearLayout>
 
-    <RelativeLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/ski_dp_10">
@@ -66,14 +66,18 @@
             android:drawablePadding="5dp"
             android:textSize="13dp"
             android:textColor="@color/ski_color_666666"
-            android:text="玩法说明" />
+            android:text="玩法说明"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <LinearLayout
-            android:layout_alignParentRight="true"
             android:id="@+id/ll_cold_hot_omit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_toEndOf="@+id/ski_tv_double_playing_instrution"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
 
             <View
                 android:visibility="gone"
@@ -93,7 +97,8 @@
                 android:gravity="center"
                 android:textSize="13dp"
                 android:drawablePadding="5dp"
-                android:text="冷热" />
+                android:text="冷热"
+                android:visibility="gone"/>
 
             <com.ski.box.view.view.CusTextView
                 android:id="@+id/tvAllFreshOmission"
@@ -109,7 +114,7 @@
                 android:drawablePadding="5dp"
                 android:text="遗漏"
                 android:textSize="13dp"
-                android:visibility="visible" />
+                android:visibility="gone"/>
 
             <com.ski.box.view.view.CusTextView
                 android:id="@+id/tv_odds"
@@ -131,15 +136,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:visibility="gone"
+            android:visibility="visible"
             android:textSize="13dp"
-            tools:text="赔率：中特 1.08   中二 2.26"
+            tools:text="赔率：中特 1.08     中二 2.26 "
+            app:layout_constraintTop_toBottomOf="@+id/ll_cold_hot_omit"
+            app:layout_constraintEnd_toEndOf="parent"
             tools:visibility="visible"/>
-    </RelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="@dimen/ski_dp_0_5"
         android:layout_marginTop="@dimen/ski_dp_12"
         android:background="@color/ski_color_e3e5ec" />
-</merge>
+</LinearLayout>

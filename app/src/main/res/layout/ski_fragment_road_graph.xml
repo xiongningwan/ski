@@ -23,46 +23,59 @@
         android:layout_marginEnd="@dimen/ski_dp_6"
         android:scrollbars="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/chk_positive_big_eye"
+        app:layout_constraintEnd_toStartOf="@+id/ll_positive_big_eye"
         app:layout_constraintStart_toStartOf="@+id/recycler_road_big"
         app:layout_constraintTop_toBottomOf="@+id/recycler_road_big" />
 
-    <TextView
-        android:id="@+id/chk_positive_big_eye"
-        style="@style/RoadFutureText"
-        android:textColor="@color/ski_road_positive"
-        app:layout_constraintBottom_toTopOf="@+id/chk_negative_big_eye"
+    <LinearLayout
+        android:id="@+id/ll_positive_big_eye"
+        android:layout_width="64dp"
+        android:layout_height="26dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="@+id/recycler_road_big_eye"
+        app:layout_constraintBottom_toTopOf="@+id/ll_negative_big_eye"
         app:layout_constraintEnd_toEndOf="@+id/recycler_road_big"
         app:layout_constraintStart_toEndOf="@+id/recycler_road_big_eye"
-        app:layout_constraintTop_toTopOf="@+id/recycler_road_big_eye"
         app:layout_constraintVertical_chainStyle="spread"
-        tools:text="@string/ski_road_future" />
+        android:background="@drawable/ski_selector_chart_road_future_box"
+        android:gravity="center">
 
-    <ImageView
-        android:id="@+id/icon_positive_big_eye"
-        style="@style/CommonImage_road"
-        android:src="@mipmap/ski_trend_positive1"
-        app:layout_constraintBottom_toBottomOf="@+id/chk_positive_big_eye"
-        app:layout_constraintEnd_toEndOf="@+id/chk_positive_big_eye"
-        app:layout_constraintTop_toTopOf="@+id/chk_positive_big_eye" />
+        <TextView
+            android:id="@+id/chk_positive_big_eye"
+            style="@style/RoadFutureText"
+            android:textColor="@color/ski_road_positive"
+            tools:text="@string/ski_road_future" />
 
-    <TextView
-        android:id="@+id/chk_negative_big_eye"
-        style="@style/RoadFutureText"
-        android:textColor="@color/ski_road_negative"
+        <ImageView
+            android:id="@+id/icon_positive_big_eye"
+            style="@style/CommonImage_road"
+            android:src="@mipmap/ski_trend_positive1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_negative_big_eye"
+        android:layout_width="64dp"
+        android:layout_height="26dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/ll_positive_big_eye"
         app:layout_constraintBottom_toBottomOf="@+id/recycler_road_big_eye"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/recycler_road_big_eye"
-        app:layout_constraintTop_toBottomOf="@+id/chk_positive_big_eye"
-        tools:text="@string/ski_road_future" />
+        app:layout_constraintEnd_toEndOf="@+id/ll_positive_big_eye"
+        app:layout_constraintStart_toStartOf="@+id/ll_positive_big_eye"
+        app:layout_constraintVertical_chainStyle="spread"
+        android:background="@drawable/ski_selector_chart_road_future_box"
+        android:gravity="center">
+        <TextView
+            android:id="@+id/chk_negative_big_eye"
+            style="@style/RoadFutureText"
+            android:textColor="@color/ski_road_negative"
+            tools:text="@string/ski_road_future" />
 
-    <ImageView
-        android:id="@+id/icon_negative_big_eye"
-        style="@style/CommonImage_road"
-        android:src="@mipmap/ski_trend_negative1"
-        app:layout_constraintBottom_toBottomOf="@+id/chk_negative_big_eye"
-        app:layout_constraintEnd_toEndOf="@+id/chk_negative_big_eye"
-        app:layout_constraintTop_toTopOf="@+id/chk_negative_big_eye" />
+        <ImageView
+            android:id="@+id/icon_negative_big_eye"
+            style="@style/CommonImage_road"
+            android:src="@mipmap/ski_trend_negative1" />
+    </LinearLayout>
+
 
     <!--实心圆-->
     <androidx.recyclerview.widget.RecyclerView
@@ -74,44 +87,54 @@
         app:layout_constraintStart_toStartOf="@+id/recycler_road_big"
         app:layout_constraintTop_toBottomOf="@+id/recycler_road_big_eye" />
 
-    <TextView
-        android:id="@+id/chk_positive_small"
-        style="@style/RoadFutureText"
-        android:textColor="@color/ski_road_positive"
-        app:layout_constraintBottom_toTopOf="@+id/chk_negative_small"
+    <LinearLayout
+        android:id="@+id/ll_positive_small"
+        android:layout_width="64dp"
+        android:layout_height="26dp"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/recycler_road_small"
         app:layout_constraintTop_toTopOf="@+id/recycler_road_small"
+        app:layout_constraintBottom_toTopOf="@+id/ll_negative_small"
         app:layout_constraintVertical_chainStyle="spread"
-        tools:text="@string/ski_road_future" />
+        android:background="@drawable/ski_selector_chart_road_future_box"
+        android:gravity="center">
+        <TextView
+            android:id="@+id/chk_positive_small"
+            style="@style/RoadFutureText"
+            android:textColor="@color/ski_road_positive"
+            tools:text="@string/ski_road_future" />
 
-    <ImageView
-        android:id="@+id/icon_positive_small"
-        style="@style/CommonImage_road"
-        android:layout_marginLeft="@dimen/ski_dp_4"
-        android:src="@mipmap/ski_trend_positive2"
-        app:layout_constraintBottom_toBottomOf="@+id/chk_positive_small"
-        app:layout_constraintEnd_toEndOf="@+id/chk_positive_small"
-        app:layout_constraintTop_toTopOf="@+id/chk_positive_small" />
+        <ImageView
+            android:id="@+id/icon_positive_small"
+            style="@style/CommonImage_road"
+            android:src="@mipmap/ski_trend_positive2" />
+    </LinearLayout>
 
-    <TextView
-        android:id="@+id/chk_negative_small"
-        style="@style/RoadFutureText"
-        android:textColor="@color/ski_road_negative"
+    <LinearLayout
+        android:id="@+id/ll_negative_small"
+        android:layout_width="64dp"
+        android:layout_height="26dp"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="@+id/recycler_road_small"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/recycler_road_big_eye"
-        app:layout_constraintTop_toBottomOf="@+id/chk_positive_small"
-        tools:text="@string/ski_road_future" />
+        app:layout_constraintTop_toBottomOf="@+id/ll_positive_small"
+        android:background="@drawable/ski_selector_chart_road_future_box"
+        android:gravity="center">
+        <TextView
+            android:id="@+id/chk_negative_small"
+            style="@style/RoadFutureText"
+            android:textColor="@color/ski_road_negative"
+            tools:text="@string/ski_road_future" />
 
-    <ImageView
-        android:id="@+id/icon_negative_small"
-        style="@style/CommonImage_road"
-        android:layout_marginLeft="@dimen/ski_dp_4"
-        android:src="@mipmap/ski_trend_negative2"
-        app:layout_constraintBottom_toBottomOf="@+id/chk_negative_small"
-        app:layout_constraintEnd_toEndOf="@+id/chk_negative_small"
-        app:layout_constraintTop_toTopOf="@+id/chk_negative_small" />
+        <ImageView
+            android:id="@+id/icon_negative_small"
+            style="@style/CommonImage_road"
+            android:src="@mipmap/ski_trend_negative2" />
+    </LinearLayout>
+
+
 
 
     <!--斜线-->
@@ -124,44 +147,57 @@
         app:layout_constraintStart_toStartOf="@+id/recycler_road_big"
         app:layout_constraintTop_toBottomOf="@+id/recycler_road_small" />
 
-    <TextView
-        android:id="@+id/chk_positive_bug"
-        style="@style/RoadFutureText"
-        android:textColor="@color/ski_road_positive"
-        app:layout_constraintBottom_toTopOf="@+id/chk_negative_bug"
+
+    <LinearLayout
+        android:id="@+id/ll_positive_bug"
+        android:layout_width="64dp"
+        android:layout_height="26dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/ll_negative_bug"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/recycler_road_bug"
         app:layout_constraintTop_toTopOf="@+id/recycler_road_bug"
         app:layout_constraintVertical_chainStyle="spread"
-        tools:text="@string/ski_road_future" />
+        android:background="@drawable/ski_selector_chart_road_future_box"
+        android:gravity="center">
 
-    <ImageView
-        android:id="@+id/icon_positive_bug"
-        style="@style/CommonImage"
-        android:layout_marginLeft="@dimen/ski_dp_4"
-        android:src="@mipmap/ski_trend_positive3"
-        app:layout_constraintBottom_toBottomOf="@+id/chk_positive_bug"
-        app:layout_constraintEnd_toEndOf="@+id/chk_positive_bug"
-        app:layout_constraintTop_toTopOf="@+id/chk_positive_bug" />
+        <TextView
+            android:id="@+id/chk_positive_bug"
+            style="@style/RoadFutureText"
+            android:textColor="@color/ski_road_positive"
+            tools:text="@string/ski_road_future" />
 
-    <TextView
-        android:id="@+id/chk_negative_bug"
-        style="@style/RoadFutureText"
-        android:textColor="@color/ski_road_negative"
+        <ImageView
+            android:id="@+id/icon_positive_bug"
+            style="@style/CommonImage"
+            android:src="@mipmap/ski_trend_positive3" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_negative_bug"
+        android:layout_width="64dp"
+        android:layout_height="26dp"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="@+id/recycler_road_bug"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/recycler_road_bug"
-        app:layout_constraintTop_toBottomOf="@+id/chk_positive_bug"
-        tools:text="@string/ski_road_future" />
+        app:layout_constraintTop_toBottomOf="@+id/ll_positive_bug"
+        app:layout_constraintVertical_chainStyle="spread"
+        android:background="@drawable/ski_selector_chart_road_future_box"
+        android:gravity="center">
 
-    <ImageView
-        android:id="@+id/icon_negative_bug"
-        style="@style/CommonImage"
-        android:layout_marginLeft="@dimen/ski_dp_4"
-        android:src="@mipmap/ski_trend_negative3"
-        app:layout_constraintBottom_toBottomOf="@+id/chk_negative_bug"
-        app:layout_constraintEnd_toEndOf="@+id/chk_negative_bug"
-        app:layout_constraintTop_toTopOf="@+id/chk_negative_bug" />
+        <TextView
+            android:id="@+id/chk_negative_bug"
+            style="@style/RoadFutureText"
+            android:textColor="@color/ski_road_negative"
+            tools:text="@string/ski_road_future" />
+
+        <ImageView
+            android:id="@+id/icon_negative_bug"
+            style="@style/CommonImage"
+            android:src="@mipmap/ski_trend_negative3" />
+
+    </LinearLayout>
 
 
     <!--投注区块-->

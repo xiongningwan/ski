@@ -431,13 +431,15 @@ public class PlayUtil {
             if ("tema".equals(playStart.getRemoteCode())) { //特码
                 if ("hexiao".equals(playSub.getRemoteCode())) { //合肖
                     if (!TextUtils.isEmpty(play.getName())) {
-                        play.setName(LanguageUtil.getText(play.getName()));
+                        // 生肖
+                        play.setName(LanguageUtil.getText(" "+ play.getName() + " "));
                     }
                 }
             } else if ("lianxiaolianwei".equals(playStart.getRemoteCode())) { //连肖连尾
                 //连肖
                 if (!TextUtils.isEmpty(play.getName())) {
-                    play.setName(LanguageUtil.getText(play.getName()));
+                    // 生肖
+                    play.setName(LanguageUtil.getText(" "+ play.getName() + " "));
                 }
             }
         }

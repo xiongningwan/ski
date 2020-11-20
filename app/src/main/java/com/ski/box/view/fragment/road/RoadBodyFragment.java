@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Html;
 import android.text.Spanned;
+import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -72,12 +73,20 @@ public class RoadBodyFragment extends BaseFragment {
     private TextView txtOdd2;
     private TextView tvInfo;
 
+    private LinearLayout mLLPositiveBigEye;
+    private LinearLayout mLLPositiveSmall;
+    private LinearLayout mLLPositiveBug;
+    private LinearLayout mLLNegativeBigEye;
+    private LinearLayout mLLNegativeSmall;
+    private LinearLayout mLLNegativeBug;
+
     private TextView mPositiveBigEye;
     private TextView mPositiveSmall;
     private TextView mPositiveBug;
     private TextView mNegativeBigEye;
     private TextView mNegativeSmall;
     private TextView mNegativeBug;
+
     private ImageView mPositiveBigEyeImage;
     private ImageView mPositiveSmallImage;
     private ImageView mPositiveBugImage;
@@ -242,6 +251,12 @@ public class RoadBodyFragment extends BaseFragment {
         txtOdd2 = view.findViewById(R.id.txt_odd2);
         tvInfo = view.findViewById(R.id.txt_info);
 
+        mLLPositiveBigEye = view.findViewById(R.id.ll_positive_big_eye);
+        mLLPositiveSmall = view.findViewById(R.id.ll_positive_small);
+        mLLPositiveBug = view.findViewById(R.id.ll_positive_bug);
+        mLLNegativeBigEye = view.findViewById(R.id.ll_negative_big_eye);
+        mLLNegativeSmall = view.findViewById(R.id.ll_negative_small);
+        mLLNegativeBug = view.findViewById(R.id.ll_negative_bug);
 
         mPositiveBigEye = view.findViewById(R.id.chk_positive_big_eye);
         mPositiveSmall = view.findViewById(R.id.chk_positive_small);
@@ -256,6 +271,7 @@ public class RoadBodyFragment extends BaseFragment {
         mNegativeBigEyeImage = view.findViewById(R.id.icon_negative_big_eye);
         mNegativeSmallImage = view.findViewById(R.id.icon_negative_small);
         mNegativeBugImage = view.findViewById(R.id.icon_negative_bug);
+
 
         mRv1.setLayoutManager(new GridLayoutManager(getActivity(), 6, LinearLayoutManager.HORIZONTAL, false));
         mRv2.setLayoutManager(new GridLayoutManager(getActivity(), 6, LinearLayoutManager.HORIZONTAL, false));
@@ -424,22 +440,22 @@ public class RoadBodyFragment extends BaseFragment {
 
     /*问路监听*/
     private void initListener() {
-        mPositiveBigEye.setOnClickListener(v -> {
+        mLLPositiveBigEye.setOnClickListener(v -> {
             setRoadLayout(isPositive ? 0 : 1);
         });
-        mPositiveSmall.setOnClickListener(v -> {
+        mLLPositiveSmall.setOnClickListener(v -> {
             setRoadLayout(isPositive ? 0 : 1);
         });
-        mPositiveBug.setOnClickListener(v -> {
+        mLLPositiveBug.setOnClickListener(v -> {
             setRoadLayout(isPositive ? 0 : 1);
         });
-        mNegativeBigEye.setOnClickListener(v -> {
+        mLLNegativeBigEye.setOnClickListener(v -> {
             setRoadLayout(isNegative ? 0 : 2);
         });
-        mNegativeSmall.setOnClickListener(v -> {
+        mLLNegativeSmall.setOnClickListener(v -> {
             setRoadLayout(isNegative ? 0 : 2);
         });
-        mNegativeBug.setOnClickListener(v -> {
+        mLLNegativeBug.setOnClickListener(v -> {
             setRoadLayout(isNegative ? 0 : 2);
         });
     }
@@ -587,12 +603,12 @@ public class RoadBodyFragment extends BaseFragment {
         isPositive = state == 1;
         isNegative = state == 2;
 
-        mPositiveBigEye.setSelected(isPositive);
-        mPositiveSmall.setSelected(isPositive);
-        mPositiveBug.setSelected(isPositive);
-        mNegativeBigEye.setSelected(isNegative);
-        mNegativeSmall.setSelected(isNegative);
-        mNegativeBug.setSelected(isNegative);
+        mLLPositiveBigEye.setSelected(isPositive);
+        mLLPositiveSmall.setSelected(isPositive);
+        mLLPositiveBug.setSelected(isPositive);
+        mLLNegativeBigEye.setSelected(isNegative);
+        mLLNegativeSmall.setSelected(isNegative);
+        mLLNegativeBug.setSelected(isNegative);
 
     }
 
@@ -867,8 +883,15 @@ public class RoadBodyFragment extends BaseFragment {
 
         @Override
         protected void convert(@NotNull BaseViewHolder holder, @Nullable RoadBean bean) {
-            TextView name = holder.itemView.findViewById(R.id.tv_name);
-            holder.setText(R.id.tv_name, LanguageUtil.getText(bean.getName()));
+            TextView tvName = holder.itemView.findViewById(R.id.tv_name);
+            String name = "";
+            if(TextUtils.isEmpty(bean.getName())) {
+                name = "";
+            } else {
+                name = bean.getName();
+
+            }
+            holder.setText(R.id.tv_name, LanguageUtil.getText(name + " "));
             int bp = bean.getBp();
             if (RoadBean.Con.BANKER == bp) {
                 holder.setTextColor(R.id.tv_name, ContextCompat.getColor(mContext, R.color.ski_red));
@@ -877,7 +900,7 @@ public class RoadBodyFragment extends BaseFragment {
             } else {
                 holder.setTextColor(R.id.tv_name, ContextCompat.getColor(mContext, R.color.ski_lawngreen));
             }
-            name.setBackgroundColor(ContextCompat.getColor(getContext(), bean.isFuture() ? R.color.ski_road_future : R.color.ski_transparent));
+            tvName.setBackgroundColor(ContextCompat.getColor(getContext(), bean.isFuture() ? R.color.ski_road_future : R.color.ski_transparent));
         }
 
         @Override

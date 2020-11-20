@@ -39,7 +39,7 @@ public class LanguageUtil {
     }
 
     public static void initLanguage(Context context) {
-        mLanguage = SPUtils.getString(context, KEY_SP_LANGUAGE);
+       // mLanguage = SPUtils.getString(context, KEY_SP_LANGUAGE);
         if (TextUtils.isEmpty(mLanguage)) {
             mLanguage = getDeviceLanguage(context);
         }

@@ -77,12 +77,11 @@
     </style>
 
     <style name="RoadFutureText" parent="WrapWrap">
-        <item name="android:layout_width">@dimen/ski_dp_64</item>
-        <item name="android:layout_height">@dimen/ski_dp_30</item>
-        <item name="android:gravity">center_vertical</item>
-        <item name="android:textSize">@dimen/ski_dp_12</item>
-        <item name="android:padding">@dimen/ski_dp_4</item>
-        <item name="android:background">@drawable/ski_selector_chart_road_future_box</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/ski_dp_11</item>
+        <item name="android:layout_marginEnd">@dimen/ski_dp_4</item>
     </style>
 
     <style name="RoadBetLayout">
@@ -95,14 +94,13 @@
 
     <style name="CommonImage_road">
         <item name="android:scaleType">centerCrop</item>
-        <item name="android:layout_marginEnd">@dimen/ski_dp_5</item>
         <item name="android:layout_width">@dimen/ski_dp_9</item>
         <item name="android:layout_height">@dimen/ski_dp_9</item>
     </style>
     
     <style name="CommonImage" parent="WrapWrap">
         <item name="android:scaleType">centerCrop</item>
-        <item name="android:layout_marginEnd">@dimen/ski_dp_5</item>
+        <item name="android:layout_marginEnd">@dimen/ski_dp_4</item>
     </style>
 
     <style name="RoadBetText" parent="WrapWrap">

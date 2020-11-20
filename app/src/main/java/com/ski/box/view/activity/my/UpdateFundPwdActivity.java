@@ -113,7 +113,7 @@ public class UpdateFundPwdActivity extends BaseMVPActivity<UpdateFundPwdContract
             return;
         }
 //        if (!ValidateUtil.validatePwd_new(pwdNew)) {
-//            String err = "密码必须为6-16位包含英文与数字组合，区分大小写";
+//            String err = "密码必须为6-16位包含英文与数字组合";
 //            ToastUtil.showInfo(err);
 //            return;
 //        }

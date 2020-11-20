@@ -190,7 +190,7 @@ public class LotteryUtil {
         if (code >= 12) {
             code = code % 12;
         }
-        return shengXiaos.get(nowIndex)[code];
+        return  " " + shengXiaos.get(nowIndex)[code] + " ";
     }
 
     public static String getCurrentLHCSX(int code, int year) {
