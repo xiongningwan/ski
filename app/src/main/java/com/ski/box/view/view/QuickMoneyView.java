@@ -288,12 +288,12 @@ public class QuickMoneyView implements View.OnClickListener {
         }
         MkBetParamEntity entity =  DataCenter.getInstance().getBetParamEntity();
         List<MkBetParamEntity.BetParamEntity> bet = entity.getBet();
-        int totalMoney = 0;
+//        double totalMoney = 0;
         for (int i = 0; i < bet.size(); i++) {
             MkBetParamEntity.BetParamEntity betParamEntity = bet.get(i);
             betParamEntity.setBetAmount_d(Long.parseLong(money));
-            int betCount = betParamEntity.getBetCount();
-            totalMoney += betCount * Long.parseLong(money);
+//            int betCount = betParamEntity.getBetCount();
+//            totalMoney += betCount * Long.parseLong(money);
         }
         BetStatus betStatus = LotteryNoUtil.getBetStatus(entity.getBet(), LOTTERY_PLAY_MODE_DOUBLE);
 //        betStatus.setZhuShu(bet.size());

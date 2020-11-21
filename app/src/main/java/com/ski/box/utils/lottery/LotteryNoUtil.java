@@ -231,7 +231,7 @@ public class LotteryNoUtil {
         }
         if (playMode == LOTTERY_PLAY_MODE_STANDARD) {
             /*标准盘*/
-            float totalAmount = 0;
+            double totalAmount = 0;
             for (MkBetParamEntity.BetParamEntity betParamEntity : bets) {
                 totalAmount += betParamEntity.getBetAmount_s() * betParamEntity.getBetCount() * betParamEntity.getBetBeiShu();
                 zhuShu += betParamEntity.getBetCount();
@@ -241,7 +241,7 @@ public class LotteryNoUtil {
         } else {
             int totalAmount_d = 0;
             for (MkBetParamEntity.BetParamEntity betParamEntity : bets) {
-                totalAmount_d += betParamEntity.getBetAmount_d() * betParamEntity.getBetCount();
+                totalAmount_d +=  1.0 * betParamEntity.getBetAmount_d() * betParamEntity.getBetCount();
                 zhuShu += betParamEntity.getBetCount();
                 betStatus.setStatus(betParamEntity.isSingle() ? LOTTERY_PLAY_DAN : LOTTERY_PLAY_FUSHI);
             }

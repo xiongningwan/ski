@@ -117,7 +117,7 @@ public class MkBetParamEntity {
         //投注模式（圆角分离）
         private String moneyMethod;
         //注数
-        private int betCount;
+        private long betCount;
         /*双面盘*/
         private long betAmount_d;
         /*标准盘*/
@@ -222,11 +222,11 @@ public class MkBetParamEntity {
             this.moneyMethod = moneyMethod;
         }
 
-        public int getBetCount() {
+        public long getBetCount() {
             return betCount;
         }
 
-        public void setBetCount(int betCount) {
+        public void setBetCount(long betCount) {
             this.betCount = betCount;
         }
 

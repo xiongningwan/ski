@@ -222,7 +222,7 @@ public class BettingConfirmViewFuShi extends LinearLayout {
         String playName = betParamEntity.getGroupName();
         String playItemName = betParamEntity.getContent();
         /*注数*/
-        int quantity = betParamEntity.getBetCount();
+        long quantity = betParamEntity.getBetCount();
         /*每组金额*/
         long betAmount_d = betParamEntity.getBetAmount_d();
 
@@ -245,7 +245,7 @@ public class BettingConfirmViewFuShi extends LinearLayout {
 
     private void calculateBlance() {
         long betAmount_d = betParamEntity.getBetAmount_d();
-        int betCount = betParamEntity.getBetCount();
+        long betCount = betParamEntity.getBetCount();
         /*赔率*/
         /*一共投注多少钱*/
         long totalMoney = betAmount_d * betCount;

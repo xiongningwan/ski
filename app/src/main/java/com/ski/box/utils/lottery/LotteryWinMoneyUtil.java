@@ -29,7 +29,7 @@ public class LotteryWinMoneyUtil {
 
     public static String calculateWinMoney_d(MkBetParamEntity.BetParamEntity betParamEntity) {
         long amount = betParamEntity.getBetAmount_d();
-        int count = betParamEntity.getBetCount();
+        long count = betParamEntity.getBetCount();
         String odd = betParamEntity.getPlayOdds();
         boolean isSingle = betParamEntity.isSingle();
         String groupName = betParamEntity.getGroupName();
@@ -48,7 +48,7 @@ public class LotteryWinMoneyUtil {
         return win_s;
     }
 
-    private static double getWin_d(boolean isSingle, String groupName, String betNum, String showText, long amount, int count, double odd_F) {
+    private static double getWin_d(boolean isSingle, String groupName, String betNum, String showText, long amount, long count, double odd_F) {
         if (!isSingle) {
             int combineCount = 0;
             int n = 1; // 用户选中号码个数
@@ -193,7 +193,7 @@ public class LotteryWinMoneyUtil {
     }
 
     // 包含本命
-    private static double getLHC_LX_BM(int n, int count, String groupName, long amount, double odd_F) {
+    private static double getLHC_LX_BM(int n, long count, String groupName, long amount, double odd_F) {
         double keying = 0;
         int combineCount = 0;
         int combineCount_bm = 0;

@@ -292,7 +292,7 @@ public class DoubleBetDailogDView extends LinearLayout {
         for (int i = 0; i < mDatas.size(); i++) {
             MkBetParamEntity.BetParamEntity betParamEntity = mDatas.get(i);
 
-            int betCount = betParamEntity.getBetCount();
+            long betCount = betParamEntity.getBetCount();
             long betAmount_d = betParamEntity.getBetAmount_d();
 
             totalBalan += betCount * betAmount_d;

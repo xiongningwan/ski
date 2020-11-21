@@ -99,7 +99,7 @@ public class BetBottomView extends LinearLayout implements View.OnClickListener 
     }
 
     public void setBetChose(BetStatus betStatus) {
-        int totalAmount = betStatus.getTotalAmount();
+        long totalAmount = betStatus.getTotalAmount();
         if (0 == betStatus.getZhuShu() || totalAmount == 0) {
             mTvBetChose.setVisibility(View.GONE);
             // mViewBottom.enableView(false);

@@ -124,7 +124,7 @@
         android:orientation="vertical"
         android:overScrollMode="always"
         android:background="@color/ski_white"
-        app:layout_constraintBottom_toTopOf="@+id/sl_bottom"
+        app:layout_constraintBottom_toTopOf="@+id/sl_bottom2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/left_menu_tablelayout"
         app:layout_constraintTop_toTopOf="parent" />
