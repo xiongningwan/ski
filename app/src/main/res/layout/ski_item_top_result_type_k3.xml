@@ -4,17 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    tools:background="@color/ski_color_A86A91">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="33dp" />
 
     <ImageView
         android:id="@+id/iv_num_1"
         style="@style/Top_result_lottery_style_k3"
         tools:src="@mipmap/touzi1"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/iv_num_2"
-        android:layout_marginEnd="14dp"/>
+        app:layout_constraintBottom_toTopOf="@+id/tv_xt_1"
+        android:layout_marginEnd="14dp" />
 
     <ImageView
         android:id="@+id/iv_num_2"
@@ -31,5 +38,42 @@
         app:layout_constraintStart_toEndOf="@+id/iv_num_2"
         app:layout_constraintTop_toTopOf="@+id/iv_num_1"
         android:layout_marginStart="14dp"/>
+
+    <com.ski.box.view.view.CusTextView
+        android:id="@+id/tv_xt_1"
+        style="@style/Top_result_lottery_xt_style_ssc"
+        tools:text="13"
+        app:layout_constraintTop_toBottomOf="@+id/iv_num_1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tv_xt_2"
+        app:layout_constraintHorizontal_weight="1"
+        android:layout_marginEnd="5dp"
+        app:layout_constraintHorizontal_chainStyle ="packed"/>
+
+    <com.ski.box.view.view.CusTextView
+        android:id="@+id/tv_xt_2"
+        style="@style/Top_result_lottery_xt_style_ssc"
+        tools:text="小"
+        app:layout_constraintTop_toTopOf="@+id/tv_xt_1"
+        app:layout_constraintStart_toEndOf="@+id/tv_xt_1"
+        app:layout_constraintEnd_toStartOf="@+id/tv_xt_3"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintHorizontal_chainStyle ="packed"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"/>
+
+    <com.ski.box.view.view.CusTextView
+        android:id="@+id/tv_xt_3"
+        style="@style/Top_result_lottery_xt_style_ssc"
+        tools:text="单"
+        app:layout_constraintTop_toTopOf="@+id/tv_xt_1"
+        app:layout_constraintStart_toEndOf="@+id/tv_xt_2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintHorizontal_chainStyle ="packed"
+        android:layout_marginStart="5dp" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

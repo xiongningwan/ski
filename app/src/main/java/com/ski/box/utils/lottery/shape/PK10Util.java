@@ -5,28 +5,32 @@ import com.ski.box.utils.lottery.LotteryNoUtil;
 /**
  * Created by tom on 2020/11/21.
  */
-public class SSCUtil {
+public class PK10Util {
     /**
-     * 时时彩,大小,单双,龙虎
+     * 冠亚和，冠亚和大小，冠亚和单双，5对龙虎
      *
      * @param numArr 0-22 为小, 23-45 为大
      * @return
      */
-    public static String[] getSSC_ShapeData(String[] numArr) {
-        String[] arr = new String[4];
-        int sum = LotteryNoUtil.calculationSum(numArr);
-        String danShuang = getSingleDouble(sum);
-        // 大小
-        String daXiao = getBigOrSmall(sum, 22);
-        String longHuHe = dragonTigerSum(1, numArr);
+    public static String[] getPK10_ShapeData(String[] numArr) {
+        String[] arr = new String[8];
+        // 冠亚和
+        int sum = Integer.parseInt(numArr[0]) + Integer.parseInt(numArr[1]);
         arr[0] = String.valueOf(sum);
-        arr[1] = daXiao;
-        arr[2] = danShuang;
-        arr[3] = longHuHe;
+        arr[1] = getBigOrSmall(sum,11);
+        arr[2] = getSingleDouble(sum);
+        arr[3] = dragonTigerSum(1, numArr);
+        arr[4] = dragonTigerSum(2, numArr);
+        arr[5] = dragonTigerSum(3, numArr);
+        arr[6] = dragonTigerSum(4, numArr);
+        arr[7] = dragonTigerSum(5, numArr);
         return arr;
     }
 
-    public static String getSingleDouble(int sum) {
+    public static String getSingleDouble(int sum, String... arr) {
+        if (sum == 49) {
+            return "和";
+        }
         if (sum % 2 == 0) {
             return "双";
         } else {

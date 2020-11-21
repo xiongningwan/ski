@@ -5,32 +5,31 @@ import com.ski.box.utils.lottery.LotteryNoUtil;
 /**
  * Created by tom on 2020/11/21.
  */
-public class SSCUtil {
+public class K3Util {
     /**
-     * 时时彩,大小,单双,龙虎
+     * 总和点数，总和大小，总和单双，5对龙虎
      *
      * @param numArr 0-22 为小, 23-45 为大
      * @return
      */
-    public static String[] getSSC_ShapeData(String[] numArr) {
-        String[] arr = new String[4];
+    public static String[] getK3_ShapeData(String[] numArr) {
+        String[] arr = new String[2];
         int sum = LotteryNoUtil.calculationSum(numArr);
-        String danShuang = getSingleDouble(sum);
-        // 大小
-        String daXiao = getBigOrSmall(sum, 22);
-        String longHuHe = dragonTigerSum(1, numArr);
         arr[0] = String.valueOf(sum);
-        arr[1] = daXiao;
-        arr[2] = danShuang;
-        arr[3] = longHuHe;
+        arr[1] = getBigOrSmall(numArr, sum,10);
+//        arr[2] = getSingleDouble(sum);
         return arr;
     }
 
-    public static String getSingleDouble(int sum) {
-        if (sum % 2 == 0) {
-            return "双";
-        } else {
-            return "单";
+
+    public static   String getBigOrSmall(String[] numArr ,int sum, int middleValue) {
+        if (numArr.length!=3){
+            return "";
+        }
+        if (numArr[0].equalsIgnoreCase(numArr[1] )&& numArr[1].equalsIgnoreCase(numArr[2])){
+            return "豹子";
+        }else{
+            return  getBigOrSmall(sum, middleValue);
         }
     }
 

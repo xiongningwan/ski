@@ -24,6 +24,8 @@ import com.ski.box.bean.lottery.LotteryUtil;
 import com.ski.box.utils.MyCustomTarage;
 import com.ski.box.utils.SystemUtil;
 import com.ski.box.utils.lottery.ConfigurationUiUtils;
+import com.ski.box.utils.lottery.shape.K3Util;
+import com.ski.box.utils.lottery.shape.PK10Util;
 import com.ski.box.utils.lottery.shape.SSCUtil;
 import com.ski.box.utils.lottery.shape._11x5Util;
 import com.yb.core.utils.AppUtil;
@@ -98,13 +100,19 @@ public class TopResultAdapter extends BaseMultiItemQuickAdapter<LotteryNumBean, 
                     TextView tvXT3 = holder.getView(R.id.tv_xt_3);
                     TextView tvXT4 = holder.getView(R.id.tv_xt_4);
                     TextView tvXT5 = holder.getView(R.id.tv_xt_5);
-
-                    TextView[] arrXt = {tvXT1, tvXT2, tvXT3, tvXT4, tvXT5};
+                    TextView tvXT6 = holder.getView(R.id.tv_xt_6);
+                    TextView tvXT7 = holder.getView(R.id.tv_xt_7);
+                    TextView tvXT8 = holder.getView(R.id.tv_xt_8);
 
                     TextView[] arr = {tvNum1, tvNum2, tvNum3, tvNum4, tvNum5, tvNum6, tvNum7, tvNum8, tvNum9, tvNum10};
+                    TextView[] arrXt = {tvXT1, tvXT2, tvXT3, tvXT4, tvXT5, tvXT6, tvXT7, tvXT8};
+
+                    for(TextView tv : arrXt) {
+                        tv.setText("");
+                    }
                     for (int i = 0; i < arr.length; i++) {
                         if (mode != 2) {
-                          //  startAnimal(type, arr[i], i, arr_code[i], 120, 30, 10);
+                            startAnimal(type, arr[i], i, arr_code[i], 120, 30, 10, arr_code, arrXt);
                         } else {
                             Integer bg = ConfigurationUiUtils.pk10bgMap.get(arr_code[i]);
                             arr[i].setBackgroundResource(bg);
@@ -112,7 +120,7 @@ public class TopResultAdapter extends BaseMultiItemQuickAdapter<LotteryNumBean, 
                         }
                     }
                     if (mode == 2) {
-                        setXT_SSC_11x5(type, arr_code, arrXt);
+                        setXT_pk10(arr_code, arrXt);
                     }
                 }
                 break;
@@ -161,6 +169,10 @@ public class TopResultAdapter extends BaseMultiItemQuickAdapter<LotteryNumBean, 
                     TextView tvNum3 = holder.getView(R.id.tv_num_3);
                     TextView[] arr = {tvNum1, tvNum2, tvNum3};
                     for (int i = 0; i < arr.length; i++) {
+                        if (mTf_DinABold != arr[i].getTypeface()) {
+                            arr[i].setTypeface(mTf_DinABold);
+                        }
+
                         if (mode != 2) {
                             int r = mRandom.nextInt(arr_code.length);
                             startAnimal(type, arr[i], i, arr_code[i], 120, 15, 10, arr_code, arr);
@@ -199,6 +211,9 @@ public class TopResultAdapter extends BaseMultiItemQuickAdapter<LotteryNumBean, 
                     TextView[] arrSx = {tvSx1, tvSx2, tvSx3, tvSx4, tvSx5, tvSx6, tvSx7};
                     for (int i = 0; i < arr.length; i++) {
                         try {
+                            if (mTf_DinABold != arr[i].getTypeface()) {
+                                arr[i].setTypeface(mTf_DinABold);
+                            }
                             if (2 == mode) {
                                 int numInt = Integer.parseInt(arr_code[i]);
                                 Integer bg = ConfigurationUiUtils.getLHCBg(numInt);
@@ -224,9 +239,21 @@ public class TopResultAdapter extends BaseMultiItemQuickAdapter<LotteryNumBean, 
                     ImageView ivNum1 = holder.getView(R.id.iv_num_1);
                     ImageView ivNum2 = holder.getView(R.id.iv_num_2);
                     ImageView ivNum3 = holder.getView(R.id.iv_num_3);
+
+                    TextView tvXT1 = holder.getView(R.id.tv_xt_1);
+                    TextView tvXT2 = holder.getView(R.id.tv_xt_2);
+                    TextView tvXT3 = holder.getView(R.id.tv_xt_3);
+
                     ImageView[] arr = {ivNum1, ivNum2, ivNum3};
+                    TextView[] arrXt = {tvXT1, tvXT2, tvXT3};
+                    for(TextView tv : arrXt) {
+                        tv.setText("");
+                    }
                     for (int i = 0; i < arr.length; i++) {
-                        startIVAni(arr[i], arr_code[i]);
+                        startIVAni(arr[i], arr_code[i], arr_code, arrXt);
+                    }
+                    if (mode == 2) {
+                        setXT_k3(arr_code, arrXt);
                     }
                 }
 
@@ -256,14 +283,31 @@ public class TopResultAdapter extends BaseMultiItemQuickAdapter<LotteryNumBean, 
 
                     TextView[] arr = {tvNum1, tvNum2, tvNum3, tvNum4, tvNum5, tvNum6, tvNum7, tvNum8, tvNum9, tvNum10, tvNum11, tvNum12, tvNum13, tvNum14, tvNum15, tvNum16, tvNum17, tvNum18, tvNum19, tvNum20};
                     for (int i = 0; i < arr.length; i++) {
+                        if (mTf_DinABold != arr[i].getTypeface()) {
+                            arr[i].setTypeface(mTf_DinABold);
+                        }
                         if (mode != 2) {
-                          //  startAnimal(type, arr[i], i, arr_code[i], 150, 20, 20);
+                            startAnimal(type, arr[i], i, arr_code[i], 150, 20, 20, arr_code, arr);
                         } else {
                             arr[i].setText(arr_code[i]);
                         }
                     }
                 }
                 break;
+        }
+    }
+
+    private void setXT_k3(String[] arr_code, TextView[] arrXt) {
+        String[] shapeArr = K3Util.getK3_ShapeData(arr_code);
+        for (int i = 0; i < shapeArr.length; i++) {
+            arrXt[i].setText(LanguageUtil.getText(shapeArr[i]));
+        }
+    }
+
+    private void setXT_pk10(String[] arr_code, TextView[] arrXt) {
+        String[] shapeArr = PK10Util.getPK10_ShapeData(arr_code);
+        for (int i = 0; i < shapeArr.length; i++) {
+            arrXt[i].setText(LanguageUtil.getText(shapeArr[i]));
         }
     }
 
@@ -275,7 +319,7 @@ public class TopResultAdapter extends BaseMultiItemQuickAdapter<LotteryNumBean, 
             shapeArr  = _11x5Util.get11X5_ShapeData(arr_code);
         }
         for (int i = 0; i < shapeArr.length; i++) {
-            arrXt[i].setText(shapeArr[i]);
+            arrXt[i].setText(LanguageUtil.getText(shapeArr[i]));
         }
     }
 
@@ -365,7 +409,7 @@ public class TopResultAdapter extends BaseMultiItemQuickAdapter<LotteryNumBean, 
     }
 
 
-    private void startIVAni(ImageView iv, String code) {
+    private void startIVAni(ImageView iv, String code, String[] arr_code, TextView[] arrXt) {
         if (2 == mode) {
             Integer k3IconResId = ConfigurationUiUtils.kuaiSanMap.get(code);
             iv.setImageResource(k3IconResId);
@@ -383,6 +427,8 @@ public class TopResultAdapter extends BaseMultiItemQuickAdapter<LotteryNumBean, 
                 } else {
                     imageView.setImageResource(R.mipmap.ski_touzi_default);
                 }
+
+                setXT_k3(arr_code, arrXt);
                 LogUtils.e("gifPlayComplete:");
             }
         });
@@ -470,6 +516,9 @@ public class TopResultAdapter extends BaseMultiItemQuickAdapter<LotteryNumBean, 
     private void setFinishXT(int serId, int i, String[] arr_code, TextView[] arrXt) {
         switch (serId) {
             case LotteryConstant.SER_ID_PK10:
+                if (9 == i) {
+                    setXT_pk10(arr_code, arrXt);
+                }
                 break;
             case LotteryConstant.SER_ID_KL8:
                 break;
