@@ -35,7 +35,7 @@ public class RecordBetAdapter2 extends BaseQuickAdapter<RecordBet.ListBean , Bas
         lotteryResultView.setResult(bean.getTicketId(), code);
         /*投注金额*/
         String s = DecimalSetUtils.setMoneySaveFour(bean.getBetMoney() + "");
-        String betMoney = s + LanguageUtil.getText("元");
+        String betMoney = s;
         String info = LanguageUtil.getText("投注: ") + betMoney;
 //        SpannableStringBuilder stringBuilder = new SpannableStringBuilder(info);
 //        ForegroundColorSpan blue = new ForegroundColorSpan(getContext().getResources().getColor(R.color.ski_color_037bff_blue));

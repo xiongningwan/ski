@@ -95,7 +95,7 @@
         app:layout_constraintStart_toStartOf="@+id/tv_lottery_name"
         app:layout_constraintTop_toBottomOf="@+id/lottery_record_result_view"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:text="投注：50元"
+        tools:text="投注：50"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"/>
 
@@ -108,7 +108,7 @@
         android:textSize="14dp"
         app:layout_constraintEnd_toEndOf="@+id/tv_period"
         app:layout_constraintTop_toTopOf="@+id/tv_bet_money"
-        tools:text="已中奖 99.85 元"
+        tools:text="已中奖 99.85"
         android:visibility="gone"/>
 
     <com.ski.box.view.view.CusTextView

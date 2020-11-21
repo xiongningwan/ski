@@ -259,7 +259,7 @@ public class BettingConfirmViewFuShi extends LinearLayout {
 
 
         String string = danshu + LanguageUtil.getText("注单") + quantitys + LanguageUtil.getText("组")
-                + totalMoney_s + LanguageUtil.getText("元");
+                + totalMoney_s;
         int danshu_index = string.indexOf(danshu);
         int zushu_index = string.indexOf(quantitys);
         int money_inedx = string.lastIndexOf(totalMoney + "");

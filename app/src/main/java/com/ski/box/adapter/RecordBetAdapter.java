@@ -50,7 +50,7 @@ public class RecordBetAdapter extends BaseQuickAdapter<RecordBet.ListBean , Base
 
         /*投注金额*/
         String s = DecimalSetUtils.setMoneySaveFour(listBean.getBetMoney() + "");
-        String betMoney = s + "元";
+        String betMoney = s;
         String info = "投注: " + betMoney;
         SpannableStringBuilder stringBuilder = new SpannableStringBuilder(info);
         ForegroundColorSpan blue = new ForegroundColorSpan(getContext().getResources().getColor(R.color.ski_color_037bff_blue));
@@ -63,7 +63,7 @@ public class RecordBetAdapter extends BaseQuickAdapter<RecordBet.ListBean , Base
             view.setTextColor(mContext.getResources().getColor(R.color.ski_red));
             holder.setVisible(R.id.tv_win_money, true);
             String s1 = DecimalSetUtils.setMoneySaveFour(listBean.getWinAmount() + "");
-            holder.setText(R.id.tv_win_money, s1+ "元");
+            holder.setText(R.id.tv_win_money, s1);
         } else {
             view.setTextColor(mContext.getResources().getColor(R.color.ski_color_666666));
             holder.setVisible(R.id.tv_win_money, false);

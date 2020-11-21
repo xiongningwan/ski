@@ -36,7 +36,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tv_name"
         android:layout_marginEnd="16dp"
-        tools:text="余额  1,000,000.00 元" />
+        tools:text="余额  1,000,000.00 " />
 
     <View
         android:id="@+id/view_line"
@@ -67,7 +67,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tv_rabate"
         android:layout_marginEnd="16dp"
-        tools:text="团队余额  2,500,000.00 元" />
+        tools:text="团队余额  2,500,000.00 " />
 
 
     <com.ski.box.view.view.CusTextView

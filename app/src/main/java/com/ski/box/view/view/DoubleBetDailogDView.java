@@ -302,7 +302,7 @@ public class DoubleBetDailogDView extends LinearLayout {
 
         String danshu = mDatas.size() + "";
         String balances = str + "";
-        String info = danshu + LanguageUtil.getText("注单") + "," + balances + LanguageUtil.getText("元");
+        String info = danshu + LanguageUtil.getText("注单") + "," + balances;
         int i = info.indexOf(danshu);
         int i1 = info.lastIndexOf(balances);
 
