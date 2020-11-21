@@ -527,4 +527,22 @@ public class LotteryNoUtil {
     }
 
 
+    /**
+     * 计算总数
+     *
+     * @param arr
+     * @return
+     */
+    public static int calculationSum(String... arr) {
+        if (arr == null) {
+            return 0;
+        }
+        int count = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if (!TextUtils.isEmpty(arr[i])) {
+                count += Integer.parseInt(arr[i]);
+            }
+        }
+        return count;
+    }
 }

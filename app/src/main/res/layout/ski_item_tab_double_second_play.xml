@@ -6,12 +6,13 @@
     android:gravity="center">
     <com.ski.box.view.view.CusTextView
         android:id="@+id/tv_item_tab_double"
-        android:layout_width="@dimen/ski_dp_72"
+        android:layout_width="wrap_content"
         android:layout_height="@dimen/ski_dp_23"
         android:background="@drawable/ski_bg_play_table_item_selector"
         android:gravity="center_vertical|center_horizontal"
         android:orientation="vertical"
-        android:padding="@dimen/ski_dp_2"
+        android:paddingStart="5dp"
+        android:paddingEnd="5dp"
         android:text="xxxxx"
         android:textColor="@color/ski_444444_white_text_color"
         android:textSize="12dp" />

@@ -323,8 +323,6 @@
   "百个和数尾数": "trăm hoà đuôi",
   "十个和数": "Đ.vi hoà số",
   "十个和数尾数": "Đ.vi hoà đuôi",
-  "重号": "重号",
-  "不重号": "不重号",
   "冠军": "Quán quân",
   "亚军": "Á quân",
   "第三名": "Hạng 3",
@@ -645,5 +643,7 @@
   "上次更新 M-d HH:mm": "Làm mới lần trước ",
   "再按一次返回键退出程序": "Nhấp lần nữa để thoát ",
   "暂停销售": "Tạm dừng hoạt động ",
-  "温馨提示：为了您的资金能快速到账，请填入正确的入款姓名，勿随意更改支付金额，务必使用平台提示金额进行转账，避免不必要的延迟到账及不到账，否则造成的损失平台概不负责": "Lưu ý : Để việc chuyển khoản nhanh chóng , vui lòng nhập tên thật , không tuỳ ý điều chỉnh số dư, chỉ chuyển khoản với tài khoản hiện lên trên web trong thời điểm hiện tại để tránh trường hợp chuyển khoản chậm trễ.Nếu không làm theo quy trình có xảy ra vấn đề nhà cái sẽ không chịu trách nhiệm ."
+  "温馨提示：为了您的资金能快速到账，请填入正确的入款姓名，勿随意更改支付金额，务必使用平台提示金额进行转账，避免不必要的延迟到账及不到账，否则造成的损失平台概不负责": "Lưu ý : Để việc chuyển khoản nhanh chóng , vui lòng nhập tên thật , không tuỳ ý điều chỉnh số dư, chỉ chuyển khoản với tài khoản hiện lên trên web trong thời điểm hiện tại để tránh trường hợp chuyển khoản chậm trễ.Nếu không làm theo quy trình có xảy ra vấn đề nhà cái sẽ không chịu trách nhiệm .",
+  "重号": "trùng",
+  "不重号": "chữ trật"
 }

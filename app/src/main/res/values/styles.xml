@@ -146,6 +146,14 @@
         <item name="android:textSize">18dp</item>
     </style>
 
+    <style name="Top_result_lottery_xt_style_ssc">
+        <item name="android:layout_width">@dimen/ski_dp_36</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/ski_color_4F3B70</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">16dp</item>
+    </style>
+
     <style name="record_result_lottery_style_ssc">
         <item name="android:layout_width">@dimen/ski_dp_22</item>
         <item name="android:layout_height">@dimen/ski_dp_22</item>

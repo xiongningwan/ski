@@ -197,14 +197,14 @@
         android:id="@+id/tv_fellow"
         android:layout_width="90dp"
         android:layout_height="0dp"
-        android:text="追号"
+        android:text="X3"
         android:gravity="center"
         android:textColor="@color/ski_white"
         android:background="@color/ski_color_A86A91"
         app:layout_constraintEnd_toStartOf="@+id/tv_bet"
         app:layout_constraintTop_toTopOf="@+id/tv_bet"
         app:layout_constraintBottom_toBottomOf="@+id/tv_bet"
-        android:visibility="gone"/>
+        android:visibility="visible"/>
 
     <com.ski.box.view.view.CusTextView
         android:id="@+id/tv_bet"

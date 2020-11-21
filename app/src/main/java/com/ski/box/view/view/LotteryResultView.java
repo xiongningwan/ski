@@ -22,6 +22,7 @@ import com.ski.box.bean.lottery.LotteryConstant;
 import com.ski.box.bean.lottery.LotteryUtil;
 import com.ski.box.utils.SystemUtil;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -63,17 +64,22 @@ public class LotteryResultView extends LinearLayout {
     }
 
 
-
     public void setResult(List<LotteryNumBean> list) {
-        mAdapter.setNewInstance(list);
+        if(list.size() > 1) {
+            mAdapter.setNewInstance(list.subList(0,1));
+        } else {
+            mAdapter.setNewInstance(list);
+        }
     }
 
     public void setResult(List<LotteryNumBean> list, int mode) {
         mAdapter.setMode(mode);
-        mAdapter.setNewInstance(list);
+        if(list.size() > 1) {
+            mAdapter.setNewInstance(list.subList(0,1));
+        } else {
+            mAdapter.setNewInstance(list);
+        }
     }
-
-
 
 
 }
