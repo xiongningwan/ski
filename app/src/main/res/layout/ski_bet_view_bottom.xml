@@ -188,13 +188,13 @@
         android:textSize="14dp"
         android:layout_marginBottom="5dp"
         android:textColor="@color/ski_color_333333"
-        app:layout_constraintEnd_toStartOf="@+id/tv_fellow"
+        app:layout_constraintEnd_toStartOf="@+id/tv_X3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="@+id/tv_bet"
         android:layout_marginStart="16dp"/>
 
     <com.ski.box.view.view.CusTextView
-        android:id="@+id/tv_fellow"
+        android:id="@+id/tv_X3"
         android:layout_width="70dp"
         android:layout_height="0dp"
         android:text="X3"
@@ -218,7 +218,7 @@
         android:autoSizeTextType="uniform"
         android:autoSizeMaxTextSize="14dp"
         android:autoSizeMinTextSize="2dp"
-        android:autoSizeStepGranularity="2dp"
+        android:autoSizeStepGranularity="1dp"
         android:textColor="@color/ski_white"
         android:background="@color/ski_color_694E85"
         app:layout_constraintBottom_toBottomOf="parent"

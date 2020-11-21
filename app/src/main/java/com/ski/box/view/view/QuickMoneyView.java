@@ -32,6 +32,7 @@ import com.ski.box.bean.QuickSetMoneyBean2;
 import com.ski.box.bean.lottery.LotteryConstant;
 import com.ski.box.utils.ActivityUtil;
 import com.ski.box.utils.KeyBoardUtils;
+import com.ski.box.utils.lottery.LotteryNoUtil;
 import com.ski.box.view.view.dialog.CustomBottomDialog;
 import com.ski.box.view.view.keyboard.KeyBoardBean;
 import com.ski.box.view.view.keyboard.NumsKeyBoardView;
@@ -53,6 +54,7 @@ import static com.ski.box.ConstantValue.EVENT_BET_BOTTOM_QUICK_DOUBLE_ET_CHANGE;
 import static com.ski.box.ConstantValue.EVENT_TYPE_BET_NO_CHECK_UPDATE;
 import static com.ski.box.ConstantValue.SP_DOUBLE_QUICK_MONEY_DEFAULT_LIST;
 import static com.ski.box.ConstantValue.SP_DOUBLE_QUICK_MONEY_DEFAULT_SELECTED;
+import static com.ski.box.bean.lottery.LotteryConstant.LOTTERY_PLAY_MODE_DOUBLE;
 
 /**
  * Created by tom on 2020/8/20.
@@ -284,18 +286,19 @@ public class QuickMoneyView implements View.OnClickListener {
             etDoubleAmount.setText(money);
             SPUtils.putString(mContext, SP_DOUBLE_QUICK_MONEY_DEFAULT_SELECTED, money);
         }
-        List<MkBetParamEntity.BetParamEntity> bet = DataCenter.getInstance().getBetParamEntity().getBet();
+        MkBetParamEntity entity =  DataCenter.getInstance().getBetParamEntity();
+        List<MkBetParamEntity.BetParamEntity> bet = entity.getBet();
         int totalMoney = 0;
         for (int i = 0; i < bet.size(); i++) {
             MkBetParamEntity.BetParamEntity betParamEntity = bet.get(i);
-            betParamEntity.setBetAmount_d(Integer.parseInt(money));
+            betParamEntity.setBetAmount_d(Long.parseLong(money));
             int betCount = betParamEntity.getBetCount();
-            totalMoney += betCount * Integer.parseInt(money);
+            totalMoney += betCount * Long.parseLong(money);
         }
-        BetStatus betStatus = new BetStatus();
-        betStatus.setZhuShu(bet.size());
-        betStatus.setTotalAmount(totalMoney);
-        betStatus.setStatus(LotteryConstant.LOTTERY_PLAY_DAN);
+        BetStatus betStatus = LotteryNoUtil.getBetStatus(entity.getBet(), LOTTERY_PLAY_MODE_DOUBLE);
+//        betStatus.setZhuShu(bet.size());
+//        betStatus.setTotalAmount(totalMoney);
+//        betStatus.setStatus(LotteryConstant.LOTTERY_PLAY_DAN);
         RxBus.get().post(EVENT_TYPE_BET_NO_CHECK_UPDATE, betStatus);
     }
 
@@ -453,5 +456,11 @@ public class QuickMoneyView implements View.OnClickListener {
 
             }
         });
+    }
+
+    public void setX3() {
+        String str = etDoubleAmount.getText().toString();
+        int money = ActivityUtil.doBetMoneyWithK(str) * 3;
+        etDoubleAmount.setText(String.valueOf(money));
     }
 }

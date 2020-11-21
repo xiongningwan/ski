@@ -67,36 +67,7 @@
         android:id="@+id/rl_bottom"
         android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/ski_dp_120">
-
-        <com.ski.box.view.view.CusTextView
-            android:layout_marginBottom="@dimen/ski_dp_34"
-            android:layout_centerHorizontal="true"
-            android:layout_alignParentBottom="true"
-            android:textColor="@color/ski_white"
-            android:gravity="center"
-            android:textSize="16sp"
-            android:background="@drawable/ski_pub_bg_setting_trend"
-            android:id="@+id/bet_confirm"
-            android:layout_width="match_parent"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_height="@dimen/ski_dp_45"
-            android:text="确认投注" />
-        <CheckBox
-            android:gravity="center"
-            android:layout_height="@dimen/ski_dp_20"
-            android:drawableRight="@drawable/ski_select_double_checkbox"
-            android:textSize="14dp"
-            android:textColor="#7c88a8"
-            android:button="@null"
-            android:drawablePadding="@dimen/ski_dp_5"
-            android:id="@+id/checkbox_danshi_close_kuang"
-            android:layout_width="wrap_content"
-            android:layout_marginTop="@dimen/ski_dp_14"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="@dimen/ski_dp_16"
-            android:text="以后关闭投注确认弹窗" />
+        android:layout_height="wrap_content">
 
         <com.ski.box.view.view.CusTextView
             android:textSize="14dp"
@@ -107,5 +78,41 @@
             android:layout_width="wrap_content"
             android:layout_marginLeft="@dimen/ski_dp_16"
             android:text="xxxxxxxdan" />
+
+        <CheckBox
+            android:gravity="end"
+            android:layout_height="@dimen/ski_dp_20"
+            android:drawableRight="@drawable/ski_select_double_checkbox"
+            android:textSize="14dp"
+            android:textColor="#7c88a8"
+            android:button="@null"
+            android:drawablePadding="@dimen/ski_dp_5"
+            android:id="@+id/checkbox_danshi_close_kuang"
+            android:layout_width="wrap_content"
+            android:layout_below="@+id/betting_info"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/ski_dp_16"
+            android:autoSizeTextType="uniform"
+            android:autoSizeMaxTextSize="14dp"
+            android:autoSizeMinTextSize="2dp"
+            android:autoSizeStepGranularity="1dp"
+            android:text="以后关闭投注确认弹窗" />
+
+        <com.ski.box.view.view.CusTextView
+            android:layout_marginBottom="@dimen/ski_dp_34"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/ski_white"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:background="@drawable/ski_pub_bg_setting_trend"
+            android:id="@+id/bet_confirm"
+            android:layout_width="match_parent"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="@dimen/ski_dp_12"
+            android:layout_height="@dimen/ski_dp_45"
+            android:text="确认投注"
+            android:layout_below="@+id/checkbox_danshi_close_kuang"/>
+
     </RelativeLayout>
 </RelativeLayout>

@@ -40,6 +40,7 @@ public class BetBottomView extends LinearLayout implements View.OnClickListener 
     private Context mContext;
     private QuickMoneyView mQmView;
     private TextView mTvBetChose;
+    private TextView mTvX3;
     private TextView mTvBalance;
     private TextView mTvBet;
 
@@ -66,12 +67,14 @@ public class BetBottomView extends LinearLayout implements View.OnClickListener 
 //        mQmView = rootView.findViewById(R.id.qm_view);
         mQmView =  new  QuickMoneyView(context, rootView);
         mTvBetChose = rootView.findViewById(R.id.tv_bet_chose);
+        mTvX3 = rootView.findViewById(R.id.tv_X3);
         mTvBalance = rootView.findViewById(R.id.tv_total_balance);
         mTvBet = rootView.findViewById(R.id.tv_bet);
         initData();
     }
 
     private void initData() {
+        mTvX3.setOnClickListener(this);
         mTvBet.setOnClickListener(this);
     }
 
@@ -90,6 +93,8 @@ public class BetBottomView extends LinearLayout implements View.OnClickListener 
         int id = v.getId();
         if (id == R.id.tv_bet) {
             RxBus.get().post(EVENT_TYPE_BET_RiGHT_NOW_CLICK, this);
+        } else if(id == R.id.tv_X3) {
+            mQmView.setX3();
         }
     }
 

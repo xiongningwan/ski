@@ -227,7 +227,7 @@ public class BettingConfirmViewFuShi extends LinearLayout {
         long betAmount_d = betParamEntity.getBetAmount_d();
 
         String quantitys = quantity + "";
-        String s = LanguageUtil.getText("共") + quantitys + LanguageUtil.getText("组");
+        String s = LanguageUtil.getText("共") + " " + quantitys + " " + LanguageUtil.getText("组");
         int i = s.indexOf(quantitys + "");
 
         SpannableStringBuilder stringBuilder = new SpannableStringBuilder(s);
@@ -258,8 +258,9 @@ public class BettingConfirmViewFuShi extends LinearLayout {
         String totalMoney_s = String.valueOf(totalMoney);
 
 
-        String string = danshu + LanguageUtil.getText("注单") + quantitys + LanguageUtil.getText("组")
-                + totalMoney_s;
+        String string = danshu + " " + LanguageUtil.getText("注单")
+                + " " + quantitys  + " " + LanguageUtil.getText("组")
+                + " " + totalMoney_s;
         int danshu_index = string.indexOf(danshu);
         int zushu_index = string.indexOf(quantitys);
         int money_inedx = string.lastIndexOf(totalMoney + "");
