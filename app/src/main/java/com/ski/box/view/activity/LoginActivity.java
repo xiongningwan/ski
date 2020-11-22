@@ -121,7 +121,7 @@ public class LoginActivity extends BaseMVPActivity<LoginContract.Presenter> impl
         }  else if (id == R.id.tv_kefu) {
             AgentWebViewActivity.startAgentWebView(this, LanguageUtil.getText("客服中心"), ConstantValue.SERVICE_URL);
         } else if (id == R.id.tv_version) {
-            UpdateUtil.checkVersion(this);
+            UpdateUtil.checkVersion(this, true);
         }
     }
 

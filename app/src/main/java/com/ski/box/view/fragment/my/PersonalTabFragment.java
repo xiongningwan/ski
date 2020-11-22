@@ -242,7 +242,7 @@ public class PersonalTabFragment extends BaseMVPFragment<EmptyContract.Presenter
                 startActivity(new Intent(requireActivity(), NoticeActivity.class));
                 break;
             case 45: // 当前版本号
-                UpdateUtil.checkVersion(requireActivity());
+                UpdateUtil.checkVersion(requireActivity(), true);
                 break;
         }
     }

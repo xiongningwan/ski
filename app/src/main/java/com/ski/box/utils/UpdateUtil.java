@@ -44,9 +44,11 @@ public class UpdateUtil {
     private static DownDialog mDownDialog;
     private static String mVersion;
     private static Activity mActivity;
+    private static boolean mIsToast;
 
-    public static void checkVersion(Activity activity) {
+    public static void checkVersion(Activity activity, boolean isToast) {
         mActivity = activity;
+        mIsToast = isToast;
         mVersion = AppUtil.getVersion(activity);
         String baseUrl = RetrofitHelper.getInstance().getBaseUrl();
         if (TextUtils.isEmpty(baseUrl)) {
@@ -79,9 +81,8 @@ public class UpdateUtil {
             UpdateData updateData = gson.fromJson(response.toString(), UpdateData.class);
             UpdateBean updateBean = updateData.getData();
             if (0 == updateData.getCode()) {
-                if (null == updateBean) {
+                if (null == updateBean && mIsToast) {
                     ToastUtil.showNormal("已是最新版本");
-                    mActivity.finish();
                     return;
                 }
                 String remoteVersion = updateBean.getVersion();
@@ -91,8 +92,10 @@ public class UpdateUtil {
                 int currentVersion_int = getVersionInt(currentVersion);
                 if (remoteVersion_int > currentVersion_int) {
                     judgeUpdate(mActivity, updateBean);
-                } else {
-                    mActivity.finish();
+                }  else {
+                    if(mIsToast) {
+                        ToastUtil.showNormal("已是最新版本");
+                    }
                 }
             }
         } catch (Exception e) {

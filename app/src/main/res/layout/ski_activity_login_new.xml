@@ -183,8 +183,8 @@
 
     <com.ski.box.view.view.CusTextView
         android:id="@+id/tv_kefu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="30dp"
+        android:layout_height="20dp"
         android:text="客服"
         android:textSize="12dp"
         app:layout_constraintTop_toTopOf="@+id/tv_line"
@@ -193,9 +193,10 @@
 
     <com.ski.box.view.view.CusTextView
         android:id="@+id/tv_version"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="30dp"
+        android:layout_height="20dp"
         android:text="版本"
+        android:gravity="end"
         android:textSize="12dp"
         app:layout_constraintTop_toTopOf="@+id/tv_kefu"
         app:layout_constraintEnd_toStartOf="@+id/tv_language_switch"
@@ -203,13 +204,14 @@
 
     <com.ski.box.view.view.CusTextView
         android:id="@+id/tv_register"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="30dp"
+        android:layout_height="20dp"
         android:text="注册"
         android:textSize="12dp"
-        app:layout_constraintTop_toBottomOf="@+id/tv_language_switch"
+        android:gravity="end"
+        app:layout_constraintTop_toBottomOf="@+id/tv_version"
         app:layout_constraintEnd_toEndOf="@+id/btn_login_dev"
-        android:visibility="gone"/>
+        android:visibility="visible"/>
 
         <com.ski.box.view.view.CusTextView
             android:id="@+id/tv_language_switch"

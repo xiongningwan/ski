@@ -84,7 +84,7 @@ public class MainActivity extends BaseMVPActivity<EmptyContract.Presenter> imple
     @Override
     protected void processLogic() {
         super.processLogic();
-        UpdateUtil.checkVersion(this);
+        UpdateUtil.checkVersion(this, false);
     }
 
     @Override
