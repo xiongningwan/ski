@@ -10,7 +10,8 @@ android {
         minSdkVersion 17
         targetSdkVersion 29
         versionCode 12
-        versionName "2.1"
+        versionName "1.0.0"
+//        versionName "0.9.9"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
         flavorDimensions("channel")
@@ -84,7 +85,7 @@ android {
         mb_1_skgj {
             applicationId "com.ski.box.app1"
             resValue "string", "ski_app_name", "sk国际"
-            resValue "string", "app_code", "skgj"
+            resValue "string", "app_code", "suba"
             resValue "string", "app_sid", "f0345a9da25c2471243f7675362g5f6c"
             manifestPlaceholders = [app_icon: "@mipmap/app_icon", app_logo: "@mipmap/app_logo"]
         }
@@ -92,7 +93,7 @@ android {
         mb_2_tycjt {
             applicationId "com.ski.box.app2"
             resValue "string", "ski_app_name", "太阳城集团"
-            resValue "string", "app_code", "tycjt"
+            resValue "string", "app_code", "subb"
             resValue "string", "app_sid", "d0581a9da243476d18f7675362f596b"
             manifestPlaceholders = [app_icon: "@mipmap/app_icon", app_logo: "@mipmap/app_logo"]
         }
@@ -102,6 +103,8 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'com.google.android.material:material:1.2.1'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
@@ -131,4 +134,6 @@ dependencies {
     implementation 'com.just.agentweb:agentweb:4.0.3-beta'
     implementation 'de.hdodenhof:circleimageview:3.1.0'
     implementation 'com.github.yuzhiqiang1993:zxing:2.2.5'
+
+    implementation 'com.github.xuexiangjys:XUpdate:2.0.4'
 }

@@ -2,6 +2,7 @@ package com.ski.box.view.activity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -20,8 +21,11 @@ import com.ski.box.bean.DataCenter;
 import com.ski.box.bean.user.LoginInfo;
 import com.ski.box.mvp.contract.LoginContract;
 import com.ski.box.mvp.presenter.LoginPresenter;
+import com.ski.box.utils.ActivityUtil;
 import com.ski.box.utils.HeaderUtil;
+import com.ski.box.utils.UpdateUtil;
 import com.ski.box.view.view.dialog.LanguageSwitchDialog;
+import com.xuexiang.xupdate._XUpdate;
 import com.yb.core.utils.LanguageUtil;
 import com.ski.box.utils.SoftHideKeyBoardUtil;
 import com.yb.core.base.BaseMVPActivity;
@@ -45,6 +49,7 @@ public class LoginActivity extends BaseMVPActivity<LoginContract.Presenter> impl
     private Button btDevLogin;
     private TextView tvRegister;
     private TextView tvkefu;
+    private TextView tvVersion;
     private TextView tvLanguageSwitch;
     private TextView tvEnvironment;
     private TextView tvMerchant;
@@ -71,6 +76,7 @@ public class LoginActivity extends BaseMVPActivity<LoginContract.Presenter> impl
         btDevLogin = findViewById(R.id.btn_login_dev);
         tvRegister = findViewById(R.id.tv_register);
         tvkefu = findViewById(R.id.tv_kefu);
+        tvVersion = findViewById(R.id.tv_version);
         tvLanguageSwitch = findViewById(R.id.tv_language_switch);
         btDevLogin.setOnClickListener(this);
         mLoading = new ProgressDialog(this);
@@ -82,6 +88,7 @@ public class LoginActivity extends BaseMVPActivity<LoginContract.Presenter> impl
         tvRegister.setOnClickListener(this);
         tvLanguageSwitch.setOnClickListener(this);
         tvkefu.setOnClickListener(this);
+        tvVersion.setOnClickListener(this);
         SoftHideKeyBoardUtil.assistActivity(this);
     }
 
@@ -113,8 +120,17 @@ public class LoginActivity extends BaseMVPActivity<LoginContract.Presenter> impl
             lsDialog.show();
         }  else if (id == R.id.tv_kefu) {
             AgentWebViewActivity.startAgentWebView(this, LanguageUtil.getText("客服中心"), ConstantValue.SERVICE_URL);
+        } else if (id == R.id.tv_version) {
+            UpdateUtil.checkVersion(this);
         }
     }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        UpdateUtil.onRequestPermissionsResult(requestCode,permissions,grantResults);
+    }
+
 
     private void resetView() {
         startActivity(new Intent(this, LoginActivity.class));

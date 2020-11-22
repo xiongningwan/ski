@@ -272,6 +272,16 @@
         <item name="android:backgroundDimEnabled">false</item>
     </style>
 
+    <style name="progress_down_dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:background">@null</item>
+        <item name="android:windowBackground">@color/ski_color_cc000000</item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+
     <!--底部弹框 样式-->
     <style name="no_background" parent="@android:style/Theme.Dialog" tools:ignore="ResourceName">
         <item name="android:windowFrame">@null</item>
@@ -326,4 +336,13 @@
         <item name="android:textColor">@color/ski_color_333333</item>
         <item name="android:textSize">14dp</item>
     </style>
+
+    <style name="TranslucentStyle" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowNoTitle">true</item><!-- 无标题 -->
+        <item name="android:windowBackground">@color/ski_transparent</item> <!-- 背景色透明 -->
+        <item name="android:windowIsTranslucent">true</item> <!-- 是否有透明属性 -->
+        <item name="android:backgroundDimEnabled">false</item> <!-- 背景是否半透明 -->
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item> <!-- activity窗口切换效果 -->
+    </style>
+
 </resources>

@@ -8,6 +8,7 @@
     <!-- 常用配色 -->
     <color name="ski_transparent">#00000000</color>
     <color name="ski_transparent_half">#5f000000</color>
+    <color name="ski_color_cc000000">#cc000000</color>
     <color name="ski_white">#FFFFFF</color><!--白色 -->
     <color name="ski_black">#000000</color>
     <color name="ski_color_222222">#222222</color>

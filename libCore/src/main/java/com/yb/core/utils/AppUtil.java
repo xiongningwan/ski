@@ -309,4 +309,20 @@ public class AppUtil {
         }
     }
 
+    /**
+     * 获取版本号    需要在Activity 中使用
+     * @return 当前应用的版本号
+     */
+
+    public static String getVersion(Context context) {
+        String version = "0";
+        try {
+            PackageManager manager = context.getPackageManager();
+            PackageInfo info = manager.getPackageInfo(context.getPackageName(), 0);
+             version = info.versionName;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return version;
+    }
 }

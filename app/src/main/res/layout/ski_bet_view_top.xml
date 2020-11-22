@@ -101,7 +101,7 @@
             android:layout_marginEnd="10dp"
             app:layout_constraintTop_toTopOf="@+id/tv_time_minute"
             app:layout_constraintEnd_toStartOf="@+id/tv_time_minute"
-            android:visibility="gone"/>
+            android:visibility="visible"/>
 
         <com.ski.box.view.view.CusTextView
             android:id="@+id/tv_time_minute"
@@ -115,10 +115,10 @@
             android:layout_centerVertical="true"
             android:textStyle="bold"
             android:textSize="18dp"
-            app:layout_constraintStart_toEndOf="@+id/tv_plan_period"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:visibility="gone"/>
+            android:visibility="visible"/>
 
         <com.ski.box.view.view.CusTextView
             android:id="@+id/tv_time_second"
@@ -135,11 +135,11 @@
             android:layout_marginStart="10dp"
             app:layout_constraintTop_toTopOf="@+id/tv_time_minute"
             app:layout_constraintStart_toEndOf="@+id/tv_time_minute"
-            android:visibility="gone"/>
+            android:visibility="visible"/>
 
         <com.ski.box.view.view.CusTextView
             android:id="@+id/tv_status"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="投注中"
             android:textColor="@color/ski_color_A86A91"
@@ -147,10 +147,16 @@
             android:layout_toEndOf="@+id/tv_time_second"
             android:layout_marginStart="20dp"
             android:textSize="14dp"
+            android:autoSizeTextType="uniform"
+            android:autoSizeMaxTextSize="14dp"
+            android:autoSizeMinTextSize="2dp"
+            android:autoSizeStepGranularity="1dp"
+            android:maxLines="1"
             app:layout_constraintStart_toEndOf="@+id/tv_time_second"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="@+id/tv_time_second"
-            android:visibility="gone"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            android:visibility="visible"/>
 
         <com.ski.box.view.view.CusTextView
             android:id="@+id/tv_stop_sale"

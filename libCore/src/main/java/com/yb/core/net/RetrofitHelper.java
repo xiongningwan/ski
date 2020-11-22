@@ -73,6 +73,10 @@ public class RetrofitHelper {
 //        }
     }
 
+    public String getBaseUrl() {
+        return baseUrl;
+    }
+
     private static class SingletonHolder {
         private static final RetrofitHelper INSTANCE = new RetrofitHelper();
     }

@@ -14,6 +14,8 @@ import com.ski.box.R;
 import com.ski.box.adapter.FragmentAdapter;
 import com.ski.box.mvp.contract.EmptyContract;
 import com.ski.box.mvp.presenter.EmptyPresenter;
+import com.ski.box.utils.ActivityUtil;
+import com.ski.box.utils.UpdateUtil;
 import com.ski.box.view.fragment.HallFragment;
 import com.ski.box.view.fragment.PersonalFragment;
 import com.ski.box.view.fragment.RechargeFragment;
@@ -82,8 +84,14 @@ public class MainActivity extends BaseMVPActivity<EmptyContract.Presenter> imple
     @Override
     protected void processLogic() {
         super.processLogic();
+        UpdateUtil.checkVersion(this);
     }
 
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        UpdateUtil.onRequestPermissionsResult(requestCode,permissions,grantResults);
+    }
 
 
     @Subscribe(tags = {@Tag(EVENT_TOKEN_DISABLE)})

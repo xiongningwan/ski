@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/pic_page"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_marginStart="@dimen/ski_dp_54"
+    android:layout_marginEnd="@dimen/ski_dp_54"
+    android:background="@mipmap/ski_down_dialog_back"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/ski_dp_13"
+    android:paddingRight="@dimen/ski_dp_13">
+
+    <com.ski.box.view.view.CusTextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/ski_dp_36"
+        android:gravity="center"
+        android:textColor="@color/ski_white"
+        android:textSize="17dp"
+        android:text="更新中"/>
+
+    <ProgressBar
+        android:id="@+id/pb_down"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/ski_dp_10"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/ski_dp_157"
+        android:background="@mipmap/ski_progressbar_back"
+        android:max="100"
+        android:progress="0"
+        android:progressDrawable="@drawable/custom_progress_horizontal" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/pb_down"
+        android:layout_marginTop="5dp">
+
+        <TextView
+            android:id="@+id/tv_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0M/0M"
+            android:textColor="#666666"
+            android:textSize="12sp"
+            tools:text="8M/20M" />
+
+        <TextView
+            android:id="@+id/tv_percent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:text="0%"
+            android:textColor="#4948e6"
+            android:textSize="12sp"
+            tools:text="40%" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/ski_dp_146"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <com.ski.box.view.view.CusTextView
+            android:id="@+id/tv_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/ski_update_cancel_back"
+            android:gravity="center"
+            android:text="取消"
+            android:textColor="@color/ski_555555_white_text_color"
+            android:visibility="visible" />
+
+        <View
+            android:id="@+id/view_space"
+            android:layout_width="@dimen/ski_dp_16"
+            android:layout_height="match_parent"
+            android:visibility="visible" />
+
+        <com.ski.box.view.view.CusTextView
+            android:id="@+id/tv_sure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/ski_update_now_back"
+            android:gravity="center"
+            android:text="重新下载"
+            android:textColor="@color/ski_update_white_555555_text_color" />
+    </LinearLayout>
+</RelativeLayout>
+
+

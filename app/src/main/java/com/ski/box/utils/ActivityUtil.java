@@ -1,9 +1,9 @@
 package com.ski.box.utils;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.AssetManager;
 import android.graphics.Typeface;
-import android.os.Build;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
@@ -18,7 +18,6 @@ import com.yb.core.utils.AppUtil;
 
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
-import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -187,5 +186,6 @@ public class ActivityUtil {
 
         return moneyInt;
     }
+
 
 }

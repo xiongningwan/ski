@@ -18,6 +18,8 @@ import com.ski.box.R;
 import com.ski.box.bean.PTabBean;
 import com.ski.box.mvp.contract.EmptyContract;
 import com.ski.box.mvp.presenter.EmptyPresenter;
+import com.ski.box.utils.ActivityUtil;
+import com.ski.box.utils.UpdateUtil;
 import com.ski.box.view.activity.MainActivity;
 import com.ski.box.view.view.HallTabLayout;
 import com.yb.core.utils.LanguageUtil;
@@ -238,6 +240,9 @@ public class PersonalTabFragment extends BaseMVPFragment<EmptyContract.Presenter
                 break;
             case 43: // 公告中心
                 startActivity(new Intent(requireActivity(), NoticeActivity.class));
+                break;
+            case 45: // 当前版本号
+                UpdateUtil.checkVersion(requireActivity());
                 break;
         }
     }
