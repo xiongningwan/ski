@@ -122,7 +122,7 @@ public class QuickMoneyView implements View.OnClickListener {
         forthQuick.setOnClickListener(this);
         fiveQuick.setOnClickListener(this);
 
-        KeyBoardUtils.dismissSystemkeyBoard((Activity) context, etDoubleAmount);
+      //  KeyBoardUtils.dismissSystemkeyBoard((Activity) context, etDoubleAmount);
         setKeyBoardListener();
         setDoubleEtListener();
         initData();
@@ -428,7 +428,7 @@ public class QuickMoneyView implements View.OnClickListener {
                 int action = event.getAction();
                 if (action == MotionEvent.ACTION_UP) {
                     /*展开键盘*/
-                    openCloseNumKeyBoard(true);
+                  //  openCloseNumKeyBoard(true);
                     handler.sendEmptyMessageDelayed(doubleArg, 300);
                 }
                 return false;

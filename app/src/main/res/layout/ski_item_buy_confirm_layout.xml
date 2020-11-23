@@ -42,11 +42,12 @@
         android:layout_width="@dimen/ski_dp_93"
         android:layout_height="@dimen/ski_dp_28"
         android:background="@mipmap/ski_et_shurukuang"
+        android:inputType="number"
         android:digits="1234567890"
-        android:inputType="phone|number"
         android:maxLength="8"
+        android:maxLines="1"
+        tools:text="12345678"
         android:gravity="center"
-        android:paddingLeft="@dimen/ski_dp_10"
         android:singleLine="true" />
 
     <com.ski.box.view.view.CusTextView

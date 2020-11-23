@@ -85,7 +85,7 @@ public class BettingDoubleConfirmAdapter extends RecyclerView.Adapter<BettingDou
             }
             setWinMoney(viewHolder, doubleConfirmBean);
         }
-        KeyBoardUtils.dismissSystemkeyBoard((Activity) mContext, viewHolder.mEditText);
+       // KeyBoardUtils.dismissSystemkeyBoard((Activity) mContext, viewHolder.mEditText);
         if (position == hasFocusePosition) {
             viewHolder.mEditText.setBackground(mContext.getResources().getDrawable(R.drawable.ski_edtext_bottom_focuse));
         } else {

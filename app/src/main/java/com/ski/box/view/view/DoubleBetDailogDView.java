@@ -130,7 +130,7 @@ public class DoubleBetDailogDView extends LinearLayout {
                 stringBuffer.delete(0, stringBuffer.length());
                 String string = mEditText.getText().toString();
                 stringBuffer.append(string);
-                numKeyboard.expand();
+             //   numKeyboard.expand();
             }
 
         });
