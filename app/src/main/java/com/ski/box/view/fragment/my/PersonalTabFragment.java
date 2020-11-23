@@ -22,6 +22,7 @@ import com.ski.box.utils.ActivityUtil;
 import com.ski.box.utils.UpdateUtil;
 import com.ski.box.view.activity.MainActivity;
 import com.ski.box.view.view.HallTabLayout;
+import com.yb.core.utils.AppUtil;
 import com.yb.core.utils.LanguageUtil;
 import com.ski.box.view.activity.AgentWebViewActivity;
 import com.ski.box.view.activity.ContainerActivity;
@@ -48,7 +49,7 @@ public class PersonalTabFragment extends BaseMVPFragment<EmptyContract.Presenter
     public static final String KEY_P_TAB_ID = "key_p_tab_id";
     private RecyclerView mRv;
     private TabListAdapter mTabListAdapter;
-    private int  mId;
+    private int mId;
 
     public PersonalTabFragment() {
     }
@@ -75,14 +76,14 @@ public class PersonalTabFragment extends BaseMVPFragment<EmptyContract.Presenter
     @Override
     protected void initView(View view) {
         RxBus.get().register(this);
-        mRv =  view.findViewById(R.id.rv_tab);
+        mRv = view.findViewById(R.id.rv_tab);
 
         Bundle bundle = this.getArguments();
         if (bundle != null) {
             mId = bundle.getInt(KEY_P_TAB_ID, 0);
         }
 
-        mRv.setLayoutManager(new LinearLayoutManager(requireActivity()){
+        mRv.setLayoutManager(new LinearLayoutManager(requireActivity()) {
             @Override
             public boolean canScrollVertically() {
                 return false;
@@ -94,19 +95,18 @@ public class PersonalTabFragment extends BaseMVPFragment<EmptyContract.Presenter
 
     @Override
     protected void initData(Bundle savedInstanceState) {
-        List<PTabBean>  list = getData(mId);
+        List<PTabBean> list = getData(mId);
         mTabListAdapter.setNewInstance(list);
         mTabListAdapter.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(@NonNull BaseQuickAdapter<?, ?> adapter, @NonNull View view, int position) {
-                List<PTabBean>  list = (List<PTabBean>) adapter.getData();
+                List<PTabBean> list = (List<PTabBean>) adapter.getData();
                 PTabBean bean = list.get(position);
                 dispatch(bean);
             }
 
         });
     }
-
 
 
     //这个是一个懒加载
@@ -132,61 +132,61 @@ public class PersonalTabFragment extends BaseMVPFragment<EmptyContract.Presenter
     }
 
 
-   public static class TabListAdapter extends BaseQuickAdapter<PTabBean, BaseViewHolder> {
+    public static class TabListAdapter extends BaseQuickAdapter<PTabBean, BaseViewHolder> {
 
-       public TabListAdapter() {
-           super(R.layout.ski_item_persnal_tab_rv_item);
-       }
+        public TabListAdapter() {
+            super(R.layout.ski_item_persnal_tab_rv_item);
+        }
 
-       @Override
-       protected void convert(@NotNull BaseViewHolder holder, PTabBean bean) {
-           if(45 == bean.getId()) {
-               holder.setText(R.id.tv_name, LanguageUtil.getText(bean.getName()) + ": " + BuildConfig.VERSION_NAME);
-           } else {
-               holder.setText(R.id.tv_name, LanguageUtil.getText(bean.getName()));
-           }
+        @Override
+        protected void convert(@NotNull BaseViewHolder holder, PTabBean bean) {
+            if (45 == bean.getId()) {
+                holder.setText(R.id.tv_name, LanguageUtil.getText(bean.getName()) + ": " + BuildConfig.VERSION_NAME);
+            } else {
+                holder.setText(R.id.tv_name, LanguageUtil.getText(bean.getName()));
+            }
 
-       }
-   }
+        }
+    }
 
-   private List<PTabBean> getData(int id){
-       List<PTabBean> list = new ArrayList<>();
-        switch (id){
+    private List<PTabBean> getData(int id) {
+        List<PTabBean> list = new ArrayList<>();
+        switch (id) {
             case 1:
-                list.add(new PTabBean(11,R.mipmap.icon_personal_tab_my_acc, "基本信息"));
-                list.add(new PTabBean(12,R.mipmap.icon_personal_tab_baobiao, "银行卡管理"));
-                list.add(new PTabBean(13,R.mipmap.icon_personal_tab_tuandui, "充值"));
-                list.add(new PTabBean(14,R.mipmap.icon_personal_tab_setting, "提现"));
-                list.add(new PTabBean(15,R.mipmap.icon_personal_tab_setting, "资金进度查询"));
+                list.add(new PTabBean(11, R.mipmap.icon_personal_tab_my_acc, "基本信息"));
+                list.add(new PTabBean(12, R.mipmap.icon_personal_tab_baobiao, "银行卡管理"));
+                list.add(new PTabBean(13, R.mipmap.icon_personal_tab_tuandui, "充值"));
+                list.add(new PTabBean(14, R.mipmap.icon_personal_tab_setting, "提现"));
+                list.add(new PTabBean(15, R.mipmap.icon_personal_tab_setting, "资金进度查询"));
                 break;
             case 2:
-                list.add(new PTabBean(21,R.mipmap.icon_personal_tab_my_acc, "投注记录"));
-                list.add(new PTabBean(22,R.mipmap.icon_personal_tab_baobiao, "账变记录"));
+                list.add(new PTabBean(21, R.mipmap.icon_personal_tab_my_acc, "投注记录"));
+                list.add(new PTabBean(22, R.mipmap.icon_personal_tab_baobiao, "账变记录"));
 //                list.add(new PTabBean(23,R.mipmap.icon_personal_tab_tuandui, "钱包资金记录"));
                 break;
             case 3:
-                list.add(new PTabBean(31,R.mipmap.icon_personal_tab_my_acc, "开立下级账户"));
-                list.add(new PTabBean(32,R.mipmap.icon_personal_tab_baobiao, "推广链接"));
+                list.add(new PTabBean(31, R.mipmap.icon_personal_tab_my_acc, "开立下级账户"));
+                list.add(new PTabBean(32, R.mipmap.icon_personal_tab_baobiao, "推广链接"));
 //                list.add(new PTabBean(33,R.mipmap.icon_personal_tab_tuandui, "团队统计分析"));
-                list.add(new PTabBean(34,R.mipmap.icon_personal_tab_setting, "团队会员管理"));
-                list.add(new PTabBean(35,R.mipmap.icon_personal_tab_setting, "团队投注记录"));
-                list.add(new PTabBean(36,R.mipmap.icon_personal_tab_setting, "团队账变记录"));
+                list.add(new PTabBean(34, R.mipmap.icon_personal_tab_setting, "团队会员管理"));
+                list.add(new PTabBean(35, R.mipmap.icon_personal_tab_setting, "团队投注记录"));
+                list.add(new PTabBean(36, R.mipmap.icon_personal_tab_setting, "团队账变记录"));
 //                list.add(new PTabBean(37,R.mipmap.icon_personal_tab_setting, "团队钱包金流"));
 //                list.add(new PTabBean(38,R.mipmap.icon_personal_tab_setting, "团队盈亏报表"));
                 break;
             case 4:
 //                list.add(new PTabBean(41,R.mipmap.icon_personal_tab_my_acc, "活动优惠"));
-                list.add(new PTabBean(42,R.mipmap.icon_personal_tab_baobiao, "客服中心"));
-                list.add(new PTabBean(43,R.mipmap.icon_personal_tab_tuandui, "公告中心"));
+                list.add(new PTabBean(42, R.mipmap.icon_personal_tab_baobiao, "客服中心"));
+                list.add(new PTabBean(43, R.mipmap.icon_personal_tab_tuandui, "公告中心"));
 //                list.add(new PTabBean(44,R.mipmap.icon_personal_tab_setting, "帮助中心"));
-                list.add(new PTabBean(45,R.mipmap.icon_personal_tab_setting, "当前版本号"));
+                list.add(new PTabBean(45, R.mipmap.icon_personal_tab_setting, "当前版本号"));
                 break;
         }
         return list;
-   }
+    }
 
     private void dispatch(PTabBean bean) {
-        switch (bean.getId()){
+        switch (bean.getId()) {
             case 11: // 基本信息
                 startActivity(new Intent(requireActivity(), PersonalInfoActivity.class));
                 break;
@@ -194,15 +194,17 @@ public class PersonalTabFragment extends BaseMVPFragment<EmptyContract.Presenter
                 startActivity(new Intent(requireActivity(), BankCardActivity.class));
                 break;
             case 21: {// 投注记录
-                Intent intent =  new Intent(requireActivity(), ContainerActivity.class);
+                Intent intent = new Intent(requireActivity(), ContainerActivity.class);
                 intent.putExtra(ContainerActivity.KEY_CLASS, RecordBetFragment.class.getSimpleName());
                 startActivity(intent);
-                break;}
+                break;
+            }
             case 22: {// 账变记录
-                Intent intent =  new Intent(requireActivity(), ContainerActivity.class);
+                Intent intent = new Intent(requireActivity(), ContainerActivity.class);
                 intent.putExtra(ContainerActivity.KEY_CLASS, RecordMoneyFragment.class.getSimpleName());
                 startActivity(intent);
-                break;}
+                break;
+            }
             case 31: // 开立下级账户
                 startActivity(new Intent(requireActivity(), GroupAddActivity.class));
                 break;
@@ -224,7 +226,8 @@ public class PersonalTabFragment extends BaseMVPFragment<EmptyContract.Presenter
 //                startActivity(intent);
 //                ((MainActivity) requireActivity()).gotoPage(HallTabLayout.TAB_INDEX_RECORD);
                 ((MainActivity) requireActivity()).gotoPage(HallTabLayout.TAB_INDEX_1);
-                break;}
+                break;
+            }
             case 14: // 提现
                 ((MainActivity) requireActivity()).gotoPage(HallTabLayout.TAB_INDEX_2);
 //                startActivity(new Intent(requireActivity(), WithdrawFragment.class));
@@ -234,7 +237,8 @@ public class PersonalTabFragment extends BaseMVPFragment<EmptyContract.Presenter
                 break;
             case 41: {// 活动优惠
                 ((MainActivity) requireActivity()).gotoPage(HallTabLayout.TAB_INDEX_1);
-                break;}
+                break;
+            }
             case 42: // 客服中心
                 AgentWebViewActivity.startAgentWebView(requireActivity(), LanguageUtil.getText("客服中心"), ConstantValue.SERVICE_URL);
                 break;

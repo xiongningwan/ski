@@ -182,7 +182,6 @@ public class BodyFragment extends BaseFragment {
         mFreshColdHot = view.findViewById(R.id.tvAllFreshColdHot);
         mFreshMiss = view.findViewById(R.id.tvAllFreshOmission);
 
-        initListener();
         initTab2();
         initListener();
 //        refreshTopView(mLotteryPlay.getSubPlays().get(0).getColdHotMissLayout());

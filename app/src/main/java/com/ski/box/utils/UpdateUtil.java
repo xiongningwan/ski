@@ -181,13 +181,13 @@ public class UpdateUtil {
         mDownDialog = new DownDialog(mActivity);
         mDownDialog.show();
 
-//        String downloadUrl = updateBean.getUpdate_url();
+        String downloadUrl = updateBean.getUpdate_url();
 //        File dir = new File(PathUtils.getExtDownloadsPath() + File.separator + updateBean.getVersion());
 //        if(!dir.exists()) {
 //            dir.mkdir();
 //        }
 
-        String downloadUrl = "https://xuexiangjys.oss-cn-shanghai.aliyuncs.com/apk/xupdate_demo_1.0.2.apk";
+//        String downloadUrl = "https://xuexiangjys.oss-cn-shanghai.aliyuncs.com/apk/xupdate_demo_1.0.2.apk";
         XUpdate.newBuild(mActivity)
                 .apkCacheDir(FileUtils.getExtDownloadsPath()) //设置下载缓存的根目录
                 .build()
@@ -234,4 +234,6 @@ public class UpdateUtil {
                     }
                 });
     }
+
+
 }

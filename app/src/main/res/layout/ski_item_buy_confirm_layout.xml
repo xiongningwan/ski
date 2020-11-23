@@ -44,7 +44,7 @@
         android:background="@mipmap/ski_et_shurukuang"
         android:digits="1234567890"
         android:inputType="phone|number"
-        android:maxLength="7"
+        android:maxLength="8"
         android:gravity="center"
         android:paddingLeft="@dimen/ski_dp_10"
         android:singleLine="true" />

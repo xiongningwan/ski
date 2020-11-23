@@ -211,7 +211,7 @@
         android:gravity="end"
         app:layout_constraintTop_toBottomOf="@+id/tv_version"
         app:layout_constraintEnd_toEndOf="@+id/btn_login_dev"
-        android:visibility="visible"/>
+        android:visibility="gone"/>
 
         <com.ski.box.view.view.CusTextView
             android:id="@+id/tv_language_switch"

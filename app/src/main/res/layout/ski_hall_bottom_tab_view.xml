@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/ski_tab_bar_height"
             android:layout_marginBottom="0dp"
-            android:background="@mipmap/bottom_tb_bg"
+            android:background="@drawable/ski_status_bg"
             android:gravity="center_vertical"
             android:orientation="horizontal"
             android:visibility="visible">

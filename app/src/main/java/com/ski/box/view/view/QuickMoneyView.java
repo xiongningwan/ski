@@ -88,6 +88,8 @@ public class QuickMoneyView implements View.OnClickListener {
             }
         }
     };
+    private int mColor1;
+    private int mColor2;
 
     public QuickMoneyView(Context context, View rootView) {
         initView(context, rootView);
@@ -108,8 +110,8 @@ public class QuickMoneyView implements View.OnClickListener {
         numKeyBoard = rootView.findViewById(R.id.numkeyboard);
 
         etDoubleAmount.setHint(LanguageUtil.getText("输入金额"));
-        if(LanguageUtil.VI.equals(LanguageUtil.getLanguage())) {
-          //  etDoubleAmount.setTypeface(ActivityUtil.getFontTNR());
+        if (LanguageUtil.VI.equals(LanguageUtil.getLanguage())) {
+            //  etDoubleAmount.setTypeface(ActivityUtil.getFontTNR());
         }
 
         tvSetting.setOnClickListener(this);
@@ -132,6 +134,8 @@ public class QuickMoneyView implements View.OnClickListener {
         stringBuffer = new StringBuffer();
         // 初始化默认快捷金额
         initQuickDouble();
+        mColor1 = mContext.getResources().getColor(R.color.ski_color_B27496);
+        mColor2 = mContext.getResources().getColor(R.color.ski_color_c3c9d2);
     }
 
     @Override
@@ -152,6 +156,7 @@ public class QuickMoneyView implements View.OnClickListener {
     }
 
     private CustomBottomDialog tDialog;
+
     // 打开快捷编辑 double
     private void showQuickAmountSet() {
         /*弹出设置快捷金额弹框*/
@@ -183,7 +188,7 @@ public class QuickMoneyView implements View.OnClickListener {
             etDoubleAmount.setText(money);
             stringBuffer.append(money);
             tvUnit.setVisibility(View.VISIBLE);
-          //  etDoubleAmount.setTextColor(mContext.getResources().getColor(R.color.ski_play_select_color));
+            //  etDoubleAmount.setTextColor(mContext.getResources().getColor(R.color.ski_play_select_color));
 
         }
         DataCenter.getInstance().setQuiickMoney(Integer.parseInt(money));
@@ -250,8 +255,8 @@ public class QuickMoneyView implements View.OnClickListener {
     // 给快捷金额赋值
     private void setQuickDouble(TextView v) {
         String money = v.getText().toString();
-        if(money.contains("k")) {
-            money = money.replace("k","000");
+        if (money.contains("k")) {
+            money = money.replace("k", "000");
         }
         stringBuffer.delete(0, stringBuffer.length());
         stringBuffer.append(money);
@@ -263,17 +268,17 @@ public class QuickMoneyView implements View.OnClickListener {
     private void setEditQuick_double(String money) {
 
         try {
-            if(TextUtils.isEmpty(money)) {
+            if (TextUtils.isEmpty(money)) {
                 money = "0";
             }
             int i = Integer.parseInt(money);
             DataCenter.getInstance().setQuiickMoney(i);
         } catch (NumberFormatException e) {
             e.printStackTrace();
-            String regEx="[^0-9]";
+            String regEx = "[^0-9]";
             Pattern p = Pattern.compile(regEx);
             Matcher m = p.matcher(money);
-            money= m.replaceAll("").trim();
+            money = m.replaceAll("").trim();
             DataCenter.getInstance().setQuiickMoney(Integer.parseInt(money));
         }
         /*更新 投注单数提醒*/
@@ -286,7 +291,7 @@ public class QuickMoneyView implements View.OnClickListener {
             etDoubleAmount.setText(money);
             SPUtils.putString(mContext, SP_DOUBLE_QUICK_MONEY_DEFAULT_SELECTED, money);
         }
-        MkBetParamEntity entity =  DataCenter.getInstance().getBetParamEntity();
+        MkBetParamEntity entity = DataCenter.getInstance().getBetParamEntity();
         List<MkBetParamEntity.BetParamEntity> bet = entity.getBet();
 //        double totalMoney = 0;
         for (int i = 0; i < bet.size(); i++) {
@@ -317,7 +322,7 @@ public class QuickMoneyView implements View.OnClickListener {
                 String num = bean.getNum();
                 if (type == KeyBoardBean.DISMISS) {
                     openCloseNumKeyBoard(false);
-                 //   llDoubleAmount.setBackgroundResource(R.mipmap.ski_jine);
+                    //   llDoubleAmount.setBackgroundResource(R.mipmap.ski_jine);
                 } else if (type == KeyBoardBean.DELETE) {
                     int length = stringBuffer.length();
                     if (length - 1 >= 0) {
@@ -336,7 +341,8 @@ public class QuickMoneyView implements View.OnClickListener {
                         return;
                     }
                     /*限制长度*/
-                    if (length <= 6) {
+                    int maxLength = 8;
+                    if (length <= maxLength) {
                         boolean b = selectionAll();
                         if (b) {
                             stringBuffer.delete(0, length);
@@ -401,18 +407,19 @@ public class QuickMoneyView implements View.OnClickListener {
         if (open) {
             if (!expanded) {
                 numKeyBoard.expand();
-             //   saveBottmViewHegiht();
+                //   saveBottmViewHegiht();
             }
 
         } else {
             if (expanded) {
                 numKeyBoard.collapse();
-            //    saveBottmViewHegiht();
+                //    saveBottmViewHegiht();
             }
         }
     }
-    
+
     String mTempStr;
+
     private void setDoubleEtListener() {
         etDoubleAmount.setOnTouchListener(new View.OnTouchListener() {
             @SuppressLint("ClickableViewAccessibility")
@@ -447,9 +454,9 @@ public class QuickMoneyView implements View.OnClickListener {
                 }
 
                 mTempStr = money;
-                boolean matches = money.matches("\\d+");
-                tvUnit.setVisibility(matches ? View.VISIBLE : View.GONE);
-                etDoubleAmount.setTextColor(matches ? mContext.getResources().getColor(R.color.ski_color_B27496) : mContext.getResources().getColor(R.color.ski_color_c3c9d2));
+//                boolean matches = money.matches("\\d+");
+//                tvUnit.setVisibility(matches ? View.VISIBLE : View.GONE);
+//                etDoubleAmount.setTextColor(matches ? mColor1 : mColor2);
                 setEditQuick_double(money);
                 RxBus.get().post(EVENT_BET_BOTTOM_QUICK_DOUBLE_ET_CHANGE, "et");
                 etDoubleAmount.setSelection(money.length());
@@ -461,6 +468,9 @@ public class QuickMoneyView implements View.OnClickListener {
     public void setX3() {
         String str = etDoubleAmount.getText().toString();
         int money = ActivityUtil.doBetMoneyWithK(str) * 3;
+        if(String.valueOf(money).length() > 8) {
+            return;
+        }
         etDoubleAmount.setText(String.valueOf(money));
     }
 }

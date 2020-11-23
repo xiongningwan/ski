@@ -50,6 +50,7 @@ public class BetTopView extends FrameLayout implements OnClickListener {
     private TextView mTvStatus;
     private ImageView mIvDrop;
     private ImageView mIvTitleDrop;
+    private FrameLayout mFlDrop;
     private FrameLayout mFlClose;
     private FrameLayout mFlHelper;
     private LinearLayout mLLName;
@@ -103,11 +104,13 @@ public class BetTopView extends FrameLayout implements OnClickListener {
         mTvStopSale = v.findViewById(R.id.tv_stop_sale);
         mLotteryResultView = v.findViewById(R.id.lottery_result_view);
         mLotteryResultCoverView = v.findViewById(R.id.lottery_result_view_cover);
+        mFlDrop = v.findViewById(R.id.fl_arrow_down_result);
         mIvDrop = v.findViewById(R.id.iv_arrow_down_result);
         mFlClose = v.findViewById(R.id.fl_close);
         mFlHelper = v.findViewById(R.id.fl_helper);
 
         mLotteryResultCoverView.setOnClickListener(this);
+        mFlDrop.setOnClickListener(this);
         mIvDrop.setOnClickListener(this);
         mFlClose.setOnClickListener(this);
         mLLName.setOnClickListener(this);
@@ -249,7 +252,7 @@ public class BetTopView extends FrameLayout implements OnClickListener {
 
     @Override
     public void onClick(View v) {
-        if (v.getId() == R.id.iv_arrow_down_result || v.getId() == R.id.lottery_result_view_cover) {
+        if (v.getId() == R.id.iv_arrow_down_result || v.getId() == R.id.lottery_result_view_cover || v.getId() == R.id.fl_arrow_down_result) {
             RxBus.get().post(EVENT_TYPE_CHANGE_OPEN_RESULT_HISTORY, "打开关闭投注历史页");
         } else if (v.getId() == R.id.fl_close) {
             RxBus.get().post(EVENT_BET_ACTIVITY_FINISH, "关闭投注页面");

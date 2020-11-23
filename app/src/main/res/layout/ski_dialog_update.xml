@@ -48,15 +48,16 @@
 
     <LinearLayout
         android:layout_gravity="center"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginTop="@dimen/ski_dp_24">
 
         <com.ski.box.view.view.CusTextView
             android:id="@+id/tv_cancel"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="取消"
             android:gravity="center"
             android:background="@mipmap/ski_update_cancel_back"
@@ -72,11 +73,16 @@
 
         <com.ski.box.view.view.CusTextView
             android:id="@+id/tv_sure"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="立即更新"
             android:gravity="center"
             android:textSize="14dp"
+            android:autoSizeTextType="uniform"
+            android:autoSizeMaxTextSize="14dp"
+            android:autoSizeMinTextSize="2dp"
+            android:autoSizeStepGranularity="1dp"
             android:background="@mipmap/ski_update_now_back"
             android:textColor="@color/ski_update_white_555555_text_color"/>
 
