@@ -466,7 +466,7 @@ public class BodyFragment extends BaseFragment {
     @Subscribe(tags = {@Tag(EVENT_BET_ODDS_CHANGE)})
     public void setChangeOdds(String odds) {
         if (null != mOdds && View.VISIBLE == mOdds.getVisibility()) {
-            mOdds.setText(Html.fromHtml("赔率：<font color='#ff6464'>" + odds + "</font> "));
+            mOdds.setText(Html.fromHtml(LanguageUtil.getText("赔率")+ "：<font color='#ff6464'>" + odds + "</font> "));
         }
     }
 

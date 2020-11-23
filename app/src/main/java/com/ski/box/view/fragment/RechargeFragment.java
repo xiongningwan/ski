@@ -2,9 +2,12 @@ package com.ski.box.view.fragment;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.text.Html;
 import android.text.Spannable;
 import android.text.SpannableString;
+import android.text.Spanned;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.animation.Animation;
@@ -62,7 +65,7 @@ public class RechargeFragment extends BaseMVPFragment<RechargeContract.Presenter
     private TextView mTvWen1;
     private TextView mTvWen2;
     private CusTextView mTvNotice1;
-    private CusTextView mTvNotice2;
+    private CusTextView mTvTip;
     private ProgressDialog mLoading;
     private RotateAnimation rotate;
     private int mHasHead;
@@ -111,7 +114,7 @@ public class RechargeFragment extends BaseMVPFragment<RechargeContract.Presenter
         mllBalance = view.findViewById(R.id.ll_balance);
         mIvBalance = view.findViewById(R.id.iv_refresh_balance);
         mTvNotice1 = view.findViewById(R.id.tv_notice_1);
-        mTvNotice2 = view.findViewById(R.id.tv_notice_2);
+        mTvTip = view.findViewById(R.id.tv_tip);
         mRootView = view.findViewById(R.id.recharge_root);
         mHeadView.setHeader(LanguageUtil.getText(getString(R.string.ski_tab_lottery_recharge)), false);
 
@@ -302,11 +305,43 @@ public class RechargeFragment extends BaseMVPFragment<RechargeContract.Presenter
 
 
     private void setRedTip() {
-        String tip1 = getString(R.string.ski_money_recharge_notice1);
-        String tip2 = getString(R.string.ski_money_recharge_notice2);
+//        String tip1 = getString(R.string.ski_money_recharge_notice1);
+//        String tip2 = getString(R.string.ski_money_recharge_notice2);
 
-        ActivityUtil.setTipKeywordRed(requireActivity(), mTvNotice1, LanguageUtil.getText(tip1), LanguageUtil.getText("在线客服"));
-        ActivityUtil.setTipKeywordRed(requireActivity(), mTvNotice2, LanguageUtil.getText(tip2),  LanguageUtil.getText("24小时"));
+//        ActivityUtil.setTipKeywordRed(requireActivity(), mTvNotice1, LanguageUtil.getText(tip1), LanguageUtil.getText("在线客服"));
+//        ActivityUtil.setTipKeywordRed(requireActivity(), mTvNotice2, LanguageUtil.getText(tip2),  LanguageUtil.getText("24小时"));
+
+        String tipTop = "<p><span style=\"color:#e74c3c\">温馨提示：<br />\n" +
+                "为了您的资金能快速到账，请填入正确的充值人姓名，以免延迟到账或充值失败。</span></p>";
+        String tipBottom = "<p>1.充值服务时间为<span style=\"color:#e74c3c\">24小时</span>。<br /><br />\n" +
+                "2.充值成功后请及时查看资金进度查询。<br /><br />\n" +
+                "3.若有问题请及时联系<span style=\"color:#e74c3c\">在线客服</span>。<br /><br />\n" +
+                "4.如充值遇到银行充值页无法显示问题，请尝试使用<span style=\"color:#e74c3c\">网银推荐的浏览器</span></p>";
+        if(LanguageUtil.VI.equals(LanguageUtil.getLanguage())) {
+            tipTop = "<p><span style=\"color:#e74c3c\">Lưu ý：<br />\n" +
+                    "Để quá trình chuyển khoản được nhanh , vui lòng nhập đúng họ tên người nhận tránh tình trạng nạp tiền chậm hoặc nạp tiền thất bại  </span></p>\n";
+
+            tipBottom = "<p>1.CSKH nạp tiền phục vụ <span style=\"color:#e74c3c\">24/24</span>。<br /><br />\n" +
+                    "2.Sau khi nạp tiền thành công vui lòng kiểm tra ví tiền của bạn <br /><br />\n" +
+                    "3.Nếu có vấn đề xin vui lòng liên hệ  <span style=\"color:#e74c3c\">CSKH</span>。<br /><br />\n" +
+                    "4.Nếu trong quá trình nạp tiền phát sinh vấn đề , vui lòng sử dụng <span style=\"color:#e74c3c\">trình duyệt đề xuất chuyển khoản</span></p>";
+        }
+
+        Spanned sdpTop ;
+        Spanned sdpBottom ;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            sdpTop = Html.fromHtml(tipTop,Html.FROM_HTML_MODE_LEGACY);
+        } else {
+            sdpTop = Html.fromHtml(tipTop);
+        }
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            sdpBottom = Html.fromHtml(tipBottom,Html.FROM_HTML_MODE_LEGACY);
+        } else {
+            sdpBottom = Html.fromHtml(tipBottom);
+        }
+        mTvTip.setText(sdpTop);
+        mTvNotice1.setText(sdpBottom);
     }
 
 }

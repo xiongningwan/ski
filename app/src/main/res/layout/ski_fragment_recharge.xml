@@ -247,27 +247,6 @@
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"/>
 
-        <com.ski.box.view.view.CusTextView
-            android:id="@+id/tv_notice_2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/ski_money_recharge_notice2"
-            android:textSize="12dp"
-            android:textColor="@color/ski_color_666666"
-            android:layout_marginTop="10dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"/>
-
-        <com.ski.box.view.view.CusTextView
-            android:id="@+id/tv_notice_3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/ski_money_recharge_notice3"
-            android:textSize="12dp"
-            android:textColor="@color/ski_color_666666"
-            android:layout_marginTop="10dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"/>
 
         <com.ski.box.view.view.CusTextView
             android:id="@+id/tv_wen_1"
@@ -279,7 +258,7 @@
             android:textSize="12dp"
             android:layout_marginStart="16dp"
             android:textColor="@color/ski_color_tip_red"
-            android:layout_marginTop="20dp"/>
+            android:layout_marginTop="10dp"/>
 
         <com.ski.box.view.view.CusTextView
             android:id="@+id/tv_wen_2"

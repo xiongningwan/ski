@@ -250,57 +250,6 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"/>
 
-    <com.ski.box.view.view.CusTextView
-        android:id="@+id/tv_notice_2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/ski_money_withdraw_notice2"
-        android:textSize="12dp"
-        android:textColor="@color/ski_color_666666"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"/>
-
-    <com.ski.box.view.view.CusTextView
-        android:id="@+id/tv_notice_3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/ski_money_withdraw_notice3"
-        android:textSize="12dp"
-        android:textColor="@color/ski_color_666666"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"/>
-    <com.ski.box.view.view.CusTextView
-        android:id="@+id/tv_notice_4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/ski_money_withdraw_notice4"
-        android:textSize="12dp"
-        android:textColor="@color/ski_color_666666"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"/>
-    <com.ski.box.view.view.CusTextView
-        android:id="@+id/tv_notice_5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/ski_money_withdraw_notice5"
-        android:textSize="12dp"
-        android:textColor="@color/ski_color_666666"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"/>
-    <com.ski.box.view.view.CusTextView
-        android:id="@+id/tv_notice_6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/ski_money_withdraw_notice6"
-        android:textSize="12dp"
-        android:textColor="@color/ski_color_666666"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"/>
 
     <com.ski.box.view.view.CusTextView
         android:id="@+id/tv_wen_1"

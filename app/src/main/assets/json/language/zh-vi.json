@@ -627,7 +627,7 @@
   "越南文": "VN ",
   "语言": "Ngôn Ngữ ",
   "手机号码长度为9～11位": "Số điện thoại 10 chữ số ",
-  "账号为6-16位且同时包含英文与数字": "Tài khoản từ 6-16 chữ số gồm tiếng anh chữ và số, phân biệt viết hoa viết thường ",
+  "账号为6-16位且同时包含英文与数字": "Tài khoản từ 6-16 chữ số gồm tiếng anh chữ và số",
   "下拉可以刷新": "Kéo xuống để load mới ",
   "正在刷新...": "Đang load ",
   "正在加载...": "Đang load ",
@@ -668,5 +668,6 @@
   "发现新版本": "Có phiên bản mới",
   "立即更新": "Cập nhật ngay",
   "下载失败": "Tải thất bại",
-  "更新中": "Đang làm mới"
+  "更新中": "Đang làm mới",
+  "重新下载": "Tải lại "
 }

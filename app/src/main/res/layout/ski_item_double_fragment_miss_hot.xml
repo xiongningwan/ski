@@ -126,7 +126,7 @@
                 android:layout_marginLeft="@dimen/ski_dp_8"
                 android:gravity="end"
                 android:textSize="13dp"
-                android:visibility="gone"
+                android:visibility="visible"
                 tools:text="赔率：836.4496" />
         </LinearLayout>
 

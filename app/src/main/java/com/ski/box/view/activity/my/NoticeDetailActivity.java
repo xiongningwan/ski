@@ -3,6 +3,7 @@ package com.ski.box.view.activity.my;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.Html;
+import android.text.Spanned;
 import android.view.View;
 import android.widget.TextView;
 
@@ -55,12 +56,13 @@ public class NoticeDetailActivity extends BaseMVPActivity<EmptyContract.Presente
 
         tvTime.setText(bean.getUpdateAt());
         String content = bean.getNoticeContent();
+        Spanned spanned;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            content = Html.fromHtml(content, Html.FROM_HTML_MODE_LEGACY).toString();
+            spanned = Html.fromHtml(content, Html.FROM_HTML_MODE_LEGACY);
         } else {
-            content = Html.fromHtml(content).toString();
+            spanned = Html.fromHtml(content);
         }
-        tvContent.setText(content);
+        tvContent.setText(spanned);
     }
 
     @Override

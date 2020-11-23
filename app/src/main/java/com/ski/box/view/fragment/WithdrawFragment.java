@@ -2,9 +2,12 @@ package com.ski.box.view.fragment;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.text.Html;
 import android.text.Spannable;
 import android.text.SpannableString;
+import android.text.Spanned;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.animation.Animation;
@@ -57,10 +60,6 @@ public class WithdrawFragment extends BaseMVPFragment<WithdrawContract.Presenter
     private TextView mTvBalance;
     private TextView mTvNickName;
     private CusTextView mTvNotice1;
-    private CusTextView mTvNotice2;
-    private CusTextView mTvNotice3;
-    private CusTextView mTvNotice5;
-    private CusTextView mTvNotice6;
     private NiceSpinner mSpType;
     private ClearEditText mEtWithdrawMoney;
     private ClearEditText mEtMoneyPwd;
@@ -122,10 +121,6 @@ public class WithdrawFragment extends BaseMVPFragment<WithdrawContract.Presenter
         mllBalance = view.findViewById(R.id.ll_balance);
         mIvBalance = view.findViewById(R.id.iv_refresh_balance);
         mTvNotice1 = view.findViewById(R.id.tv_notice_1);
-        mTvNotice2 = view.findViewById(R.id.tv_notice_2);
-        mTvNotice3 = view.findViewById(R.id.tv_notice_3);
-        mTvNotice5 = view.findViewById(R.id.tv_notice_5);
-        mTvNotice6 = view.findViewById(R.id.tv_notice_6);
         mHeadView.setHeader(LanguageUtil.getText(getString(R.string.ski_money_withdraw)), false);
 
         mBtnSure.setOnClickListener(this);
@@ -323,18 +318,31 @@ public class WithdrawFragment extends BaseMVPFragment<WithdrawContract.Presenter
 
 
     private void setRedTip() {
-        String tip1 = getString(R.string.ski_money_withdraw_notice1);
-        String tip2 = getString(R.string.ski_money_withdraw_notice2);
-//        String tip3 = getString(R.string.ski_money_withdraw_notice3);
-        String tip3 = LanguageUtil.getText("3.提现需进行充值金额满") + "25%" + LanguageUtil.getText("的投注，若未满足消费流水将") + " " + LanguageUtil.getText("无法成功提现");
-        String tip5 = getString(R.string.ski_money_withdraw_notice5);
-        String tip6 = getString(R.string.ski_money_withdraw_notice6);
+        String tipTop = "<p style=\"text-align: justify;\">1.提现服务时间为<span style=\"color:#e74c3c\">24小时</span>。<br />\n" +
+                "2.同姓名同卡号等同账号，每日提现次数上限为<span style=\"color:#e74c3c\">20次</span>。<br /><br />\n" +
+                "3.提现需进行充值金额满<span style=\"color:#e74c3c\">100%的投注</span>，若未满足消费流水将无法成功提现。<br /><br />\n" +
+                "&nbsp; &nbsp;(例，<span style=\"color:#e74c3c\">充值100金币</span>，需要<span style=\"color:#e74c3c\">投注100金币</span>后方能进行提现。)<br /><br />\n" +
+                "4.银行卡请务必正确填写开户银行和银行卡号码、持卡人姓名。<br /><br />\n" +
+                "5.当您提现申请完成后，我们将为您提供1分钟快速到账的提款服务。</p>";
+        if(LanguageUtil.VI.equals(LanguageUtil.getLanguage())) {
+            tipTop = "<p>1.CSKH phục vụ qu&yacute; kh&aacute;ch r&uacute;t tiền <span style=\"color:#e74c3c\">24/24</span> .<br />\n" +
+                    "<br />\n" +
+                    "2.Một thẻ ng&acirc;n h&agrave;ng tr&ugrave;ng với t&ecirc;n đ&atilde; đăng k&iacute; mỗi ng&agrave;y đều c&oacute; thể r&uacute;t tối đa<span style=\"color:#e74c3c\"> 20</span> lần .&nbsp;<br />\n" +
+                    "<br />\n" +
+                    "3.Điều kiện để r&uacute;t tiền cần đặt cược đủ số tiền đ&atilde; nạp ,nếu kh&ocirc;ng đủ sẽ kh&ocirc;ng thể r&uacute;t tiền . <br />(v&iacute; dụ : <span style=\"color:#e74c3c\">nạp 100k </span>, đặt cược đủ <span style=\"color:#e74c3c\">100k</span> sau đ&oacute; y&ecirc;u cầu r&uacute;t tiền sẽ th&ocirc;ng qua ).<br />\n" +
+                    "<br />\n" +
+                    "4.Thẻ ng&acirc;n h&agrave;ng bắt buộc tr&ugrave;ng với t&ecirc;n chủ thẻ đ&atilde; đăng k&iacute; v&agrave; sử dụng t&ecirc;n thật để r&uacute;t tiền.<br />\n" +
+                    "<br />\n" +
+                    "5.Sau khi y&ecirc;u cầu r&uacute;t tiền ho&agrave;n th&agrave;nh , tiền sẽ đến t&agrave;i khoản của hội vi&ecirc;n trong v&ograve;ng 1 ph&uacute;t.&nbsp;</p>";
+        }
+        Spanned sdpTop ;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            sdpTop = Html.fromHtml(tipTop,Html.FROM_HTML_MODE_LEGACY);
+        } else {
+            sdpTop = Html.fromHtml(tipTop);
+        }
 
-        ActivityUtil.setTipKeywordRed(requireActivity(), mTvNotice1, LanguageUtil.getText(tip1), LanguageUtil.getText("24小时"));
-        ActivityUtil.setTipKeywordRed(requireActivity(), mTvNotice2, LanguageUtil.getText(tip2), LanguageUtil.getText("1000000"), LanguageUtil.getText("20"));
-        ActivityUtil.setTipKeywordRed(requireActivity(), mTvNotice3, tip3, "25%", LanguageUtil.getText("无法成功提现"));
-        ActivityUtil.setTipKeywordRed(requireActivity(), mTvNotice5, LanguageUtil.getText(tip5), LanguageUtil.getText("4"), LanguageUtil.getText("12"));
-        ActivityUtil.setTipKeywordRed(requireActivity(), mTvNotice6, LanguageUtil.getText(tip6), LanguageUtil.getText("1分钟"));
+        mTvNotice1.setText(sdpTop);
     }
 
 }
