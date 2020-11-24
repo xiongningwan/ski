@@ -266,37 +266,40 @@ public class QuickMoneyView implements View.OnClickListener {
     }
 
     private void setEditQuick_double(String money) {
-
+        int moneyInt = 0;
         try {
             if (TextUtils.isEmpty(money)) {
                 money = "0";
             }
-            int i = Integer.parseInt(money);
-            DataCenter.getInstance().setQuiickMoney(i);
+            moneyInt = Integer.parseInt(money);
+            DataCenter.getInstance().setQuiickMoney(moneyInt);
         } catch (NumberFormatException e) {
             e.printStackTrace();
             String regEx = "[^0-9]";
             Pattern p = Pattern.compile(regEx);
             Matcher m = p.matcher(money);
             money = m.replaceAll("").trim();
-            DataCenter.getInstance().setQuiickMoney(Integer.parseInt(money));
+            DataCenter.getInstance().setQuiickMoney(moneyInt);
         }
         /*更新 投注单数提醒*/
         if (TextUtils.isEmpty(money)) {
             money = "0";
+            etDoubleAmount.setText(String.valueOf(moneyInt));
+            etDoubleAmount.setSelection(String.valueOf(moneyInt).length());
             etDoubleAmount.setHint(LanguageUtil.getText("输入金额"));
             SPUtils.putString(mContext, SP_DOUBLE_QUICK_MONEY_DEFAULT_SELECTED, "");
         } else {
             etDoubleAmount.setHint("");
-            etDoubleAmount.setText(money);
-            SPUtils.putString(mContext, SP_DOUBLE_QUICK_MONEY_DEFAULT_SELECTED, money);
+            etDoubleAmount.setText(String.valueOf(moneyInt));
+            etDoubleAmount.setSelection(String.valueOf(moneyInt).length());
+            SPUtils.putString(mContext, SP_DOUBLE_QUICK_MONEY_DEFAULT_SELECTED, String.valueOf(moneyInt));
         }
         MkBetParamEntity entity = DataCenter.getInstance().getBetParamEntity();
         List<MkBetParamEntity.BetParamEntity> bet = entity.getBet();
 //        double totalMoney = 0;
         for (int i = 0; i < bet.size(); i++) {
             MkBetParamEntity.BetParamEntity betParamEntity = bet.get(i);
-            betParamEntity.setBetAmount_d(Long.parseLong(money));
+            betParamEntity.setBetAmount_d(moneyInt);
 //            int betCount = betParamEntity.getBetCount();
 //            totalMoney += betCount * Long.parseLong(money);
         }
@@ -459,8 +462,6 @@ public class QuickMoneyView implements View.OnClickListener {
 //                etDoubleAmount.setTextColor(matches ? mColor1 : mColor2);
                 setEditQuick_double(money);
                 RxBus.get().post(EVENT_BET_BOTTOM_QUICK_DOUBLE_ET_CHANGE, "et");
-                etDoubleAmount.setSelection(money.length());
-
             }
         });
     }
@@ -469,6 +470,8 @@ public class QuickMoneyView implements View.OnClickListener {
         String str = etDoubleAmount.getText().toString();
         int money = ActivityUtil.doBetMoneyWithK(str) * 3;
         if(String.valueOf(money).length() > 8) {
+            etDoubleAmount.setText(String.valueOf(99999999));
+            etDoubleAmount.setSelection(String.valueOf(99999999).length());
             return;
         }
         etDoubleAmount.setText(String.valueOf(money));

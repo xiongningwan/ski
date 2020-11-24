@@ -218,7 +218,7 @@
         android:id="@+id/tv_bet"
         android:layout_width="90dp"
         android:layout_height="45dp"
-        android:text="Đặt cược ngay"
+        android:text="立即投注"
         android:gravity="center"
         android:maxLines="1"
         android:paddingStart="5dp"

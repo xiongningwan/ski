@@ -382,7 +382,7 @@ public class BetPresenter extends RxPresenter<BetContract.View> implements BetCo
         }, new CusConsumer(false, false) {
             @Override
             public void accept(Throwable throwable) throws Exception {
-                 super.accept(throwable);
+                // super.accept(throwable);
                 view.setEnabled(true);
                 view.setClickable(true);
                 dismissLoading();
