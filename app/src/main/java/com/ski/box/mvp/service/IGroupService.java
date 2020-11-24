@@ -88,8 +88,7 @@ public interface IGroupService {
     // 团队账变记录
     @GET(UrlConfig.URL_GROUP_TEAM_TRANS_LIST)
     Single<HttpResult<GroupMoneyData>> getTeamTransList(
-            @Query("startDate") String startDate,
-            @Query("endDate") String endDate,
+            @Query("queryDate") String queryDate,
             @Query("transType") String transType,
             @Query("memberAccount") String memberAccount,
             @Query("pageSize") int pageSize,

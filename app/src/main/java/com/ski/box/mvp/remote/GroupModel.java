@@ -12,6 +12,7 @@ import com.ski.box.mvp.remote.imodel.IGroupModel;
 import com.ski.box.mvp.service.IGroupService;
 import com.yb.core.base.BaseModel;
 import com.yb.core.net.RetrofitHelper;
+import com.yb.core.utils.TimeUtils;
 
 import java.util.List;
 
@@ -88,7 +89,7 @@ public class GroupModel extends BaseModel implements IGroupModel {
     public Disposable getTeamTransList(Consumer s, CusConsumer e, String startDate, String endDate, String status, String memberAccount, int pageSize, int pageNum) {
         Single<GroupMoneyData> single = RetrofitHelper
                 .getService(IGroupService.class)
-                .getTeamTransList(startDate, endDate, status, memberAccount, pageSize, pageNum)
+                .getTeamTransList(TimeUtils.getDateFormat(startDate), status, memberAccount, pageSize, pageNum)
                 .map(new HttpResultFunc<>());
         return toSubscribe(single, s, e);
     }

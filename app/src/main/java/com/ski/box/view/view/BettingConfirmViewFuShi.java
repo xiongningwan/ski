@@ -6,6 +6,7 @@ import android.text.Editable;
 import android.text.InputType;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.text.style.ForegroundColorSpan;
 import android.util.AttributeSet;
@@ -30,8 +31,11 @@ import com.ski.box.view.view.dialog.LotteryDialog;
 import com.ski.box.view.view.keyboard.KeyBoardBean;
 import com.ski.box.view.view.keyboard.NumsKeyBoardView;
 import com.yb.core.utils.LanguageUtil;
+import com.yb.core.utils.SPUtils;
 
 import java.util.List;
+
+import static com.ski.box.ConstantValue.SP_DOUBLE_QUICK_MONEY_DEFAULT_SELECTED;
 
 /**
  * @time:2019/9/16 11:04
@@ -54,6 +58,7 @@ public class BettingConfirmViewFuShi extends LinearLayout {
     private NumsKeyBoardView numKeyBoard;
     private MkBetParamEntity.BetParamEntity betParamEntity = new MkBetParamEntity.BetParamEntity();
     StringBuffer stringBuffer = new StringBuffer();
+    String mTempStr;
 
     public BettingConfirmViewFuShi(Context context) {
         super(context);
@@ -86,7 +91,7 @@ public class BettingConfirmViewFuShi extends LinearLayout {
         mBetConfirm = findViewById(R.id.bet_confirm);
         numKeyBoard = findViewById(R.id.num_keyboard);
         mCheckBoxCloseKuang.setText(LanguageUtil.getText(mCheckBoxCloseKuang.getText().toString()));
-        mEditText.setInputType(InputType.TYPE_NULL);
+//        mEditText.setInputType(InputType.TYPE_NULL);
 
         mEditText.addTextChangedListener(new TextWatcher() {
             @Override
@@ -103,13 +108,22 @@ public class BettingConfirmViewFuShi extends LinearLayout {
 
             @Override
             public void afterTextChanged(Editable s) {
-                String s1 = s.toString();
-                mEditText.setSelection(s1.length());
-                Long aLong = Long.valueOf(s1);
+                String money = s.toString();
+                if (TextUtils.isEmpty(money)) {
+                    mEditText.setText("0");
+                    mEditText.setSelection("0".length());
+                    return;
+                }
+
+                if (!TextUtils.isEmpty(mTempStr) && mTempStr.equals(money)) {
+                    return;
+                }
+                mTempStr = money;
+                Long aLong = Long.valueOf(money);
                 betParamEntity.setBetAmount_d(aLong);
+                mEditText.setText(String.valueOf(aLong));
+                mEditText.setSelection(String.valueOf(aLong).length());
                 calculateBlance();
-
-
             }
         });
         mBetConfirm.setOnClickListener(v -> {
@@ -157,8 +171,8 @@ public class BettingConfirmViewFuShi extends LinearLayout {
         mEditText.setOnTouchListener((v, event) -> {
             int action = event.getAction();
             if (action == MotionEvent.ACTION_DOWN) {
-                numKeyBoard.expand();
-                mEditText.setBackground(getResources().getDrawable(R.drawable.ski_edtext_bottom_focuse));
+             //   numKeyBoard.expand();
+             //   mEditText.setBackground(getResources().getDrawable(R.drawable.ski_edtext_bottom_focuse));
             }
             return false;
         });

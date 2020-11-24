@@ -140,7 +140,7 @@ public class LotteryDialog {
             RedLimitBean bean = limitBeans.get(x);
             String playName = bean.getPlayName();
             String playItemName = bean.getPlayItemName();
-            stringBuffer.append(playName + "-" + playItemName + ",");
+            stringBuffer.append( LanguageUtil.getText(playName)+ "-" + playItemName + ",");
 
         }
         int size = limitBeans.size();

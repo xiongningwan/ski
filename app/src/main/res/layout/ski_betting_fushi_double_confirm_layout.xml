@@ -110,8 +110,8 @@
                     android:layout_height="@dimen/ski_dp_28"
                     android:background="@mipmap/ski_rabutton_zhuihao_peroid_unselect"
                     android:digits="1234567890"
-                    android:inputType="phone|number"
-                    android:maxLength="7"
+                    android:inputType="number"
+                    android:maxLength="8"
                     android:text="xxxxxx"
                     android:singleLine="true" />
             </LinearLayout>

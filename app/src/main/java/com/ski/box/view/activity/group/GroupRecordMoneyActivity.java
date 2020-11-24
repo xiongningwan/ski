@@ -41,7 +41,7 @@ import com.zyyoona7.popup.YGravity;
 import java.util.List;
 
 public class GroupRecordMoneyActivity extends BaseMVPActivity<GroupRecordMoneyContract.Presenter> implements GroupRecordMoneyContract.View, View.OnClickListener,
-        OnRefreshListener, OnLoadMoreListener, RecordDatePop.DateChooseListener, MoneyTypePop.MoneyTypeChooseListener {
+        OnRefreshListener, OnLoadMoreListener, RecordDate2Pop.DateChooseListener, MoneyTypePop.MoneyTypeChooseListener {
 
     private HeaderView mHeadView;
     private LinearLayout mLLDay;
@@ -53,7 +53,7 @@ public class GroupRecordMoneyActivity extends BaseMVPActivity<GroupRecordMoneyCo
     private RefreshLayout mRefreshLayout;
     private RecyclerView mRvRecord;
     private GroupRecordMoneyAdapter mRecordAdapter;
-    private RecordDatePop mDatePop;
+    private RecordDate2Pop mDatePop;
     private MoneyTypePop mMoneyTypePop;
     private ClearEditText mEtAccount;
     private Button mBtnSure;
@@ -220,7 +220,7 @@ public class GroupRecordMoneyActivity extends BaseMVPActivity<GroupRecordMoneyCo
 
     private void showDay() {
         if (mDatePop == null) {
-            mDatePop = RecordDatePop.create(this);
+            mDatePop = RecordDate2Pop.create(this);
             mDatePop.setDateChooseListener(this);
             mDatePop.setOnDismissListener(new PopupWindow.OnDismissListener() {
                 @Override

@@ -77,13 +77,14 @@ public class RecordDate2Pop extends BasePopup<RecordDate2Pop> implements View.On
             // Ngày11tháng10
             if("vi".equals(LanguageUtil.getLanguage())) {
                 Locale locale = new Locale("vi");
-                SimpleDateFormat sdf3 = new SimpleDateFormat("MMM-dd", locale);
+//                SimpleDateFormat sdf3 = new SimpleDateFormat("MMMddd", locale);
+                SimpleDateFormat sdf3 = new SimpleDateFormat("日MM月dd");
 //                SimpleDateFormat sdf3 = new SimpleDateFormat("MMMMM-dd", locale);
 
-                 day4 =  sdf3.format(date1);
-                 day5 = sdf3.format(date2);
-                 day6 = sdf3.format(date3);
-                 day7 = sdf3.format(date4);
+                 day4 =  sdf3.format(date1).replace("日","Ngày").replace("月","tháng");
+                 day5 = sdf3.format(date2).replace("日","Ngày").replace("月","tháng");
+                 day6 = sdf3.format(date3).replace("日","Ngày").replace("月","tháng");
+                 day7 = sdf3.format(date4).replace("日","Ngày").replace("月","tháng");
             }
             list.add(new ConditionBean(day4, TimeUtils.getBeginStringOfYesterday(3), TimeUtils.getEndStringOfYesterday(3), false));
             list.add(new ConditionBean(day5, TimeUtils.getBeginStringOfYesterday(4), TimeUtils.getEndStringOfYesterday(4), false));
