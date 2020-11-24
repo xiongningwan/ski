@@ -13,7 +13,8 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/double_side_play_name"
         android:paddingTop="@dimen/ski_dp_10"
-        android:layout_marginLeft="@dimen/ski_dp_10"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_centerInParent="true"
