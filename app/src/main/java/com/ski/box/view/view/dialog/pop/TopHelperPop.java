@@ -62,12 +62,15 @@ public class TopHelperPop extends BasePopup<TopHelperPop> implements View.OnClic
             Intent intent =  new Intent(mContext, ContainerActivity.class);
             intent.putExtra(ContainerActivity.KEY_CLASS, RecordBetFragment.class.getSimpleName());
             mContext.startActivity(intent);
+            dismiss();
         } else if(id == R.id.cl_2) {
             Intent intent =  new Intent(mContext, ContainerActivity.class);
             intent.putExtra(ContainerActivity.KEY_CLASS, RecordMoneyFragment.class.getSimpleName());
             mContext.startActivity(intent);
+            dismiss();
         } else if(id == R.id.cl_3) {
             mContext.startActivity(new Intent(mContext, GameSetActivity.class));
+            dismiss();
         }
     }
 

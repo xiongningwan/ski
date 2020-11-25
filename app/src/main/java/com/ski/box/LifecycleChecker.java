@@ -19,7 +19,7 @@ public class LifecycleChecker implements LifecycleObserver {
         // 应用进入后台
         LogUtils.e("LifecycleChecker onAppBackground ON_STOP");
         ToastUtil.setIsForeground(false);
-
+        SKIApplication.isForeground = false;
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_START)
@@ -27,5 +27,6 @@ public class LifecycleChecker implements LifecycleObserver {
         // 应用进入前台
         LogUtils.e("LifecycleChecker onAppForeground ON_START");
         ToastUtil.setIsForeground(true);
+        SKIApplication.isForeground = true;
     }
 }

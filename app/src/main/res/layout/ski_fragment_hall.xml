@@ -23,7 +23,7 @@
             android:layout_height="28dp"
             android:scaleType="fitStart"
             android:adjustViewBounds="true"
-            android:src="@mipmap/app_hall_logo"
+            android:src="@mipmap/app_logo"
             android:layout_centerVertical="true"
             android:layout_marginStart="16dp"/>
 

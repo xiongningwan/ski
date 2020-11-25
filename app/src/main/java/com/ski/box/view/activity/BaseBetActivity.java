@@ -99,6 +99,17 @@ public abstract class BaseBetActivity extends BaseMVPActivity<BetContract.Presen
 //        initFragment();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mViewTop.setBetPage(true);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mViewTop.setBetPage(false);
+    }
 
     @Override
     protected void processLogic() {

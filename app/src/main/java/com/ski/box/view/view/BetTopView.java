@@ -65,6 +65,7 @@ public class BetTopView extends FrameLayout implements OnClickListener {
     private View mLotteryResultCoverView;
     private TopHelperPop mTopHelperPop;
     private int mMode = 2;
+    private boolean isBetPage = false;
 
 
     public BetTopView(Context context) {
@@ -194,7 +195,7 @@ public class BetTopView extends FrameLayout implements OnClickListener {
         if (SettingManager.isBettingCountdownTone()) {
 
             // 最后3秒播放倒计时
-            if (countDownTimes == 3000 && SKIApplication.isForeground) {
+            if (countDownTimes == 3000 && SKIApplication.isForeground && isBetPage) {
                 try {
                     AssetManager assetManager = AppUtil.getContext().getAssets();
                     AssetFileDescriptor afd = assetManager.openFd("voice/ski_time_down.mp3");
@@ -271,6 +272,14 @@ public class BetTopView extends FrameLayout implements OnClickListener {
 
     public ImageView getIvTitleDrop() {
         return mIvTitleDrop;
+    }
+
+    public boolean isBetPage() {
+        return isBetPage;
+    }
+
+    public void setBetPage(boolean betPage) {
+        isBetPage = betPage;
     }
 
     private void showHelper() {

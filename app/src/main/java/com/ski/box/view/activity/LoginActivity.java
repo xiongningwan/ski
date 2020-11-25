@@ -51,8 +51,6 @@ public class LoginActivity extends BaseMVPActivity<LoginContract.Presenter> impl
     private TextView tvkefu;
     private TextView tvVersion;
     private TextView tvLanguageSwitch;
-    private TextView tvEnvironment;
-    private TextView tvMerchant;
     private ProgressDialog mLoading;
 
 
@@ -70,8 +68,6 @@ public class LoginActivity extends BaseMVPActivity<LoginContract.Presenter> impl
     protected void initViews() {
         ImmersionBar.with(this).init();
         etName = findViewById(R.id.et_name);
-        tvEnvironment = findViewById(R.id.tv_environment);
-        tvMerchant = findViewById(R.id.tv_merchant);
         etPassword = findViewById(R.id.et_password);
         btDevLogin = findViewById(R.id.btn_login_dev);
         tvRegister = findViewById(R.id.tv_register);
@@ -83,8 +79,6 @@ public class LoginActivity extends BaseMVPActivity<LoginContract.Presenter> impl
         mLoading.setCancelable(true);
         mLoading.setCanceledOnTouchOutside(true);
 
-        tvEnvironment.setOnClickListener(this);
-        tvMerchant.setOnClickListener(this);
         tvRegister.setOnClickListener(this);
         tvLanguageSwitch.setOnClickListener(this);
         tvkefu.setOnClickListener(this);
