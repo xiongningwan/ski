@@ -37,9 +37,9 @@
         android:id="@+id/iv_logo"
         android:layout_width="120dp"
         android:layout_height="wrap_content"
-        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"
         android:src="@mipmap/app_logo"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/iv_login_banner" />
@@ -49,7 +49,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginLeft="32dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
         android:layout_marginRight="32dp"
         android:textColorHint="@color/ski_color_9EB6CA"
         android:background="@drawable/ski_bg_iknow_bt3"
@@ -156,7 +156,7 @@
 
     <com.ski.box.view.view.CusTextView
         android:id="@+id/tv_kefu"
-        android:layout_width="30dp"
+        android:layout_width="wrap_content"
         android:layout_height="20dp"
         android:text="客服"
         android:textSize="12dp"
@@ -166,7 +166,7 @@
 
     <com.ski.box.view.view.CusTextView
         android:id="@+id/tv_version"
-        android:layout_width="30dp"
+        android:layout_width="wrap_content"
         android:layout_height="20dp"
         android:text="版本"
         android:gravity="end"
@@ -177,7 +177,7 @@
 
     <com.ski.box.view.view.CusTextView
         android:id="@+id/tv_register"
-        android:layout_width="30dp"
+        android:layout_width="wrap_content"
         android:layout_height="20dp"
         android:text="注册"
         android:textSize="12dp"
