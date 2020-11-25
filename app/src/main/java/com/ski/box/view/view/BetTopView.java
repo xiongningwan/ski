@@ -20,6 +20,7 @@ import androidx.core.content.ContextCompat;
 
 import com.hwangjr.rxbus.RxBus;
 import com.ski.box.R;
+import com.ski.box.SKIApplication;
 import com.ski.box.bean.DataCenter;
 import com.ski.box.bean.LotteryNumBean;
 import com.ski.box.bean.TicketLotteryTimeBean;
@@ -193,7 +194,7 @@ public class BetTopView extends FrameLayout implements OnClickListener {
         if (SettingManager.isBettingCountdownTone()) {
 
             // 最后3秒播放倒计时
-            if (countDownTimes == 3000) {
+            if (countDownTimes == 3000 && SKIApplication.isForeground) {
                 try {
                     AssetManager assetManager = AppUtil.getContext().getAssets();
                     AssetFileDescriptor afd = assetManager.openFd("voice/ski_time_down.mp3");

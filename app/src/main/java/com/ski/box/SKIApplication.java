@@ -33,6 +33,7 @@ import okhttp3.OkHttpClient;
 
 public class SKIApplication extends Application {
     private static Context context;
+    public static boolean isForeground = false;
 
     @Override
     public void onCreate() {
