@@ -186,24 +186,26 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="84dp"
         android:background="@color/ski_white">
 
         <com.ski.box.view.view.CusTextView
             android:id="@+id/tv_4"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="14dp"
             android:text="*"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
             android:textColor="@color/ski_red"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginStart="16dp"/>
 
         <com.ski.box.view.view.CusTextView
             android:id="@+id/tv_bank_no"
-            android:layout_width="100dp"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:maxLines="1"
             android:gravity="center_vertical"
             android:text="银行卡号"
@@ -215,26 +217,24 @@
             android:textColor="@color/ski_color_333333"
             app:layout_constraintStart_toEndOf="@+id/tv_4"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginStart="5dp"/>
 
         <com.ski.box.view.view.ClearEditText
             android:id="@+id/et_bank_no"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="50dp"
             android:background="@color/ski_white"
             android:gravity="center_vertical"
             android:inputType="number"
-            android:paddingLeft="16dp"
+            android:paddingLeft="10dp"
             android:paddingRight="16dp"
             android:singleLine="true"
             android:textSize="14dp"
             android:hint="请输入银行卡号"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_bank_no"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/tv_bank_no"
-            android:layout_marginStart="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -247,24 +247,26 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="84dp"
         android:background="@color/ski_white">
 
         <com.ski.box.view.view.CusTextView
             android:id="@+id/tv_5"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="14dp"
+            android:layout_marginTop="10dp"
             android:text="*"
+            android:gravity="center_vertical"
             android:textColor="@color/ski_red"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginStart="16dp"/>
 
         <com.ski.box.view.view.CusTextView
             android:id="@+id/tv_bank_no_confirm"
-            android:layout_width="100dp"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:text="确认银行卡号"
             android:textSize="14dp"
             android:autoSizeTextType="uniform"
@@ -276,27 +278,26 @@
             android:textColor="@color/ski_color_333333"
             app:layout_constraintStart_toEndOf="@+id/tv_5"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginStart="5dp"/>
 
         <com.ski.box.view.view.ClearEditText
             android:id="@+id/et_bank_no_confirm"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginStart="10dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:background="@color/ski_white"
             android:gravity="center_vertical"
             android:hint="请再次输入银行卡号"
             android:inputType="text"
-            android:paddingLeft="16dp"
+            android:paddingLeft="10dp"
             android:paddingRight="16dp"
             android:singleLine="true"
             android:textSize="14dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/tv_bank_no_confirm"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_bank_no_confirm"
+            app:layout_constraintStart_toStartOf="parent"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
