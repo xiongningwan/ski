@@ -9,7 +9,6 @@
         android:id="@+id/double_side_play_name"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingLeft="@dimen/ski_dp_20"
         android:paddingTop="@dimen/ski_dp_13"
         android:layout_gravity="center" />
 </FrameLayout>
