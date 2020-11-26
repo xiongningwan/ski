@@ -58,7 +58,7 @@ public class WithdrawFragment extends BaseMVPFragment<WithdrawContract.Presenter
     private LinearLayout mllBalance;
     private ImageView mIvBalance;
     private TextView mTvBalance;
-    private TextView mTvNickName;
+//    private TextView mTvNickName;
     private CusTextView mTvNotice1;
     private NiceSpinner mSpType;
     private ClearEditText mEtWithdrawMoney;
@@ -111,7 +111,7 @@ public class WithdrawFragment extends BaseMVPFragment<WithdrawContract.Presenter
         RxBus.get().register(this);
         mHeadView = view.findViewById(R.id.head_view);
         mTvBalance = view.findViewById(R.id.tv_balance_value);
-        mTvNickName = view.findViewById(R.id.tv_nick_name);
+//        mTvNickName = view.findViewById(R.id.tv_nick_name);
         mSpType = view.findViewById(R.id.spinner_type);
         mEtWithdrawMoney = view.findViewById(R.id.et_withdraw_money);
         mEtMoneyPwd = view.findViewById(R.id.et_money_pwd);
@@ -146,7 +146,7 @@ public class WithdrawFragment extends BaseMVPFragment<WithdrawContract.Presenter
         }
         User user = DataCenter.getInstance().getUser();
         mTvBalance.setText(user.getBalance());
-        mTvNickName.setText(user.getAlias());
+//        mTvNickName.setText(user.getAlias());
         createAnim();
         setRedTip();
     }
@@ -291,7 +291,7 @@ public class WithdrawFragment extends BaseMVPFragment<WithdrawContract.Presenter
     @Subscribe(tags = {@Tag(EVENT_TYPE_USER_NAME_NICK_NAME)})
     public void onUserNameUpdate(String s) {
         User user = DataCenter.getInstance().getUser();
-        mTvNickName.setText(user.getAlias());
+//        mTvNickName.setText(user.getAlias());
     }
 
 

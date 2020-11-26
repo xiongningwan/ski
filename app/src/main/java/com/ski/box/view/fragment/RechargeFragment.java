@@ -58,7 +58,7 @@ public class RechargeFragment extends BaseMVPFragment<RechargeContract.Presenter
     private LinearLayout mllBalance;
     private ImageView mIvBalance;
     private TextView mTvBalance;
-    private TextView mTvNickName;
+//    private TextView mTvNickName;
     private NiceSpinner mSpType;
     private ClearEditText mEtCardName;
     private ClearEditText mEtMoney;
@@ -102,7 +102,7 @@ public class RechargeFragment extends BaseMVPFragment<RechargeContract.Presenter
         RxBus.get().register(this);
         mHeadView = view.findViewById(R.id.head_view);
         mTvBalance = view.findViewById(R.id.tv_balance_value);
-        mTvNickName = view.findViewById(R.id.tv_nick_name);
+//        mTvNickName = view.findViewById(R.id.tv_nick_name);
         mSpType = view.findViewById(R.id.spinner_type);
         mEtCardName = view.findViewById(R.id.et_card_name);
         mEtMoney = view.findViewById(R.id.et_money);
@@ -135,7 +135,7 @@ public class RechargeFragment extends BaseMVPFragment<RechargeContract.Presenter
 
         User user = DataCenter.getInstance().getUser();
         mTvBalance.setText(user.getBalance());
-        mTvNickName.setText(user.getAlias());
+//        mTvNickName.setText(user.getAlias());
         createAnim();
         setRedTip();
     }
@@ -287,11 +287,11 @@ public class RechargeFragment extends BaseMVPFragment<RechargeContract.Presenter
         mTvBalance.setText(balanceStr);
     }
 
-    @Subscribe(tags = {@Tag(EVENT_TYPE_USER_NAME_NICK_NAME)})
-    public void onUserNameUpdate(String s) {
-        User user = DataCenter.getInstance().getUser();
-        mTvNickName.setText(user.getAlias());
-    }
+//    @Subscribe(tags = {@Tag(EVENT_TYPE_USER_NAME_NICK_NAME)})
+//    public void onUserNameUpdate(String s) {
+//        User user = DataCenter.getInstance().getUser();
+//        mTvNickName.setText(user.getAlias());
+//    }
 
 
     private void setRedTip() {

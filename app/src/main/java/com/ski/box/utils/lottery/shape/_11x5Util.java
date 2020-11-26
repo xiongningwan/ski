@@ -7,7 +7,7 @@ import com.ski.box.utils.lottery.LotteryNoUtil;
  */
 public class _11x5Util {
     public static String[] get11X5_ShapeData(String[] numArr) {
-        String[] arr = new String[5];
+        String[] arr = new String[4];
         int sum = LotteryNoUtil.calculationSum(numArr);
         String daXiao = getBigOrSmall(sum, 30, numArr);
         String danShuang = getSingleDouble(sum, numArr);
@@ -16,8 +16,8 @@ public class _11x5Util {
         arr[0] = String.valueOf(sum);
         arr[1] = daXiao;
         arr[2] = danShuang;
-        arr[3] = weiDaXiao;
-        arr[4] = longHuHe;
+//        arr[3] = weiDaXiao;
+        arr[3] = longHuHe;
         return arr;
     }
 

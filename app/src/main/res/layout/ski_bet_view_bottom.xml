@@ -124,7 +124,6 @@
                 android:layout_height="match_parent"
                 android:background="@null"
                 android:clickable="true"
-                android:hint="输入金额"
                 android:inputType="number"
                 android:digits="1234567890"
                 android:gravity="center"

@@ -109,7 +109,7 @@ public class QuickMoneyView implements View.OnClickListener {
         etDoubleAmount = rootView.findViewById(R.id.quick_amount_show);
         numKeyBoard = rootView.findViewById(R.id.numkeyboard);
 
-        etDoubleAmount.setHint(LanguageUtil.getText("输入金额"));
+//        etDoubleAmount.setHint(LanguageUtil.getText("输入金额"));
         if (LanguageUtil.VI.equals(LanguageUtil.getLanguage())) {
             //  etDoubleAmount.setTypeface(ActivityUtil.getFontTNR());
         }
@@ -151,7 +151,11 @@ public class QuickMoneyView implements View.OnClickListener {
             showQuickAmountSet(); //弹出快捷金额设置框
         } else if (id == R.id.first_quick_amount || id == R.id.second_quick_amount || id == R.id.third_quick_amount || id == R.id.forth_quick_amount || id == R.id.five_quick_amount) {
             // 快捷金额 double
-            setQuickDouble((TextView) v);
+            if(v instanceof  TextView) {
+                String money = ((TextView) v).getText().toString();
+                setQuickDouble(money);
+            }
+
         }
     }
 
@@ -181,13 +185,14 @@ public class QuickMoneyView implements View.OnClickListener {
         String money = SPUtils.getString(mContext, SP_DOUBLE_QUICK_MONEY_DEFAULT_SELECTED, "");
         if (TextUtils.isEmpty(money)) {
             money = "0";
+            setQuickDouble("50");
             tvUnit.setVisibility(View.GONE);
-            etDoubleAmount.setHint(LanguageUtil.getText("输入金额"));
+//            etDoubleAmount.setHint(LanguageUtil.getText("输入金额"));
         } else {
             etDoubleAmount.setHint("");
             etDoubleAmount.setText(money);
             stringBuffer.append(money);
-            tvUnit.setVisibility(View.VISIBLE);
+            tvUnit.setVisibility(View.GONE);
             //  etDoubleAmount.setTextColor(mContext.getResources().getColor(R.color.ski_play_select_color));
 
         }
@@ -253,8 +258,7 @@ public class QuickMoneyView implements View.OnClickListener {
     }
 
     // 给快捷金额赋值
-    private void setQuickDouble(TextView v) {
-        String money = v.getText().toString();
+    private void setQuickDouble(String money) {
         if (money.contains("k")) {
             money = money.replace("k", "000");
         }
@@ -286,10 +290,10 @@ public class QuickMoneyView implements View.OnClickListener {
             money = "0";
             etDoubleAmount.setText(String.valueOf(moneyInt));
             etDoubleAmount.setSelection(String.valueOf(moneyInt).length());
-            etDoubleAmount.setHint(LanguageUtil.getText("输入金额"));
+//            etDoubleAmount.setHint(LanguageUtil.getText("输入金额"));
             SPUtils.putString(mContext, SP_DOUBLE_QUICK_MONEY_DEFAULT_SELECTED, "");
         } else {
-            etDoubleAmount.setHint("");
+//            etDoubleAmount.setHint("");
             etDoubleAmount.setText(String.valueOf(moneyInt));
             etDoubleAmount.setSelection(String.valueOf(moneyInt).length());
             SPUtils.putString(mContext, SP_DOUBLE_QUICK_MONEY_DEFAULT_SELECTED, String.valueOf(moneyInt));

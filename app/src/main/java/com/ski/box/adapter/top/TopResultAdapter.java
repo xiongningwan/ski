@@ -138,10 +138,10 @@ public class TopResultAdapter extends BaseMultiItemQuickAdapter<LotteryNumBean, 
                     TextView tvXT2 = holder.getView(R.id.tv_xt_2);
                     TextView tvXT3 = holder.getView(R.id.tv_xt_3);
                     TextView tvXT4 = holder.getView(R.id.tv_xt_4);
-                    TextView tvXT5 = holder.getView(R.id.tv_xt_5);
+//                    TextView tvXT5 = holder.getView(R.id.tv_xt_5);
 
                     TextView[] arr = {tvNum1, tvNum2, tvNum3, tvNum4, tvNum5};
-                    TextView[] arrXt = {tvXT1, tvXT2, tvXT3, tvXT4, tvXT5};
+                    TextView[] arrXt = {tvXT1, tvXT2, tvXT3, tvXT4};
 
                     for(TextView tv : arrXt) {
                         tv.setText("");

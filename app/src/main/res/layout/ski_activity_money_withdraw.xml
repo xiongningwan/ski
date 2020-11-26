@@ -53,13 +53,13 @@
             android:orientation="horizontal"
             android:gravity="center"
             android:layout_marginTop="0dp">
-        <com.ski.box.view.view.CusTextView
-            android:id="@+id/tv_nick_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="Uesr001"
-            android:textSize="12dp"
-            android:textColor="@color/ski_color_333333" />
+<!--        <com.ski.box.view.view.CusTextView-->
+<!--            android:id="@+id/tv_nick_name"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            tools:text="Uesr001"-->
+<!--            android:textSize="12dp"-->
+<!--            android:textColor="@color/ski_color_333333" />-->
 
         <com.ski.box.view.view.CusTextView
             android:id="@+id/tv_label_balance"
@@ -111,7 +111,7 @@
 
         <com.ski.box.view.view.CusTextView
             android:id="@+id/tv_type"
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="0dp"
             android:text="选择银行卡"
             android:gravity="center"
@@ -151,7 +151,7 @@
 
         <com.ski.box.view.view.CusTextView
             android:id="@+id/tv_withdraw_money"
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="0dp"
             android:gravity="center"
             android:text="提现金额"
@@ -185,7 +185,7 @@
 
         <com.ski.box.view.view.CusTextView
             android:id="@+id/tv_money_pwd"
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="0dp"
             android:gravity="center"
             android:text="资金密码"

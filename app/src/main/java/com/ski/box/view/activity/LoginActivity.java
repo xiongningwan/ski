@@ -51,6 +51,9 @@ public class LoginActivity extends BaseMVPActivity<LoginContract.Presenter> impl
     private TextView tvkefu;
     private TextView tvVersion;
     private TextView tvLanguageSwitch;
+    private TextView tvHydl;
+    private TextView tvTiyan;
+    private TextView tvLine;
     private ProgressDialog mLoading;
 
 
@@ -74,6 +77,9 @@ public class LoginActivity extends BaseMVPActivity<LoginContract.Presenter> impl
         tvkefu = findViewById(R.id.tv_kefu);
         tvVersion = findViewById(R.id.tv_version);
         tvLanguageSwitch = findViewById(R.id.tv_language_switch);
+        tvHydl = findViewById(R.id.tv_label_hydl);
+        tvTiyan = findViewById(R.id.tv_label_tiyan);
+        tvLine = findViewById(R.id.tv_line);
         btDevLogin.setOnClickListener(this);
         mLoading = new ProgressDialog(this);
         mLoading.setCancelable(true);
@@ -127,8 +133,17 @@ public class LoginActivity extends BaseMVPActivity<LoginContract.Presenter> impl
 
 
     private void resetView() {
-        startActivity(new Intent(this, LoginActivity.class));
-        finish();
+        initData(null);
+        tvHydl.setText(LanguageUtil.getText("会员登录"));
+        tvTiyan.setText(LanguageUtil.getText("立即体验最佳游戏平台"));
+        btDevLogin.setText(LanguageUtil.getText("立即登录"));
+        etName.setHint(LanguageUtil.getText("请输入账号"));
+        etPassword.setHint(LanguageUtil.getText("请输入密码"));
+
+        tvLine.setText(LanguageUtil.getText("线路"));
+        tvkefu.setText(LanguageUtil.getText("客服"));
+        tvVersion.setText(LanguageUtil.getText("版本"));
+        tvLanguageSwitch.setText(LanguageUtil.getText("语言"));
     }
 
     private void doLogin() {
