@@ -67,8 +67,6 @@
     <string name="ski_money_recharge_notice1">1.充值成功后请及时查看资金进度查询，若有问题请及时联系在线客服。</string>
     <string name="ski_money_recharge_notice2">2.充值服务时间为24小时。</string>
     <string name="ski_money_recharge_notice3">3.如网银充值因作业系统与浏览器版本问题，建议您使用支付宝或者微信充值。</string>
-    <string name="ski_money_recharge_q_1">为什么充值未到账？</string>
-    <string name="ski_money_recharge_q_2">如何使用网银充值？</string>
     <string name="ski_money_recharge_dialog_tip">请注意：重复付款或金额错误将无法到账！</string>
     <string name="ski_money_withdraw_tip">每日限制提款20 次，您已提款 0 次，每日提现额度：1000000 元。每日提现服务时间为 09:30-02:00</string>
     <string name="ski_money_withdraw_notice1">1.提现服务时间为 24小时。</string>

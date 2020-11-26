@@ -73,7 +73,7 @@ public class MoneyProgressAdapter extends BaseQuickAdapter<MoneyProgressData.Lis
         tvStatus.setText(statusStr);
 
         TextView tvMoney = holder.getView(R.id.tv_money);
-        tvMoney.setText(ActivityUtil.formatBonus(bean.getAmt().doubleValue()));
+        tvMoney.setText(ActivityUtil.formatBonus2(bean.getAmt().doubleValue()));
 //        if(bean.getAmt() > 0) {
 //            tvMoney.setTextColor(mRed);
 //        } else {

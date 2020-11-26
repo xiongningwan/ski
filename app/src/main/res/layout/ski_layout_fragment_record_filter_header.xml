@@ -120,19 +120,32 @@
         app:layout_constraintStart_toEndOf="@+id/gl_2"
         app:layout_constraintEnd_toEndOf="parent"
         android:gravity="center">
+
     <com.ski.box.view.view.CusTextView
         android:id="@+id/tv_status"
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:textSize="14dp"
+        android:gravity="end|center_vertical"
         android:textColor="@color/ski_color_333333"
-        android:text="全部状态" />
+        android:maxLines="1"
+        android:textSize="14dp"
+        android:autoSizeTextType="uniform"
+        android:autoSizeMaxTextSize="14dp"
+        android:autoSizeMinTextSize="2dp"
+        android:autoSizeStepGranularity="1dp"
+        android:text="全部状态"
+        android:layout_marginStart="5dp"
+        android:layout_weight="1"/>
 
     <ImageView
         android:id="@+id/iv_status"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@mipmap/ski_arrow_side_down_uncheck"
-        android:layout_marginStart="5dp"/>
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:scaleType="fitStart"
+        android:layout_weight="1"
+        android:visibility="visible"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

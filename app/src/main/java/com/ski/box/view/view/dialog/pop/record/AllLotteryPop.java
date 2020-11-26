@@ -5,10 +5,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.chad.library.adapter.base.listener.OnItemChildClickListener;
 import com.chad.library.adapter.base.listener.OnItemClickListener;
 import com.ski.box.R;
 import com.ski.box.adapter.TopGameAdapter;
@@ -18,6 +20,8 @@ import com.ski.box.bean.lottery.LotteryBean;
 import com.ski.box.bean.lottery.LotterySer;
 import com.yb.core.utils.LanguageUtil;
 import com.zyyoona7.popup.BasePopup;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -74,23 +78,31 @@ public class AllLotteryPop extends BasePopup<AllLotteryPop> implements View.OnCl
         List<TopGameBean> topGameBeans = convertTopData(lotterySers);
         mTopGameList.addAll(topGameBeans);
         mAllLotteryAdapter.setNewInstance(topGameBeans);
-        mAllLotteryAdapter.setOnItemClickListener(new OnItemClickListener() {
+        mAllLotteryAdapter.setOnItemChildClickListener(new OnItemChildClickListener() {
             @Override
-            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-                List<TopGameBean> list = adapter.getData();
-                for (int i = 0; i < list.size(); i++) {
-                    TopGameBean bean = list.get(i);
-                    bean.setSelected(false);
-                    if (position == i) {
-                        bean.setSelected(true);
-                        adapter.notifyDataSetChanged();
-                        if (mListener != null) {
-                            mListener.onLotteryChoose(bean);
+            public void onItemChildClick(@NonNull @NotNull BaseQuickAdapter adapter, @NonNull @NotNull View view, int position) {
+                if(view.getId() == R.id.item_trend_game) {
+                    List<TopGameBean> list = adapter.getData();
+                    for (int i = 0; i < list.size(); i++) {
+                        TopGameBean bean = list.get(i);
+                        bean.setSelected(false);
+                        if (position == i) {
+                            bean.setSelected(true);
+                            adapter.notifyDataSetChanged();
+                            if (mListener != null) {
+                                mListener.onLotteryChoose(bean);
+                            }
                         }
                     }
                 }
             }
         });
+//        mAllLotteryAdapter.setOnItemClickListener(new OnItemClickListener() {
+//            @Override
+//            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+//
+//            }
+//        });
     }
 
 

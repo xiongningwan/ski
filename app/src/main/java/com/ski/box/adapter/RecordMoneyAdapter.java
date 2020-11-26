@@ -11,6 +11,7 @@ import com.ski.box.R;
 import com.ski.box.bean.FrontTradeTypesBean;
 import com.ski.box.bean.record.RecordMoney;
 import com.ski.box.utils.ActivityUtil;
+import com.ski.box.utils.DecimalSetUtils;
 import com.yb.core.utils.LanguageUtil;
 
 import org.jetbrains.annotations.NotNull;
@@ -23,14 +24,14 @@ import java.util.List;
 public class RecordMoneyAdapter extends BaseQuickAdapter<RecordMoney.ListBean, BaseViewHolder> {
     private Context mContext;
     private HashMap<Integer, String> mMapType = new HashMap<>();
-    private  int mGreen;
-    private  int mRed;
+    private int mGreen;
+    private int mRed;
 
     public RecordMoneyAdapter(Context context) {
         super(R.layout.ski_item_money_record);
         mContext = context;
-        mGreen = ContextCompat.getColor(context,R.color.ski_acc_lose);
-        mRed = ContextCompat.getColor(context,R.color.ski_acc_win);
+        mGreen = ContextCompat.getColor(context, R.color.ski_acc_lose);
+        mRed = ContextCompat.getColor(context, R.color.ski_acc_win);
     }
 
     @Override
@@ -42,8 +43,9 @@ public class RecordMoneyAdapter extends BaseQuickAdapter<RecordMoney.ListBean, B
                 .setText(R.id.tv_before, LanguageUtil.getText("账变前余额") + "  " + bean.getBalanceBefore())
                 .setText(R.id.tv_after, LanguageUtil.getText("账变后余额") + "  " + bean.getBalanceAfter());
         TextView tvMoney = holder.getView(R.id.tv_money);
-        tvMoney.setText(ActivityUtil.formatBonus(bean.getAmount()));
-        if(bean.getAmount() > 0) {
+//        tvMoney.setText(ActivityUtil.formatBonus(bean.getAmount()));
+        tvMoney.setText(ActivityUtil.formatBonus2(bean.getAmount()));
+        if (bean.getAmount() > 0) {
             tvMoney.setTextColor(mRed);
         } else {
             tvMoney.setTextColor(mGreen);

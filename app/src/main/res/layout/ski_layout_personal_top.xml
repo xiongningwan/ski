@@ -110,15 +110,23 @@
           android:layout_marginStart="5dp"
           android:visibility="gone"/>
 
+      <Space
+          android:id="@+id/sp_vip"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/iv_level"
+          android:layout_marginTop="1dp" />
+
       <com.ski.box.view.view.CusTextView
           android:id="@+id/iv_level_value"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           tools:text="VIP3"
           app:layout_constraintStart_toEndOf="@+id/iv_level_label"
-          app:layout_constraintTop_toTopOf="@+id/iv_level_label"
-          app:layout_constraintBottom_toBottomOf="@+id/iv_level_label"
+          app:layout_constraintBottom_toTopOf="@+id/sp_vip"
           android:textColor="@color/ski_gold"
+          android:textSize="12dp"
           android:layout_marginStart="5dp"/>
 
       <ImageView
@@ -152,6 +160,7 @@
           app:layout_constraintTop_toTopOf="@+id/iv_group_label"
           app:layout_constraintBottom_toBottomOf="@+id/iv_group_label"
           android:textColor="@color/ski_gold"
+          android:textSize="12dp"
           android:layout_marginStart="5dp"/>
 
 
@@ -174,6 +183,7 @@
           app:layout_constraintTop_toTopOf="@+id/iv_balance_label"
           app:layout_constraintBottom_toBottomOf="@+id/iv_balance_label"
           android:textColor="@color/ski_gold"
+          android:textSize="12dp"
           android:layout_marginStart="5dp"/>
 
 

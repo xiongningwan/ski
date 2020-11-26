@@ -155,6 +155,10 @@ public class ActivityUtil {
         String bonu = mDecimalFormat.format(b);
         return bonu;
     }
+    public static String formatBonus2(double b) {
+        return  DecimalSetUtils.setMoneySaveFour(String.valueOf(b));
+    }
+
 
     public static Typeface getFontTNR() {
         if(mFontTNR == null) {

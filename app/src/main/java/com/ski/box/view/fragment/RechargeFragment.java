@@ -62,8 +62,6 @@ public class RechargeFragment extends BaseMVPFragment<RechargeContract.Presenter
     private NiceSpinner mSpType;
     private ClearEditText mEtCardName;
     private ClearEditText mEtMoney;
-    private TextView mTvWen1;
-    private TextView mTvWen2;
     private CusTextView mTvNotice1;
     private CusTextView mTvTip;
     private ProgressDialog mLoading;
@@ -108,8 +106,6 @@ public class RechargeFragment extends BaseMVPFragment<RechargeContract.Presenter
         mSpType = view.findViewById(R.id.spinner_type);
         mEtCardName = view.findViewById(R.id.et_card_name);
         mEtMoney = view.findViewById(R.id.et_money);
-        mTvWen1 = view.findViewById(R.id.tv_wen_1);
-        mTvWen2 = view.findViewById(R.id.tv_wen_2);
         mBtnSure = view.findViewById(R.id.btn_sure);
         mllBalance = view.findViewById(R.id.ll_balance);
         mIvBalance = view.findViewById(R.id.iv_refresh_balance);
@@ -119,8 +115,6 @@ public class RechargeFragment extends BaseMVPFragment<RechargeContract.Presenter
         mHeadView.setHeader(LanguageUtil.getText(getString(R.string.ski_tab_lottery_recharge)), false);
 
         mBtnSure.setOnClickListener(this);
-        mTvWen1.setOnClickListener(this);
-        mTvWen2.setOnClickListener(this);
         mllBalance.setOnClickListener(this);
         mLoading = new ProgressDialog(requireActivity());
     }
@@ -159,10 +153,6 @@ public class RechargeFragment extends BaseMVPFragment<RechargeContract.Presenter
             goToDeposit();
         } else if (id == R.id.ll_balance) {
             refreshBalance();
-        } else if (id == R.id.tv_wen_1) {
-            //goToDeposit();
-        } else if (id == R.id.tv_wen_2) {
-            // goToDeposit();
         }
     }
 

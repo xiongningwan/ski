@@ -32,9 +32,9 @@ public class GroupManageAdapter extends BaseQuickAdapter<GroupMember, BaseViewHo
 
         holder
                 .setText(R.id.tv_name, bean.getMemberAccount())
-                .setText(R.id.tv_balance, LanguageUtil.getText("余额") + "  " + ActivityUtil.formatBonus(bean.getMemberAmt().doubleValue()))
+                .setText(R.id.tv_balance, LanguageUtil.getText("余额") + "  " + ActivityUtil.formatBonus2(bean.getMemberAmt().doubleValue()))
                 .setText(R.id.tv_rabate, LanguageUtil.getText("奖金组") + " " + bean.getMemberRebate())
-                .setText(R.id.tv_group_balance, LanguageUtil.getText("团队余额") + "  " + ActivityUtil.formatBonus(bean.getTeamAmt().doubleValue()))
+                .setText(R.id.tv_group_balance, LanguageUtil.getText("团队余额") + "  " + ActivityUtil.formatBonus2(bean.getTeamAmt().doubleValue()))
                 .setText(R.id.tv_no, LanguageUtil.getText("下级人数") + " " + bean.getTeamCount())
                 .setText(R.id.tv_time, LanguageUtil.getText("最后登录") + " " + bean.getLoginTime());
     }

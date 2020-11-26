@@ -41,10 +41,10 @@ public class GroupRecordMoneyAdapter extends BaseQuickAdapter<GroupMoneyData.Lis
                 .setText(R.id.tv_user_name, bean.getMemberAccount())
                 .setText(R.id.tv_name, bean.getTicketName())
                 .setText(R.id.tv_type, mMapType.get(bean.getTransType()))
-                .setText(R.id.tv_before, LanguageUtil.getText("账变前余额") + "  " + ActivityUtil.formatBonus(bean.getBeforeAmt().doubleValue()))
-                .setText(R.id.tv_after, LanguageUtil.getText("账变后余额") + "  " + ActivityUtil.formatBonus(bean.getAfterAmt().doubleValue()) );
+                .setText(R.id.tv_before, LanguageUtil.getText("账变前余额") + "  " + ActivityUtil.formatBonus2(bean.getBeforeAmt().doubleValue()))
+                .setText(R.id.tv_after, LanguageUtil.getText("账变后余额") + "  " + ActivityUtil.formatBonus2(bean.getAfterAmt().doubleValue()) );
         TextView tvMoney = holder.getView(R.id.tv_money);
-        tvMoney.setText(ActivityUtil.formatBonus(bean.getTransAmt()));
+        tvMoney.setText(ActivityUtil.formatBonus2(bean.getTransAmt()));
         if (bean.getTransAmt() > 0) {
             tvMoney.setTextColor(mRed);
         } else {
