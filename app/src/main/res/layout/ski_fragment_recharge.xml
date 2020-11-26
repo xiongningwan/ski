@@ -68,7 +68,6 @@
                     android:layout_height="wrap_content"
                     android:text="当前余额"
                     android:textSize="12dp"
-                    android:layout_marginStart="5dp"
                     android:textColor="@color/ski_color_333333" />
 
             </LinearLayout>

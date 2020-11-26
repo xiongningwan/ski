@@ -273,7 +273,7 @@ public class RechargeFragment extends BaseMVPFragment<RechargeContract.Presenter
                     mEtMoney.setHint(LanguageUtil.getText("请输入充值金额"));
                 } else {
                     if (payType != null) {
-                        mEtMoney.setHint( LanguageUtil.getText("充值区间")+ "：" + payType.getMinAmt() + "~" + payType.getMaxAmt());
+                        mEtMoney.setHint(payType.getMinAmt() + "~" + payType.getMaxAmt());
                     }
                 }
 
