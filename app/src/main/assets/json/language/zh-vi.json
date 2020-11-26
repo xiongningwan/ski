@@ -536,6 +536,7 @@
   "输入框不能为空": "Trường này không được để trống ",
   "密码必须为6-16位": "Mật khẩu bắt buộc từ 6-16 kí tự ",
   "新密码两次输入不一致": "Mật khẩu mới nhập 2 lần không trùng khớp ",
+  "立即登录": "Đăng Nhập",
   "登录": "Đăng Nhập",
   "线路": "Đường Link",
   "客服": "CSKH",
@@ -667,5 +668,7 @@
   "立即更新": "Cập nhật ngay",
   "下载失败": "Tải thất bại",
   "更新中": "Đang làm mới",
-  "重新下载": "Tải lại "
+  "重新下载": "Tải lại ",
+  "会员登录": "Đăng nhập thành viên",
+  "立即体验最佳游戏平台": "Trải nghiệm nền tảng chơi game tốt nhất hiện nay"
 }
