@@ -28,7 +28,7 @@ public class RecordBetAdapter2 extends BaseQuickAdapter<RecordBet.ListBean , Bas
     protected void convert(@NotNull BaseViewHolder holder, @Nullable RecordBet.ListBean bean) {
         holder.setText(R.id.tv_lottery_name, bean.getTicketName());
         holder.setText(R.id.tv_period, bean.getTicketPlanNo());
-        holder.setText(R.id.tv_play_name, bean.getPlayName());
+        holder.setText(R.id.tv_play_name, bean.getPlayName() + " - " + bean.getBetContent());
         LotteryRecordResultView lotteryResultView = holder.getView(R.id.lottery_record_result_view);
         String code = bean.getTicketResult();
         code = code.replace(",", " ");

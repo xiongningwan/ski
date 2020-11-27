@@ -240,11 +240,18 @@
             android:textColor="@color/ski_color_333333"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:background="@color/ski_white"
+        android:layout_marginTop="1dp"/>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:layout_marginTop="1dp"
+        android:layout_height="wrap_content"
         android:background="@color/ski_white">
+
         <com.ski.box.view.view.CusTextView
             android:id="@+id/tv_label_content"
             android:layout_width="wrap_content"
@@ -258,20 +265,28 @@
 
         <com.ski.box.view.view.CusTextView
             android:id="@+id/tv_value_content"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             tools:text="大"
             app:layout_constraintStart_toEndOf="@+id/tv_label_content"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginStart="16dp"
+            android:layout_marginEnd="10dp"
             android:textColor="@color/ski_color_333333"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:background="@color/ski_white"
+        android:layout_marginBottom="1dp"/>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:layout_marginTop="1dp"
         android:background="@color/ski_white">
         <com.ski.box.view.view.CusTextView
             android:id="@+id/tv_label_bet_money"

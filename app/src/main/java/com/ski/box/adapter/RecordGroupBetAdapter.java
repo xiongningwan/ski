@@ -28,7 +28,7 @@ public class RecordGroupBetAdapter extends BaseQuickAdapter<GroupBetData.ListBea
     protected void convert(@NotNull BaseViewHolder holder, @Nullable GroupBetData.ListBean bean) {
         holder.setText(R.id.tv_lottery_name, bean.getTicketName());
         holder.setText(R.id.tv_period, bean.getIssueNo());
-        holder.setText(R.id.tv_play_name, bean.getPlayName());
+        holder.setText(R.id.tv_play_name, bean.getPlayName() + " - " + bean.getBetContent());
         holder.setText(R.id.tv_user_name, bean.getMemberAccount());
         LotteryRecordResultView lotteryResultView = holder.getView(R.id.lottery_record_result_view);
 
