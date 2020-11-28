@@ -36,7 +36,7 @@ public class TopHelperPop extends BasePopup<TopHelperPop> implements View.OnClic
 
     @Override
     protected void initAttributes() {
-        int h = ScreenUtils.dip2px(163);
+        int h = ScreenUtils.dip2px(50);
         setContentView(R.layout.ski_bet_helper_menu, ViewGroup.LayoutParams.WRAP_CONTENT, h);
         setFocusAndOutsideEnable(true);
         setBackgroundDimEnable(false);
@@ -69,8 +69,8 @@ public class TopHelperPop extends BasePopup<TopHelperPop> implements View.OnClic
             mContext.startActivity(intent);
             dismiss();
         } else if(id == R.id.cl_3) {
-            mContext.startActivity(new Intent(mContext, GameSetActivity.class));
-            dismiss();
+//            mContext.startActivity(new Intent(mContext, GameSetActivity.class));
+//            dismiss();
         }
     }
 

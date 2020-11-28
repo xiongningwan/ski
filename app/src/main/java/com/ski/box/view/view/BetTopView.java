@@ -27,6 +27,7 @@ import com.ski.box.bean.TicketLotteryTimeBean;
 import com.ski.box.service.AlarmService;
 import com.ski.box.utils.lottery.LotteryNoUtil;
 import com.ski.box.utils.lottery.SettingManager;
+import com.ski.box.view.activity.my.GameSetActivity;
 import com.ski.box.view.view.dialog.pop.TopHelperPop;
 import com.yb.core.utils.AppUtil;
 import com.zyyoona7.popup.XGravity;
@@ -63,7 +64,7 @@ public class BetTopView extends FrameLayout implements OnClickListener {
     private String mPlanId = "";
     private LotteryResultView mLotteryResultView;
     private View mLotteryResultCoverView;
-    private TopHelperPop mTopHelperPop;
+//    private TopHelperPop mTopHelperPop;
     private int mMode = 2;
     private boolean isBetPage = false;
 
@@ -283,9 +284,10 @@ public class BetTopView extends FrameLayout implements OnClickListener {
     }
 
     private void showHelper() {
-        if (mTopHelperPop == null) {
-            mTopHelperPop = TopHelperPop.create(mContext);
-        }
-        mTopHelperPop.showAtAnchorView(mFlHelper, YGravity.BELOW, XGravity.CENTER, -100, -10);
+//        if (mTopHelperPop == null) {
+//            mTopHelperPop = TopHelperPop.create(mContext);
+//        }
+//        mTopHelperPop.showAtAnchorView(mFlHelper, YGravity.BELOW, XGravity.CENTER, -100, -10);
+        mContext.startActivity(new Intent(mContext, GameSetActivity.class));
     }
 }

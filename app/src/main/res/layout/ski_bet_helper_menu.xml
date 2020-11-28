@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="@dimen/ski_dp_130"
-    android:layout_height="163dp"
+    android:layout_height="50dp"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:background="@mipmap/ski_back_tv_top_xiala">
@@ -12,7 +12,8 @@
         android:layout_width="@dimen/ski_dp_130"
         android:layout_height="@dimen/ski_dp_48"
         android:gravity="center"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="10dp"
+        android:visibility="gone">
 
 <!--        <ImageView-->
 <!--            android:id="@+id/iv_img"-->
@@ -40,14 +41,16 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="@dimen/ski_dp_1"
-        android:background="@color/ski_default_line" />
+        android:background="@color/ski_default_line"
+        android:visibility="gone"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_2"
         android:layout_width="@dimen/ski_dp_130"
         android:layout_height="@dimen/ski_dp_48"
         android:layout_marginBottom="@dimen/ski_dp_2"
-        android:gravity="center">
+        android:gravity="center"
+        android:visibility="gone">
 
         <com.ski.box.view.view.CusTextView
             android:layout_width="@dimen/ski_dp_0"
@@ -66,7 +69,8 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="@dimen/ski_dp_1"
-        android:background="@color/ski_default_line" />
+        android:background="@color/ski_default_line"
+        android:visibility="gone"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_3"
@@ -91,6 +95,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="@dimen/ski_dp_1"
-        android:background="@color/ski_default_line" />
+        android:background="@color/ski_default_line"
+        android:visibility="gone"/>
 
 </LinearLayout>
