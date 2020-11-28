@@ -55,11 +55,11 @@ android {
         }
         release {
             // 不开启混淆
-            minifyEnabled false
+            minifyEnabled true
             // 开启ZipAlign优化
-            zipAlignEnabled false
+            zipAlignEnabled true
             // 移除无用的resource文件
-            shrinkResources false
+            shrinkResources true
             // 使用config签名
             signingConfig signingConfigs.config
 
