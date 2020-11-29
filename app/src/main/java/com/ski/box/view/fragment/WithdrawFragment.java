@@ -63,8 +63,6 @@ public class WithdrawFragment extends BaseMVPFragment<WithdrawContract.Presenter
     private NiceSpinner mSpType;
     private ClearEditText mEtWithdrawMoney;
     private ClearEditText mEtMoneyPwd;
-    private TextView mTvWen1;
-    private TextView mTvWen2;
     private ProgressDialog mLoading;
     private WithdrawRange mWithdrawRange;
     private RotateAnimation rotate;
@@ -115,8 +113,6 @@ public class WithdrawFragment extends BaseMVPFragment<WithdrawContract.Presenter
         mSpType = view.findViewById(R.id.spinner_type);
         mEtWithdrawMoney = view.findViewById(R.id.et_withdraw_money);
         mEtMoneyPwd = view.findViewById(R.id.et_money_pwd);
-        mTvWen1 = view.findViewById(R.id.tv_wen_1);
-        mTvWen2 = view.findViewById(R.id.tv_wen_2);
         mBtnSure = view.findViewById(R.id.btn_sure);
         mllBalance = view.findViewById(R.id.ll_balance);
         mIvBalance = view.findViewById(R.id.iv_refresh_balance);
@@ -124,8 +120,6 @@ public class WithdrawFragment extends BaseMVPFragment<WithdrawContract.Presenter
         mHeadView.setHeader(LanguageUtil.getText(getString(R.string.ski_money_withdraw)), false);
 
         mBtnSure.setOnClickListener(this);
-        mTvWen1.setOnClickListener(this);
-        mTvWen2.setOnClickListener(this);
         mllBalance.setOnClickListener(this);
         mLoading = new ProgressDialog(requireActivity());
     }
@@ -170,10 +164,6 @@ public class WithdrawFragment extends BaseMVPFragment<WithdrawContract.Presenter
             goToDeposit();
         } else if (id == R.id.ll_balance) {
             refreshBalance();
-        } else if (id == R.id.tv_wen_1) {
-            //goToDeposit();
-        } else if (id == R.id.tv_wen_2) {
-            // goToDeposit();
         }
     }
 
@@ -231,7 +221,7 @@ public class WithdrawFragment extends BaseMVPFragment<WithdrawContract.Presenter
         double inputMoney_D = Double.parseDouble(inputMoney);
 
         if (inputMoney_D > mWithdrawRange.getMaxAmt().doubleValue() || inputMoney_D < mWithdrawRange.getMinAmt().doubleValue()) {
-            String str = LanguageUtil.getText("输入的提现金额为");
+            String str = LanguageUtil.getText("提现区间");
             ToastUtil.showError( str + mWithdrawRange.getMinAmt().toPlainString() + "~" + mWithdrawRange.getMaxAmt().toPlainString());
             return;
         }

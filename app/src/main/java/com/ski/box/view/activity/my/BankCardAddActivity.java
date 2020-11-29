@@ -55,7 +55,7 @@ public class BankCardAddActivity extends BaseMVPActivity<BankCardAddContract.Pre
 
     @Override
     protected void initViews() {
-        ImmersionBar.with(this).init();
+        ImmersionBar.with(this).keyboardEnable(true).init();
         mHeadView = findViewById(R.id.head_view);
         mSpinnerBankName = findViewById(R.id.spinner_bank_name);
         mEtPoint = findViewById(R.id.et_point);

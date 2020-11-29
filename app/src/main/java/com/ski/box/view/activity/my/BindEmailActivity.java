@@ -95,6 +95,10 @@ public class BindEmailActivity extends BaseMVPActivity<BindEmailContract.Present
             ToastUtil.showWarning(LanguageUtil.getText("请输入邮箱"));
             return;
         }
+        if (!ValidateUtil.validateEamil(email)) {
+            ToastUtil.showWarning(LanguageUtil.getText("邮箱格式不正确"));
+            return;
+        }
 //        if (TextUtils.isEmpty(code)) {
 //            ToastUtil.showWarning(LanguageUtil.getText("请输入验证码"));
 //            return;

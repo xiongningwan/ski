@@ -17,6 +17,7 @@ import com.ski.box.bean.MkBetParamEntity;
 import com.ski.box.bean.TicketLotteryTimeBean;
 import com.ski.box.utils.AnimationUtil;
 import com.ski.box.utils.SoftHideKeyBoardUtil;
+import com.ski.box.utils.SoftHideKeyBoardUtil2;
 import com.ski.box.view.fragment.bet.top.TopHistoryFragment;
 import com.ski.box.view.view.BetBottomView;
 import com.yb.core.utils.FragmentUtils;
@@ -68,7 +69,7 @@ public class BetActivity extends BaseBetActivity {
         ImmersionBar.with(this).init();
         RxBus.get().register(this);
         super.initViews();
-        SoftHideKeyBoardUtil.assistActivity(this);
+        SoftHideKeyBoardUtil2.assistActivity(this);
     }
 
     @Override

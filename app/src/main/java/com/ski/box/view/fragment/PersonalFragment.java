@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -54,6 +55,7 @@ public class PersonalFragment extends BaseMVPFragment<PersonalContract.Presenter
     private TabLayout mTabLayout;
     private ViewPager mViewPager;
     private CircleImageView mIvUserHead;
+    private FrameLayout mFlService;
     private ImageView mIvService;
     private TextView mTvUserName;
     private TextView mTvUserAcc;
@@ -95,6 +97,7 @@ public class PersonalFragment extends BaseMVPFragment<PersonalContract.Presenter
         RxBus.get().register(this);
         mTabLayout = view.findViewById(R.id.tab_layout);
         mViewPager = view.findViewById(R.id.tab_vp);
+        mFlService = view.findViewById(R.id.fl_service);
         mIvService = view.findViewById(R.id.iv_service);
         mIvUserHead = view.findViewById(R.id.iv_user);
         mTvUserName = view.findViewById(R.id.tv_user_name);
@@ -108,6 +111,7 @@ public class PersonalFragment extends BaseMVPFragment<PersonalContract.Presenter
         mBtnLogout = view.findViewById(R.id.btn_logout);
 
         mIvUserHead.setOnClickListener(this);
+        mFlService.setOnClickListener(this);
         mIvEt.setOnClickListener(this);
         mTvUserName.setOnClickListener(this);
         mTvUserAcc.setOnClickListener(this);
@@ -137,9 +141,16 @@ public class PersonalFragment extends BaseMVPFragment<PersonalContract.Presenter
         mPresenter.getMemberInfo();
     }
 
-
+    private long mLastClickTime;
+    private long mTimeInterval = 1000L;
     @Override
     public void onClick(View view) {
+        long nowTime = System.currentTimeMillis();
+        if (nowTime - mLastClickTime < mTimeInterval) {
+            // 快速点击事件
+            return;
+        }
+        mLastClickTime = nowTime;
         int id = view.getId();
         if (id == R.id.btn_logout) {
             saveSetSp_token_authorization("", "");
@@ -155,7 +166,7 @@ public class PersonalFragment extends BaseMVPFragment<PersonalContract.Presenter
             ((MainActivity) requireActivity()).gotoPage(HallTabLayout.TAB_INDEX_2);
         } else if (id == R.id.iv_user) {
             startActivity(new Intent(requireActivity(), UpdateHeadActivity.class));
-        } else if (id == R.id.iv_service) {
+        } else if (id == R.id.fl_service) {
             AgentWebViewActivity.startAgentWebView(requireActivity(), LanguageUtil.getText("客服中心"), ConstantValue.SERVICE_URL);
         }
     }

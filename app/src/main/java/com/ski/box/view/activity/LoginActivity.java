@@ -23,6 +23,7 @@ import com.ski.box.mvp.contract.LoginContract;
 import com.ski.box.mvp.presenter.LoginPresenter;
 import com.ski.box.utils.ActivityUtil;
 import com.ski.box.utils.HeaderUtil;
+import com.ski.box.utils.SoftHideKeyBoardUtil2;
 import com.ski.box.utils.UpdateUtil;
 import com.ski.box.view.view.dialog.LanguageSwitchDialog;
 import com.xuexiang.xupdate._XUpdate;
@@ -89,7 +90,7 @@ public class LoginActivity extends BaseMVPActivity<LoginContract.Presenter> impl
         tvLanguageSwitch.setOnClickListener(this);
         tvkefu.setOnClickListener(this);
         tvVersion.setOnClickListener(this);
-        SoftHideKeyBoardUtil.assistActivity(this);
+        SoftHideKeyBoardUtil2.assistActivity(this);
     }
 
 

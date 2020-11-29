@@ -128,7 +128,8 @@ public class PersonalInfoActivity extends BaseMVPActivity<PersonalInfoContract.P
 
     @Override
     public void onMemberInfoResult(MemberInfo memberInfo) {
-
+        DataCenter.getInstance().setUser(memberInfo);
+        initData(null);
     }
 
     @Override
@@ -151,12 +152,14 @@ public class PersonalInfoActivity extends BaseMVPActivity<PersonalInfoContract.P
     public void onBindPhoneSuccess(String s) {
         User user = DataCenter.getInstance().getUser();
         mTvTipPhone.setText(user.getMobile());
+        mPresenter.getMemberInfo();
     }
 
     @Subscribe(tags = {@Tag(EVENT_BIND_EMAIL_SUCCESS)})
     public void onBindEmailSuccess(String s) {
         User user = DataCenter.getInstance().getUser();
         mTvTipEmail.setText(user.getEmail());
+        mPresenter.getMemberInfo();
     }
 
 

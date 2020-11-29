@@ -50,7 +50,7 @@ public class ActivityUtil {
 
     // 头像
     public static int getHeadByProfile(String profile) {
-        int iconRes = R.mipmap.icon_hall_user;
+        int iconRes = R.mipmap.ski_icon_head_1;
         if (TextUtils.isEmpty(profile)) {
             return iconRes;
         }

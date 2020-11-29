@@ -11,6 +11,7 @@ import com.chad.library.adapter.base.viewholder.BaseViewHolder;
 import com.ski.box.R;
 import com.ski.box.bean.user.BankCard;
 import com.ski.box.utils.ActivityUtil;
+import com.ski.box.view.view.CusButton;
 import com.yb.core.utils.LanguageUtil;
 import com.ski.box.view.view.CusTextView;
 

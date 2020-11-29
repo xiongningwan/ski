@@ -44,25 +44,12 @@
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"/>
 
-    <com.ski.box.view.view.CusTextView
-        android:layout_marginBottom="@dimen/ski_dp_15"
-        android:id="@+id/marked_words"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/ll_amount"
-        android:layout_marginLeft="@dimen/ski_dp_12"
-        android:text="*相同金额的只会显示前一个"
-        android:textColor="#ff9307"
-        android:textSize="12dp"
-        android:layout_marginTop="5dp"
-        android:visibility="visible" />
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/ski_dp_45"
         android:layout_below="@+id/marked_words"
         android:layout_marginLeft="@dimen/ski_dp_18"
-        android:layout_marginTop="@dimen/ski_dp_5"
+        android:layout_marginTop="@dimen/ski_dp_16"
         android:layout_marginRight="@dimen/ski_dp_18"
         android:orientation="horizontal">
 

@@ -22,6 +22,7 @@ import com.ski.box.mvp.presenter.RegisterPresenter;
 import com.ski.box.mvp.service.IUserService;
 import com.ski.box.utils.SignUtil;
 import com.ski.box.utils.SoftHideKeyBoardUtil;
+import com.ski.box.utils.SoftHideKeyBoardUtil2;
 import com.ski.box.utils.ValidateUtil;
 import com.yb.core.base.BaseMVPActivity;
 import com.yb.core.net.RetrofitHelper;
@@ -65,7 +66,7 @@ public class RegisterActivity extends BaseMVPActivity<RegisterContract.Presenter
         mLoading = new ProgressDialog(this);
         mLoading.setCancelable(true);
         mLoading.setCanceledOnTouchOutside(true);
-        SoftHideKeyBoardUtil.assistActivity(this);
+        SoftHideKeyBoardUtil2.assistActivity(this);
     }
 
 

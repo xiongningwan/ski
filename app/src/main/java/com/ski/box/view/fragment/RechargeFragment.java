@@ -205,7 +205,7 @@ public class RechargeFragment extends BaseMVPFragment<RechargeContract.Presenter
             e.printStackTrace();
         }
         if (inputMoneyD < minD || inputMoneyD > maxD) {
-            ToastUtil.showError(LanguageUtil.getText("该渠道充值范围为") + minD + "~" + maxD);
+            ToastUtil.showError(LanguageUtil.getText("充值区间") + payType.getMinAmt() + "~" + payType.getMaxAmt());
             return;
         }
         mBtnSure.setEnabled(false);
