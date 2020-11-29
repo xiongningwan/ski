@@ -82,7 +82,7 @@ public interface IUserService {
      */
     @POST(UrlConfig.URL_MEM_UPDATE_PHONE)
     @FormUrlEncoded
-    Single<HttpResult<Object>> bindPhone(@Field("mobile") String mobile);
+    Single<HttpResult<Object>> bindPhone(@Field("mobile") String mobile, @Field("mobileCode") String code);
     /**
      * 绑定邮箱
      */

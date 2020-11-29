@@ -12,6 +12,6 @@ public interface BindPhoneContract {
 
     interface Presenter extends BaseContract.BasePresenter<View> {
         void sendCode(String mobile);
-        void bindPhone(String phone);
+        void bindPhone(String phone, String code);
     }
 }

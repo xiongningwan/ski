@@ -43,7 +43,7 @@ public class BindPhonePresenter extends RxPresenter<BindPhoneContract.View> impl
     }
 
     @Override
-    public void bindPhone(String phone) {
+    public void bindPhone(String phone, String code) {
         Disposable disposable = mUserModel.bindPhone(new Consumer<Object>() {
             @Override
             public void accept(Object o) throws Exception {
@@ -55,7 +55,7 @@ public class BindPhonePresenter extends RxPresenter<BindPhoneContract.View> impl
                 super.accept(throwable);
                 mView.onFailResult(throwable.getMessage());
             }
-        }, phone);
+        }, phone, code);
         addDisposable(disposable);
     }
 }

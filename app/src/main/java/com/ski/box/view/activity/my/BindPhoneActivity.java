@@ -103,7 +103,7 @@ public class BindPhoneActivity extends BaseMVPActivity<BindPhoneContract.Present
             return;
         }
 
-        mPresenter.bindPhone(phone);
+        mPresenter.bindPhone(phone, code);
     }
 
     @Override

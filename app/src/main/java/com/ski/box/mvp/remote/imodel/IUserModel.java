@@ -50,7 +50,8 @@ public interface IUserModel {
 
     Disposable bindPhone(Consumer s,
                          CusConsumer e,
-                         String mobile);
+                         String mobile,
+                         String code);
 
     Disposable bindEmail(Consumer s,
                          CusConsumer e,

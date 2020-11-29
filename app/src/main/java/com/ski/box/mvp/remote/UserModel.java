@@ -91,10 +91,10 @@ public class UserModel extends BaseModel implements IUserModel {
     }
 
     @Override
-    public Disposable bindPhone(Consumer s, CusConsumer e, String mobile) {
+    public Disposable bindPhone(Consumer s, CusConsumer e, String mobile, String code) {
         Single<Object> single = RetrofitHelper
                 .getService(IUserService.class)
-                .bindPhone(mobile)
+                .bindPhone(mobile, code)
                 .map(new HttpResultFunc<>());
         return toSubscribe(single, s, e);
     }
