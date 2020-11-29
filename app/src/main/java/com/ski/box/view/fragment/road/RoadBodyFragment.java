@@ -319,10 +319,10 @@ public class RoadBodyFragment extends BaseFragment {
             List<RoadBean> list3 = roadSub.getList3();
             List<RoadBean> list4 = roadSub.getList4();
 
-            rv1Adapter.setNewInstance(list1);
-            rv2Adapter.setNewInstance(list2);
-            rv3Adapter.setNewInstance(list3);
-            rv4Adapter.setNewInstance(list4);
+            rv1Adapter.setList(list1);
+            rv2Adapter.setList(list2);
+            rv3Adapter.setList(list3);
+            rv4Adapter.setList(list4);
             mAdapters1.add(rv1Adapter);
             mAdapters2.add(rv2Adapter);
             mAdapters3.add(rv3Adapter);

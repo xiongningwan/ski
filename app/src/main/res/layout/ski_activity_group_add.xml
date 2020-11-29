@@ -106,6 +106,7 @@
             android:singleLine="true"
             android:textSize="15dp"
             android:hint="请输入密码"
+            android:digits="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -137,6 +138,7 @@
             android:singleLine="true"
             android:textSize="15dp"
             android:hint="请再次输入密码"
+            android:digits="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -200,7 +202,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:gravity="center"
             android:layout_marginEnd="16dp"
-            android:background="@color/ski_black"/>
+            android:background="@color/ski_black" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <View
