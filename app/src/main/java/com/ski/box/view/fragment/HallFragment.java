@@ -189,9 +189,11 @@ public class HallFragment extends BaseMVPFragment<HallContract.Presenter> implem
         } else if (id == R.id.ll_activity) { // 活动
             ((MainActivity) requireActivity()).gotoPage(HallTabLayout.TAB_INDEX_1);
         } else if (id == R.id.ll_recharge) { // 充值
-            ((MainActivity) requireActivity()).gotoPage(HallTabLayout.TAB_INDEX_1);
+            ContainerActivity.startAct(requireActivity(), RechargeFragment.class.getSimpleName());
+           // ((MainActivity) requireActivity()).gotoPage(HallTabLayout.TAB_INDEX_1);
         } else if (id == R.id.ll_withdraw) { // 提现
-            ((MainActivity) requireActivity()).gotoPage(HallTabLayout.TAB_INDEX_2);
+            ContainerActivity.startAct(requireActivity(), WithdrawFragment.class.getSimpleName());
+          //  ((MainActivity) requireActivity()).gotoPage(HallTabLayout.TAB_INDEX_2);
         }
     }
 

@@ -21,6 +21,8 @@ import com.ski.box.mvp.presenter.EmptyPresenter;
 import com.ski.box.utils.ActivityUtil;
 import com.ski.box.utils.UpdateUtil;
 import com.ski.box.view.activity.MainActivity;
+import com.ski.box.view.fragment.RechargeFragment;
+import com.ski.box.view.fragment.WithdrawFragment;
 import com.ski.box.view.view.HallTabLayout;
 import com.yb.core.utils.AppUtil;
 import com.yb.core.utils.LanguageUtil;
@@ -221,17 +223,17 @@ public class PersonalTabFragment extends BaseMVPFragment<EmptyContract.Presenter
                 startActivity(new Intent(requireActivity(), GroupRecordMoneyActivity.class));
                 break;
             case 13: {// 充值
-//                Intent intent =  new Intent(requireActivity(), ContainerActivity.class);
-//                intent.putExtra(ContainerActivity.KEY_CLASS, RechargeFragment.class.getSimpleName());
-//                startActivity(intent);
+                ContainerActivity.startAct(requireActivity(), RechargeFragment.class.getSimpleName());
 //                ((MainActivity) requireActivity()).gotoPage(HallTabLayout.TAB_INDEX_RECORD);
-                ((MainActivity) requireActivity()).gotoPage(HallTabLayout.TAB_INDEX_1);
+//                ((MainActivity) requireActivity()).gotoPage(HallTabLayout.TAB_INDEX_1);
                 break;
             }
-            case 14: // 提现
-                ((MainActivity) requireActivity()).gotoPage(HallTabLayout.TAB_INDEX_2);
+            case 14: {// 提现
+                ContainerActivity.startAct(requireActivity(), WithdrawFragment.class.getSimpleName());
+//                ((MainActivity) requireActivity()).gotoPage(HallTabLayout.TAB_INDEX_2);
 //                startActivity(new Intent(requireActivity(), WithdrawFragment.class));
                 break;
+            }
             case 15: // 资金进度查询
                 startActivity(new Intent(requireActivity(), MoneyProgressActivity.class));
                 break;
