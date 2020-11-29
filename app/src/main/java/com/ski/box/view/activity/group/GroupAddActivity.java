@@ -114,11 +114,11 @@ public class GroupAddActivity extends BaseMVPActivity<GroupAddContract.Presenter
 //            return;
 //        }
 //
-//        if(pwd.length() < 6 || pwd.length() > 16) {
-//            String err = LanguageUtil.getText("密码必须为6-16位");
-//            ToastUtil.showInfo(err);
-//            return;
-//        }
+        if(pwd.length() < 6 || pwd.length() > 16) {
+            String err = LanguageUtil.getText("密码必须为6-16位");
+            ToastUtil.showInfo(err);
+            return;
+        }
 //
 //        if (!ValidateUtil.validatePwd_new(name)) {
 //            String err = LanguageUtil.getText("账号为6-16位只允许包含字母或数字");
