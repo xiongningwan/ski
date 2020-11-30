@@ -47,7 +47,6 @@
         android:id="@+id/tv_user_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
         android:textColor="@color/ski_color_333333"
         android:textSize="12dp"
         android:ellipsize="end"

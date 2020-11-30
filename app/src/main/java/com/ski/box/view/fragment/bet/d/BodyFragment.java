@@ -296,6 +296,7 @@ public class BodyFragment extends BaseFragment {
         mTabLayout_2.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
+                clearNumberPlate("event_clean_lottery_code");
                 mPosition2 = tab.getPosition();
                 refreshLayout(tab.getPosition());
                 LotteryPlaySub playSub = lotteryPlaySubs.get(tab.getPosition());
@@ -416,6 +417,10 @@ public class BodyFragment extends BaseFragment {
         if (null != lotteryPlaySub) {
             String odds = lotteryPlaySub.getOdds();
             if (TextUtils.isEmpty(odds)) {
+                if (null != mOdds && null != mOddsTwo) {
+                    mOdds.setVisibility(View.GONE);
+                    mOddsTwo.setVisibility(View.GONE);
+                }
                 return;
             }
             if (odds.contains("/")) {
