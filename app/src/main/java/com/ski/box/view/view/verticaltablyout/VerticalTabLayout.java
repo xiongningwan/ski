@@ -250,7 +250,8 @@ public class VerticalTabLayout extends ScrollView {
             }
 //            view.setChecked(true);
             if (updataIndicator) {
-                mTabStrip.moveIndicatorWithAnimator(position);
+//                mTabStrip.moveIndicatorWithAnimator(position);
+                mTabStrip.moveIndicator(position);
             }
             mSelectedTab = view;
 //            ((QTabView)mSelectedTab).isNeayByChecked = true;

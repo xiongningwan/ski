@@ -1,5 +1,6 @@
 package com.ski.box.view.fragment.road;
 
+import android.app.ProgressDialog;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Html;
@@ -49,6 +50,7 @@ import java.util.Objects;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import static com.ski.box.ConstantValue.EVENT_BET_ROAD_LOADING_SHOW;
 import static com.ski.box.ConstantValue.EVENT_TYPE_QUICK_BET_CLICK;
 
 
@@ -113,6 +115,18 @@ public class RoadBodyFragment extends BaseFragment {
     private int stateCur = -1, state2 = -1, state3 = -1, state4 = -1;
     private EasyPopup mCheckAllPopup;
     private int mLeftPosition;
+    private static int mColorRed;
+    private static int mColorBlue;
+    private static int mColorGreen;
+    private static int mColorFuture;
+    private static int mColorTransparent;
+    private static int mRoadItemBg;
+    private static int mIconP1;
+    private static int mIconN1;
+    private static int mIconP2;
+    private static int mIconN2;
+    private static int mIconP3;
+    private static int mIconN3;
 
     public RoadBodyFragment() {
     }
@@ -272,6 +286,20 @@ public class RoadBodyFragment extends BaseFragment {
         mNegativeSmallImage = view.findViewById(R.id.icon_negative_small);
         mNegativeBugImage = view.findViewById(R.id.icon_negative_bug);
 
+        mColorRed = ContextCompat.getColor(mContext, R.color.ski_red);
+        mColorBlue = ContextCompat.getColor(mContext, R.color.ski_text_pub_blue);
+        mColorGreen = ContextCompat.getColor(mContext, R.color.ski_lawngreen);
+        mColorFuture = ContextCompat.getColor(mContext, R.color.ski_road_future);
+        mColorTransparent = ContextCompat.getColor(mContext, R.color.ski_transparent);
+        mRoadItemBg = R.drawable.ski_road_item_bg;
+
+        mIconP1 = R.drawable.ski_road_positive1;
+        mIconN1 = R.drawable.ski_road_negative1;
+        mIconP2 = R.drawable.ski_road_positive2;
+        mIconN2 = R.drawable.ski_road_negative2;
+        mIconP3 = R.mipmap.ski_trend_positive3;
+        mIconN3 = R.mipmap.ski_trend_negative3;
+
 
         mRv1.setLayoutManager(new GridLayoutManager(getActivity(), 6, LinearLayoutManager.HORIZONTAL, false));
         mRv2.setLayoutManager(new GridLayoutManager(getActivity(), 6, LinearLayoutManager.HORIZONTAL, false));
@@ -287,6 +315,7 @@ public class RoadBodyFragment extends BaseFragment {
         bet2.setOnClickListener(this::onBetRequest);
         tvInfo.setOnClickListener(this::askWayInfo);
         initListener();
+
     }
 
 
@@ -875,7 +904,7 @@ public class RoadBodyFragment extends BaseFragment {
 
 
     /*Adapter*/
-    class Rv1Adapter extends BaseQuickAdapter<RoadBean, BaseViewHolder> {
+    public static class Rv1Adapter extends BaseQuickAdapter<RoadBean, BaseViewHolder> {
 
         public Rv1Adapter() {
             super(R.layout.ski_road_item_1);
@@ -885,7 +914,7 @@ public class RoadBodyFragment extends BaseFragment {
         protected void convert(@NotNull BaseViewHolder holder, @Nullable RoadBean bean) {
             TextView tvName = holder.itemView.findViewById(R.id.tv_name);
             String name = "";
-            if(TextUtils.isEmpty(bean.getName())) {
+            if (TextUtils.isEmpty(bean.getName())) {
                 name = "";
             } else {
                 name = bean.getName();
@@ -894,13 +923,17 @@ public class RoadBodyFragment extends BaseFragment {
             holder.setText(R.id.tv_name, LanguageUtil.getText(name + " "));
             int bp = bean.getBp();
             if (RoadBean.Con.BANKER == bp) {
-                holder.setTextColor(R.id.tv_name, ContextCompat.getColor(mContext, R.color.ski_red));
+                holder.setTextColor(R.id.tv_name, mColorRed);
             } else if (RoadBean.Con.PLAYER == bp) {
-                holder.setTextColor(R.id.tv_name, ContextCompat.getColor(mContext, R.color.ski_text_pub_blue));
+                holder.setTextColor(R.id.tv_name, mColorBlue);
             } else {
-                holder.setTextColor(R.id.tv_name, ContextCompat.getColor(mContext, R.color.ski_lawngreen));
+                holder.setTextColor(R.id.tv_name, mColorGreen);
             }
-            tvName.setBackgroundColor(ContextCompat.getColor(getContext(), bean.isFuture() ? R.color.ski_road_future : R.color.ski_transparent));
+            if(bean.isFuture()) {
+                tvName.setBackgroundColor(mColorFuture);
+            } else {
+                tvName.setBackgroundResource(mRoadItemBg);
+            }
         }
 
         @Override
@@ -909,7 +942,7 @@ public class RoadBodyFragment extends BaseFragment {
         }
     }
 
-    class Rv2Adapter extends BaseQuickAdapter<RoadBean, BaseViewHolder> {
+    public static class Rv2Adapter extends BaseQuickAdapter<RoadBean, BaseViewHolder> {
 
         public Rv2Adapter() {
             super(R.layout.ski_road_item_2);
@@ -919,23 +952,22 @@ public class RoadBodyFragment extends BaseFragment {
         protected void convert(@NotNull BaseViewHolder holder, @Nullable RoadBean bean) {
             ImageView viewI = holder.getView(R.id.iv_road);
             if (RoadBean.Con.BANKER == bean.getBp()) {
-                viewI.setImageResource(R.drawable.ski_road_positive1);
+                viewI.setImageResource(mIconP1);
             } else if (RoadBean.Con.PLAYER == bean.getBp()) {
-                viewI.setImageResource(R.drawable.ski_road_negative1);
+                viewI.setImageResource(mIconN1);
             } else {
                 viewI.setImageResource(0);
             }
-            viewI.setBackgroundColor(ContextCompat.getColor(getContext(), bean.isFuture() ? R.color.ski_road_future : R.color.ski_transparent));
-        }
-
-        @Override
-        public int getItemViewType(int position) {
-            return position;
+            if(bean.isFuture()) {
+                viewI.setBackgroundColor(mColorFuture);
+            } else {
+                viewI.setBackgroundResource(mRoadItemBg);
+            }
         }
     }
 
 
-    class Rv3Adapter extends BaseQuickAdapter<RoadBean, BaseViewHolder> {
+    public static class Rv3Adapter extends BaseQuickAdapter<RoadBean, BaseViewHolder> {
 
         public Rv3Adapter() {
             super(R.layout.ski_road_item_2);
@@ -945,23 +977,22 @@ public class RoadBodyFragment extends BaseFragment {
         protected void convert(@NotNull BaseViewHolder holder, @Nullable RoadBean bean) {
             ImageView viewI = holder.getView(R.id.iv_road);
             if (RoadBean.Con.BANKER == bean.getBp()) {
-                viewI.setImageResource(R.drawable.ski_road_positive2);
+                viewI.setImageResource(mIconP2);
             } else if (RoadBean.Con.PLAYER == bean.getBp()) {
-                viewI.setImageResource(R.drawable.ski_road_negative2);
+                viewI.setImageResource(mIconN2);
             } else {
                 viewI.setImageResource(0);
             }
-            viewI.setBackgroundColor(ContextCompat.getColor(getContext(), bean.isFuture() ? R.color.ski_road_future : R.color.ski_transparent));
-        }
-
-        @Override
-        public int getItemViewType(int position) {
-            return position;
+            if(bean.isFuture()) {
+                viewI.setBackgroundColor(mColorFuture);
+            } else {
+                viewI.setBackgroundResource(mRoadItemBg);
+            }
         }
     }
 
 
-    class Rv4Adapter extends BaseQuickAdapter<RoadBean, BaseViewHolder> {
+    public static class Rv4Adapter extends BaseQuickAdapter<RoadBean, BaseViewHolder> {
 
         public Rv4Adapter() {
             super(R.layout.ski_road_item_2);
@@ -971,18 +1002,17 @@ public class RoadBodyFragment extends BaseFragment {
         protected void convert(@NotNull BaseViewHolder holder, @Nullable RoadBean bean) {
             ImageView viewI = holder.getView(R.id.iv_road);
             if (RoadBean.Con.BANKER == bean.getBp()) {
-                viewI.setImageResource(R.mipmap.ski_trend_positive3);
+                viewI.setImageResource(mIconP3);
             } else if (RoadBean.Con.PLAYER == bean.getBp()) {
-                viewI.setImageResource(R.mipmap.ski_trend_negative3);
+                viewI.setImageResource(mIconN3);
             } else {
                 viewI.setImageResource(0);
             }
-            viewI.setBackgroundColor(ContextCompat.getColor(getContext(), bean.isFuture() ? R.color.ski_road_future : R.color.ski_transparent));
-        }
-
-        @Override
-        public int getItemViewType(int position) {
-            return position;
+            if(bean.isFuture()) {
+                viewI.setBackgroundColor(mColorFuture);
+            } else {
+                viewI.setBackgroundResource(mRoadItemBg);
+            }
         }
     }
 

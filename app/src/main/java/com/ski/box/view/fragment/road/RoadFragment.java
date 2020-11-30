@@ -1,7 +1,10 @@
 package com.ski.box.view.fragment.road;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.Gravity;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
@@ -33,6 +36,7 @@ import com.yb.core.utils.ScreenUtils;
 
 import java.util.List;
 
+import static com.ski.box.ConstantValue.EVENT_BET_ROAD_LOADING_SHOW;
 import static com.ski.box.ConstantValue.EVENT_RESULT_HISTORY_LIST_UPDATE;
 
 
@@ -51,6 +55,8 @@ public class RoadFragment extends BaseMVPFragment<RoadContract.Presenter> implem
     List<RoadTitle> mRoadTitles;
     private RoadBodyFragment roadBodyFragment;
     private SmartRefreshLayout refreshLayout;
+    private ProgressDialog mLoading;
+    private Handler mHandler;
 
     public RoadFragment() {
     }
@@ -91,8 +97,12 @@ public class RoadFragment extends BaseMVPFragment<RoadContract.Presenter> implem
 
     @Override
     protected void initData(Bundle savedInstanceState) {
+        mHandler = new Handler();
         mLotteryId = DataCenter.getInstance().getCurLotteryId();
         setLeftVisible();
+        mLoading = new ProgressDialog(requireActivity());
+        mLoading.setCancelable(false);
+        mLoading.setCanceledOnTouchOutside(false);
     }
 
 
@@ -160,6 +170,12 @@ public class RoadFragment extends BaseMVPFragment<RoadContract.Presenter> implem
     }
 
     private void initTab(List<RoadTitle> roadTitles) {
+        mTabLayout.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                return false;
+            }
+        });
         mTabLayout.addOnTabSelectedListener(new VerticalTabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabView tab, int position, boolean isOnclick) {
@@ -231,5 +247,28 @@ public class RoadFragment extends BaseMVPFragment<RoadContract.Presenter> implem
     }
 
 
+
+    private long mLastClickTime;
+    private long mTimeInterval = 1000L;
+    @Subscribe(tags = {@Tag(EVENT_BET_ROAD_LOADING_SHOW)})
+    public void roadLoadingShow(String s) {
+        long nowTime = System.currentTimeMillis();
+        if (nowTime - mLastClickTime < mTimeInterval) {
+            // 快速点击事件
+            return;
+        }
+        mLastClickTime = nowTime;
+        if (mLoading != null) {
+            mLoading.show();
+            mHandler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    if (mLoading != null) {
+                        mLoading.dismiss();
+                    }
+                }
+            },1500);
+        }
+    }
 
 }
