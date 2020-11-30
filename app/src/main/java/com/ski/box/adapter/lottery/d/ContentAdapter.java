@@ -70,11 +70,14 @@ public class ContentAdapter extends BaseQuickAdapter<LotteryPlayEnd, BaseViewHol
 
         if (!TextUtils.isEmpty(play.getTag())) {
             if (play.isHideTag()) {
+                tvTagTitle.setVisibility(View.GONE);
                 tvTagTitle.setText("");
             } else {
+                tvTagTitle.setVisibility(View.VISIBLE);
                 tvTagTitle.setText(LanguageUtil.getText(play.getTag()));
             }
         } else {
+            tvTagTitle.setVisibility(View.GONE);
             tvTagTitle.setText("");
         }
 

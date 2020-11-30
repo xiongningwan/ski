@@ -354,7 +354,7 @@ public class ContentItemAdapter extends BaseMultiItemQuickAdapter<LotteryPlay, B
                 setVisibility(tvOne, tvTwo, tvThree, View.GONE, View.GONE);
                 tvTwo.setText("");
                 tvNum.setVisibility(View.VISIBLE);
-               // tvNum.setText(play.getName());
+                tvNum.setText(play.getName());
                 tvTwo.setBackgroundResource(ConfigurationUiUtils.kuaiSanMap.get(playCode));
             }
         }

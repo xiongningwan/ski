@@ -20,18 +20,6 @@
         android:paddingBottom="@dimen/ski_dp_5">
 
         <com.ski.box.view.view.CusTextView
-            android:id="@+id/tv_num"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingRight="@dimen/ski_dp_2"
-            android:textSize="15dp"
-            android:visibility="invisible"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:textColor="@color/ski_444444_white_text_color"
-            tools:text="1" />
-
-        <com.ski.box.view.view.CusTextView
             android:id="@+id/tvOne"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -76,6 +64,18 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            tools:text="1" />
+
+        <com.ski.box.view.view.CusTextView
+            android:id="@+id/tv_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="@dimen/ski_dp_2"
+            android:textSize="15dp"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textColor="@color/ski_444444_white_text_color"
             tools:text="1" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 

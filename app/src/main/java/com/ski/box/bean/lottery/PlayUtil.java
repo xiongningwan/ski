@@ -432,31 +432,35 @@ public class PlayUtil {
                 if ("hexiao".equals(playSub.getRemoteCode())) { //合肖
                     if (!TextUtils.isEmpty(play.getName())) {
                         // 生肖
-                        play.setName(LanguageUtil.getText(" "+ play.getName() + " "));
+                        play.setName(LanguageUtil.getText(" " + play.getName() + " "));
                     }
-                } else  if ("texiaotouweixiao".equals(playSub.getRemoteCode())) { //特肖头尾数
+                } else if ("texiaotouweixiao".equals(playSub.getRemoteCode())) { //特肖头尾数
                     if (!TextUtils.isEmpty(play.getName())) {
                         // 生肖
-                        if("long".equals(play.getCode())) {
-                            play.setName(LanguageUtil.getText(" 龙 "));
-                        } else if("hu".equals(play.getCode())) {
-                            play.setName(LanguageUtil.getText(" 虎 "));
-                        }
+                        setFanyiSx(play);
                     }
                 }
             } else if ("lianxiaolianwei".equals(playStart.getRemoteCode())) { //连肖连尾
                 //连肖
                 if (!TextUtils.isEmpty(play.getName())) {
                     // 生肖
-                    play.setName(LanguageUtil.getText(" "+ play.getName() + " "));
+                    play.setName(LanguageUtil.getText(" " + play.getName() + " "));
                 }
             } else if ("yixiaozongxiaopingteweishu".equals(playStart.getRemoteCode())) { //一肖总肖平特尾数
                 //连肖
-                if("long".equals(play.getCode())) {
-                    play.setName(LanguageUtil.getText(" 龙 "));
-                } else if("hu".equals(play.getCode())) {
-                    play.setName(LanguageUtil.getText(" 虎 "));
-                }
+                setFanyiSx(play);
+            }
+        }
+    }
+
+    public static final String[] SHENG_XIAO = new String[]{"shu", "niu", "hu", "tu", "long", "she", "ma", "yang", "hou", "ji", "gou", "zhu"};
+    public static final String[] shengXiaoZH = new String[]{"鼠", "牛", "虎", "兔", "龙", "蛇", "马", "羊","猴", "鸡", "狗", "猪"};
+
+    private static void setFanyiSx(LotteryPlay play) {
+        for(int i = 0; i < SHENG_XIAO.length; i++) {
+            if (SHENG_XIAO[i].equals(play.getCode())) {
+                play.setName(LanguageUtil.getText(" " + shengXiaoZH[i] + " "));
+                continue;
             }
         }
     }
