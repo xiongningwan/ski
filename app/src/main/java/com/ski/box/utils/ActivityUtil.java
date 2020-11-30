@@ -163,8 +163,8 @@ public class ActivityUtil {
     public static Typeface getFontTNR() {
         if(mFontTNR == null) {
             AssetManager mgr = AppUtil.getContext().getAssets();
-//            mFontTNR = Typeface.createFromAsset(mgr, "fonts/Times-New-Roman.ttf");
-            mFontTNR = Typeface.createFromAsset(mgr, "fonts/element-icons.535877f5.woff");
+            mFontTNR = Typeface.createFromAsset(mgr, "fonts/Times-New-Roman.ttf");
+//            mFontTNR = Typeface.createFromAsset(mgr, "fonts/element-icons.535877f5.woff");
         }
        return mFontTNR;
     }

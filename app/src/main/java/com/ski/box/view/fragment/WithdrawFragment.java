@@ -222,7 +222,7 @@ public class WithdrawFragment extends BaseMVPFragment<WithdrawContract.Presenter
 
         if (inputMoney_D > mWithdrawRange.getMaxAmt().doubleValue() || inputMoney_D < mWithdrawRange.getMinAmt().doubleValue()) {
             String str = LanguageUtil.getText("提现区间");
-            ToastUtil.showError( str + mWithdrawRange.getMinAmt().toPlainString() + "~" + mWithdrawRange.getMaxAmt().toPlainString());
+            ToastUtil.showError( str + ": "+ mWithdrawRange.getMinAmt().toPlainString() + "~" + mWithdrawRange.getMaxAmt().toPlainString());
             return;
         }
         mBtnSure.setEnabled(false);
