@@ -501,6 +501,7 @@ public class TopResultAdapter extends BaseMultiItemQuickAdapter<LotteryNumBean, 
             case LotteryConstant.SER_ID_KL8:
             case LotteryConstant.SER_ID_11X5:
             case LotteryConstant.SER_ID_PL35:
+            case LotteryConstant.SER_ID_3D:
             case LotteryConstant.SER_ID_SSC: {
                 // 0 - 9
                 if (view instanceof TextView) {

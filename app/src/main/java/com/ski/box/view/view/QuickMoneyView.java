@@ -111,7 +111,7 @@ public class QuickMoneyView implements View.OnClickListener {
 
 //        etDoubleAmount.setHint(LanguageUtil.getText("输入金额"));
         if (LanguageUtil.VI.equals(LanguageUtil.getLanguage())) {
-            //  etDoubleAmount.setTypeface(ActivityUtil.getFontTNR());
+              etDoubleAmount.setTypeface(ActivityUtil.getFontTNR());
         }
 
         tvSetting.setOnClickListener(this);
