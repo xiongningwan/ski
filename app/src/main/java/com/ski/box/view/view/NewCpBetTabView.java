@@ -25,10 +25,10 @@ public class NewCpBetTabView extends RelativeLayout implements View.OnClickListe
     private int mCurrentIndex;
     private ViewPager mViewPager;
 
-    private int mPosition_double;
-    private int mPosition_standard;
+    private int mPosition_0;
+    private int mPosition_1;
     private int mPosition_road;
-    private int mPosition_dragon;
+    private int mPosition_2;
     private TextView tvNum;
 
     public NewCpBetTabView(Context context) {
@@ -61,10 +61,10 @@ public class NewCpBetTabView extends RelativeLayout implements View.OnClickListe
         mScreenWidth = ScreenUtils.getScreenWidth(context);
 
 
-        mPosition_double = 0;
-        mPosition_standard = 1;
+        mPosition_0 = 0;
+        mPosition_1 = 1;
 //        mPosition_road = 2;
-        mPosition_dragon = 2;
+        mPosition_2 = 2;
     }
 
     public void scrollPosition(int position) {
@@ -81,13 +81,13 @@ public class NewCpBetTabView extends RelativeLayout implements View.OnClickListe
     public void onClick(View v) {
         int id = v.getId();
         if (R.id.tv_bet_d == id) {
-            scrollPosition(mPosition_double);
+            scrollPosition(mPosition_0);
         } else if (R.id.tv_bet_s == id) {
-            scrollPosition(mPosition_standard);
+            scrollPosition(mPosition_1);
         } else if (R.id.tv_road == id) {
             scrollPosition(mPosition_road);
         } else if (R.id.rl_4 == id) {
-            scrollPosition(mPosition_dragon);
+            scrollPosition(mPosition_2);
 
         }
 
@@ -115,7 +115,8 @@ public class NewCpBetTabView extends RelativeLayout implements View.OnClickListe
                 item_1.setSelected(false);
                 item_2.setSelected(false);
 //                item_3.setSelected(true);
-                item_4.setSelected(false);
+//                item_4.setSelected(false);
+                item_4.setSelected(true);
                 break;
             case 3:
                 item_1.setSelected(false);

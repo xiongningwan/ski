@@ -57,7 +57,6 @@ public class PersonalFragment extends BaseMVPFragment<PersonalContract.Presenter
     private ViewPager mViewPager;
     private CircleImageView mIvUserHead;
     private FrameLayout mFlService;
-    private ImageView mIvService;
     private TextView mTvUserName;
     private TextView mTvUserAcc;
     private TextView mTvBalance;
@@ -99,7 +98,6 @@ public class PersonalFragment extends BaseMVPFragment<PersonalContract.Presenter
         mTabLayout = view.findViewById(R.id.tab_layout);
         mViewPager = view.findViewById(R.id.tab_vp);
         mFlService = view.findViewById(R.id.fl_service);
-        mIvService = view.findViewById(R.id.iv_service);
         mIvUserHead = view.findViewById(R.id.iv_user);
         mTvUserName = view.findViewById(R.id.tv_user_name);
         mTvUserAcc = view.findViewById(R.id.tv_user_acc);
@@ -119,7 +117,6 @@ public class PersonalFragment extends BaseMVPFragment<PersonalContract.Presenter
         mBtnLogout.setOnClickListener(this);
         mBtnRecharge.setOnClickListener(this);
         mBtnWithdraw.setOnClickListener(this);
-        mIvService.setOnClickListener(this);
     }
 
     @Override
