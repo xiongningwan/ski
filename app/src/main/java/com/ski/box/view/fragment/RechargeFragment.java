@@ -241,9 +241,9 @@ public class RechargeFragment extends BaseMVPFragment<RechargeContract.Presenter
         startActivity(intent);
 
         mSpType.setSelectedIndex(0);
-        mEtMoney.setText("");
         mEtCardName.setText("");
-        mEtMoney.setHint("请输入充值金额");
+        mEtMoney.setText("");
+        mEtMoney.setCHint("请输入充值金额");
     }
 
     @Override

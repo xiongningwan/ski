@@ -36,7 +36,7 @@ public class ShuoMingSheetDialog extends StrongBottomSheetDialog {
     }
 
     private void createView(Context context) {
-        int height =  ScreenUtils.getScreenHeight(context);
+       // int height =  ScreenUtils.getScreenHeight(context);
          mPlayDescripView = new ShuoMingDoubleView(getContext());
         setContentView(mPlayDescripView);
         mPlayDescripView.setBottomFramentDailog(this);
