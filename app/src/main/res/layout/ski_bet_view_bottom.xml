@@ -193,6 +193,7 @@
         android:layout_height="wrap_content"
         tools:text="总金额:32564.45"
         android:textSize="14dp"
+        android:layout_marginBottom="5dp"
         android:textColor="@color/ski_color_333333"
         app:layout_constraintEnd_toStartOf="@+id/tv_X3"
         app:layout_constraintStart_toStartOf="parent"
