@@ -430,25 +430,30 @@ public class PlayUtil {
         if (LotteryConstant.SER_ID_LHC == serId) {
             if ("tema".equals(playStart.getRemoteCode())) { //特码
                 if ("hexiao".equals(playSub.getRemoteCode())) { //合肖
-                    if (!TextUtils.isEmpty(play.getName())) {
-                        // 生肖
-                        play.setName(LanguageUtil.getText(" " + play.getName() + " "));
-                    }
+                    setFanyiSx(play);// 生肖
                 } else if ("texiaotouweixiao".equals(playSub.getRemoteCode())) { //特肖头尾数
-                    if (!TextUtils.isEmpty(play.getName())) {
-                        // 生肖
-                        setFanyiSx(play);
-                    }
+                    setFanyiSx(play); // 生肖
+                }
+            } else if ("zhengma".equals(playStart.getRemoteCode())) { //正码
+                if ("zhengxiaoqisebo".equals(playSub.getRemoteCode())) { //正肖七色波
+                    setFanyiSx(play); // 生肖
                 }
             } else if ("lianxiaolianwei".equals(playStart.getRemoteCode())) { //连肖连尾
-                //连肖
-                if (!TextUtils.isEmpty(play.getName())) {
-                    // 生肖
-                    play.setName(LanguageUtil.getText(" " + play.getName() + " "));
+                String subRemoteCode = playSub.getRemoteCode();
+                if ("erlianxiao".equals(subRemoteCode) //二连肖
+                        || "sanlianxiao".equals(subRemoteCode)
+                        || "silianxiao".equals(subRemoteCode)
+                        || "wulianxiao".equals(subRemoteCode)) {
+                    setFanyiSx(play); // 生肖
+                }  else if("erlianwei".equals(subRemoteCode) //二连肖
+                        || "sanlianwei".equals(subRemoteCode)
+                        || "silianwei".equals(subRemoteCode)
+                        || "wulianwei".equals(subRemoteCode)) {
+                    play.setName(LanguageUtil.getText(play.getName()));
                 }
+
             } else if ("yixiaozongxiaopingteweishu".equals(playStart.getRemoteCode())) { //一肖总肖平特尾数
-                //连肖
-                setFanyiSx(play);
+                setFanyiSx(play);//连肖
             }
         }
     }

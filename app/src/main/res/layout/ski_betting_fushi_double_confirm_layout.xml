@@ -164,7 +164,8 @@
                android:text="可赢金额:xxxxx元"
                android:id="@+id/tv_win_amount"
                android:layout_width="wrap_content"
-               android:layout_height="wrap_content" />
+               android:layout_height="wrap_content"
+               android:visibility="gone"/>
            <CheckBox
                android:drawableRight="@drawable/ski_select_double_checkbox"
                android:textSize="14dp"

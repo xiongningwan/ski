@@ -133,10 +133,20 @@ public class MkBetParamEntity {
         private boolean isSingle = false;
         /*玩法组名称*/
         private String groupName;
+        private String groupCode;
         /*单式 有投注位置*/
         private String positionName = "";
         /*购彩篮用*/
         private boolean isDanTiao;
+
+        public String getGroupCode() {
+            return groupCode;
+        }
+
+        public void setGroupCode(String groupCode) {
+            this.groupCode = groupCode;
+        }
+
         public boolean isDanTiao() {
             return isDanTiao;
         }

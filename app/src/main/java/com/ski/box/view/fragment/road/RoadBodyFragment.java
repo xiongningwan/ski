@@ -288,7 +288,7 @@ public class RoadBodyFragment extends BaseFragment {
 
         mColorRed = ContextCompat.getColor(mContext, R.color.ski_red);
         mColorBlue = ContextCompat.getColor(mContext, R.color.ski_text_pub_blue);
-        mColorGreen = ContextCompat.getColor(mContext, R.color.ski_lawngreen);
+        mColorGreen = ContextCompat.getColor(mContext, R.color.ski_acc_lose);
         mColorFuture = ContextCompat.getColor(mContext, R.color.ski_road_future);
         mColorTransparent = ContextCompat.getColor(mContext, R.color.ski_transparent);
         mRoadItemBg = R.drawable.ski_road_item_bg;

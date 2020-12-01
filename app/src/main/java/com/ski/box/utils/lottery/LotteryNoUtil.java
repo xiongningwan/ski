@@ -327,6 +327,7 @@ public class LotteryNoUtil {
 
         /*fushi*/
         betParamEntity.setGroupName(codes.getPlayName());
+        betParamEntity.setGroupCode(codes.getRemoteSubCode());
         betParamEntity.setSingle(false);
         betParamEntity.setPlayOdds(codes.getOdds());
         bets.add(betParamEntity);

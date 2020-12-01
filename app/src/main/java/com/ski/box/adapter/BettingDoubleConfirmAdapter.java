@@ -174,7 +174,7 @@ public class BettingDoubleConfirmAdapter extends RecyclerView.Adapter<BettingDou
 
     private void setWinMoney(@NonNull DoubleConfirmViewHolder viewHolder, MkBetParamEntity.BetParamEntity betParamEntity) {
         String win = LotteryNoUtil.calculateWinMoney_d(betParamEntity);
-        viewHolder.itemGain.setText(LanguageUtil.getText("可赢") + win );
+        viewHolder.itemGain.setText( win );
     }
 
 
