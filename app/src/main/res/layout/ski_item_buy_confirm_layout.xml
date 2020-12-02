@@ -58,7 +58,7 @@
         android:layout_toRightOf="@+id/et_item_amount"
         android:layout_toLeftOf="@+id/item_remove"
         android:layout_marginLeft="@dimen/ski_dp_10"
-        android:visibility="gone">
+        android:visibility="visible">
         <com.ski.box.view.view.CusTextView
             android:id="@+id/item_gain_label"
             android:lines="1"

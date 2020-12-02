@@ -11,6 +11,7 @@ import com.ski.box.bean.lottery.LotteryPlayStart;
 import com.ski.box.bean.lottery.LotteryPlaySub;
 import com.ski.box.bean.lottery.LotteryUtil;
 import com.ski.box.utils.lottery.algorithm.utils.math.AlgorithmUtil;
+import com.yb.core.utils.LanguageUtil;
 
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
@@ -33,6 +34,7 @@ public class LotteryWinMoneyUtil {
         String odd = betParamEntity.getPlayOdds();
         boolean isSingle = betParamEntity.isSingle();
         String groupName = betParamEntity.getGroupName();
+        String groupCode = betParamEntity.getGroupCode();
         String betNum = betParamEntity.getBetNum();
         String showText = betParamEntity.getContent();
 
@@ -40,7 +42,7 @@ public class LotteryWinMoneyUtil {
             odd = "0";
         }
         double odd_F = Double.parseDouble(odd);
-        double win_d = getWin_d(isSingle, groupName, betNum, showText, amount, count, odd_F);
+        double win_d = getWin_d(isSingle, groupCode, betNum, showText, amount, count, odd_F);
         if (mDecimalFormat == null) {
             mDecimalFormat = new DecimalFormat("#0.###");
         }
@@ -48,7 +50,7 @@ public class LotteryWinMoneyUtil {
         return win_s;
     }
 
-    private static double getWin_d(boolean isSingle, String groupName, String betNum, String showText, long amount, long count, double odd_F) {
+    private static double getWin_d(boolean isSingle, String groupCode, String betNum, String showText, long amount, long count, double odd_F) {
         if (!isSingle) {
             int combineCount = 0;
             int n = 1; // 用户选中号码个数
@@ -64,76 +66,77 @@ public class LotteryWinMoneyUtil {
             int serId = DataCenter.getInstance().getLotterySeriesId();
             switch (serId) {
                 case LotteryConstant.SER_ID_11X5:
-                    if ("任选一".equals(groupName) || "任选二".equals(groupName) || "任选三".equals(groupName) || "任选四".equals(groupName)) {
+                    if ("renxuanyi".equals(groupCode) || "renxuaner".equals(groupCode)
+                            || "renxuansan".equals(groupCode) || "renxuansi".equals(groupCode)) {
                         if (n > 5) {
                             n = 5;
                         }
                         int m = 0;
-                        if ("任选一".equals(groupName)) {
+                        if ("renxuanyi".equals(groupCode)) {
                             m = 1;
-                        } else if ("任选二".equals(groupName)) {
+                        } else if ("renxuaner".equals(groupCode)) {
                             m = 2;
-                        } else if ("任选三".equals(groupName)) {
+                        } else if ("renxuansan".equals(groupCode)) {
                             m = 3;
-                        } else if ("任选四".equals(groupName)) {
+                        } else if ("renxuansi".equals(groupCode)) {
                             m = 4;
                         }
                         combineCount = AlgorithmUtil.combination(n, m).intValue();
-                    } else if ("任选六中五".equals(groupName) || "任选七中五".equals(groupName) || "任选八中五".equals(groupName)) {
+                    } else if ("renxuanliuzhongwu".equals(groupCode) || "renxuanqizhongwu".equals(groupCode) || "renxuanbazhongwu".equals(groupCode)) {
                         int m = 0;
-                        if ("任选六中五".equals(groupName)) {
+                        if ("renxuanliuzhongwu".equals(groupCode)) {
                             m = 1;
-                        } else if ("任选七中五".equals(groupName)) {
+                        } else if ("renxuanqizhongwu".equals(groupCode)) {
                             m = 2;
-                        } else if ("任选八中五".equals(groupName)) {
+                        } else if ("renxuanbazhongwu".equals(groupCode)) {
                             m = 3;
                         }
                         combineCount = AlgorithmUtil.combination(n - 5, m).intValue();
-                    } else if ("前二组选".equals(groupName) || "前三组选".equals(groupName) || "前二直选".equals(groupName) || "前三直选".equals(groupName)
-                            || "任选五".equals(groupName)) {
+                    } else if ("qianerzuxuan".equals(groupCode) || "qiansanzuxuan".equals(groupCode) || "qianerzhixuan".equals(groupCode) || "qiansanzhixuan".equals(groupCode)
+                            || "renxuanwu".equals(groupCode)) {
                         return amount * odd_F - amount * count;
                     }
 
                     break;
 
                 case LotteryConstant.SER_ID_3D:
-                    if ("二字定位".equals(groupName) || "三字定位".equals(groupName) || "组三".equals(groupName) || "组六".equals(groupName)) {
+                    if ("liangzidingwei".equals(groupCode) || "sanzidingwei".equals(groupCode) || "zusan".equals(groupCode) || "zuliu".equals(groupCode)) {
                         return amount * odd_F - amount * count;
                     }
                     break;
                 case LotteryConstant.SER_ID_LHC:
-                    if ("二连肖".equals(groupName) || "三连肖".equals(groupName) || "四连肖".equals(groupName) || "五连肖".equals(groupName)) {
+                    if ("erlianxiao".equals(groupCode) || "sanlianxiao".equals(groupCode) || "silianxiao".equals(groupCode) || "wulianxiao".equals(groupCode)) {
                         if (isHasBenMing(showText)) {
                             if (n > 7) {
-                                combineCount = getLHC_LX(n, groupName);
+                                combineCount = getLHC_LX(n, groupCode);
                             } else {
-                                return getLHC_LX_BM(n, count, groupName, amount, odd_F);
+                                return getLHC_LX_BM(n, count, groupCode, amount, odd_F);
                             }
                         } else {
-                            combineCount = getLHC_LX(n, groupName);
+                            combineCount = getLHC_LX(n, groupCode);
                         }
 
-                    } else if ("二连尾".equals(groupName) || "三连尾".equals(groupName) || "四连尾".equals(groupName) || "五连尾".equals(groupName)) {
+                    } else if ("erlianwei".equals(groupCode) || "sanlianwei".equals(groupCode) || "silianwei".equals(groupCode) || "wulianwei".equals(groupCode)) {
                         if (isHasBenMing(showText)) {
-                            return getLHC_LX_BM(n, count, groupName, amount, odd_F);
+                            return getLHC_LX_BM(n, count, groupCode, amount, odd_F);
                         } else {
-                            combineCount = getLHC_LX(n, groupName);
+                            combineCount = getLHC_LX(n, groupCode);
                         }
 
-                } else if ("二全中".equals(groupName) || "三全中".equals(groupName) || "四全中".equals(groupName)) {
+                } else if ("erquanzhong".equals(groupCode) || "sanquanzhong".equals(groupCode) || "siquanzhong".equals(groupCode)) {
                         if (n > 6) {
                             n = 6;
                         }
                         int m = 0;
-                        if ("二全中".equals(groupName)) {
+                        if ("erquanzhong".equals(groupCode)) {
                             m = 2;
-                        } else if ("三全中".equals(groupName)) {
+                        } else if ("sanquanzhong".equals(groupCode)) {
                             m = 3;
-                        } else if ("四全中".equals(groupName)) {
+                        } else if ("siquanzhong".equals(groupCode)) {
                             m = 4;
                         }
                         combineCount = AlgorithmUtil.combination(n, m).intValue();
-                    } else if ("二中特".equals(groupName)) {
+                    } else if ("erzhongte".equals(groupCode)) {
                         if (n >= 2 && n <= 6) {
                             combineCount = AlgorithmUtil.combination(n, 2).intValue();
                         } else {
@@ -144,12 +147,12 @@ public class LotteryWinMoneyUtil {
                             double otherOdd = getOtherOdd("lianma", "erzhongte");
                             return amount * otherOdd * 6 + amount * odd_F * combineCount - amount * count;
                         }
-                    } else if ("特串".equals(groupName)) {
+                    } else if ("techuang".equals(groupCode)) {
                         if (n > 7) {
                             n = 7;
                         }
                         combineCount = n - 1;
-                    } else if ("三中二".equals(groupName)) {
+                    } else if ("sanzhonger".equals(groupCode)) {
 
                         if (n >= 3 && n <= 6) {
                             combineCount = AlgorithmUtil.combination(n, 3).intValue();
@@ -158,10 +161,10 @@ public class LotteryWinMoneyUtil {
                             double otherOdd = getOtherOdd("lianma", "sanzhonger");
                             return amount * odd_F * 20 + amount * otherOdd * (n - 6) * combineCount - amount * count;
                         }
-                    } else if ("自选不中".equals(groupName)) {
+                    } else if ("zixuanbuzhong".equals(groupCode)) {
                         return amount * count * odd_F - amount * count;
 
-                    } else if("合肖".equals(groupName)) {
+                    } else if("hexiao".equals(groupCode)) {
                         return amount * count * odd_F - amount * count;
                     }
 
@@ -173,19 +176,19 @@ public class LotteryWinMoneyUtil {
     }
 
     // 六合彩可嬴金额连肖连尾
-    private static int getLHC_LX(int n, String groupName) {
+    private static int getLHC_LX(int n, String groupCode) {
         int combineCount = 0;
         if (n > 7) {
             n = 7;
         }
         int m = 0;
-        if ("二连肖".equals(groupName) || "二连尾".equals(groupName)) {
+        if ("erlianxiao".equals(groupCode) || "erlianwei".equals(groupCode)) {
             m = 2;
-        } else if ("三连肖".equals(groupName) || "三连尾".equals(groupName)) {
+        } else if ("sanlianxiao".equals(groupCode) || "sanlianwei".equals(groupCode)) {
             m = 3;
-        } else if ("四连肖".equals(groupName) || "四连尾".equals(groupName)) {
+        } else if ("silianxiao".equals(groupCode) || "silianwei".equals(groupCode)) {
             m = 4;
-        } else if ("五连肖".equals(groupName) || "五连尾".equals(groupName)) {
+        } else if ("wulianxiao".equals(groupCode) || "wulianwei".equals(groupCode)) {
             m = 5;
         }
         combineCount = AlgorithmUtil.combination(n, m).intValue();
@@ -193,7 +196,7 @@ public class LotteryWinMoneyUtil {
     }
 
     // 包含本命
-    private static double getLHC_LX_BM(int n, long count, String groupName, long amount, double odd_F) {
+    private static double getLHC_LX_BM(int n, long count, String groupCode, long amount, double odd_F) {
         double keying = 0;
         int combineCount = 0;
         int combineCount_bm = 0;
@@ -202,9 +205,9 @@ public class LotteryWinMoneyUtil {
             n = 7;
         }
         int m = 0;
-        if ("二连肖".equals(groupName) || "二连尾".equals(groupName)) {
+        if ("erlianxiao".equals(groupCode) || "erlianwei".equals(groupCode)) {
             m = 2;
-            if ("二连肖".equals(groupName)) {
+            if ("erlianxiao".equals(groupCode)) {
                 subCode = "erlianxiao";
                 playRemoteCodeUp = "zhengtemaerlianxiaohb";
                 playRemoteCode = "renxuanerxiao";
@@ -214,9 +217,9 @@ public class LotteryWinMoneyUtil {
                 playRemoteCode = "renxuanerwei";
             }
 
-        } else if ("三连肖".equals(groupName) || "三连尾".equals(groupName)) {
+        } else if ("sanlianxiao".equals(groupCode) || "sanlianwei".equals(groupCode)) {
             m = 3;
-            if ("三连肖".equals(groupName)) {
+            if ("sanlianxiao".equals(groupCode)) {
                 subCode = "sanlianxiao";
                 playRemoteCodeUp = "zhengtemasanlianxiaohb";
                 playRemoteCode = "rexuansanxiao";
@@ -225,9 +228,9 @@ public class LotteryWinMoneyUtil {
                 playRemoteCodeUp = "zhengtemasanlianweihl";
                 playRemoteCode = "renxuansanwei";
             }
-        } else if ("四连肖".equals(groupName) || "四连尾".equals(groupName)) {
+        } else if ("silianxiao".equals(groupCode) || "silianwei".equals(groupCode)) {
             m = 4;
-            if ("四连肖".equals(groupName)) {
+            if ("silianxiao".equals(groupCode)) {
                 subCode = "silianxiao";
                 playRemoteCodeUp = "zhengtemasilianxiaohb";
                 playRemoteCode = "renxuansixiao";
@@ -236,9 +239,9 @@ public class LotteryWinMoneyUtil {
                 playRemoteCodeUp = "zhengtemasilianweihl";
                 playRemoteCode = "renxuansiwei";
             }
-        } else if ("五连肖".equals(groupName) || "五连尾".equals(groupName)) {
+        } else if ("wulianxiao".equals(groupCode) || "wulianwei".equals(groupCode)) {
             m = 5;
-            if ("五连肖".equals(groupName)) {
+            if ("wulianxiao".equals(groupCode)) {
                 subCode = "wulianxiao";
                 playRemoteCodeUp = "zhengtemawulianxiaohb";
                 playRemoteCode = "renxuanwuxiao";
@@ -279,7 +282,7 @@ public class LotteryWinMoneyUtil {
             int tYearInt = Integer.parseInt(tYear);
             // 今年生肖
             String bm_SX = LotteryUtil.getYear_SX(tYearInt);
-            if (list.contains(bm_SX) || list.contains("0尾")) {
+            if (list.contains(LanguageUtil.getText(" " + bm_SX + " ")) || list.contains("0尾") || list.contains("Đuôi 0 ")) {
                 return true;
             }
         } catch (Exception e) {

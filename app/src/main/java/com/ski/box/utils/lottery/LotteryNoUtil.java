@@ -428,7 +428,8 @@ public class LotteryNoUtil {
                 betParamEntity.setPlayId(String.valueOf(play.getId()));
 //                betParamEntity.setBetNum(getCodeWay(play.getCode(), lotteryPlayStart.getTitle(), playSub.getTitleSub()));
                 betParamEntity.setBetNum(play.getCode());
-                betParamEntity.setContent(danBetContent(lotteryPlayStart, playSub, playEnd, play));
+//                betParamEntity.setContent(danBetContent(lotteryPlayStart, playSub, playEnd, play));
+                betParamEntity.setContent(play.getName());
                 betParamEntity.setBetAmount_d(DataCenter.getInstance().getQuickMoney());
                 betParamEntity.setBetCount(1);
                 betParamEntity.setGroupName(play.getTag());

@@ -354,7 +354,8 @@ public class ContentItemAdapter extends BaseMultiItemQuickAdapter<LotteryPlay, B
                 setVisibility(tvOne, tvTwo, tvThree, View.GONE, View.GONE);
                 tvTwo.setText("");
                 tvNum.setVisibility(View.VISIBLE);
-                tvNum.setText(play.getName());
+//                tvNum.setText(play.getName());
+                tvNum.setText(getYuXiaXieNameToNo(play));
                 tvTwo.setBackgroundResource(ConfigurationUiUtils.kuaiSanMap.get(playCode));
             }
         }
@@ -400,6 +401,31 @@ public class ContentItemAdapter extends BaseMultiItemQuickAdapter<LotteryPlay, B
         layoutParams.height = ScreenUtils.dip2px(isShort ? 50 : 80);
         layoutParams.setMargins(7, 7, 7, 10);
         llContent.setLayoutParams(layoutParams);
+    }
+
+    private String getYuXiaXieNameToNo(LotteryPlay play) {
+        String name = "";
+        switch (play.getCode()) {
+            case "yu":
+                name = "1";
+                break;
+            case "xia":
+                name = "2";
+                break;
+            case "hulu":
+                name = "3";
+                break;
+            case "jinxian":
+                name = "4";
+                break;
+            case "xie":
+                name = "5";
+                break;
+            case "ji":
+                name = "6";
+                break;
+        }
+        return name;
     }
 
 

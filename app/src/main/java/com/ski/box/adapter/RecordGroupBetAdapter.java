@@ -55,7 +55,7 @@ public class RecordGroupBetAdapter extends BaseQuickAdapter<GroupBetData.ListBea
             tvStatus.setVisibility(View.GONE);
             tvWin.setVisibility(View.VISIBLE);
             String winAmount = DecimalSetUtils.setMoneySaveFour(bean.getWinAmt() + "");
-            String winMoney = LanguageUtil.getText("中奖") + ": " + winAmount;
+            String winMoney = LanguageUtil.getText("已中奖") + ": " + winAmount;
             tvWin.setText(winMoney);
         }
     }

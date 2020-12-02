@@ -165,7 +165,7 @@
                android:id="@+id/tv_win_amount"
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
-               android:visibility="gone"/>
+               android:visibility="visible"/>
            <CheckBox
                android:drawableRight="@drawable/ski_select_double_checkbox"
                android:textSize="14dp"

@@ -12,6 +12,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -351,4 +358,6 @@
         android:text="撤单"
         android:textColor="@color/ski_white"
         android:textSize="16dp" />
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

@@ -60,7 +60,7 @@ public class RecordBetAdapter2 extends BaseQuickAdapter<RecordBet.ListBean , Bas
             tvStatus.setVisibility(View.GONE);
             tvWin.setVisibility(View.VISIBLE);
             String winAmount = DecimalSetUtils.setMoneySaveFour(bean.getWinAmount() + "");
-            String winMoney = LanguageUtil.getText("中奖") + ": " + winAmount + LanguageUtil.getText("元");
+            String winMoney = LanguageUtil.getText("已中奖") + ": " + winAmount + LanguageUtil.getText("元");
 //            SpannableStringBuilder ssb = new SpannableStringBuilder(winMoney);
 //            ForegroundColorSpan red = new ForegroundColorSpan(getContext().getResources().getColor(R.color.ski_red));
 //            ssb.setSpan(red, 2, winMoney.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
