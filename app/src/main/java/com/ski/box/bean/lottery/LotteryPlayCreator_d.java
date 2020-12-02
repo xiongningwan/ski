@@ -33,9 +33,9 @@ public class LotteryPlayCreator_d {
 //        List<LotteryPlayStart> list = createPlay_ssc();
 //        List<LotteryPlayStart> list = createPlay_lhc();
 //        List<LotteryPlayStart> list = createPlay_11x5();
-        List<LotteryPlayStart> list = createPlay_k3();
+//        List<LotteryPlayStart> list = createPlay_k3();
 //        List<LotteryPlayStart> list = createPlay_kl8();
-//        List<LotteryPlayStart> list = createPlay_3d();
+        List<LotteryPlayStart> list = createPlay_3d();
 //        List<LotteryPlayStart> list = getStandard(LotteryConstant.SER_ID_SSC, gson);
         String json = gson.toJson(list);
         System.out.println(json);
@@ -2839,7 +2839,7 @@ public class LotteryPlayCreator_d {
         playEnd4_10.setDivider(DIVIDER_TYPE_LINE);
         List<LotteryPlay> lotteryPlayList4_10 = new ArrayList<>();
         playEnd4_10.setLotteryPlays(lotteryPlayList4_10);
-        lotteryPlayList4_10.add(new LotteryPlay(1750, "9字头", "999", "999", "", "sanzizuhe_baozisanzizuhe", "999"));
+        lotteryPlayList4_10.add(new LotteryPlay(1750, "三字组合", "999", "999", "", "sanzizuhe_baozisanzizuhe", "999"));
 
         //--
         LotteryPlayStart playStart5 = new LotteryPlayStart("一字定位", "yizidingwei");
