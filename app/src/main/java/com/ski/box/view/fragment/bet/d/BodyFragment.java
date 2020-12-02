@@ -91,12 +91,12 @@ public class BodyFragment extends BaseFragment {
 
 
     /*一级栏目需要设置赔率的玩法*/
-//    public ArrayList<String> firstCategoryOdds = new ArrayList<String>() {{
-//        add("自选不中");
-//        add("三字定位");
-//        add("组三");
-//        add("组六");
-//    }};
+    public ArrayList<String> firstCategoryOdds = new ArrayList<String>() {{
+        add(LanguageUtil.getText("zixuanbuzhong"));
+        add(LanguageUtil.getText("sanzidingwei"));
+        add(LanguageUtil.getText("zusan"));
+        add(LanguageUtil.getText("zuliu"));
+    }};
     public BodyFragment() {
     }
 
@@ -486,11 +486,11 @@ public class BodyFragment extends BaseFragment {
             clearNumberPlate("event_clean_lottery_code");
         }
         /*一级栏目设置赔率*/
-//        if (mLotteryPlay != null) {
-//            if (firstCategoryOdds.contains(mLotteryPlay.getRemoteCode())) {
-//                setCurrentOdds(mLotteryPlay.getSubPlays().get(0));
-//            }
-//        }
+        if (mLotteryPlay != null) {
+            if (firstCategoryOdds.contains(mLotteryPlay.getRemoteCode())) {
+                setCurrentOdds(mLotteryPlay.getSubPlays().get(0));
+            }
+        }
 
     }
 }
