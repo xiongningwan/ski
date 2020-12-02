@@ -317,7 +317,7 @@ public class ContentItemAdapter extends BaseMultiItemQuickAdapter<LotteryPlay, B
             tvTwo.setBackgroundColor(Color.argb(0, 0, 0, 0));
             setVisibility(tvOne, tvTwo, tvThree, View.GONE, View.GONE);
             tvTwo.setText(play.getName());
-            tvTwo.setTextColor(Color.parseColor(play.isSelected() ? "#ffffff" : "#7076a0"));
+          //  tvTwo.setTextColor(Color.parseColor(play.isSelected() ? "#ffffff" : "#7076a0"));
             setLayoutParams(llContent, true);
             /**围骰**/
         } else if ("围骰".equalsIgnoreCase(playTag)) {

@@ -10,6 +10,7 @@ import com.ski.box.bean.lottery.LotteryPlayEnd;
 import com.ski.box.bean.lottery.LotteryPlayStart;
 import com.ski.box.bean.lottery.LotteryPlaySub;
 import com.ski.box.bean.lottery.LotteryUtil;
+import com.ski.box.utils.ActivityUtil;
 import com.ski.box.utils.lottery.algorithm.utils.math.AlgorithmUtil;
 import com.yb.core.utils.LanguageUtil;
 
@@ -43,10 +44,11 @@ public class LotteryWinMoneyUtil {
         }
         double odd_F = Double.parseDouble(odd);
         double win_d = getWin_d(isSingle, groupCode, betNum, showText, amount, count, odd_F);
-        if (mDecimalFormat == null) {
-            mDecimalFormat = new DecimalFormat("#0.###");
-        }
-        String win_s = mDecimalFormat.format(win_d);
+//        if (mDecimalFormat == null) {
+//            mDecimalFormat = new DecimalFormat("#0.###");
+//        }
+//        String win_s = mDecimalFormat.format(win_d);
+        String win_s = ActivityUtil.formatBonus2(win_d);
         return win_s;
     }
 
@@ -263,6 +265,9 @@ public class LotteryWinMoneyUtil {
     private static boolean isHasBenMing(String betNum) {
         List<String> list = new ArrayList<>();
         if (!TextUtils.isEmpty(betNum)) {
+            if (betNum.contains("0尾") || betNum.contains("Đuôi 0 ")) {
+                return true;
+            }
             if (betNum.contains(" ")) {
                 String[] arr = betNum.split(" ");
                 for (String s : arr) {
@@ -282,7 +287,7 @@ public class LotteryWinMoneyUtil {
             int tYearInt = Integer.parseInt(tYear);
             // 今年生肖
             String bm_SX = LotteryUtil.getYear_SX(tYearInt);
-            if (list.contains(LanguageUtil.getText(" " + bm_SX + " ")) || list.contains("0尾") || list.contains("Đuôi 0 ")) {
+            if (list.contains(LanguageUtil.getText(" " + bm_SX + " "))) {
                 return true;
             }
         } catch (Exception e) {
