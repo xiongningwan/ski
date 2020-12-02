@@ -141,6 +141,7 @@
   "短牌": "Bài ngắn ",
   "鱼虾蟹": "Tôm cua cá ",
   "特码大小": "Số ĐB tài xỉu ",
+  "特码单双": "Số ĐB chẵn lẻ",
   "特码合大小": "Số ĐB hợp tài xỉu ",
   "特码合单双": "Số ĐB hợp chẵn lẻ ",
   "特码天地肖": "Số ĐB thiên địa giáp ",
@@ -678,4 +679,5 @@
   "重新下载": "Tải lại ",
   "会员登录": "Hội viên đăng nhập",
   "立即体验最佳游戏平台": "Tham gia trải nghiệm ngay"
+
 }
