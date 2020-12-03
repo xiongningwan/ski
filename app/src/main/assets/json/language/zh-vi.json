@@ -188,7 +188,7 @@
   "正码六波色": "Bóng 6 màu ",
   "正特一肖": "Giáp thứ ĐB ",
   "正特肖数": "Giáp số ĐB ",
-  "正特尾数": "đuôi số ĐB ",
+  "正特尾数": "Đuôi số ĐB ",
   "冠亚和大小": "Quán - á quân hoà tài xỉu ",
   "冠亚和单双": "Quán - á quân hoà chẵn lẻ ",
   "冠军大小": "Quán quân tài xỉu ",
@@ -404,7 +404,7 @@
   "投注内容": "Nội dung cược",
   "投注金额": "Số tiền cược",
   "赔率": "Tỷ lệ cược",
-  "投注": "đặt cược",
+  "投注": "Đặt cược",
   "输入金额": "Vui lòng nhập",
   "编辑快捷金额": "Chỉnh sửa số tiền",
   "*至少选中1个彩种，才能保存": "*Chọn ít nhất 1 xổ số mới có thể lưu lại",
@@ -469,7 +469,7 @@
   "最多添加5个": "Thêm nhiều nhất 5 thẻ",
   "撤单成功": "Huỷ đơn thành công",
   "通过": "Đã duyệt",
-  "未通过": "hưa duyệt",
+  "未通过": "Hưa duyệt",
   "处理中": "Đang xử lí",
   "活动": "Hoạt động",
   "登录账号": "Tài khoản hội viên",
@@ -478,9 +478,9 @@
   "持  卡  人": "Chủ thẻ",
   "近三日": "3 ngày gần nhất",
   "近30日": "30 ngày gần nhất ",
-  "投注: ": "đặt cược:",
+  "投注: ": "Đặt cược:",
   "至少选中1注": "Cược ít nhất 1 lần",
-  "提交成功": "gửi thành công",
+  "提交成功": "Gửi thành công",
   "注单": "Lẻ",
   "以后停用“投注确认”弹框": "Tạm dừng xác nhận đặt cược",
   "您确定撤销订单吗?": "Bạn xác nhận muốn hủy cược ?",
@@ -678,6 +678,6 @@
   "更新中": "Đang làm mới",
   "重新下载": "Tải lại ",
   "会员登录": "Hội viên đăng nhập",
-  "立即体验最佳游戏平台": "Tham gia trải nghiệm ngay"
-
+  "立即体验最佳游戏平台": "Tham gia trải nghiệm ngay",
+  "最多可选11球":"Chọn nhiều nhất 11 bóng"
 }

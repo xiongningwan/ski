@@ -15,6 +15,7 @@ import com.ski.box.bean.lottery.LotteryPlayStart;
 import com.ski.box.bean.lottery.LotteryPlaySub;
 import com.ski.box.bean.lottery.RemoteLotteryPlay;
 import com.ski.box.utils.lottery.algorithm.CalculationNumUtil;
+import com.yb.core.utils.ToastUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -368,6 +369,7 @@ public class LotteryNoUtil {
             codes.setBetTxt(fixCodes(codes.getBetTxt()));
             codes.setShowTxt(fixCodes(codes.getShowTxt()));
             entity.setClickEnable(false);
+            ToastUtil.showError("最多可选11球");
         } else {
             entity.setClickEnable(true);
         }
