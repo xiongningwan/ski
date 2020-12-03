@@ -1,6 +1,7 @@
 package com.ski.box.bean.lottery;
 
 import com.ski.box.R;
+import com.ski.box.utils.lottery.ConfigurationUiUtils;
 import com.yb.core.utils.TimeUtils;
 
 import java.math.BigDecimal;
@@ -242,9 +243,6 @@ public class LotteryUtil {
     }
 
 
-    public static final List<Integer> red = new ArrayList<>(Arrays.asList(1, 2, 7, 8, 12, 13, 18, 19, 23, 24, 29, 30, 34, 35, 40, 45, 46));
-    public static final List<Integer> green = new ArrayList<>(Arrays.asList(5, 6, 11, 16, 17, 21, 22, 27, 28, 32, 33, 38, 39, 43, 44, 49));
-    public static final List<Integer> blue = new ArrayList<>(Arrays.asList(3, 4, 9, 10, 14, 15, 20, 25, 26, 31, 36, 37, 41, 42, 47, 48));
 
     /**
      * 六合彩双面盘方块背景
@@ -253,11 +251,11 @@ public class LotteryUtil {
      * @return
      */
     public static Integer getLHCSquareBackgroudResource(int code) {
-        if (red.contains(code)) {
+        if (ConfigurationUiUtils.red.contains(code)) {
             return R.drawable.ski_bg_lhc_num_red_selector;
-        } else if (green.contains(code)) {
+        } else if (ConfigurationUiUtils.blue.contains(code)) {
             return R.drawable.ski_bg_lhc_num_blue_selector;
-        } else if (blue.contains(code)) {
+        } else if (ConfigurationUiUtils.green.contains(code)) {
             return R.drawable.ski_bg_lhc_num_green_selector;
         }
         return R.drawable.ski_bet_content_btn_item_selector;
@@ -270,11 +268,11 @@ public class LotteryUtil {
      * @return
      */
     public static Integer getLHCBallBackgroundResource(int code) {
-        if (red.contains(code)) {
+        if (ConfigurationUiUtils.red.contains(code)) {
             return R.drawable.ski_circle_lhc_num_red_selector;
-        } else if (green.contains(code)) {
+        } else if (ConfigurationUiUtils.green.contains(code)) {
             return R.drawable.ski_circle_lhc_num_green_selector;
-        } else if (blue.contains(code)) {
+        } else if (ConfigurationUiUtils.blue.contains(code)) {
             return R.drawable.ski_circle_lhc_num_blue_selector;
         }
         return R.drawable.ski_circle_lhc_num_red_selector;
