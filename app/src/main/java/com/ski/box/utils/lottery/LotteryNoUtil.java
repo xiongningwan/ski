@@ -331,8 +331,6 @@ public class LotteryNoUtil {
         betParamEntity.setSingle(false);
         betParamEntity.setPlayOdds(codes.getOdds());
         bets.add(betParamEntity);
-
-        betParamEntity.setGroupName(codes.getPlayName());
     }
 
     private static void onComposeResult(CodeExhibition codes, List<MkBetParamEntity.BetParamEntity> bets, LotteryPlayStart play, int playPosition, RemoteLotteryPlay remoteLotteryPlay) {

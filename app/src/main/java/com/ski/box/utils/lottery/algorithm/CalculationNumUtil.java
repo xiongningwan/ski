@@ -233,8 +233,8 @@ public class CalculationNumUtil {
                 } else {//二字定位、三字定位、组三
                     codes.setPlayName(playStart.getTitle());
                 }
-                codeShowTxt.append(play.getName()).append(" ");
-                codeBetTxt.append(play.getCode()).append(" ");
+                codeShowTxt.append(play.getName().trim()).append(" ");
+                codeBetTxt.append(play.getCode().trim()).append(" ");
                 codes.setOdds(getOdds(play.getOdds()));
                 codes.setPlayItemId(play.getId());
                 codes.setTag(play.getTag());

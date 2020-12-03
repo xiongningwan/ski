@@ -5,6 +5,8 @@ import android.animation.AnimatorListenerAdapter;
 import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.os.Build;
+import android.text.Html;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
@@ -73,6 +75,11 @@ public class LotteryResultView extends LinearLayout {
     }
 
     public void setResult(List<LotteryNumBean> list, int mode) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            mAdapter.setMode(mode);
+        } else {
+            mAdapter.setMode(2);
+        }
         mAdapter.setMode(mode);
         if(list.size() > 1) {
             mAdapter.setNewInstance(list.subList(0,1));
