@@ -102,7 +102,8 @@ public class LotteryWinMoneyUtil {
                     break;
 
                 case LotteryConstant.SER_ID_3D:
-                    if ("liangzidingwei".equals(groupCode) || "sanzidingwei".equals(groupCode) || "zuxuansan".equals(groupCode) || "zuliu".equals(groupCode)) {
+                    if ("liangzidingwei".equals(groupCode) || "baishidingwei".equals(groupCode) || "baigedingwei".equals(groupCode) || "shigedingwei".equals(groupCode) ||
+                            "sanzidingwei".equals(groupCode) || "zuxuansan".equals(groupCode) || "zuliu".equals(groupCode)) {
                         return amount * odd_F - amount * count;
                     }
                     break;
