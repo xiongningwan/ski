@@ -219,6 +219,14 @@ public class HallFragment extends BaseMVPFragment<HallContract.Presenter> implem
                 .setOnBannerListener(new OnBannerListener() {
                     @Override
                     public void OnBannerClick(Object data, int position) {
+                        String lang = "CN";
+                        if(LanguageUtil.VI.equals(LanguageUtil.getLanguage())) {
+                            lang = "VN";
+                        }
+                        String url = ConstantValue.PROMO_URL + "?token=" + DataCenter.getInstance().getToken()
+                                + "&auth=" + DataCenter.getInstance().getAuthorization()
+                                + "&header=false&footer=false&lang=vi-" + lang;
+                        AgentWebViewActivity.startAgentWebView(requireActivity(), LanguageUtil.getText("活动中心"), url);
                      //   ActBean actBean = (ActBean) data;
                     //    AgentWebViewActivity.startAgentWebView(requireActivity(), LanguageUtil.getText(actBean.getActivityName()), actBean.getTargetUrl());
                     }

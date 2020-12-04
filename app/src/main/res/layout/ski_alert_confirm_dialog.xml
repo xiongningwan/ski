@@ -48,6 +48,7 @@
             android:background="@drawable/ski_pub_bg_gradient_normal_2"
             android:gravity="center"
             android:text="取消"
+            android:layout_gravity="center_vertical"
             android:textColor="#8590AE" />
 
         <com.ski.box.view.view.CusTextView
@@ -57,6 +58,7 @@
             android:layout_marginLeft="@dimen/ski_dp_16"
             android:background="@drawable/ski_pub_bg_setting_trend"
             android:gravity="center"
+            android:layout_gravity="center_vertical"
             android:text="取消"
             android:textColor="@color/ski_white" />
     </LinearLayout>

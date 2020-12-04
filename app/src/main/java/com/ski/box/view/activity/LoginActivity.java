@@ -178,6 +178,7 @@ public class LoginActivity extends BaseMVPActivity<LoginContract.Presenter> impl
                 HeaderUtil.getHeader(loginInfo.getToken(), loginInfo.getAuthorization(), ConstantValue.DEVICE, LanguageUtil.getLanguage()));
         SKISdkManger.initLotteryIds(BuildConfig.DEBUG);
         DataCenter.getInstance().setToken(loginInfo.getToken());
+        DataCenter.getInstance().setAuthorization(loginInfo.getAuthorization());
         DataCenter.getInstance().getLottery().clear();
         DataCenter.getInstance().getRemotePlayMap().clear();
         startActivity(new Intent(LoginActivity.this, MainActivity.class));

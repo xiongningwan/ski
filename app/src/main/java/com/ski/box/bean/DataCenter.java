@@ -39,6 +39,7 @@ public class DataCenter {
     private static Context mContext;
     private static Gson mGson;
     private static String mToken;
+    private String mAuthorization;
     private String mMerchant; // 商户
     private String uerName;
     private List<LotterySer> mLotterySers = new ArrayList<>();  // 彩系
@@ -74,6 +75,14 @@ public class DataCenter {
 
     public String getToken() {
         return mToken;
+    }
+
+    public void setAuthorization(String authorization) {
+        this.mAuthorization = authorization;
+    }
+
+    public String getAuthorization() {
+        return mAuthorization;
     }
 
     public void setMerchant(String merchant) {
@@ -455,4 +464,6 @@ public class DataCenter {
         mUser.setBalance(balanceStr);
         RxBus.get().post(EVENT_TYPE_BALANCE_UPDATE, balanceStr);
     }
+
+
 }

@@ -2861,7 +2861,7 @@ public class LotteryPlayCreator_d {
         lotteryPlayList5_1.add(new LotteryPlay(1970, "百位定位胆", "1", "1", "", "baiweidingweidan", "1"));
         lotteryPlayList5_1.add(new LotteryPlay(1971, "百位定位胆", "2", "2", "", "baiweidingweidan", "2"));
         lotteryPlayList5_1.add(new LotteryPlay(1972, "百位定位胆", "3", "3", "", "baiweidingweidan", "3"));
-        lotteryPlayList5_1.add(new LotteryPlay(1973, "百位定位胆", "4", "5", "", "baiweidingweidan", "5"));
+        lotteryPlayList5_1.add(new LotteryPlay(1973, "百位定位胆", "4", "4", "", "baiweidingweidan", "4"));
         lotteryPlayList5_1.add(new LotteryPlay(1974, "百位定位胆", "5", "5", "", "baiweidingweidan", "5"));
         lotteryPlayList5_1.add(new LotteryPlay(1975, "百位定位胆", "6", "6", "", "baiweidingweidan", "6"));
         lotteryPlayList5_1.add(new LotteryPlay(1976, "百位定位胆", "7", "7", "", "baiweidingweidan", "7"));
@@ -2879,7 +2879,7 @@ public class LotteryPlayCreator_d {
         lotteryPlayList5_2.add(new LotteryPlay(1980, "十位定位胆", "1", "1", "", "shiweidingweidan", "1"));
         lotteryPlayList5_2.add(new LotteryPlay(1981, "十位定位胆", "2", "2", "", "shiweidingweidan", "2"));
         lotteryPlayList5_2.add(new LotteryPlay(1982, "十位定位胆", "3", "3", "", "shiweidingweidan", "3"));
-        lotteryPlayList5_2.add(new LotteryPlay(1983, "十位定位胆", "4", "5", "", "shiweidingweidan", "5"));
+        lotteryPlayList5_2.add(new LotteryPlay(1983, "十位定位胆", "4", "4", "", "shiweidingweidan", "4"));
         lotteryPlayList5_2.add(new LotteryPlay(1984, "十位定位胆", "5", "5", "", "shiweidingweidan", "5"));
         lotteryPlayList5_2.add(new LotteryPlay(1985, "十位定位胆", "6", "6", "", "shiweidingweidan", "6"));
         lotteryPlayList5_2.add(new LotteryPlay(1986, "十位定位胆", "7", "7", "", "shiweidingweidan", "7"));
@@ -2897,7 +2897,7 @@ public class LotteryPlayCreator_d {
         lotteryPlayList5_3.add(new LotteryPlay(1990, "个位定位胆", "1", "1", "", "geweidingweidan", "1"));
         lotteryPlayList5_3.add(new LotteryPlay(1991, "个位定位胆", "2", "2", "", "geweidingweidan", "2"));
         lotteryPlayList5_3.add(new LotteryPlay(1992, "个位定位胆", "3", "3", "", "geweidingweidan", "3"));
-        lotteryPlayList5_3.add(new LotteryPlay(1993, "个位定位胆", "4", "5", "", "geweidingweidan", "5"));
+        lotteryPlayList5_3.add(new LotteryPlay(1993, "个位定位胆", "4", "4", "", "geweidingweidan", "4"));
         lotteryPlayList5_3.add(new LotteryPlay(1994, "个位定位胆", "5", "5", "", "geweidingweidan", "5"));
         lotteryPlayList5_3.add(new LotteryPlay(1995, "个位定位胆", "6", "6", "", "geweidingweidan", "6"));
         lotteryPlayList5_3.add(new LotteryPlay(1996, "个位定位胆", "7", "7", "", "geweidingweidan", "7"));

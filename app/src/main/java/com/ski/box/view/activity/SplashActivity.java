@@ -57,6 +57,7 @@ public class SplashActivity extends BaseMVPActivity<EmptyContract.Presenter> imp
             String token = SPUtils.getString(this, LoginActivity.KEY_TOKEN);
             String authorization = SPUtils.getString(this, LoginActivity.KEY_AUTHORIZATION);
             DataCenter.getInstance().setToken(token);
+            DataCenter.getInstance().setAuthorization(authorization);
             RetrofitHelper.getInstance().init(ConstantValue.BASE_HOST, BuildConfig.DEBUG,
                     HeaderUtil.getHeader(token, authorization, ConstantValue.DEVICE, LanguageUtil.getLanguage()));
             startActivity(new Intent(this, MainActivity.class));

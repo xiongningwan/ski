@@ -344,11 +344,10 @@ public class LotteryNoUtil {
 
         /*fushi*/
         betParamEntity.setGroupName(codes.getPlayName());
+        betParamEntity.setGroupCode(codes.getRemoteSubCode());
         betParamEntity.setSingle(false);
         betParamEntity.setPlayOdds(remoteLotteryPlay.getOdds());
         bets.add(betParamEntity);
-
-        betParamEntity.setGroupName(codes.getPlayName());
     }
 
     /**
