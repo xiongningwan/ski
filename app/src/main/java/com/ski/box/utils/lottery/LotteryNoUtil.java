@@ -365,10 +365,11 @@ public class LotteryNoUtil {
         if (length > limit) {
             length = limit;
             // 移除最后一个
-            codes.setBetTxt(fixCodes(codes.getBetTxt()));
-            codes.setShowTxt(fixCodes(codes.getShowTxt()));
+          //  codes.setBetTxt(fixCodes(codes.getBetTxt()));
+          //  codes.setShowTxt(fixCodes(codes.getShowTxt()));
             entity.setClickEnable(false);
             ToastUtil.showError("最多可选11球");
+
         } else {
             entity.setClickEnable(true);
         }

@@ -13,6 +13,8 @@ import androidx.core.content.ContextCompat;
 import com.chad.library.adapter.base.BaseMultiItemQuickAdapter;
 import com.chad.library.adapter.base.viewholder.BaseViewHolder;
 import com.ski.box.R;
+import com.ski.box.bean.DataCenter;
+import com.ski.box.bean.MkBetParamEntity;
 import com.ski.box.bean.lottery.LotteryPlay;
 import com.ski.box.bean.lottery.LotteryUtil;
 import com.ski.box.utils.lottery.ConfigurationUiUtils;
@@ -240,6 +242,10 @@ public class ContentItemAdapter extends BaseMultiItemQuickAdapter<LotteryPlay, B
             if (!clickSuccess && isClear) {
                 play.setSelected(false);
                 tvSelectNum.setSelected(false);
+                if (mContentClickListener != null) {
+                    clickSuccess = mContentClickListener.onItemClick();
+                }
+              //  MkBetParamEntity d = DataCenter.getInstance().getBetParamEntity();
             }
         });
     }
