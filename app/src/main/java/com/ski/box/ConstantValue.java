@@ -47,9 +47,8 @@ public interface ConstantValue {
     int PAGE_SIZE = 10;
     int PAGE_NO = 1;
 
-    String BASE_HOST = "https://www.k5615.com/sk/";
-//    String BASE_HOST = "https://dev-sk-web.k5615.com/sk/";
-//    String BASE_HOST = "https://www.68xoso.com/sk/";
+//    String BASE_HOST = "https://www.k5615.com/sk/";
+    String BASE_HOST = "https://web.68xoso.com/sk/";
 //    String SERVICE_URL = "https://vm.providesupport.com/1r6fhpl8m1v6w032ryyy6p9q1u";
     String SERVICE_URL = "https://chatlink.mstatik.com/widget/standalone.html?eid=b21018b35ea91ea603ade4cc8f9424c6";
     String PROMO_URL = "https://h5.k5615.com/manager/sys/promo";
