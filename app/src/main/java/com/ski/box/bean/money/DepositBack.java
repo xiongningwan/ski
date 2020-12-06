@@ -3,6 +3,8 @@ package com.ski.box.bean.money;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.math.BigDecimal;
+
 /**
  * Created by tom on 2020/10/31.
  */
@@ -19,8 +21,9 @@ public class DepositBack implements Parcelable {
      */
 
     private String orderId;
-    private String amt;
+    private BigDecimal amt;
     private String bankName;
+    private String bankSubName;
     private String platformCardNo;
     private String platformCardName;
     private String depositMsg;
@@ -44,11 +47,11 @@ public class DepositBack implements Parcelable {
         this.orderId = orderId;
     }
 
-    public String getAmt() {
+    public BigDecimal getAmt() {
         return amt;
     }
 
-    public void setAmt(String amt) {
+    public void setAmt(BigDecimal amt) {
         this.amt = amt;
     }
 
@@ -100,6 +103,14 @@ public class DepositBack implements Parcelable {
         this.expireAt = expireAt;
     }
 
+    public String getBankSubName() {
+        return bankSubName;
+    }
+
+    public void setBankSubName(String bankSubName) {
+        this.bankSubName = bankSubName;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -108,8 +119,9 @@ public class DepositBack implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(this.orderId);
-        dest.writeString(this.amt);
+        dest.writeSerializable(this.amt);
         dest.writeString(this.bankName);
+        dest.writeString(this.bankSubName);
         dest.writeString(this.platformCardNo);
         dest.writeString(this.platformCardName);
         dest.writeString(this.depositMsg);
@@ -123,8 +135,9 @@ public class DepositBack implements Parcelable {
 
     protected DepositBack(Parcel in) {
         this.orderId = in.readString();
-        this.amt = in.readString();
+        this.amt = (BigDecimal) in.readSerializable();
         this.bankName = in.readString();
+        this.bankSubName = in.readString();
         this.platformCardNo = in.readString();
         this.platformCardName = in.readString();
         this.depositMsg = in.readString();

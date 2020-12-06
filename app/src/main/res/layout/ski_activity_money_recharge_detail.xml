@@ -77,7 +77,6 @@
             android:textSize="13dp"
             app:layout_constraintEnd_toEndOf="@+id/tv_value_no"
             app:layout_constraintTop_toTopOf="@+id/tv_label_money"
-            android:layout_marginEnd="16dp"
             tools:text="$ 50.0" />
 
         <com.ski.box.view.view.CusButton
@@ -103,6 +102,40 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_label_money"
             android:layout_marginTop="16dp"/>
+
+        <com.ski.box.view.view.CusTextView
+            android:id="@+id/tv_label_bank_point"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="银行网点"
+            android:textColor="@color/ski_color_999999"
+            android:textSize="13dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_label_bank"
+            android:layout_marginTop="16dp"/>
+
+        <com.ski.box.view.view.CusTextView
+            android:id="@+id/tv_value_bank_sub_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/ski_color_333333"
+            android:textSize="13dp"
+            app:layout_constraintEnd_toEndOf="@+id/tv_value_no"
+            app:layout_constraintTop_toTopOf="@+id/tv_label_bank_point"
+            tools:text="招商银行网点" />
+
+        <com.ski.box.view.view.CusButton
+            android:id="@+id/btn_copy_bank_sub_name"
+            android:layout_width="55dp"
+            android:layout_height="22dp"
+            android:gravity="center"
+            android:text="复制"
+            android:background="@drawable/ski_bg_record_copy_selector"
+            android:textColor="@color/ski_white"
+            android:textSize="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_label_bank_point"
+            android:visibility="visible"/>
 
         <com.ski.box.view.view.CusTextView
             android:id="@+id/tv_value_bank"
@@ -135,8 +168,9 @@
             android:textColor="@color/ski_color_999999"
             android:textSize="13dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_label_bank"
+            app:layout_constraintTop_toBottomOf="@+id/tv_label_bank_point"
             android:layout_marginTop="16dp"/>
+
 
         <com.ski.box.view.view.CusTextView
             android:id="@+id/tv_value_bank_no"
