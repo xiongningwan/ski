@@ -177,7 +177,7 @@ public class PersonalTabFragment extends BaseMVPFragment<EmptyContract.Presenter
 //                list.add(new PTabBean(38,R.mipmap.icon_personal_tab_setting, "团队盈亏报表"));
                 break;
             case 4:
-//                list.add(new PTabBean(41,R.mipmap.icon_personal_tab_my_acc, "活动优惠"));
+                list.add(new PTabBean(41,R.mipmap.icon_personal_tab_my_acc, "活动优惠"));
                 list.add(new PTabBean(42, R.mipmap.icon_personal_tab_baobiao, "客服中心"));
                 list.add(new PTabBean(43, R.mipmap.icon_personal_tab_tuandui, "公告中心"));
 //                list.add(new PTabBean(44,R.mipmap.icon_personal_tab_setting, "帮助中心"));
@@ -238,7 +238,8 @@ public class PersonalTabFragment extends BaseMVPFragment<EmptyContract.Presenter
                 startActivity(new Intent(requireActivity(), MoneyProgressActivity.class));
                 break;
             case 41: {// 活动优惠
-                ((MainActivity) requireActivity()).gotoPage(HallTabLayout.TAB_INDEX_1);
+//                ((MainActivity) requireActivity()).gotoPage(HallTabLayout.TAB_INDEX_1);
+                ActivityUtil.startPromoAct(requireActivity());
                 break;
             }
             case 42: // 客服中心

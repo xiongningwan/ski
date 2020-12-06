@@ -105,9 +105,15 @@ public class QuickMoneySettingView2 extends LinearLayout {
             public void onItemClick(@NonNull @NotNull BaseQuickAdapter<?, ?> adapter, @NonNull @NotNull View view, int position) {
                 List<QuickSetMoneyBean2> list = (List<QuickSetMoneyBean2>) adapter.getData();
                 QuickSetMoneyBean2 bean = list.get(position);
+                int selectedCount = getSelectedCount(list);
                 if(!bean.isSelected()) {
-                    if (getSelectedCount(list) > 4) {
+                    if (selectedCount > 4) {
                         ToastUtil.showWarning("最多添加5个");
+                        return;
+                    }
+                } else {
+                     if (selectedCount == 1) {
+                        ToastUtil.showWarning("最少添加1个");
                         return;
                     }
                 }

@@ -11,10 +11,13 @@ import android.text.style.ForegroundColorSpan;
 import android.view.View;
 import android.widget.TextView;
 
+import com.ski.box.ConstantValue;
 import com.ski.box.R;
 import com.ski.box.bean.DataCenter;
+import com.ski.box.view.activity.AgentWebViewActivity;
 import com.ski.box.view.view.CusTextView;
 import com.yb.core.utils.AppUtil;
+import com.yb.core.utils.LanguageUtil;
 
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
@@ -192,4 +195,14 @@ public class ActivityUtil {
     }
 
 
+    public static void startPromoAct(Context context) {
+        String lang = "CN";
+        if(LanguageUtil.VI.equals(LanguageUtil.getLanguage())) {
+            lang = "VN";
+        }
+        String url = ConstantValue.PROMO_URL + "?token=" + DataCenter.getInstance().getToken()
+                + "&auth=" + DataCenter.getInstance().getAuthorization()
+                + "&header=false&footer=false&lang=vi-" + lang;
+        AgentWebViewActivity.startAgentWebView(context, LanguageUtil.getText("活动优惠"), url);
+    }
 }
