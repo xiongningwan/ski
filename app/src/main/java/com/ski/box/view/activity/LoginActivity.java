@@ -86,6 +86,7 @@ public class LoginActivity extends BaseMVPActivity<LoginContract.Presenter> impl
         mLoading.setCancelable(true);
         mLoading.setCanceledOnTouchOutside(true);
 
+        tvLine.setOnClickListener(this);
         tvRegister.setOnClickListener(this);
         tvLanguageSwitch.setOnClickListener(this);
         tvkefu.setOnClickListener(this);
@@ -123,6 +124,8 @@ public class LoginActivity extends BaseMVPActivity<LoginContract.Presenter> impl
             AgentWebViewActivity.startAgentWebView(this, LanguageUtil.getText("客服中心"), ConstantValue.SERVICE_URL);
         } else if (id == R.id.tv_version) {
             UpdateUtil.checkVersion(this, true);
+        } else if (id == R.id.tv_line) {
+            ToastUtil.showInfo("已切换最优线路！");
         }
     }
 
