@@ -274,10 +274,10 @@ public class HallPresenter extends RxPresenter<HallContract.View> implements Hal
                 for (int i = 0; i < list.size(); i++) {
                     ActBean actBean = list.get(i);
                     if (0 == i) {
-                        actBean.setLocalImg(R.mipmap.img_banner_03);
+                        actBean.setLocalImg(R.mipmap.img_banner_01);
                         actBean.setTargetUrl("https://www.google.com");
                     } else if (1 == i) {
-                        actBean.setLocalImg(R.mipmap.img_banner_04);
+                        actBean.setLocalImg(R.mipmap.img_banner_02);
                         actBean.setTargetUrl("https://www.google.com");
                     }
                 }
