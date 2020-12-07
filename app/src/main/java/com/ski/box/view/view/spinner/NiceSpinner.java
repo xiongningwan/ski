@@ -32,6 +32,7 @@ import androidx.interpolator.view.animation.LinearOutSlowInInterpolator;
 
 import com.ski.box.R;
 import com.ski.box.view.view.CusTextView;
+import com.yb.core.utils.ScreenUtils;
 
 import org.jetbrains.annotations.Nullable;
 
@@ -351,6 +352,9 @@ public class NiceSpinner extends CusTextView {
     }
 
     public <T> void attachDataSource(@NonNull List<T> list) {
+        if(list != null && list.size() > 5) {
+            popupWindow.setHeight(ScreenUtils.dip2px(200));
+        }
         adapter = new NiceSpinnerAdapter<>(getContext(), list, textColor, backgroundSelector, spinnerTextFormatter, horizontalAlignment);
         setAdapterInternal(adapter);
     }

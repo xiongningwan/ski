@@ -116,10 +116,17 @@
 
         <com.ski.box.view.view.CusTextView
             android:id="@+id/tv_value_bank_sub_name"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:textColor="@color/ski_color_333333"
             android:textSize="13dp"
+            android:autoSizeTextType="uniform"
+            android:autoSizeMinTextSize="2dp"
+            android:autoSizeStepGranularity="1dp"
+            android:gravity="end"
+            android:maxLines="1"
+            android:layout_marginStart="10dp"
+            app:layout_constraintStart_toEndOf="@+id/tv_label_bank_point"
             app:layout_constraintEnd_toEndOf="@+id/tv_value_no"
             app:layout_constraintTop_toTopOf="@+id/tv_label_bank_point"
             tools:text="招商银行网点" />
@@ -139,10 +146,17 @@
 
         <com.ski.box.view.view.CusTextView
             android:id="@+id/tv_value_bank"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:textColor="@color/ski_color_333333"
             android:textSize="13dp"
+            android:autoSizeTextType="uniform"
+            android:autoSizeMinTextSize="2dp"
+            android:autoSizeStepGranularity="1dp"
+            android:gravity="end"
+            android:maxLines="1"
+            android:layout_marginStart="10dp"
+            app:layout_constraintStart_toEndOf="@+id/tv_label_bank"
             app:layout_constraintEnd_toEndOf="@+id/tv_value_no"
             app:layout_constraintTop_toTopOf="@+id/tv_label_bank"
             tools:text="招商银行" />
