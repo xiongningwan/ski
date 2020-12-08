@@ -406,7 +406,7 @@ public class BetPresenter extends RxPresenter<BetContract.View> implements BetCo
             msg = "投注提交中...";
         }
         if (mLoadingDialog != null) {
-            mLoadingDialog.setReloading(msg);
+            mLoadingDialog.setReloading(LanguageUtil.getText(msg));
             mLoadingDialog.show();
         }
     }
