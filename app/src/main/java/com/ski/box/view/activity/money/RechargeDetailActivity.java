@@ -117,9 +117,9 @@ public class RechargeDetailActivity extends BaseMVPActivity<RechargeDetailContra
 
     private void setData(DepositBack bean) {
         Locale locale =  new Locale("zh");
-        if("vi".equals(LanguageUtil.getLanguage())) {
-             locale = new Locale("vi");
-        }
+//        if("vi".equals(LanguageUtil.getLanguage())) {
+//             locale = new Locale("vi");
+//        }
         NumberFormat numberFormat1 = NumberFormat.getNumberInstance(locale);
 
         mTvNo.setText(bean.getOrderId());
