@@ -51,7 +51,7 @@ public interface ConstantValue {
     String BASE_HOST_PROMO = "https://h5.68xoso.com/";
     String BASE_HOST = "https://web.68xoso.com/sk/";
 //    String SERVICE_URL = "https://vm.providesupport.com/1r6fhpl8m1v6w032ryyy6p9q1u";
-    String SERVICE_URL = "https://chatlink.mstatik.com/widget/standalone.html?eid=b21018b35ea91ea603ade4cc8f9424c6";
+    String SERVICE_URL = "https://ce09701239083.chatnow.mstatik.com/widget/standalone.html?eid=218253&language=en";
     String PROMO_URL = BASE_HOST_PROMO + "manager/sys/promo";
     String DEVICE = "3";
 
