@@ -1,7 +1,6 @@
 package com.ski.box.utils;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.res.AssetManager;
 import android.graphics.Typeface;
 import android.text.Spannable;
@@ -166,8 +165,7 @@ public class ActivityUtil {
     public static Typeface getFontTNR() {
         if(mFontTNR == null) {
             AssetManager mgr = AppUtil.getContext().getAssets();
-//            mFontTNR = Typeface.createFromAsset(mgr, "fonts/Times-New-Roman.ttf");
-            mFontTNR = Typeface.createFromAsset(mgr, "fonts/times.ttf");
+            mFontTNR = Typeface.createFromAsset(mgr, "fonts/Times_New_Roman.ttf");
 //            mFontTNR = Typeface.createFromAsset(mgr, "fonts/element-icons.535877f5.woff");
         }
        return mFontTNR;
