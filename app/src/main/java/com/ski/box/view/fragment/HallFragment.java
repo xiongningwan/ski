@@ -152,7 +152,7 @@ public class HallFragment extends BaseMVPFragment<HallContract.Presenter> implem
             }
         });
 
-        SKISdkManger.startAlarmService(AppUtil.getContext());
+      //  SKISdkManger.startAlarmService(AppUtil.getContext());
     }
 
     //这个是一个懒加载

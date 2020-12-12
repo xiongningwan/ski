@@ -41,17 +41,17 @@ public class SKISdkManger {
 
     //------------------倒计时服务---------------------------------------
     public static void startAlarmService(Context context) {
-        String name = AlarmService.class.getName();
-        boolean alarmService = isServiceRunning(context, name);
-        if (!alarmService) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                //P30 这里启动无效
-                context.startForegroundService(new Intent(context, AlarmService.class));
-            } else {
-                context.startService(new Intent(context, AlarmService.class));
-            }
-        }else{
-        }
+//        String name = AlarmService.class.getName();
+//        boolean alarmService = isServiceRunning(context, name);
+//        if (!alarmService) {
+//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+//                //P30 这里启动无效
+//                context.startForegroundService(new Intent(context, AlarmService.class));
+//            } else {
+//                context.startService(new Intent(context, AlarmService.class));
+//            }
+//        }else{
+//        }
     }
 
     private static boolean isServiceRunning(Context context, String ServiceName) {

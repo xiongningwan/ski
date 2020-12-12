@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.res.AssetFileDescriptor;
 import android.content.res.AssetManager;
+import android.graphics.Typeface;
 import android.media.MediaPlayer;
 import android.util.AttributeSet;
 import android.view.View;
@@ -25,6 +26,7 @@ import com.ski.box.bean.DataCenter;
 import com.ski.box.bean.LotteryNumBean;
 import com.ski.box.bean.TicketLotteryTimeBean;
 import com.ski.box.service.AlarmService;
+import com.ski.box.utils.ActivityUtil;
 import com.ski.box.utils.lottery.LotteryNoUtil;
 import com.ski.box.utils.lottery.SettingManager;
 import com.ski.box.view.activity.my.GameSetActivity;
@@ -122,6 +124,10 @@ public class BetTopView extends FrameLayout implements OnClickListener {
     }
 
     private void initData() {
+        Typeface fontDAB = ActivityUtil.getFontDAB();
+        mTvHour.setTypeface(fontDAB);
+        mTvMinute.setTypeface(fontDAB);
+        mTvSecond.setTypeface(fontDAB);
         normalColor = ContextCompat.getColor(getContext(), R.color.ski_white);
         redColor = ContextCompat.getColor(getContext(), R.color.ski_red);
 

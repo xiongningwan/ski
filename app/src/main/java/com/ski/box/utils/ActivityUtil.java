@@ -29,6 +29,7 @@ import java.util.regex.Pattern;
 public class ActivityUtil {
     private static DecimalFormat mDecimalFormat;
     private static Typeface mFontTNR;
+    private static Typeface mFontDAB;
 
     //空布局
     public static View getEmptyView(Context context) {
@@ -169,6 +170,14 @@ public class ActivityUtil {
 //            mFontTNR = Typeface.createFromAsset(mgr, "fonts/element-icons.535877f5.woff");
         }
        return mFontTNR;
+    }
+
+    public static Typeface getFontDAB() {
+        if(mFontDAB == null) {
+            AssetManager mgr = AppUtil.getContext().getAssets();
+            mFontDAB = Typeface.createFromAsset(mgr, "fonts/DIN_Alternate_Bold.ttf");
+        }
+        return mFontDAB;
     }
 
     public static int doBetMoneyWithK(String money) {

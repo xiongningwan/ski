@@ -12,10 +12,12 @@ import com.hwangjr.rxbus.annotation.Subscribe;
 import com.hwangjr.rxbus.annotation.Tag;
 import com.ski.box.R;
 import com.ski.box.adapter.FragmentAdapter;
+import com.ski.box.bean.DataCenter;
 import com.ski.box.mvp.contract.EmptyContract;
 import com.ski.box.mvp.presenter.EmptyPresenter;
 import com.ski.box.utils.ActivityUtil;
 import com.ski.box.utils.UpdateUtil;
+import com.ski.box.utils.lottery.LotteryTimeUtil;
 import com.ski.box.view.fragment.HallFragment;
 import com.ski.box.view.fragment.PersonalFragment;
 import com.ski.box.view.fragment.RechargeFragment;
@@ -23,13 +25,23 @@ import com.ski.box.view.fragment.WithdrawFragment;
 import com.ski.box.view.view.HallTabLayout;
 import com.ski.box.view.view.NoScrollViewPager;
 import com.yb.core.base.BaseMVPActivity;
+import com.yb.core.utils.AppUtil;
 import com.yb.core.utils.SPUtils;
 import com.yb.core.utils.ToastUtil;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import io.reactivex.Observable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Consumer;
+import io.reactivex.functions.Function;
+import io.reactivex.schedulers.Schedulers;
 
 import static com.ski.box.ConstantValue.EVENT_TOKEN_DISABLE;
+import static com.ski.box.service.AlarmService.ALARM_ACTION;
 
 
 public class MainActivity extends BaseMVPActivity<EmptyContract.Presenter> implements EmptyContract.View {
@@ -39,6 +51,7 @@ public class MainActivity extends BaseMVPActivity<EmptyContract.Presenter> imple
     private long currentBackPressedTime = 0;
     // 退出间隔
     private static final int BACK_PRESSED_INTERVAL = 2000;
+    private Disposable mSubscribe;
 
     @Override
     protected int getLayoutId() {
@@ -85,6 +98,7 @@ public class MainActivity extends BaseMVPActivity<EmptyContract.Presenter> imple
     protected void processLogic() {
         super.processLogic();
         UpdateUtil.checkVersion(this, false);
+        startAlarmService();
     }
 
     @Override
@@ -136,5 +150,30 @@ public class MainActivity extends BaseMVPActivity<EmptyContract.Presenter> imple
         } else {
             mTabView.setVisibility(View.VISIBLE);
         }
+    }
+
+    public void startAlarmService() {
+        if (mSubscribe != null && !mSubscribe.isDisposed()) {
+            mSubscribe.dispose();
+        }
+        mSubscribe = Observable.interval(0, 1, TimeUnit.SECONDS).flatMap(new Function<Long, Observable<Long>>() {
+            @Override
+            public Observable<Long> apply(Long integer) throws Exception {
+                DataCenter.getInstance().cdServerTime();
+                LotteryTimeUtil.countTime();
+                Intent intent = new Intent(ALARM_ACTION + DataCenter.getInstance().getToken());
+                AppUtil.getContext().sendBroadcast(intent);
+                return Observable.just(1L);
+            }
+        }).subscribeOn(Schedulers.newThread())
+                .unsubscribeOn(Schedulers.newThread())
+                .observeOn(AndroidSchedulers.mainThread()).subscribe(new Consumer<Long>() {
+                    @Override
+                    public void accept(Long aLong) throws Exception {
+
+                    }
+                });
+
+        addDisposable(mSubscribe);
     }
 }
