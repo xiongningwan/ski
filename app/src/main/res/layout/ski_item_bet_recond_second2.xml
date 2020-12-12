@@ -16,7 +16,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <com.ski.box.view.view.CusTextView
+    <com.ski.box.view.view.cus.CusTextView
         android:id="@+id/tv_lottery_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -29,7 +29,7 @@
         tools:text="sk极速飞艇"
         android:layout_marginTop="10dp"/>
 
-    <com.ski.box.view.view.CusTextView
+    <com.ski.box.view.view.cus.CusTextView
         android:id="@+id/tv_period"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -53,7 +53,7 @@
         android:layout_marginTop="10dp"/>
 
 
-    <com.ski.box.view.view.CusTextView
+    <com.ski.box.view.view.cus.CusTextView
         android:id="@+id/tv_play_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -77,7 +77,7 @@
         android:layout_marginTop="10dp"/>
 
 
-    <com.ski.box.view.view.CusTextView
+    <com.ski.box.view.view.cus.CusTextView
         android:id="@+id/tv_bet_money"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -91,7 +91,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"/>
 
-    <com.ski.box.view.view.CusTextView
+    <com.ski.box.view.view.cus.CusTextView
         android:id="@+id/tv_win"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -103,7 +103,7 @@
         tools:text="已中奖 99.85 元"
         android:visibility="gone"/>
 
-    <com.ski.box.view.view.CusTextView
+    <com.ski.box.view.view.cus.CusTextView
         android:id="@+id/tv_status"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -115,7 +115,7 @@
         tools:text="待开奖"
         android:layout_marginEnd="5dp"/>
 
-    <com.ski.box.view.view.CusButton
+    <com.ski.box.view.view.cus.CusButton
         android:id="@+id/tv_cancel"
         android:layout_width="wrap_content"
         android:layout_height="24dp"

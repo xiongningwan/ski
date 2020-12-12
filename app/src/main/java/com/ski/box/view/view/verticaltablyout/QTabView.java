@@ -3,7 +3,6 @@ package com.ski.box.view.view.verticaltablyout;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Color;
-import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.text.TextUtils;
@@ -17,7 +16,6 @@ import androidx.annotation.RequiresApi;
 import androidx.core.content.ContextCompat;
 
 import com.ski.box.utils.ActivityUtil;
-import com.ski.box.view.view.CusTextView;
 import com.ski.box.view.view.badgeview.Badge;
 import com.yb.core.utils.LanguageUtil;
 import com.yb.core.utils.ScreenUtils;

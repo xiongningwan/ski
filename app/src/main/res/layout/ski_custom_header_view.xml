@@ -30,7 +30,7 @@
     </LinearLayout>
 
 
-    <com.ski.box.view.view.CusTextView
+    <com.ski.box.view.view.cus.CusTextView
         android:id="@+id/title_name"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
@@ -41,7 +41,7 @@
         android:textSize="@dimen/ski_text_title_size" />
 
 
-    <com.ski.box.view.view.CusTextView
+    <com.ski.box.view.view.cus.CusTextView
         android:id="@+id/tv_right"
         android:layout_width="80dp"
         android:layout_height="match_parent"

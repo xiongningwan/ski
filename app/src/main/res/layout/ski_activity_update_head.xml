@@ -26,7 +26,7 @@
       android:layout_height="wrap_content"
       android:layout_marginTop="16dp"/>
 
-    <com.ski.box.view.view.CusButton
+    <com.ski.box.view.view.cus.CusButton
         android:id="@+id/btn_sure"
         android:layout_width="match_parent"
         android:layout_height="40dp"

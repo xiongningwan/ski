@@ -14,7 +14,7 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.5"/>
 
-    <com.ski.box.view.view.CusTextView
+    <com.ski.box.view.view.cus.CusTextView
         android:id="@+id/tv_num_1"
         style="@style/Top_result_lottery_style_ssc"
         tools:text="0"
@@ -23,7 +23,7 @@
         app:layout_constraintEnd_toStartOf="@+id/tv_num_2"
         android:layout_marginEnd="10dp" />
 
-    <com.ski.box.view.view.CusTextView
+    <com.ski.box.view.view.cus.CusTextView
         android:id="@+id/tv_num_2"
         style="@style/Top_result_lottery_style_ssc"
         tools:text="0"
@@ -31,7 +31,7 @@
         app:layout_constraintEnd_toStartOf="@+id/tv_num_3"
         android:layout_marginEnd="10dp"/>
 
-    <com.ski.box.view.view.CusTextView
+    <com.ski.box.view.view.cus.CusTextView
         android:id="@+id/tv_num_3"
         style="@style/Top_result_lottery_style_ssc"
         tools:text="0"
@@ -39,7 +39,7 @@
         app:layout_constraintTop_toTopOf="@+id/tv_num_1"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <com.ski.box.view.view.CusTextView
+    <com.ski.box.view.view.cus.CusTextView
         android:id="@+id/tv_num_4"
         style="@style/Top_result_lottery_style_ssc"
         tools:text="0"
@@ -47,7 +47,7 @@
         app:layout_constraintTop_toTopOf="@+id/tv_num_1"
         android:layout_marginStart="10dp"/>
 
-    <com.ski.box.view.view.CusTextView
+    <com.ski.box.view.view.cus.CusTextView
         android:id="@+id/tv_num_5"
         style="@style/Top_result_lottery_style_ssc"
         tools:text="0"
@@ -56,7 +56,7 @@
         android:layout_marginStart="10dp"/>
 
 
-    <com.ski.box.view.view.CusTextView
+    <com.ski.box.view.view.cus.CusTextView
         android:id="@+id/tv_xt_1"
         style="@style/Top_result_lottery_xt_style_ssc"
         tools:text="13"
@@ -68,7 +68,7 @@
         android:layout_marginEnd="5dp"
         app:layout_constraintHorizontal_chainStyle ="packed"/>
 
-    <com.ski.box.view.view.CusTextView
+    <com.ski.box.view.view.cus.CusTextView
         android:id="@+id/tv_xt_2"
         style="@style/Top_result_lottery_xt_style_ssc"
         tools:text="小"
@@ -80,7 +80,7 @@
         android:layout_marginStart="5dp"
         android:layout_marginEnd="5dp"/>
 
-    <com.ski.box.view.view.CusTextView
+    <com.ski.box.view.view.cus.CusTextView
         android:id="@+id/tv_xt_3"
         style="@style/Top_result_lottery_xt_style_ssc"
         tools:text="单"
@@ -92,7 +92,7 @@
         android:layout_marginStart="5dp"
         android:layout_marginEnd="5dp"/>
 
-    <com.ski.box.view.view.CusTextView
+    <com.ski.box.view.view.cus.CusTextView
         android:id="@+id/tv_xt_4"
         style="@style/Top_result_lottery_xt_style_ssc"
         tools:text="和"
@@ -104,7 +104,7 @@
         android:layout_marginStart="5dp"
         android:layout_marginEnd="5dp"/>
 
-    <com.ski.box.view.view.CusTextView
+    <com.ski.box.view.view.cus.CusTextView
         android:id="@+id/tv_xt_5"
         style="@style/Top_result_lottery_xt_style_ssc"
         tools:text="龙"

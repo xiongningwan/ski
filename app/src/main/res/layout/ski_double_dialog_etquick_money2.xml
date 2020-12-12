@@ -19,7 +19,7 @@
             android:padding="@dimen/ski_dp_20"
             android:src="@mipmap/ski_keyboard_xiala" />
 
-        <com.ski.box.view.view.CusTextView
+        <com.ski.box.view.view.cus.CusTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
@@ -53,7 +53,7 @@
         android:layout_marginRight="@dimen/ski_dp_18"
         android:orientation="horizontal">
 
-        <com.ski.box.view.view.CusTextView
+        <com.ski.box.view.view.cus.CusTextView
             android:id="@+id/restore_default"
             android:layout_width="0dp"
             android:layout_weight="1"
@@ -69,7 +69,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"/>
 
-        <com.ski.box.view.view.CusTextView
+        <com.ski.box.view.view.cus.CusTextView
             android:id="@+id/save_quick_amount"
             android:layout_width="0dp"
             android:layout_height="match_parent"

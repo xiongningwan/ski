@@ -11,7 +11,7 @@
        android:background="@color/ski_color_efefef" />
 
 
-   <com.ski.box.view.view.CusButton
+   <com.ski.box.view.view.cus.CusButton
        android:id="@+id/btn_sure"
        android:layout_width="match_parent"
        android:layout_height="50dp"
@@ -24,7 +24,7 @@
        android:textColor="@color/ski_color_444444"
        android:textSize="16dp" />
 
-   <com.ski.box.view.view.CusTextView
+   <com.ski.box.view.view.cus.CusTextView
        android:id="@+id/tv_label_tip"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
@@ -34,7 +34,7 @@
        android:layout_marginStart="16dp"
        android:layout_marginTop="32dp"/>
 
-   <com.ski.box.view.view.CusTextView
+   <com.ski.box.view.view.cus.CusTextView
        android:id="@+id/tv_tip_1"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"

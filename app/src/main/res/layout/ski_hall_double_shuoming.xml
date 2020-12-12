@@ -20,7 +20,7 @@
             android:padding="@dimen/ski_dp_10"
             android:src="@mipmap/ski_icon_down" />
 
-        <com.ski.box.view.view.CusTextView
+        <com.ski.box.view.view.cus.CusTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -35,7 +35,7 @@
         android:background="#dfe2f2"
         />
 
-    <com.ski.box.view.view.CusTextView
+    <com.ski.box.view.view.cus.CusTextView
         android:id="@+id/tv_series_name_shuoming"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

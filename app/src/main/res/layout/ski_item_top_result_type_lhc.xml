@@ -28,7 +28,7 @@
             style="@style/Top_result_lottery_style_lhc_num"
             tools:text="1" />
 
-        <com.ski.box.view.view.CusTextView
+        <com.ski.box.view.view.cus.CusTextView
             android:id="@+id/tv_sx_1"
             style="@style/Top_result_lottery_style_lhc_sx"
             tools:text="牛" />
@@ -45,7 +45,7 @@
             style="@style/Top_result_lottery_style_lhc_num"
             tools:text="2" />
 
-        <com.ski.box.view.view.CusTextView
+        <com.ski.box.view.view.cus.CusTextView
             android:id="@+id/tv_sx_2"
             style="@style/Top_result_lottery_style_lhc_sx"
             tools:text="牛" />
@@ -62,7 +62,7 @@
             style="@style/Top_result_lottery_style_lhc_num"
             tools:text="3" />
 
-        <com.ski.box.view.view.CusTextView
+        <com.ski.box.view.view.cus.CusTextView
             android:id="@+id/tv_sx_3"
             style="@style/Top_result_lottery_style_lhc_sx"
             tools:text="牛" />
@@ -79,7 +79,7 @@
             style="@style/Top_result_lottery_style_lhc_num"
             tools:text="4" />
 
-        <com.ski.box.view.view.CusTextView
+        <com.ski.box.view.view.cus.CusTextView
             android:id="@+id/tv_sx_4"
             style="@style/Top_result_lottery_style_lhc_sx"
             tools:text="牛" />
@@ -97,7 +97,7 @@
             style="@style/Top_result_lottery_style_lhc_num"
             tools:text="5" />
 
-        <com.ski.box.view.view.CusTextView
+        <com.ski.box.view.view.cus.CusTextView
             android:id="@+id/tv_sx_5"
             style="@style/Top_result_lottery_style_lhc_sx"
             tools:text="牛" />
@@ -115,7 +115,7 @@
             style="@style/Top_result_lottery_style_lhc_num"
             tools:text="6" />
 
-        <com.ski.box.view.view.CusTextView
+        <com.ski.box.view.view.cus.CusTextView
             android:id="@+id/tv_sx_6"
             style="@style/Top_result_lottery_style_lhc_sx"
             tools:text="牛" />
@@ -132,7 +132,7 @@
             style="@style/Top_result_lottery_style_lhc_num"
             tools:text="7" />
 
-        <com.ski.box.view.view.CusTextView
+        <com.ski.box.view.view.cus.CusTextView
             android:id="@+id/tv_sx_7"
             style="@style/Top_result_lottery_style_lhc_sx"
             tools:text="牛" />

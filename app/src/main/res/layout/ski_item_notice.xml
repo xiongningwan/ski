@@ -16,7 +16,7 @@
        app:layout_constraintStart_toStartOf="parent"/>
 
 
-   <com.ski.box.view.view.CusTextView
+   <com.ski.box.view.view.cus.CusTextView
        android:id="@+id/tv_title"
        android:layout_width="0dp"
        android:layout_height="wrap_content"
@@ -44,7 +44,7 @@
        android:layout_marginStart="64dp"
        android:visibility="visible"/>
 
-   <com.ski.box.view.view.CusTextView
+   <com.ski.box.view.view.cus.CusTextView
        android:id="@+id/tv_content"
        android:layout_width="0dp"
        android:layout_height="wrap_content"
@@ -63,7 +63,7 @@
        android:layout_marginBottom="10dp"
        android:visibility="visible"/>
 
-   <com.ski.box.view.view.CusTextView
+   <com.ski.box.view.view.cus.CusTextView
        android:id="@+id/tv_time"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"

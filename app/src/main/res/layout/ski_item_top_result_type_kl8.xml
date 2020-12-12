@@ -23,7 +23,7 @@
         app:layout_constraintGuide_percent="0.5"/>
 
 
-    <com.ski.box.view.view.CusTextView
+    <com.ski.box.view.view.cus.CusTextView
         android:id="@+id/tv_num_1"
         style="@style/Top_result_lottery_style_kl8"
         android:text="0"
@@ -33,7 +33,7 @@
         android:layout_marginBottom="0dp"
         />
 
-    <com.ski.box.view.view.CusTextView
+    <com.ski.box.view.view.cus.CusTextView
         android:id="@+id/tv_num_2"
         style="@style/Top_result_lottery_style_kl8"
         android:text="0"
@@ -42,7 +42,7 @@
         app:layout_constraintEnd_toStartOf="@+id/tv_num_3"
         />
 
-    <com.ski.box.view.view.CusTextView
+    <com.ski.box.view.view.cus.CusTextView
         android:id="@+id/tv_num_3"
         style="@style/Top_result_lottery_style_kl8"
         android:text="0"
@@ -51,7 +51,7 @@
         app:layout_constraintEnd_toStartOf="@+id/tv_num_4"
         />
 
-    <com.ski.box.view.view.CusTextView
+    <com.ski.box.view.view.cus.CusTextView
         android:id="@+id/tv_num_4"
         style="@style/Top_result_lottery_style_kl8"
         android:text="0"
@@ -60,7 +60,7 @@
         app:layout_constraintEnd_toStartOf="@+id/tv_num_5"
         />
 
-    <com.ski.box.view.view.CusTextView
+    <com.ski.box.view.view.cus.CusTextView
         android:id="@+id/tv_num_5"
         style="@style/Top_result_lottery_style_kl8"
         android:text="0"
@@ -69,7 +69,7 @@
         app:layout_constraintEnd_toStartOf="@+id/tv_num_6"
         android:layout_marginEnd="1dp"/>
 
-    <com.ski.box.view.view.CusTextView
+    <com.ski.box.view.view.cus.CusTextView
         android:id="@+id/tv_num_6"
         style="@style/Top_result_lottery_style_kl8"
         android:text="0"
@@ -78,7 +78,7 @@
         app:layout_constraintEnd_toStartOf="@+id/tv_num_7"
         android:layout_marginStart="1dp"/>
 
-    <com.ski.box.view.view.CusTextView
+    <com.ski.box.view.view.cus.CusTextView
         android:id="@+id/tv_num_7"
         style="@style/Top_result_lottery_style_kl8"
         android:text="0"
@@ -87,7 +87,7 @@
         app:layout_constraintEnd_toStartOf="@+id/tv_num_8"
         />
 
-    <com.ski.box.view.view.CusTextView
+    <com.ski.box.view.view.cus.CusTextView
         android:id="@+id/tv_num_8"
         style="@style/Top_result_lottery_style_kl8"
         android:text="0"
@@ -97,7 +97,7 @@
         />
 
 
-    <com.ski.box.view.view.CusTextView
+    <com.ski.box.view.view.cus.CusTextView
         android:id="@+id/tv_num_9"
         style="@style/Top_result_lottery_style_kl8"
         android:text="0"
@@ -106,7 +106,7 @@
         app:layout_constraintEnd_toStartOf="@+id/tv_num_10"
         />
 
-    <com.ski.box.view.view.CusTextView
+    <com.ski.box.view.view.cus.CusTextView
         android:id="@+id/tv_num_10"
         style="@style/Top_result_lottery_style_kl8"
         android:text="0"
@@ -116,7 +116,7 @@
         />
 
 
-    <com.ski.box.view.view.CusTextView
+    <com.ski.box.view.view.cus.CusTextView
         android:id="@+id/tv_num_11"
         style="@style/Top_result_lottery_style_kl8"
         android:text="0"
@@ -125,7 +125,7 @@
         app:layout_constraintStart_toStartOf="@+id/tv_num_1"
         app:layout_constraintEnd_toEndOf="@+id/tv_num_1"/>
 
-    <com.ski.box.view.view.CusTextView
+    <com.ski.box.view.view.cus.CusTextView
         android:id="@+id/tv_num_12"
         style="@style/Top_result_lottery_style_kl8"
         android:text="0"
@@ -133,7 +133,7 @@
         app:layout_constraintStart_toStartOf="@+id/tv_num_2"
         app:layout_constraintEnd_toEndOf="@+id/tv_num_2"/>
 
-    <com.ski.box.view.view.CusTextView
+    <com.ski.box.view.view.cus.CusTextView
         android:id="@+id/tv_num_13"
         style="@style/Top_result_lottery_style_kl8"
         android:text="0"
@@ -141,7 +141,7 @@
         app:layout_constraintStart_toStartOf="@+id/tv_num_3"
         app:layout_constraintEnd_toEndOf="@+id/tv_num_3"/>
 
-    <com.ski.box.view.view.CusTextView
+    <com.ski.box.view.view.cus.CusTextView
         android:id="@+id/tv_num_14"
         style="@style/Top_result_lottery_style_kl8"
         android:text="0"
@@ -149,7 +149,7 @@
         app:layout_constraintStart_toStartOf="@+id/tv_num_4"
         app:layout_constraintEnd_toEndOf="@+id/tv_num_4"/>
 
-    <com.ski.box.view.view.CusTextView
+    <com.ski.box.view.view.cus.CusTextView
         android:id="@+id/tv_num_15"
         style="@style/Top_result_lottery_style_kl8"
         android:text="0"
@@ -157,7 +157,7 @@
         app:layout_constraintStart_toStartOf="@+id/tv_num_5"
         app:layout_constraintEnd_toEndOf="@+id/tv_num_5"/>
 
-    <com.ski.box.view.view.CusTextView
+    <com.ski.box.view.view.cus.CusTextView
         android:id="@+id/tv_num_16"
         style="@style/Top_result_lottery_style_kl8"
         android:text="0"
@@ -165,7 +165,7 @@
         app:layout_constraintStart_toStartOf="@+id/tv_num_6"
         app:layout_constraintEnd_toEndOf="@+id/tv_num_6"/>
 
-    <com.ski.box.view.view.CusTextView
+    <com.ski.box.view.view.cus.CusTextView
         android:id="@+id/tv_num_17"
         style="@style/Top_result_lottery_style_kl8"
         android:text="0"
@@ -173,7 +173,7 @@
         app:layout_constraintStart_toStartOf="@+id/tv_num_7"
         app:layout_constraintEnd_toEndOf="@+id/tv_num_7"/>
 
-    <com.ski.box.view.view.CusTextView
+    <com.ski.box.view.view.cus.CusTextView
         android:id="@+id/tv_num_18"
         style="@style/Top_result_lottery_style_kl8"
         android:text="0"
@@ -182,7 +182,7 @@
         app:layout_constraintEnd_toEndOf="@+id/tv_num_8"/>
 
 
-    <com.ski.box.view.view.CusTextView
+    <com.ski.box.view.view.cus.CusTextView
         android:id="@+id/tv_num_19"
         style="@style/Top_result_lottery_style_kl8"
         android:text="0"
@@ -190,7 +190,7 @@
         app:layout_constraintStart_toStartOf="@+id/tv_num_9"
         app:layout_constraintEnd_toEndOf="@+id/tv_num_9"/>
 
-    <com.ski.box.view.view.CusTextView
+    <com.ski.box.view.view.cus.CusTextView
         android:id="@+id/tv_num_20"
         style="@style/Top_result_lottery_style_kl8"
         android:text="0"

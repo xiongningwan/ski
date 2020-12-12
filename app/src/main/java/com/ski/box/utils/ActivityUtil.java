@@ -14,7 +14,7 @@ import com.ski.box.ConstantValue;
 import com.ski.box.R;
 import com.ski.box.bean.DataCenter;
 import com.ski.box.view.activity.AgentWebViewActivity;
-import com.ski.box.view.view.CusTextView;
+import com.ski.box.view.view.cus.CusTextView;
 import com.yb.core.utils.AppUtil;
 import com.yb.core.utils.LanguageUtil;
 

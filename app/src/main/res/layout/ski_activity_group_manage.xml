@@ -35,7 +35,7 @@
             android:layout_marginEnd="5dp"
             app:layout_constraintStart_toStartOf="parent" />
 
-        <com.ski.box.view.view.CusButton
+        <com.ski.box.view.view.cus.CusButton
             android:id="@+id/btn_sure"
             android:layout_width="75dp"
             android:layout_height="30dp"
@@ -57,7 +57,7 @@
 <!--    <include-->
 <!--        layout="@layout/ski_item_group_manage"/>-->
 
-    <com.ski.box.view.view.CusTextView
+    <com.ski.box.view.view.cus.CusTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="下级账号"

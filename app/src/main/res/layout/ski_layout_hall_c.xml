@@ -32,7 +32,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/View_c_mid_line" />
 
-    <com.ski.box.view.view.CusTextView
+    <com.ski.box.view.view.cus.CusTextView
         android:id="@+id/tv_nick_name_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -43,7 +43,7 @@
         android:textColor="@color/ski_color_555555"
         android:textSize="12dp"/>
 
-    <com.ski.box.view.view.CusTextView
+    <com.ski.box.view.view.cus.CusTextView
         android:id="@+id/tv_user_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -57,7 +57,7 @@
         app:layout_constraintTop_toTopOf="@+id/tv_nick_name_label"
         tools:text="今晚打老虎" />
 
-    <com.ski.box.view.view.CusTextView
+    <com.ski.box.view.view.cus.CusTextView
         android:id="@+id/tv_label_amount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -67,7 +67,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/iv_user"
         app:layout_constraintStart_toStartOf="@+id/tv_nick_name_label" />
 
-    <com.ski.box.view.view.CusTextView
+    <com.ski.box.view.view.cus.CusTextView
         android:id="@+id/tv_amount_value"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -94,7 +94,7 @@
             android:layout_marginEnd="4dp"
             android:src="@mipmap/icon_hall_c_recharge" />
 
-        <com.ski.box.view.view.CusTextView
+        <com.ski.box.view.view.cus.CusTextView
             android:id="@+id/tv_recharge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -121,7 +121,7 @@
             android:layout_marginEnd="8dp"
             android:src="@mipmap/icon_hall_c_record" />
 
-        <com.ski.box.view.view.CusTextView
+        <com.ski.box.view.view.cus.CusTextView
             android:id="@+id/tv_record"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -147,7 +147,7 @@
             android:layout_marginEnd="4dp"
             android:src="@mipmap/icon_hall_c_activity" />
 
-        <com.ski.box.view.view.CusTextView
+        <com.ski.box.view.view.cus.CusTextView
             android:id="@+id/tv_activity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -174,7 +174,7 @@
             android:layout_marginEnd="4dp"
             android:src="@mipmap/icon_hall_c_draww" />
 
-        <com.ski.box.view.view.CusTextView
+        <com.ski.box.view.view.cus.CusTextView
             android:id="@+id/tv_draww"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -185,7 +185,7 @@
     </LinearLayout>
 
 
-<!--    <com.ski.box.view.view.CusTextView-->
+<!--    <com.ski.box.view.view.cus.CusTextView-->
 <!--        android:id="@+id/tv_broadcast"-->
 <!--        android:layout_width="wrap_content"-->
 <!--        android:layout_height="30dp"-->

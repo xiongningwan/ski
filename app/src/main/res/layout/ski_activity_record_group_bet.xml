@@ -41,7 +41,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
-        <com.ski.box.view.view.CusButton
+        <com.ski.box.view.view.cus.CusButton
             android:id="@+id/btn_sure"
             android:layout_width="75dp"
             android:layout_height="30dp"

@@ -25,7 +25,7 @@
 <!--            app:layout_constraintStart_toStartOf="parent"-->
 <!--            app:layout_constraintTop_toTopOf="parent" />-->
 
-        <com.ski.box.view.view.CusTextView
+        <com.ski.box.view.view.cus.CusTextView
             android:layout_width="@dimen/ski_dp_0"
             android:layout_height="0dp"
             android:textColor="#535d76"
@@ -52,7 +52,7 @@
         android:gravity="center"
         android:visibility="gone">
 
-        <com.ski.box.view.view.CusTextView
+        <com.ski.box.view.view.cus.CusTextView
             android:layout_width="@dimen/ski_dp_0"
             android:layout_height="0dp"
             android:textColor="#535d76"
@@ -79,7 +79,7 @@
         android:layout_marginBottom="@dimen/ski_dp_2"
         android:gravity="center">
 
-        <com.ski.box.view.view.CusTextView
+        <com.ski.box.view.view.cus.CusTextView
             android:layout_width="@dimen/ski_dp_0"
             android:layout_height="0dp"
             android:textColor="#535d76"

@@ -28,7 +28,7 @@
                     android:id="@+id/tv_close"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent" />
-                <com.ski.box.view.view.CusTextView
+                <com.ski.box.view.view.cus.CusTextView
                     android:layout_centerVertical="true"
                     android:layout_centerHorizontal="true"
                     android:textSize="20dp"
@@ -54,14 +54,14 @@
                 android:orientation="horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
-                <com.ski.box.view.view.CusTextView
+                <com.ski.box.view.view.cus.CusTextView
                     android:textSize="15dp"
                     android:textColor="#535d76"
                     android:id="@+id/tv_fushi_play_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="xxxxxxx " />
-                <com.ski.box.view.view.CusTextView
+                <com.ski.box.view.view.cus.CusTextView
                     android:textSize="12sp"
                     android:textColor="#7c88a8"
                     android:layout_marginLeft="@dimen/ski_dp_10"
@@ -73,7 +73,7 @@
 
             </LinearLayout>
 
-            <com.ski.box.view.view.CusTextView
+            <com.ski.box.view.view.cus.CusTextView
                 android:paddingLeft="@dimen/ski_dp_16"
                 android:paddingRight="@dimen/ski_dp_16"
                 android:textSize="14dp"
@@ -95,7 +95,7 @@
                 android:orientation="horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
-                <com.ski.box.view.view.CusTextView
+                <com.ski.box.view.view.cus.CusTextView
                     android:textSize="14dp"
                     android:textColor="#535d76"
                     android:layout_width="wrap_content"
@@ -139,7 +139,7 @@
        android:id="@+id/rl_bottom"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content">
-       <com.ski.box.view.view.CusTextView
+       <com.ski.box.view.view.cus.CusTextView
            android:paddingLeft="@dimen/ski_dp_16"
            android:paddingRight="@dimen/ski_dp_16"
            android:textSize="14sp"
@@ -158,7 +158,7 @@
            android:layout_below="@+id/tv_groups_per_order"
            android:layout_width="wrap_content"
            android:layout_height="wrap_content">
-           <com.ski.box.view.view.CusTextView
+           <com.ski.box.view.view.cus.CusTextView
                android:textSize="14dp"
                android:textColor="#7c88a8"
                android:text="可赢金额:xxxxx元"
@@ -166,7 +166,7 @@
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
                android:visibility="visible"/>
-           <CheckBox
+           <com.ski.box.view.view.cus.CusCheckBox
                android:drawableRight="@drawable/ski_select_double_checkbox"
                android:textSize="14dp"
                android:textColor="#7c88a8"
@@ -184,7 +184,7 @@
                android:autoSizeStepGranularity="1dp"
                android:text="以后关闭投注确认弹窗" />
        </RelativeLayout>
-       <com.ski.box.view.view.CusTextView
+       <com.ski.box.view.view.cus.CusTextView
            android:layout_marginTop="@dimen/ski_dp_12"
            android:layout_below="@+id/rl_keying"
            android:layout_centerHorizontal="true"

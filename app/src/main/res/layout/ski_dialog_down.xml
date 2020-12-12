@@ -12,7 +12,7 @@
     android:paddingLeft="@dimen/ski_dp_13"
     android:paddingRight="@dimen/ski_dp_13">
 
-    <com.ski.box.view.view.CusTextView
+    <com.ski.box.view.view.cus.CusTextView
         android:id="@+id/tv_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -70,7 +70,7 @@
         android:orientation="horizontal"
         android:visibility="gone">
 
-        <com.ski.box.view.view.CusTextView
+        <com.ski.box.view.view.cus.CusTextView
             android:id="@+id/tv_cancel"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -88,7 +88,7 @@
             android:layout_height="match_parent"
             android:visibility="visible" />
 
-        <com.ski.box.view.view.CusTextView
+        <com.ski.box.view.view.cus.CusTextView
             android:id="@+id/tv_sure"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

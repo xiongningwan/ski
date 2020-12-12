@@ -25,18 +25,16 @@ import android.widget.ListView;
 import androidx.annotation.ColorRes;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
-import androidx.appcompat.widget.AppCompatTextView;
 import androidx.core.content.ContextCompat;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.interpolator.view.animation.LinearOutSlowInInterpolator;
 
 import com.ski.box.R;
-import com.ski.box.view.view.CusTextView;
+import com.ski.box.view.view.cus.CusTextView;
 import com.yb.core.utils.ScreenUtils;
 
 import org.jetbrains.annotations.Nullable;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 

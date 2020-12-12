@@ -21,7 +21,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent" />
 
-        <com.ski.box.view.view.CusTextView
+        <com.ski.box.view.view.cus.CusTextView
             android:textSize="18dp"
             android:textColor="#666666"
             android:layout_width="wrap_content"
@@ -29,7 +29,7 @@
             android:layout_centerInParent="true"
             android:text="投注确认" />
 
-        <com.ski.box.view.view.CusTextView
+        <com.ski.box.view.view.cus.CusTextView
             android:textSize="15dp"
             android:textColor="#666666"
             android:id="@+id/tv_window_clear"
@@ -69,7 +69,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <com.ski.box.view.view.CusTextView
+        <com.ski.box.view.view.cus.CusTextView
             android:textSize="14dp"
             android:gravity="center"
             android:layout_height="@dimen/ski_dp_20"
@@ -79,7 +79,7 @@
             android:layout_marginLeft="@dimen/ski_dp_16"
             android:text="xxxxxxxdan" />
 
-        <CheckBox
+        <com.ski.box.view.view.cus.CusCheckBox
             android:gravity="end"
             android:layout_height="@dimen/ski_dp_20"
             android:drawableRight="@drawable/ski_select_double_checkbox"
@@ -98,7 +98,7 @@
             android:autoSizeStepGranularity="1dp"
             android:text="以后关闭投注确认弹窗" />
 
-        <com.ski.box.view.view.CusTextView
+        <com.ski.box.view.view.cus.CusTextView
             android:layout_marginBottom="@dimen/ski_dp_34"
             android:layout_centerHorizontal="true"
             android:textColor="@color/ski_white"

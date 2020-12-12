@@ -36,7 +36,7 @@
         app:layout_constraintEnd_toStartOf="@+id/iv_arrow_right"
         android:gravity="center">
 
-        <com.ski.box.view.view.CusTextView
+        <com.ski.box.view.view.cus.CusTextView
             android:id="@+id/tv_key1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -53,7 +53,7 @@
             android:paddingRight="@dimen/ski_dp_2"
             android:textSize="18dp"
             tools:text="8" />
-        <com.ski.box.view.view.CusTextView
+        <com.ski.box.view.view.cus.CusTextView
             android:id="@+id/tv_key2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

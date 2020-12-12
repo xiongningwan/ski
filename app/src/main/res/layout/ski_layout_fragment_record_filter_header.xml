@@ -30,7 +30,7 @@
         app:layout_constraintGuide_percent="0.99" />
 
 
-<!--    <com.ski.box.view.view.CusTextView-->
+<!--    <com.ski.box.view.view.cus.CusTextView-->
 <!--        android:id="@+id/tv_record"-->
 <!--        android:layout_width="wrap_content"-->
 <!--        android:layout_height="wrap_content"-->
@@ -70,7 +70,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/gl_1"
         android:gravity="center">
-        <com.ski.box.view.view.CusTextView
+        <com.ski.box.view.view.cus.CusTextView
             android:id="@+id/tv_day"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -96,7 +96,7 @@
         app:layout_constraintEnd_toStartOf="@+id/gl_2"
         android:gravity="center">
 
-    <com.ski.box.view.view.CusTextView
+    <com.ski.box.view.view.cus.CusTextView
         android:id="@+id/tv_lottery"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -121,7 +121,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:gravity="center">
 
-    <com.ski.box.view.view.CusTextView
+    <com.ski.box.view.view.cus.CusTextView
         android:id="@+id/tv_status"
         android:layout_width="100dp"
         android:layout_height="wrap_content"

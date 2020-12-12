@@ -14,7 +14,7 @@ import com.ski.box.mvp.presenter.my.BindPhonePresenter;
 import com.ski.box.utils.EasyCountDownTimer;
 import com.yb.core.utils.LanguageUtil;
 import com.ski.box.view.view.ClearEditText;
-import com.ski.box.view.view.CusTextView;
+import com.ski.box.view.view.cus.CusTextView;
 import com.ski.box.view.view.HeaderView;
 import com.yb.core.base.BaseMVPActivity;
 import com.yb.core.utils.ToastUtil;

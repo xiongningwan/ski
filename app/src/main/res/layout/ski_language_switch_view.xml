@@ -8,7 +8,7 @@
     android:orientation="vertical"
     android:background="@color/ski_white">
 
-    <com.ski.box.view.view.CusTextView
+    <com.ski.box.view.view.cus.CusTextView
         android:layout_width="match_parent"
         android:layout_height="35dp"
         android:textSize="16dp"
@@ -17,7 +17,7 @@
         android:layout_marginTop="10dp"
         android:textColor="@color/ski_color_333333"/>
 
-    <com.ski.box.view.view.CusTextView
+    <com.ski.box.view.view.cus.CusTextView
         android:id="@+id/tv_zh"
         android:layout_width="match_parent"
         android:layout_height="35dp"
@@ -28,7 +28,7 @@
         android:layout_marginTop="10dp"
         android:text="中文" />
 
-    <com.ski.box.view.view.CusTextView
+    <com.ski.box.view.view.cus.CusTextView
         android:id="@+id/tv_vi"
         android:layout_width="match_parent"
         android:layout_height="35dp"

@@ -30,13 +30,11 @@ import com.ski.box.bean.user.User;
 import com.ski.box.bean.user.UserInfo;
 import com.ski.box.mvp.contract.money.RechargeContract;
 import com.ski.box.mvp.presenter.money.RechargePresenter;
-import com.ski.box.utils.ActivityUtil;
 import com.ski.box.utils.KeyboardChangeListener;
-import com.ski.box.utils.SoftHideKeyBoardUtil;
 import com.ski.box.utils.SoftHideKeyBoardUtil2;
 import com.ski.box.view.activity.money.RechargeDetailActivity;
 import com.ski.box.view.view.ClearEditText;
-import com.ski.box.view.view.CusTextView;
+import com.ski.box.view.view.cus.CusTextView;
 import com.ski.box.view.view.HeaderView;
 import com.ski.box.view.view.spinner.NiceSpinner;
 import com.ski.box.view.view.spinner.OnSpinnerItemSelectedListener;
@@ -49,7 +47,6 @@ import com.yb.core.utils.ToastUtil;
 import java.util.List;
 
 import static com.ski.box.ConstantValue.EVENT_TYPE_BALANCE_UPDATE;
-import static com.ski.box.ConstantValue.EVENT_TYPE_USER_NAME_NICK_NAME;
 
 public class RechargeFragment extends BaseMVPFragment<RechargeContract.Presenter> implements RechargeContract.View, View.OnClickListener{
     public static final String KEY_HAS_HEAD = "key_has_head";

@@ -12,6 +12,7 @@ import androidx.lifecycle.ProcessLifecycleOwner;
 import com.ski.box.bean.DataCenter;
 import com.ski.box.exception.ApiExLister;
 import com.ski.box.service.AlarmService;
+import com.ski.box.utils.ActivityUtil;
 import com.yb.core.net.RetrofitHelper;
 import com.yb.core.utils.AppUtil;
 import com.yb.core.utils.LogUtils;
@@ -20,11 +21,13 @@ import com.yb.core.utils.ToastUtil;
 
 import java.util.ArrayList;
 
+import es.dmoral.toasty.Toasty;
+
 public class SKISdkManger {
     public static void init(@NonNull Context context) {
         AppUtil.init(context);
         ScreenUtils.init(context);
-        ToastUtil.initToasty();
+        ToastUtil.initToasty(ActivityUtil.getFontTNR());
         ProcessLifecycleOwner.get().getLifecycle().addObserver(new LifecycleChecker());
     }
 

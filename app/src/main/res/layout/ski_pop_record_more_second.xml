@@ -5,7 +5,7 @@
     android:background="@color/ski_white"
     android:orientation="vertical">
 
-<!--    <com.ski.box.view.view.CusTextView-->
+<!--    <com.ski.box.view.view.cus.CusTextView-->
 <!--        android:id="@+id/tv_type_label"-->
 <!--        android:layout_width="wrap_content"-->
 <!--        android:layout_height="wrap_content"-->

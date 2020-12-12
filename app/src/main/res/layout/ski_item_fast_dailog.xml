@@ -8,7 +8,7 @@
     android:paddingBottom="@dimen/ski_dp_3"
     android:orientation="vertical">
 
-    <com.ski.box.view.view.CusTextView
+    <com.ski.box.view.view.cus.CusTextView
         android:id="@+id/cb_first_touzhu_dragon"
         android:layout_width="match_parent"
         android:layout_height="@dimen/ski_dp_25"
@@ -18,7 +18,7 @@
         android:textSize="15dp"
         tools:text="大" />
 
-    <com.ski.box.view.view.CusTextView
+    <com.ski.box.view.view.cus.CusTextView
         android:id="@+id/tv_odds"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

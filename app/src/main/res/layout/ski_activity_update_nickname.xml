@@ -29,7 +29,7 @@
         android:layout_height="1dp"
         android:background="@color/ski_color_efefef" />
 
-    <com.ski.box.view.view.CusTextView
+    <com.ski.box.view.view.cus.CusTextView
         android:id="@+id/tip_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -40,7 +40,7 @@
         android:text="会员昵称长度2~10位"/>
 
 
-    <com.ski.box.view.view.CusButton
+    <com.ski.box.view.view.cus.CusButton
         android:id="@+id/btn_sure"
         android:layout_width="match_parent"
         android:layout_height="40dp"

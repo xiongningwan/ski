@@ -1,9 +1,8 @@
 package com.ski.box.utils;
 
 import android.os.CountDownTimer;
-import android.widget.TextView;
 
-import com.ski.box.view.view.CusTextView;
+import com.ski.box.view.view.cus.CusTextView;
 
 /**
  * Created by alex on 18-3-27.

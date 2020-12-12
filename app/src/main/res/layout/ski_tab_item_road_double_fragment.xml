@@ -49,7 +49,7 @@
         android:layout_weight="42"
         android:visibility="visible">
 <!--        android:background="@drawable/ski_bg_shadow_fffff_0dp_top_botton"-->
-        <com.ski.box.view.view.CusTextView
+        <com.ski.box.view.view.cus.CusTextView
             android:layout_width="wrap_content"
             android:layout_height="4dp"
             android:layout_gravity="center"

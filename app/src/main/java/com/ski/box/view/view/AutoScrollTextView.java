@@ -12,7 +12,7 @@ import android.util.AttributeSet;
 import android.view.Display;
 import android.view.WindowManager;
 
-import androidx.appcompat.widget.AppCompatTextView;
+import com.ski.box.view.view.cus.CusTextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +20,7 @@ import java.util.List;
 /**
  * Doms
  */
-public class AutoScrollTextView extends com.ski.box.view.view.CusTextView {
+public class AutoScrollTextView extends CusTextView {
     /**
      * 文本长度
      */

@@ -8,7 +8,7 @@
     android:background="@drawable/ski_bg_ffffff_6dp_uncheck"
     android:paddingLeft="@dimen/ski_dp_13">
 
-    <com.ski.box.view.view.CusTextView
+    <com.ski.box.view.view.cus.CusTextView
         android:id="@+id/tv_name_d_dragon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -22,7 +22,7 @@
         app:layout_constraintVertical_chainStyle="packed"
         tools:text="重庆时时彩" />
 
-    <com.ski.box.view.view.CusTextView
+    <com.ski.box.view.view.cus.CusTextView
         android:id="@+id/tv_play_d_dragon"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -49,7 +49,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/tv_play_d_dragon"
         android:gravity="top">
 
-        <com.ski.box.view.view.CusTextView
+        <com.ski.box.view.view.cus.CusTextView
             android:id="@+id/tv_key1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -58,7 +58,7 @@
             android:gravity="top"
             tools:text="连出" />
 
-        <com.ski.box.view.view.CusTextView
+        <com.ski.box.view.view.cus.CusTextView
             android:id="@+id/tv_period_d_dragon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -69,7 +69,7 @@
             android:gravity="top"
             tools:text="8" />
 
-        <com.ski.box.view.view.CusTextView
+        <com.ski.box.view.view.cus.CusTextView
             android:id="@+id/tv_key2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

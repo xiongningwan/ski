@@ -14,7 +14,7 @@
         android:id="@+id/ll_play_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
-        <com.ski.box.view.view.CusTextView
+        <com.ski.box.view.view.cus.CusTextView
             android:ellipsize="end"
             android:lines="1"
             android:id="@+id/tv_play_name"
@@ -24,7 +24,7 @@
             android:textColor="#7c88a8"
             android:textSize="12sp" />
 
-        <com.ski.box.view.view.CusTextView
+        <com.ski.box.view.view.cus.CusTextView
             android:ellipsize="end"
             android:lines="1"
             android:id="@+id/tv_play_item_name"
@@ -59,7 +59,7 @@
         android:layout_toLeftOf="@+id/item_remove"
         android:layout_marginLeft="@dimen/ski_dp_10"
         android:visibility="visible">
-        <com.ski.box.view.view.CusTextView
+        <com.ski.box.view.view.cus.CusTextView
             android:id="@+id/item_gain_label"
             android:lines="1"
             android:textSize="12dp"
@@ -68,7 +68,7 @@
             android:layout_height="wrap_content"
             android:text="可赢" />
 
-        <com.ski.box.view.view.CusTextView
+        <com.ski.box.view.view.cus.CusTextView
             android:id="@+id/item_gain"
             android:lines="1"
             android:textSize="12dp"
@@ -90,7 +90,7 @@
         android:layout_alignParentRight="true"
         android:src="@mipmap/ski_clear_away" />
 
-    <com.ski.box.view.view.CusTextView
+    <com.ski.box.view.view.cus.CusTextView
         android:visibility="gone"
         android:letterSpacing="-0.02"
         android:gravity="center"

@@ -43,7 +43,7 @@
           android:layout_marginEnd="16dp"
           android:background="@drawable/ski_bg_hall_content_rv"/>
 
-       <com.ski.box.view.view.CusButton
+       <com.ski.box.view.view.cus.CusButton
           android:id="@+id/btn_logout"
           android:layout_width="match_parent"
           android:layout_height="40dp"

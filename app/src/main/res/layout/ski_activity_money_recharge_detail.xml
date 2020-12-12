@@ -24,7 +24,7 @@
         android:layout_gravity="center"
         android:layout_margin="16dp">
 
-        <com.ski.box.view.view.CusTextView
+        <com.ski.box.view.view.cus.CusTextView
             android:id="@+id/tv_label_no"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -34,7 +34,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <com.ski.box.view.view.CusTextView
+        <com.ski.box.view.view.cus.CusTextView
             android:id="@+id/tv_value_no"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -45,7 +45,7 @@
             android:layout_marginEnd="16dp"
             tools:text="1322474768997290077" />
 
-        <com.ski.box.view.view.CusButton
+        <com.ski.box.view.view.cus.CusButton
             android:id="@+id/btn_copy_no"
             android:layout_width="55dp"
             android:layout_height="22dp"
@@ -58,7 +58,7 @@
             app:layout_constraintTop_toTopOf="@+id/tv_label_no"
             android:visibility="visible"/>
 
-        <com.ski.box.view.view.CusTextView
+        <com.ski.box.view.view.cus.CusTextView
             android:id="@+id/tv_label_money"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -69,7 +69,7 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_label_no"
             android:layout_marginTop="16dp"/>
 
-        <com.ski.box.view.view.CusTextView
+        <com.ski.box.view.view.cus.CusTextView
             android:id="@+id/tv_value_money"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -79,7 +79,7 @@
             app:layout_constraintTop_toTopOf="@+id/tv_label_money"
             tools:text="$ 50.0" />
 
-        <com.ski.box.view.view.CusButton
+        <com.ski.box.view.view.cus.CusButton
             android:id="@+id/btn_copy_money"
             android:layout_width="55dp"
             android:layout_height="22dp"
@@ -92,7 +92,7 @@
             app:layout_constraintTop_toTopOf="@+id/tv_label_money"
             android:visibility="visible"/>
 
-        <com.ski.box.view.view.CusTextView
+        <com.ski.box.view.view.cus.CusTextView
             android:id="@+id/tv_label_bank"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -103,7 +103,7 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_label_money"
             android:layout_marginTop="16dp"/>
 
-        <com.ski.box.view.view.CusTextView
+        <com.ski.box.view.view.cus.CusTextView
             android:id="@+id/tv_label_bank_point"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -114,7 +114,7 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_label_bank"
             android:layout_marginTop="16dp"/>
 
-        <com.ski.box.view.view.CusTextView
+        <com.ski.box.view.view.cus.CusTextView
             android:id="@+id/tv_value_bank_sub_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -131,7 +131,7 @@
             app:layout_constraintTop_toTopOf="@+id/tv_label_bank_point"
             tools:text="招商银行网点" />
 
-        <com.ski.box.view.view.CusButton
+        <com.ski.box.view.view.cus.CusButton
             android:id="@+id/btn_copy_bank_sub_name"
             android:layout_width="55dp"
             android:layout_height="22dp"
@@ -144,7 +144,7 @@
             app:layout_constraintTop_toTopOf="@+id/tv_label_bank_point"
             android:visibility="visible"/>
 
-        <com.ski.box.view.view.CusTextView
+        <com.ski.box.view.view.cus.CusTextView
             android:id="@+id/tv_value_bank"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -161,7 +161,7 @@
             app:layout_constraintTop_toTopOf="@+id/tv_label_bank"
             tools:text="招商银行" />
 
-        <com.ski.box.view.view.CusButton
+        <com.ski.box.view.view.cus.CusButton
             android:id="@+id/btn_copy_bank"
             android:layout_width="55dp"
             android:layout_height="22dp"
@@ -174,7 +174,7 @@
             app:layout_constraintTop_toTopOf="@+id/tv_label_bank"
             android:visibility="visible"/>
 
-        <com.ski.box.view.view.CusTextView
+        <com.ski.box.view.view.cus.CusTextView
             android:id="@+id/tv_label_bank_no"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -186,7 +186,7 @@
             android:layout_marginTop="16dp"/>
 
 
-        <com.ski.box.view.view.CusTextView
+        <com.ski.box.view.view.cus.CusTextView
             android:id="@+id/tv_value_bank_no"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -196,7 +196,7 @@
             app:layout_constraintEnd_toEndOf="@+id/tv_value_no"
             tools:text="6225000100023333" />
 
-        <com.ski.box.view.view.CusButton
+        <com.ski.box.view.view.cus.CusButton
             android:id="@+id/btn_copy_bank_no"
             android:layout_width="55dp"
             android:layout_height="22dp"
@@ -209,7 +209,7 @@
             app:layout_constraintTop_toTopOf="@+id/tv_label_bank_no"
             android:visibility="visible"/>
 
-        <com.ski.box.view.view.CusTextView
+        <com.ski.box.view.view.cus.CusTextView
             android:id="@+id/tv_label_owner_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -220,7 +220,7 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_label_bank_no"
             android:layout_marginTop="16dp"/>
 
-        <com.ski.box.view.view.CusTextView
+        <com.ski.box.view.view.cus.CusTextView
             android:id="@+id/tv_value_owner_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -230,7 +230,7 @@
             app:layout_constraintTop_toTopOf="@+id/tv_label_owner_name"
             tools:text="关羽" />
 
-        <com.ski.box.view.view.CusButton
+        <com.ski.box.view.view.cus.CusButton
             android:id="@+id/btn_copy_owner_name"
             android:layout_width="55dp"
             android:layout_height="22dp"
@@ -243,7 +243,7 @@
             app:layout_constraintTop_toTopOf="@+id/tv_label_owner_name"
             android:visibility="visible"/>
 
-        <com.ski.box.view.view.CusTextView
+        <com.ski.box.view.view.cus.CusTextView
             android:id="@+id/tv_tip"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -283,7 +283,7 @@
             app:layout_constraintGuide_percent="0.5"
             android:orientation="vertical"/>
 
-        <com.ski.box.view.view.CusButton
+        <com.ski.box.view.view.cus.CusButton
             android:id="@+id/btn_cancel"
             android:layout_width="95dp"
             android:layout_height="30dp"
@@ -297,7 +297,7 @@
             android:background="@drawable/ski_pub_bg_gradient_normal_2"
             android:text="取消付款" />
 
-        <com.ski.box.view.view.CusButton
+        <com.ski.box.view.view.cus.CusButton
             android:id="@+id/btn_sure"
             android:layout_width="95dp"
             android:layout_height="30dp"

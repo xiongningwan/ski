@@ -43,7 +43,7 @@
                 app:layout_constraintTop_toTopOf="parent"/>
 
 
-            <com.ski.box.view.view.CusTextView
+            <com.ski.box.view.view.cus.CusTextView
                 android:id="@+id/tv_label_hydl"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -61,7 +61,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginTop="32dp"/>
 
-            <com.ski.box.view.view.CusTextView
+            <com.ski.box.view.view.cus.CusTextView
                 android:id="@+id/tv_label_tiyan"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -142,7 +142,7 @@
                 android:layout_marginStart="3dp"/>
 
 
-            <com.ski.box.view.view.CusButton
+            <com.ski.box.view.view.cus.CusButton
                 android:id="@+id/btn_login_dev"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -168,7 +168,7 @@
     android:layout_marginTop="32dp"
     android:gravity="center">
 
-    <com.ski.box.view.view.CusTextView
+    <com.ski.box.view.view.cus.CusTextView
         android:id="@+id/tv_line"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -183,7 +183,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"/>
 
-    <com.ski.box.view.view.CusTextView
+    <com.ski.box.view.view.cus.CusTextView
         android:id="@+id/tv_kefu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -200,7 +200,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"/>
 
-    <com.ski.box.view.view.CusTextView
+    <com.ski.box.view.view.cus.CusTextView
         android:id="@+id/tv_version"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -218,7 +218,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"/>
 
-    <com.ski.box.view.view.CusTextView
+    <com.ski.box.view.view.cus.CusTextView
         android:id="@+id/tv_register"
         android:layout_width="wrap_content"
         android:layout_height="20dp"
@@ -229,7 +229,7 @@
         app:layout_constraintEnd_toEndOf="@+id/btn_login_dev"
         android:visibility="gone"/>
 
-    <com.ski.box.view.view.CusTextView
+    <com.ski.box.view.view.cus.CusTextView
         android:id="@+id/tv_language_switch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

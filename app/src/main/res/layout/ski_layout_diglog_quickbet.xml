@@ -11,7 +11,7 @@
     tools:ignore="ResourceName">
 
 
-    <com.ski.box.view.view.CusTextView
+    <com.ski.box.view.view.cus.CusTextView
         android:gravity="center"
         android:id="@+id/tv_title"
         android:layout_width="match_parent"
@@ -53,7 +53,7 @@
         android:layout_marginTop="@dimen/ski_dp_30"
         app:layout_constraintTop_toBottomOf="@+id/tv_title">
 
-        <com.ski.box.view.view.CusTextView
+        <com.ski.box.view.view.cus.CusTextView
             android:paddingLeft="@dimen/ski_dp_15"
             android:paddingRight="@dimen/ski_dp_15"
             android:id="@+id/tv_ticketName_fast"
@@ -66,7 +66,7 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:text="北京PK10" />
 
-        <com.ski.box.view.view.CusTextView
+        <com.ski.box.view.view.cus.CusTextView
             android:id="@+id/tv_period_fast"
             android:layout_width="@dimen/ski_dp_0"
             android:layout_height="wrap_content"
@@ -78,7 +78,7 @@
             app:layout_constraintTop_toTopOf="@+id/tv_ticketName_fast"
             tools:text="20191010-1024期" />
 
-        <com.ski.box.view.view.CusTextView
+        <com.ski.box.view.view.cus.CusTextView
             android:id="@+id/tv_fast_betting_count_down"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -91,7 +91,7 @@
             app:layout_constraintTop_toTopOf="@+id/tv_ticketName_fast"
             tools:text="00:02:23" />
 
-        <com.ski.box.view.view.CusTextView
+        <com.ski.box.view.view.cus.CusTextView
             android:id="@+id/tv_palyname_fast"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -152,7 +152,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/et_input_money_fast"
             app:layout_constraintStart_toStartOf="@+id/et_input_money_fast" />
 
-        <com.ski.box.view.view.CusTextView
+        <com.ski.box.view.view.cus.CusTextView
             android:id="@+id/tv_balance"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -164,7 +164,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_input_money_fast" />
 
-        <com.ski.box.view.view.CusTextView
+        <com.ski.box.view.view.cus.CusTextView
             android:id="@+id/balance_fast"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -173,7 +173,7 @@
             app:layout_constraintTop_toTopOf="@+id/tv_balance"
             tools:text="1.950" />
 
-        <com.ski.box.view.view.CusTextView
+        <com.ski.box.view.view.cus.CusTextView
             android:id="@+id/tv_bet_money_fast"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -186,7 +186,7 @@
             app:layout_constraintStart_toStartOf="@+id/tv_balance"
             app:layout_constraintTop_toBottomOf="@+id/tv_balance" />
 
-        <com.ski.box.view.view.CusTextView
+        <com.ski.box.view.view.cus.CusTextView
             android:id="@+id/tv_available_money"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -203,7 +203,7 @@
             android:visibility="gone"
             layout="@layout/ski_keyboard_layout" />
 
-        <com.ski.box.view.view.CusTextView
+        <com.ski.box.view.view.cus.CusTextView
             android:id="@+id/tv_go_to_touzhu"
             android:layout_width="0dp"
             android:layout_height="@dimen/ski_dp_45"
@@ -233,7 +233,7 @@
             app:layout_constraintStart_toEndOf="@+id/tv_go_to_touzhu"
             app:layout_constraintTop_toBottomOf="@+id/view_01">
 
-            <com.ski.box.view.view.CusTextView
+            <com.ski.box.view.view.cus.CusTextView
                 android:id="@+id/tv_bet_confirm"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -246,7 +246,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <com.ski.box.view.view.CusTextView
+            <com.ski.box.view.view.cus.CusTextView
                 android:id="@+id/tv_available_balance"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

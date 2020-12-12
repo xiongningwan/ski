@@ -24,7 +24,7 @@
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:background="@color/ski_white">
-        <com.ski.box.view.view.CusTextView
+        <com.ski.box.view.view.cus.CusTextView
             android:id="@+id/tv_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -35,7 +35,7 @@
             android:layout_marginStart="16dp"
             android:textColor="@color/ski_color_666666"/>
 
-        <com.ski.box.view.view.CusTextView
+        <com.ski.box.view.view.cus.CusTextView
             android:id="@+id/tv_period"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -63,7 +63,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>
 
-        <com.ski.box.view.view.CusTextView
+        <com.ski.box.view.view.cus.CusTextView
             android:id="@+id/tv_open"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -87,7 +87,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <com.ski.box.view.view.CusTextView
+        <com.ski.box.view.view.cus.CusTextView
             android:id="@+id/tv_label_user_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -98,7 +98,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <com.ski.box.view.view.CusTextView
+        <com.ski.box.view.view.cus.CusTextView
             android:id="@+id/tv_value_user_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -119,7 +119,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <com.ski.box.view.view.CusTextView
+        <com.ski.box.view.view.cus.CusTextView
             android:id="@+id/tv_label_rebate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -130,7 +130,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <com.ski.box.view.view.CusTextView
+        <com.ski.box.view.view.cus.CusTextView
             android:id="@+id/tv_value_rebate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -149,7 +149,7 @@
         android:layout_height="45dp"
         android:layout_marginTop="1dp"
         android:background="@color/ski_white">
-        <com.ski.box.view.view.CusTextView
+        <com.ski.box.view.view.cus.CusTextView
             android:id="@+id/tv_label_no"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -160,7 +160,7 @@
             android:layout_marginStart="16dp"
             android:textColor="@color/ski_color_999999"/>
 
-        <com.ski.box.view.view.CusTextView
+        <com.ski.box.view.view.cus.CusTextView
             android:id="@+id/tv_value_no"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -171,7 +171,7 @@
             android:layout_marginStart="16dp"
             android:textColor="@color/ski_color_333333"/>
 
-        <com.ski.box.view.view.CusButton
+        <com.ski.box.view.view.cus.CusButton
             android:id="@+id/btn_copy"
             android:layout_width="55dp"
             android:layout_height="24dp"
@@ -195,7 +195,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <com.ski.box.view.view.CusTextView
+        <com.ski.box.view.view.cus.CusTextView
             android:id="@+id/tv_label_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -206,7 +206,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <com.ski.box.view.view.CusTextView
+        <com.ski.box.view.view.cus.CusTextView
             android:id="@+id/tv_value_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -224,7 +224,7 @@
         android:layout_height="45dp"
         android:layout_marginTop="1dp"
         android:background="@color/ski_white">
-        <com.ski.box.view.view.CusTextView
+        <com.ski.box.view.view.cus.CusTextView
             android:id="@+id/tv_label_play"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -235,7 +235,7 @@
             android:layout_marginStart="16dp"
             android:textColor="@color/ski_color_999999"/>
 
-        <com.ski.box.view.view.CusTextView
+        <com.ski.box.view.view.cus.CusTextView
             android:id="@+id/tv_value_play"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -259,7 +259,7 @@
         android:layout_height="wrap_content"
         android:background="@color/ski_white">
 
-        <com.ski.box.view.view.CusTextView
+        <com.ski.box.view.view.cus.CusTextView
             android:id="@+id/tv_label_content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -270,7 +270,7 @@
             android:layout_marginStart="16dp"
             android:textColor="@color/ski_color_999999"/>
 
-        <com.ski.box.view.view.CusTextView
+        <com.ski.box.view.view.cus.CusTextView
             android:id="@+id/tv_value_content"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -295,7 +295,7 @@
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:background="@color/ski_white">
-        <com.ski.box.view.view.CusTextView
+        <com.ski.box.view.view.cus.CusTextView
             android:id="@+id/tv_label_bet_money"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -306,7 +306,7 @@
             android:layout_marginStart="16dp"
             android:textColor="@color/ski_color_999999"/>
 
-        <com.ski.box.view.view.CusTextView
+        <com.ski.box.view.view.cus.CusTextView
             android:id="@+id/tv_value_bet_money"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -323,7 +323,7 @@
         android:layout_height="45dp"
         android:layout_marginTop="1dp"
         android:background="@color/ski_white">
-        <com.ski.box.view.view.CusTextView
+        <com.ski.box.view.view.cus.CusTextView
             android:id="@+id/tv_label_rate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -334,7 +334,7 @@
             android:layout_marginStart="16dp"
             android:textColor="@color/ski_color_999999"/>
 
-        <com.ski.box.view.view.CusTextView
+        <com.ski.box.view.view.cus.CusTextView
             android:id="@+id/tv_value_rate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -351,7 +351,7 @@
         android:layout_height="45dp"
         android:layout_marginTop="1dp"
         android:background="@color/ski_white">
-        <com.ski.box.view.view.CusTextView
+        <com.ski.box.view.view.cus.CusTextView
             android:id="@+id/tv_label_bet_win"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -362,7 +362,7 @@
             android:layout_marginStart="16dp"
             android:textColor="@color/ski_color_999999"/>
 
-        <com.ski.box.view.view.CusTextView
+        <com.ski.box.view.view.cus.CusTextView
             android:id="@+id/tv_value_bet_win"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -379,7 +379,7 @@
         android:layout_height="45dp"
         android:layout_marginTop="1dp"
         android:background="@color/ski_white">
-        <com.ski.box.view.view.CusTextView
+        <com.ski.box.view.view.cus.CusTextView
             android:id="@+id/tv_label_status"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -390,7 +390,7 @@
             android:layout_marginStart="16dp"
             android:textColor="@color/ski_color_999999"/>
 
-        <com.ski.box.view.view.CusTextView
+        <com.ski.box.view.view.cus.CusTextView
             android:id="@+id/tv_value_status"
             android:layout_width="wrap_content"
             android:layout_height="24dp"

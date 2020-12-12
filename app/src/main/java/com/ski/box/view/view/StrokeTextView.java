@@ -10,10 +10,9 @@ import android.graphics.Shader;
 import android.text.TextPaint;
 import android.util.AttributeSet;
 
-import androidx.appcompat.widget.AppCompatTextView;
-
 
 import com.ski.box.R;
+import com.ski.box.view.view.cus.CusTextView;
 
 import java.util.Arrays;
 
