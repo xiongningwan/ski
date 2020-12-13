@@ -27,11 +27,12 @@ import okhttp3.RequestBody;
 
 public class UserModel extends BaseModel implements IUserModel {
 
+
     @Override
-    public Disposable register(Consumer s, CusConsumer e, String memberAccount, String password) {
+    public Disposable register(Consumer s, CusConsumer e, String memberAccount, String password, String memberDomain, String tester) {
         Single<Object> single = RetrofitHelper
                 .getService(IUserService.class)
-                .register(memberAccount, password)
+                .register(memberAccount, password, memberDomain, tester)
                 .map(new HttpResultFunc<>());
         return toSubscribe(single, s, e);
     }

@@ -17,6 +17,7 @@ import android.widget.TextView;
 import com.gyf.immersionbar.ImmersionBar;
 import com.ski.box.BuildConfig;
 import com.ski.box.R;
+import com.ski.box.bean.DataCenter;
 import com.ski.box.mvp.contract.RegisterContract;
 import com.ski.box.mvp.presenter.RegisterPresenter;
 import com.ski.box.mvp.service.IUserService;
@@ -39,6 +40,7 @@ import java.util.Map;
 public class RegisterActivity extends BaseMVPActivity<RegisterContract.Presenter> implements RegisterContract.View, View.OnClickListener {
     private EditText etName;
     private EditText etPassword;
+    private EditText etPasswordConirm;
     private Button btRegister;
     private TextView tvBackLogin;
     private ProgressDialog mLoading;
@@ -59,6 +61,7 @@ public class RegisterActivity extends BaseMVPActivity<RegisterContract.Presenter
         ImmersionBar.with(this).init();
         etName = findViewById(R.id.et_name);
         etPassword = findViewById(R.id.et_password);
+        etPasswordConirm = findViewById(R.id.et_password_confirm);
         btRegister = findViewById(R.id.btn_register);
         tvBackLogin = findViewById(R.id.tv_back_login);
         tvBackLogin.setOnClickListener(this);
@@ -91,12 +94,17 @@ public class RegisterActivity extends BaseMVPActivity<RegisterContract.Presenter
     private void doRegister() {
         String member = etName.getText().toString();
         String password = etPassword.getText().toString();
+        String passwordConfirm = etPasswordConirm.getText().toString();
         if (StringUtils.isEmpty(member)) {
             ToastUtil.showInfo("请输入账号");
             return;
         }
         if (StringUtils.isEmpty(password)) {
             ToastUtil.showInfo("请输入密码");
+            return;
+        }
+        if (StringUtils.isEmpty(passwordConfirm)) {
+            ToastUtil.showInfo("请输入确认密码");
             return;
         }
         if(member.length() < 6 || member.length() > 16) {
@@ -109,6 +117,10 @@ public class RegisterActivity extends BaseMVPActivity<RegisterContract.Presenter
             ToastUtil.showInfo(err);
             return;
         }
+        if(!password.equals(passwordConfirm)) {
+            ToastUtil.showInfo("两次输入的密码不一致");
+            return;
+        }
 //        if (!ValidateUtil.validatePwd_new(member)) {
 //            String err = "账号必须为6-16位包含英文与数字组合，区分大小写";
 //            ToastUtil.showInfo(err);
@@ -119,10 +131,19 @@ public class RegisterActivity extends BaseMVPActivity<RegisterContract.Presenter
 //            ToastUtil.showInfo(err);
 //            return;
 //        }
+        String memberDomain = RetrofitHelper.getInstance().getBaseUrl();
+        if(!TextUtils.isEmpty(memberDomain)&& memberDomain.contains("/")) {
+            memberDomain = memberDomain.replace("https://", "").replace("http://", "");
+            String[] domainArr = memberDomain.split("/");
+            if(domainArr.length > 0) {
+                memberDomain = domainArr[0];
+            }
+        }
+        String tester = "1";
         mLoading.show();
         // md5
         password = MD5Util.md5Password(password);
-        mPresenter.doRegister(member, password);
+        mPresenter.doRegister(member, password, memberDomain, tester);
     }
 
 

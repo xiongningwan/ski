@@ -49,6 +49,7 @@ public class LoginActivity extends BaseMVPActivity<LoginContract.Presenter> impl
     private EditText etPassword;
     private Button btDevLogin;
     private TextView tvRegister;
+    private TextView tvRegisterLabel;
     private TextView tvkefu;
     private TextView tvVersion;
     private TextView tvLanguageSwitch;
@@ -81,6 +82,7 @@ public class LoginActivity extends BaseMVPActivity<LoginContract.Presenter> impl
         tvHydl = findViewById(R.id.tv_label_hydl);
         tvTiyan = findViewById(R.id.tv_label_tiyan);
         tvLine = findViewById(R.id.tv_line);
+        tvRegisterLabel = findViewById(R.id.tv_register_label);
         btDevLogin.setOnClickListener(this);
         mLoading = new ProgressDialog(this);
         mLoading.setCancelable(true);
@@ -148,6 +150,9 @@ public class LoginActivity extends BaseMVPActivity<LoginContract.Presenter> impl
         tvkefu.setText(LanguageUtil.getText("客服"));
         tvVersion.setText(LanguageUtil.getText("版本"));
         tvLanguageSwitch.setText(LanguageUtil.getText("语言"));
+
+        tvRegisterLabel.setText(LanguageUtil.getText("还未有账号？"));
+        tvRegister.setText(LanguageUtil.getText("去注册"));
     }
 
     private void doLogin() {

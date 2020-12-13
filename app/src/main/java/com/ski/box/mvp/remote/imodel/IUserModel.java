@@ -17,7 +17,9 @@ public interface IUserModel {
     Disposable register(Consumer s,
                         CusConsumer e,
                         String memberAccount,
-                        String password);
+                        String password,
+                        String memberDomain,
+                        String tester);
 
     /**
      * 登录
@@ -35,8 +37,8 @@ public interface IUserModel {
                                  String alias);
 
     Disposable memberUpdateProfile(Consumer s,
-                                 CusConsumer e,
-                                 String profile);
+                                   CusConsumer e,
+                                   String profile);
 
     Disposable updateLoginPwd(Consumer s,
                               CusConsumer e,

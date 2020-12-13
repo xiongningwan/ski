@@ -15,6 +15,8 @@ public interface RegisterContract {
     interface Presenter extends BaseContract.BasePresenter<View> {
 
         void doRegister(String memberAccount,
-                        String password);
+                        String password,
+                        String memberDomain,
+                        String tester);
     }
 }

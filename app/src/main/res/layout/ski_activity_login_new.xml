@@ -90,7 +90,7 @@
                 android:textColorHint="@color/ski_color_666666"
                 android:textSize="15dp"
                 android:ems="18"
-                android:hint="请输入账号"
+                android:hint="请输入您的帐号"
                 android:inputType="textPersonName"
                 android:maxLines="1"
                 android:paddingStart="32dp"
@@ -111,7 +111,7 @@
                 android:textColorHint="@color/ski_color_666666"
                 android:textSize="15dp"
                 android:ems="18"
-                android:hint="请输入密码"
+                android:hint="请输入您的密码"
                 android:maxLines="1"
                 android:paddingStart="32dp"
                 android:paddingEnd="10dp"
@@ -158,13 +158,11 @@
                 app:layout_constraintTop_toBottomOf="@+id/et_password" />
 
 <LinearLayout
+    android:id="@+id/ll_line_kefu_banben_yuyan"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:layout_marginBottom="64dp"
     app:layout_constraintTop_toBottomOf="@+id/btn_login_dev"
-    app:layout_constraintStart_toStartOf="@+id/btn_login_dev"
-    app:layout_constraintBottom_toBottomOf="parent"
     android:layout_marginTop="32dp"
     android:gravity="center">
 
@@ -218,16 +216,6 @@
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"/>
 
-    <com.ski.box.view.view.cus.CusTextView
-        android:id="@+id/tv_register"
-        android:layout_width="wrap_content"
-        android:layout_height="20dp"
-        android:text="注册"
-        android:textSize="12dp"
-        android:gravity="end"
-        app:layout_constraintTop_toBottomOf="@+id/tv_version"
-        app:layout_constraintEnd_toEndOf="@+id/btn_login_dev"
-        android:visibility="gone"/>
 
     <com.ski.box.view.view.cus.CusTextView
         android:id="@+id/tv_language_switch"
@@ -238,7 +226,41 @@
         android:visibility="visible"/>
 </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="32dp"
+                app:layout_constraintTop_toBottomOf="@+id/ll_line_kefu_banben_yuyan"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginTop="32dp"
+                android:gravity="center">
 
+            <com.ski.box.view.view.cus.CusTextView
+                android:id="@+id/tv_register_label"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:text="还未有账号？"
+                android:textSize="12dp"
+                android:gravity="end"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:visibility="visible"/>
+
+            <com.ski.box.view.view.cus.CusTextView
+                android:id="@+id/tv_register"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:text="去注册"
+                android:textSize="12dp"
+                android:gravity="end"
+                android:layout_marginStart="5dp"
+                android:textColor="@color/ski_color_678CF0"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/btn_login_dev"
+                android:visibility="visible"/>
+
+            </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 

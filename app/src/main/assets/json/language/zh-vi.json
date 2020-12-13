@@ -688,5 +688,14 @@
   "账号": "Tài khoản:",
   "账户": "Chủ tài khoản:",
   "元": "đ",
-  "投注提交中...": "Đang đặt cược"
+  "投注提交中...": "Đang đặt cược",
+  "还未有账号？": "Vẫn chưa có tài khoản?",
+  "去注册": "Đăng ký ngay",
+  "会员注册": "Hội viên đăng kí",
+  "请输入您的帐号": "Vui lòng nhập tên tài khoản",
+  "请输入您的密码": "Vui lòng nhập mật khẩu",
+  "请输入确认密码": "Vui lòng xác nhận mật khẩu",
+  "我已有账号？": "Tôi đã có tài khoản?",
+  "返回登录": "Quay lại đăng nhập",
+  "注册": "Đăng ký ngay"
 }
