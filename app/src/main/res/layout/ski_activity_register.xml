@@ -90,7 +90,7 @@
                 android:textColorHint="@color/ski_color_666666"
                 android:textSize="15dp"
                 android:ems="18"
-                android:hint="请输入您的帐号"
+                android:hint="请输入您的账号"
                 android:inputType="textPersonName"
                 android:maxLines="1"
                 android:paddingStart="32dp"
