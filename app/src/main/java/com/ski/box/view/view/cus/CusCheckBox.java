@@ -34,9 +34,10 @@ public class CusCheckBox extends AppCompatCheckBox {
         TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.ski_CsuTextView);
         String text = ta.getString(R.styleable.ski_CsuTextView_android_text);
         ta.recycle();
-        if("vi".equals(LanguageUtil.getLanguage())) {
-            setTypeface(ActivityUtil.getFontTNR());
-        }
+//        if("vi".equals(LanguageUtil.getLanguage())) {
+//            setTypeface(ActivityUtil.getFontTNR());
+//        }
+        setTypeface(ActivityUtil.getFontTNR());
         setText(LanguageUtil.getText(text));
     }
 
