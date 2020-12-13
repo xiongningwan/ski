@@ -18,8 +18,13 @@ public interface IUserModel {
                         CusConsumer e,
                         String memberAccount,
                         String password,
-                        String memberDomain,
-                        String tester);
+                        String memberDomain);
+
+    Disposable registerCode(Consumer s,
+                            CusConsumer e,
+                            String memberAccount,
+                            String password,
+                            String reqCode);
 
     /**
      * 登录

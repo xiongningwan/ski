@@ -41,6 +41,7 @@ public class RegisterActivity extends BaseMVPActivity<RegisterContract.Presenter
     private EditText etName;
     private EditText etPassword;
     private EditText etPasswordConirm;
+    private EditText etCode;
     private Button btRegister;
     private TextView tvBackLogin;
     private ProgressDialog mLoading;
@@ -62,6 +63,7 @@ public class RegisterActivity extends BaseMVPActivity<RegisterContract.Presenter
         etName = findViewById(R.id.et_name);
         etPassword = findViewById(R.id.et_password);
         etPasswordConirm = findViewById(R.id.et_password_confirm);
+        etCode = findViewById(R.id.et_code);
         btRegister = findViewById(R.id.btn_register);
         tvBackLogin = findViewById(R.id.tv_back_login);
         tvBackLogin.setOnClickListener(this);
@@ -95,6 +97,7 @@ public class RegisterActivity extends BaseMVPActivity<RegisterContract.Presenter
         String member = etName.getText().toString();
         String password = etPassword.getText().toString();
         String passwordConfirm = etPasswordConirm.getText().toString();
+        String code = etCode.getText().toString();
         if (StringUtils.isEmpty(member)) {
             ToastUtil.showInfo("请输入账号");
             return;
@@ -143,7 +146,12 @@ public class RegisterActivity extends BaseMVPActivity<RegisterContract.Presenter
         mLoading.show();
         // md5
         password = MD5Util.md5Password(password);
-        mPresenter.doRegister(member, password, memberDomain, tester);
+        if(TextUtils.isEmpty(code)) {
+            mPresenter.doRegister(member, password, memberDomain);
+        } else {
+            mPresenter.doRegisterCode(member, password, code);
+        }
+
     }
 
 

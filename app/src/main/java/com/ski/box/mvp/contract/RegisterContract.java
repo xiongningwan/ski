@@ -16,7 +16,10 @@ public interface RegisterContract {
 
         void doRegister(String memberAccount,
                         String password,
-                        String memberDomain,
-                        String tester);
+                        String memberDomain);
+
+        void doRegisterCode(String memberAccount,
+                            String password,
+                            String reqCode);
     }
 }

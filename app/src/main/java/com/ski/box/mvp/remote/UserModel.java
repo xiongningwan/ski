@@ -29,10 +29,19 @@ public class UserModel extends BaseModel implements IUserModel {
 
 
     @Override
-    public Disposable register(Consumer s, CusConsumer e, String memberAccount, String password, String memberDomain, String tester) {
+    public Disposable register(Consumer s, CusConsumer e, String memberAccount, String password, String memberDomain) {
         Single<Object> single = RetrofitHelper
                 .getService(IUserService.class)
-                .register(memberAccount, password, memberDomain, tester)
+                .register(memberAccount, password, memberDomain)
+                .map(new HttpResultFunc<>());
+        return toSubscribe(single, s, e);
+    }
+
+    @Override
+    public Disposable registerCode(Consumer s, CusConsumer e, String memberAccount, String password,String reqCode) {
+        Single<Object> single = RetrofitHelper
+                .getService(IUserService.class)
+                .registerCode(memberAccount, password, reqCode)
                 .map(new HttpResultFunc<>());
         return toSubscribe(single, s, e);
     }

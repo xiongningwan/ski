@@ -21,6 +21,7 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 import static com.yb.core.ConstantValue.CONTENT_TYPE_JSON;
@@ -39,8 +40,14 @@ public interface IUserService {
     Single<HttpResult<Object>> register(
             @Field("memberAccount") String memberAccount,
             @Field("password") String password,
-            @Field("memberDomain") String memberDomain,
-            @Field("tester") String tester);
+            @Field("memberDomain") String memberDomain);
+
+    @POST(UrlConfig.URL_REGISTER_CODE + "/{reqCode}")
+    @FormUrlEncoded
+    Single<HttpResult<Object>> registerCode(
+            @Field("memberAccount") String memberAccount,
+            @Field("password") String password,
+            @Path("reqCode") String reqCode);
 
     /**
      * 登录

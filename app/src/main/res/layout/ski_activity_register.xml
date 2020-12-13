@@ -105,7 +105,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginLeft="32dp"
-                android:layout_marginTop="26dp"
+                android:layout_marginTop="16dp"
                 android:layout_marginRight="32dp"
                 android:inputType="textPassword"
                 android:textColorHint="@color/ski_color_666666"
@@ -126,7 +126,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginLeft="32dp"
-                android:layout_marginTop="26dp"
+                android:layout_marginTop="16dp"
                 android:layout_marginRight="32dp"
                 android:inputType="textPassword"
                 android:textColorHint="@color/ski_color_666666"
@@ -141,10 +141,32 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/et_password" />
 
+            <com.ski.box.view.view.ClearEditText
+                android:id="@+id/et_code"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="32dp"
+                android:ems="18"
+                android:hint="请输入邀请码[可选]"
+                android:inputType="number"
+                android:maxLines="1"
+                android:maxLength="6"
+                android:digits="0123456789"
+                android:paddingStart="32dp"
+                android:paddingRight="10dp"
+                android:singleLine="true"
+                android:textColorHint="@color/ski_color_666666"
+                android:textSize="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/et_password_confirm" />
+
             <ImageView
                 android:id="@+id/iv_login_icon_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:src="@mipmap/icon_login_name"
                 app:layout_constraintStart_toStartOf="@+id/et_name"
                 app:layout_constraintTop_toTopOf="@+id/et_name"
@@ -154,8 +176,8 @@
 
             <ImageView
                 android:id="@+id/iv_login_icon_pwd"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:src="@mipmap/icon_login_pwd"
                 app:layout_constraintStart_toStartOf="@+id/et_password"
                 app:layout_constraintTop_toTopOf="@+id/et_password"
@@ -164,12 +186,22 @@
 
             <ImageView
                 android:id="@+id/iv_login_icon_pwd_confirm"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:src="@mipmap/icon_login_pwd"
                 app:layout_constraintStart_toStartOf="@+id/et_password_confirm"
                 app:layout_constraintTop_toTopOf="@+id/et_password_confirm"
                 app:layout_constraintBottom_toBottomOf="@+id/et_password_confirm"
+                android:layout_marginStart="3dp"/>
+
+            <ImageView
+                android:id="@+id/iv_login_icon_code"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@mipmap/icon_req_code"
+                app:layout_constraintStart_toStartOf="@+id/et_code"
+                app:layout_constraintTop_toTopOf="@+id/et_code"
+                app:layout_constraintBottom_toBottomOf="@+id/et_code"
                 android:layout_marginStart="3dp"/>
 
 
@@ -186,7 +218,7 @@
                 android:textSize="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/et_password_confirm" />
+                app:layout_constraintTop_toBottomOf="@+id/et_code" />
 
 
 

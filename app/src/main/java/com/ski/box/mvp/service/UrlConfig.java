@@ -13,6 +13,7 @@ public final class UrlConfig {
      * 注册
      */
     public static final String URL_REGISTER = "promen/member/register/direct";
+    public static final String URL_REGISTER_CODE = "promen/member/register";
 
     /**
      * 登录
