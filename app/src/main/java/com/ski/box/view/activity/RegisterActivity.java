@@ -157,7 +157,7 @@ public class RegisterActivity extends BaseMVPActivity<RegisterContract.Presenter
 
     @Override
     public void onRegisterSuccessResult(Object o) {
-        ToastUtil.showSuccess(getString(R.string.ski_login_register));
+      //  ToastUtil.showSuccess(getString(R.string.ski_login_register));
         mLoading.dismiss();
         String member = etName.getText().toString();
         String password = etPassword.getText().toString();
