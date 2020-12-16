@@ -6,7 +6,6 @@ import com.yb.core.utils.TimeUtils;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -24,6 +23,24 @@ import static com.ski.box.bean.lottery.LotteryConstant.LOTTERY_ID_3D_FC;
 import static com.ski.box.bean.lottery.LotteryConstant.LOTTERY_ID_3D_JS;
 import static com.ski.box.bean.lottery.LotteryConstant.LOTTERY_ID_3D_PL35;
 import static com.ski.box.bean.lottery.LotteryConstant.LOTTERY_ID_3D_XY;
+import static com.ski.box.bean.lottery.LotteryConstant.LOTTERY_ID_F1_CCL_BM;
+import static com.ski.box.bean.lottery.LotteryConstant.LOTTERY_ID_F1_CCL_F1;
+import static com.ski.box.bean.lottery.LotteryConstant.LOTTERY_ID_F1_CCL_F3;
+import static com.ski.box.bean.lottery.LotteryConstant.LOTTERY_ID_F1_CCL_GP2;
+import static com.ski.box.bean.lottery.LotteryConstant.LOTTERY_ID_F1_CCL_KBS;
+import static com.ski.box.bean.lottery.LotteryConstant.LOTTERY_ID_F1_CCL_KDC;
+import static com.ski.box.bean.lottery.LotteryConstant.LOTTERY_ID_F1_JJS_BM;
+import static com.ski.box.bean.lottery.LotteryConstant.LOTTERY_ID_F1_JJS_F1;
+import static com.ski.box.bean.lottery.LotteryConstant.LOTTERY_ID_F1_JJS_F3;
+import static com.ski.box.bean.lottery.LotteryConstant.LOTTERY_ID_F1_JJS_GP2;
+import static com.ski.box.bean.lottery.LotteryConstant.LOTTERY_ID_F1_JJS_KBS;
+import static com.ski.box.bean.lottery.LotteryConstant.LOTTERY_ID_F1_JJS_KDC;
+import static com.ski.box.bean.lottery.LotteryConstant.LOTTERY_ID_F1_SW_BM;
+import static com.ski.box.bean.lottery.LotteryConstant.LOTTERY_ID_F1_SW_F1;
+import static com.ski.box.bean.lottery.LotteryConstant.LOTTERY_ID_F1_SW_F3;
+import static com.ski.box.bean.lottery.LotteryConstant.LOTTERY_ID_F1_SW_GP2;
+import static com.ski.box.bean.lottery.LotteryConstant.LOTTERY_ID_F1_SW_KBS;
+import static com.ski.box.bean.lottery.LotteryConstant.LOTTERY_ID_F1_SW_KDC;
 import static com.ski.box.bean.lottery.LotteryConstant.LOTTERY_ID_K3_AH;
 import static com.ski.box.bean.lottery.LotteryConstant.LOTTERY_ID_K3_FJ;
 import static com.ski.box.bean.lottery.LotteryConstant.LOTTERY_ID_K3_GX;
@@ -58,6 +75,9 @@ import static com.ski.box.bean.lottery.LotteryConstant.LOTTERY_ID_SSC_XY5FC;
 import static com.ski.box.bean.lottery.LotteryConstant.LOTTERY_ID_SSC_XYFFC;
 import static com.ski.box.bean.lottery.LotteryConstant.SER_ID_11X5;
 import static com.ski.box.bean.lottery.LotteryConstant.SER_ID_3D;
+import static com.ski.box.bean.lottery.LotteryConstant.SER_ID_F1_CCL;
+import static com.ski.box.bean.lottery.LotteryConstant.SER_ID_F1_JJS;
+import static com.ski.box.bean.lottery.LotteryConstant.SER_ID_F1_SW;
 import static com.ski.box.bean.lottery.LotteryConstant.SER_ID_K3;
 import static com.ski.box.bean.lottery.LotteryConstant.SER_ID_KL8;
 import static com.ski.box.bean.lottery.LotteryConstant.SER_ID_LHC;
@@ -175,6 +195,30 @@ public class LotteryUtil {
             case LOTTERY_ID_KL8_BJ:
             case LOTTERY_ID_KL8_JS:
                 serId = SER_ID_KL8;
+                break;
+            case LOTTERY_ID_F1_JJS_KDC:
+            case LOTTERY_ID_F1_JJS_KBS:
+            case LOTTERY_ID_F1_JJS_BM:
+            case LOTTERY_ID_F1_JJS_F1:
+            case LOTTERY_ID_F1_JJS_F3:
+            case LOTTERY_ID_F1_JJS_GP2:
+                serId = SER_ID_F1_JJS;
+                break;
+            case LOTTERY_ID_F1_CCL_KDC:
+            case LOTTERY_ID_F1_CCL_KBS:
+            case LOTTERY_ID_F1_CCL_BM:
+            case LOTTERY_ID_F1_CCL_F1:
+            case LOTTERY_ID_F1_CCL_F3:
+            case LOTTERY_ID_F1_CCL_GP2:
+                serId = SER_ID_F1_CCL;
+                break;
+            case LOTTERY_ID_F1_SW_KDC:
+            case LOTTERY_ID_F1_SW_KBS:
+            case LOTTERY_ID_F1_SW_BM:
+            case LOTTERY_ID_F1_SW_F1:
+            case LOTTERY_ID_F1_SW_F3:
+            case LOTTERY_ID_F1_SW_GP2:
+                serId = SER_ID_F1_SW;
                 break;
         }
 

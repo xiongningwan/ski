@@ -11,6 +11,9 @@ import org.jetbrains.annotations.NotNull;
 
 import static com.ski.box.bean.lottery.LotteryConstant.SER_ID_11X5;
 import static com.ski.box.bean.lottery.LotteryConstant.SER_ID_3D;
+import static com.ski.box.bean.lottery.LotteryConstant.SER_ID_F1_CCL;
+import static com.ski.box.bean.lottery.LotteryConstant.SER_ID_F1_JJS;
+import static com.ski.box.bean.lottery.LotteryConstant.SER_ID_F1_SW;
 import static com.ski.box.bean.lottery.LotteryConstant.SER_ID_K3;
 import static com.ski.box.bean.lottery.LotteryConstant.SER_ID_KL8;
 import static com.ski.box.bean.lottery.LotteryConstant.SER_ID_LHC;
@@ -55,6 +58,15 @@ public class HallGuideAdapter extends BaseQuickAdapter<LotterySer, BaseViewHolde
                 res = R.mipmap.bg_hall_d_3d;
                 break;
             case SER_ID_PL35:
+                res = R.mipmap.bg_hall_d_p3p5;
+                break;
+            case SER_ID_F1_JJS:
+                res = R.mipmap.bg_hall_d_p3p5;
+                break;
+            case SER_ID_F1_CCL:
+                res = R.mipmap.bg_hall_d_p3p5;
+                break;
+            case SER_ID_F1_SW:
                 res = R.mipmap.bg_hall_d_p3p5;
                 break;
         }

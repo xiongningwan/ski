@@ -31,6 +31,15 @@ public interface LotteryConstant {
     int SER_ID_LOW = 88;
     String SER_NAME_LOW = "低频彩";
 
+    int SER_ID_F1_JJS = 9;
+    String SER_NAME_F1_JJS = "F1竞技赛";
+
+    int SER_ID_F1_CCL = 10;
+    String SER_NAME_F1_CCL = "F1猜猜乐";
+
+    int SER_ID_F1_SW = 11;
+    String SER_NAME_F1_SW = "F1骰王";
+
     //////////////////////////PK10//////////////////////////
     int LOTTERY_ID_PK10_JSSC = 67;
     String LOTTERY_NAME_PK10_JSSC = "极速赛车";
@@ -147,17 +156,51 @@ public interface LotteryConstant {
     String LOTTERY_NAME_3D_PL35 = "排列3/5";
     ////////////////////////////////////////////////////
 
-    ///////////////////////彩系对应菜单图标/////////////////////////
-//    int[] serResId = new int[]{
-//            R.mipmap.yb_left_pk10,
-//            R.mipmap.yb_lefty_ssc,
-//            R.mipmap.yb_left_liuhecai,
-//            R.mipmap.yb_left_11xuan5,
-//            R.mipmap.yb_left_kuai3,
-//            R.mipmap.yb_left_3d,
-//            R.mipmap.yb_left_happy8,
-//            R.mipmap.yb_left_dipincai,
-//            R.mipmap.yb_left_recent,};
+
+    //////////////////////////F1竞技赛//////////////////////////
+    int LOTTERY_ID_F1_JJS_KDC = 7;
+    String LOTTERY_NAME_F1_JJS_KDC = "卡丁车方程式";
+    int LOTTERY_ID_F1_JJS_KBS = 12;
+    String LOTTERY_NAME_F1_JJS_KBS = "康巴斯方程式";
+    int LOTTERY_ID_F1_JJS_BM = 13;
+    String LOTTERY_NAME_F1_JJS_BM = "宝马方程式";
+    int LOTTERY_ID_F1_JJS_F3 = 19;
+    String LOTTERY_NAME_F1_JJS_F3 = "F3方程式";
+    int LOTTERY_ID_F1_JJS_GP2 = 21;
+    String LOTTERY_NAME_F1_JJS_GP2 = "GP2方程式";
+    int LOTTERY_ID_F1_JJS_F1 = 22;
+    String LOTTERY_NAME_F1_JJS_F1 = "F1方程式";
+    ////////////////////////////////////////////////////
+
+    //////////////////////////F1猜猜乐//////////////////////////
+    int LOTTERY_ID_F1_CCL_KDC = 2;
+    String LOTTERY_NAME_F1_CCL_KDC = "卡丁车猜猜乐";
+    int LOTTERY_ID_F1_CCL_KBS = 23;
+    String LOTTERY_NAME_F1_CCL_KBS = "康巴斯猜猜乐";
+    int LOTTERY_ID_F1_CCL_BM = 24;
+    String LOTTERY_NAME_F1_CCL_BM = "宝马猜猜乐";
+    int LOTTERY_ID_F1_CCL_F3 = 25;
+    String LOTTERY_NAME_F1_CCL_F3 = "F3猜猜乐";
+    int LOTTERY_ID_F1_CCL_GP2 = 28;
+    String LOTTERY_NAME_F1_CCL_GP2 = "GP2猜猜乐";
+    int LOTTERY_ID_F1_CCL_F1 = 29;
+    String LOTTERY_NAME_F1_CCL_F1 = "F1猜猜乐";
+    ////////////////////////////////////////////////////
+
+    //////////////////////////F1骰王//////////////////////////
+    int LOTTERY_ID_F1_SW_KDC = 10;
+    String LOTTERY_NAME_F1_SW_KDC = "卡丁车骰王";
+    int LOTTERY_ID_F1_SW_KBS = 30;
+    String LOTTERY_NAME_F1_SW_KBS = "康巴斯骰王";
+    int LOTTERY_ID_F1_SW_BM = 31;
+    String LOTTERY_NAME_F1_SW_BM = "宝马骰王";
+    int LOTTERY_ID_F1_SW_F3 = 32;
+    String LOTTERY_NAME_F1_SW_F3 = "F3骰王";
+    int LOTTERY_ID_F1_SW_F1 = 33;
+    String LOTTERY_NAME_F1_SW_F1 = "F1骰王";
+    int LOTTERY_ID_F1_SW_GP2 = 34;
+    String LOTTERY_NAME_F1_SW_GP2 = "GP2骰王";
+    ////////////////////////////////////////////////////
 
 
     int LOTTERY_PLAY_DAN = 1; // 单式

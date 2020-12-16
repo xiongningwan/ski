@@ -58,6 +58,7 @@ public class TopResultAdapter extends BaseMultiItemQuickAdapter<LotteryNumBean, 
         addItemType(LotteryConstant.SER_ID_3D, R.layout.ski_item_top_result_type_3d);
         addItemType(LotteryConstant.SER_ID_PL35, R.layout.ski_item_top_result_type_ssc);
         addItemType(LotteryConstant.SER_ID_KL8, R.layout.ski_item_top_result_type_kl8);
+        addItemType(LotteryConstant.SER_ID_F1_JJS, R.layout.ski_item_top_result_type_pk10);
         mContext = context;
         systemModel = SystemUtil.getSystemModel();
         mViewHeight = ScreenUtils.dip2px(60);
@@ -83,6 +84,7 @@ public class TopResultAdapter extends BaseMultiItemQuickAdapter<LotteryNumBean, 
         int type = holder.getItemViewType();
         switch (type) {
             case LotteryConstant.SER_ID_PK10:
+            case LotteryConstant.SER_ID_F1_JJS:
                 if (10 == arr_code.length) {
                     TextView tvNum1 = holder.getView(R.id.tv_num_1);
                     TextView tvNum2 = holder.getView(R.id.tv_num_2);
