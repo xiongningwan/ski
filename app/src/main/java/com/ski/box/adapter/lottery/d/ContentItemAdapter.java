@@ -453,15 +453,16 @@ public class ContentItemAdapter extends BaseMultiItemQuickAdapter<LotteryPlay, B
         TextView tvOdds = holder.getView(R.id.tvValue);
         TextView coldHotMissing = holder.getView(R.id.tv_cold_hot_missing);
         setView2List(play, llSelectNum);
-        tvName.setText(play.getName());
+
+        tvName.setBackgroundResource(ConfigurationUiUtils.mF1IconSCMap.get(play.getCode()));
+       // tvName.setText(play.getName());
 //        tvOdds.setText(getOdds(play.getCode(), play.getOdds()));
         tvOdds.setText(play.getOdds());
-        if (LotteryUtil.isNumeric(play.getCode())) {
-            llSelectNum.setBackgroundResource(type == 1 ? LotteryUtil.getLHCSquareBackgroudResource(Integer.valueOf(play.getCode()))
-                    : R.drawable.ski_bet_content_btn_item_selector);
-        } else {
-            llSelectNum.setBackgroundResource(R.drawable.ski_bet_content_btn_item_selector);
-        }
+//        if (LotteryUtil.isNumeric(play.getCode())) {
+//            llSelectNum.setBackgroundResource(R.drawable.ski_bet_content_btn_item_selector);
+//        } else {
+//            llSelectNum.setBackgroundResource(R.drawable.ski_bet_content_btn_item_selector);
+//        }
         /*冷热遗漏*/
         coldHotShow(coldHotMissing, play);
         clear(play, llSelectNum);
