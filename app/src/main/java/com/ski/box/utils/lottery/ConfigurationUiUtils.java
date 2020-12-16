@@ -13,6 +13,8 @@ public class ConfigurationUiUtils {
     public static HashMap<String, Integer> kuaiSanMap = new HashMap<>();
     public static HashMap<String, Integer> pk10checkNumsColor = new HashMap<>();
     public static HashMap<String, Integer> pk10bgMap = new HashMap<>();
+    public static HashMap<String, Integer> mF1IconSCMap = new HashMap<>();
+    public static HashMap<String, String> mF1NameSCMap = new HashMap<>();
     public static HashMap<String, Integer> hlcbgMap = new HashMap<>();
     public static HashMap<String, Integer> hlcbg6Map = new HashMap<>();
 
@@ -56,6 +58,28 @@ public class ConfigurationUiUtils {
         pk10bgMap.put("8", R.drawable.ski_bet_top_result_pk10_bg_8);
         pk10bgMap.put("9", R.drawable.ski_bet_top_result_pk10_bg_9);
         pk10bgMap.put("10", R.drawable.ski_bet_top_result_pk10_bg_10);
+
+        mF1IconSCMap.put("1", R.mipmap.icon_f1_sc_1);
+        mF1IconSCMap.put("2", R.mipmap.icon_f1_sc_2);
+        mF1IconSCMap.put("3", R.mipmap.icon_f1_sc_3);
+        mF1IconSCMap.put("4", R.mipmap.icon_f1_sc_4);
+        mF1IconSCMap.put("5", R.mipmap.icon_f1_sc_5);
+        mF1IconSCMap.put("6", R.mipmap.icon_f1_sc_6);
+        mF1IconSCMap.put("7", R.mipmap.icon_f1_sc_7);
+        mF1IconSCMap.put("8", R.mipmap.icon_f1_sc_8);
+        mF1IconSCMap.put("9", R.mipmap.icon_f1_sc_9);
+        mF1IconSCMap.put("10", R.mipmap.icon_f1_sc_10);
+
+        mF1NameSCMap.put("1", "奥迪");
+        mF1NameSCMap.put("2", "宝马");
+        mF1NameSCMap.put("3", "奔驰");
+        mF1NameSCMap.put("4", "捷豹");
+        mF1NameSCMap.put("5", "保时捷");
+        mF1NameSCMap.put("6", "玛莎拉蒂");
+        mF1NameSCMap.put("7", "法拉利");
+        mF1NameSCMap.put("8", "阿斯顿·马丁");
+        mF1NameSCMap.put("9", "兰博基尼");
+        mF1NameSCMap.put("10", "布加迪");
     }
 
     //六合彩颜色

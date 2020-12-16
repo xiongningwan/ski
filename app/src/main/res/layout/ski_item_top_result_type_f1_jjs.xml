@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:background="@color/ski_color_A86A91"
+    android:gravity="center">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5"/>
+
+    <ImageView
+        android:id="@+id/tv_num_1"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        tools:text="1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tv_num_2"
+        tools:background="@color/ski_pk10_1" />
+
+    <ImageView
+        android:id="@+id/tv_num_2"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        tools:text="2"
+        app:layout_constraintTop_toTopOf="@+id/tv_num_1"
+        app:layout_constraintStart_toEndOf="@+id/tv_num_1"
+        app:layout_constraintEnd_toStartOf="@+id/tv_num_3"
+        tools:background="@color/ski_pk10_2"
+        />
+
+    <ImageView
+        android:id="@+id/tv_num_3"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        tools:text="3"
+        app:layout_constraintTop_toTopOf="@+id/tv_num_1"
+        app:layout_constraintStart_toEndOf="@+id/tv_num_2"
+        app:layout_constraintEnd_toStartOf="@+id/tv_num_4"
+        tools:background="@color/ski_pk10_3"
+        />
+
+    <ImageView
+        android:id="@+id/tv_num_4"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        tools:text="4"
+        app:layout_constraintTop_toTopOf="@+id/tv_num_1"
+        app:layout_constraintStart_toEndOf="@+id/tv_num_3"
+        app:layout_constraintEnd_toStartOf="@+id/tv_num_5"
+        tools:background="@color/ski_pk10_4"
+        />
+
+    <ImageView
+        android:id="@+id/tv_num_5"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        tools:text="5"
+        app:layout_constraintTop_toTopOf="@+id/tv_num_1"
+        app:layout_constraintStart_toEndOf="@+id/tv_num_4"
+        app:layout_constraintEnd_toStartOf="@+id/tv_num_6"
+        tools:background="@color/ski_pk10_5"
+        />
+
+    <ImageView
+        android:id="@+id/tv_num_6"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        tools:text="6"
+        app:layout_constraintStart_toEndOf="@+id/tv_num_5"
+        app:layout_constraintEnd_toStartOf="@+id/tv_num_7"
+        app:layout_constraintTop_toTopOf="@+id/tv_num_1"
+        tools:background="@color/ski_pk10_6"
+       />
+
+    <ImageView
+        android:id="@+id/tv_num_7"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        tools:text="7"
+        app:layout_constraintStart_toEndOf="@+id/tv_num_6"
+        app:layout_constraintEnd_toStartOf="@+id/tv_num_8"
+        app:layout_constraintTop_toTopOf="@+id/tv_num_1"
+        tools:background="@color/ski_pk10_7"
+        />
+
+    <ImageView
+        android:id="@+id/tv_num_8"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        tools:text="8"
+        app:layout_constraintStart_toEndOf="@+id/tv_num_7"
+        app:layout_constraintEnd_toStartOf="@+id/tv_num_9"
+        app:layout_constraintTop_toTopOf="@+id/tv_num_1"
+        tools:background="@color/ski_pk10_8"
+        />
+
+    <ImageView
+        android:id="@+id/tv_num_9"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        tools:text="9"
+        app:layout_constraintStart_toEndOf="@+id/tv_num_8"
+        app:layout_constraintEnd_toStartOf="@+id/tv_num_10"
+        app:layout_constraintTop_toTopOf="@+id/tv_num_1"
+        tools:background="@color/ski_pk10_9"
+        />
+
+    <ImageView
+        android:id="@+id/tv_num_10"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        tools:text="10"
+        app:layout_constraintStart_toEndOf="@+id/tv_num_9"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_num_1"
+        tools:background="@color/ski_pk10_10"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

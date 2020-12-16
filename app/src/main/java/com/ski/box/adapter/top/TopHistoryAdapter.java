@@ -54,8 +54,7 @@ public class TopHistoryAdapter extends BaseMultiItemQuickAdapter<LotteryNumBean,
         addItemType(LotteryConstant.SER_ID_3D, R.layout.ski_item_top_history_type_ssc);
         addItemType(LotteryConstant.SER_ID_PL35, R.layout.ski_item_top_history_type_ssc);
         addItemType(LotteryConstant.SER_ID_KL8, R.layout.ski_item_top_history_type_kl8);
-
-        addItemType(LotteryConstant.SER_ID_F1_JJS, R.layout.ski_item_top_history_type_pk10);
+        addItemType(LotteryConstant.SER_ID_F1_JJS, R.layout.ski_item_top_history_type_f1_jjs);
         mContext = context;
         systemModel = SystemUtil.getSystemModel();
         mViewHeight = ScreenUtils.dip2px(60);
@@ -81,7 +80,6 @@ public class TopHistoryAdapter extends BaseMultiItemQuickAdapter<LotteryNumBean,
         int type = holder.getItemViewType();
         switch (type) {
             case LotteryConstant.SER_ID_PK10:
-            case LotteryConstant.SER_ID_F1_JJS:
                 if (10 == arr_code.length) {
                     TextView tvNum1 = holder.getView(R.id.tv_num_1);
                     TextView tvNum2 = holder.getView(R.id.tv_num_2);
@@ -228,79 +226,24 @@ public class TopHistoryAdapter extends BaseMultiItemQuickAdapter<LotteryNumBean,
                     }
                 }
                 break;
-        }
-    }
 
-    private void startAnimal(View view, int index) {
-        if ("vivo Y67A".equalsIgnoreCase(systemModel)) {
-            return;
-        }
+            case LotteryConstant.SER_ID_F1_JJS:
+                if (10 == arr_code.length) {
+                    ImageView tvNum1 = holder.getView(R.id.tv_num_1);
+                    ImageView tvNum2 = holder.getView(R.id.tv_num_2);
+                    ImageView tvNum3 = holder.getView(R.id.tv_num_3);
+                    ImageView tvNum4 = holder.getView(R.id.tv_num_4);
+                    ImageView tvNum5 = holder.getView(R.id.tv_num_5);
+                    ImageView tvNum6 = holder.getView(R.id.tv_num_6);
+                    ImageView tvNum7 = holder.getView(R.id.tv_num_7);
+                    ImageView tvNum8 = holder.getView(R.id.tv_num_8);
+                    ImageView tvNum9 = holder.getView(R.id.tv_num_9);
+                    ImageView tvNum10 = holder.getView(R.id.tv_num_10);
 
-        int distance = mViewHeight + 10;
-        float[] floats = {distance, -distance};
-        ObjectAnimator outAnimator = ObjectAnimator.ofFloat(view, "translationY", floats);
-        outAnimator.setRepeatCount(10);
-        outAnimator.setInterpolator(new LinearInterpolator());
-        outAnimator.setStartDelay(mRandom.nextInt(index) * 20);
-        outAnimator.setDuration(200);
-        outAnimator.start();
-        outAnimator.addListener(new AnimatorListenerAdapter() {
-            @Override
-            public void onAnimationEnd(Animator animation, boolean isReverse) {
-                ObjectAnimator animators = (ObjectAnimator) animation;
-                View view = (View) animators.getTarget();
-                ObjectAnimator outAnimator = ObjectAnimator.ofFloat(view, "translationY", distance, 0);
-                outAnimator.start();
-            }
-        });
-    }
-
-    private void startAnimal_lhc(View view, int index, int numInt, TextView tv) {
-        if ("vivo Y67A".equalsIgnoreCase(systemModel)) {
-            return;
-        }
-
-        int distance = mViewHeight + 10;
-        float[] floats = {distance, -distance};
-        ObjectAnimator outAnimator = ObjectAnimator.ofFloat(view, "translationY", floats);
-        outAnimator.setRepeatCount(10);
-        outAnimator.setInterpolator(new LinearInterpolator());
-        outAnimator.setStartDelay(mRandom.nextInt(index) * 20);
-        outAnimator.setDuration(200);
-        outAnimator.start();
-        outAnimator.addListener(new AnimatorListenerAdapter() {
-            @Override
-            public void onAnimationEnd(Animator animation, boolean isReverse) {
-                ObjectAnimator animators = (ObjectAnimator) animation;
-                View view = (View) animators.getTarget();
-                ObjectAnimator outAnimator = ObjectAnimator.ofFloat(view, "translationY", distance, 0);
-                outAnimator.start();
-
-                String sx = LotteryUtil.getLHCSX(numInt);
-                tv.setText(sx);
-            }
-        });
-    }
-
-
-    private void startIVAni(ImageView iv, String code) {
-        RequestOptions options = new RequestOptions()
-                .diskCacheStrategy(DiskCacheStrategy.RESOURCE);
-        MyCustomTarage myCustomTarage = new MyCustomTarage(iv, new MyCustomTarage.GifListener() {
-            @Override
-            public void gifPlayComplete(ImageView imageView) {
-                imageView.clearAnimation();
-                Integer k3IconResId = ConfigurationUiUtils.kuaiSanMap.get(code);
-                if (null != k3IconResId) {
-                    imageView.setImageResource(k3IconResId);
-                } else {
-                    imageView.setImageResource(R.mipmap.ski_touzi_default);
+                    ImageView[] arr = {tvNum1, tvNum2, tvNum3, tvNum4, tvNum5, tvNum6, tvNum7, tvNum8, tvNum9, tvNum10};
                 }
-                LogUtils.e("gifPlayComplete:");
-            }
-        });
-        Glide.with(AppUtil.getContext()).load(R.mipmap.ski_touzi_ani).into(myCustomTarage).onDestroy();
+                break;
+        }
     }
-
 
 }

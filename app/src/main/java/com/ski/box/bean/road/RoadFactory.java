@@ -28,6 +28,9 @@ public class RoadFactory {
     private static String[] arr9 = new String[]{"大小", "单双", "合大小", "合单双", "尾大小"};
     private static String[] arr10 = new String[]{"单双"};
 
+    /*f1 jjs*/
+    private static String[] arr11 = new String[]{"红黑"};
+
     public static List<RoadTitle> createPlay(int gameId) {
         List<RoadTitle> titles = new ArrayList<>();
         int serId = LotteryUtil.getSerIdByLotteryId(gameId);
@@ -53,6 +56,9 @@ public class RoadFactory {
                 break;
             case LotteryConstant.SER_ID_KL8:
                 titles = create_klc(gameId);
+                break;
+            case LotteryConstant.SER_ID_F1_JJS:
+                titles = create_f1_jjs(gameId);
                 break;
         }
         return titles;
@@ -126,6 +132,35 @@ public class RoadFactory {
         int position = SPUtils.getInt(AppUtil.getContext(), key, 0);
         List<RoadTitle> titles = new ArrayList<>();
         titles.add(new RoadTitle("", arr4, arr1_ids, position == 0 ? true : false, gameId));
+        return titles;
+    }
+
+    private static List<RoadTitle> create_f1_jjs(int gameId) {
+        // 选中位置
+        String key = ROAD_POSITION_PREFIX_TITLE + gameId;
+        int position = SPUtils.getInt(AppUtil.getContext(), key, 0);
+        List<RoadTitle> titles = new ArrayList<>();
+        Integer[][] arr1_ids_he = new Integer[][]{new Integer[]{545, 546}, new Integer[]{547, 548}};
+        Integer[][] arr1_ids_guan = new Integer[][]{new Integer[]{549, 550}, new Integer[]{551, 552}, new Integer[]{553, 554}};
+        Integer[][] arr1_ids_ya = new Integer[][]{new Integer[]{555, 556}, new Integer[]{557, 558}, new Integer[]{559, 560}};
+        Integer[][] arr1_ids3 = new Integer[][]{new Integer[]{561, 562}, new Integer[]{563, 564}, new Integer[]{565, 566}};
+        Integer[][] arr1_ids4 = new Integer[][]{new Integer[]{567, 568}, new Integer[]{569, 570}, new Integer[]{571, 572}};
+        Integer[][] arr1_ids5 = new Integer[][]{new Integer[]{573, 574}, new Integer[]{575, 576}, new Integer[]{577, 578}};
+        Integer[][] arr1_ids6 = new Integer[][]{new Integer[]{679, 680}, new Integer[]{859, 860}};
+        Integer[][] arr1_ids7 = new Integer[][]{new Integer[]{861, 862}, new Integer[]{863, 864}};
+        Integer[][] arr1_ids8 = new Integer[][]{new Integer[]{865, 866}, new Integer[]{867, 868}};
+        Integer[][] arr1_ids9 = new Integer[][]{new Integer[]{869, 870}, new Integer[]{871, 872}};
+        Integer[][] arr1_ids10 = new Integer[][]{new Integer[]{873, 874}, new Integer[]{875, 876}};
+        titles.add(new RoadTitle("冠军", arr11, arr1_ids_guan, position == 1 ? true : false, gameId));
+        titles.add(new RoadTitle("亚军", arr11, arr1_ids_ya, position == 2 ? true : false, gameId));
+        titles.add(new RoadTitle("第三名", arr11, arr1_ids3, position == 3 ? true : false, gameId));
+        titles.add(new RoadTitle("第四名", arr11, arr1_ids4, position == 4 ? true : false, gameId));
+        titles.add(new RoadTitle("第五名", arr11, arr1_ids5, position == 5 ? true : false, gameId));
+        titles.add(new RoadTitle("第六名", arr11, arr1_ids6, position == 6 ? true : false, gameId));
+        titles.add(new RoadTitle("第七名", arr11, arr1_ids7, position == 7 ? true : false, gameId));
+        titles.add(new RoadTitle("第八名", arr11, arr1_ids8, position == 8 ? true : false, gameId));
+        titles.add(new RoadTitle("第九名", arr11, arr1_ids9, position == 9 ? true : false, gameId));
+        titles.add(new RoadTitle("第十名", arr11, arr1_ids10, position == 10 ? true : false, gameId));
         return titles;
     }
 

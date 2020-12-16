@@ -48,10 +48,10 @@ public class RoadAttUtil {
             if (num > devision) {
                 name = "大";
                 bp = RoadBean.Con.BANKER;
-            } else if(num < devision) {
+            } else if (num < devision) {
                 name = "小";
                 bp = RoadBean.Con.PLAYER;
-            }else{
+            } else {
                 name = "和";
                 bp = RoadBean.Con.TIE;
             }
@@ -63,13 +63,13 @@ public class RoadAttUtil {
         return attArr;
     }
 
-    private static Object[] doubleSingleHe(String n,int devision) {
+    private static Object[] doubleSingleHe(String n, int devision) {
         String name;
         int bp;
         Object[] attArr = {"", 0};
         try {
             int nInt = Integer.parseInt(n);
-            if(nInt!=devision) {
+            if (nInt != devision) {
                 if (1 == nInt % 2) {
                     name = "单";
                     bp = RoadBean.Con.BANKER;
@@ -79,7 +79,7 @@ public class RoadAttUtil {
                 }
                 attArr[0] = name;
                 attArr[1] = bp;
-            }else{
+            } else {
                 attArr[0] = "和";
                 attArr[1] = RoadBean.Con.TIE;
             }
@@ -89,7 +89,6 @@ public class RoadAttUtil {
 
         return attArr;
     }
-
 
 
     private static Object[] road_arr_11x5_qiu_daXiao(String n) {
@@ -140,16 +139,16 @@ public class RoadAttUtil {
         return attArr;
     }
 
-    private static Object[] doubleSingle(String n,int value) {
+    private static Object[] doubleSingle(String n, int value) {
         String name;
         int bp;
         Object[] attArr = {"", 0};
         try {
             int nInt = Integer.parseInt(n);
-            if (value== nInt){
+            if (value == nInt) {
                 name = "和";
                 bp = RoadBean.Con.TIE;
-            }else{
+            } else {
                 if (1 == nInt % 2) {
                     name = "单";
                     bp = RoadBean.Con.BANKER;
@@ -167,6 +166,28 @@ public class RoadAttUtil {
         return attArr;
     }
 
+    /*判斷单双*/
+    private static Object[] redBlack(String n) {
+        String name;
+        int bp;
+        Object[] attArr = {"", 0};
+        try {
+            int nInt = Integer.parseInt(n);
+            if (1 == nInt % 2) {
+                name = "红";
+                bp = RoadBean.Con.BANKER;
+            } else {
+                name = "黑";
+                bp = RoadBean.Con.PLAYER;
+            }
+            attArr[0] = name;
+            attArr[1] = bp;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return attArr;
+    }
 
 
     /*判斷质和*/
@@ -306,6 +327,7 @@ public class RoadAttUtil {
         attArr[1] = bp;
         return attArr;
     }
+
     /*只用于六合彩 大 小 和*/
     private static Object[] lhc_bigSmall(String number, int devision, int he) {
         String name = "";
@@ -330,8 +352,9 @@ public class RoadAttUtil {
         attArr[1] = bp;
         return attArr;
     }
+
     /*只用于 六合彩 单双 和*/
-    private static Object[] lhc_doubleSingle(String n,int he) {
+    private static Object[] lhc_doubleSingle(String n, int he) {
         String name;
         int bp;
         Object[] attArr = {"", 0};
@@ -340,8 +363,7 @@ public class RoadAttUtil {
             if (nInt == he) {
                 name = "和";
                 bp = RoadBean.Con.TIE;
-            }
-            else if (1 == nInt % 2) {
+            } else if (1 == nInt % 2) {
                 name = "单";
                 bp = RoadBean.Con.BANKER;
             } else {
@@ -356,8 +378,9 @@ public class RoadAttUtil {
 
         return attArr;
     }
+
     /*只用于 六合彩 合大小*/
-    private static Object[] lhc_he_bigOrSmall(String number,int devision,int he) {
+    private static Object[] lhc_he_bigOrSmall(String number, int devision, int he) {
         String name;
         int bp;
         Object[] attArr = {"", 0};
@@ -370,11 +393,11 @@ public class RoadAttUtil {
                 int length = number.length();
                 int heNums = 0;
                 if (length == 2) {
-                    int intShi = Integer.valueOf(number.substring(0,1));
-                    int intGe = Integer.valueOf(number.substring(1,2));
+                    int intShi = Integer.valueOf(number.substring(0, 1));
+                    int intGe = Integer.valueOf(number.substring(1, 2));
                     heNums = intShi + intGe;
-                }else{
-                    heNums=Integer.valueOf(number);
+                } else {
+                    heNums = Integer.valueOf(number);
                 }
                 if (heNums >= devision) {
                     name = "大";
@@ -425,10 +448,6 @@ public class RoadAttUtil {
         attArr[1] = bp;
         return attArr;
     }
-
-
-
-
 
 
     public static Object[] road_arr_11x5(String[] arr, int total, String titleKey) {
@@ -493,19 +512,19 @@ public class RoadAttUtil {
                 attArr = road_arr_11x5_qiu_daXiao(arr[4]);
                 break;
             case "第一球单双":
-                attArr = doubleSingle(arr[0],11);
+                attArr = doubleSingle(arr[0], 11);
                 break;
             case "第二球单双":
-                attArr = doubleSingle(arr[1],11);
+                attArr = doubleSingle(arr[1], 11);
                 break;
             case "第三球单双":
-                attArr = doubleSingle(arr[2],11);
+                attArr = doubleSingle(arr[2], 11);
                 break;
             case "第四球单双":
-                attArr = doubleSingle(arr[3],11);
+                attArr = doubleSingle(arr[3], 11);
                 break;
             case "第五球单双":
-                attArr = doubleSingle(arr[4],11);
+                attArr = doubleSingle(arr[4], 11);
                 break;
         }
 
@@ -524,7 +543,7 @@ public class RoadAttUtil {
         }
         attArr[0] = xiao;
         attArr[1] = bp;
-        return  attArr;
+        return attArr;
     }
 
     public static Object[] road_arr_pk10(String[] arr, int total, String titleKey) {
@@ -714,6 +733,49 @@ public class RoadAttUtil {
         return attArr;
     }
 
+    public static Object[] road_arr_f1_jjs(String[] arr, int total, String titleKey) {
+        Object[] attArr = {"", 0};
+        String name = "";
+        int bp = 0;
+        switch (titleKey) {
+            case "冠军红黑":
+                attArr = redBlack(arr[0]);
+                break;
+            case "亚军红黑":
+                attArr = redBlack(arr[1]);
+                break;
+            case "第三名红黑":
+                attArr = redBlack(arr[2]);
+                break;
+            case "第四名红黑":
+                attArr = redBlack(arr[3]);
+                break;
+            case "第五名红黑":
+                attArr = redBlack(arr[4]);
+                break;
+            case "第六名红黑":
+                attArr = redBlack(arr[5]);
+                break;
+            case "第七名红黑":
+                attArr = redBlack(arr[6]);
+                break;
+            case "第八名红黑":
+                attArr = redBlack(arr[7]);
+                break;
+            case "第九名红黑":
+                attArr = redBlack(arr[8]);
+                break;
+            case "第十名红黑":
+                attArr = redBlack(arr[9]);
+                break;
+
+            default:
+                break;
+        }
+        return attArr;
+    }
+
+
     public static Object[] road_arr_3d(String[] arr, int total, String titleKey) {
         Object[] attArr = {"", 0};
         switch (titleKey) {
@@ -810,7 +872,7 @@ public class RoadAttUtil {
                 attArr = bigOrSmallHe(total + "", 810);
                 break;
             case "单双":
-                attArr = doubleSingleHe(total + "",810);
+                attArr = doubleSingleHe(total + "", 810);
                 break;
             case "前后多":
                 attArr = qianHouDuo(arr);
@@ -828,10 +890,10 @@ public class RoadAttUtil {
 
         switch (titleKey) {
             case "特码大小":
-                attArr = lhc_bigSmall(arr[6], 25,49);
+                attArr = lhc_bigSmall(arr[6], 25, 49);
                 break;
             case "特码单双":
-                attArr = lhc_doubleSingle(arr[6],49);
+                attArr = lhc_doubleSingle(arr[6], 49);
                 break;
             case "特码合大小":
                 attArr = lhc_he_bigOrSmall(arr[6], 7, 49);
@@ -840,9 +902,9 @@ public class RoadAttUtil {
                 attArr = lhc_he_doubleSigle(arr[6], 49);
                 break;
             case "特码天地肖":
-                if (Integer.parseInt(arr[6])==49) {
-                    attArr =lhc_tiandi_qianhou_jiaye("和");
-                }else {
+                if (Integer.parseInt(arr[6]) == 49) {
+                    attArr = lhc_tiandi_qianhou_jiaye("和");
+                } else {
                     String lhcsx = LotteryUtil.getLHCSX(Integer.parseInt(arr[6]));
                     for (int x = 0; x < tianXiao.length; x++) {
                         boolean equals = tianXiao[x].equals(lhcsx);
@@ -855,9 +917,9 @@ public class RoadAttUtil {
                 }
                 break;
             case "特码前后肖":
-                if (Integer.parseInt(arr[6])==49) {
-                    attArr =lhc_tiandi_qianhou_jiaye("和");
-                }else {
+                if (Integer.parseInt(arr[6]) == 49) {
+                    attArr = lhc_tiandi_qianhou_jiaye("和");
+                } else {
                     String qinahou = LotteryUtil.getLHCSX(Integer.parseInt(arr[6]));
                     for (int x = 0; x < qianXiao.length; x++) {
                         boolean equals = qianXiao[x].equals(qinahou);
@@ -870,9 +932,9 @@ public class RoadAttUtil {
                 }
                 break;
             case "特码家野肖":
-                if (Integer.parseInt(arr[6])==49) {
-                    attArr =lhc_tiandi_qianhou_jiaye("和");
-                }else{
+                if (Integer.parseInt(arr[6]) == 49) {
+                    attArr = lhc_tiandi_qianhou_jiaye("和");
+                } else {
                     String jiaye = LotteryUtil.getLHCSX(Integer.parseInt(arr[6]));
                     for (int x = 0; x < jiaXiao.length; x++) {
                         boolean equals = jiaXiao[x].equals(jiaye);
@@ -893,7 +955,7 @@ public class RoadAttUtil {
                 attArr = lhc_bigSmall(arr[0], 25, 49);
                 break;
             case "正码一单双":
-                attArr= lhc_doubleSingle(arr[0], 49);
+                attArr = lhc_doubleSingle(arr[0], 49);
                 break;
             case "正码一合大小":
                 attArr = lhc_he_bigOrSmall(arr[0], 7, 49);
@@ -906,12 +968,11 @@ public class RoadAttUtil {
                 break;
 
 
-
             case "正码二大小":
                 attArr = lhc_bigSmall(arr[1], 25, 49);
                 break;
             case "正码二单双":
-                attArr= lhc_doubleSingle(arr[1], 49);
+                attArr = lhc_doubleSingle(arr[1], 49);
                 break;
             case "正码二合大小":
                 attArr = lhc_he_bigOrSmall(arr[1], 7, 49);
@@ -929,7 +990,7 @@ public class RoadAttUtil {
                 attArr = lhc_bigSmall(arr[2], 25, 49);
                 break;
             case "正码三单双":
-                attArr=  lhc_doubleSingle(arr[2], 49);
+                attArr = lhc_doubleSingle(arr[2], 49);
                 break;
             case "正码三合大小":
                 attArr = lhc_he_bigOrSmall(arr[2], 7, 49);
@@ -947,7 +1008,7 @@ public class RoadAttUtil {
                 attArr = lhc_bigSmall(arr[3], 25, 49);
                 break;
             case "正码四单双":
-                attArr=  lhc_doubleSingle(arr[3], 49);
+                attArr = lhc_doubleSingle(arr[3], 49);
                 break;
             case "正码四合大小":
                 attArr = lhc_he_bigOrSmall(arr[3], 7, 49);
@@ -965,7 +1026,7 @@ public class RoadAttUtil {
                 attArr = lhc_bigSmall(arr[4], 25, 49);
                 break;
             case "正码五单双":
-                attArr=  lhc_doubleSingle(arr[4], 49);
+                attArr = lhc_doubleSingle(arr[4], 49);
                 break;
             case "正码五合大小":
                 attArr = lhc_he_bigOrSmall(arr[4], 7, 49);
@@ -979,12 +1040,11 @@ public class RoadAttUtil {
                 break;
 
 
-
             case "正码六大小":
                 attArr = lhc_bigSmall(arr[5], 25, 49);
                 break;
             case "正码六单双":
-                attArr= lhc_doubleSingle(arr[5], 49);
+                attArr = lhc_doubleSingle(arr[5], 49);
                 break;
             case "正码六合大小":
                 attArr = lhc_he_bigOrSmall(arr[5], 7, 49);
@@ -997,10 +1057,10 @@ public class RoadAttUtil {
                 attArr = lhc_bigSmall(String.valueOf(arr[5].charAt(1)), 5, 49);
                 break;
             case "总和大小":
-                attArr =lhc_bigSmall(total+"", 176, 175);
+                attArr = lhc_bigSmall(total + "", 176, 175);
                 break;
             case "总和单双":
-                attArr = lhc_he_doubleSigle(total+"", 175);
+                attArr = lhc_he_doubleSigle(total + "", 175);
                 break;
             case "总肖单双":
                 List<String> objects = new ArrayList<>();
@@ -1009,7 +1069,7 @@ public class RoadAttUtil {
                     objects.add(shengxiao);
                 }
                 HashSet<String> hashSet = new HashSet<>();
-                 hashSet.addAll(objects);
+                hashSet.addAll(objects);
                 int size = hashSet.size();
                 attArr = lhc_doubleSingle(size + "", 49);
                 break;

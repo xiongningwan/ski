@@ -33,6 +33,7 @@ import java.util.Set;
 
 import static com.ski.box.bean.lottery.BetLayoutType.BET_LAYOUT_TYPE_CIRCLE;
 import static com.ski.box.bean.lottery.BetLayoutType.BET_LAYOUT_TYPE_CIRCLE_LHC;
+import static com.ski.box.bean.lottery.BetLayoutType.BET_LAYOUT_TYPE_F1_JJS;
 import static com.ski.box.bean.lottery.BetLayoutType.BET_LAYOUT_TYPE_RECTANGLE;
 import static com.ski.box.bean.lottery.BetLayoutType.BET_LAYOUT_TYPE_RECTANGLE_HLC;
 import static com.ski.box.bean.lottery.BetLayoutType.BET_LAYOUT_TYPE_RECTANGLE_K3;
@@ -61,6 +62,7 @@ public class ContentItemAdapter extends BaseMultiItemQuickAdapter<LotteryPlay, B
         addItemType(BET_LAYOUT_TYPE_RECTANGLE_HLC, R.layout.ski_play_content_item_type_rectangle);
         addItemType(BET_LAYOUT_TYPE_RECTANGLE_SUM, R.layout.ski_item_hz_button_panel);
         addItemType(BET_LAYOUT_TYPE_RECTANGLE_K3, R.layout.ski_hall_item_dice_kuaisan);
+        addItemType(BET_LAYOUT_TYPE_F1_JJS, R.layout.ski_play_content_item_type_f1);
         mViews = new HashMap<>();
         mPlays = new HashMap<>();
     }
@@ -91,6 +93,10 @@ public class ContentItemAdapter extends BaseMultiItemQuickAdapter<LotteryPlay, B
             /*方型快三*/
             case BET_LAYOUT_TYPE_RECTANGLE_K3:
                 rectangleK3Layout(holder, play);
+                break;
+            /*f1*/
+            case BET_LAYOUT_TYPE_F1_JJS:
+                f1leLayout(holder, play);
                 break;
         }
     }
@@ -432,6 +438,47 @@ public class ContentItemAdapter extends BaseMultiItemQuickAdapter<LotteryPlay, B
                 break;
         }
         return name;
+    }
+
+    /**
+     * f1
+     *
+     * @param holder
+     * @param play
+     */
+    private void f1leLayout(@NotNull BaseViewHolder holder, @Nullable LotteryPlay play) {
+        ShadowLayout slLayout = holder.getView(R.id.sl_select_num);
+        LinearLayout llSelectNum = holder.getView(R.id.ll_select_num);
+        TextView tvName = holder.getView(R.id.tvName);
+        TextView tvOdds = holder.getView(R.id.tvValue);
+        TextView coldHotMissing = holder.getView(R.id.tv_cold_hot_missing);
+        setView2List(play, llSelectNum);
+        tvName.setText(play.getName());
+//        tvOdds.setText(getOdds(play.getCode(), play.getOdds()));
+        tvOdds.setText(play.getOdds());
+        if (LotteryUtil.isNumeric(play.getCode())) {
+            llSelectNum.setBackgroundResource(type == 1 ? LotteryUtil.getLHCSquareBackgroudResource(Integer.valueOf(play.getCode()))
+                    : R.drawable.ski_bet_content_btn_item_selector);
+        } else {
+            llSelectNum.setBackgroundResource(R.drawable.ski_bet_content_btn_item_selector);
+        }
+        /*冷热遗漏*/
+        coldHotShow(coldHotMissing, play);
+        clear(play, llSelectNum);
+        llSelectNum.setSelected(play.isSelected());
+        llSelectNum.setOnClickListener(v -> {
+            if (play.isSelected()) {
+                play.setSelected(false);
+            } else {
+                play.setSelected(true);
+            }
+            llSelectNum.setSelected(play.isSelected());
+            exclusiveSelected(play); // 互斥
+            slLayout.setmShadowColor(Color.parseColor(play.isSelected() ? "#5a82f8" : "#999999"));
+            if (mContentClickListener != null) {
+                mContentClickListener.onItemClick();
+            }
+        });
     }
 
 

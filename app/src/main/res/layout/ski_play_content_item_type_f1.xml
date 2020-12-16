@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:ignore="ResourceName">
+
+    <com.ski.box.view.view.ShadowLayout
+        android:visibility="gone"
+        android:id="@+id/sl_select_num"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginRight="@dimen/ski_dp_8"
+        android:gravity="center"
+        app:ski_hl_cornerRadius="@dimen/ski_dp_6"
+        app:ski_hl_leftShow="false"
+        app:ski_hl_rightShow="false"
+        app:ski_hl_shadowLimit="@dimen/ski_dp_1"
+        app:ski_hl_topShow="false"
+        tools:ignore="MissingConstraints">
+
+    </com.ski.box.view.view.ShadowLayout>
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/ski_dp_12"
+        android:layout_marginRight="@dimen/ski_dp_5"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:id="@+id/ll_select_num"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:background="@drawable/ski_bet_content_btn_item_selector"
+        tools:ignore="MissingConstraints">
+
+        <com.ski.box.view.view.cus.CusTextView
+            android:id="@+id/tvName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:autoSizeMaxTextSize="14dp"
+            android:autoSizeMinTextSize="2dp"
+            android:autoSizeStepGranularity="1dp"
+            android:autoSizeTextType="uniform"
+            android:maxLines="1"
+            tools:text="龙虎"
+            android:textColor="@color/ski_444444_white_text_color"
+            android:textSize="15dp"
+            android:layout_marginTop="5dp"/>
+
+        <com.ski.box.view.view.cus.CusTextView
+            android:id="@+id/tvValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvName"
+            android:textColor="@color/ski_999999_white_text_color"
+            android:textSize="11dp"
+            tools:text="2"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="5dp"/>
+    </LinearLayout>
+
+    <com.ski.box.view.view.cus.CusTextView
+        android:layout_marginRight="@dimen/ski_dp_3"
+        android:layout_marginTop="@dimen/ski_dp_5"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:id="@+id/tv_cold_hot_missing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="xxxx"
+        android:background="@mipmap/ski_hot_miss_back"
+        android:gravity="center"
+        android:textColor="#b4bbc7"
+        android:textSize="12dp"
+
+        tools:ignore="MissingConstraints" />
+
+    <com.ski.box.view.view.cus.CusTextView
+        android:layout_marginRight="@dimen/ski_dp_1"
+        android:id="@+id/tv_cold_hot_missing_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/sl_select_num"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/ski_dp_1"
+        android:textSize="12dp"
+        android:visibility="invisible"
+        tools:ignore="MissingConstraints" />
+</androidx.constraintlayout.widget.ConstraintLayout>

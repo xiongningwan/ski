@@ -58,7 +58,7 @@ public class TopResultAdapter extends BaseMultiItemQuickAdapter<LotteryNumBean, 
         addItemType(LotteryConstant.SER_ID_3D, R.layout.ski_item_top_result_type_3d);
         addItemType(LotteryConstant.SER_ID_PL35, R.layout.ski_item_top_result_type_ssc);
         addItemType(LotteryConstant.SER_ID_KL8, R.layout.ski_item_top_result_type_kl8);
-        addItemType(LotteryConstant.SER_ID_F1_JJS, R.layout.ski_item_top_result_type_pk10);
+        addItemType(LotteryConstant.SER_ID_F1_JJS, R.layout.ski_item_top_result_type_f1_jjs);
         mContext = context;
         systemModel = SystemUtil.getSystemModel();
         mViewHeight = ScreenUtils.dip2px(60);
@@ -84,7 +84,6 @@ public class TopResultAdapter extends BaseMultiItemQuickAdapter<LotteryNumBean, 
         int type = holder.getItemViewType();
         switch (type) {
             case LotteryConstant.SER_ID_PK10:
-            case LotteryConstant.SER_ID_F1_JJS:
                 if (10 == arr_code.length) {
                     TextView tvNum1 = holder.getView(R.id.tv_num_1);
                     TextView tvNum2 = holder.getView(R.id.tv_num_2);
@@ -292,6 +291,34 @@ public class TopResultAdapter extends BaseMultiItemQuickAdapter<LotteryNumBean, 
                             startAnimal(type, arr[i], i, arr_code[i], 150, 20, 20, arr_code, arr);
                         } else {
                             arr[i].setText(arr_code[i]);
+                        }
+                    }
+                }
+                break;
+            case LotteryConstant.SER_ID_F1_JJS:
+                if (10 == arr_code.length) {
+                    ImageView tvNum1 = holder.getView(R.id.tv_num_1);
+                    ImageView tvNum2 = holder.getView(R.id.tv_num_2);
+                    ImageView tvNum3 = holder.getView(R.id.tv_num_3);
+                    ImageView tvNum4 = holder.getView(R.id.tv_num_4);
+                    ImageView tvNum5 = holder.getView(R.id.tv_num_5);
+                    ImageView tvNum6 = holder.getView(R.id.tv_num_6);
+                    ImageView tvNum7 = holder.getView(R.id.tv_num_7);
+                    ImageView tvNum8 = holder.getView(R.id.tv_num_8);
+                    ImageView tvNum9 = holder.getView(R.id.tv_num_9);
+                    ImageView tvNum10 = holder.getView(R.id.tv_num_10);
+
+                    ImageView[] arr = {tvNum1, tvNum2, tvNum3, tvNum4, tvNum5, tvNum6, tvNum7, tvNum8, tvNum9, tvNum10};
+
+                    for (int i = 0; i < arr.length; i++) {
+                        if (mode != 2) {
+                           // startAnimal(type, arr[i], i, arr_code[i], 120, 30, 10, arr_code, arrXt);
+                            Integer icon = ConfigurationUiUtils.mF1IconSCMap.get(arr_code[i]);
+                            arr[i].setImageResource(icon);
+                        } else {
+                            Integer icon = ConfigurationUiUtils.mF1IconSCMap.get(arr_code[i]);
+                            arr[i].setImageResource(icon);
+                           // arr[i].setText(arr_code[i]);
                         }
                     }
                 }
