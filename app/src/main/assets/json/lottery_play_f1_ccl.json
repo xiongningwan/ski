@@ -1,0 +1,247 @@
+[
+  {
+    "id": 0,
+    "remoteCode": "shuangmian",
+    "title": "双面",
+    "subPlays": [
+      {
+        "playId": 0,
+        "remoteCode": "shuangmian",
+        "titleSub": "双面_副",
+        "lotteryPlayEnds": [
+          {
+            "remoteCode": "diyiqiu",
+            "tag": "第一球",
+            "isHideTag": false,
+            "isRandom": false,
+            "isCanExpand": true,
+            "isDraft": false,
+            "lotteryPlays": [
+              {
+                "id": 312,
+                "remoteCodeUp": "diyiqiudanshuang",
+                "remoteCode": "dan",
+                "tag": "第一球单双",
+                "name": "单",
+                "code": "dan",
+                "odds": "",
+                "isSelected": false,
+                "itemType": 0,
+                "miss": "0",
+                "coldHot_20": "0",
+                "coldHot_50": "0",
+                "coldHot_100": "0",
+                "roadId": 312
+              },
+              {
+                "id": 313,
+                "remoteCodeUp": "diyiqiudanshuang",
+                "remoteCode": "shuang",
+                "tag": "第一球单双",
+                "name": "双",
+                "code": "shuang",
+                "odds": "",
+                "isSelected": false,
+                "itemType": 0,
+                "miss": "0",
+                "coldHot_20": "0",
+                "coldHot_50": "0",
+                "coldHot_100": "0",
+                "roadId": 313
+              }
+            ],
+            "isSelected": false,
+            "spanCount": 2,
+            "divider": 0
+          },
+          {
+            "remoteCode": "dierqiu",
+            "tag": "第二球",
+            "isHideTag": false,
+            "isRandom": false,
+            "isCanExpand": true,
+            "isDraft": false,
+            "lotteryPlays": [
+              {
+                "id": 328,
+                "remoteCodeUp": "dierqiudanshuang",
+                "remoteCode": "dan",
+                "tag": "第二球单双",
+                "name": "单",
+                "code": "dan",
+                "odds": "",
+                "isSelected": false,
+                "itemType": 0,
+                "miss": "0",
+                "coldHot_20": "0",
+                "coldHot_50": "0",
+                "coldHot_100": "0",
+                "roadId": 328
+              },
+              {
+                "id": 329,
+                "remoteCodeUp": "dierqiudanshuang",
+                "remoteCode": "shuang",
+                "tag": "第二球单双",
+                "name": "双",
+                "code": "shuang",
+                "odds": "",
+                "isSelected": false,
+                "itemType": 0,
+                "miss": "0",
+                "coldHot_20": "0",
+                "coldHot_50": "0",
+                "coldHot_100": "0",
+                "roadId": 329
+              }
+            ],
+            "isSelected": false,
+            "spanCount": 2,
+            "divider": 0
+          },
+          {
+            "remoteCode": "disanqiu",
+            "tag": "第三球",
+            "isHideTag": false,
+            "isRandom": false,
+            "isCanExpand": true,
+            "isDraft": false,
+            "lotteryPlays": [
+              {
+                "id": 344,
+                "remoteCodeUp": "disanqiudanshuang",
+                "remoteCode": "dan",
+                "tag": "第三球单双",
+                "name": "单",
+                "code": "dan",
+                "odds": "",
+                "isSelected": false,
+                "itemType": 0,
+                "miss": "0",
+                "coldHot_20": "0",
+                "coldHot_50": "0",
+                "coldHot_100": "0",
+                "roadId": 344
+              },
+              {
+                "id": 345,
+                "remoteCodeUp": "disanqiudanshuang",
+                "remoteCode": "shuang",
+                "tag": "第三球单双",
+                "name": "双",
+                "code": "shuang",
+                "odds": "",
+                "isSelected": false,
+                "itemType": 0,
+                "miss": "0",
+                "coldHot_20": "0",
+                "coldHot_50": "0",
+                "coldHot_100": "0",
+                "roadId": 345
+              }
+            ],
+            "isSelected": false,
+            "spanCount": 2,
+            "divider": 0
+          },
+          {
+            "remoteCode": "disiqiu",
+            "tag": "第四球",
+            "isHideTag": false,
+            "isRandom": false,
+            "isCanExpand": true,
+            "isDraft": false,
+            "lotteryPlays": [
+              {
+                "id": 360,
+                "remoteCodeUp": "disiqiudanshuang",
+                "remoteCode": "dan",
+                "tag": "第四球单双",
+                "name": "单",
+                "code": "dan",
+                "odds": "",
+                "isSelected": false,
+                "itemType": 0,
+                "miss": "0",
+                "coldHot_20": "0",
+                "coldHot_50": "0",
+                "coldHot_100": "0",
+                "roadId": 360
+              },
+              {
+                "id": 361,
+                "remoteCodeUp": "disiqiudanshuang",
+                "remoteCode": "shuang",
+                "tag": "第四球单双",
+                "name": "双",
+                "code": "shuang",
+                "odds": "",
+                "isSelected": false,
+                "itemType": 0,
+                "miss": "0",
+                "coldHot_20": "0",
+                "coldHot_50": "0",
+                "coldHot_100": "0",
+                "roadId": 361
+              }
+            ],
+            "isSelected": false,
+            "spanCount": 2,
+            "divider": 0
+          },
+          {
+            "remoteCode": "diwuqiu",
+            "tag": "第五球",
+            "isHideTag": false,
+            "isRandom": false,
+            "isCanExpand": true,
+            "isDraft": false,
+            "lotteryPlays": [
+              {
+                "id": 376,
+                "remoteCodeUp": "diwuqiudanshuang",
+                "remoteCode": "dan",
+                "tag": "第五球单双",
+                "name": "单",
+                "code": "dan",
+                "odds": "",
+                "isSelected": false,
+                "itemType": 0,
+                "miss": "0",
+                "coldHot_20": "0",
+                "coldHot_50": "0",
+                "coldHot_100": "0",
+                "roadId": 376
+              },
+              {
+                "id": 377,
+                "remoteCodeUp": "diwuqiudanshuang",
+                "remoteCode": "shuang",
+                "tag": "第五球单双",
+                "name": "双",
+                "code": "shuang",
+                "odds": "",
+                "isSelected": false,
+                "itemType": 0,
+                "miss": "0",
+                "coldHot_20": "0",
+                "coldHot_50": "0",
+                "coldHot_100": "0",
+                "roadId": 377
+              }
+            ],
+            "isSelected": false,
+            "spanCount": 2,
+            "divider": 1
+          }
+        ],
+        "isSelected": false,
+        "odds": "",
+        "coldHotMissLayout": "S_ColdHot"
+      }
+    ],
+    "itemPlayId": 0,
+    "isLocate": false,
+    "isSelected": false
+  }
+]
