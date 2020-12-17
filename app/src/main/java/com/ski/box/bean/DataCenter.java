@@ -199,6 +199,9 @@ public class DataCenter {
             case LotteryConstant.SER_ID_F1_CCL:
                 list = getLotteryPlayStarts(lotteryId, mode, LotteryConstant.SER_NAME_F1_JJS, "lottery_play_kl8_standard.json", "lottery_play_f1_ccl.json");
                 break;
+            case LotteryConstant.SER_ID_F1_SW:
+                list = getLotteryPlayStarts(lotteryId, mode, LotteryConstant.SER_NAME_F1_JJS, "lottery_play_kl8_standard.json", "lottery_play_f1_sw.json");
+                break;
         }
 
         if (list == null) {

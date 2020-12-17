@@ -32,6 +32,7 @@ import java.util.Set;
 import static com.ski.box.bean.lottery.BetLayoutType.BET_LAYOUT_TYPE_CIRCLE;
 import static com.ski.box.bean.lottery.BetLayoutType.BET_LAYOUT_TYPE_CIRCLE_LHC;
 import static com.ski.box.bean.lottery.BetLayoutType.BET_LAYOUT_TYPE_F1_JJS;
+import static com.ski.box.bean.lottery.BetLayoutType.BET_LAYOUT_TYPE_F1_SW;
 import static com.ski.box.bean.lottery.BetLayoutType.BET_LAYOUT_TYPE_RECTANGLE;
 import static com.ski.box.bean.lottery.BetLayoutType.BET_LAYOUT_TYPE_RECTANGLE_HLC;
 import static com.ski.box.bean.lottery.BetLayoutType.BET_LAYOUT_TYPE_RECTANGLE_K3;
@@ -61,6 +62,7 @@ public class ContentItemAdapter extends BaseMultiItemQuickAdapter<LotteryPlay, B
         addItemType(BET_LAYOUT_TYPE_RECTANGLE_SUM, R.layout.ski_item_hz_button_panel);
         addItemType(BET_LAYOUT_TYPE_RECTANGLE_K3, R.layout.ski_hall_item_dice_kuaisan);
         addItemType(BET_LAYOUT_TYPE_F1_JJS, R.layout.ski_play_content_item_type_f1);
+        addItemType(BET_LAYOUT_TYPE_F1_SW, R.layout.ski_play_content_item_type_f1_sw);
         mViews = new HashMap<>();
         mPlays = new HashMap<>();
     }
@@ -95,6 +97,9 @@ public class ContentItemAdapter extends BaseMultiItemQuickAdapter<LotteryPlay, B
             /*f1*/
             case BET_LAYOUT_TYPE_F1_JJS:
                 f1leLayout(holder, play);
+                break;
+            case BET_LAYOUT_TYPE_F1_SW:
+                f1SWLayout(holder, play);
                 break;
         }
     }
@@ -480,6 +485,87 @@ public class ContentItemAdapter extends BaseMultiItemQuickAdapter<LotteryPlay, B
         });
     }
 
+
+    /**
+     * f1 sw
+     *
+     * @param holder
+     * @param play
+     */
+    private void f1SWLayout(@NotNull BaseViewHolder holder, @Nullable LotteryPlay play) {
+        ConstraintLayout llContent = holder.getView(R.id.cl_content_kuaisan);
+        String playItemOdds = play.getOdds();
+        String playTag = play.getTag();
+        String playCode = play.getCode();
+        //---------------------------------------------------------------------
+        TextView tvOne = holder.getView(R.id.tvOne);
+        TextView tvTwo = holder.getView(R.id.tvTwo);
+        TextView tvThree = holder.getView(R.id.tvThree);
+        TextView playOdds = holder.getView(R.id.tv_play_odds);
+        TextView tvNum = holder.getView(R.id.tv_num);
+        TextView coldHotMissing = holder.getView(R.id.tv_cold_hot_missing);
+        /*冷热遗漏*/
+        coldHotShow(coldHotMissing, play);
+        playOdds.setText(playItemOdds);
+        /**三军**/
+        if ("三军".equals(playTag)) {
+            tvTwo.setText("");
+            int icon = getSwIcons(playCode).get(0);
+            setVisibility(tvOne, tvTwo, tvThree, View.GONE, View.GONE);
+            tvTwo.setBackgroundResource(icon);
+            /**总和大小**/
+        }  else if ("围骰".equalsIgnoreCase(playTag)) {
+            tvTwo.setText("");
+            List<Integer> icons = getSwIcons(playCode);
+            setVisibility(tvOne, tvTwo, tvThree, View.VISIBLE, View.VISIBLE);
+            tvOne.setBackgroundResource(icons.get(0));
+            tvTwo.setBackgroundResource(icons.get(1));
+            tvThree.setBackgroundResource(icons.get(2));
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) llContent.getLayoutParams();
+            layoutParams.leftMargin = ScreenUtils.dip2px(1);
+            layoutParams.rightMargin = ScreenUtils.dip2px(1);
+            llContent.setLayoutParams(layoutParams);
+
+            /**全骰**/
+        } else if ("全骰".equalsIgnoreCase(playTag)) {
+            tvTwo.setBackgroundColor(Color.argb(0, 0, 0, 0));
+            setVisibility(tvOne, tvTwo, tvThree, View.GONE, View.GONE);
+            tvTwo.setText(play.getName());
+            setLayoutParams(llContent, "全骰".equals(playTag));
+            /**点数**/
+        } else if (!"点数".equalsIgnoreCase(playTag)) {
+            if ("长牌".equalsIgnoreCase(playTag) || "短牌".equalsIgnoreCase(playTag)) {
+                tvTwo.setText("");
+                List<Integer> icons = getSwIcons(playCode);
+                setVisibility(tvOne, tvTwo, tvThree, View.VISIBLE, View.GONE);
+                tvOne.setBackgroundResource(icons.get(0));
+                tvTwo.setBackgroundResource(icons.get(1));
+                tvOne.setPadding(10,10,5,10);
+                tvTwo.setPadding(5,10,10,10);
+            }
+        }
+        clear(play, llContent);
+        llContent.setSelected(play.isSelected());
+        llContent.setOnClickListener(v -> {
+            if (play.isSelected()) {
+                play.setSelected(false);
+            } else {
+                play.setSelected(true);
+            }
+            llContent.setSelected(play.isSelected());
+            if (mContentClickListener != null) {
+                mContentClickListener.onItemClick();
+            }
+        });
+    }
+
+    private List<Integer> getSwIcons(String playCode) {
+        List<Integer> icons = new ArrayList<>();
+        for (int i = 0; i < playCode.length(); i++) {
+            icons.add(ConfigurationUiUtils.getF1JJSIcon(String.valueOf(playCode.charAt(i))));
+        }
+        return icons;
+    }
 
     /*冷热遗漏颜色*/
     private void setColdHotMissTextColor(TextView textView, String color) {

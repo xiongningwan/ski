@@ -44,6 +44,7 @@ public class RecordResultAdapter extends BaseMultiItemQuickAdapter<RecordResultB
         addItemType(LotteryConstant.SER_ID_PL35, R.layout.ski_item_record_result_type_ssc);
         addItemType(LotteryConstant.SER_ID_KL8, R.layout.ski_item_record_result_type_kl8);
         addItemType(LotteryConstant.SER_ID_F1_JJS, R.layout.ski_item_record_result_type_f1_jjs);
+        addItemType(LotteryConstant.SER_ID_F1_SW, R.layout.ski_item_record_result_type_f1_sw);
         mContext = context;
         systemModel = SystemUtil.getSystemModel();
         mViewHeight = ScreenUtils.dip2px(60);
@@ -233,6 +234,18 @@ public class RecordResultAdapter extends BaseMultiItemQuickAdapter<RecordResultB
 
                     for (int i = 0; i < arr.length; i++) {
                         Integer icon = ConfigurationUiUtils.getF1JJSIcon(arr_code[i]);
+                        arr[i].setImageResource(icon);
+                    }
+                }
+                break;
+            case LotteryConstant.SER_ID_F1_SW:
+                if (3 == arr_code.length) {
+                    ImageView ivNum1 = holder.getView(R.id.iv_num_1);
+                    ImageView ivNum2 = holder.getView(R.id.iv_num_2);
+                    ImageView ivNum3 = holder.getView(R.id.iv_num_3);
+                    ImageView[] arr = {ivNum1, ivNum2, ivNum3};
+                    for (int i = 0; i < arr.length; i++) {
+                        int icon = ConfigurationUiUtils.getF1JJSIcon(arr_code[i]);
                         arr[i].setImageResource(icon);
                     }
                 }

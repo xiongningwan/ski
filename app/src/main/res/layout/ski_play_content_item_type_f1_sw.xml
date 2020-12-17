@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rl_content_kuaisan"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_content_kuaisan"
+        android:background="@drawable/ski_bg_k3_selector"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/ski_dp_80"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="@dimen/ski_dp_7"
+        android:paddingLeft="@dimen/ski_dp_3"
+        android:paddingTop="@dimen/ski_dp_5"
+        android:paddingRight="@dimen/ski_dp_3"
+        android:paddingBottom="@dimen/ski_dp_5">
+
+        <com.ski.box.view.view.cus.CusTextView
+            android:id="@+id/tvOne"
+            android:layout_width="@dimen/ski_dp_32"
+            android:layout_height="@dimen/ski_dp_32"
+            android:gravity="center"
+            app:layout_constraintEnd_toStartOf="@+id/tvTwo"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvTwo"
+            tools:text="大" />
+
+        <com.ski.box.view.view.cus.CusTextView
+            android:id="@+id/tvTwo"
+            android:layout_width="@dimen/ski_dp_32"
+            android:layout_height="@dimen/ski_dp_32"
+            android:gravity="center"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/tv_play_odds"
+            app:layout_constraintEnd_toStartOf="@+id/tvThree"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@+id/tvOne"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textColor="@color/ski_444444_white_text_color"
+            tools:text="小" />
+
+        <com.ski.box.view.view.cus.CusTextView
+            android:id="@+id/tvThree"
+            android:layout_width="@dimen/ski_dp_32"
+            android:layout_height="@dimen/ski_dp_32"
+            android:gravity="center"
+            android:layout_marginLeft="@dimen/ski_dp_3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@+id/tvTwo"
+            app:layout_constraintTop_toTopOf="@+id/tvTwo"
+            tools:text="单" />
+
+        <com.ski.box.view.view.cus.CusTextView
+            android:id="@+id/tv_play_odds"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/ski_dp_3"
+            android:textColor="@color/ski_444444_white_text_color"
+            android:textSize="12dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="1" />
+
+        <com.ski.box.view.view.cus.CusTextView
+            android:id="@+id/tv_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="@dimen/ski_dp_2"
+            android:textSize="15dp"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textColor="@color/ski_444444_white_text_color"
+            tools:text="1" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.ski.box.view.view.cus.CusTextView
+        android:id="@+id/tv_cold_hot_missing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:background="@mipmap/ski_hot_miss_back"
+        android:gravity="center"
+        android:textColor="#b4bbc7"
+        android:textSize="12dp"
+        tools:text="1"
+        android:visibility="gone"/>
+
+</RelativeLayout>

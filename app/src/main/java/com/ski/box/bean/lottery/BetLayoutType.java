@@ -8,6 +8,7 @@ public interface BetLayoutType {
     int BET_LAYOUT_TYPE_RECTANGLE_SUM = 4;// 方型和值
     int BET_LAYOUT_TYPE_RECTANGLE_K3 = 5;// 方型快三 双面盘
     int BET_LAYOUT_TYPE_F1_JJS = 6;// F1竞技赛
+    int BET_LAYOUT_TYPE_F1_SW = 8;// F1骰王
     // 标准盘快三类型1 三同号单选
     int BET_LAYOUT_TYPE_RECTANGLE_K3_S_1 = 5_1;
     // 标准盘快三类型2  三不同号单选 三不同号复选 三连号单选  半顺单选 杂六单选 二同号单选单式 二同号单选复试和不同号 二同号复选 二不同号复选  二不同号单选 才一个号

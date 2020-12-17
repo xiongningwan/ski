@@ -137,7 +137,12 @@ public class DoubleFragment extends BaseMVPFragment<PlayContract.Presenter> impl
             LotteryPlayStart lotteryPlay = plays.get(i);
             fragmentList.add(BodyFragment.newInstance(mLotteryId, lotteryPlay, i));
         }
-        mViewPager.setOffscreenPageLimit(plays.size() - 1);
+        if(plays.size() - 1 > 1) {
+            mViewPager.setOffscreenPageLimit(plays.size() - 1);
+        } else {
+            mViewPager.setOffscreenPageLimit(1);
+        }
+
         mViewPager.setAdapter(new FragmentPager2Adapter(getActivity(), fragmentList));
         mViewPager.setCurrentItem(0);
     }
