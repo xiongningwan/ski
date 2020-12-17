@@ -313,10 +313,10 @@ public class TopResultAdapter extends BaseMultiItemQuickAdapter<LotteryNumBean, 
                     for (int i = 0; i < arr.length; i++) {
                         if (mode != 2) {
                            // startAnimal(type, arr[i], i, arr_code[i], 120, 30, 10, arr_code, arrXt);
-                            Integer icon = ConfigurationUiUtils.mF1IconSCMap.get(arr_code[i]);
+                            Integer icon = ConfigurationUiUtils.getF1JJSIcon(arr_code[i]);
                             arr[i].setImageResource(icon);
                         } else {
-                            Integer icon = ConfigurationUiUtils.mF1IconSCMap.get(arr_code[i]);
+                            Integer icon = ConfigurationUiUtils.getF1JJSIcon(arr_code[i]);
                             arr[i].setImageResource(icon);
                            // arr[i].setText(arr_code[i]);
                         }

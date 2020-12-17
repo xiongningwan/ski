@@ -1,8 +1,8 @@
 package com.ski.box.utils.lottery;
 
 
-
 import com.ski.box.R;
+import com.yb.core.utils.LanguageUtil;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -95,4 +95,25 @@ public class ConfigurationUiUtils {
         }
     }
 
+    // 获取f1 icon
+    public static int getF1JJSIcon(String code) {
+        int resId = 0;
+        Integer iconRes = mF1IconSCMap.get(code);
+        if (iconRes == null) {
+            resId = 0;
+        } else {
+            resId = iconRes;
+        }
+        return resId;
+    }
+
+    // 获取f1 name
+    public static String getF1JJSName(String code) {
+        String name = mF1NameSCMap.get(code);
+        if (name == null) {
+            name = "";
+        }
+        name = LanguageUtil.getText(name);
+        return name;
+    }
 }

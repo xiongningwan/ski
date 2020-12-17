@@ -1,33 +1,23 @@
 package com.ski.box.adapter.top;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.res.AssetManager;
 import android.graphics.Typeface;
 import android.view.View;
-import android.view.animation.LinearInterpolator;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.bumptech.glide.request.RequestOptions;
 import com.chad.library.adapter.base.BaseMultiItemQuickAdapter;
 import com.chad.library.adapter.base.viewholder.BaseViewHolder;
 import com.ski.box.R;
 import com.ski.box.bean.LotteryNumBean;
 import com.ski.box.bean.lottery.LotteryConstant;
 import com.ski.box.bean.lottery.LotteryUtil;
-import com.ski.box.utils.MyCustomTarage;
 import com.ski.box.utils.SystemUtil;
 import com.ski.box.utils.lottery.ConfigurationUiUtils;
 import com.ski.box.utils.lottery.LotteryNoUtil;
-import com.yb.core.utils.AppUtil;
 import com.yb.core.utils.LanguageUtil;
-import com.yb.core.utils.LogUtils;
 import com.yb.core.utils.ScreenUtils;
 
 import org.eclipse.paho.client.mqttv3.util.Strings;
@@ -241,6 +231,11 @@ public class TopHistoryAdapter extends BaseMultiItemQuickAdapter<LotteryNumBean,
                     ImageView tvNum10 = holder.getView(R.id.tv_num_10);
 
                     ImageView[] arr = {tvNum1, tvNum2, tvNum3, tvNum4, tvNum5, tvNum6, tvNum7, tvNum8, tvNum9, tvNum10};
+
+                    for (int i = 0; i < arr.length; i++) {
+                        Integer icon = ConfigurationUiUtils.getF1JJSIcon(arr_code[i]);
+                        arr[i].setImageResource(icon);
+                    }
                 }
                 break;
         }

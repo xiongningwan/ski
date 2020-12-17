@@ -15,7 +15,6 @@ import com.chad.library.adapter.base.viewholder.BaseViewHolder;
 import com.ski.box.R;
 import com.ski.box.bean.RecordResultBean;
 import com.ski.box.bean.lottery.LotteryConstant;
-import com.ski.box.bean.record.RecordBet;
 import com.ski.box.utils.SystemUtil;
 import com.ski.box.utils.lottery.ConfigurationUiUtils;
 import com.yb.core.utils.ScreenUtils;
@@ -231,6 +230,11 @@ public class RecordResultAdapter extends BaseMultiItemQuickAdapter<RecordResultB
                     ImageView tvNum10 = holder.getView(R.id.tv_num_10);
 
                     ImageView[] arr = {tvNum1, tvNum2, tvNum3, tvNum4, tvNum5, tvNum6, tvNum7, tvNum8, tvNum9, tvNum10};
+
+                    for (int i = 0; i < arr.length; i++) {
+                        Integer icon = ConfigurationUiUtils.getF1JJSIcon(arr_code[i]);
+                        arr[i].setImageResource(icon);
+                    }
                 }
                 break;
         }

@@ -13,8 +13,6 @@ import androidx.core.content.ContextCompat;
 import com.chad.library.adapter.base.BaseMultiItemQuickAdapter;
 import com.chad.library.adapter.base.viewholder.BaseViewHolder;
 import com.ski.box.R;
-import com.ski.box.bean.DataCenter;
-import com.ski.box.bean.MkBetParamEntity;
 import com.ski.box.bean.lottery.LotteryPlay;
 import com.ski.box.bean.lottery.LotteryUtil;
 import com.ski.box.utils.lottery.ConfigurationUiUtils;
@@ -454,7 +452,7 @@ public class ContentItemAdapter extends BaseMultiItemQuickAdapter<LotteryPlay, B
         TextView coldHotMissing = holder.getView(R.id.tv_cold_hot_missing);
         setView2List(play, llSelectNum);
 
-        tvName.setBackgroundResource(ConfigurationUiUtils.mF1IconSCMap.get(play.getCode()));
+        tvName.setBackgroundResource(ConfigurationUiUtils.getF1JJSIcon(play.getCode()));
        // tvName.setText(play.getName());
 //        tvOdds.setText(getOdds(play.getCode(), play.getOdds()));
         tvOdds.setText(play.getOdds());
