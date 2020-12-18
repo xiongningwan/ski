@@ -44,6 +44,7 @@ public class RecordResultAdapter extends BaseMultiItemQuickAdapter<RecordResultB
         addItemType(LotteryConstant.SER_ID_PL35, R.layout.ski_item_record_result_type_ssc);
         addItemType(LotteryConstant.SER_ID_KL8, R.layout.ski_item_record_result_type_kl8);
         addItemType(LotteryConstant.SER_ID_F1_JJS, R.layout.ski_item_record_result_type_f1_jjs);
+        addItemType(LotteryConstant.SER_ID_F1_CCL, R.layout.ski_item_record_result_type_f1_ccl);
         addItemType(LotteryConstant.SER_ID_F1_SW, R.layout.ski_item_record_result_type_f1_sw);
         mContext = context;
         systemModel = SystemUtil.getSystemModel();
@@ -250,6 +251,25 @@ public class RecordResultAdapter extends BaseMultiItemQuickAdapter<RecordResultB
                     }
                 }
                 break;
+            case LotteryConstant.SER_ID_F1_CCL: {
+
+                ImageView tvNum1 = holder.getView(R.id.tv_num_1);
+                ImageView tvNum2 = holder.getView(R.id.tv_num_2);
+                ImageView tvNum3 = holder.getView(R.id.tv_num_3);
+                ImageView tvNum4 = holder.getView(R.id.tv_num_4);
+                ImageView tvNum5 = holder.getView(R.id.tv_num_5);
+                ImageView[] arr = {tvNum1, tvNum2, tvNum3, tvNum4, tvNum5};
+                if (5 == arr_code.length) {
+                    for (int i = 0; i < arr.length; i++) {
+                        int icon = ConfigurationUiUtils.getF1JJSIcon(arr_code[i]);
+                        arr[i].setImageResource(icon);
+                    }
+                } else {
+                    for (int i = 0; i < arr.length; i++) {
+                        arr[i].setVisibility(View.GONE);
+                    }
+                }
+            } break;
         }
     }
 
