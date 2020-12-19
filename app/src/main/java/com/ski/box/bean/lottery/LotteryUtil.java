@@ -434,6 +434,27 @@ public class LotteryUtil {
         mLotteryIconMap.put(89, R.mipmap.ski_icon_k3_89);
         // pl35
         mLotteryIconMap.put(40, R.mipmap.ski_icon_pl35_40);
+        // f1 jjs
+        mLotteryIconMap.put(7, R.mipmap.ski_icon_f1_jjs_7);
+        mLotteryIconMap.put(12, R.mipmap.ski_icon_f1_jjs_12);
+        mLotteryIconMap.put(13, R.mipmap.ski_icon_f1_jjs_13);
+        mLotteryIconMap.put(19, R.mipmap.ski_icon_f1_jjs_19);
+        mLotteryIconMap.put(21, R.mipmap.ski_icon_f1_jjs_21);
+        mLotteryIconMap.put(22, R.mipmap.ski_icon_f1_jjs_22);
+        // f1 ccl
+        mLotteryIconMap.put(2, R.mipmap.ski_icon_f1_ccl_2);
+        mLotteryIconMap.put(23, R.mipmap.ski_icon_f1_ccl_23);
+        mLotteryIconMap.put(24, R.mipmap.ski_icon_f1_ccl_24);
+        mLotteryIconMap.put(25, R.mipmap.ski_icon_f1_ccl_25);
+        mLotteryIconMap.put(28, R.mipmap.ski_icon_f1_ccl_28);
+        mLotteryIconMap.put(29, R.mipmap.ski_icon_f1_ccl_29);
+        // f1 sw
+        mLotteryIconMap.put(10, R.mipmap.ski_icon_f1_sw_10);
+        mLotteryIconMap.put(30, R.mipmap.ski_icon_f1_sw_30);
+        mLotteryIconMap.put(31, R.mipmap.ski_icon_f1_sw_31);
+        mLotteryIconMap.put(32, R.mipmap.ski_icon_f1_sw_32);
+        mLotteryIconMap.put(33, R.mipmap.ski_icon_f1_sw_33);
+        mLotteryIconMap.put(34, R.mipmap.ski_icon_f1_sw_34);
     }
 
     public static int getLotteryIcon(int ticket) {

@@ -21,8 +21,8 @@
 
         <com.ski.box.view.view.cus.CusTextView
             android:id="@+id/tvOne"
-            android:layout_width="@dimen/ski_dp_32"
-            android:layout_height="@dimen/ski_dp_32"
+            android:layout_width="@dimen/ski_dp_38"
+            android:layout_height="@dimen/ski_dp_38"
             android:gravity="center"
             app:layout_constraintEnd_toStartOf="@+id/tvTwo"
             app:layout_constraintHorizontal_chainStyle="spread"
@@ -33,8 +33,8 @@
 
         <com.ski.box.view.view.cus.CusTextView
             android:id="@+id/tvTwo"
-            android:layout_width="@dimen/ski_dp_32"
-            android:layout_height="@dimen/ski_dp_32"
+            android:layout_width="@dimen/ski_dp_38"
+            android:layout_height="@dimen/ski_dp_38"
             android:gravity="center"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/tv_play_odds"
@@ -47,10 +47,9 @@
 
         <com.ski.box.view.view.cus.CusTextView
             android:id="@+id/tvThree"
-            android:layout_width="@dimen/ski_dp_32"
-            android:layout_height="@dimen/ski_dp_32"
+            android:layout_width="@dimen/ski_dp_38"
+            android:layout_height="@dimen/ski_dp_38"
             android:gravity="center"
-            android:layout_marginLeft="@dimen/ski_dp_3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_weight="1"
             app:layout_constraintStart_toEndOf="@+id/tvTwo"

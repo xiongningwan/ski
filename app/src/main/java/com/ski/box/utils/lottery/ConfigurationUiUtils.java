@@ -70,16 +70,16 @@ public class ConfigurationUiUtils {
         mF1IconSCMap.put("9", R.mipmap.icon_f1_sc_9);
         mF1IconSCMap.put("10", R.mipmap.icon_f1_sc_10);
 
-        mF1NameSCMap.put("1", "奥迪");
-        mF1NameSCMap.put("2", "宝马");
-        mF1NameSCMap.put("3", "奔驰");
-        mF1NameSCMap.put("4", "捷豹");
+        mF1NameSCMap.put("1", "奔驰");
+        mF1NameSCMap.put("2", "奥迪");
+        mF1NameSCMap.put("3", "捷豹");
+        mF1NameSCMap.put("4", "宝马");
         mF1NameSCMap.put("5", "保时捷");
         mF1NameSCMap.put("6", "玛莎拉蒂");
         mF1NameSCMap.put("7", "法拉利");
-        mF1NameSCMap.put("8", "阿斯顿·马丁");
-        mF1NameSCMap.put("9", "兰博基尼");
-        mF1NameSCMap.put("10", "布加迪");
+        mF1NameSCMap.put("8", "兰博基尼");
+        mF1NameSCMap.put("9", "布加迪");
+        mF1NameSCMap.put("10", "阿斯顿·马丁");
     }
 
     //六合彩颜色
