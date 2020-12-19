@@ -12,8 +12,6 @@
 
 
         <com.ski.box.view.view.RecyclerViewAtViewPager2
-            android:paddingLeft="@dimen/ski_dp_14"
-            android:paddingRight="@dimen/ski_dp_14"
             android:id="@+id/allplay_content_xrecycler"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

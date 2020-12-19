@@ -16,7 +16,8 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/ski_dp_40"
         android:layout_marginTop="@dimen/ski_dp_6"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:visibility="gone">
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/all_ticketplay_describ"
@@ -54,7 +55,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/ski_dp_10">
+        android:layout_marginTop="@dimen/ski_dp_10"
+        android:visibility="visible">
 
         <com.ski.box.view.view.cus.CusTextView
             android:id="@+id/ski_tv_double_playing_instrution"
@@ -77,7 +79,8 @@
             android:orientation="horizontal"
             android:layout_toEndOf="@+id/ski_tv_double_playing_instrution"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
+            app:layout_constraintEnd_toEndOf="parent"
+            android:visibility="gone">
 
             <View
                 android:visibility="gone"
@@ -154,6 +157,6 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="@dimen/ski_dp_0_5"
-        android:layout_marginTop="@dimen/ski_dp_12"
+        android:layout_marginTop="@dimen/ski_dp_10"
         android:background="@color/ski_color_e3e5ec" />
 </LinearLayout>

@@ -104,7 +104,7 @@ public class ContentAdapter extends BaseQuickAdapter<LotteryPlayEnd, BaseViewHol
         }
 
         if (play.isCanExpand()) {
-            ivArrow.setVisibility(View.VISIBLE);
+           // ivArrow.setVisibility(View.VISIBLE);
             tvTagTitle.setOnClickListener(v -> {
                 if (View.VISIBLE == rvItem.getVisibility()) {
                     AnimationUtil.fadeOut(rvItem);
@@ -115,7 +115,7 @@ public class ContentAdapter extends BaseQuickAdapter<LotteryPlayEnd, BaseViewHol
                 }
             });
         } else {
-            ivArrow.setVisibility(View.GONE);
+          //  ivArrow.setVisibility(View.GONE);
             if (StringUtils.isEmpty(play.getTag())) {
                 tvTagTitle.setVisibility(View.GONE);
             }

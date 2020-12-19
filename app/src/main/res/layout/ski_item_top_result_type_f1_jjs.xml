@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:background="@color/ski_color_A86A91"
-    android:gravity="center">
+    android:gravity="center"
+    android:id="@+id/cl_f1jjs">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/gl"
@@ -16,8 +17,8 @@
 
     <ImageView
         android:id="@+id/tv_num_1"
-        android:layout_width="28dp"
-        android:layout_height="28dp"
+        android:layout_width="22dp"
+        android:layout_height="22dp"
         tools:text="1"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -27,8 +28,8 @@
 
     <ImageView
         android:id="@+id/tv_num_2"
-        android:layout_width="28dp"
-        android:layout_height="28dp"
+        android:layout_width="22dp"
+        android:layout_height="22dp"
         tools:text="2"
         app:layout_constraintTop_toTopOf="@+id/tv_num_1"
         app:layout_constraintStart_toEndOf="@+id/tv_num_1"
@@ -38,8 +39,8 @@
 
     <ImageView
         android:id="@+id/tv_num_3"
-        android:layout_width="28dp"
-        android:layout_height="28dp"
+        android:layout_width="22dp"
+        android:layout_height="22dp"
         tools:text="3"
         app:layout_constraintTop_toTopOf="@+id/tv_num_1"
         app:layout_constraintStart_toEndOf="@+id/tv_num_2"
@@ -49,8 +50,8 @@
 
     <ImageView
         android:id="@+id/tv_num_4"
-        android:layout_width="28dp"
-        android:layout_height="28dp"
+        android:layout_width="22dp"
+        android:layout_height="22dp"
         tools:text="4"
         app:layout_constraintTop_toTopOf="@+id/tv_num_1"
         app:layout_constraintStart_toEndOf="@+id/tv_num_3"
@@ -60,8 +61,8 @@
 
     <ImageView
         android:id="@+id/tv_num_5"
-        android:layout_width="28dp"
-        android:layout_height="28dp"
+        android:layout_width="22dp"
+        android:layout_height="22dp"
         tools:text="5"
         app:layout_constraintTop_toTopOf="@+id/tv_num_1"
         app:layout_constraintStart_toEndOf="@+id/tv_num_4"
@@ -71,8 +72,8 @@
 
     <ImageView
         android:id="@+id/tv_num_6"
-        android:layout_width="28dp"
-        android:layout_height="28dp"
+        android:layout_width="22dp"
+        android:layout_height="22dp"
         tools:text="6"
         app:layout_constraintStart_toEndOf="@+id/tv_num_5"
         app:layout_constraintEnd_toStartOf="@+id/tv_num_7"
@@ -82,8 +83,8 @@
 
     <ImageView
         android:id="@+id/tv_num_7"
-        android:layout_width="28dp"
-        android:layout_height="28dp"
+        android:layout_width="22dp"
+        android:layout_height="22dp"
         tools:text="7"
         app:layout_constraintStart_toEndOf="@+id/tv_num_6"
         app:layout_constraintEnd_toStartOf="@+id/tv_num_8"
@@ -93,8 +94,8 @@
 
     <ImageView
         android:id="@+id/tv_num_8"
-        android:layout_width="28dp"
-        android:layout_height="28dp"
+        android:layout_width="22dp"
+        android:layout_height="22dp"
         tools:text="8"
         app:layout_constraintStart_toEndOf="@+id/tv_num_7"
         app:layout_constraintEnd_toStartOf="@+id/tv_num_9"
@@ -104,8 +105,8 @@
 
     <ImageView
         android:id="@+id/tv_num_9"
-        android:layout_width="28dp"
-        android:layout_height="28dp"
+        android:layout_width="22dp"
+        android:layout_height="22dp"
         tools:text="9"
         app:layout_constraintStart_toEndOf="@+id/tv_num_8"
         app:layout_constraintEnd_toStartOf="@+id/tv_num_10"
@@ -115,8 +116,8 @@
 
     <ImageView
         android:id="@+id/tv_num_10"
-        android:layout_width="28dp"
-        android:layout_height="28dp"
+        android:layout_width="22dp"
+        android:layout_height="22dp"
         tools:text="10"
         app:layout_constraintStart_toEndOf="@+id/tv_num_9"
         app:layout_constraintEnd_toEndOf="parent"

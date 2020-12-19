@@ -45,6 +45,7 @@ public class TopHistoryAdapter extends BaseMultiItemQuickAdapter<LotteryNumBean,
         addItemType(LotteryConstant.SER_ID_PL35, R.layout.ski_item_top_history_type_ssc);
         addItemType(LotteryConstant.SER_ID_KL8, R.layout.ski_item_top_history_type_kl8);
         addItemType(LotteryConstant.SER_ID_F1_JJS, R.layout.ski_item_top_history_type_f1_jjs);
+        addItemType(LotteryConstant.SER_ID_F1_CCL, R.layout.ski_item_top_history_type_f1_ccl);
         addItemType(LotteryConstant.SER_ID_F1_SW, R.layout.ski_item_top_history_type_f1_sw);
         mContext = context;
         systemModel = SystemUtil.getSystemModel();
@@ -239,7 +240,25 @@ public class TopHistoryAdapter extends BaseMultiItemQuickAdapter<LotteryNumBean,
                     }
                 }
                 break;
+            case LotteryConstant.SER_ID_F1_CCL:
+                if (5 == arr_code.length) {
+                    ImageView tvNum1 = holder.getView(R.id.tv_num_1);
+                    ImageView tvNum2 = holder.getView(R.id.tv_num_2);
+                    ImageView tvNum3 = holder.getView(R.id.tv_num_3);
+                    ImageView tvNum4 = holder.getView(R.id.tv_num_4);
+                    ImageView tvNum5 = holder.getView(R.id.tv_num_5);
 
+                    ImageView[] arr = {tvNum1, tvNum2, tvNum3, tvNum4, tvNum5};
+                    for (int i = 0; i < arr.length; i++) {
+                        try {
+                            int icon = ConfigurationUiUtils.getF1JJSIcon(String.valueOf(Integer.parseInt(arr_code[i]) + 1));
+                            arr[i].setImageResource(icon);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+                break;
             case LotteryConstant.SER_ID_F1_SW:
                 if (3 == arr_code.length) {
                     ImageView ivNum1 = holder.getView(R.id.iv_num_1);

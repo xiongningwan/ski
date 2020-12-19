@@ -12,7 +12,8 @@
         android:src="@mipmap/ski_double_side_triangles_up"
         app:layout_constraintBottom_toTopOf="@+id/rv_item"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="gone"/>
 
     <com.ski.box.view.view.cus.CusTextView
         android:layout_marginTop="@dimen/ski_dp_10"

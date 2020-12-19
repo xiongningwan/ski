@@ -44,6 +44,7 @@ import java.util.Random;
 public class TopResultAdapter extends BaseMultiItemQuickAdapter<LotteryNumBean, BaseViewHolder> {
     private final int mViewHeight;
     private final Context mContext;
+//    private final int mWidth;
     private String systemModel;
     private Random mRandom;
     private Typeface mTf_DinABold;
@@ -69,6 +70,8 @@ public class TopResultAdapter extends BaseMultiItemQuickAdapter<LotteryNumBean, 
         AssetManager mgr = context.getAssets();
         //根据路径得到Typeface
         mTf_DinABold = Typeface.createFromAsset(mgr, "fonts/DIN_Alternate_Bold.ttf");
+
+//        mWidth = ScreenUtils.getScreenWidth(context) - ScreenUtils.dip2px(46) - ScreenUtils.dip2px(30);
     }
 
     public void setMode(int i) {
@@ -310,9 +313,13 @@ public class TopResultAdapter extends BaseMultiItemQuickAdapter<LotteryNumBean, 
                     ImageView tvNum9 = holder.getView(R.id.tv_num_9);
                     ImageView tvNum10 = holder.getView(R.id.tv_num_10);
 
+
                     ImageView[] arr = {tvNum1, tvNum2, tvNum3, tvNum4, tvNum5, tvNum6, tvNum7, tvNum8, tvNum9, tvNum10};
 
                     for (int i = 0; i < arr.length; i++) {
+//                        ConstraintLayout.LayoutParams lp = (ConstraintLayout.LayoutParams) arr[i].getLayoutParams();
+//                        lp.width = mWidth/10 - ScreenUtils.dip2px(2);
+//                        arr[i].setLayoutParams(lp);
                         if (mode != 2) {
                            // startAnimal(type, arr[i], i, arr_code[i], 120, 30, 10, arr_code, arrXt);
                             int icon = ConfigurationUiUtils.getF1JJSIcon(arr_code[i]);
