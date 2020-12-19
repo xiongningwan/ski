@@ -19,9 +19,8 @@ import com.ski.box.bean.lottery.LotteryPlay;
 import com.ski.box.bean.lottery.LotteryPlayEnd;
 import com.ski.box.bean.lottery.LotteryPlayStart;
 import com.ski.box.bean.lottery.LotteryUtil;
-import com.ski.box.utils.AnimationUtil;
-import com.yb.core.utils.LanguageUtil;
 import com.ski.box.utils.lottery.LotteryNoUtil;
+import com.yb.core.utils.LanguageUtil;
 import com.yb.core.utils.StringUtils;
 import com.zyyoona7.popup.EasyPopup;
 
@@ -94,7 +93,7 @@ public class ContentAdapter extends BaseQuickAdapter<LotteryPlayEnd, BaseViewHol
 
         if (DIVIDER_TYPE_LINE == play.getDivider()) {
             vBlock.setVisibility(View.GONE);
-            vLine.setVisibility(View.VISIBLE);
+            vLine.setVisibility(View.GONE);
         } else if (DIVIDER_TYPE_BLOCK == play.getDivider()) {
             vBlock.setVisibility(View.VISIBLE);
             vLine.setVisibility(View.GONE);
@@ -105,15 +104,15 @@ public class ContentAdapter extends BaseQuickAdapter<LotteryPlayEnd, BaseViewHol
 
         if (play.isCanExpand()) {
            // ivArrow.setVisibility(View.VISIBLE);
-            tvTagTitle.setOnClickListener(v -> {
-                if (View.VISIBLE == rvItem.getVisibility()) {
-                    AnimationUtil.fadeOut(rvItem);
-                    AnimationUtil.toExpand(ivArrow);
-                } else {
-                    AnimationUtil.fadeIn(rvItem);
-                    AnimationUtil.toCollapse(ivArrow);
-                }
-            });
+//            tvTagTitle.setOnClickListener(v -> {
+//                if (View.VISIBLE == rvItem.getVisibility()) {
+//                    AnimationUtil.fadeOut(rvItem);
+//                    AnimationUtil.toExpand(ivArrow);
+//                } else {
+//                    AnimationUtil.fadeIn(rvItem);
+//                    AnimationUtil.toCollapse(ivArrow);
+//                }
+//            });
         } else {
           //  ivArrow.setVisibility(View.GONE);
             if (StringUtils.isEmpty(play.getTag())) {

@@ -507,12 +507,22 @@ public class ContentItemAdapter extends BaseMultiItemQuickAdapter<LotteryPlay, B
         /*冷热遗漏*/
         coldHotShow(coldHotMissing, play);
         playOdds.setText(playItemOdds);
+
+        ConstraintLayout.LayoutParams lp = (ConstraintLayout.LayoutParams) tvTwo.getLayoutParams();
+        lp.width = ScreenUtils.dip2px(32);
+        lp.height = ScreenUtils.dip2px(32);
+        tvTwo.setLayoutParams(lp);
+
         /**三军**/
         if ("三军".equals(playTag)) {
             tvTwo.setText("");
             int icon = getSwIcons(playCode).get(0);
             setVisibility(tvOne, tvTwo, tvThree, View.GONE, View.GONE);
             tvTwo.setBackgroundResource(icon);
+            ConstraintLayout.LayoutParams lp2 = (ConstraintLayout.LayoutParams) tvTwo.getLayoutParams();
+            lp2.width = ScreenUtils.dip2px(40);
+            lp2.height = ScreenUtils.dip2px(40);
+            tvTwo.setLayoutParams(lp2);
             /**总和大小**/
         }  else if ("围骰".equalsIgnoreCase(playTag)) {
             tvTwo.setText("");
