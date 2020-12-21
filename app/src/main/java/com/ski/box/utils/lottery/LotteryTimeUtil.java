@@ -1,24 +1,19 @@
 package com.ski.box.utils.lottery;
 
 import com.ski.box.bean.DataCenter;
-import com.ski.box.bean.DateBean;
 import com.ski.box.bean.TicketLotteryTimeBean;
 import com.ski.box.bean.lottery.LotteryConstant;
 import com.ski.box.mvp.remote.LotteryModel;
 import com.ski.box.mvp.remote.imodel.ILotteryModel;
 import com.yb.core.base.BaseConsumer;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
-import okhttp3.Headers;
 
 /**
  * Created by tom on 2020/6/29.
@@ -58,13 +53,26 @@ public class LotteryTimeUtil {
             case LotteryConstant.LOTTERY_ID_11X5_JS:
             case LotteryConstant.LOTTERY_ID_KL8_JS:
             case LotteryConstant.LOTTERY_ID_K3_JISU:
+            case LotteryConstant.LOTTERY_ID_F1_JJS_F1:
+            case LotteryConstant.LOTTERY_ID_F1_CCL_F1:
+            case LotteryConstant.LOTTERY_ID_F1_SW_F1:
                 return 59000;
+
+            // 2分钟1期
+            case LotteryConstant.LOTTERY_ID_F1_JJS_GP2:
+            case LotteryConstant.LOTTERY_ID_F1_CCL_GP2:
+            case LotteryConstant.LOTTERY_ID_F1_SW_GP2:
+                return 119000;
+
             // 3分钟1期
             case LotteryConstant.LOTTERY_ID_SSC_XY5FC:
             case LotteryConstant.LOTTERY_ID_11X5_XY:
             case LotteryConstant.LOTTERY_ID_3D_XY:
             case LotteryConstant.LOTTERY_ID_PK10_JSSC:
             case LotteryConstant.LOTTERY_ID_K3_XY:
+            case LotteryConstant.LOTTERY_ID_F1_JJS_F3:
+            case LotteryConstant.LOTTERY_ID_F1_CCL_F3:
+            case LotteryConstant.LOTTERY_ID_F1_SW_F3:
                 return 179000;
 //            // 1.5分钟1期
 //            case LotteryConstant.LOTTERY_ID_LHC_JS:
@@ -77,7 +85,15 @@ public class LotteryTimeUtil {
             case LotteryConstant.LOTTERY_ID_PK10_METFT:
             case LotteryConstant.LOTTERY_ID_SSC_AZXY5:
             case LotteryConstant.LOTTERY_ID_PK10_AZ:
+            case LotteryConstant.LOTTERY_ID_F1_JJS_BM:
+            case LotteryConstant.LOTTERY_ID_F1_CCL_BM:
+            case LotteryConstant.LOTTERY_ID_F1_SW_BM:
                 return 299000;
+            // 10分钟1期
+            case LotteryConstant.LOTTERY_ID_F1_JJS_KBS:
+            case LotteryConstant.LOTTERY_ID_F1_CCL_KBS:
+            case LotteryConstant.LOTTERY_ID_F1_SW_KBS:
+                return 599000;
             // 20分钟1期
             case LotteryConstant.LOTTERY_ID_PK10_BJ:
             case LotteryConstant.LOTTERY_ID_SSC_CQ:
@@ -94,6 +110,9 @@ public class LotteryTimeUtil {
             case LotteryConstant.LOTTERY_ID_K3_AH:
             case LotteryConstant.LOTTERY_ID_K3_GX:
             case LotteryConstant.LOTTERY_ID_K3_FJ:
+            case LotteryConstant.LOTTERY_ID_F1_JJS_KDC:
+            case LotteryConstant.LOTTERY_ID_F1_CCL_KDC:
+            case LotteryConstant.LOTTERY_ID_F1_SW_KDC:
                 return 1199000;
             // 1天1期
             case LotteryConstant.LOTTERY_ID_3D_FC:

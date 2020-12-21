@@ -1,8 +1,6 @@
 package com.ski.box.bean.lottery;
 
 
-import com.ski.box.R;
-
 public interface LotteryConstant {
     int SER_ID_PK10 = 6;
     String SER_NAME_PK10 = "PK10";
@@ -196,10 +194,10 @@ public interface LotteryConstant {
     String LOTTERY_NAME_F1_SW_BM = "宝马骰王";
     int LOTTERY_ID_F1_SW_F3 = 32;
     String LOTTERY_NAME_F1_SW_F3 = "F3骰王";
-    int LOTTERY_ID_F1_SW_F1 = 33;
-    String LOTTERY_NAME_F1_SW_F1 = "F1骰王";
     int LOTTERY_ID_F1_SW_GP2 = 34;
     String LOTTERY_NAME_F1_SW_GP2 = "GP2骰王";
+    int LOTTERY_ID_F1_SW_F1 = 33;
+    String LOTTERY_NAME_F1_SW_F1 = "F1骰王";
     ////////////////////////////////////////////////////
 
 
