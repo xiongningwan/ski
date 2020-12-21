@@ -774,6 +774,31 @@ public class RoadAttUtil {
         }
         return attArr;
     }
+    public static Object[] road_arr_f1_ccl(String[] arr, int total, String titleKey) {
+        Object[] attArr = {"", 0};
+        String name = "";
+        int bp = 0;
+        switch (titleKey) {
+            case "第一球红黑":
+                attArr = redBlack(arr[0]);
+                break;
+            case "第二球红黑":
+                attArr = redBlack(arr[1]);
+                break;
+            case "第三球红黑":
+                attArr = redBlack(arr[2]);
+                break;
+            case "第四球红黑":
+                attArr = redBlack(arr[3]);
+                break;
+            case "第五球红黑":
+                attArr = redBlack(arr[4]);
+                break;
+            default:
+                break;
+        }
+        return attArr;
+    }
 
 
     public static Object[] road_arr_3d(String[] arr, int total, String titleKey) {

@@ -98,6 +98,14 @@ public class RoadBean implements Parcelable {
                 name = (String) attArr[0];
                 bp = (int) attArr[1];
                 break;
+            case LotteryConstant.SER_ID_F1_CCL:
+                if (arr.length != 5) {
+                    return;
+                }
+                attArr = RoadAttUtil.road_arr_f1_ccl(arr, total, titleKey);
+                name = (String) attArr[0];
+                bp = (int) attArr[1];
+                break;
         }
     }
 

@@ -60,6 +60,9 @@ public class RoadFactory {
             case LotteryConstant.SER_ID_F1_JJS:
                 titles = create_f1_jjs(gameId);
                 break;
+            case LotteryConstant.SER_ID_F1_CCL:
+                titles = create_f1_ccl(gameId);
+                break;
         }
         return titles;
     }
@@ -161,6 +164,24 @@ public class RoadFactory {
         titles.add(new RoadTitle("第八名", arr11, arr1_ids8, position == 8 ? true : false, gameId));
         titles.add(new RoadTitle("第九名", arr11, arr1_ids9, position == 9 ? true : false, gameId));
         titles.add(new RoadTitle("第十名", arr11, arr1_ids10, position == 10 ? true : false, gameId));
+        return titles;
+    }
+    private static List<RoadTitle> create_f1_ccl(int gameId) {
+        // 选中位置
+        String key = ROAD_POSITION_PREFIX_TITLE + gameId;
+        int position = SPUtils.getInt(AppUtil.getContext(), key, 0);
+        List<RoadTitle> titles = new ArrayList<>();
+        Integer[][] arr1_ids_he = new Integer[][]{new Integer[]{545, 546}, new Integer[]{547, 548}};
+        Integer[][] arr1_ids_guan = new Integer[][]{new Integer[]{549, 550}, new Integer[]{551, 552}, new Integer[]{553, 554}};
+        Integer[][] arr1_ids_ya = new Integer[][]{new Integer[]{555, 556}, new Integer[]{557, 558}, new Integer[]{559, 560}};
+        Integer[][] arr1_ids3 = new Integer[][]{new Integer[]{561, 562}, new Integer[]{563, 564}, new Integer[]{565, 566}};
+        Integer[][] arr1_ids4 = new Integer[][]{new Integer[]{567, 568}, new Integer[]{569, 570}, new Integer[]{571, 572}};
+        Integer[][] arr1_ids5 = new Integer[][]{new Integer[]{573, 574}, new Integer[]{575, 576}, new Integer[]{577, 578}};
+        titles.add(new RoadTitle("冠军", arr11, arr1_ids_guan, position == 1 ? true : false, gameId));
+        titles.add(new RoadTitle("亚军", arr11, arr1_ids_ya, position == 2 ? true : false, gameId));
+        titles.add(new RoadTitle("第三名", arr11, arr1_ids3, position == 3 ? true : false, gameId));
+        titles.add(new RoadTitle("第四名", arr11, arr1_ids4, position == 4 ? true : false, gameId));
+        titles.add(new RoadTitle("第五名", arr11, arr1_ids5, position == 5 ? true : false, gameId));
         return titles;
     }
 

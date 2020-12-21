@@ -9,14 +9,12 @@ import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 import com.hwangjr.rxbus.RxBus;
-import com.hwangjr.rxbus.annotation.Subscribe;
-import com.hwangjr.rxbus.annotation.Tag;
 import com.ski.box.R;
 import com.ski.box.adapter.FragmentAdapter;
-import com.ski.box.bean.record.RecordRecent;
-import com.ski.box.view.fragment.record.RecordBetFragment;
+import com.ski.box.bean.DataCenter;
+import com.ski.box.bean.lottery.LotteryConstant;
 import com.ski.box.view.fragment.bet.d.DoubleFragment;
-import com.ski.box.view.fragment.dragon.DragonFragment;
+import com.ski.box.view.fragment.record.RecordBetFragment;
 import com.ski.box.view.fragment.road.RoadFragment;
 import com.ski.box.view.view.NewCpBetTabView;
 import com.yb.core.base.BaseFragment;
@@ -24,8 +22,6 @@ import com.yb.core.base.BaseFragment;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
-import static com.ski.box.ConstantValue.EVENT_UPDATE_RECENT_NO;
 
 
 /**
@@ -91,7 +87,9 @@ public class BetFragment extends BaseFragment {
     protected void initData(Bundle bundle) {
         List<Fragment> fragmentList = new ArrayList<>();
         fragmentList.add(DoubleFragment.newInstance());
-        fragmentList.add(RoadFragment.newInstance());
+        if(LotteryConstant.SER_ID_F1_SW != DataCenter.getInstance().getLotterySeriesId()) {
+            fragmentList.add(RoadFragment.newInstance());
+        }
 //        fragmentList.add(DragonFragment.newInstance());
         fragmentList.add(RecordBetFragment.newInstance());
         fragmentAdapter = new FragmentAdapter(getChildFragmentManager(), fragmentList);

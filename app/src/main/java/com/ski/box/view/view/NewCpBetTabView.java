@@ -10,6 +10,8 @@ import androidx.annotation.Nullable;
 import androidx.viewpager.widget.ViewPager;
 
 import com.ski.box.R;
+import com.ski.box.bean.DataCenter;
+import com.ski.box.bean.lottery.LotteryConstant;
 import com.yb.core.utils.ScreenUtils;
 
 
@@ -65,6 +67,11 @@ public class NewCpBetTabView extends RelativeLayout implements View.OnClickListe
         mPosition_1 = 1;
 //        mPosition_road = 2;
         mPosition_2 = 2;
+
+        if(LotteryConstant.SER_ID_F1_SW == DataCenter.getInstance().getLotterySeriesId()) {
+            mPosition_2 = 1;
+            item_2.setVisibility(GONE);
+        }
     }
 
     public void scrollPosition(int position) {
@@ -98,6 +105,11 @@ public class NewCpBetTabView extends RelativeLayout implements View.OnClickListe
     }
 
     private void switchItem(int position) {
+        if(LotteryConstant.SER_ID_F1_SW == DataCenter.getInstance().getLotterySeriesId()) {
+            if(1 == position) {
+                position = 2;
+            }
+        }
         switch (position) {
             case 0:
                 item_1.setSelected(true);
