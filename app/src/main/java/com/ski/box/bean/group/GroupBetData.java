@@ -134,6 +134,15 @@ public class GroupBetData implements Parcelable {
         private String odds;
         private String openResult;
         private int ticketId;
+        private int seriesId;
+
+        public int getSeriesId() {
+            return seriesId;
+        }
+
+        public void setSeriesId(int seriesId) {
+            this.seriesId = seriesId;
+        }
 
         public int getTicketId() {
             return ticketId;
@@ -271,6 +280,7 @@ public class GroupBetData implements Parcelable {
             dest.writeString(this.odds);
             dest.writeString(this.openResult);
             dest.writeInt(this.ticketId);
+            dest.writeInt(this.seriesId);
         }
 
         protected ListBean(Parcel in) {
@@ -288,6 +298,7 @@ public class GroupBetData implements Parcelable {
             this.odds = in.readString();
             this.openResult = in.readString();
             this.ticketId = in.readInt();
+            this.seriesId = in.readInt();
         }
 
         public static final Creator<ListBean> CREATOR = new Creator<ListBean>() {

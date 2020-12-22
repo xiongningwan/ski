@@ -317,18 +317,8 @@ public class TopResultAdapter extends BaseMultiItemQuickAdapter<LotteryNumBean, 
                     ImageView[] arr = {tvNum1, tvNum2, tvNum3, tvNum4, tvNum5, tvNum6, tvNum7, tvNum8, tvNum9, tvNum10};
 
                     for (int i = 0; i < arr.length; i++) {
-//                        ConstraintLayout.LayoutParams lp = (ConstraintLayout.LayoutParams) arr[i].getLayoutParams();
-//                        lp.width = mWidth/10 - ScreenUtils.dip2px(2);
-//                        arr[i].setLayoutParams(lp);
-                        if (mode != 2) {
-                           // startAnimal(type, arr[i], i, arr_code[i], 120, 30, 10, arr_code, arrXt);
-                            int icon = ConfigurationUiUtils.getF1JJSIcon(arr_code[i]);
-                            arr[i].setImageResource(icon);
-                        } else {
-                            int icon = ConfigurationUiUtils.getF1JJSIcon(arr_code[i]);
-                            arr[i].setImageResource(icon);
-                           // arr[i].setText(arr_code[i]);
-                        }
+                        int icon = ConfigurationUiUtils.getF1JJSIcon(arr_code[i]);
+                        arr[i].setImageResource(icon);
                     }
                 }
                 break;
@@ -343,7 +333,7 @@ public class TopResultAdapter extends BaseMultiItemQuickAdapter<LotteryNumBean, 
                     ImageView[] arr = {tvNum1, tvNum2, tvNum3, tvNum4, tvNum5};
                     for (int i = 0; i < arr.length; i++) {
                         try {
-                            int icon = ConfigurationUiUtils.getF1JJSIcon(String.valueOf(Integer.parseInt(arr_code[i]) + 1));
+                            int icon = ConfigurationUiUtils.getF1JJSIcon(arr_code[i]);
                             arr[i].setImageResource(icon);
                         } catch (Exception e) {
                             e.printStackTrace();

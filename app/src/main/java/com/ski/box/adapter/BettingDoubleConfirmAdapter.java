@@ -1,10 +1,10 @@
 package com.ski.box.adapter;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Context;
 import android.os.Handler;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -20,9 +21,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.hwangjr.rxbus.RxBus;
 import com.ski.box.R;
+import com.ski.box.bean.DataCenter;
 import com.ski.box.bean.MkBetParamEntity;
 import com.ski.box.bean.RedLimitBean;
-import com.ski.box.utils.KeyBoardUtils;
+import com.ski.box.bean.lottery.LotteryConstant;
+import com.ski.box.utils.lottery.ConfigurationUiUtils;
 import com.ski.box.utils.lottery.LotteryNoUtil;
 import com.ski.box.view.view.dialog.LotteryDialog;
 import com.yb.core.utils.LanguageUtil;
@@ -77,6 +80,40 @@ public class BettingDoubleConfirmAdapter extends RecyclerView.Adapter<BettingDou
             viewHolder.mEditText.setSelection(s.length());
             viewHolder.tvPlayName.setText(LanguageUtil.getText(playName));
             viewHolder.tvPlayItemName.setText(playItemName);
+            int currentSerId = DataCenter.getInstance().getLotterySeriesId();
+
+            viewHolder.ivPlayItemName.setImageResource(0);
+            viewHolder.ivPlayItemName2.setImageResource(0);
+            viewHolder.ivPlayItemName3.setImageResource(0);
+            if (LotteryConstant.SER_ID_F1_JJS == currentSerId || LotteryConstant.SER_ID_F1_CCL == currentSerId) {
+                if (TextUtils.isDigitsOnly(playItemName)) {
+                    setItemNameVisible(viewHolder,true, false,false);
+                    viewHolder.ivPlayItemName.setImageResource(ConfigurationUiUtils.getF1JJSIcon(playItemName));
+                } else {
+                    setItemNameVisible(viewHolder,false, false,false);
+                }
+            } else if (LotteryConstant.SER_ID_F1_SW == currentSerId) {
+               if(TextUtils.isDigitsOnly(playItemName)) {
+                   List<Integer> iconList = getSwIcons(playItemName);
+                   if(1 == iconList.size()) {
+                       viewHolder.ivPlayItemName.setImageResource(iconList.get(0));
+                       setItemNameVisible(viewHolder,true, false,false);
+                   } else if(2 == iconList.size()) {
+                       viewHolder.ivPlayItemName.setImageResource(iconList.get(0));
+                       viewHolder.ivPlayItemName2.setImageResource(iconList.get(1));
+                       setItemNameVisible(viewHolder,true, true,false);
+                   } else if(3 == iconList.size()) {
+                       viewHolder.ivPlayItemName.setImageResource(iconList.get(0));
+                       viewHolder.ivPlayItemName2.setImageResource(iconList.get(1));
+                       viewHolder.ivPlayItemName3.setImageResource(iconList.get(2));
+                       setItemNameVisible(viewHolder,true, true,true);
+                   }
+               } else {
+                   setItemNameVisible(viewHolder,false, false,false);
+               }
+            } else {
+                setItemNameVisible(viewHolder,false, false,false);
+            }
 
             if (redLimit) {
                 viewHolder.tvRemind.setVisibility(View.VISIBLE);
@@ -85,7 +122,7 @@ public class BettingDoubleConfirmAdapter extends RecyclerView.Adapter<BettingDou
             }
             setWinMoney(viewHolder, doubleConfirmBean);
         }
-       // KeyBoardUtils.dismissSystemkeyBoard((Activity) mContext, viewHolder.mEditText);
+        // KeyBoardUtils.dismissSystemkeyBoard((Activity) mContext, viewHolder.mEditText);
         if (position == hasFocusePosition) {
             viewHolder.mEditText.setBackground(mContext.getResources().getDrawable(R.drawable.ski_edtext_bottom_focuse));
         } else {
@@ -142,7 +179,7 @@ public class BettingDoubleConfirmAdapter extends RecyclerView.Adapter<BettingDou
                 int size = mDatas.size();
                 if (size == 0) {
                     if (onCloseDialogListener != null) {
-                        RxBus.get().post(EVENT_CLEAN_XUAN_HAO_PAN,"clen");
+                        RxBus.get().post(EVENT_CLEAN_XUAN_HAO_PAN, "clen");
                         onCloseDialogListener.closeDialog();
                     }
 
@@ -174,7 +211,39 @@ public class BettingDoubleConfirmAdapter extends RecyclerView.Adapter<BettingDou
 
     private void setWinMoney(@NonNull DoubleConfirmViewHolder viewHolder, MkBetParamEntity.BetParamEntity betParamEntity) {
         String win = LotteryNoUtil.calculateWinMoney_d(betParamEntity);
-        viewHolder.itemGain.setText( win );
+        viewHolder.itemGain.setText(win);
+    }
+
+    private void setItemNameVisible(DoubleConfirmViewHolder viewHolder,  boolean ivName1, boolean ivName2, boolean ivName3) {
+        if(ivName1) {
+            viewHolder.llPlayItemName.setVisibility(View.VISIBLE);
+            viewHolder.ivPlayItemName.setVisibility(View.VISIBLE);
+            viewHolder.tvPlayItemName.setVisibility(View.GONE);
+        } else {
+            viewHolder.llPlayItemName.setVisibility(View.GONE);
+            viewHolder.ivPlayItemName.setVisibility(View.GONE);
+            viewHolder.tvPlayItemName.setVisibility(View.VISIBLE);
+        }
+
+        if(ivName2) {
+            viewHolder.ivPlayItemName2.setVisibility(View.VISIBLE);
+        } else {
+            viewHolder.ivPlayItemName2.setVisibility(View.GONE);
+        }
+
+        if(ivName3) {
+            viewHolder.ivPlayItemName3.setVisibility(View.VISIBLE);
+        } else {
+            viewHolder.ivPlayItemName3.setVisibility(View.GONE);
+        }
+    }
+
+    private List<Integer> getSwIcons(String playCode) {
+        List<Integer> icons = new ArrayList<>();
+        for (int i = 0; i < playCode.length(); i++) {
+            icons.add(ConfigurationUiUtils.getF1JJSIcon(String.valueOf(playCode.charAt(i))));
+        }
+        return icons;
     }
 
 
@@ -249,6 +318,10 @@ public class BettingDoubleConfirmAdapter extends RecyclerView.Adapter<BettingDou
     public class DoubleConfirmViewHolder extends RecyclerView.ViewHolder {
         public TextView tvPlayName;
         public TextView tvPlayItemName;
+        public LinearLayout llPlayItemName;
+        public ImageView ivPlayItemName;
+        public ImageView ivPlayItemName2;
+        public ImageView ivPlayItemName3;
         public EditText mEditText;
         public TextView itemGain;
         public ImageView itemRemove;
@@ -258,6 +331,10 @@ public class BettingDoubleConfirmAdapter extends RecyclerView.Adapter<BettingDou
             super(itemView);
             tvPlayName = itemView.findViewById(R.id.tv_play_name);
             tvPlayItemName = itemView.findViewById(R.id.tv_play_item_name);
+            llPlayItemName = itemView.findViewById(R.id.ll_play_item_name);
+            ivPlayItemName = itemView.findViewById(R.id.iv_play_item_name);
+            ivPlayItemName2 = itemView.findViewById(R.id.iv_play_item_name_2);
+            ivPlayItemName3 = itemView.findViewById(R.id.iv_play_item_name_3);
             mEditText = itemView.findViewById(R.id.et_item_amount);
             itemGain = itemView.findViewById(R.id.item_gain);
             itemRemove = itemView.findViewById(R.id.item_remove);

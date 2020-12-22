@@ -251,7 +251,7 @@ public class TopHistoryAdapter extends BaseMultiItemQuickAdapter<LotteryNumBean,
                     ImageView[] arr = {tvNum1, tvNum2, tvNum3, tvNum4, tvNum5};
                     for (int i = 0; i < arr.length; i++) {
                         try {
-                            int icon = ConfigurationUiUtils.getF1JJSIcon(String.valueOf(Integer.parseInt(arr_code[i]) + 1));
+                            int icon = ConfigurationUiUtils.getF1JJSIcon(arr_code[i]);
                             arr[i].setImageResource(icon);
                         } catch (Exception e) {
                             e.printStackTrace();

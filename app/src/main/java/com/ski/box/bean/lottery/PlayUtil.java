@@ -4,7 +4,6 @@ import android.text.TextUtils;
 
 import com.ski.box.bean.BallBean;
 import com.ski.box.bean.DataCenter;
-import com.ski.box.utils.lottery.ConfigurationUiUtils;
 import com.yb.core.utils.LanguageUtil;
 import com.yb.core.utils.LogUtils;
 
@@ -371,16 +370,17 @@ public class PlayUtil {
                     remotePlay.setDefaultCode(true);
                 }
             }
-        } else if (LotteryConstant.SER_ID_F1_JJS == serId) {
-            if ("danhao".equals(playSub.getRemoteCode())) {//选号
-                playSub.setOdds(remotePlay.getOdds());
-                play.setName(ConfigurationUiUtils.getF1JJSName(remotePlay.getCode()));
-                if (remotePlay != null) {
-                    remotePlay.setDefaultName(true);
-                    remotePlay.setDefaultCode(true);
-                }
-            }
         }
+//        else if (LotteryConstant.SER_ID_F1_JJS == serId) {
+//            if ("danhao".equals(playSub.getRemoteCode())) {//选号
+//                playSub.setOdds(remotePlay.getOdds());
+//                play.setName(ConfigurationUiUtils.getF1JJSName(remotePlay.getCode()));
+//                if (remotePlay != null) {
+//                    remotePlay.setDefaultName(true);
+//                    remotePlay.setDefaultCode(true);
+//                }
+//            }
+//        }
 
         return remotePlay;
     }

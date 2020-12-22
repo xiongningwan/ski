@@ -2,7 +2,6 @@ package com.ski.box.utils.lottery;
 
 
 import com.ski.box.R;
-import com.yb.core.utils.LanguageUtil;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -14,7 +13,6 @@ public class ConfigurationUiUtils {
     public static HashMap<String, Integer> pk10checkNumsColor = new HashMap<>();
     public static HashMap<String, Integer> pk10bgMap = new HashMap<>();
     public static HashMap<String, Integer> mF1IconSCMap = new HashMap<>();
-    public static HashMap<String, String> mF1NameSCMap = new HashMap<>();
     public static HashMap<String, Integer> hlcbgMap = new HashMap<>();
     public static HashMap<String, Integer> hlcbg6Map = new HashMap<>();
 
@@ -59,6 +57,7 @@ public class ConfigurationUiUtils {
         pk10bgMap.put("9", R.drawable.ski_bet_top_result_pk10_bg_9);
         pk10bgMap.put("10", R.drawable.ski_bet_top_result_pk10_bg_10);
 
+        mF1IconSCMap.put("0", R.mipmap.icon_f1_sc_1);
         mF1IconSCMap.put("1", R.mipmap.icon_f1_sc_1);
         mF1IconSCMap.put("2", R.mipmap.icon_f1_sc_2);
         mF1IconSCMap.put("3", R.mipmap.icon_f1_sc_3);
@@ -70,16 +69,6 @@ public class ConfigurationUiUtils {
         mF1IconSCMap.put("9", R.mipmap.icon_f1_sc_9);
         mF1IconSCMap.put("10", R.mipmap.icon_f1_sc_10);
 
-        mF1NameSCMap.put("1", "奔驰");
-        mF1NameSCMap.put("2", "奥迪");
-        mF1NameSCMap.put("3", "捷豹");
-        mF1NameSCMap.put("4", "宝马");
-        mF1NameSCMap.put("5", "保时捷");
-        mF1NameSCMap.put("6", "玛莎拉蒂");
-        mF1NameSCMap.put("7", "法拉利");
-        mF1NameSCMap.put("8", "兰博基尼");
-        mF1NameSCMap.put("9", "布加迪");
-        mF1NameSCMap.put("10", "阿斯顿·马丁");
     }
 
     //六合彩颜色
@@ -107,13 +96,4 @@ public class ConfigurationUiUtils {
         return resId;
     }
 
-    // 获取f1 name
-    public static String getF1JJSName(String code) {
-        String name = mF1NameSCMap.get(code);
-        if (name == null) {
-            name = "";
-        }
-        name = LanguageUtil.getText(name);
-        return name;
-    }
 }

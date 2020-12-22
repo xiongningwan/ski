@@ -96,7 +96,7 @@ public class ContentItemAdapter extends BaseMultiItemQuickAdapter<LotteryPlay, B
                 break;
             /*f1*/
             case BET_LAYOUT_TYPE_F1_JJS:
-                f1leLayout(holder, play);
+                f1JJS_CCLLayout(holder, play);
                 break;
             case BET_LAYOUT_TYPE_F1_SW:
                 f1SWLayout(holder, play);
@@ -449,7 +449,7 @@ public class ContentItemAdapter extends BaseMultiItemQuickAdapter<LotteryPlay, B
      * @param holder
      * @param play
      */
-    private void f1leLayout(@NotNull BaseViewHolder holder, @Nullable LotteryPlay play) {
+    private void f1JJS_CCLLayout(@NotNull BaseViewHolder holder, @Nullable LotteryPlay play) {
         ShadowLayout slLayout = holder.getView(R.id.sl_select_num);
         LinearLayout llSelectNum = holder.getView(R.id.ll_select_num);
         TextView tvName = holder.getView(R.id.tvName);
