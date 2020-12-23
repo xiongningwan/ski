@@ -57,7 +57,7 @@ public class ConfigurationUiUtils {
         pk10bgMap.put("9", R.drawable.ski_bet_top_result_pk10_bg_9);
         pk10bgMap.put("10", R.drawable.ski_bet_top_result_pk10_bg_10);
 
-        mF1IconSCMap.put("0", R.mipmap.icon_f1_sc_1);
+        mF1IconSCMap.put("0", R.mipmap.icon_f1_sc_0);
         mF1IconSCMap.put("1", R.mipmap.icon_f1_sc_1);
         mF1IconSCMap.put("2", R.mipmap.icon_f1_sc_2);
         mF1IconSCMap.put("3", R.mipmap.icon_f1_sc_3);

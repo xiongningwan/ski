@@ -88,8 +88,8 @@ android {
             resValue "string", "ski_app_name", "68XOSO"
             resValue "string", "app_code", "suba"
             manifestPlaceholders = [app_icon: "@mipmap/app_icon", app_logo: "@mipmap/app_logo"]
-            versionCode 33
-            versionName "1.2.1"
+            versionCode 34
+            versionName "1.2.2"
         }
 
         mb_subb {
