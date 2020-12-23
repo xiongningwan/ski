@@ -504,6 +504,9 @@ public class TopResultAdapter extends BaseMultiItemQuickAdapter<LotteryNumBean, 
             imageView.setImageResource(icon);
             return;
         }
+        if(imageView != null) {
+            imageView.clearAnimation();
+        }
         CusAnimationDrawable animationDrawable = new CusAnimationDrawable();
         int id = 0;
         for (int i = 0; i < 30; i++) {
@@ -524,7 +527,8 @@ public class TopResultAdapter extends BaseMultiItemQuickAdapter<LotteryNumBean, 
             }
         });
         imageView.setImageDrawable(animationDrawable);
-        animationDrawable.setOneShot(false);
+//        animationDrawable.setAlpha(50);
+        animationDrawable.setOneShot(true);
         animationDrawable.start();
     }
 
