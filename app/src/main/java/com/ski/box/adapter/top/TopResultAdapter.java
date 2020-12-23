@@ -6,6 +6,7 @@ import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.res.AssetManager;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
 import android.widget.FrameLayout;
@@ -28,6 +29,7 @@ import com.ski.box.utils.lottery.shape.K3Util;
 import com.ski.box.utils.lottery.shape.PK10Util;
 import com.ski.box.utils.lottery.shape.SSCUtil;
 import com.ski.box.utils.lottery.shape._11x5Util;
+import com.ski.box.view.view.CusAnimationDrawable;
 import com.yb.core.utils.AppUtil;
 import com.yb.core.utils.LanguageUtil;
 import com.yb.core.utils.LogUtils;
@@ -44,7 +46,7 @@ import java.util.Random;
 public class TopResultAdapter extends BaseMultiItemQuickAdapter<LotteryNumBean, BaseViewHolder> {
     private final int mViewHeight;
     private final Context mContext;
-//    private final int mWidth;
+    //    private final int mWidth;
     private String systemModel;
     private Random mRandom;
     private Typeface mTf_DinABold;
@@ -113,7 +115,7 @@ public class TopResultAdapter extends BaseMultiItemQuickAdapter<LotteryNumBean, 
                     TextView[] arr = {tvNum1, tvNum2, tvNum3, tvNum4, tvNum5, tvNum6, tvNum7, tvNum8, tvNum9, tvNum10};
                     TextView[] arrXt = {tvXT1, tvXT2, tvXT3, tvXT4, tvXT5, tvXT6, tvXT7, tvXT8};
 
-                    for(TextView tv : arrXt) {
+                    for (TextView tv : arrXt) {
                         tv.setText("");
                     }
                     for (int i = 0; i < arr.length; i++) {
@@ -149,7 +151,7 @@ public class TopResultAdapter extends BaseMultiItemQuickAdapter<LotteryNumBean, 
                     TextView[] arr = {tvNum1, tvNum2, tvNum3, tvNum4, tvNum5};
                     TextView[] arrXt = {tvXT1, tvXT2, tvXT3, tvXT4};
 
-                    for(TextView tv : arrXt) {
+                    for (TextView tv : arrXt) {
                         tv.setText("");
                     }
                     for (int i = 0; i < arr.length; i++) {
@@ -252,7 +254,7 @@ public class TopResultAdapter extends BaseMultiItemQuickAdapter<LotteryNumBean, 
 
                     ImageView[] arr = {ivNum1, ivNum2, ivNum3};
                     TextView[] arrXt = {tvXT1, tvXT2, tvXT3};
-                    for(TextView tv : arrXt) {
+                    for (TextView tv : arrXt) {
                         tv.setText("");
                     }
                     for (int i = 0; i < arr.length; i++) {
@@ -317,8 +319,9 @@ public class TopResultAdapter extends BaseMultiItemQuickAdapter<LotteryNumBean, 
                     ImageView[] arr = {tvNum1, tvNum2, tvNum3, tvNum4, tvNum5, tvNum6, tvNum7, tvNum8, tvNum9, tvNum10};
 
                     for (int i = 0; i < arr.length; i++) {
-                        int icon = ConfigurationUiUtils.getF1JJSIcon(arr_code[i]);
-                        arr[i].setImageResource(icon);
+//                        int icon = ConfigurationUiUtils.getF1JJSIcon(arr_code[i]);
+//                        arr[i].setImageResource(icon);
+                        startF1Ani(arr[i], arr_code[i]);
                     }
                 }
                 break;
@@ -333,8 +336,9 @@ public class TopResultAdapter extends BaseMultiItemQuickAdapter<LotteryNumBean, 
                     ImageView[] arr = {tvNum1, tvNum2, tvNum3, tvNum4, tvNum5};
                     for (int i = 0; i < arr.length; i++) {
                         try {
-                            int icon = ConfigurationUiUtils.getF1JJSIcon(arr_code[i]);
-                            arr[i].setImageResource(icon);
+//                            int icon = ConfigurationUiUtils.getF1JJSIcon(arr_code[i]);
+//                            arr[i].setImageResource(icon);
+                            startF1Ani(arr[i], arr_code[i]);
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
@@ -349,8 +353,7 @@ public class TopResultAdapter extends BaseMultiItemQuickAdapter<LotteryNumBean, 
 
                     ImageView[] arr = {ivNum1, ivNum2, ivNum3};
                     for (int i = 0; i < arr.length; i++) {
-                        int icon = ConfigurationUiUtils.getF1JJSIcon(arr_code[i]);
-                        arr[i].setImageResource(icon);
+                        startF1Ani(arr[i], arr_code[i]);
                     }
                 }
                 break;
@@ -373,10 +376,10 @@ public class TopResultAdapter extends BaseMultiItemQuickAdapter<LotteryNumBean, 
 
     private void setXT_SSC_11x5(int serId, String[] arr_code, TextView[] arrXt) {
         String[] shapeArr = new String[0];
-        if(serId == LotteryConstant.SER_ID_SSC || serId == LotteryConstant.SER_ID_PL35) {
+        if (serId == LotteryConstant.SER_ID_SSC || serId == LotteryConstant.SER_ID_PL35) {
             shapeArr = SSCUtil.getSSC_ShapeData(arr_code);
-        } else if(serId == LotteryConstant.SER_ID_11X5){
-            shapeArr  = _11x5Util.get11X5_ShapeData(arr_code);
+        } else if (serId == LotteryConstant.SER_ID_11X5) {
+            shapeArr = _11x5Util.get11X5_ShapeData(arr_code);
         }
         for (int i = 0; i < shapeArr.length; i++) {
             arrXt[i].setText(LanguageUtil.getText(shapeArr[i]));
@@ -493,6 +496,36 @@ public class TopResultAdapter extends BaseMultiItemQuickAdapter<LotteryNumBean, 
             }
         });
         Glide.with(AppUtil.getContext()).load(R.mipmap.ski_touzi_ani).into(myCustomTarage).onDestroy();
+    }
+
+    private void startF1Ani(ImageView imageView, String code) {
+        if (2 == mode) {
+            int icon = ConfigurationUiUtils.getF1JJSIcon(code);
+            imageView.setImageResource(icon);
+            return;
+        }
+        CusAnimationDrawable animationDrawable = new CusAnimationDrawable();
+        int id = 0;
+        for (int i = 0; i < 30; i++) {
+            id = mContext.getResources().getIdentifier("icon_f1_sc_" + (1+i%10), "mipmap", AppUtil.getPackageName(mContext));
+            Drawable drawable = mContext.getResources().getDrawable(id);
+            animationDrawable.addFrame(drawable, 100);
+        }
+        animationDrawable.setOnFrameAnimationListener(new CusAnimationDrawable.OnFrameAnimationListener() {
+            @Override
+            public void onStart() {
+
+            }
+
+            @Override
+            public void onEnd() {
+                int icon = ConfigurationUiUtils.getF1JJSIcon(code);
+                imageView.setImageResource(icon);
+            }
+        });
+        imageView.setImageDrawable(animationDrawable);
+        animationDrawable.setOneShot(false);
+        animationDrawable.start();
     }
 
     private void setAutoRandomValue(int serId, View view) {
