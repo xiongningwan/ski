@@ -99,7 +99,6 @@ public class ShuoMingDoubleView extends LinearLayout {
         mRecycleShouMing.setAdapter(mPlayShuoMingAdapter);
 
         initListener();
-
     }
 
     private void createShuoMingAdapter() {
@@ -133,7 +132,7 @@ public class ShuoMingDoubleView extends LinearLayout {
             if (visibility == View.VISIBLE) {
                 /*隐藏说明 展示彩中*/
                 showSmOrSeriesKind(false);
-                mSeriesAdapter.replaceData(initSeriesData());
+                mSeriesAdapter.setNewInstance(initSeriesData());
             } else {
                 /*展示说明 隐藏彩种*/
                 showSmOrSeriesKind(true);

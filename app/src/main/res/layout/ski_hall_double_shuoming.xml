@@ -51,17 +51,39 @@
         android:layout_height="@dimen/ski_dp_1"
         android:background="#f1f3f7" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyc_shouming"
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="@dimen/ski_dp_20"/>
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="false"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyc_series_kind"
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/ns0"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/ski_dp_20"
-        android:visibility="gone" />
+        android:orientation="vertical">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyc_shouming"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/ski_dp_20"/>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyc_series_kind"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/ski_dp_20"
+            android:visibility="gone" />
+
+    </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
 
 </LinearLayout>

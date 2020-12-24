@@ -1,17 +1,11 @@
 package com.ski.box.view.view.dialog;
 
 import android.content.Context;
-import android.os.Bundle;
-import android.view.Gravity;
-import android.view.View;
-import android.view.ViewGroup;
 import android.view.Window;
 
 import androidx.annotation.NonNull;
 
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
-import com.google.android.material.bottomsheet.BottomSheetDialog;
-import com.ski.box.R;
 import com.ski.box.bean.ShuoMingDoubleBean;
 import com.ski.box.view.view.ShuoMingDoubleView;
 import com.yb.core.utils.ScreenUtils;
@@ -36,7 +30,25 @@ public class ShuoMingSheetDialog extends StrongBottomSheetDialog {
     }
 
     private void createView(Context context) {
-       // int height =  ScreenUtils.getScreenHeight(context);
+//        mBottomSheetBehavior = getBehavior();
+//        mBottomSheetBehavior.addBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
+//            @Override
+//            public void onStateChanged(@NonNull View bottomSheet, int newState) {
+//                if (newState == BottomSheetBehavior.STATE_DRAGGING) {//判断为向下拖动行为时，则强制设定状态为展开
+//                    mBottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED );
+//                }
+//            }
+//
+//            @Override
+//            public void onSlide(@NonNull View bottomSheet, float slideOffset) {
+//
+//            }
+//        });
+//        int height =  ScreenUtils.dip2px(740);
+        int height =  ScreenUtils.getScreenHeight(context);
+        setPeekHeight(height);
+        setMaxHeight(height);
+        mBottomSheetBehavior = getBehavior();
          mPlayDescripView = new ShuoMingDoubleView(getContext());
         setContentView(mPlayDescripView);
         mPlayDescripView.setBottomFramentDailog(this);
