@@ -61,13 +61,13 @@ public class HallGuideAdapter extends BaseQuickAdapter<LotterySer, BaseViewHolde
                 res = R.mipmap.bg_hall_d_p3p5;
                 break;
             case SER_ID_F1_JJS:
-                res = R.mipmap.bg_hall_d_p3p5;
+                res = R.mipmap.bg_hall_d_pk10;
                 break;
             case SER_ID_F1_CCL:
-                res = R.mipmap.bg_hall_d_p3p5;
+                res = R.mipmap.bg_hall_d_ssc;
                 break;
             case SER_ID_F1_SW:
-                res = R.mipmap.bg_hall_d_p3p5;
+                res = R.mipmap.bg_hall_d_k3;
                 break;
         }
         tvSer.setBackgroundResource(res);
