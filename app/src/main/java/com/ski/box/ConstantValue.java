@@ -47,11 +47,11 @@ public interface ConstantValue {
     int PAGE_SIZE = 10;
     int PAGE_NO = 1;
 
-    String BASE_HOST = "https://web.k5615.com/sk/";
-    String BASE_HOST_PROMO = "https://h5.k5615.com/";
-//    String BASE_HOST = "https://web.68xoso.com/sk/";
-//    String BASE_HOST_PROMO = "https://h5.68xoso.com/";
-    String SERVICE_URL = "https://ce09701239083.chatnow.mstatik.com/widget/standalone.html?eid=218253&language=en";
+//    String BASE_HOST = "https://web.k5615.com/sk/";
+//    String BASE_HOST_PROMO = "https://h5.k5615.com/";
+    String BASE_HOST = "https://web.68xoso.com/sk/";
+    String BASE_HOST_PROMO = "https://h5.68xoso.com/";
+    String SERVICE_URL = BASE_HOST_PROMO + "chatlink.html";
     String PROMO_URL = BASE_HOST_PROMO + "manager/sys/promo";
     String DEVICE = "3";
 

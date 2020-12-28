@@ -48,7 +48,7 @@
         <com.ski.box.view.view.cus.CusTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="创建时间"
+            android:text="今日注册"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
