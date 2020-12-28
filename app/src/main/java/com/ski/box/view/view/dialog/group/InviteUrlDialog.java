@@ -3,8 +3,6 @@ package com.ski.box.view.view.dialog.group;
 import android.content.Context;
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -17,6 +15,7 @@ import com.yb.core.utils.LanguageUtil;
 
 public class InviteUrlDialog extends BaseDialog {
     private TextView mTvType;
+    private TextView mTvReqToday;
     private TextView mTvNo;
     private TextView mTvMsg;
     private TextView mTvTime;
@@ -44,12 +43,14 @@ public class InviteUrlDialog extends BaseDialog {
 
     public void setData(InviteUrl bean) {
         mTvType = findViewById(R.id.tv_value_type);
+        mTvReqToday = findViewById(R.id.tv_value_uesr_req_today);
         mTvNo = findViewById(R.id.tv_value_uesr_no);
         mTvMsg = findViewById(R.id.tv_value_msg);
         mTvTime = findViewById(R.id.tv_value_time);
         mTvRebate = findViewById(R.id.tv_value_rebate);
 
         mTvType.setText(LanguageUtil.getText("代理"));
+        mTvReqToday.setText(String.valueOf(bean.getTodayCount()));
         mTvNo.setText(String.valueOf(bean.getCount()));
         mTvMsg.setText(bean.getWord());
         mTvTime.setText(bean.getCreateAt());

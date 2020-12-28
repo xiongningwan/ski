@@ -18,12 +18,22 @@ public class InviteUrl {
     private String code;
     private int rebate;
     private int count;
+    private int todayCount;
     private String word;
     private String createAt;
     private String expireAt;
     private int status;
     private String inviteUrl;
     private String kv;
+
+
+    public int getTodayCount() {
+        return todayCount;
+    }
+
+    public void setTodayCount(int todayCount) {
+        this.todayCount = todayCount;
+    }
 
     public String getKv() {
         return kv;
