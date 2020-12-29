@@ -88,6 +88,8 @@ android {
             resValue "string", "ski_app_name", "68XOSO"
             resValue "string", "app_code", "suba"
             manifestPlaceholders = [app_icon: "@mipmap/app_icon", app_logo: "@mipmap/app_logo"]
+            versionCode 40
+            versionName "1.2.3"
         }
 
         mb_subb {
@@ -95,6 +97,8 @@ android {
             resValue "string", "ski_app_name", "太阳城集团"
             resValue "string", "app_code", "subb"
             manifestPlaceholders = [app_icon: "@mipmap/app_icon", app_logo: "@mipmap/app_logo"]
+            versionCode 40
+            versionName "1.2.3"
         }
 
         mb_vna {
